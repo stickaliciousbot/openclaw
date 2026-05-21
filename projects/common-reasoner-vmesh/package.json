@@ -1,0 +1,14 @@
+{
+  "name": "common-reasoner-vmesh",
+  "version": "1.0.0-m25a",
+  "description": "Common Reasoner vMesh — native decision-policy service. Decides intent, obligation, capabilities, lane class. Does NOT render, execute tools, or write memory.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node tests/decision.test.js && node tests/schema.test.js && node tests/safety.test.js && node tests/compare.test.js",
+    "check": "node -c server.js && for f in src/*.js; do node -c \"$f\"; done"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "license": "UNLICENSED"
+}

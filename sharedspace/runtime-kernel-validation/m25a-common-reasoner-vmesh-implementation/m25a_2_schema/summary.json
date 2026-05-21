@@ -1,0 +1,42 @@
+{
+  "milestone": "M25A.2",
+  "title": "Decision schema implementation",
+  "generated_at_aest": "2026-05-21T13:32:00+10:00",
+  "status": "PASS",
+  "schema_file": "projects/common-reasoner-vmesh/schemas/common-reasoner-decision.v1.schema.json",
+  "validator_file": "projects/common-reasoner-vmesh/src/decisionSchema.js",
+  "schema_version": "common-reasoner-decision.v1",
+  "required_fields_count": 19,
+  "intent_families": ["simple_chat", "short_ambiguous_no_context", "short_ambiguous_with_valid_context", "memory_lookup", "context_bridge_read", "runtime_status", "debug_diagnostic", "tool_action", "planning_request", "unsafe_or_unsupported"],
+  "obligation_classes": ["answer_only", "clarify", "memory_required", "context_required", "runtime_tool_required", "tool_required", "high_reasoning_required", "fail_closed"],
+  "lane_classes": ["cheap_chat", "continuity_capable", "memory_capable", "context_capable", "tool_capable", "high_reasoning_tool", "fail_closed"],
+  "hard_constants_enforced": {
+    "mode": {"const": "decision_only", "enforced_in_schema": true, "enforced_in_validator": true, "enforced_in_safety_guards": true},
+    "rendering_allowed": {"const": false, "enforced_in_schema": true, "enforced_in_validator": true, "enforced_in_safety_guards": true},
+    "tool_execution_allowed": {"const": false, "enforced_in_schema": true, "enforced_in_validator": true, "enforced_in_safety_guards": true},
+    "memory_write_allowed": {"const": false, "enforced_in_schema": true, "enforced_in_validator": true, "enforced_in_safety_guards": true},
+    "context_write_allowed": {"const": false, "enforced_in_schema": true, "enforced_in_validator": true, "enforced_in_safety_guards": true}
+  },
+  "belt_and_suspenders": {
+    "layer_1_schema_json_const": true,
+    "layer_2_validator_js_validateDecision": true,
+    "layer_3_safetyGuards_strips_forbidden": true,
+    "note": "Three independent layers enforce the same hard constants"
+  },
+  "additional_properties_policy": "forbidden (additionalProperties: false in schema)",
+  "test_coverage": "15 schema validation test cases in tests/schema.test.js covering: valid accept, missing fields, hard constant violations, unknown enum values, null input",
+  "hard_gates": {
+    "schema_file_exists": true,
+    "validator_exists": true,
+    "valid_decision_accepts": true,
+    "missing_required_field_rejects": true,
+    "rendering_allowed_true_rejected": true,
+    "tool_execution_allowed_true_rejected": true,
+    "memory_write_allowed_true_rejected": true,
+    "context_write_allowed_true_rejected": true,
+    "unknown_intent_rejected": true,
+    "unknown_obligation_rejected": true,
+    "three_layer_enforcement": true,
+    "artifact_written": true
+  }
+}

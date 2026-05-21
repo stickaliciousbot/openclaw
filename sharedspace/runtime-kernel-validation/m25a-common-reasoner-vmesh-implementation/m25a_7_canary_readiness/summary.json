@@ -1,0 +1,29 @@
+{
+  "milestone": "M25A.7",
+  "title": "Canary metadata integration readiness",
+  "generated_at_aest": "2026-05-21T13:50:00+10:00",
+  "status": "PASS",
+  "note": "Integration contract defined. Service is built, deterministic tests exist, source audit passes. Canary integration (attaching decisions as non-authoritative trace metadata) will execute in M25B when token-solver-v4 or token-broker-vmesh calls /v1/decide in canary mode.",
+  "integration_contract": {
+    "caller": "token-solver-v4 or token-broker-vmesh",
+    "endpoint": "POST http://127.0.0.1:18860/v1/decide",
+    "mode": "canary_only_non_authoritative",
+    "metadata_fields": ["common_reasoner_decision", "agreement_with_v5", "would_escalate", "would_fail_closed", "latency_ms"],
+    "non_renderable": true,
+    "timeout_policy": {
+      "target_p95_ms": 250,
+      "max_ms": 750,
+      "on_timeout": "record unavailable, do NOT fail or block live turn during canary"
+    },
+    "unavailable_behavior": "fail_soft — skip metadata, proceed with existing policy chain"
+  },
+  "latency": "Not yet measured (service not running live). Deterministic operations are O(1) keyword matching — expected well under 250ms P95.",
+  "hard_gates": {
+    "integration_contract_written": true,
+    "metadata_marked_non_renderable": true,
+    "unavailable_behavior_fail_soft_for_canary": true,
+    "no_production_integration_without_explicit_approval": true,
+    "service_built_and_testable": true,
+    "artifact_written": true
+  }
+}

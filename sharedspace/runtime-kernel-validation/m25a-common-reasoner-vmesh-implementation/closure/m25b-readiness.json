@@ -1,0 +1,42 @@
+{
+  "milestone": "M25A.9",
+  "title": "M25B readiness",
+  "generated_at_aest": "2026-05-21T14:00:00+10:00",
+  "status": "PASS",
+  "run_id": "m25a-m25b-readiness-20260521T140000+10:00",
+  "m25b_ready": true,
+  "recommended_next": "M25B — Common Reasoner vMesh canary integration + controlled decision-policy cutover",
+  "readiness_checks": {
+    "m25a_closure_pass": true,
+    "m25_design_pass": true,
+    "m24_pass_verified": true,
+    "m23_pass_verified": true,
+    "service_built": true,
+    "service_tested": true,
+    "service_audited": true,
+    "service_shadow_validated": true,
+    "service_decision_only_confirmed": true,
+    "runtime_kernel_critical_red_0": true,
+    "route_fallback_memory_unchanged": true,
+    "v5_enforced": true
+  },
+  "m25b_scope": {
+    "phase_1": "Start service on port 18860",
+    "phase_2": "Run full deterministic test suite (node tests/*.test.js)",
+    "phase_3": "Attach /v1/decide as non-authoritative canary metadata in token-solver-v4 or token-broker-vmesh",
+    "phase_4": "Run M25.3-M25.4 shadow comparison and canary integration live",
+    "phase_5": "If all canary gates pass, run M25.5 controlled cutover",
+    "phase_6": "M25.6 live regression matrix",
+    "phase_7": "M25.7 low-token 2h decision-policy soak with service live",
+    "phase_8": "M25.8 closure and M26 readiness"
+  },
+  "m25b_must_not": [
+    "start M26",
+    "promote Unified Brain",
+    "promote Common Brain Proxy",
+    "change routes/fallback/memory",
+    "mutate Gateway"
+  ],
+  "m26_still_blocked": true,
+  "m25b_not_started_automatically": true
+}

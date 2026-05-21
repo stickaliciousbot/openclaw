@@ -1,0 +1,48 @@
+{
+  "milestone": "M25A.3",
+  "title": "Policy module implementation",
+  "generated_at_aest": "2026-05-21T13:35:00+10:00",
+  "status": "PASS",
+  "modules_implemented": [
+    {"file": "visibleTextClassifier.js", "method": "classify", "type": "deterministic_keyword_pattern", "families_covered": 10, "llm_calls": 0},
+    {"file": "obligationAnalyzer.js", "method": "analyze", "type": "deterministic_intent_to_obligation_map", "context_inheritance": true},
+    {"file": "supportPolicy.js", "method": "required", "type": "deterministic_intent_to_support_map"},
+    {"file": "toolPolicy.js", "method": "requiredCapabilities", "type": "deterministic_intent_to_capabilities_map", "five_capability_dimensions": true},
+    {"file": "routePolicy.js", "method": "minimumLane", "type": "deterministic_intent_to_lane_map", "seven_lane_classes": true},
+    {"file": "failClosedPolicy.js", "method": "evaluate", "type": "deterministic", "fail_closed_intents": ["unsafe_or_unsupported"]},
+    {"file": "ambiguityPolicy.js", "method": "score", "type": "deterministic", "context_aware": true},
+    {"file": "decisionBuilder.js", "method": "buildDecision", "type": "orchestrator", "hash_generation": "sha256"},
+    {"file": "comparePolicy.js", "method": "compareDecision", "type": "downgrade_detector", "checks": ["tool_downgrade", "memory_downgrade", "context_downgrade", "obligation_downgrade"]},
+    {"file": "safetyGuards.js", "method": "safetyGuard", "type": "belt_and_suspenders", "forced_constants": 5, "forbidden_fields": 9},
+    {"file": "traceWriter.js", "method": "writeTrace", "type": "local_trace_only", "no_shared_state_mutation": true}
+  ],
+  "total_modules": 11,
+  "total_llm_calls": 0,
+  "classification_method": "deterministic keyword + pattern matching — no model inference",
+  "policy_behavior_verified": {
+    "simple_chat_to_answer_only": true,
+    "runtime_status_to_runtime_tool_required": true,
+    "memory_lookup_to_memory_required": true,
+    "context_bridge_read_to_context_required": true,
+    "debug_diagnostic_to_high_reasoning_required": true,
+    "unsafe_or_unsupported_to_fail_closed": true,
+    "short_ambiguous_no_context_to_clarify": true,
+    "short_ambiguous_valid_context_inherits_prior": true,
+    "fail_closed_safe_escalation_false": true,
+    "tool_action_tools_true": true
+  },
+  "hard_gates": {
+    "all_11_modules_implemented": true,
+    "zero_llm_calls": true,
+    "deterministic_classification": true,
+    "simple_chat_answer_only": true,
+    "runtime_status_runtime_tool_required": true,
+    "memory_lookup_memory_required": true,
+    "context_bridge_read_context_required": true,
+    "debug_diagnostic_high_reasoning_or_tool_capable": true,
+    "unsafe_fail_closed": true,
+    "ambiguous_no_context_clarify_no_hallucination": true,
+    "ambiguous_valid_context_inherits_prior": true,
+    "artifact_written": true
+  }
+}

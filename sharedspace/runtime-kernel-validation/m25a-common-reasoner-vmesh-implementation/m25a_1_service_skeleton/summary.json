@@ -1,0 +1,53 @@
+{
+  "milestone": "M25A.1",
+  "title": "Service skeleton and endpoints",
+  "generated_at_aest": "2026-05-21T13:28:00+10:00",
+  "status": "PASS",
+  "files_created": [
+    {"path": "projects/common-reasoner-vmesh/package.json", "exists": true, "dependencies_zero": true, "note": "Zero external dependencies — pure Node.js stdlib"},
+    {"path": "projects/common-reasoner-vmesh/server.js", "exists": true, "size_bytes": 4140},
+    {"path": "projects/common-reasoner-vmesh/src/decisionSchema.js", "exists": true},
+    {"path": "projects/common-reasoner-vmesh/src/visibleTextClassifier.js", "exists": true},
+    {"path": "projects/common-reasoner-vmesh/src/obligationAnalyzer.js", "exists": true},
+    {"path": "projects/common-reasoner-vmesh/src/supportPolicy.js", "exists": true},
+    {"path": "projects/common-reasoner-vmesh/src/toolPolicy.js", "exists": true},
+    {"path": "projects/common-reasoner-vmesh/src/routePolicy.js", "exists": true},
+    {"path": "projects/common-reasoner-vmesh/src/failClosedPolicy.js", "exists": true},
+    {"path": "projects/common-reasoner-vmesh/src/ambiguityPolicy.js", "exists": true},
+    {"path": "projects/common-reasoner-vmesh/src/decisionBuilder.js", "exists": true},
+    {"path": "projects/common-reasoner-vmesh/src/comparePolicy.js", "exists": true},
+    {"path": "projects/common-reasoner-vmesh/src/safetyGuards.js", "exists": true},
+    {"path": "projects/common-reasoner-vmesh/src/traceWriter.js", "exists": true},
+    {"path": "projects/common-reasoner-vmesh/schemas/common-reasoner-decision.v1.schema.json", "exists": true, "size_bytes": 3135}
+  ],
+  "total_source_files": 15,
+  "total_lines": "~350 lines implementation + ~200 lines tests",
+  "endpoints": {
+    "GET /health/live": "returns {ok:true, service, version, status:'live'}",
+    "GET /health/ready": "returns {ok:true, service, status:'ready', mode:'decision_only', rendering/tools/memory/context_write all false}",
+    "GET /v1/capabilities": "returns 10 intent families, 8 obligation classes, 7 lane classes, all authority constants false",
+    "POST /v1/decide": "accepts {turn_id, visible_user_text, context_policy, previous_state} → returns full decision with safety guards",
+    "POST /v1/explain": "same as /v1/decide + policy_trace array",
+    "POST /v1/compare": "accepts {common_reasoner_decision, v5_contract, broker_route_explain} → returns compatibility analysis",
+    "GET /v1/schema": "returns the JSON schema",
+    "GET /v1/version": "returns version info"
+  },
+  "test_files": [
+    {"path": "projects/common-reasoner-vmesh/tests/decision.test.js", "fixtures": 21, "families_covered": 10},
+    {"path": "projects/common-reasoner-vmesh/tests/schema.test.js", "cases": 15},
+    {"path": "projects/common-reasoner-vmesh/tests/safety.test.js", "cases": 18},
+    {"path": "projects/common-reasoner-vmesh/tests/compare.test.js", "cases": 8}
+  ],
+  "test_execution": "PENDING (requires exec approval to run node tests)",
+  "hard_gates": {
+    "service_exists_at_expected_path": true,
+    "package_json_exists": true,
+    "server_js_exists": true,
+    "all_src_modules_exist": true,
+    "schema_json_exists": true,
+    "all_test_files_exist": true,
+    "no_production_integration_yet": true,
+    "no_route_fallback_memory_mutation": true,
+    "artifact_written": true
+  }
+}

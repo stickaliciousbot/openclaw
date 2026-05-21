@@ -1,0 +1,72 @@
+{
+  "milestone": "M25A.5",
+  "title": "Source safety audit",
+  "generated_at_aest": "2026-05-21T13:44:00+10:00",
+  "status": "PASS",
+  "audit_method": "manual source review of all 15 files + grep-like pattern scan",
+  "files_audited": 15,
+  "forbidden_pattern_scan": {
+    "send_email": {"found": false, "files": [], "result": "CLEAN"},
+    "archive_emails": {"found": false, "files": [], "result": "CLEAN"},
+    "delete_emails": {"found": false, "files": [], "result": "CLEAN"},
+    "child_process": {"found": false, "files": [], "result": "CLEAN"},
+    "exec": {"found": false, "files": [], "note": "No exec/spawn in any source file"},
+    "spawn": {"found": false, "files": [], "result": "CLEAN"},
+    "fs.appendFile": {"found": false, "files": [], "result": "CLEAN"},
+    "fs.writeFile to memory": {"found": false, "files": [], "result": "CLEAN"},
+    "fs.writeFile to context": {"found": false, "files": [], "result": "CLEAN"},
+    "events.jsonl write": {"found": false, "files": [], "result": "CLEAN"},
+    "actions.json write": {"found": false, "files": [], "result": "CLEAN"},
+    "Gateway config write": {"found": false, "files": [], "result": "CLEAN"},
+    "openclaw.json write": {"found": false, "files": [], "result": "CLEAN"},
+    "tool_call execution": {"found": false, "files": [], "result": "CLEAN"},
+    "final_answer rendering": {"found": false, "files": [], "result": "CLEAN"},
+    "telegram send": {"found": false, "files": [], "result": "CLEAN"}
+  },
+  "allowed_filesystem_access": {
+    "traceWriter.js": {
+      "operation": "fs.writeFileSync to local traces/ directory",
+      "scope": "local trace artifacts only — NOT shared state, NOT context bridge, NOT memory",
+      "allowed": true,
+      "risk": "NONE — bounded to env-controlled TRACE_DIR, no mutation of shared bridge/memory"
+    }
+  },
+  "network_access": {
+    "server.js": {
+      "operation": "http.createServer listen on 127.0.0.1:18860",
+      "outbound_calls": "NONE — incoming HTTP server only, no outbound HTTP/API calls",
+      "risk": "NONE — localhost bound, no external connectivity"
+    }
+  },
+  "dependency_audit": {
+    "package_json_dependencies": {},
+    "dev_dependencies": {},
+    "total_external_dependencies": 0,
+    "risk": "NONE — zero npm dependencies"
+  },
+  "authority_audit": {
+    "can_render_final_answers": false,
+    "can_execute_tools": false,
+    "can_write_memory": false,
+    "can_write_context_bridge": false,
+    "can_mutate_gateway": false,
+    "can_mutate_routes": false,
+    "can_restart_services": false,
+    "can_send_messages": false,
+    "can_call_external_apis": false,
+    "authority_level": "decision_only — emit JSON only"
+  },
+  "hard_gates": {
+    "no_final_answer_rendering_path": true,
+    "no_tool_execution_path": true,
+    "no_memory_write_path": true,
+    "no_context_bridge_write_path": true,
+    "no_gateway_mutation_path": true,
+    "no_route_fallback_memory_mutation_path": true,
+    "no_external_dependencies": true,
+    "no_outbound_network_calls": true,
+    "decision_only_authority_confirmed": true,
+    "audit_artifact_written": true,
+    "no_production_mutation": true
+  }
+}

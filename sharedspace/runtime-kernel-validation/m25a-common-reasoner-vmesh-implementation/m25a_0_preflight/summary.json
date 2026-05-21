@@ -1,0 +1,32 @@
+{
+  "milestone": "M25A.0",
+  "title": "Preflight and scope guard",
+  "generated_at_aest": "2026-05-21T13:22:00+10:00",
+  "generated_at_utc": "2026-05-21T03:22:00Z",
+  "status": "PASS",
+  "m25_closure": {
+    "artifact": "sharedspace/runtime-kernel-validation/m25-common-reasoner-vmesh/closure/summary.json",
+    "status": "PASS",
+    "finding": "CANDIDATE_NOT_IMPLEMENTED",
+    "found": true
+  },
+  "runtime_invariants": {
+    "v5_enforced": true,
+    "v5_mode": "enforced_route_contract",
+    "runtime_kernel_critical_red": 0,
+    "route_unchanged": true,
+    "fallback_unchanged": true,
+    "memory_unchanged": true,
+    "config_hash": "bc139193450b27fed858db0aa8381bd7b14f0e7923b4564e27245c4314e56a49"
+  },
+  "scope_guard": {
+    "m25a_builds": ["common-reasoner-vmesh service only"],
+    "m25a_does_not": ["promote to production authority", "start M26", "start M25B", "render final answers", "execute tools", "write memory", "mutate Gateway/routes"]
+  },
+  "hard_gates": {
+    "m25_design_closure_found": true,
+    "runtime_healthy": true,
+    "scope_guard_written": true,
+    "no_production_mutation": true
+  }
+}

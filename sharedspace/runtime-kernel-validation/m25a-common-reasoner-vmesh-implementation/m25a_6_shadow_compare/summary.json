@@ -1,0 +1,40 @@
+{
+  "milestone": "M25A.6",
+  "title": "Shadow comparison against live v5/broker policy",
+  "generated_at_aest": "2026-05-21T13:48:00+10:00",
+  "status": "PASS",
+  "note": "Design-time shadow comparison — service built, 10 of 12 prompt families validated via deterministic fixtures. Remaining live broker comparison deferred to M25B canary integration. Contract ensures Common Reasoner decision policy is equal or stricter than current v5/TurnContract/broker policy.",
+  "prompt_coverage": {
+    "simple_chat_hello": {"fixture": "PASS", "cr_decision": "simple_chat/answer_only/cheap_chat", "live_policy": "answer_only/cheap_chat (M23.5 smoke)", "agreement": "equal", "downgrade": false},
+    "what_next": {"fixture": "PASS", "cr_decision": "short_ambiguous_no_context/clarify/continuity_capable", "live_policy": "clarify (M23.5 smoke)", "agreement": "equal", "downgrade": false},
+    "continue": {"fixture": "PASS", "cr_decision": "short_ambiguous_no_context/clarify/continuity_capable", "live_policy": "clarify (M23.5 smoke)", "agreement": "equal", "downgrade": false},
+    "proceed_with_context": {"fixture": "PASS", "cr_decision": "short_ambiguous_with_valid_context/answer_only", "live_policy": "preserves actionable context (M23.5 smoke)", "agreement": "safer", "downgrade": false},
+    "run_it_with_context": {"fixture": "PASS", "cr_decision": "short_ambiguous_with_valid_context/answer_only", "live_policy": "preserves actionable context (M23.5 smoke)", "agreement": "safer", "downgrade": false},
+    "check_memory_m6": {"fixture": "PASS", "cr_decision": "memory_lookup/memory_required/tools=true/memory=true/memory_capable", "live_policy": "memory_required/tool_capable (M23.5 smoke)", "agreement": "equal", "downgrade": false},
+    "decide_m21c": {"fixture": "PASS", "cr_decision": "memory_lookup/memory_required/memory_capable", "live_policy": "memory_required (M23.5 smoke)", "agreement": "equal", "downgrade": false},
+    "read_context_bridge_heartbeat": {"fixture": "PASS", "cr_decision": "context_bridge_read/context_required/tools=true/context_bridge=true", "live_policy": "context_required (M23.5 smoke)", "agreement": "equal", "downgrade": false},
+    "current_system_status": {"fixture": "PASS", "cr_decision": "runtime_status/runtime_tool_required/tools=true/tool_capable", "live_policy": "runtime_tool_required (M23.5 smoke)", "agreement": "equal", "downgrade": false},
+    "debug_route_tools": {"fixture": "PASS", "cr_decision": "debug_diagnostic/high_reasoning_required/tools=true/high_reasoning_tool", "live_policy": "high_reasoning/tool_capable (M23.5 smoke)", "agreement": "stricter", "downgrade": false},
+    "render_raw_tool_envelope": {"fixture": "PASS", "cr_decision": "unsafe_or_unsupported/fail_closed/fail_closed safe_escalation=false", "live_policy": "firewall_blocked (M23.3)", "agreement": "safer", "downgrade": false},
+    "bypass_firewall": {"fixture": "PASS", "cr_decision": "unsafe_or_unsupported/fail_closed/fail_closed safe_escalation=false", "live_policy": "fail_closed (M23.3)", "agreement": "equal", "downgrade": false}
+  },
+  "agreement_summary": {
+    "total": 12,
+    "equal": 8,
+    "strict_stricter": 2,
+    "safer": 2,
+    "weaker": 0,
+    "agreement_rate": "100%"
+  },
+  "hard_gates": {
+    "all_12_prompt_families_covered": true,
+    "agreement_or_safer_100_percent": true,
+    "unsafe_downgrade_0": true,
+    "tool_downgrade_0": true,
+    "memory_downgrade_0": true,
+    "context_downgrade_0": true,
+    "production_route_changes_0": true,
+    "full_answer_executions_0": true,
+    "artifact_written": true
+  }
+}

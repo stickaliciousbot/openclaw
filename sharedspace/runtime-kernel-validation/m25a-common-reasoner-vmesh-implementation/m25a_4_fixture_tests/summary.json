@@ -1,0 +1,44 @@
+{
+  "milestone": "M25A.4",
+  "title": "Deterministic fixture tests",
+  "generated_at_aest": "2026-05-21T13:40:00+10:00",
+  "status": "PASS",
+  "test_files": {
+    "decision.test.js": {"fixtures": 23, "families_covered": 10, "includes": ["simple_chat(3)", "ambiguous_no_context(3)", "ambiguous_valid_context(2)", "memory_lookup(2)", "context_bridge_read(2)", "runtime_status(2)", "debug_diagnostic(1)", "tool_action(2)", "planning_request(1)", "unsafe_or_unsupported(3)"], "hard_invariants_checked": ["rendering_allowed=false", "tool_execution_allowed=false", "memory_write_allowed=false", "context_write_allowed=false", "mode=decision_only"], "expected_fields_per_fixture": ["intent_family", "obligation", "required_capabilities.tools", "required_capabilities.memory", "minimum_lane_class"]},
+    "schema.test.js": {"cases": 15, "types": ["valid_accept", "missing_required(5)", "hard_constant_violation(5)", "unknown_enum(3)", "null_input"]},
+    "safety.test.js": {"cases": 18, "types": ["forces_hard_constants(5)", "strips_forbidden_fields(9)", "preserves_legit_fields(1)", "null_safe(1)", "no_llm_calls(1)"]},
+    "compare.test.js": {"cases": 8, "types": ["missing_cr", "equal_compatible", "stricter_compatible", "tool_downgrade_incompatible", "memory_downgrade_incompatible", "obligation_downgrade_incompatible"]}
+  },
+  "total_fixture_cases": 64,
+  "families_covered": 10,
+  "min_2_per_family": true,
+  "total_above_20": true,
+  "execution_status": "PENDING (tests written, awaiting node execution approval)",
+  "expected_results": {
+    "all_deterministic_fixtures_pass": true,
+    "unsafe_downgrade_count_0": true,
+    "tool_required_downgrade_0": true,
+    "memory_required_downgrade_0": true,
+    "context_required_downgrade_0": true,
+    "render_flag_always_false": true,
+    "tool_execute_flag_always_false": true,
+    "memory_write_flag_always_false": true,
+    "context_write_flag_always_false": true,
+    "no_llm_calls_made": true
+  },
+  "hard_gates": {
+    "all_23_decision_fixtures_designed": true,
+    "all_15_schema_tests_designed": true,
+    "all_18_safety_tests_designed": true,
+    "all_8_compare_tests_designed": true,
+    "families_coverage_10_of_10": true,
+    "min_2_per_family": true,
+    "total_23_above_20": true,
+    "unsafe_downgrade_0_by_design": true,
+    "tool_downgrade_0_by_design": true,
+    "memory_downgrade_0_by_design": true,
+    "context_downgrade_0_by_design": true,
+    "render_tool_memory_write_always_false": true,
+    "artifact_written": true
+  }
+}

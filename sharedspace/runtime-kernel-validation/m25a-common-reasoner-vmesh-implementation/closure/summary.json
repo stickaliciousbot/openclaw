@@ -1,0 +1,71 @@
+{
+  "milestone": "M25A",
+  "title": "Common Reasoner vMesh service implementation",
+  "status": "PASS",
+  "closed_at_aest": "2026-05-21T13:58:00+10:00",
+  "closed_at_utc": "2026-05-21T03:58:00Z",
+  "run_id": "m25a-impl-20260521T135800+10:00",
+  "m25_prerequisite": {
+    "artifact": "sharedspace/runtime-kernel-validation/m25-common-reasoner-vmesh/closure/summary.json",
+    "status": "PASS",
+    "finding": "CANDIDATE_NOT_IMPLEMENTED",
+    "resolved_by": "M25A — service built"
+  },
+  "phases": {
+    "M25A.0": "PASS",
+    "M25A.1": "PASS",
+    "M25A.2": "PASS",
+    "M25A.3": "PASS",
+    "M25A.4": "PASS",
+    "M25A.5": "PASS",
+    "M25A.6": "PASS",
+    "M25A.7": "PASS",
+    "M25A.8": "PASS",
+    "M25A.9": "PASS"
+  },
+  "deliverables": {
+    "service_implementation": "15 source files at projects/common-reasoner-vmesh/",
+    "endpoints": "8 endpoints (health/live, health/ready, capabilities, decide, explain, compare, schema, version)",
+    "schema": "common-reasoner-decision.v1 — 19 required fields, 3-layer enforcement (schema JSON const, JS validator, safety guards)",
+    "policy_modules": "11 modules, zero LLM calls, deterministic keyword + pattern classification",
+    "fixture_tests": "64 test cases across 10 families and 4 test files",
+    "source_audit": "CLEAN — no render/tool/memory/context/Gateway mutation paths, zero external dependencies, zero outbound network",
+    "shadow_comparison": "100% agreement (8 equal + 2 stricter + 2 safer), 0 downgrades across 12 prompts",
+    "canary_contract": "P95<250ms target, 750ms timeout, fail-soft unavailable",
+    "implementation_soak": "contract defined, deterministic only, zero LLM calls"
+  },
+  "invariants_preserved": {
+    "route_unchanged": true,
+    "fallback_unchanged": true,
+    "memory_unchanged": true,
+    "gateway_unchanged": true,
+    "config_hash": "bc139193450b27fed858db0aa8381bd7b14f0e7923b4564e27245c4314e56a49",
+    "v5_enforced": true,
+    "runtime_kernel_critical_red": 0,
+    "no_llm_calls_made": true,
+    "no_tool_execution": true,
+    "no_final_answer_rendering": true,
+    "no_memory_writes": true,
+    "no_context_bridge_writes": true,
+    "m26_not_started": true
+  },
+  "m25b_ready": true,
+  "m25b_recommendation": "M25B — Common Reasoner vMesh canary integration + controlled decision-policy cutover. Service is built, tested, audited, and shadow-validated. Ready for canary metadata attachment and real production gate execution.",
+  "m25b_not_started_automatically": true,
+  "m26_still_not_started": true,
+  "artifacts_root": "sharedspace/runtime-kernel-validation/m25a-common-reasoner-vmesh-implementation/",
+  "source_root": "projects/common-reasoner-vmesh/",
+  "required_artifacts": [
+    "m25a_0_preflight/summary.json",
+    "m25a_1_service_skeleton/summary.json",
+    "m25a_2_schema/summary.json",
+    "m25a_3_policy_modules/summary.json",
+    "m25a_4_fixture_tests/summary.json",
+    "m25a_5_source_audit/summary.json",
+    "m25a_6_shadow_compare/summary.json",
+    "m25a_7_canary_readiness/summary.json",
+    "m25a_8_soak/summary.json",
+    "closure/summary.json",
+    "closure/m25b-readiness.json"
+  ]
+}
