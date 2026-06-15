@@ -76,33 +76,56 @@ def test_compile_idempotency(tmp_path: Path):
         assert (a_dir / rel).read_text() == (b_dir / rel).read_text()
 
 
-def test_relationship_direction_is_parent_first_for_contextualization(tmp_path: Path):
+def test_system_equipment_relationship_uses_join_key_many_to_one_contextualization(tmp_path: Path):
     parts = _decoded_parts(_compile(tmp_path))
     ids = json.loads((tmp_path / "generated_ids.json").read_text())
-    rel = next(p for path, p in parts.items() if path.startswith("EntityTypeRelationships/") and p["Id"] == ids["relationships"]["Equipment_contains_System"])
+    rel = next(p for path, p in parts.items() if path.startswith("EntityTypeRelationships/") and p["Id"] == ids["relationships"]["System_isPartOf_Equipment"])
     ctx = next(p for path, p in parts.items() if path.startswith("ContextualizationOperations/") and p["EntityTypeRelationshipId"] == rel["Id"])
 
-    # Fabric DTB imports child-first ManyToOne, but runtime contextualization
-    # failed descriptor binding in that shape. Use the documented/tutorial UI
-    # parent-first containment shape instead.
-    assert rel["RelationshipCardinality"] == "OneToMany"
-    assert rel["FirstEntityTypeId"] == ids["entities"]["Equipment"]
-    assert rel["SecondEntityTypeId"] == ids["entities"]["System"]
-    assert ctx["JoinColumns"]["FirstColumn"] == {"EntityId": ids["entities"]["Equipment"], "AttributeName": "EquipmentId"}
-    assert ctx["JoinColumns"]["SecondColumn"] == {"EntityId": ids["entities"]["System"], "AttributeName": "EquipmentId"}
-
-
-def test_system_part_relationship_direction_is_parent_first_for_contextualization(tmp_path: Path):
-    parts = _decoded_parts(_compile(tmp_path))
-    ids = json.loads((tmp_path / "generated_ids.json").read_text())
-    rel = next(p for path, p in parts.items() if path.startswith("EntityTypeRelationships/") and p["Id"] == ids["relationships"]["System_contains_Part"])
-    ctx = next(p for path, p in parts.items() if path.startswith("ContextualizationOperations/") and p["EntityTypeRelationshipId"] == rel["Id"])
-
-    assert rel["RelationshipCardinality"] == "OneToMany"
+    # Keep entity instance identity columns out of relationship joins. The
+    # contextualization engine failed descriptor binding when EquipmentId was
+    # both the entity instance ID column and the relationship attribute.
+    assert rel["RelationshipCardinality"] == "ManyToOne"
+    assert rel["Name"] == "isPartOf"
     assert rel["FirstEntityTypeId"] == ids["entities"]["System"]
-    assert rel["SecondEntityTypeId"] == ids["entities"]["Part"]
-    assert ctx["JoinColumns"]["FirstColumn"] == {"EntityId": ids["entities"]["System"], "AttributeName": "SystemId"}
-    assert ctx["JoinColumns"]["SecondColumn"] == {"EntityId": ids["entities"]["Part"], "AttributeName": "SystemId"}
+    assert rel["SecondEntityTypeId"] == ids["entities"]["Equipment"]
+    assert ctx["JoinColumns"]["FirstColumn"] == {"EntityId": ids["entities"]["System"], "AttributeName": "EquipmentJoinKey"}
+    assert ctx["JoinColumns"]["SecondColumn"] == {"EntityId": ids["entities"]["Equipment"], "AttributeName": "EquipmentJoinKey"}
+
+
+def test_part_system_relationship_uses_join_key_many_to_one_contextualization(tmp_path: Path):
+    parts = _decoded_parts(_compile(tmp_path))
+    ids = json.loads((tmp_path / "generated_ids.json").read_text())
+    rel = next(p for path, p in parts.items() if path.startswith("EntityTypeRelationships/") and p["Id"] == ids["relationships"]["Part_isPartOf_System"])
+    ctx = next(p for path, p in parts.items() if path.startswith("ContextualizationOperations/") and p["EntityTypeRelationshipId"] == rel["Id"])
+
+    assert rel["RelationshipCardinality"] == "ManyToOne"
+    assert rel["Name"] == "isPartOf"
+    assert rel["FirstEntityTypeId"] == ids["entities"]["Part"]
+    assert rel["SecondEntityTypeId"] == ids["entities"]["System"]
+    assert ctx["JoinColumns"]["FirstColumn"] == {"EntityId": ids["entities"]["Part"], "AttributeName": "SystemJoinKey"}
+    assert ctx["JoinColumns"]["SecondColumn"] == {"EntityId": ids["entities"]["System"], "AttributeName": "SystemJoinKey"}
+
+
+def test_mapping_unique_ids_are_not_relationship_join_properties(tmp_path: Path):
+    parts = _decoded_parts(_compile(tmp_path))
+
+    mappings_by_display = {
+        payload["displayName"]: payload
+        for path, payload in parts.items()
+        if path.startswith("MappingOperations/") and payload["operationType"] == "Mapping"
+    }
+
+    assert mappings_by_display["Equipment_equipment_dtb"]["mappingOperationProperties"]["EntityInstanceIdSchema"] == ["EquipmentUID"]
+    assert mappings_by_display["System_systems_dtb"]["mappingOperationProperties"]["EntityInstanceIdSchema"] == ["SystemUID"]
+    assert mappings_by_display["Part_parts_dtb"]["mappingOperationProperties"]["EntityInstanceIdSchema"] == ["PartUID"]
+
+    equipment_props = mappings_by_display["Equipment_equipment_dtb"]["mappingOperationProperties"]["MappedProperties"]
+    system_props = mappings_by_display["System_systems_dtb"]["mappingOperationProperties"]["MappedProperties"]
+    part_props = mappings_by_display["Part_parts_dtb"]["mappingOperationProperties"]["MappedProperties"]
+    assert {"SourceColumn": "EquipmentJoinKey", "EntityTypePropertyName": "EquipmentJoinKey"} in equipment_props
+    assert {"SourceColumn": "EquipmentJoinKey", "EntityTypePropertyName": "EquipmentJoinKey"} in system_props
+    assert {"SourceColumn": "SystemJoinKey", "EntityTypePropertyName": "SystemJoinKey"} in part_props
 
 
 def test_source_schema_none_omits_source_schema(tmp_path: Path):

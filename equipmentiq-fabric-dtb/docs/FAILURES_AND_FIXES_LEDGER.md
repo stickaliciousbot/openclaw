@@ -243,6 +243,27 @@ Purpose: record every straight-up, non-transient failure and its actual fix path
 - **Do not do:** do not keep retrying `Equipment_contains_System_Contextualization` on this item without new evidence.
 - **Next fix path:** export a UI-authored minimal relationship/contextualization that runs successfully and compare its persisted schema against the imported definition; specifically test whether contextualization needs property-ID based descriptors or UI-created model descriptors rather than `AttributeName` joins from imported definitions.
 
+### F012 — Contextualization may confuse entity instance IDs with joinable property descriptors
+
+- **Status:** local compiler variant implemented; Fabric deployment not attempted yet.
+- **Observed:** 2026-06-15 after F011 parent-first retry failed with the same descriptor-binding class of error.
+- **External analysis supplied by owner:** ChatGPT independently inspected the Douglas ZIP and concluded the CSV data is structurally sound, with 1 Equipment, 6 Systems, 14 Parts, 12 historian tags, 2,160 time-series rows, 1,980 linked rows, and the intentional orphan tag `M5_AUX_VIB09.PV` producing 180 unmatched rows. Its strongest hypothesis is that DTB contextualization is failing because `EquipmentId` / `SystemId` are used both as `EntityInstanceIdSchema` identity columns and relationship join attributes.
+- **Why this fits our evidence:** F010 child-first failed looking for `EquipmentId` on the old first/child `System`; F011 parent-first failed looking for `EquipmentId` on the new first/parent `Equipment`. The property names exist in generated/exported EntityTypes and mappings had completed, so the failure likely occurs in an internal descriptor/materialization layer rather than in raw CSV structure or public JSON syntax.
+- **Public contract constraint:** Microsoft public DTB definition shape for contextualization uses `JoinColumns.{FirstColumn,SecondColumn}.{EntityId,AttributeName}`. It does not expose property descriptor IDs, so the next workaround must still use modeled property names, but they should be separate mapped DTB properties.
+- **Fix variant implemented locally:** compiler model now targets DTB-facing source tables with explicit internal IDs and separate relationship keys:
+  - `equipment_dtb`: `EquipmentUID` for `EntityInstanceIdSchema`, mapped `EquipmentId`, mapped `EquipmentJoinKey`.
+  - `systems_dtb`: `SystemUID` for `EntityInstanceIdSchema`, mapped `SystemId`, `SystemJoinKey`, `EquipmentId`, `EquipmentJoinKey`.
+  - `parts_dtb`: `PartUID` for `EntityInstanceIdSchema`, mapped `PartId`, `PartJoinKey`, `SystemId`, `SystemJoinKey`, `HistorianTag`, etc.
+  - `historian_timeseries_dtb`: same timestamp/value/tag semantics as before.
+- **Relationship/contextualization variant:** use child-to-parent `ManyToOne` relationships with semantically honest `isPartOf` names:
+  - `System isPartOf Equipment`: `System.EquipmentJoinKey = Equipment.EquipmentJoinKey`.
+  - `Part isPartOf System`: `Part.SystemJoinKey = System.SystemJoinKey`.
+- **Local code touched:** `src/eiq_dtb_importer/model.py`, `src/eiq_dtb_importer/douglas_model.py`, `src/eiq_dtb_importer/dtb_compiler.py`, `tests/test_douglas_model.py`, `tests/test_dtb_compiler_hardening.py`.
+- **Local evidence:** `.venv/bin/pytest -q` passed `25 passed in 0.49s` after the variant change.
+- **Required before Fabric deployment:** create or load the DTB-facing Lakehouse tables/views (`equipment_dtb`, `systems_dtb`, `parts_dtb`, `historian_timeseries_dtb`) before deploying this definition. The current raw source tables alone are insufficient for this variant.
+- **Do not do:** do not deploy this compiler output against the existing raw table names; do not retry F011 unchanged; do not assume this proves UI-created descriptors are unnecessary until a fresh Fabric item passes mapping + contextualization.
+- **Next fix path:** generate a fresh draft definition, deploy only after DTB-facing tables/views exist, run mappings serially, then run `System_isPartOf_Equipment_Contextualization` followed by `Part_isPartOf_System_Contextualization`. If UI-authored minimal two-entity `UID + JoinKey` succeeds but API-imported `UID + JoinKey` still fails, escalate as public-definition/import missing internal descriptor metadata.
+
 ## Operational blockers / transient-ish failures
 
 ### O001 — Fabric capacity/Spark admission blocked table load

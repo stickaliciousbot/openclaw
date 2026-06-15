@@ -167,12 +167,6 @@ def compile_douglas_dtb_definition(ctx: CompileContext, out_dir: Path) -> dict[s
     for rel in RELATIONSHIPS:
         rel_id = _relationship_id(rel.name)
         ids["relationships"][rel.name] = rel_id
-        # Fabric DTB contextualization binds JoinColumns to the modeled
-        # First/Second entity descriptors. For containment in the Douglas demo,
-        # emit the same parent-first UI/tutorial shape that Fabric documents:
-        # source/parent -> target/child as OneToMany. The older child-first
-        # ManyToOne shape imported successfully, but contextualization failed at
-        # runtime with a missing descriptor for the child foreign-key column.
         first_entity = rel.source_entity
         second_entity = rel.target_entity
         add(
@@ -180,8 +174,8 @@ def compile_douglas_dtb_definition(ctx: CompileContext, out_dir: Path) -> dict[s
             {
                 "Id": rel_id,
                 "Namespace": "usertypes",
-                "RelationshipCardinality": "OneToMany",
-                "Name": "contains",
+                "RelationshipCardinality": rel.cardinality,
+                "Name": rel.relationship_name,
                 "FirstEntityTypeId": ids["entities"][first_entity],
                 "SecondEntityTypeId": ids["entities"][second_entity],
             },
