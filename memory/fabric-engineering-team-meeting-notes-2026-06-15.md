@@ -29,3 +29,54 @@ The documentation states `DigitalTwinBuilderFlow` jobs appear as `ExecuteOperati
 - Operation ID tested: `78bd6721-8881-57b0-8fce-d48be0c0fe8e` (`Equipment_equipment`)
 
 Conclusion: DTB Flow creation/export is publicly exposed. DTB Flow execution appears to be UI/scheduler/internal only, not currently callable through the public Fabric Job Scheduler API in this tenant/item state.
+
+## Verbatim framing from Stick
+
+The crisp framing:
+We can create, export, and inspect
+DigitalTwinBuilderFlow
+ items through the public Fabric API. We can also create a dedicated flow with a valid mapping
+OperationId
+. But executing that flow through the documented Fabric Job Scheduler pattern fails with
+HTTP 400 InvalidJobType
+, even though DTB job logs appear to reference
+ExecuteOperations
+.
+The key ask to Fabric engineering:
+Is
+DigitalTwinBuilderFlow
+ execution publicly supported through Fabric REST API today, or is it currently UI/scheduler/internal-only?
+Give them these exact repro points:
+Workspace:
+Lawrence
+e5532483-0114-4ac2-8d3f-8105c7eb5543
+
+Fresh DTB:
+DouglasBagmakerDTB_NodeDemo_ParentFirst_NoSchema_20260615_1556
+a15b7aa0-e65b-4a75-9d01-08429b271d8d
+
+Dedicated flow:
+Run_Equipment_equipment_API_20260615_1609
+0458f74e-f125-41d5-a70b-ccedea04963c
+
+Operation ID:
+78bd6721-8881-57b0-8fce-d48be0c0fe8e
+
+Failure:
+POST /v1/workspaces/{workspaceId}/items/{flowId}/jobs/ExecuteOperations/instances
+HTTP 400 InvalidJobType
+
+Request IDs:
+a73eb06a-d0e2-4424-8bdd-04a81d892209
+38c83098-15e2-4feb-9da6-ceb4e826574e
+The strongest question:
+What is the supported REST API equivalent of pressing Run on a DTB mapping/contextualization operation in the Fabric UI?
+And the practical follow-up:
+If no public endpoint exists yet, can Fabric expose either:
+RunOperation
+ on the DTB item, or
+valid Job Scheduler execution for
+DigitalTwinBuilderFlow
+, or
+documented scheduler-trigger semantics that can be invoked programmatically?
+That should make it very hard for them to hand-wave. Your evidence already proves the distinction between definition management works and execution is blocked.
