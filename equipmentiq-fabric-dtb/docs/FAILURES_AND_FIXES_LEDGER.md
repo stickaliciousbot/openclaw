@@ -259,7 +259,7 @@ Purpose: record every straight-up, non-transient failure and its actual fix path
   - `System isPartOf Equipment`: `System.EquipmentJoinKey = Equipment.EquipmentJoinKey`.
   - `Part isPartOf System`: `Part.SystemJoinKey = System.SystemJoinKey`.
 - **Local code touched:** `src/eiq_dtb_importer/model.py`, `src/eiq_dtb_importer/douglas_model.py`, `src/eiq_dtb_importer/dtb_compiler.py`, `tests/test_douglas_model.py`, `tests/test_dtb_compiler_hardening.py`.
-- **Local evidence:** `.venv/bin/pytest -q` passed `25 passed in 0.49s` after the variant change.
+- **Local evidence:** `.venv/bin/pytest -q` passed `25 passed in 0.49s` after the variant change. Draft definition compile later completed successfully at `runs/node-demo-joinkey-manytoone-draft-20260615T1758AEST/dtb_definition` with `partCount: 13`.
 - **Required before Fabric deployment:** create or load the DTB-facing Lakehouse tables/views (`equipment_dtb`, `systems_dtb`, `parts_dtb`, `historian_timeseries_dtb`) before deploying this definition. The current raw source tables alone are insufficient for this variant.
 - **Do not do:** do not deploy this compiler output against the existing raw table names; do not retry F011 unchanged; do not assume this proves UI-created descriptors are unnecessary until a fresh Fabric item passes mapping + contextualization.
 - **Next fix path:** generate a fresh draft definition, deploy only after DTB-facing tables/views exist, run mappings serially, then run `System_isPartOf_Equipment_Contextualization` followed by `Part_isPartOf_System_Contextualization`. If UI-authored minimal two-entity `UID + JoinKey` succeeds but API-imported `UID + JoinKey` still fails, escalate as public-definition/import missing internal descriptor metadata.
