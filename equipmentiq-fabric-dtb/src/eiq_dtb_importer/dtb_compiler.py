@@ -120,7 +120,7 @@ def compile_douglas_dtb_definition(ctx: CompileContext, out_dir: Path) -> dict[s
                 "mappingOperationProperties": {
                     "MappingType": "NonTimeSeries",
                     "MappedProperties": [
-                        {"SourceColumn": prop.name, "EntityTypePropertyName": prop.name}
+                        {"SourceColumn": prop.source_column or prop.name, "EntityTypePropertyName": prop.name}
                         for prop in entity.static_properties
                     ],
                     "ProcessingType": "Iterative",

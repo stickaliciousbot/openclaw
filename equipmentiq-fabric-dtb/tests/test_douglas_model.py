@@ -30,10 +30,10 @@ def test_douglas_model_separates_instance_ids_from_join_keys():
         "SystemId",
         "SystemJoinKey",
         "EquipmentId",
-        "EquipmentJoinKey",
+        "ParentEquipmentJoinKey",
     }
 
     assert by_name["Part"].table == "parts_dtb"
     assert by_name["Part"].key_columns == ("PartUID",)
-    assert {p.name for p in by_name["Part"].static_properties} >= {"PartId", "PartJoinKey", "SystemId", "SystemJoinKey"}
+    assert {p.name for p in by_name["Part"].static_properties} >= {"PartId", "PartJoinKey", "SystemId", "ParentSystemJoinKey"}
     assert TIME_SERIES_BINDINGS[0].table == "historian_timeseries_dtb"

@@ -89,7 +89,7 @@ def test_system_equipment_relationship_uses_join_key_many_to_one_contextualizati
     assert rel["Name"] == "isPartOf"
     assert rel["FirstEntityTypeId"] == ids["entities"]["System"]
     assert rel["SecondEntityTypeId"] == ids["entities"]["Equipment"]
-    assert ctx["JoinColumns"]["FirstColumn"] == {"EntityId": ids["entities"]["System"], "AttributeName": "EquipmentJoinKey"}
+    assert ctx["JoinColumns"]["FirstColumn"] == {"EntityId": ids["entities"]["System"], "AttributeName": "ParentEquipmentJoinKey"}
     assert ctx["JoinColumns"]["SecondColumn"] == {"EntityId": ids["entities"]["Equipment"], "AttributeName": "EquipmentJoinKey"}
 
 
@@ -103,7 +103,7 @@ def test_part_system_relationship_uses_join_key_many_to_one_contextualization(tm
     assert rel["Name"] == "isPartOf"
     assert rel["FirstEntityTypeId"] == ids["entities"]["Part"]
     assert rel["SecondEntityTypeId"] == ids["entities"]["System"]
-    assert ctx["JoinColumns"]["FirstColumn"] == {"EntityId": ids["entities"]["Part"], "AttributeName": "SystemJoinKey"}
+    assert ctx["JoinColumns"]["FirstColumn"] == {"EntityId": ids["entities"]["Part"], "AttributeName": "ParentSystemJoinKey"}
     assert ctx["JoinColumns"]["SecondColumn"] == {"EntityId": ids["entities"]["System"], "AttributeName": "SystemJoinKey"}
 
 
@@ -124,8 +124,8 @@ def test_mapping_unique_ids_are_not_relationship_join_properties(tmp_path: Path)
     system_props = mappings_by_display["System_systems_dtb"]["mappingOperationProperties"]["MappedProperties"]
     part_props = mappings_by_display["Part_parts_dtb"]["mappingOperationProperties"]["MappedProperties"]
     assert {"SourceColumn": "EquipmentJoinKey", "EntityTypePropertyName": "EquipmentJoinKey"} in equipment_props
-    assert {"SourceColumn": "EquipmentJoinKey", "EntityTypePropertyName": "EquipmentJoinKey"} in system_props
-    assert {"SourceColumn": "SystemJoinKey", "EntityTypePropertyName": "SystemJoinKey"} in part_props
+    assert {"SourceColumn": "EquipmentJoinKey", "EntityTypePropertyName": "ParentEquipmentJoinKey"} in system_props
+    assert {"SourceColumn": "SystemJoinKey", "EntityTypePropertyName": "ParentSystemJoinKey"} in part_props
 
 
 def test_source_schema_none_omits_source_schema(tmp_path: Path):

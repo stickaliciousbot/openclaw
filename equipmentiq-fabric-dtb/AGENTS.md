@@ -18,16 +18,18 @@ Validate row counts, time-series link behavior, decoy tag behavior, and relation
 
 ## Current contextualization rule
 
-The active Douglas DTB compiler shape is **JoinKey / ManyToOne**, not the older raw-key `contains` shape.
+The active Douglas DTB compiler shape is **role-specific JoinKey / child-first ManyToOne**, not the older raw-key `contains` shape or same-name JoinKey shape.
 
 - Use `EquipmentUID`, `SystemUID`, and `PartUID` only for `EntityInstanceIdSchema` identity.
-- Use explicitly mapped join properties for relationships: `EquipmentJoinKey` and `SystemJoinKey`.
+- Keep physical `_dtb` source columns stable, but map child-side parent references to role-specific modeled properties:
+  - `systems_dtb.EquipmentJoinKey -> System.ParentEquipmentJoinKey`
+  - `parts_dtb.SystemJoinKey -> Part.ParentSystemJoinKey`
 - Use child-to-parent tutorial-aligned relationships:
-  - `System isPartOf Equipment`, `ManyToOne`, `System.EquipmentJoinKey = Equipment.EquipmentJoinKey`
-  - `Part isPartOf System`, `ManyToOne`, `Part.SystemJoinKey = System.SystemJoinKey`
+  - `System isPartOf Equipment`, `ManyToOne`, `System.ParentEquipmentJoinKey = Equipment.EquipmentJoinKey`
+  - `Part isPartOf System`, `ManyToOne`, `Part.ParentSystemJoinKey = System.SystemJoinKey`
 - Source tables for this variant are `equipment_dtb`, `systems_dtb`, `parts_dtb`, and `historian_timeseries_dtb`.
 
-Do not point the JoinKey compiler output at the old raw tables. Do not tell the operator to run Fabric hydration until the `_dtb` source tables/views have been created and a fresh DTB + on-demand flow has roundtripped.
+Do not point the role-specific JoinKey compiler output at the old raw tables. Do not tell the operator to run Fabric hydration until the `_dtb` source tables/views have been created and a fresh DTB + on-demand flow has roundtripped. This variant is diagnostic until a fresh Fabric run passes; preserve root activity IDs and exports if it fails.
 
 For app-loaded Douglas/JoinKey tables, never emit `SourceSchema` in MappingOperations. The `_dtb` tables are root Lakehouse tables; `dbo` recreates the known `Tables/dbo/<table>` `PATH_NOT_FOUND` failure.
 

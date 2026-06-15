@@ -4,9 +4,9 @@ This repo is the Python/source-of-truth compiler for the Douglas Bagmaker Equipm
 
 ## Current active shape
 
-Use the **JoinKey / ManyToOne** Douglas shape.
+Use the **role-specific JoinKey / child-first ManyToOne** Douglas diagnostic shape.
 
-Do **not** revert to the older raw-key relationship model without explicit evidence. The older variants imported and mapped but failed contextualization with Fabric DTB missing property-descriptor errors.
+Do **not** revert to the older raw-key relationship model or same-name JoinKey model without explicit evidence. The older variants imported and mapped but failed contextualization with Fabric DTB missing property-descriptor errors.
 
 ### Source tables required before Fabric hydration
 
@@ -26,11 +26,12 @@ Equipment:
 
 System:
   EntityInstanceIdSchema: SystemUID
-  Relationship properties: EquipmentJoinKey, SystemJoinKey
+  Own join identity: SystemJoinKey
+  Parent reference: source systems_dtb.EquipmentJoinKey -> modeled System.ParentEquipmentJoinKey
 
 Part:
   EntityInstanceIdSchema: PartUID
-  Relationship property: SystemJoinKey
+  Parent reference: source parts_dtb.SystemJoinKey -> modeled Part.ParentSystemJoinKey
 ```
 
 ### Relationships
@@ -38,14 +39,14 @@ Part:
 ```text
 System isPartOf Equipment
   RelationshipCardinality: ManyToOne
-  Join: System.EquipmentJoinKey = Equipment.EquipmentJoinKey
+  Join: System.ParentEquipmentJoinKey = Equipment.EquipmentJoinKey
 
 Part isPartOf System
   RelationshipCardinality: ManyToOne
-  Join: Part.SystemJoinKey = System.SystemJoinKey
+  Join: Part.ParentSystemJoinKey = System.SystemJoinKey
 ```
 
-This mirrors the Microsoft Contoso tutorial's valid child-to-parent `N:1` relationship style while avoiding identity-vs-join descriptor ambiguity.
+This mirrors the Microsoft Contoso tutorial's valid child-to-parent `N:1` relationship style while avoiding identity-vs-join descriptor ambiguity and avoiding same-name child/parent descriptor ambiguity. It is not proven until a fresh Fabric DTB item passes contextualization.
 
 Source-path guard: generated mappings for these app-loaded `_dtb` tables must omit `SourceSchema`. `SourceSchema: dbo` makes Fabric look under `Tables/dbo/<table>` and fails with `PATH_NOT_FOUND` because these tables are loaded at root `Tables/<table>` paths.
 

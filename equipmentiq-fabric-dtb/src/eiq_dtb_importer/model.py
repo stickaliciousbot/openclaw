@@ -8,6 +8,7 @@ from typing import Literal
 class Property:
     name: str
     value_type: str = "String"
+    source_column: str | None = None
 
 
 @dataclass(frozen=True)

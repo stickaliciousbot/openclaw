@@ -278,6 +278,22 @@ Purpose: record every straight-up, non-transient failure and its actual fix path
 - **Do not do:** do not run more mappings or contextualization on `DouglasBagmakerDTB_NodeDemo_JoinKey_20260615_1843`; the item targets the wrong physical Lakehouse path. Do not use `updateDefinition` on this failed item unless new evidence says it is safe; prior EntityType/update semantics are fragile.
 - **Next fix path:** create a fresh JoinKey NoSchema definition/item/flow using the already-loaded `_dtb` root tables, verify mappings omit `SourceSchema`, then rerun operations serially from the start.
 
+### F014 — JoinKey NoSchema mappings pass but System contextualization cannot resolve custom property descriptors
+
+- **Status:** open; stop contextualization retries on current item until SQL/domain evidence is checked.
+- **Observed:** 2026-06-15 on `DouglasBagmakerDTB_NodeDemo_JoinKey_NoSchema_20260615_1920` / `a27bf542-4f52-4ad4-8b0c-4a28d503ee8c`.
+- **Precondition evidence:** fresh NoSchema JoinKey item/flow roundtripped (`13/13` DTB parts, `2/2` flow parts); `_dtb` tables existed at root OneLake `Tables/<table>` paths; first mappings including `Equipment_equipment_dtb` passed after SourceSchema omission fix.
+- **Failed operation:** `System_isPartOf_Equipment_Contextualization`.
+- **Correct generated join failure:** `System.EquipmentJoinKey = Equipment.EquipmentJoinKey` failed with `[User Error] The required property descriptor for column 'EquipmentJoinKey' does not exist in the data model (EntityTypeId=117233767744208). Root Activity Id: e67f2a41-c9ec-411f-b93d-82be6bc283f8`.
+- **Manual wrong-join experiment:** UI edit to first join `SystemJoinKey` persisted and also failed with `[User Error] The required property descriptor for column 'SystemJoinKey' does not exist in the data model (EntityTypeId=117233767744208). Root Activity Id: c25f33d1-1404-4c43-9964-b4295897d2d0`.
+- **Entity ID:** `117233767744208` is `System`.
+- **Export evidence after failure:** `runs/node-demo-joinkey-noschema-20260615T1920AEST/export_after_contextualization_descriptor_fail` exported `13/13` parts. Exported `EntityTypes/117233767744208.json` includes both `SystemJoinKey` and `EquipmentJoinKey`; exported `MappingOperations/10cba043-c8bc-53ca-bac7-d7bc77475a59.json` maps both properties from `systems_dtb` and omits physical `SourceSchema` (`null` on export). Exported contextualization shows the UI-edited wrong join `SystemJoinKey -> EquipmentJoinKey`, proving UI edits persist into definition JSON but do not solve descriptor resolution.
+- **Interpretation:** this is not missing source data, not missing public EntityType property JSON, and not just same-name `EquipmentJoinKey` confusion. Fabric contextualization worker cannot resolve custom join-property descriptors on the imported/mapped `System` entity. The likely boundary is hydrated DTB data-model descriptor/materialization, not raw Lakehouse or relationship direction/cardinality alone.
+- **Do not do:** do not run `Part_isPartOf_System_Contextualization`; do not keep trying arbitrary join properties in the UI; do not treat `SystemJoinKey = EquipmentJoinKey` as valid even if it queues/runs.
+- **Next evidence path:** query DTB SQL/domain views after mappings to check whether `EquipmentJoinKey`/`SystemJoinKey` appear in `dom.System_property` and whether values are populated. If missing from `dom.*_property`, this proves entity-definition properties are not becoming hydrated property descriptors. Escalate to Fabric engineering with root activity IDs and exported definition evidence.
+- **Implemented next diagnostic variant:** role-specific child-side parent keys while preserving physical `_dtb` table columns: `systems_dtb.EquipmentJoinKey -> System.ParentEquipmentJoinKey`, `parts_dtb.SystemJoinKey -> Part.ParentSystemJoinKey`; relationships `System.ParentEquipmentJoinKey = Equipment.EquipmentJoinKey` and `Part.ParentSystemJoinKey = System.SystemJoinKey`. This is not proven until a fresh DTB item/flow is deployed and mappings/contextualization pass.
+- **Remaining fix paths if role-specific variant fails:** (1) create/apply relationships/contextualization only after mappings have run, not as pre-imported operations; (2) UI-authored minimal UID+JoinKey relationship after mapping; (3) escalate to Fabric engineering with root activity IDs/export showing public definition properties/mappings exist but hydrated descriptors cannot be resolved.
+
 ## Operational blockers / transient-ish failures
 
 ### O001 — Fabric capacity/Spark admission blocked table load

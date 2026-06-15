@@ -24,7 +24,11 @@ SYSTEM = EntityType(
         Property("SystemJoinKey"),
         Property("DisplayName"),
         Property("EquipmentId"),
-        Property("EquipmentJoinKey"),
+        # Role-specific child-side parent reference. The source table keeps the
+        # existing EquipmentJoinKey column; the modeled DTB property uses a
+        # distinct name so contextualization cannot confuse child parent refs
+        # with parent identity/join-key descriptors.
+        Property("ParentEquipmentJoinKey", source_column="EquipmentJoinKey"),
     ),
 )
 
@@ -38,7 +42,7 @@ PART = EntityType(
         Property("DisplayName"),
         Property("Category"),
         Property("SystemId"),
-        Property("SystemJoinKey"),
+        Property("ParentSystemJoinKey", source_column="SystemJoinKey"),
         Property("HistorianTag"),
     ),
     time_series_properties=(
@@ -57,7 +61,7 @@ RELATIONSHIPS = (
         name="System_isPartOf_Equipment",
         source_entity="System",
         target_entity="Equipment",
-        source_join_property="EquipmentJoinKey",
+        source_join_property="ParentEquipmentJoinKey",
         target_join_property="EquipmentJoinKey",
         cardinality="ManyToOne",
         relationship_name="isPartOf",
@@ -66,7 +70,7 @@ RELATIONSHIPS = (
         name="Part_isPartOf_System",
         source_entity="Part",
         target_entity="System",
-        source_join_property="SystemJoinKey",
+        source_join_property="ParentSystemJoinKey",
         target_join_property="SystemJoinKey",
         cardinality="ManyToOne",
         relationship_name="isPartOf",

@@ -122,7 +122,7 @@ Relationship/contextualization:
 - Part isPartOf System
 ```
 
-Updated 2026-06-15 contextualization implementation shape: use DTB-facing tables/views with explicit identity and relationship-key separation. `EquipmentUID`, `SystemUID`, and `PartUID` are only `EntityInstanceIdSchema` fields. `EquipmentJoinKey` and `SystemJoinKey` are separately mapped DTB properties and are the only relationship join attributes. This avoids the observed descriptor-binding failure where Fabric contextualization could not bind `EquipmentId` after that field had also been used as an entity identity column.
+Updated 2026-06-15 contextualization implementation shape: use DTB-facing tables/views with explicit identity and relationship-key separation plus role-specific child-side parent references. `EquipmentUID`, `SystemUID`, and `PartUID` are only `EntityInstanceIdSchema` fields. Physical `_dtb` source columns stay stable, but the compiler maps child parent-reference columns to distinct modeled properties. This avoids the observed descriptor-binding failures where Fabric contextualization could not bind raw ID joins or same-name JoinKey properties on imported items.
 
 ```text
 equipment_dtb:
@@ -130,16 +130,18 @@ equipment_dtb:
 
 systems_dtb:
   SystemUID, SystemId, SystemJoinKey, EquipmentId, EquipmentJoinKey, DisplayName
+  mapping: EquipmentJoinKey -> System.ParentEquipmentJoinKey
 
 parts_dtb:
   PartUID, PartId, PartJoinKey, DisplayName, Category, SystemId, SystemJoinKey, HistorianTag
+  mapping: SystemJoinKey -> Part.ParentSystemJoinKey
 
 historian_timeseries_dtb:
   PreciseTimestamp, HistorianTag, Value
 
 Relationship/contextualization:
-  System isPartOf Equipment, ManyToOne, System.EquipmentJoinKey = Equipment.EquipmentJoinKey
-  Part   isPartOf System,    ManyToOne, Part.SystemJoinKey      = System.SystemJoinKey
+  System isPartOf Equipment, ManyToOne, System.ParentEquipmentJoinKey = Equipment.EquipmentJoinKey
+  Part   isPartOf System,    ManyToOne, Part.ParentSystemJoinKey      = System.SystemJoinKey
 ```
 
 The validation target is the DTB domain layer. Microsoft’s DTB tutorial states that the DTB-associated lakehouse exposes a `dom` domain layer where each entity type appears as `entityname_property` and `entityname_timeseries`, and the `relationships` view captures relationship instances. ([Microsoft Learn][4])
