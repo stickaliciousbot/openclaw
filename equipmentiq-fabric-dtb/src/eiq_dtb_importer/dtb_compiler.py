@@ -16,7 +16,7 @@ class CompileContext:
     workspace_id: str
     lakehouse_id: str
     dtb_name: str = "DouglasBagmakerDTB"
-    source_schema: str | None = "dbo"
+    source_schema: str | None = None
 
 
 def _json_bytes(obj: Any) -> bytes:

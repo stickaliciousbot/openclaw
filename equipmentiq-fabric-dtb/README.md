@@ -48,6 +48,8 @@ Relationships:
 
 Do not deploy this definition until the four `_dtb` Lakehouse tables/views exist. Do not retry failed contextualization on older raw-key DTB items without new evidence.
 
+For app-loaded Douglas/JoinKey tables, generated MappingOperations must **omit** `SourceSchema`. The `_dtb` tables are root Lakehouse tables (`Tables/equipment_dtb`, etc.); `SourceSchema: dbo` makes Fabric look under `Tables/dbo/<table>` and causes `PATH_NOT_FOUND`.
+
 ## Local first commands
 
 ```bash

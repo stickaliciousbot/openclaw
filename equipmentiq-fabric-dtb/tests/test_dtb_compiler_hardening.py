@@ -142,6 +142,13 @@ def test_source_schema_none_omits_source_schema(tmp_path: Path):
             assert "SourceSchema" not in payload["sourceTableProperties"]
 
 
+def test_default_source_schema_omits_source_schema_for_app_loaded_root_tables(tmp_path: Path):
+    result = _compile(tmp_path)
+    for path, payload in _decoded_parts(result).items():
+        if path.startswith("MappingOperations/"):
+            assert "SourceSchema" not in payload["sourceTableProperties"]
+
+
 def test_time_series_entity_instance_id_schema_is_empty_array(tmp_path: Path):
     parts = _decoded_parts(_compile(tmp_path))
     ts = next(p for path, p in parts.items() if path.startswith("MappingOperations/") and p["mappingOperationProperties"]["MappingType"] == "TimeSeries")

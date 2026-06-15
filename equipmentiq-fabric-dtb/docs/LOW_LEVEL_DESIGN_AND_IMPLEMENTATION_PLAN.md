@@ -947,14 +947,15 @@ temp is required for a timeseries mapping.” The corrected fresh DTB
     "SourceType": "LakehouseTables",
     "WorkspaceId": "<workspaceId>",
     "ItemId": "<lakehouseId>",
-    "SourceTableName": "historian_timeseries",
-    "SourceSchema": null
+    "SourceTableName": "historian_timeseries_dtb"
   },
   "Filters": null
 }
 ```
 
 The docs show `TimeseriesEntityLinkProperties` as the mechanism linking an entity property to a time-series column. ([Microsoft Learn][1])
+
+For app-loaded Douglas/JoinKey source tables, omit `SourceSchema` entirely. The tables are root Lakehouse paths (`Tables/equipment_dtb`, etc.). `SourceSchema: dbo` makes Fabric resolve `Tables/dbo/<table>` and deterministically fails mapping with `PATH_NOT_FOUND`.
 
 ---
 

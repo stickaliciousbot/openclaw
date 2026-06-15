@@ -264,6 +264,20 @@ Purpose: record every straight-up, non-transient failure and its actual fix path
 - **Do not do:** do not deploy this compiler output against the existing raw table names; do not retry F011 unchanged; do not assume this proves UI-created descriptors are unnecessary until a fresh Fabric item passes mapping + contextualization.
 - **Next fix path:** generate a fresh draft definition, deploy only after DTB-facing tables/views exist, run mappings serially, then run `System_isPartOf_Equipment_Contextualization` followed by `Part_isPartOf_System_Contextualization`. If UI-authored minimal two-entity `UID + JoinKey` succeeds but API-imported `UID + JoinKey` still fails, escalate as public-definition/import missing internal descriptor metadata.
 
+### F013 — JoinKey compile artifact regressed root-table SourceSchema handling
+
+- **Status:** compiler guard fixed locally; fresh NoSchema JoinKey item required.
+- **Observed:** 2026-06-15 on fresh JoinKey item `DouglasBagmakerDTB_NodeDemo_JoinKey_20260615_1843` / `fecc754c-cb1a-4b59-b370-e8d0a74cf51a`.
+- **Failed operation:** `Equipment_equipment_dtb` mapping.
+- **Error:** `[Server Error] [PATH_NOT_FOUND] Path does not exist: abfss://e5532483-0114-4ac2-8d3f-8105c7eb5543@onelake.pbidedicated.windows.net/510cb653-2a04-48e2-bd93-48e6f321ff44/Tables/dbo/equipment_dtb. Root Activity Id: 57fbcca1-f5d4-4c43-bfa5-4e63299457f6`.
+- **Root cause:** the JoinKey draft definition was compiled with `source_schema: "dbo"`; mapping operation JSON therefore included `SourceSchema: "dbo"` for `_dtb` source tables that physically exist at root paths `Tables/equipment_dtb`, `Tables/systems_dtb`, `Tables/parts_dtb`, and `Tables/historian_timeseries_dtb`.
+- **Why this is a regression:** the root-table lesson from 2026-06-14 already established that app-loaded Douglas Lakehouse tables must omit `SourceSchema`; using `dbo` recreates the known `Tables/dbo/<table>` PATH_NOT_FOUND failure.
+- **Evidence:** `runs/node-demo-joinkey-manytoone-draft-20260615T1758AEST/dtb_definition/compile_context.json` had `"source_schema": "dbo"`; `MappingOperations/*.json` had `"SourceSchema": "dbo"`; OneLake verification separately proved `_dtb` Delta folders exist under root `Tables/<table>` paths.
+- **Fix:** default `CompileContext.source_schema` to `None`; default CLI `--source-schema` to `null`; add a regression test asserting default compilation omits `SourceSchema` for MappingOperations.
+- **Local evidence:** `tests/test_dtb_compiler_hardening.py` and `tests/test_douglas_model.py` passed after the guard fix (`14 passed`).
+- **Do not do:** do not run more mappings or contextualization on `DouglasBagmakerDTB_NodeDemo_JoinKey_20260615_1843`; the item targets the wrong physical Lakehouse path. Do not use `updateDefinition` on this failed item unless new evidence says it is safe; prior EntityType/update semantics are fragile.
+- **Next fix path:** create a fresh JoinKey NoSchema definition/item/flow using the already-loaded `_dtb` root tables, verify mappings omit `SourceSchema`, then rerun operations serially from the start.
+
 ## Operational blockers / transient-ish failures
 
 ### O001 — Fabric capacity/Spark admission blocked table load

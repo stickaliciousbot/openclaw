@@ -29,6 +29,8 @@ The active Douglas DTB compiler shape is **JoinKey / ManyToOne**, not the older 
 
 Do not point the JoinKey compiler output at the old raw tables. Do not tell the operator to run Fabric hydration until the `_dtb` source tables/views have been created and a fresh DTB + on-demand flow has roundtripped.
 
+For app-loaded Douglas/JoinKey tables, never emit `SourceSchema` in MappingOperations. The `_dtb` tables are root Lakehouse tables; `dbo` recreates the known `Tables/dbo/<table>` `PATH_NOT_FOUND` failure.
+
 ## Failure discipline
 
 For straight-up non-transient failures, update `docs/FAILURES_AND_FIXES_LEDGER.md` with the exact error, operation/run IDs, classification, root-cause hypothesis, and core fix path before adding workaround code.

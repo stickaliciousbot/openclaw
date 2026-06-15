@@ -47,6 +47,8 @@ Part isPartOf System
 
 This mirrors the Microsoft Contoso tutorial's valid child-to-parent `N:1` relationship style while avoiding identity-vs-join descriptor ambiguity.
 
+Source-path guard: generated mappings for these app-loaded `_dtb` tables must omit `SourceSchema`. `SourceSchema: dbo` makes Fabric look under `Tables/dbo/<table>` and fails with `PATH_NOT_FOUND` because these tables are loaded at root `Tables/<table>` paths.
+
 ## Operation order once a fresh item is deployed
 
 Run operations serially in Fabric:
