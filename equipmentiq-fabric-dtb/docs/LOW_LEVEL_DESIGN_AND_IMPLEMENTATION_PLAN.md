@@ -118,8 +118,28 @@ Time-series mapping:
 - Link: Part.HistorianTag = historian_timeseries.HistorianTag
 
 Relationship/contextualization:
-- Equipment contains System
-- System contains Part
+- System isPartOf Equipment
+- Part isPartOf System
+```
+
+Updated 2026-06-15 contextualization implementation shape: use DTB-facing tables/views with explicit identity and relationship-key separation. `EquipmentUID`, `SystemUID`, and `PartUID` are only `EntityInstanceIdSchema` fields. `EquipmentJoinKey` and `SystemJoinKey` are separately mapped DTB properties and are the only relationship join attributes. This avoids the observed descriptor-binding failure where Fabric contextualization could not bind `EquipmentId` after that field had also been used as an entity identity column.
+
+```text
+equipment_dtb:
+  EquipmentUID, EquipmentId, EquipmentJoinKey, DisplayName, Manufacturer, ModelNumber
+
+systems_dtb:
+  SystemUID, SystemId, SystemJoinKey, EquipmentId, EquipmentJoinKey, DisplayName
+
+parts_dtb:
+  PartUID, PartId, PartJoinKey, DisplayName, Category, SystemId, SystemJoinKey, HistorianTag
+
+historian_timeseries_dtb:
+  PreciseTimestamp, HistorianTag, Value
+
+Relationship/contextualization:
+  System isPartOf Equipment, ManyToOne, System.EquipmentJoinKey = Equipment.EquipmentJoinKey
+  Part   isPartOf System,    ManyToOne, Part.SystemJoinKey      = System.SystemJoinKey
 ```
 
 The validation target is the DTB domain layer. Microsoft’s DTB tutorial states that the DTB-associated lakehouse exposes a `dom` domain layer where each entity type appears as `entityname_property` and `entityname_timeseries`, and the `relationships` view captures relationship instances. ([Microsoft Learn][4])
@@ -398,54 +418,64 @@ For the Douglas bagmaker, compile:
 ```yaml
 entityTypes:
   Equipment:
-    table: equipment
-    uniqueId: [EquipmentId]
+    table: equipment_dtb
+    uniqueId: [EquipmentUID]
     properties:
+      - EquipmentUID
       - EquipmentId
+      - EquipmentJoinKey
       - DisplayName
       - Manufacturer
       - ModelNumber
 
   System:
-    table: systems
-    uniqueId: [SystemId]
+    table: systems_dtb
+    uniqueId: [SystemUID]
     properties:
+      - SystemUID
       - SystemId
+      - SystemJoinKey
       - DisplayName
       - EquipmentId
+      - EquipmentJoinKey
 
   Part:
-    table: parts
-    uniqueId: [PartId]
+    table: parts_dtb
+    uniqueId: [PartUID]
     properties:
+      - PartUID
       - PartId
+      - PartJoinKey
       - DisplayName
       - Category
       - SystemId
+      - SystemJoinKey
       - HistorianTag
     timeseriesProperties:
       - Timestamp: DateTime
       - Value: Double
 
 relationships:
-  Equipment_contains_System:
-    firstEntity: Equipment
-    firstJoinProperty: EquipmentId
-    secondEntity: System
-    secondJoinProperty: EquipmentId
-    cardinality: OneToMany
-
-  System_contains_Part:
+  System_isPartOf_Equipment:
+    relationshipName: isPartOf
     firstEntity: System
-    firstJoinProperty: SystemId
-    secondEntity: Part
-    secondJoinProperty: SystemId
-    cardinality: OneToMany
+    firstJoinProperty: EquipmentJoinKey
+    secondEntity: Equipment
+    secondJoinProperty: EquipmentJoinKey
+    cardinality: ManyToOne
+
+  Part_isPartOf_System:
+    relationshipName: isPartOf
+    firstEntity: Part
+    firstJoinProperty: SystemJoinKey
+    secondEntity: System
+    secondJoinProperty: SystemJoinKey
+    cardinality: ManyToOne
 
 timeSeries:
   Part_Value:
     entity: Part
-    table: historian_timeseries
+    table: historian_timeseries_dtb
     timestampColumn: PreciseTimestamp
     valueColumn: Value
     entityLinkProperty: HistorianTag
@@ -456,41 +486,44 @@ The Microsoft DTB public definition supports relationship files with `FirstEntit
 
 ### 7.1 Relationship contextualization compatibility lesson — 2026-06-15
 
-Do not compile Douglas containment as child-first `ManyToOne`, even though that is graph-semantically equivalent to parent-first containment. Fabric DTB accepted/imported that shape, but runtime contextualization failed on `DouglasBagmakerDTB_NodeDemo_NoSchema` with:
+Do not compile Douglas contextualization by reusing entity instance ID columns (`EquipmentId`, `SystemId`, `PartId`) as relationship join attributes. Both the original child-first `ManyToOne contains` shape and the later parent-first `OneToMany contains` shape imported and mapped, but runtime contextualization failed with missing property descriptor errors.
+
+Original child-first failure on `DouglasBagmakerDTB_NodeDemo_NoSchema`:
 
 ```text
 [User Error] The required property descriptor for column 'EquipmentId' does not exist in the data model (EntityTypeId=117233767744208). Root Activity Id: eaeb81ea-cee6-4a45-8e47-903fa648d5b8
 ```
 
-The generated `System` EntityType did contain `EquipmentId`; the failure was a relationship/contextualization descriptor-binding compatibility issue, not a missing-property source/model issue.
+Parent-first retry on a fresh item later failed looking for the same `EquipmentId` column on the parent `Equipment` entity. Generated/exported EntityTypes contained the property names in both cases, so the failure is a relationship/contextualization descriptor-binding issue, not a missing-property source/model issue.
 
 Evidence checked before fixing:
 
 ```text
 Microsoft Learn contextualization docs: First entity + Second entity join properties, with 1:N when one source/first entity connects to many target/second entities.
-Microsoft Learn tutorial Part 3: parent-first 1:N example, Distiller has MaintenanceRequest.
+Microsoft Learn tutorial Part 3: both parent-first 1:N and child-to-parent N:1 examples exist; `isPartOf` is explicitly N:1.
 Fabric REST DTB definition docs: contextualization JoinColumns are FirstColumn/SecondColumn aligned with relationship first/second entity IDs.
 Public Learn/GitHub/Q&A search: no exact indexed match for the literal error string.
 ```
 
-Compiler rule:
+Active compiler rule:
 
 ```text
-RelationshipType source_entity = parent / first entity
-RelationshipType target_entity = child / second entity
-RelationshipCardinality = OneToMany
-Contextualization FirstColumn = parent/source join property
-Contextualization SecondColumn = child/target join property
+UID columns are identity-only: EquipmentUID, SystemUID, PartUID.
+JoinKey columns are normal mapped relationship properties: EquipmentJoinKey, SystemJoinKey, PartJoinKey.
+RelationshipType name = isPartOf for child-to-parent hierarchy links.
+RelationshipCardinality = ManyToOne.
+Contextualization FirstColumn = child/source JoinKey property.
+Contextualization SecondColumn = parent/target JoinKey property.
 ```
 
 For Douglas specifically:
 
 ```text
-Equipment -> System, OneToMany, Equipment.EquipmentId = System.EquipmentId
-System    -> Part,   OneToMany, System.SystemId       = Part.SystemId
+System -> Equipment, ManyToOne, System.EquipmentJoinKey = Equipment.EquipmentJoinKey
+Part   -> System,    ManyToOne, Part.SystemJoinKey      = System.SystemJoinKey
 ```
 
-Recovery rule: do not retry contextualization blindly on a child-first item. Create a fresh no-schema parent-first DTB item and rerun operations serially.
+Recovery rule: do not retry contextualization blindly on a failed item. Create a fresh no-schema JoinKey DTB item only after source/definition shape changes, then rerun operations serially.
 
 ---
 
@@ -580,9 +613,9 @@ def stable_bigint(namespace: str, name: str) -> str:
 Use deterministic UUIDv5 for operation IDs:
 
 ```python
-uuid.uuid5(RUN_NAMESPACE, "Mapping:Part:parts:NonTimeSeries")
-uuid.uuid5(RUN_NAMESPACE, "Mapping:Part:historian_timeseries:TimeSeries")
-uuid.uuid5(RUN_NAMESPACE, "Contextualization:System_contains_Part")
+uuid.uuid5(RUN_NAMESPACE, "Mapping:Part:parts_dtb:NonTimeSeries")
+uuid.uuid5(RUN_NAMESPACE, "Mapping:Part:historian_timeseries_dtb:TimeSeries")
+uuid.uuid5(RUN_NAMESPACE, "Contextualization:Part_isPartOf_System")
 ```
 
 Persist all generated IDs in:
@@ -1027,12 +1060,12 @@ Scope:
 Run order should be explicit:
 
 ```text
-1. Equipment non-time-series mapping
-2. System non-time-series mapping
-3. Part non-time-series mapping
-4. Part time-series mapping
-5. Equipment_contains_System contextualization
-6. System_contains_Part contextualization
+1. `Equipment_equipment_dtb` non-time-series mapping
+2. `System_systems_dtb` non-time-series mapping
+3. `Part_parts_dtb` non-time-series mapping
+4. `Part_historian_timeseries_dtb_TimeSeries` mapping
+5. `System_isPartOf_Equipment_Contextualization`
+6. `Part_isPartOf_System_Contextualization`
 ```
 
 Avoid putting too much in a single scheduled flow. Microsoft warns that DTB flows execute mappings first, then contextualization, and a failed operation cancels downstream operations; separate schedules/flows reduce blast radius. ([Microsoft Learn][12])
@@ -1132,7 +1165,8 @@ The validator should produce a machine-readable report:
   },
   "dtb": {
     "entityTypes": ["Equipment", "System", "Part"],
-    "relationships": ["Equipment_contains_System", "System_contains_Part"],
+    "relationships": ["System_isPartOf_Equipment", "Part_isPartOf_System"],
+    "sourceTables": ["equipment_dtb", "systems_dtb", "parts_dtb", "historian_timeseries_dtb"],
     "mappingsCompleted": true,
     "contextualizationsCompleted": true
   },
@@ -1612,26 +1646,26 @@ Proposed manifest:
   "entities": [
     {
       "name": "Equipment",
-      "table": "equipment",
-      "id": ["EquipmentId"],
+      "table": "equipment_dtb",
+      "id": ["EquipmentUID"],
       "displayName": "DisplayName",
-      "properties": ["EquipmentId", "DisplayName", "Manufacturer", "ModelNumber"]
+      "properties": ["EquipmentUID", "EquipmentId", "EquipmentJoinKey", "DisplayName", "Manufacturer", "ModelNumber"]
     },
     {
       "name": "System",
-      "table": "systems",
-      "id": ["SystemId"],
+      "table": "systems_dtb",
+      "id": ["SystemUID"],
       "displayName": "DisplayName",
-      "properties": ["SystemId", "DisplayName", "EquipmentId"]
+      "properties": ["SystemUID", "SystemId", "SystemJoinKey", "DisplayName", "EquipmentId", "EquipmentJoinKey"]
     },
     {
       "name": "Part",
-      "table": "parts",
-      "id": ["PartId"],
+      "table": "parts_dtb",
+      "id": ["PartUID"],
       "displayName": "DisplayName",
-      "properties": ["PartId", "DisplayName", "Category", "SystemId", "HistorianTag"],
+      "properties": ["PartUID", "PartId", "PartJoinKey", "DisplayName", "Category", "SystemId", "SystemJoinKey", "HistorianTag"],
       "timeSeries": {
-        "table": "historian_timeseries",
+        "table": "historian_timeseries_dtb",
         "timestampColumn": "PreciseTimestamp",
         "valueColumn": "Value",
         "link": {
@@ -1643,20 +1677,20 @@ Proposed manifest:
   ],
   "relationships": [
     {
-      "name": "contains",
-      "sourceEntity": "Equipment",
-      "targetEntity": "System",
-      "sourceProperty": "EquipmentId",
-      "targetProperty": "EquipmentId",
-      "cardinality": "OneToMany"
+      "name": "isPartOf",
+      "sourceEntity": "System",
+      "targetEntity": "Equipment",
+      "sourceProperty": "EquipmentJoinKey",
+      "targetProperty": "EquipmentJoinKey",
+      "cardinality": "ManyToOne"
     },
     {
-      "name": "contains",
-      "sourceEntity": "System",
-      "targetEntity": "Part",
-      "sourceProperty": "SystemId",
-      "targetProperty": "SystemId",
-      "cardinality": "OneToMany"
+      "name": "isPartOf",
+      "sourceEntity": "Part",
+      "targetEntity": "System",
+      "sourceProperty": "SystemJoinKey",
+      "targetProperty": "SystemJoinKey",
+      "cardinality": "ManyToOne"
     }
   ],
   "expected": {
@@ -1683,7 +1717,7 @@ Paste this into OpenClaw as the execution brief:
 You are coordinating Codex CLI to build an API-first importer that takes the EquipmentIQ Douglas bagmaker zip and deploys it into Microsoft Fabric as a Digital Twin Builder work item.
 
 Ultimate goal:
-Get the uploaded Douglas bagmaker EquipmentIQ export running in Fabric as a Digital Twin Builder item named DouglasBagmakerDTB, with a complete ontology: Equipment, System, Part, static mappings, Part time-series mapping through HistorianTag, and Equipment→System→Part contextualization.
+Get the uploaded Douglas bagmaker EquipmentIQ export running in Fabric as a Digital Twin Builder item named DouglasBagmakerDTB, with a complete ontology: Equipment, System, Part, static mappings, Part time-series mapping through HistorianTag, and System→Equipment / Part→System JoinKey contextualization.
 
 Do not use Fabric task-flow import. Task flows are not the deployment mechanism.
 
@@ -1719,34 +1753,34 @@ Expected linked time-series rows are 1980.
 Expected unmatched rows are 180.
 Do not force-bind the decoy.
 
-Ontology:
+Ontology/source shape for active DTB compiler:
 Equipment:
-  table equipment
-  unique ID EquipmentId
-  properties EquipmentId, DisplayName, Manufacturer, ModelNumber
+  table equipment_dtb
+  unique ID EquipmentUID
+  properties EquipmentUID, EquipmentId, EquipmentJoinKey, DisplayName, Manufacturer, ModelNumber
 
 System:
-  table systems
-  unique ID SystemId
-  properties SystemId, DisplayName, EquipmentId
+  table systems_dtb
+  unique ID SystemUID
+  properties SystemUID, SystemId, SystemJoinKey, DisplayName, EquipmentId, EquipmentJoinKey
 
 Part:
-  table parts
-  unique ID PartId
-  properties PartId, DisplayName, Category, SystemId, HistorianTag
-  time series from historian_timeseries
+  table parts_dtb
+  unique ID PartUID
+  properties PartUID, PartId, PartJoinKey, DisplayName, Category, SystemId, SystemJoinKey, HistorianTag
+  time series from historian_timeseries_dtb
   timestamp PreciseTimestamp
   value Value
   link Part.HistorianTag = historian_timeseries.HistorianTag
 
 Relationships:
-Equipment contains System:
-  Equipment.EquipmentId = System.EquipmentId
-  OneToMany
+System isPartOf Equipment:
+  System.EquipmentJoinKey = Equipment.EquipmentJoinKey
+  ManyToOne
 
-System contains Part:
-  System.SystemId = Part.SystemId
-  OneToMany
+Part isPartOf System:
+  Part.SystemJoinKey = System.SystemJoinKey
+  ManyToOne
 
 Implementation phases:
 1. Scaffold repo and AGENTS.md.
