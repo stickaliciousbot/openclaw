@@ -26,10 +26,10 @@ The attached data matches the Contoso Energy tutorial ontology pattern, with dif
 
 Row counts observed from local files:
 
-- `AssetData`: 30 data rows — 10 distillers (`D101`-`D110`), 10 condensers (`C201`-`C210`), 10 reboilers (`R401`-`R410`).
-- `ProcessData`: 100 data rows — daily process/site observations across `DU-01` through `DU-10`.
-- `Technicians`: 10 data rows — `T001` through `T010`.
-- `MaintenanceRequests`: 5000 data rows.
+- `AssetData`: 30 data rows — 10 distillers (`D101`-`D110`), 10 condensers (`C201`-`C210`), 10 reboilers (`R401`-`R410`). Columns: `ID`, `Name`, `SiteId`, `NumberOfTrays`, `CoolingMedium`, `TypeOfReboiler`, `IsOperational`, `Condition`, `PowerConsumption`, `InstallationDate`, `EndOfLifeDate`, `Efficiency`. Sites cover `DU-01` through `DU-10`; equipment names are lower-case tutorial filter values such as `distiller D101`, `condenser C201`, and reboiler equivalents.
+- `ProcessData`: 100 data rows — process/site observations across `DU-01` through `DU-10`. Columns: `processId`, `siteId`, `siteName`, `startTimestamp`, `endTimestamp`, `gasWastePercentage`, `liquidWastePercentage`, `energyWastePercentage`. It has 10 distinct sites and 10 distinct start/end timestamps, implying repeated day/site observations.
+- `Technicians`: 10 data rows — `T001` through `T010`. Columns: `name`, `Id`, `email`.
+- `MaintenanceRequests`: 5000 data rows. Columns: `WorkorderId`, `EquipmentId`, `TechnicianId`, `WorkOrderType`, `Status`, `Priority`, `OrderDate`, `LastUpdatedDate`, `EstimatedStartDate`, `CommitmentDate`, `EstimatedLabourHours`, `ActualLabourHours`, `ActualEndDate`, `Site`. It references 30 equipment IDs, 10 technician IDs, and 10 sites (`DU-01` through `DU-10`).
 
 ## Tutorial entity model
 
