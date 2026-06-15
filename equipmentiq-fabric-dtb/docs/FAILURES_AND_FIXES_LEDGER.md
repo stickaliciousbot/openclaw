@@ -230,6 +230,19 @@ Purpose: record every straight-up, non-transient failure and its actual fix path
 - **Next fix path:** create a fresh no-schema parent-first DTB item and on-demand flow using public Fabric APIs, then owner/manual-run operations serially: Equipment mapping, System mapping, Part mapping, Part time-series mapping, Equipment->System contextualization, System->Part contextualization. Validate Equipment=1, Systems=6, Parts=14, Relationships=20, Part time-series=2160 total with 1980 linked + 180 expected orphan rows.
 - **Durable memory:** `memory/lessons-learned-equipmentiq-dtb-parent-first-contextualization-2026-06-15.md`.
 
+### F011 — Parent-first imported DTB still fails contextualization descriptor binding
+
+- **Status:** open; parent-first relationship shape is necessary evidence but not sufficient fix.
+- **Observed:** 2026-06-15 on fresh corrected item `DouglasBagmakerDTB_NodeDemo_ParentFirst_NoSchema_20260615_1556` / `a15b7aa0-e65b-4a75-9d01-08429b271d8d`.
+- **Preceding evidence:** owner screenshot showed all four mapping operations completed successfully: `Equipment_equipment`, `System_systems`, `Part_parts`, and `Part_historian_timeseries_...`.
+- **Failed operation:** `Equipment_contains_System_Contextualization`, run twice in Fabric UI.
+- **Error:** `[User Error] The required property descriptor for column 'EquipmentId' does not exist in the data model (EntityTypeId=170786628468406). Root Activity Id: 86786e71-989e-4bad-98e8-d24fe70a54b5`.
+- **Important delta from F010:** failed `EntityTypeId` moved from child/old-first `System` (`117233767744208`) to parent/new-first `Equipment` (`170786628468406`). This proves direction/cardinality alone did not resolve descriptor binding.
+- **Definition evidence:** generated `EntityTypes/170786628468406.json` contains property `EquipmentId` with property ID `4302862376822900096`; generated relationship is `OneToMany`, `FirstEntityTypeId=Equipment`, `SecondEntityTypeId=System`; generated contextualization joins `FirstColumn EntityId=Equipment AttributeName=EquipmentId` to `SecondColumn EntityId=System AttributeName=EquipmentId`.
+- **Current interpretation:** Fabric runtime contextualization is not materializing/recognizing join-property descriptors from the imported DTB definition, despite successful mappings. Treat this as an imported-definition contextualization binding problem, not just a relationship direction problem.
+- **Do not do:** do not keep retrying `Equipment_contains_System_Contextualization` on this item without new evidence.
+- **Next fix path:** export a UI-authored minimal relationship/contextualization that runs successfully and compare its persisted schema against the imported definition; specifically test whether contextualization needs property-ID based descriptors or UI-created model descriptors rather than `AttributeName` joins from imported definitions.
+
 ## Operational blockers / transient-ish failures
 
 ### O001 — Fabric capacity/Spark admission blocked table load
