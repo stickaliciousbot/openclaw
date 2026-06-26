@@ -2647,6 +2647,30 @@ describe("dispatchTelegramMessage draft streaming", () => {
     expect(rotationOrder).toBeLessThan(finalUpdateOrder);
   });
 
+  it("surfaces direct source-visible start acknowledgement before the final answer when default progress is suppressed", async () => {
+    const { answerDraftStream } = setupDraftStreams({ answerMessageId: 2001 });
+    dispatchReplyWithBufferedBlockDispatcher.mockImplementation(async ({ dispatcherOptions }) => {
+      await dispatcherOptions.deliver({ text: "Started/running — shell." }, { kind: "tool" });
+      await dispatcherOptions.deliver({ text: "final reply" }, { kind: "final" });
+      return { queuedFinal: true };
+    });
+
+    await dispatchWithContext({
+      context: createContext({ ctxPayload: createDirectSessionPayload() }),
+      streamMode: "partial",
+      telegramCfg: { streaming: { mode: "partial" } },
+    });
+
+    expectDispatchParams({
+      replyOptions: expect.objectContaining({
+        suppressDefaultToolProgressMessages: true,
+      }),
+    });
+    expect(answerDraftStream.update).toHaveBeenNthCalledWith(1, "Started/running — shell.");
+    expect(answerDraftStream.update).toHaveBeenNthCalledWith(2, "final reply");
+    expect(deliverReplies).not.toHaveBeenCalled();
+  });
+
   it("keeps progress updates in a draft and sends the final answer normally", async () => {
     const { answerDraftStream } = setupDraftStreams({ answerMessageId: 2001 });
     dispatchReplyWithBufferedBlockDispatcher.mockImplementation(

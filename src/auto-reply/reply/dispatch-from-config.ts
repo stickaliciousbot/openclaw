@@ -2577,11 +2577,97 @@ export async function dispatchReplyFromConfig(
       }
       return explanation || "Planning next steps.";
     };
-    let didSendStartAcknowledgement = false;
-    const maybeSendStartAcknowledgement = async (
+    let didSendSourceVisibleStartAcknowledgement = false;
+    const sourceVisibleStartPhases = new Set([
+      "start",
+      "started",
+      "begin",
+      "running",
+      "in_progress",
+    ]);
+    const sourceVisibleItemStartStates = new Set([
+      ...sourceVisibleStartPhases,
+      "pending",
+      "requested",
+    ]);
+    const sourceVisibleTerminalStates = new Set([
+      "end",
+      "done",
+      "complete",
+      "completed",
+      "error",
+      "failed",
+    ]);
+    const nonWorkItemKinds = new Set(["preamble", "commentary", "reasoning", "assistant"]);
+    const normalizeStartState = (value?: string): string =>
+      (normalizeOptionalString(value) ?? "").toLowerCase().replace(/[\s-]+/g, "_");
+    const isSourceVisibleToolStartSignal = (
       payload: Parameters<NonNullable<GetReplyOptions["onToolStart"]>>[0],
-    ): Promise<void> => {
-      if (didSendStartAcknowledgement) {
+    ): boolean => {
+      const phase = normalizeStartState(payload.phase);
+      if (!phase) {
+        return true;
+      }
+      if (sourceVisibleTerminalStates.has(phase) || phase === "update") {
+        return false;
+      }
+      return sourceVisibleStartPhases.has(phase);
+    };
+    const isSourceVisibleItemStartSignal = (
+      payload: Parameters<NonNullable<GetReplyOptions["onItemEvent"]>>[0],
+    ): boolean => {
+      const kind = normalizeStartState(payload.kind);
+      const itemKind = normalizeStartState(
+        typeof (payload as { itemKind?: unknown }).itemKind === "string"
+          ? (payload as { itemKind?: string }).itemKind
+          : undefined,
+      );
+      if (nonWorkItemKinds.has(kind) || nonWorkItemKinds.has(itemKind)) {
+        return false;
+      }
+      const phase = normalizeStartState(payload.phase);
+      const status = normalizeStartState(payload.status);
+      if (sourceVisibleTerminalStates.has(phase) || sourceVisibleTerminalStates.has(status)) {
+        return false;
+      }
+      if (sourceVisibleItemStartStates.has(phase) || sourceVisibleItemStartStates.has(status)) {
+        return true;
+      }
+      return Boolean(
+        normalizeOptionalString(payload.name) ??
+        normalizeOptionalString(payload.title) ??
+        normalizeOptionalString(payload.kind) ??
+        normalizeOptionalString(
+          typeof (payload as { itemKind?: unknown }).itemKind === "string"
+            ? (payload as { itemKind?: string }).itemKind
+            : undefined,
+        ),
+      );
+    };
+    const sourceVisibleStartLabel = (payload: {
+      name?: string;
+      title?: string;
+      kind?: string;
+      itemKind?: string;
+    }): string => {
+      const rawLabel =
+        normalizeOptionalString(payload.name) ??
+        normalizeOptionalString(payload.title) ??
+        normalizeOptionalString(payload.kind) ??
+        normalizeOptionalString(payload.itemKind) ??
+        "work";
+      return normalizeWorkingLabel(rawLabel) || "work";
+    };
+    const maybeSendSourceVisibleStartAcknowledgement = async (payload: {
+      name?: string;
+      title?: string;
+      kind?: string;
+      itemKind?: string;
+    }): Promise<void> => {
+      if (isDispatchOperationAborted()) {
+        return;
+      }
+      if (didSendSourceVisibleStartAcknowledgement) {
         return;
       }
       if (sendPolicyDenied || suppressDelivery) {
@@ -2593,16 +2679,8 @@ export async function dispatchReplyFromConfig(
       if (chatType !== "direct" || ctx.InboundEventKind === "room_event") {
         return;
       }
-      if (payload.phase && payload.phase !== "start") {
-        return;
-      }
-      const rawLabel =
-        normalizeOptionalString(payload.name) ??
-        normalizeOptionalString(payload.title) ??
-        normalizeOptionalString(payload.kind) ??
-        "work";
-      const normalizedLabel = normalizeWorkingLabel(rawLabel) || "work";
-      didSendStartAcknowledgement = true;
+      const normalizedLabel = sourceVisibleStartLabel(payload);
+      didSendSourceVisibleStartAcknowledgement = true;
       const acknowledgementPayload: ReplyPayload = {
         text: `Started/running — ${normalizedLabel}.`,
       };
@@ -2905,7 +2983,14 @@ export async function dispatchReplyFromConfig(
           },
         })
       : undefined;
-    const canConsumeItemEvents = deliverStandaloneCommentaryProgress || canForwardItemEvents;
+    const canConsumeItemEvents =
+      deliverStandaloneCommentaryProgress ||
+      canForwardItemEvents ||
+      (!sendPolicyDenied &&
+        !suppressDelivery &&
+        sourceReplyDeliveryMode !== "message_tool_only" &&
+        chatType === "direct" &&
+        ctx.InboundEventKind !== "room_event");
     // Item-event presence gates CLI commentary classification downstream, so
     // the handler exists exactly when verbose buffers it or a channel consumes it.
     const onItemEvent = canConsumeItemEvents
@@ -2919,6 +3004,16 @@ export async function dispatchReplyFromConfig(
           }
           if (deliverStandaloneCommentaryProgress && payload.kind === "preamble") {
             await noteCommentaryProgress(payload);
+          }
+          if (isSourceVisibleItemStartSignal(payload)) {
+            await flushPendingCommentaryProgress();
+            await maybeSendSourceVisibleStartAcknowledgement({
+              ...payload,
+              itemKind:
+                typeof (payload as { itemKind?: unknown }).itemKind === "string"
+                  ? (payload as { itemKind?: string }).itemKind
+                  : undefined,
+            });
           }
           await forwardItemEvent?.(payload);
         }
@@ -2950,7 +3045,9 @@ export async function dispatchReplyFromConfig(
       }
       // Commentary precedes the tool that follows it.
       await flushPendingCommentaryProgress();
-      await maybeSendStartAcknowledgement(payload);
+      if (isSourceVisibleToolStartSignal(payload)) {
+        await maybeSendSourceVisibleStartAcknowledgement(payload);
+      }
       await forwardedToolStart?.(payload);
     };
 
