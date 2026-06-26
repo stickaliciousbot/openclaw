@@ -7606,7 +7606,7 @@ describe("dispatchReplyFromConfig", () => {
     expect(onToolStart).toHaveBeenCalledWith({ name: "lookup" });
   });
 
-  it("does not synthesize tool-start capability while ordering item progress", async () => {
+  it("keeps item progress ordering without a channel-owned tool-start callback", async () => {
     setNoAbort();
     const cfg = {
       agents: { defaults: { verboseDefault: "on" } },
@@ -7635,7 +7635,7 @@ describe("dispatchReplyFromConfig", () => {
       opts?: GetReplyOptions,
     ): Promise<ReplyPayload | undefined> => {
       await opts?.onBlockReply?.({ text: "before item" });
-      expect(opts?.onToolStart).toBeUndefined();
+      expect(typeof opts?.onToolStart).toBe("function");
       const itemProgressPromise = Promise.resolve(
         opts?.onItemEvent?.({ itemId: "1", kind: "tool", progressText: "running" }),
       ).then(() => {
@@ -7667,6 +7667,192 @@ describe("dispatchReplyFromConfig", () => {
       kind: "tool",
       progressText: "running",
     });
+  });
+
+  it("sends one direct-chat start acknowledgement on first tool start and still delivers final reply", async () => {
+    setNoAbort();
+    const dispatcher = createDispatcher();
+    const ctx = buildTestCtx({
+      Provider: "telegram",
+      Surface: "telegram",
+      ChatType: "direct",
+      From: "telegram:8495203551",
+      SessionKey: "agent:main:telegram:direct:8495203551",
+    });
+    const replyResolver = vi.fn(async (_ctx: MsgContext, opts?: GetReplyOptions) => {
+      await opts?.onToolStart?.({ name: "shell", phase: "start" });
+      return { text: "final reply" } satisfies ReplyPayload;
+    });
+
+    const result = await dispatchReplyFromConfig({
+      ctx,
+      cfg: emptyConfig,
+      dispatcher,
+      replyResolver,
+    });
+
+    expect(result.queuedFinal).toBe(true);
+    expect(replyResolver).toHaveBeenCalledTimes(1);
+    expect(dispatcher.sendToolResult).toHaveBeenCalledTimes(1);
+    expect(firstToolResultPayload(dispatcher)?.text).toBe("Started/running — shell.");
+    expect(firstFinalReplyPayload(dispatcher)?.text).toBe("final reply");
+  });
+
+  it("emits the direct-chat start acknowledgement only once across multiple tool starts", async () => {
+    setNoAbort();
+    const dispatcher = createDispatcher();
+    const ctx = buildTestCtx({
+      Provider: "telegram",
+      Surface: "telegram",
+      ChatType: "direct",
+      From: "telegram:8495203551",
+      SessionKey: "agent:main:telegram:direct:8495203551",
+    });
+    const replyResolver = vi.fn(async (_ctx: MsgContext, opts?: GetReplyOptions) => {
+      await opts?.onToolStart?.({ name: "shell", phase: "start" });
+      await opts?.onToolStart?.({ name: "browser", phase: "start" });
+      await opts?.onToolStart?.({ name: "shell", phase: "start" });
+      return { text: "final reply" } satisfies ReplyPayload;
+    });
+
+    await dispatchReplyFromConfig({
+      ctx,
+      cfg: emptyConfig,
+      dispatcher,
+      replyResolver,
+    });
+
+    expect(dispatcher.sendToolResult).toHaveBeenCalledTimes(1);
+    expect(firstToolResultPayload(dispatcher)?.text).toBe("Started/running — shell.");
+    expect(firstFinalReplyPayload(dispatcher)?.text).toBe("final reply");
+  });
+
+  it.each([
+    ["group", { ChatType: "group", From: "telegram:group:-100123" }],
+    ["channel", { ChatType: "channel", From: "telegram:channel:-100123" }],
+    [
+      "room_event",
+      {
+        ChatType: "direct",
+        From: "telegram:8495203551",
+        InboundEventKind: "room_event",
+      },
+    ],
+  ] as const)(
+    "does not send start acknowledgement for %s conversations",
+    async (_label, overrides) => {
+      setNoAbort();
+      const dispatcher = createDispatcher();
+      const ctx = buildTestCtx({
+        Provider: "telegram",
+        Surface: "telegram",
+        SessionKey: `agent:main:telegram:${_label}:start-ack-test`,
+        ...overrides,
+      });
+      const replyResolver = vi.fn(async (_ctx: MsgContext, opts?: GetReplyOptions) => {
+        await opts?.onToolStart?.({ name: "shell", phase: "start" });
+        return { text: "final reply" } satisfies ReplyPayload;
+      });
+
+      await dispatchReplyFromConfig({
+        ctx,
+        cfg: emptyConfig,
+        dispatcher,
+        replyResolver,
+      });
+
+      expect(replyResolver).toHaveBeenCalledTimes(1);
+      expect(dispatcher.sendToolResult).not.toHaveBeenCalled();
+    },
+  );
+
+  it("does not send start acknowledgement when source delivery is message_tool_only", async () => {
+    setNoAbort();
+    const dispatcher = createDispatcher();
+    const ctx = buildTestCtx({
+      Provider: "telegram",
+      Surface: "telegram",
+      ChatType: "direct",
+      From: "telegram:8495203551",
+      SessionKey: "agent:main:telegram:direct:8495203551",
+    });
+    const replyResolver = vi.fn(async (_ctx: MsgContext, opts?: GetReplyOptions) => {
+      await opts?.onToolStart?.({ name: "shell", phase: "start" });
+      return { text: "final reply" } satisfies ReplyPayload;
+    });
+
+    const result = await dispatchReplyFromConfig({
+      ctx,
+      cfg: emptyConfig,
+      dispatcher,
+      replyResolver,
+      replyOptions: { sourceReplyDeliveryMode: "message_tool_only" },
+    });
+
+    expect(result.sourceReplyDeliveryMode).toBe("message_tool_only");
+    expect(replyResolver).toHaveBeenCalledTimes(1);
+    expect(dispatcher.sendToolResult).not.toHaveBeenCalled();
+  });
+
+  it("does not send start acknowledgement when sendPolicy denies delivery", async () => {
+    setNoAbort();
+    sessionStoreMocks.currentEntry = {
+      sessionId: "start-ack-denied",
+      updatedAt: 0,
+      sendPolicy: "deny",
+    };
+    const dispatcher = createDispatcher();
+    const ctx = buildTestCtx({
+      Provider: "telegram",
+      Surface: "telegram",
+      ChatType: "direct",
+      From: "telegram:8495203551",
+      SessionKey: "agent:main:telegram:direct:8495203551",
+    });
+    const replyResolver = vi.fn(async (_ctx: MsgContext, opts?: GetReplyOptions) => {
+      await opts?.onToolStart?.({ name: "shell", phase: "start" });
+      return { text: "final reply" } satisfies ReplyPayload;
+    });
+
+    const result = await dispatchReplyFromConfig({
+      ctx,
+      cfg: emptyConfig,
+      dispatcher,
+      replyResolver,
+    });
+
+    expect(result.sendPolicyDenied).toBe(true);
+    expect(replyResolver).toHaveBeenCalledTimes(1);
+    expect(dispatcher.sendToolResult).not.toHaveBeenCalled();
+    expect(dispatcher.sendFinalReply).not.toHaveBeenCalled();
+  });
+
+  it("does not let suppressDefaultToolProgressMessages suppress direct-chat start acknowledgement", async () => {
+    setNoAbort();
+    const dispatcher = createDispatcher();
+    const ctx = buildTestCtx({
+      Provider: "telegram",
+      Surface: "telegram",
+      ChatType: "direct",
+      From: "telegram:8495203551",
+      SessionKey: "agent:main:telegram:direct:8495203551",
+    });
+    const replyResolver = vi.fn(async (_ctx: MsgContext, opts?: GetReplyOptions) => {
+      await opts?.onToolStart?.({ name: "shell", phase: "start" });
+      return { text: "final reply" } satisfies ReplyPayload;
+    });
+
+    await dispatchReplyFromConfig({
+      ctx,
+      cfg: emptyConfig,
+      dispatcher,
+      replyResolver,
+      replyOptions: { suppressDefaultToolProgressMessages: true },
+    });
+
+    expect(dispatcher.sendToolResult).toHaveBeenCalledTimes(1);
+    expect(firstToolResultPayload(dispatcher)?.text).toBe("Started/running — shell.");
+    expect(firstFinalReplyPayload(dispatcher)?.text).toBe("final reply");
   });
 
   it("forwards payload metadata into onBlockReplyQueued context", async () => {

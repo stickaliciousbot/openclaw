@@ -2577,6 +2577,42 @@ export async function dispatchReplyFromConfig(
       }
       return explanation || "Planning next steps.";
     };
+    let didSendStartAcknowledgement = false;
+    const maybeSendStartAcknowledgement = async (
+      payload: Parameters<NonNullable<GetReplyOptions["onToolStart"]>>[0],
+    ): Promise<void> => {
+      if (didSendStartAcknowledgement) {
+        return;
+      }
+      if (sendPolicyDenied || suppressDelivery) {
+        return;
+      }
+      if (sourceReplyDeliveryMode === "message_tool_only") {
+        return;
+      }
+      if (chatType !== "direct" || ctx.InboundEventKind === "room_event") {
+        return;
+      }
+      if (payload.phase && payload.phase !== "start") {
+        return;
+      }
+      const rawLabel =
+        normalizeOptionalString(payload.name) ??
+        normalizeOptionalString(payload.title) ??
+        normalizeOptionalString(payload.kind) ??
+        "work";
+      const normalizedLabel = normalizeWorkingLabel(rawLabel) || "work";
+      didSendStartAcknowledgement = true;
+      const acknowledgementPayload: ReplyPayload = {
+        text: `Started/running — ${normalizedLabel}.`,
+      };
+      if (shouldRouteToOriginating) {
+        await sendPayloadAsync(acknowledgementPayload, undefined, false, "tool");
+        return;
+      }
+      markInboundDedupeReplayUnsafe();
+      dispatcher.sendToolResult(acknowledgementPayload);
+    };
     const maybeSendWorkingStatus = async (label: string): Promise<void> => {
       if (shouldSuppressProgressDelivery()) {
         return;
@@ -2896,6 +2932,30 @@ export async function dispatchReplyFromConfig(
         !shouldSuppressProgressDelivery(),
     );
 
+    const forwardedToolStart = wrapProgressCallback(params.replyOptions?.onToolStart, {
+      allowWhenToolSummariesHidden:
+        params.replyOptions?.allowToolLifecycleWhenProgressHidden === true,
+      forwardWhenSourceDeliverySuppressed: true,
+      requiresToolSummaryVisibility: true,
+      waitForDirectBlockReplyDelivery: true,
+    });
+    const onToolStart = async (
+      payload: Parameters<NonNullable<GetReplyOptions["onToolStart"]>>[0],
+    ): Promise<void> => {
+      if (isDispatchOperationAborted()) {
+        return;
+      }
+      markProgress();
+      await waitForPendingDirectBlockReplyDelivery(dispatchAbortOperation?.abortSignal);
+      if (isDispatchOperationAborted()) {
+        return;
+      }
+      // Commentary precedes the tool that follows it.
+      await flushPendingCommentaryProgress();
+      await maybeSendStartAcknowledgement(payload);
+      await forwardedToolStart?.(payload);
+    };
+
     const replyResolver =
       params.replyResolver ??
       (await traceReplyPhase("reply.load_reply_resolver", () => loadGetReplyFromConfigRuntime()))
@@ -2927,17 +2987,7 @@ export async function dispatchReplyFromConfig(
               params.replyOptions?.onAssistantMessageStart,
             ),
             onBlockReplyQueued: wrapProgressCallback(params.replyOptions?.onBlockReplyQueued),
-            onToolStart: wrapProgressCallback(params.replyOptions?.onToolStart, {
-              allowWhenToolSummariesHidden:
-                params.replyOptions?.allowToolLifecycleWhenProgressHidden === true,
-              forwardWhenSourceDeliverySuppressed: true,
-              requiresToolSummaryVisibility: true,
-              waitForDirectBlockReplyDelivery: true,
-              onForward: async () => {
-                // Commentary precedes the tool that follows it.
-                await flushPendingCommentaryProgress();
-              },
-            }),
+            onToolStart,
             onItemEvent,
             commentaryProgressEnabled:
               deliverStandaloneCommentaryProgress ||
