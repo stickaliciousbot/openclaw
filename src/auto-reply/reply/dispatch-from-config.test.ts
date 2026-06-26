@@ -1861,6 +1861,7 @@ describe("dispatchReplyFromConfig", () => {
     ["phase start", { itemId: "1", kind: "tool", title: "shell", phase: "start" }],
     ["status running", { itemId: "1", kind: "tool", title: "shell", status: "running" }],
     ["status pending", { itemId: "1", kind: "tool", title: "shell", status: "pending" }],
+    ["status requested", { itemId: "1", kind: "tool", title: "shell", status: "requested" }],
     ["concrete name", { itemId: "1", kind: "tool", name: "shell" }],
   ] as const)(
     "sends direct-chat start acknowledgement for credible onItemEvent %s",
@@ -1934,6 +1935,40 @@ describe("dispatchReplyFromConfig", () => {
     expect(firstFinalReplyPayload(dispatcher)?.text).toBe("final reply");
   });
 
+  it("uses name, title, kind, itemKind, then work as start acknowledgement label priority", async () => {
+    setNoAbort();
+    const cases = [
+      [
+        { name: "preferred name", title: "title", kind: "kind", itemKind: "item" },
+        "preferred name",
+      ],
+      [{ title: "preferred title", kind: "kind", itemKind: "item" }, "preferred title"],
+      [{ kind: "preferred kind", itemKind: "item" }, "preferred kind"],
+      [{ itemKind: "preferred item" }, "preferred item"],
+      [{}, "work"],
+    ] as const;
+
+    for (const [payload, expectedLabel] of cases) {
+      const dispatcher = createDispatcher();
+      const ctx = buildTestCtx({
+        Provider: "telegram",
+        Surface: "telegram",
+        ChatType: "direct",
+        From: "telegram:8495203551",
+        SessionKey: `agent:main:telegram:direct:start-ack-label-${expectedLabel}`,
+      });
+      const replyResolver = vi.fn(async (_ctx: MsgContext, opts?: GetReplyOptions) => {
+        await opts?.onItemEvent?.({ itemId: expectedLabel, status: "running", ...payload });
+        return { text: "final reply" } satisfies ReplyPayload;
+      });
+
+      await dispatchReplyFromConfig({ ctx, cfg: emptyConfig, dispatcher, replyResolver });
+
+      expect(firstToolResultPayload(dispatcher)?.text).toBe(`Started/running — ${expectedLabel}.`);
+      expect(firstFinalReplyPayload(dispatcher)?.text).toBe("final reply");
+    }
+  });
+
   it.each([
     ["group", { ChatType: "group", From: "telegram:group:-100123" }],
     ["channel", { ChatType: "channel", From: "telegram:channel:-100123" }],
@@ -1992,6 +2027,61 @@ describe("dispatchReplyFromConfig", () => {
     });
 
     expect(result.sourceReplyDeliveryMode).toBe("message_tool_only");
+    expect(dispatcher.sendToolResult).not.toHaveBeenCalled();
+  });
+
+  it("does not send start acknowledgement when automatic source delivery is suppressed by visible-replies policy", async () => {
+    setNoAbort();
+    const dispatcher = createDispatcher();
+    const ctx = buildTestCtx({
+      Provider: "telegram",
+      Surface: "telegram",
+      ChatType: "direct",
+      From: "telegram:8495203551",
+      SessionKey: "agent:main:telegram:direct:8495203551",
+    });
+    const replyResolver = vi.fn(async (_ctx: MsgContext, opts?: GetReplyOptions) => {
+      await opts?.onToolStart?.({ name: "shell", phase: "running" });
+      return { text: "final reply" } satisfies ReplyPayload;
+    });
+
+    const result = await dispatchReplyFromConfig({
+      ctx,
+      cfg: { messages: { visibleReplies: "message_tool" } } as OpenClawConfig,
+      dispatcher,
+      replyResolver,
+    });
+
+    expect(result.sourceReplyDeliveryMode).toBe("message_tool_only");
+    expect(dispatcher.sendToolResult).not.toHaveBeenCalled();
+  });
+
+  it("does not send start acknowledgement after dispatch aborts", async () => {
+    setNoAbort();
+    const abortController = new AbortController();
+    const dispatcher = createDispatcher();
+    const ctx = buildTestCtx({
+      Provider: "telegram",
+      Surface: "telegram",
+      ChatType: "direct",
+      From: "telegram:8495203551",
+      SessionKey: "agent:main:telegram:direct:8495203551",
+    });
+    const replyResolver = vi.fn(async (_ctx: MsgContext, opts?: GetReplyOptions) => {
+      abortController.abort();
+      await opts?.onToolStart?.({ name: "shell", phase: "running" });
+      return { text: "final reply" } satisfies ReplyPayload;
+    });
+
+    await dispatchReplyFromConfig({
+      ctx,
+      cfg: emptyConfig,
+      dispatcher,
+      replyResolver,
+      replyOptions: { abortSignal: abortController.signal },
+    });
+
+    expect(replyResolver).toHaveBeenCalledTimes(1);
     expect(dispatcher.sendToolResult).not.toHaveBeenCalled();
   });
 
