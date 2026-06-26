@@ -150,6 +150,17 @@ export type GetReplyOptions = {
     deleted?: string[];
     summary?: string;
   }) => Promise<void> | void;
+  /** Called when the overall agent run reaches a terminal lifecycle state. */
+  onRunLifecycleTerminal?: (payload: {
+    phase?: string;
+    status?: string;
+    title?: string;
+    summary?: string;
+    exitCode?: number | null;
+    error?: string;
+    aborted?: boolean;
+    stopReason?: string;
+  }) => Promise<void> | void;
   /** Called when context auto-compaction starts (allows UX feedback during the pause). */
   onCompactionStart?: () => Promise<void> | void;
   /** Called when context auto-compaction completes. */

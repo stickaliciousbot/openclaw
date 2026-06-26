@@ -708,6 +708,12 @@ function firstToolResultPayload(dispatcher: ReplyDispatcher): ReplyPayload | und
     | undefined;
 }
 
+function toolResultPayloads(dispatcher: ReplyDispatcher): ReplyPayload[] {
+  return (dispatcher.sendToolResult as ReturnType<typeof vi.fn>).mock.calls.map(
+    (call) => call[0] as ReplyPayload,
+  );
+}
+
 function firstFinalReplyPayload(dispatcher: ReplyDispatcher): ReplyPayload | undefined {
   return (dispatcher.sendFinalReply as ReturnType<typeof vi.fn>).mock.calls[0]?.[0] as
     | ReplyPayload
@@ -1907,7 +1913,8 @@ describe("dispatchReplyFromConfig", () => {
 
     await dispatchReplyFromConfig({ ctx, cfg: emptyConfig, dispatcher, replyResolver });
 
-    expect(dispatcher.sendToolResult).not.toHaveBeenCalled();
+    expect(dispatcher.sendToolResult).toHaveBeenCalledTimes(1);
+    expect(firstToolResultPayload(dispatcher)?.text).toBe("Completed — shell: failed.");
     expect(firstFinalReplyPayload(dispatcher)?.text).toBe("final reply");
   });
 
@@ -2143,6 +2150,396 @@ describe("dispatchReplyFromConfig", () => {
     expect(dispatcher.sendToolResult).toHaveBeenCalledTimes(1);
     expect(firstToolResultPayload(dispatcher)?.text).toBe("Started/running — shell.");
     expect(firstFinalReplyPayload(dispatcher)?.text).toBe("final reply");
+  });
+
+  it("sends direct-chat completion acknowledgement for terminal item events without a visible final reply", async () => {
+    setNoAbort();
+    const dispatcher = createDispatcher();
+    const ctx = buildTestCtx({
+      Provider: "telegram",
+      Surface: "telegram",
+      ChatType: "direct",
+      From: "telegram:8495203551",
+      SessionKey: "agent:main:telegram:direct:completion-item-pass",
+    });
+    const replyResolver = vi.fn(async (_ctx: MsgContext, opts?: GetReplyOptions) => {
+      await opts?.onItemEvent?.({ phase: "end", status: "passed", title: "artifact QA" });
+      return undefined;
+    });
+
+    await dispatchReplyFromConfig({ ctx, cfg: emptyConfig, dispatcher, replyResolver });
+
+    expect(dispatcher.sendToolResult).toHaveBeenCalledTimes(1);
+    expect(firstToolResultPayload(dispatcher)?.text).toBe("Completed — artifact QA: PASS.");
+    expect(dispatcher.sendFinalReply).not.toHaveBeenCalled();
+  });
+
+  it.each([
+    [0, "Completed — shell: completed."],
+    [1, "Completed — shell: failed."],
+  ] as const)(
+    "sends direct-chat completion acknowledgement for terminal command output exitCode %s",
+    async (exitCode, expectedText) => {
+      setNoAbort();
+      const dispatcher = createDispatcher();
+      const ctx = buildTestCtx({
+        Provider: "telegram",
+        Surface: "telegram",
+        ChatType: "direct",
+        From: "telegram:8495203551",
+        SessionKey: `agent:main:telegram:direct:completion-command-${exitCode}`,
+      });
+      const replyResolver = vi.fn(async (_ctx: MsgContext, opts?: GetReplyOptions) => {
+        await opts?.onCommandOutput?.({ phase: "end", name: "shell", exitCode });
+        return undefined;
+      });
+
+      await dispatchReplyFromConfig({ ctx, cfg: emptyConfig, dispatcher, replyResolver });
+
+      expect(dispatcher.sendToolResult).toHaveBeenCalledTimes(1);
+      expect(firstToolResultPayload(dispatcher)?.text).toBe(expectedText);
+      expect(dispatcher.sendFinalReply).not.toHaveBeenCalled();
+    },
+  );
+
+  it("sends direct-chat completion acknowledgement for terminal patch summaries when no final closeout lands", async () => {
+    setNoAbort();
+    const dispatcher = createDispatcher();
+    const ctx = buildTestCtx({
+      Provider: "telegram",
+      Surface: "telegram",
+      ChatType: "direct",
+      From: "telegram:8495203551",
+      SessionKey: "agent:main:telegram:direct:completion-patch",
+    });
+    const replyResolver = vi.fn(async (_ctx: MsgContext, opts?: GetReplyOptions) => {
+      await opts?.onPatchSummary?.({ phase: "end", summary: "2 files changed" });
+      return undefined;
+    });
+
+    await dispatchReplyFromConfig({
+      ctx,
+      cfg: emptyConfig,
+      dispatcher,
+      replyResolver,
+      replyOptions: { suppressDefaultToolProgressMessages: true },
+    });
+
+    expect(dispatcher.sendToolResult).toHaveBeenCalledTimes(1);
+    expect(firstToolResultPayload(dispatcher)?.text).toBe(
+      "Completed — 2 files changed: completed.",
+    );
+    expect(dispatcher.sendFinalReply).not.toHaveBeenCalled();
+  });
+
+  it("does not duplicate generic non-material completion when a visible final reply lands", async () => {
+    setNoAbort();
+    const dispatcher = createDispatcher();
+    const ctx = buildTestCtx({
+      Provider: "telegram",
+      Surface: "telegram",
+      ChatType: "direct",
+      From: "telegram:8495203551",
+      SessionKey: "agent:main:telegram:direct:completion-final-suppressed",
+    });
+    const replyResolver = vi.fn(async (_ctx: MsgContext, opts?: GetReplyOptions) => {
+      await opts?.onCommandOutput?.({ phase: "end", name: "shell", exitCode: 0 });
+      return { text: "final closeout" } satisfies ReplyPayload;
+    });
+
+    await dispatchReplyFromConfig({ ctx, cfg: emptyConfig, dispatcher, replyResolver });
+
+    expect(dispatcher.sendToolResult).not.toHaveBeenCalled();
+    expect(firstFinalReplyPayload(dispatcher)?.text).toBe("final closeout");
+  });
+
+  it("surfaces material PASS completion even when a visible final reply lands", async () => {
+    setNoAbort();
+    const dispatcher = createDispatcher();
+    const ctx = buildTestCtx({
+      Provider: "telegram",
+      Surface: "telegram",
+      ChatType: "direct",
+      From: "telegram:8495203551",
+      SessionKey: "agent:main:telegram:direct:completion-pass-material",
+    });
+    const replyResolver = vi.fn(async (_ctx: MsgContext, opts?: GetReplyOptions) => {
+      await opts?.onItemEvent?.({ phase: "end", status: "passed", title: "artifact QA" });
+      return { text: "final closeout" } satisfies ReplyPayload;
+    });
+
+    await dispatchReplyFromConfig({ ctx, cfg: emptyConfig, dispatcher, replyResolver });
+
+    expect(dispatcher.sendToolResult).toHaveBeenCalledTimes(1);
+    expect(firstToolResultPayload(dispatcher)?.text).toBe("Completed — artifact QA: PASS.");
+    expect(firstFinalReplyPayload(dispatcher)?.text).toBe("final closeout");
+  });
+
+  it("emits only one generic completion acknowledgement across multiple terminal events", async () => {
+    setNoAbort();
+    const dispatcher = createDispatcher();
+    const ctx = buildTestCtx({
+      Provider: "telegram",
+      Surface: "telegram",
+      ChatType: "direct",
+      From: "telegram:8495203551",
+      SessionKey: "agent:main:telegram:direct:completion-dedupe",
+    });
+    const replyResolver = vi.fn(async (_ctx: MsgContext, opts?: GetReplyOptions) => {
+      await opts?.onCommandOutput?.({ phase: "end", name: "shell", exitCode: 0 });
+      await opts?.onPatchSummary?.({ phase: "end", summary: "2 files changed" });
+      return undefined;
+    });
+
+    await dispatchReplyFromConfig({
+      ctx,
+      cfg: emptyConfig,
+      dispatcher,
+      replyResolver,
+      replyOptions: { suppressDefaultToolProgressMessages: true },
+    });
+
+    expect(dispatcher.sendToolResult).toHaveBeenCalledTimes(1);
+    expect(firstToolResultPayload(dispatcher)?.text).toBe("Completed — shell: completed.");
+  });
+
+  it("allows one start acknowledgement and one completion acknowledgement in order", async () => {
+    setNoAbort();
+    const dispatcher = createDispatcher();
+    const ctx = buildTestCtx({
+      Provider: "telegram",
+      Surface: "telegram",
+      ChatType: "direct",
+      From: "telegram:8495203551",
+      SessionKey: "agent:main:telegram:direct:start-and-completion",
+    });
+    const replyResolver = vi.fn(async (_ctx: MsgContext, opts?: GetReplyOptions) => {
+      await opts?.onToolStart?.({ name: "shell", phase: "start" });
+      await opts?.onCommandOutput?.({ phase: "end", name: "shell", exitCode: 0 });
+      return undefined;
+    });
+
+    await dispatchReplyFromConfig({ ctx, cfg: emptyConfig, dispatcher, replyResolver });
+
+    expect(toolResultPayloads(dispatcher).map((payload) => payload.text)).toEqual([
+      "Started/running — shell.",
+      "Completed — shell: completed.",
+    ]);
+  });
+
+  it.each([
+    ["group", { ChatType: "group", From: "telegram:group:-100123" }],
+    ["channel", { ChatType: "channel", From: "telegram:channel:-100123" }],
+    [
+      "room_event",
+      {
+        ChatType: "direct",
+        From: "telegram:8495203551",
+        InboundEventKind: "room_event",
+      },
+    ],
+  ] as const)(
+    "does not send completion acknowledgement for %s conversations",
+    async (_label, overrides) => {
+      setNoAbort();
+      const dispatcher = createDispatcher();
+      const ctx = buildTestCtx({
+        Provider: "telegram",
+        Surface: "telegram",
+        SessionKey: `agent:main:telegram:${_label}:completion-ack-test`,
+        ...overrides,
+      });
+      const replyResolver = vi.fn(async (_ctx: MsgContext, opts?: GetReplyOptions) => {
+        await opts?.onCommandOutput?.({ phase: "end", name: "shell", exitCode: 0 });
+        return undefined;
+      });
+
+      await dispatchReplyFromConfig({ ctx, cfg: emptyConfig, dispatcher, replyResolver });
+
+      expect(replyResolver).toHaveBeenCalledTimes(1);
+      expect(dispatcher.sendToolResult).not.toHaveBeenCalled();
+    },
+  );
+
+  it("does not send completion acknowledgement when source delivery is message_tool_only", async () => {
+    setNoAbort();
+    const dispatcher = createDispatcher();
+    const ctx = buildTestCtx({
+      Provider: "telegram",
+      Surface: "telegram",
+      ChatType: "direct",
+      From: "telegram:8495203551",
+      SessionKey: "agent:main:telegram:direct:completion-message-tool-only",
+    });
+    const replyResolver = vi.fn(async (_ctx: MsgContext, opts?: GetReplyOptions) => {
+      await opts?.onCommandOutput?.({ phase: "end", name: "shell", exitCode: 0 });
+      return undefined;
+    });
+
+    const result = await dispatchReplyFromConfig({
+      ctx,
+      cfg: emptyConfig,
+      dispatcher,
+      replyResolver,
+      replyOptions: { sourceReplyDeliveryMode: "message_tool_only" },
+    });
+
+    expect(result.sourceReplyDeliveryMode).toBe("message_tool_only");
+    expect(dispatcher.sendToolResult).not.toHaveBeenCalled();
+  });
+
+  it("does not let suppressDefaultToolProgressMessages suppress direct-chat completion acknowledgement", async () => {
+    setNoAbort();
+    const dispatcher = createDispatcher();
+    const ctx = buildTestCtx({
+      Provider: "telegram",
+      Surface: "telegram",
+      ChatType: "direct",
+      From: "telegram:8495203551",
+      SessionKey: "agent:main:telegram:direct:completion-suppressed-progress",
+    });
+    const replyResolver = vi.fn(async (_ctx: MsgContext, opts?: GetReplyOptions) => {
+      await opts?.onCommandOutput?.({ phase: "end", name: "shell", exitCode: 0 });
+      return undefined;
+    });
+
+    await dispatchReplyFromConfig({
+      ctx,
+      cfg: emptyConfig,
+      dispatcher,
+      replyResolver,
+      replyOptions: { suppressDefaultToolProgressMessages: true },
+    });
+
+    expect(dispatcher.sendToolResult).toHaveBeenCalledTimes(1);
+    expect(firstToolResultPayload(dispatcher)?.text).toBe("Completed — shell: completed.");
+  });
+
+  it("sends completion acknowledgement for run lifecycle end with no visible final reply", async () => {
+    setNoAbort();
+    const dispatcher = createDispatcher();
+    const ctx = buildTestCtx({
+      Provider: "telegram",
+      Surface: "telegram",
+      ChatType: "direct",
+      From: "telegram:8495203551",
+      SessionKey: "agent:main:telegram:direct:completion-run-end",
+    });
+    const replyResolver = vi.fn(async (_ctx: MsgContext, opts?: GetReplyOptions) => {
+      await opts?.onRunLifecycleTerminal?.({ phase: "end", status: "completed", title: "run" });
+      return undefined;
+    });
+
+    await dispatchReplyFromConfig({ ctx, cfg: emptyConfig, dispatcher, replyResolver });
+
+    expect(dispatcher.sendToolResult).toHaveBeenCalledTimes(1);
+    expect(firstToolResultPayload(dispatcher)?.text).toBe("Completed — run: completed.");
+  });
+
+  it("sends failed completion acknowledgement for run lifecycle error with no visible final reply", async () => {
+    setNoAbort();
+    const dispatcher = createDispatcher();
+    const ctx = buildTestCtx({
+      Provider: "telegram",
+      Surface: "telegram",
+      ChatType: "direct",
+      From: "telegram:8495203551",
+      SessionKey: "agent:main:telegram:direct:completion-run-error",
+    });
+    const replyResolver = vi.fn(async (_ctx: MsgContext, opts?: GetReplyOptions) => {
+      await opts?.onRunLifecycleTerminal?.({
+        phase: "error",
+        status: "failed",
+        title: "run",
+        error: "secret token raw internal stack trace",
+      });
+      return undefined;
+    });
+
+    await dispatchReplyFromConfig({ ctx, cfg: emptyConfig, dispatcher, replyResolver });
+
+    expect(dispatcher.sendToolResult).toHaveBeenCalledTimes(1);
+    expect(firstToolResultPayload(dispatcher)?.text).toBe("Completed — run: failed.");
+    expect(firstToolResultPayload(dispatcher)?.text).not.toContain("secret token");
+    expect(firstToolResultPayload(dispatcher)?.text).not.toContain("stack trace");
+  });
+
+  it("does not emit non-material lifecycle completion after a visible final reply", async () => {
+    setNoAbort();
+    const dispatcher = createDispatcher();
+    const ctx = buildTestCtx({
+      Provider: "telegram",
+      Surface: "telegram",
+      ChatType: "direct",
+      From: "telegram:8495203551",
+      SessionKey: "agent:main:telegram:direct:late-lifecycle-generic",
+    });
+    const replyResolver = vi.fn(async (_ctx: MsgContext, opts?: GetReplyOptions) => {
+      void opts;
+      return { text: "final closeout" } satisfies ReplyPayload;
+    });
+    const capturedOptions = vi.fn(async (_ctx: MsgContext, opts?: GetReplyOptions) => {
+      const reply = await replyResolver(_ctx, opts);
+      await opts?.onRunLifecycleTerminal?.({ phase: "end", status: "completed", title: "run" });
+      return reply;
+    });
+
+    await dispatchReplyFromConfig({
+      ctx,
+      cfg: emptyConfig,
+      dispatcher,
+      replyResolver: capturedOptions,
+    });
+
+    expect(dispatcher.sendToolResult).not.toHaveBeenCalled();
+    expect(firstFinalReplyPayload(dispatcher)?.text).toBe("final closeout");
+  });
+
+  it("emits material lifecycle failure after a visible final reply", async () => {
+    setNoAbort();
+    const dispatcher = createDispatcher();
+    const ctx = buildTestCtx({
+      Provider: "telegram",
+      Surface: "telegram",
+      ChatType: "direct",
+      From: "telegram:8495203551",
+      SessionKey: "agent:main:telegram:direct:late-lifecycle-failure",
+    });
+    const replyResolver = vi.fn(async (_ctx: MsgContext, opts?: GetReplyOptions) => {
+      const reply = { text: "final closeout" } satisfies ReplyPayload;
+      await opts?.onRunLifecycleTerminal?.({ phase: "error", status: "failed", title: "run" });
+      return reply;
+    });
+
+    await dispatchReplyFromConfig({ ctx, cfg: emptyConfig, dispatcher, replyResolver });
+
+    expect(dispatcher.sendToolResult).toHaveBeenCalledTimes(1);
+    expect(firstToolResultPayload(dispatcher)?.text).toBe("Completed — run: failed.");
+    expect(firstFinalReplyPayload(dispatcher)?.text).toBe("final closeout");
+  });
+
+  it("emits late material terminal event after a visible block reply but suppresses late generic completion", async () => {
+    setNoAbort();
+    const dispatcher = createDispatcher();
+    const ctx = buildTestCtx({
+      Provider: "telegram",
+      Surface: "telegram",
+      ChatType: "direct",
+      From: "telegram:8495203551",
+      SessionKey: "agent:main:telegram:direct:late-material-after-block",
+    });
+    const replyResolver = vi.fn(async (_ctx: MsgContext, opts?: GetReplyOptions) => {
+      await opts?.onBlockReply?.({ text: "visible block closeout" });
+      await opts?.onRunLifecycleTerminal?.({ phase: "end", status: "completed", title: "run" });
+      await opts?.onRunLifecycleTerminal?.({ phase: "error", status: "failed", title: "run" });
+      return undefined;
+    });
+
+    await dispatchReplyFromConfig({ ctx, cfg: emptyConfig, dispatcher, replyResolver });
+
+    expect(dispatcher.sendBlockReply).toHaveBeenCalledWith({ text: "visible block closeout" });
+    expect(dispatcher.sendToolResult).toHaveBeenCalledTimes(1);
+    expect(firstToolResultPayload(dispatcher)?.text).toBe("Completed — run: failed.");
   });
 
   it("delivers text-only tool summaries when verbose overrides preview suppression", async () => {

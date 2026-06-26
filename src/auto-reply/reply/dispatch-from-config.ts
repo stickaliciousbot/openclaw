@@ -1108,6 +1108,16 @@ export async function dispatchReplyFromConfig(
       return parts.join("\n\n").trim() || "Planning next steps.";
     };
     let didSendSourceVisibleStartAcknowledgement = false;
+    let didSendSourceVisibleCompletionAcknowledgement = false;
+    let sourceVisibleCompletionCandidate:
+      | {
+          label: string;
+          status: string;
+          material: boolean;
+        }
+      | undefined;
+    const visibleReplyTexts: string[] = [];
+    let didDeliverMeaningfulVisibleReply = false;
     const sourceVisibleStartPhases = new Set([
       "start",
       "started",
@@ -1125,8 +1135,17 @@ export async function dispatchReplyFromConfig(
       "done",
       "complete",
       "completed",
+      "success",
+      "succeeded",
+      "pass",
+      "passed",
+      "ok",
       "error",
       "failed",
+      "failure",
+      "cancelled",
+      "canceled",
+      "aborted",
     ]);
     const nonWorkItemKinds = new Set(["preamble", "commentary", "reasoning", "assistant"]);
     const normalizeStartState = (value?: string): string =>
@@ -1188,13 +1207,14 @@ export async function dispatchReplyFromConfig(
         "work";
       return normalizeWorkingLabel(rawLabel) || "work";
     };
-    const canSendSourceVisibleStartAcknowledgement = () =>
+    const canSendSourceVisibleLifecycleAcknowledgement = () =>
       !params.replyOptions?.abortSignal?.aborted &&
       !sendPolicyDenied &&
       !suppressDelivery &&
       sourceReplyDeliveryMode !== "message_tool_only" &&
       chatType === "direct" &&
       (ctx as { InboundEventKind?: string }).InboundEventKind !== "room_event";
+    const canSendSourceVisibleStartAcknowledgement = canSendSourceVisibleLifecycleAcknowledgement;
     const maybeSendSourceVisibleStartAcknowledgement = async (payload: {
       name?: string;
       title?: string;
@@ -1215,6 +1235,168 @@ export async function dispatchReplyFromConfig(
       }
       markInboundDedupeReplayUnsafe();
       dispatcher.sendToolResult(acknowledgementPayload);
+    };
+    const normalizeCompletionStatus = (payload: {
+      phase?: string;
+      status?: string;
+      exitCode?: number | null;
+      isError?: boolean;
+    }): string | undefined => {
+      const status = normalizeStartState(payload.status);
+      const phase = normalizeStartState(payload.phase);
+      const normalizeTerminalState = (value: string): string | undefined => {
+        switch (value) {
+          case "pass":
+          case "passed":
+            return "PASS";
+          case "success":
+          case "succeeded":
+          case "ok":
+          case "complete":
+          case "completed":
+          case "done":
+          case "end":
+          case "resolved":
+          case "approved":
+            return "completed";
+          case "error":
+          case "failed":
+          case "failure":
+          case "unavailable":
+          case "denied":
+          case "rejected":
+            return "failed";
+          case "cancelled":
+          case "canceled":
+            return "cancelled";
+          case "aborted":
+            return "aborted";
+          default:
+            return undefined;
+        }
+      };
+      const normalizedStatus = normalizeTerminalState(status);
+      if (normalizedStatus) {
+        return normalizedStatus;
+      }
+      const normalizedPhase = normalizeTerminalState(phase);
+      if (normalizedPhase) {
+        if (typeof payload.exitCode === "number") {
+          return payload.exitCode === 0 ? "completed" : "failed";
+        }
+        return normalizedPhase;
+      }
+      if (typeof payload.exitCode === "number") {
+        return payload.exitCode === 0 ? "completed" : "failed";
+      }
+      if (payload.isError === true) {
+        return "failed";
+      }
+      return undefined;
+    };
+    const sourceVisibleCompletionLabel = (payload: {
+      summary?: string;
+      title?: string;
+      name?: string;
+      kind?: string;
+      itemKind?: string;
+      command?: string;
+      error?: string;
+    }): string => {
+      const rawLabel =
+        normalizeOptionalString(payload.summary) ??
+        normalizeOptionalString(payload.title) ??
+        normalizeOptionalString(payload.name) ??
+        normalizeOptionalString(payload.kind) ??
+        normalizeOptionalString(payload.itemKind) ??
+        normalizeOptionalString(payload.command) ??
+        (normalizeOptionalString(payload.error) ? "run" : undefined) ??
+        "work";
+      return normalizeWorkingLabel(rawLabel) || "work";
+    };
+    const recordSourceVisibleCompletionCandidate = (payload: {
+      summary?: string;
+      title?: string;
+      name?: string;
+      kind?: string;
+      itemKind?: string;
+      command?: string;
+      phase?: string;
+      status?: string;
+      exitCode?: number | null;
+      isError?: boolean;
+      error?: string;
+      aborted?: boolean;
+      stopReason?: string;
+    }): void => {
+      const status = payload.aborted === true ? "aborted" : normalizeCompletionStatus(payload);
+      if (!status) {
+        return;
+      }
+      const candidate = {
+        label: sourceVisibleCompletionLabel(payload),
+        status,
+        material:
+          status === "PASS" ||
+          status === "failed" ||
+          status === "cancelled" ||
+          status === "aborted",
+      };
+      if (!sourceVisibleCompletionCandidate || candidate.material) {
+        sourceVisibleCompletionCandidate = candidate;
+      }
+    };
+    const markMeaningfulVisibleReplyDelivered = (payload: ReplyPayload): void => {
+      const text = normalizeOptionalString(payload.text);
+      if (!text) {
+        return;
+      }
+      didDeliverMeaningfulVisibleReply = true;
+      visibleReplyTexts.push(text);
+    };
+    const completionAlreadyVisibleInReply = (candidate: {
+      label: string;
+      status: string;
+    }): boolean => {
+      const label = candidate.label.toLowerCase();
+      const status = candidate.status.toLowerCase();
+      return visibleReplyTexts.some((text) => {
+        const lower = text.toLowerCase();
+        return lower.includes("completed") && lower.includes(label) && lower.includes(status);
+      });
+    };
+    const maybeSendSourceVisibleCompletionAcknowledgement = async (): Promise<void> => {
+      if (
+        didSendSourceVisibleCompletionAcknowledgement ||
+        !sourceVisibleCompletionCandidate ||
+        !canSendSourceVisibleLifecycleAcknowledgement()
+      ) {
+        return;
+      }
+      if (didDeliverMeaningfulVisibleReply && !sourceVisibleCompletionCandidate.material) {
+        return;
+      }
+      if (completionAlreadyVisibleInReply(sourceVisibleCompletionCandidate)) {
+        return;
+      }
+      didSendSourceVisibleCompletionAcknowledgement = true;
+      const acknowledgementPayload: ReplyPayload = {
+        text: `Completed — ${sourceVisibleCompletionCandidate.label}: ${sourceVisibleCompletionCandidate.status}.`,
+      };
+      if (shouldRouteToOriginating) {
+        await sendPayloadAsync(acknowledgementPayload, undefined, false);
+        return;
+      }
+      markInboundDedupeReplayUnsafe();
+      dispatcher.sendToolResult(acknowledgementPayload);
+    };
+    const recordAndMaybeSendTerminalCompletionCandidate = async (
+      payload: Parameters<typeof recordSourceVisibleCompletionCandidate>[0],
+    ): Promise<void> => {
+      recordSourceVisibleCompletionCandidate(payload);
+      if (didDeliverMeaningfulVisibleReply && sourceVisibleCompletionCandidate?.material) {
+        await maybeSendSourceVisibleCompletionAcknowledgement();
+      }
     };
     const maybeSendWorkingStatus = async (label: string): Promise<void> => {
       if (suppressDelivery) {
@@ -1396,6 +1578,13 @@ export async function dispatchReplyFromConfig(
           payload: Parameters<NonNullable<GetReplyOptions["onItemEvent"]>>[0],
         ): Promise<void> => {
           markProgress();
+          await recordAndMaybeSendTerminalCompletionCandidate({
+            ...payload,
+            itemKind:
+              typeof (payload as { itemKind?: unknown }).itemKind === "string"
+                ? (payload as { itemKind?: string }).itemKind
+                : undefined,
+          });
           if (isSourceVisibleItemStartSignal(payload)) {
             await maybeSendSourceVisibleStartAcknowledgement({
               ...payload,
@@ -1430,9 +1619,16 @@ export async function dispatchReplyFromConfig(
         onBlockReplyQueued: wrapProgressCallback(params.replyOptions?.onBlockReplyQueued),
         onToolStart,
         onItemEvent,
-        onCommandOutput: wrapProgressCallback(params.replyOptions?.onCommandOutput, {
-          forwardWhenSourceDeliverySuppressed: true,
-        }),
+        onCommandOutput: async (payload) => {
+          markProgress();
+          await recordAndMaybeSendTerminalCompletionCandidate({
+            ...payload,
+            kind: "shell",
+          });
+          if (shouldForwardProgressCallback({ forwardWhenSourceDeliverySuppressed: true })) {
+            await params.replyOptions?.onCommandOutput?.(payload);
+          }
+        },
         onCompactionStart: wrapProgressCallback(params.replyOptions?.onCompactionStart, {
           forwardWhenSourceDeliverySuppressed: true,
         }),
@@ -1441,6 +1637,11 @@ export async function dispatchReplyFromConfig(
         }),
         onToolResult: (payload: ReplyPayload) => {
           markProgress();
+          recordSourceVisibleCompletionCandidate({
+            title: normalizeOptionalString(payload.text) ?? undefined,
+            kind: "tool",
+            isError: payload.isError === true,
+          });
           const run = async () => {
             markInboundDedupeReplayUnsafe();
             if (!suppressAutomaticSourceDelivery) {
@@ -1501,6 +1702,11 @@ export async function dispatchReplyFromConfig(
         onApprovalEvent: async (payload) => {
           markProgress();
           markInboundDedupeReplayUnsafe();
+          await recordAndMaybeSendTerminalCompletionCandidate({
+            ...payload,
+            name: payload.title ?? payload.kind,
+            kind: "approval",
+          });
           if (shouldForwardProgressCallback({ forwardWhenSourceDeliverySuppressed: true })) {
             await onApprovalEventFromReplyOptions?.(payload);
           }
@@ -1520,6 +1726,10 @@ export async function dispatchReplyFromConfig(
         onPatchSummary: async (payload) => {
           markProgress();
           markInboundDedupeReplayUnsafe();
+          await recordAndMaybeSendTerminalCompletionCandidate({
+            ...payload,
+            kind: "patch",
+          });
           if (shouldForwardProgressCallback({ forwardWhenSourceDeliverySuppressed: true })) {
             await onPatchSummaryFromReplyOptions?.(payload);
           }
@@ -1605,10 +1815,31 @@ export async function dispatchReplyFromConfig(
               await sendPayloadAsync(normalizedPayload, context?.abortSignal, false);
             } else {
               markInboundDedupeReplayUnsafe();
-              dispatcher.sendBlockReply(normalizedPayload);
+              if (dispatcher.sendBlockReply(normalizedPayload)) {
+                markMeaningfulVisibleReplyDelivered(normalizedPayload);
+              }
             }
           };
           return run();
+        },
+        onRunLifecycleTerminal: async (payload) => {
+          markProgress();
+          await recordAndMaybeSendTerminalCompletionCandidate({
+            phase: payload.phase,
+            status:
+              payload.aborted === true
+                ? "aborted"
+                : (payload.status ?? (payload.phase === "error" ? "failed" : undefined)),
+            title: payload.title ?? "run",
+            summary: payload.summary,
+            exitCode: payload.exitCode,
+            error: payload.error,
+            aborted: payload.aborted,
+            stopReason: payload.stopReason,
+          });
+          if (shouldForwardProgressCallback({ forwardWhenSourceDeliverySuppressed: true })) {
+            await params.replyOptions?.onRunLifecycleTerminal?.(payload);
+          }
         },
       },
       replyConfig,
@@ -1679,6 +1910,9 @@ export async function dispatchReplyFromConfig(
       const finalReply = await sendFinalPayload(reply);
       queuedFinal = finalReply.queuedFinal || queuedFinal;
       routedFinalCount += finalReply.routedFinalCount;
+      if (finalReply.queuedFinal || finalReply.routedFinalCount > 0) {
+        markMeaningfulVisibleReplyDelivered(reply);
+      }
       if (!finalReply.queuedFinal && finalReply.routedFinalCount === 0) {
         finalDeliveryFailed = true;
       }
@@ -1753,6 +1987,7 @@ export async function dispatchReplyFromConfig(
     }
 
     const counts = dispatcher.getQueuedCounts();
+    await maybeSendSourceVisibleCompletionAcknowledgement();
     counts.final += routedFinalCount;
     commitInboundDedupeIfClaimed();
     recordProcessed(

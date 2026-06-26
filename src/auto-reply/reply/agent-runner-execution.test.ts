@@ -1387,6 +1387,7 @@ describe("runAgentTurnWithFallback", () => {
     });
 
     const runAgentTurnWithFallback = await getRunAgentTurnWithFallback();
+    const onRunLifecycleTerminal = vi.fn();
     const result = await runAgentTurnWithFallback({
       commandBody: "hello",
       followupRun: createFollowupRun(),
@@ -1394,7 +1395,7 @@ describe("runAgentTurnWithFallback", () => {
         Provider: "whatsapp",
         MessageSid: "msg",
       } as unknown as TemplateContext,
-      opts: { runId: "run-timeout" } as GetReplyOptions,
+      opts: { runId: "run-timeout", onRunLifecycleTerminal } as GetReplyOptions,
       typingSignals: createMockTypingSignaler(),
       blockReplyPipeline: null,
       blockStreamingEnabled: false,
@@ -1425,6 +1426,14 @@ describe("runAgentTurnWithFallback", () => {
         replayInvalid: true,
       },
     });
+    expect(onRunLifecycleTerminal).toHaveBeenCalledTimes(1);
+    expect(onRunLifecycleTerminal).toHaveBeenCalledWith({
+      phase: "end",
+      status: "aborted",
+      title: "run",
+      aborted: true,
+      stopReason: undefined,
+    });
   });
 
   it("does not duplicate embedded lifecycle terminal events already reported by the runner", async () => {
@@ -1443,6 +1452,7 @@ describe("runAgentTurnWithFallback", () => {
     });
 
     const runAgentTurnWithFallback = await getRunAgentTurnWithFallback();
+    const onRunLifecycleTerminal = vi.fn();
     const result = await runAgentTurnWithFallback({
       commandBody: "hello",
       followupRun: createFollowupRun(),
@@ -1450,7 +1460,7 @@ describe("runAgentTurnWithFallback", () => {
         Provider: "whatsapp",
         MessageSid: "msg",
       } as unknown as TemplateContext,
-      opts: { runId: "run-complete" } as GetReplyOptions,
+      opts: { runId: "run-complete", onRunLifecycleTerminal } as GetReplyOptions,
       typingSignals: createMockTypingSignaler(),
       blockReplyPipeline: null,
       blockStreamingEnabled: false,
@@ -1474,6 +1484,16 @@ describe("runAgentTurnWithFallback", () => {
         stream: "lifecycle",
       }),
     );
+    expect(onRunLifecycleTerminal).toHaveBeenCalledTimes(1);
+    expect(onRunLifecycleTerminal).toHaveBeenCalledWith({
+      phase: "end",
+      status: "completed",
+      title: "run",
+      summary: undefined,
+      error: undefined,
+      aborted: false,
+      stopReason: undefined,
+    });
   });
 
   it("trims chatty GPT ack-turn final prose", async () => {
@@ -2479,6 +2499,7 @@ describe("runAgentTurnWithFallback", () => {
     );
 
     const runAgentTurnWithFallback = await getRunAgentTurnWithFallback();
+    const onRunLifecycleTerminal = vi.fn();
     const result = await runAgentTurnWithFallback({
       commandBody: "hello",
       followupRun: createFollowupRun(),
@@ -2486,7 +2507,7 @@ describe("runAgentTurnWithFallback", () => {
         Provider: "whatsapp",
         MessageSid: "msg",
       } as unknown as TemplateContext,
-      opts: {},
+      opts: { onRunLifecycleTerminal },
       typingSignals: createMockTypingSignaler(),
       blockReplyPipeline: null,
       blockStreamingEnabled: false,
@@ -2507,6 +2528,13 @@ describe("runAgentTurnWithFallback", () => {
     if (result.kind === "final") {
       expect(result.payload.text).toBe(GENERIC_RUN_FAILURE_TEXT);
     }
+    expect(onRunLifecycleTerminal).toHaveBeenCalledTimes(1);
+    expect(onRunLifecycleTerminal).toHaveBeenCalledWith({
+      phase: "error",
+      status: "failed",
+      title: "run",
+      error: "INVALID_ARGUMENT: some other failure",
+    });
   });
 
   it("forwards sanitized generic errors on external chat channels when verbose is on", async () => {

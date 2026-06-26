@@ -1479,6 +1479,11 @@ export async function runAgentTurnWithFallback(params: {
                     endedAt: Date.now(),
                   },
                 });
+                await params.opts?.onRunLifecycleTerminal?.({
+                  phase: "end",
+                  status: "completed",
+                  title: "run",
+                });
                 lifecycleTerminalEmitted = true;
 
                 return result;
@@ -1503,6 +1508,12 @@ export async function runAgentTurnWithFallback(params: {
                     error: String(err),
                   },
                 });
+                await params.opts?.onRunLifecycleTerminal?.({
+                  phase: "error",
+                  status: "failed",
+                  title: "run",
+                  error: formatErrorMessage(err),
+                });
                 lifecycleTerminalEmitted = true;
                 throw err;
               } finally {
@@ -1518,6 +1529,12 @@ export async function runAgentTurnWithFallback(params: {
                       endedAt: Date.now(),
                       error: "CLI run completed without lifecycle terminal event",
                     },
+                  });
+                  await params.opts?.onRunLifecycleTerminal?.({
+                    phase: "error",
+                    status: "failed",
+                    title: "run",
+                    error: "CLI run completed without lifecycle terminal event",
                   });
                 }
               }
@@ -1536,6 +1553,16 @@ export async function runAgentTurnWithFallback(params: {
           );
           return (async () => {
             let attemptCompactionCount = 0;
+            let didEmitRunLifecycleTerminal = false;
+            const emitRunLifecycleTerminal = async (
+              payload: Parameters<NonNullable<GetReplyOptions["onRunLifecycleTerminal"]>>[0],
+            ) => {
+              if (didEmitRunLifecycleTerminal) {
+                return;
+              }
+              didEmitRunLifecycleTerminal = true;
+              await params.opts?.onRunLifecycleTerminal?.(payload);
+            };
             const lifecycleBackstop = createEmbeddedLifecycleTerminalBackstop({
               runId,
               sessionKey: params.sessionKey,
@@ -1620,6 +1647,20 @@ export async function runAgentTurnWithFallback(params: {
                 onReasoningEnd: params.opts?.onReasoningEnd,
                 onAgentEvent: async (evt) => {
                   lifecycleBackstop.note(evt);
+                  if (evt.stream === "lifecycle") {
+                    const phase = readStringValue(evt.data.phase);
+                    if (phase === "end" || phase === "error") {
+                      await emitRunLifecycleTerminal({
+                        phase,
+                        status: phase === "error" ? "failed" : "completed",
+                        title: "run",
+                        summary: readStringValue(evt.data.summary),
+                        error: readStringValue(evt.data.error),
+                        aborted: evt.data.aborted === true,
+                        stopReason: readStringValue(evt.data.stopReason),
+                      });
+                    }
+                  }
                   // Signal run start only after the embedded agent emits real activity.
                   const hasLifecyclePhase =
                     evt.stream === "lifecycle" && typeof evt.data.phase === "string";
@@ -1837,6 +1878,13 @@ export async function runAgentTurnWithFallback(params: {
                 result.meta?.systemPromptReport,
               );
               lifecycleBackstop.emit("end", result);
+              await emitRunLifecycleTerminal({
+                phase: "end",
+                status: result.meta?.aborted === true ? "aborted" : "completed",
+                title: "run",
+                aborted: result.meta?.aborted === true,
+                stopReason: readStringValue(result.meta?.stopReason),
+              });
               const resultCompactionCount = Math.max(
                 0,
                 result.meta?.agentMeta?.compactionCount ?? 0,
@@ -1855,6 +1903,12 @@ export async function runAgentTurnWithFallback(params: {
                 }
               }
               lifecycleBackstop.emit("error", err);
+              await emitRunLifecycleTerminal({
+                phase: "error",
+                status: "failed",
+                title: "run",
+                error: formatErrorMessage(err),
+              });
               throw err;
             } finally {
               autoCompactionCount += attemptCompactionCount;
