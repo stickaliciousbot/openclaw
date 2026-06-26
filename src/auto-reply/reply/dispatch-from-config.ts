@@ -73,7 +73,7 @@ import {
   shouldAttemptTtsPayload,
 } from "../../tts/tts-config.js";
 import { INTERNAL_MESSAGE_CHANNEL, normalizeMessageChannel } from "../../utils/message-channel.js";
-import type { BlockReplyContext } from "../get-reply-options.types.js";
+import type { BlockReplyContext, GetReplyOptions } from "../get-reply-options.types.js";
 import { getReplyPayloadMetadata, type ReplyPayload } from "../reply-payload.js";
 import type { FinalizedMsgContext } from "../templating.js";
 import { normalizeVerboseLevel } from "../thinking.js";
@@ -1107,6 +1107,115 @@ export async function dispatchReplyFromConfig(
       }
       return parts.join("\n\n").trim() || "Planning next steps.";
     };
+    let didSendSourceVisibleStartAcknowledgement = false;
+    const sourceVisibleStartPhases = new Set([
+      "start",
+      "started",
+      "begin",
+      "running",
+      "in_progress",
+    ]);
+    const sourceVisibleItemStartStates = new Set([
+      ...sourceVisibleStartPhases,
+      "pending",
+      "requested",
+    ]);
+    const sourceVisibleTerminalStates = new Set([
+      "end",
+      "done",
+      "complete",
+      "completed",
+      "error",
+      "failed",
+    ]);
+    const nonWorkItemKinds = new Set(["preamble", "commentary", "reasoning", "assistant"]);
+    const normalizeStartState = (value?: string): string =>
+      (normalizeOptionalString(value) ?? "").toLowerCase().replace(/[\s-]+/g, "_");
+    const isSourceVisibleToolStartSignal = (
+      payload: Parameters<NonNullable<GetReplyOptions["onToolStart"]>>[0],
+    ): boolean => {
+      const phase = normalizeStartState(payload.phase);
+      if (!phase) {
+        return true;
+      }
+      if (sourceVisibleTerminalStates.has(phase) || phase === "update") {
+        return false;
+      }
+      return sourceVisibleStartPhases.has(phase);
+    };
+    const isSourceVisibleItemStartSignal = (
+      payload: Parameters<NonNullable<GetReplyOptions["onItemEvent"]>>[0],
+    ): boolean => {
+      const kind = normalizeStartState(payload.kind);
+      const itemKind = normalizeStartState(
+        typeof (payload as { itemKind?: unknown }).itemKind === "string"
+          ? (payload as { itemKind?: string }).itemKind
+          : undefined,
+      );
+      if (nonWorkItemKinds.has(kind) || nonWorkItemKinds.has(itemKind)) {
+        return false;
+      }
+      const phase = normalizeStartState(payload.phase);
+      const status = normalizeStartState(payload.status);
+      if (sourceVisibleTerminalStates.has(phase) || sourceVisibleTerminalStates.has(status)) {
+        return false;
+      }
+      if (sourceVisibleItemStartStates.has(phase) || sourceVisibleItemStartStates.has(status)) {
+        return true;
+      }
+      return Boolean(
+        normalizeOptionalString(payload.name) ??
+        normalizeOptionalString(payload.title) ??
+        normalizeOptionalString(payload.kind) ??
+        normalizeOptionalString(
+          typeof (payload as { itemKind?: unknown }).itemKind === "string"
+            ? (payload as { itemKind?: string }).itemKind
+            : undefined,
+        ),
+      );
+    };
+    const sourceVisibleStartLabel = (payload: {
+      name?: string;
+      title?: string;
+      kind?: string;
+      itemKind?: string;
+    }): string => {
+      const rawLabel =
+        normalizeOptionalString(payload.name) ??
+        normalizeOptionalString(payload.title) ??
+        normalizeOptionalString(payload.kind) ??
+        normalizeOptionalString(payload.itemKind) ??
+        "work";
+      return normalizeWorkingLabel(rawLabel) || "work";
+    };
+    const canSendSourceVisibleStartAcknowledgement = () =>
+      !params.replyOptions?.abortSignal?.aborted &&
+      !sendPolicyDenied &&
+      !suppressDelivery &&
+      sourceReplyDeliveryMode !== "message_tool_only" &&
+      chatType === "direct" &&
+      (ctx as { InboundEventKind?: string }).InboundEventKind !== "room_event";
+    const maybeSendSourceVisibleStartAcknowledgement = async (payload: {
+      name?: string;
+      title?: string;
+      kind?: string;
+      itemKind?: string;
+    }): Promise<void> => {
+      if (didSendSourceVisibleStartAcknowledgement || !canSendSourceVisibleStartAcknowledgement()) {
+        return;
+      }
+      const normalizedLabel = sourceVisibleStartLabel(payload);
+      didSendSourceVisibleStartAcknowledgement = true;
+      const acknowledgementPayload: ReplyPayload = {
+        text: `Started/running — ${normalizedLabel}.`,
+      };
+      if (shouldRouteToOriginating) {
+        await sendPayloadAsync(acknowledgementPayload, undefined, false);
+        return;
+      }
+      markInboundDedupeReplayUnsafe();
+      dispatcher.sendToolResult(acknowledgementPayload);
+    };
     const maybeSendWorkingStatus = async (label: string): Promise<void> => {
       if (suppressDelivery) {
         return;
@@ -1265,6 +1374,42 @@ export async function dispatchReplyFromConfig(
         }
       };
     };
+    const shouldProvideSourceVisibleStartHook = () =>
+      Boolean(params.replyOptions?.onToolStart || params.replyOptions?.onItemEvent) ||
+      canSendSourceVisibleStartAcknowledgement() ||
+      (suppressAutomaticSourceDelivery && canTrackSession);
+    const onToolStart = shouldProvideSourceVisibleStartHook()
+      ? async (
+          payload: Parameters<NonNullable<GetReplyOptions["onToolStart"]>>[0],
+        ): Promise<void> => {
+          markProgress();
+          if (isSourceVisibleToolStartSignal(payload)) {
+            await maybeSendSourceVisibleStartAcknowledgement(payload);
+          }
+          if (shouldForwardProgressCallback({ forwardWhenSourceDeliverySuppressed: true })) {
+            await params.replyOptions?.onToolStart?.(payload);
+          }
+        }
+      : undefined;
+    const onItemEvent = shouldProvideSourceVisibleStartHook()
+      ? async (
+          payload: Parameters<NonNullable<GetReplyOptions["onItemEvent"]>>[0],
+        ): Promise<void> => {
+          markProgress();
+          if (isSourceVisibleItemStartSignal(payload)) {
+            await maybeSendSourceVisibleStartAcknowledgement({
+              ...payload,
+              itemKind:
+                typeof (payload as { itemKind?: unknown }).itemKind === "string"
+                  ? (payload as { itemKind?: string }).itemKind
+                  : undefined,
+            });
+          }
+          if (shouldForwardProgressCallback({ forwardWhenSourceDeliverySuppressed: true })) {
+            await params.replyOptions?.onItemEvent?.(payload);
+          }
+        }
+      : undefined;
 
     const replyResolver =
       params.replyResolver ?? (await loadGetReplyFromConfigRuntime()).getReplyFromConfig;
@@ -1283,12 +1428,8 @@ export async function dispatchReplyFromConfig(
         onReasoningEnd: wrapProgressCallback(params.replyOptions?.onReasoningEnd),
         onAssistantMessageStart: wrapProgressCallback(params.replyOptions?.onAssistantMessageStart),
         onBlockReplyQueued: wrapProgressCallback(params.replyOptions?.onBlockReplyQueued),
-        onToolStart: wrapProgressCallback(params.replyOptions?.onToolStart, {
-          forwardWhenSourceDeliverySuppressed: true,
-        }),
-        onItemEvent: wrapProgressCallback(params.replyOptions?.onItemEvent, {
-          forwardWhenSourceDeliverySuppressed: true,
-        }),
+        onToolStart,
+        onItemEvent,
         onCommandOutput: wrapProgressCallback(params.replyOptions?.onCommandOutput, {
           forwardWhenSourceDeliverySuppressed: true,
         }),

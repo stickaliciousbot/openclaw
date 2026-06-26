@@ -2854,6 +2854,36 @@ describe("dispatchTelegramMessage draft streaming", () => {
     );
   });
 
+  it("surfaces direct source-visible start acknowledgement before the final answer when default progress is suppressed", async () => {
+    const { answerDraftStream } = setupDraftStreams({ answerMessageId: 2001 });
+    dispatchReplyWithBufferedBlockDispatcher.mockImplementation(async ({ dispatcherOptions }) => {
+      await dispatcherOptions.deliver({ text: "Started/running — shell." }, { kind: "tool" });
+      await dispatcherOptions.deliver({ text: "final reply" }, { kind: "final" });
+      return { queuedFinal: true };
+    });
+
+    await dispatchWithContext({
+      context: createContext({
+        ctxPayload: {
+          SessionKey: "agent:main:telegram:direct:123",
+        } as unknown as TelegramMessageContext["ctxPayload"],
+      }),
+      streamMode: "partial",
+      telegramCfg: { streaming: { mode: "partial" } },
+    });
+
+    expect(dispatchReplyWithBufferedBlockDispatcher).toHaveBeenCalledWith(
+      expect.objectContaining({
+        replyOptions: expect.objectContaining({
+          suppressDefaultToolProgressMessages: true,
+        }),
+      }),
+    );
+    expect(answerDraftStream.update).toHaveBeenNthCalledWith(1, "Started/running — shell.");
+    expect(editMessageTelegram).toHaveBeenCalledWith(123, 2001, "final reply", expect.any(Object));
+    expect(deliverReplies).not.toHaveBeenCalled();
+  });
+
   it("shows Telegram progress drafts immediately for explicit tool starts", async () => {
     const draftStream = createSequencedDraftStream(2001);
     createTelegramDraftStream.mockReturnValue(draftStream);

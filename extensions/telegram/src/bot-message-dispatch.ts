@@ -810,6 +810,8 @@ export const dispatchTelegramMessage = async ({
       }
       return { ...payload, text };
     };
+    const isSourceVisibleStartAcknowledgementPayload = (payload: ReplyPayload): boolean =>
+      typeof payload.text === "string" && /^Started\/running — \S[\s\S]*\.$/.test(payload.text);
     const applyTextToFollowUpPayload = (payload: ReplyPayload, text: string): ReplyPayload => {
       const next = applyTextToPayload(payload, text);
       const {
@@ -1024,6 +1026,17 @@ export const dispatchTelegramMessage = async ({
                     const segments = split.segments;
                     const reply = resolveSendableOutboundReplyParts(payload);
                     const _hasMedia = reply.hasMedia;
+                    if (
+                      info.kind === "tool" &&
+                      isSourceVisibleStartAcknowledgementPayload(payload) &&
+                      !reply.hasMedia &&
+                      typeof payload.text === "string" &&
+                      answerLane.stream
+                    ) {
+                      updateDraftFromPartial(answerLane, payload.text);
+                      pendingCompactionReplayBoundary = false;
+                      return;
+                    }
 
                     const flushBufferedFinalAnswer = async () => {
                       const buffered =
