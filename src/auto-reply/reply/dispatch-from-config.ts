@@ -2937,7 +2937,6 @@ export async function dispatchReplyFromConfig(
         params.replyOptions?.allowToolLifecycleWhenProgressHidden === true,
       forwardWhenSourceDeliverySuppressed: true,
       requiresToolSummaryVisibility: true,
-      waitForDirectBlockReplyDelivery: true,
     });
     const onToolStart = async (
       payload: Parameters<NonNullable<GetReplyOptions["onToolStart"]>>[0],
@@ -2945,7 +2944,6 @@ export async function dispatchReplyFromConfig(
       if (isDispatchOperationAborted()) {
         return;
       }
-      markProgress();
       await waitForPendingDirectBlockReplyDelivery(dispatchAbortOperation?.abortSignal);
       if (isDispatchOperationAborted()) {
         return;
