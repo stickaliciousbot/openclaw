@@ -1,0 +1,29 @@
+{
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4_bounded_next_step_proposal_drafting_readiness_design",
+  "c4_kernel_required_before_exercise_or_canary": true,
+  "c4_production_authorized": false,
+  "c4_proposal_drafting_is_not_action_authority": true,
+  "created_utc": "2026-06-27T12:43:07Z",
+  "failed_gates": [],
+  "first_failure": null,
+  "next_owner_approval_required_for": [
+    "M12-C4K deterministic proposal kernel implementation",
+    "C4 readiness exercise",
+    "C4 limited production canary",
+    "any C4 production acceptance",
+    "any C4 production route"
+  ],
+  "not_authorized": [
+    "C4 production",
+    "C4 canary",
+    "cache",
+    "artifact-memory/global promotion",
+    "runtime/Gateway/config mutation",
+    "external action execution",
+    "broad/global Semantic Gate promotion"
+  ],
+  "owner_authorized": "M12-C4 readiness design only",
+  "schema": "stickbot.vnext_semantic_gate.m12_c4.owner_boundary.v1",
+  "schema_base": "stickbot.vnext_semantic_gate.m12_c4_readiness_design",
+  "status": "M12_C4_READINESS_DESIGN_PASS_NO_APPLY"
+}

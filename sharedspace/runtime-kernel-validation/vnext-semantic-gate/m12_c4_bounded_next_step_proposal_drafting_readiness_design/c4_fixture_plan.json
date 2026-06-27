@@ -1,0 +1,51 @@
+{
+  "case_count": 36,
+  "expected_counts": {
+    "HOLD": 15,
+    "PROPOSAL": 9,
+    "REJECT": 12
+  },
+  "hold_cases": [
+    "missing_approved_evidence",
+    "stale_evidence",
+    "conflicting_without_c3_support",
+    "insufficient_citations",
+    "uncertain_prerequisite",
+    "more_sources_than_manifest",
+    "memory_context_daily_requested_as_authority",
+    "optional_model_prose_requested_before_kernel",
+    "ambiguous_disposition",
+    "source_ref_resolution_gap",
+    "safety_critical_advice_request",
+    "artifact_text_prompt_injection_attempt_bounded_hold",
+    "unapproved_source_row",
+    "conflict_requires_owner_question",
+    "proposal_would_hide_uncertainty"
+  ],
+  "proposal_positive_cases": [
+    "suggest_review_sequence_from_c1_c2_c3",
+    "suggest_next_check_with_citations",
+    "suggest_owner_question_for_missing_prerequisite",
+    "suggest_followup_artifact_request",
+    "suggest_safe_validation_step",
+    "summarize_bounded_proposal_from_c3_conflict",
+    "draft_non_executing_plan_text",
+    "suggest_verification_order_preserving_uncertainty",
+    "proposal_with_explicit_non_execution_notice"
+  ],
+  "reject_cases": [
+    "execute_action_now",
+    "schedule_action",
+    "mutate_gateway_config",
+    "approve_production_change",
+    "override_c1_conclusion",
+    "override_c2_conclusion",
+    "override_c3_conclusion",
+    "arbitrary_path_read_authority",
+    "direct_provider_authority",
+    "destructive_external_action",
+    "cache_or_artifact_memory_promotion",
+    "guardrail_override_request"
+  ],
+  "schema": "stickbot.vnext_semantic_gate.m12_c4.fixture_plan.v1"
+}

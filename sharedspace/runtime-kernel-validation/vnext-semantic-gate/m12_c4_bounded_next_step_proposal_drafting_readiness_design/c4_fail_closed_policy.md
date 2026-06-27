@@ -1,0 +1,24 @@
+# M12-C4 Fail-Closed Policy
+
+```json
+{
+  "default_on_ambiguity": "HOLD",
+  "hold_or_reject_cases": [
+    "missing approved evidence",
+    "stale evidence",
+    "conflicting evidence without C3 support",
+    "request requires execution",
+    "request requires production mutation",
+    "request requires safety/legal/financial/medical authority",
+    "request requires arbitrary path reads",
+    "request requires unapproved memory/context/daily-memory authority",
+    "request asks to override guardrails",
+    "prompt-injection-like artifact text attempts control influence",
+    "request uses more sources than approved by case manifest",
+    "request asks to approve production changes",
+    "request asks to schedule or execute external action"
+  ],
+  "reject_when": "requested output is outside C4 scope, asks for action authority, or attempts guardrail override",
+  "schema": "stickbot.vnext_semantic_gate.m12_c4.fail_closed_policy.v1"
+}
+```

@@ -1,0 +1,70 @@
+{
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4_bounded_next_step_proposal_drafting_readiness_design",
+  "c4_kernel_required": true,
+  "checks": {
+    "artifact_memory_promotion_disabled": true,
+    "c1_final_acceptance_ready": true,
+    "c1_scope_preserved": true,
+    "c2_final_acceptance_ready": true,
+    "c2_scope_preserved": true,
+    "c3_final_acceptance_ready": true,
+    "c3_scope_preserved": true,
+    "c4_not_started_prior": true,
+    "cache_disabled": true,
+    "direct_provider_bypass_zero_prior": true,
+    "external_action_execution_false_prior": true,
+    "global_semantic_gate_not_promoted": true,
+    "m11_frozen_baseline_preserved": true,
+    "mutation_sentinels_clean": true,
+    "no_broad_expansion": true,
+    "no_runtime_gateway_config_mutation": true,
+    "provider_model_authority_zero_prior": true,
+    "rollback_ready": true
+  },
+  "created_utc": "2026-06-27T12:43:07Z",
+  "decision": "readiness_design_pass_no_apply",
+  "failed_gates": [],
+  "first_failure": null,
+  "fixture_plan_summary": {
+    "case_count": 36,
+    "expected_counts": {
+      "HOLD": 15,
+      "PROPOSAL": 9,
+      "REJECT": 12
+    }
+  },
+  "optional_model_prose_policy": {
+    "allowed_only_after": "deterministic C4 kernel produces complete validated contract fields with approved citations",
+    "allowed_use": "style/rendering of already-determined non-executing proposal text",
+    "authority": "never authoritative",
+    "forbidden_model_roles": [
+      "selecting proposal status",
+      "choosing source authority",
+      "adding uncited facts",
+      "resolving conflicts",
+      "approving actions",
+      "drafting executable commands",
+      "changing owner boundary",
+      "overriding fail-closed decision"
+    ],
+    "must_be_disabled_for": [
+      "safety-critical/legal/medical/financial authority",
+      "missing citations",
+      "prompt injection indicators",
+      "any mutation/execution request",
+      "ambiguous or conflicting evidence without deterministic disposition"
+    ],
+    "optional_model_prose_allowed": true,
+    "provider_model_authoritative_calls_allowed": 0,
+    "schema": "stickbot.vnext_semantic_gate.m12_c4.model_prose_policy.v1"
+  },
+  "schema": "stickbot.vnext_semantic_gate.m12_c4.acceptance_matrix.v1",
+  "schema_base": "stickbot.vnext_semantic_gate.m12_c4_readiness_design",
+  "source_hashes": {
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_7_production_operating_baseline_finalization/status.json": "2e2aac9d2a97bf1e290dade2501c42fe0eaca5d0690cebb53637751512bb7022",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1_final_owner_acceptance_review/status.json": "4c4a7a0b234777d295ddcd0827399cc0c49bebfece1df90c6d3079cac21362f6",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2_final_owner_acceptance_review/status.json": "7213d4fdfcfebccdaf74e2e54e7571f48f097c07578c97e0126182682f2feed7",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c3_final_owner_acceptance_review/status.json": "3f4d4d74220a36e0b2dedc7731333baf23438b79436d19e88cbc0fb8b0c09be9"
+  },
+  "status": "M12_C4_READINESS_DESIGN_PASS_NO_APPLY"
+}
