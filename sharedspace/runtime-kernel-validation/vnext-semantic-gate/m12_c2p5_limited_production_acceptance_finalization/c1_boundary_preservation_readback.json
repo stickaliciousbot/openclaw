@@ -1,0 +1,14 @@
+{
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p5_limited_production_acceptance_finalization",
+  "c1_mutation_sentinels_clean": true,
+  "c1_rollback_ready": true,
+  "created_utc": "2026-06-27T10:51:57Z",
+  "failed_gates": [],
+  "first_failure": null,
+  "m12_c1_frozen_production_boundary_preserved": true,
+  "m12_c1_status": "M12_C1_FINAL_OWNER_ACCEPTANCE_READY",
+  "schema": "stickbot.vnext_semantic_gate.m12_c2p5.c1_boundary.v1",
+  "schema_base": "stickbot.vnext_semantic_gate.m12_c2p5",
+  "source_hash": "4c4a7a0b234777d295ddcd0827399cc0c49bebfece1df90c6d3079cac21362f6",
+  "status": "M12_C2P5_LIMITED_PRODUCTION_ACCEPTANCE_FINALIZATION_PASS"
+}

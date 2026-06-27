@@ -1,0 +1,15 @@
+{
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p5_limited_production_acceptance_finalization",
+  "created_utc": "2026-06-27T10:51:57Z",
+  "failed_gates": [],
+  "first_failure": null,
+  "guard_reject": 5,
+  "guidance": 8,
+  "hold": 12,
+  "reconciled": true,
+  "requests": 25,
+  "schema": "stickbot.vnext_semantic_gate.m12_c2p5.accounting.v1",
+  "schema_base": "stickbot.vnext_semantic_gate.m12_c2p5",
+  "source_c2p_status_hash": "32b27810ec0c5f71352154c800a98ebd1a9d6dc4eaea7fafb1e5901f8181a4cd",
+  "status": "M12_C2P5_LIMITED_PRODUCTION_ACCEPTANCE_FINALIZATION_PASS"
+}

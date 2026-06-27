@@ -1,0 +1,30 @@
+{
+  "accepted_scope": "M12-C2 only / single approved artifact / deterministic runbook guidance / GUIDANCE-HOLD-guard REJECT",
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p5_limited_production_acceptance_finalization",
+  "checks": {
+    "artifact_memory_promotion_disabled": true,
+    "c1_frozen_boundary_preserved": true,
+    "c2_single_artifact_only": true,
+    "c2p_request_count_and_accounting_verified": true,
+    "c2p_verifies_cleanly": true,
+    "c3_c4_not_started": true,
+    "cache_disabled": true,
+    "direct_provider_bypass_zero": true,
+    "m11_frozen_baseline_preserved": true,
+    "material_and_missing_regressions_zero": true,
+    "mutation_sentinels_clean": true,
+    "no_broad_global_semantic_gate_promotion": true,
+    "no_gateway_config_route_fallback_memory_runtime_mutation": true,
+    "owner_boundary_updated": true,
+    "provider_model_calls_zero": true,
+    "rollback_ready": true,
+    "source_authority_violations_zero": true
+  },
+  "created_utc": "2026-06-27T10:51:57Z",
+  "decision": "accepted_limited_production_expansion",
+  "failed_gates": [],
+  "first_failure": null,
+  "schema": "stickbot.vnext_semantic_gate.m12_c2p5.acceptance_matrix.v1",
+  "schema_base": "stickbot.vnext_semantic_gate.m12_c2p5",
+  "status": "M12_C2P5_LIMITED_PRODUCTION_ACCEPTANCE_FINALIZATION_PASS"
+}

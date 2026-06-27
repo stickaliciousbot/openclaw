@@ -1,0 +1,74 @@
+{
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p5_limited_production_acceptance_finalization",
+  "created_utc": "2026-06-27T10:51:57Z",
+  "files": [
+    {
+      "bytes": 1049,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p5_limited_production_acceptance_finalization/M12_C2P5_LIMITED_PRODUCTION_ACCEPTANCE_FINALIZATION.md",
+      "sha256": "7dccdee0ee5b5f3dffb6f19b2affdb088451077fce6b94b0acfb00288262e86e"
+    },
+    {
+      "bytes": 686,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p5_limited_production_acceptance_finalization/c1_boundary_preservation_readback.json",
+      "sha256": "e57209ea41a1eda13fb1b4484fb45ccdd6922ef78bad4994e5de655a6ce69523"
+    },
+    {
+      "bytes": 478,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p5_limited_production_acceptance_finalization/c2_forbidden_scope.md",
+      "sha256": "7a01aeab922e14a919eb99994f5e88889c07a4fa1208cb70e3b1a2b63a99b168"
+    },
+    {
+      "bytes": 607,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p5_limited_production_acceptance_finalization/c2_guidance_hold_reject_accounting.json",
+      "sha256": "1980166681519369e2fd950fa7b5d33a20d9f9ac77e2e4868a2f23ba2778c9cc"
+    },
+    {
+      "bytes": 693,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p5_limited_production_acceptance_finalization/c2_production_boundary.md",
+      "sha256": "3ba9b45764184b686361606592c2e1aa60a1f85a2c334e27c3710df92c18c2f6"
+    },
+    {
+      "bytes": 1343,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p5_limited_production_acceptance_finalization/c2p_acceptance_matrix.json",
+      "sha256": "fb3e794fccf0aeed324631d467f8c1586d6091a73dd34c979552fed9316532c6"
+    },
+    {
+      "bytes": 862,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p5_limited_production_acceptance_finalization/mutation_sentinel_report.json",
+      "sha256": "e477a226f663c707f6e86bb02a1a508bfa28f0681d0a47328c4294c36c15e9b9"
+    },
+    {
+      "bytes": 715,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p5_limited_production_acceptance_finalization/no_apply_no_mutation_record.json",
+      "sha256": "01920e2e90e404ff8597949831593ff1d465f63245907abffc493d96f2587087"
+    },
+    {
+      "bytes": 1267,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p5_limited_production_acceptance_finalization/owner_boundary_update.json",
+      "sha256": "9f89af892e0f7bd62607a71299371b74cca559a377eac2c2cbc33149c727e36e"
+    },
+    {
+      "bytes": 568,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p5_limited_production_acceptance_finalization/rollback_readiness.json",
+      "sha256": "9b52add9f50e585bcadd87f09dd7ea9e9bd474b3249a8182340d7053cc0871ed"
+    },
+    {
+      "bytes": 3200,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p5_limited_production_acceptance_finalization/status.json",
+      "sha256": "0aa49d6db3d2cee5efdd3351a9d8f527ec1a5eed4ec1e040378f3a62cf573d38"
+    },
+    {
+      "bytes": 1276,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p5_limited_production_acceptance_finalization/summary.json",
+      "sha256": "2d06252ee27575e0af1923d14f85dc9f94d150eca77868a55e6f326cdc303fbb"
+    }
+  ],
+  "schema": "stickbot.vnext_semantic_gate.m12_c2p5.evidence_manifest.v1",
+  "self_hash_policy": "evidence_manifest.json excluded from its own file list",
+  "source_hashes": {
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_7_production_operating_baseline_finalization/status.json": "2e2aac9d2a97bf1e290dade2501c42fe0eaca5d0690cebb53637751512bb7022",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1_final_owner_acceptance_review/status.json": "4c4a7a0b234777d295ddcd0827399cc0c49bebfece1df90c6d3079cac21362f6",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p_limited_production_canary/status.json": "32b27810ec0c5f71352154c800a98ebd1a9d6dc4eaea7fafb1e5901f8181a4cd"
+  },
+  "status": "M12_C2P5_LIMITED_PRODUCTION_ACCEPTANCE_FINALIZATION_PASS"
+}
