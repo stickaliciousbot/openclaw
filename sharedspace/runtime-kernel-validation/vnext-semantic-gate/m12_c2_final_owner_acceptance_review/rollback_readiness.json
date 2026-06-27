@@ -1,0 +1,13 @@
+{
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2_final_owner_acceptance_review",
+  "created_utc": "2026-06-27T11:04:49Z",
+  "failed_gates": [],
+  "first_failure": null,
+  "m11_frozen_baseline_preserved": true,
+  "m12_c1_boundary_preserved": true,
+  "m12_c2_boundary_preserved": true,
+  "rollback_applied": false,
+  "rollback_ready": true,
+  "schema": "stickbot.vnext_semantic_gate.m12_c2_final.rollback.v1",
+  "status": "M12_C2_FINAL_OWNER_ACCEPTANCE_READY"
+}

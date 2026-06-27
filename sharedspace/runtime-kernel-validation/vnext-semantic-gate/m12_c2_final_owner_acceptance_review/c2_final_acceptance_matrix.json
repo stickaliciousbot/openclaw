@@ -1,0 +1,39 @@
+{
+  "accepted_scope": "M12-C2 single-artifact runbook guidance only",
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2_final_owner_acceptance_review",
+  "checks": {
+    "artifact_memory_global_promotion_disabled": true,
+    "c1_boundary_confirmed": true,
+    "c1_c2_boundaries_distinct": true,
+    "c2_boundary_confirmed": true,
+    "c2_guidance_hold_reject_accounting_verified": true,
+    "c2_scope_single_artifact_runbook_guidance_only": true,
+    "c2h_100_request_health_bound_complete": true,
+    "c2h_health_watch_pass": true,
+    "c2p5_acceptance_pass": true,
+    "c3_c4_explicitly_blocked": true,
+    "cache_disabled": true,
+    "direct_provider_bypass_zero": true,
+    "m11_frozen_baseline_preserved": true,
+    "m12_c2_frozen_as_accepted_limited_production_expansion": true,
+    "material_missing_regressions_zero": true,
+    "mutation_sentinels_clean": true,
+    "no_gateway_config_route_fallback_memory_runtime_mutation": true,
+    "owner_decision_record_written": true,
+    "provider_model_calls_zero": true,
+    "rollback_ready": true,
+    "source_authority_violations_zero": true
+  },
+  "created_utc": "2026-06-27T11:04:49Z",
+  "decision": "accepted_limited_production_expansion",
+  "failed_gates": [],
+  "first_failure": null,
+  "schema": "stickbot.vnext_semantic_gate.m12_c2_final.acceptance_matrix.v1",
+  "source_hashes": {
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_7_production_operating_baseline_finalization/status.json": "2e2aac9d2a97bf1e290dade2501c42fe0eaca5d0690cebb53637751512bb7022",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1_final_owner_acceptance_review/status.json": "4c4a7a0b234777d295ddcd0827399cc0c49bebfece1df90c6d3079cac21362f6",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2h_limited_production_health_watch/status.json": "3da370d2971e1006fcac62372877f2fbdcade518f086491a49e4fbf8fe2a9985",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p5_limited_production_acceptance_finalization/status.json": "0aa49d6db3d2cee5efdd3351a9d8f527ec1a5eed4ec1e040378f3a62cf573d38"
+  },
+  "status": "M12_C2_FINAL_OWNER_ACCEPTANCE_READY"
+}

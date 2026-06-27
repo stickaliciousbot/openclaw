@@ -1,0 +1,29 @@
+{
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2_final_owner_acceptance_review",
+  "boundaries_distinct": true,
+  "c3_c4_blocked": true,
+  "created_utc": "2026-06-27T11:04:49Z",
+  "failed_gates": [],
+  "first_failure": null,
+  "m12_c1": {
+    "accepted_candidate": "M12-C1",
+    "accepted_limited_production_expansion": true,
+    "accepted_scope": "bounded artifact status Q&A",
+    "direct_provider_bypass_count": 0,
+    "provider_model_calls": 0,
+    "rollback_ready": true,
+    "status": "M12_C1_FINAL_OWNER_ACCEPTANCE_READY"
+  },
+  "m12_c2": {
+    "accepted_candidate": "M12-C2",
+    "accepted_limited_production_expansion": true,
+    "accepted_scope": "single-artifact runbook guidance",
+    "direct_provider_bypass_count": 0,
+    "health_status": "M12_C2H_LIMITED_PRODUCTION_HEALTH_WATCH_PASS",
+    "provider_model_calls": 0,
+    "rollback_ready": true,
+    "status": "M12_C2P5_LIMITED_PRODUCTION_ACCEPTANCE_FINALIZATION_PASS"
+  },
+  "schema": "stickbot.vnext_semantic_gate.m12_c2_final.boundary_matrix.v1",
+  "status": "M12_C2_FINAL_OWNER_ACCEPTANCE_READY"
+}
