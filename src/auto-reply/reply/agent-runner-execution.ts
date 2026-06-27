@@ -2107,6 +2107,18 @@ export async function runAgentTurnWithFallback(params: {
       const outcomePlan = buildAgentRuntimeOutcomePlan();
       const runLane = CommandLane.Main;
       const runAbortSignal = params.replyOperation?.abortSignal ?? params.opts?.abortSignal;
+      const emitRunLifecycleTerminal = (() => {
+        let didEmit = false;
+        return async (
+          payload: Parameters<NonNullable<GetReplyOptions["onRunLifecycleTerminal"]>>[0],
+        ) => {
+          if (didEmit) {
+            return;
+          }
+          didEmit = true;
+          await params.opts?.onRunLifecycleTerminal?.(payload);
+        };
+      })();
       let queuedUserMessagePersistedAcrossFallback = false;
       let assistantErrorPersistedAcrossFallback = false;
       const userTurnTranscriptRecorder =
@@ -2458,6 +2470,13 @@ export async function runAgentTurnWithFallback(params: {
                   activeSessionEntry: params.getActiveSessionEntry(),
                 });
               }
+              await emitRunLifecycleTerminal({
+                phase: "end",
+                status: result.meta?.aborted === true ? "aborted" : "completed",
+                title: "run",
+                aborted: result.meta?.aborted === true,
+                stopReason: readStringValue(result.meta?.stopReason),
+              });
               bootstrapPromptWarningSignaturesSeen = resolveBootstrapWarningSignaturesSeen(
                 result.meta?.systemPromptReport,
               );
@@ -2626,6 +2645,20 @@ export async function runAgentTurnWithFallback(params: {
                     onReasoningEnd: params.opts?.onReasoningEnd,
                     onAgentEvent: async (evt) => {
                       lifecycleBackstop.note(evt);
+                      if (evt.stream === "lifecycle") {
+                        const phase = readStringValue(evt.data.phase);
+                        if (phase === "end" || phase === "error") {
+                          await emitRunLifecycleTerminal({
+                            phase,
+                            status: phase === "error" ? "failed" : "completed",
+                            title: "run",
+                            summary: readStringValue(evt.data.summary),
+                            error: readStringValue(evt.data.error),
+                            aborted: evt.data.aborted === true,
+                            stopReason: readStringValue(evt.data.stopReason),
+                          });
+                        }
+                      }
                       // Signal run start only after the embedded agent emits real activity.
                       const hasLifecyclePhase =
                         evt.stream === "lifecycle" && typeof evt.data.phase === "string";
@@ -2912,6 +2945,13 @@ export async function runAgentTurnWithFallback(params: {
                       : undefined,
                   }),
                 );
+                await emitRunLifecycleTerminal({
+                  phase: "end",
+                  status: result.meta?.aborted === true ? "aborted" : "completed",
+                  title: "run",
+                  aborted: result.meta?.aborted === true,
+                  stopReason: readStringValue(result.meta?.stopReason),
+                });
                 bootstrapPromptWarningSignaturesSeen = resolveBootstrapWarningSignaturesSeen(
                   result.meta?.systemPromptReport,
                 );
@@ -2932,6 +2972,12 @@ export async function runAgentTurnWithFallback(params: {
                     );
                   }
                 }
+                await emitRunLifecycleTerminal({
+                  phase: "error",
+                  status: "failed",
+                  title: "run",
+                  error: formatErrorMessage(err),
+                });
                 throw err;
               } finally {
                 autoCompactionCount += attemptCompactionCount;

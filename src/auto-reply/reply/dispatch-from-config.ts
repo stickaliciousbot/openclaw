@@ -2577,6 +2577,299 @@ export async function dispatchReplyFromConfig(
       }
       return explanation || "Planning next steps.";
     };
+    let didSendSourceVisibleStartAcknowledgement = false;
+    let didSendSourceVisibleCompletionAcknowledgement = false;
+    let sourceVisibleCompletionCandidate:
+      | {
+          label: string;
+          status: string;
+          material: boolean;
+        }
+      | undefined;
+    const visibleReplyTexts: string[] = [];
+    let didDeliverMeaningfulVisibleReply = false;
+    const sourceVisibleStartPhases = new Set([
+      "start",
+      "started",
+      "begin",
+      "running",
+      "in_progress",
+    ]);
+    const sourceVisibleItemStartStates = new Set([
+      ...sourceVisibleStartPhases,
+      "pending",
+      "requested",
+    ]);
+    const sourceVisibleTerminalStates = new Set([
+      "end",
+      "done",
+      "complete",
+      "completed",
+      "success",
+      "succeeded",
+      "pass",
+      "passed",
+      "ok",
+      "error",
+      "failed",
+      "failure",
+      "cancelled",
+      "canceled",
+      "aborted",
+    ]);
+    const nonWorkItemKinds = new Set(["preamble", "commentary", "reasoning", "assistant"]);
+    const normalizeLifecycleState = (value?: string): string =>
+      (normalizeOptionalString(value) ?? "").toLowerCase().replace(/[\s-]+/g, "_");
+    const isSourceVisibleToolStartSignal = (
+      payload: Parameters<NonNullable<GetReplyOptions["onToolStart"]>>[0],
+    ): boolean => {
+      const phase = normalizeLifecycleState(payload.phase);
+      if (!phase) {
+        return true;
+      }
+      if (sourceVisibleTerminalStates.has(phase) || phase === "update") {
+        return false;
+      }
+      return sourceVisibleStartPhases.has(phase);
+    };
+    const isSourceVisibleItemStartSignal = (
+      payload: Parameters<NonNullable<GetReplyOptions["onItemEvent"]>>[0],
+    ): boolean => {
+      const kind = normalizeLifecycleState(payload.kind);
+      const itemKind = normalizeLifecycleState(
+        typeof (payload as { itemKind?: unknown }).itemKind === "string"
+          ? (payload as { itemKind?: string }).itemKind
+          : undefined,
+      );
+      if (nonWorkItemKinds.has(kind) || nonWorkItemKinds.has(itemKind)) {
+        return false;
+      }
+      const phase = normalizeLifecycleState(payload.phase);
+      const status = normalizeLifecycleState(payload.status);
+      if (sourceVisibleTerminalStates.has(phase) || sourceVisibleTerminalStates.has(status)) {
+        return false;
+      }
+      if (sourceVisibleItemStartStates.has(phase) || sourceVisibleItemStartStates.has(status)) {
+        return true;
+      }
+      return Boolean(
+        normalizeOptionalString(payload.name) ??
+        normalizeOptionalString(payload.title) ??
+        normalizeOptionalString(payload.kind) ??
+        normalizeOptionalString(
+          typeof (payload as { itemKind?: unknown }).itemKind === "string"
+            ? (payload as { itemKind?: string }).itemKind
+            : undefined,
+        ),
+      );
+    };
+    const sourceVisibleStartLabel = (payload: {
+      name?: string;
+      title?: string;
+      kind?: string;
+      itemKind?: string;
+    }): string => {
+      const rawLabel =
+        normalizeOptionalString(payload.name) ??
+        normalizeOptionalString(payload.title) ??
+        normalizeOptionalString(payload.kind) ??
+        normalizeOptionalString(payload.itemKind) ??
+        "work";
+      return normalizeWorkingLabel(rawLabel) || "work";
+    };
+    const canSendSourceVisibleLifecycleAcknowledgement = () =>
+      !params.replyOptions?.abortSignal?.aborted &&
+      !sendPolicyDenied &&
+      !suppressDelivery &&
+      sourceReplyDeliveryMode !== "message_tool_only" &&
+      chatType === "direct" &&
+      ctx.InboundEventKind !== "room_event";
+    const maybeSendSourceVisibleStartAcknowledgement = async (payload: {
+      name?: string;
+      title?: string;
+      kind?: string;
+      itemKind?: string;
+    }): Promise<void> => {
+      if (
+        didSendSourceVisibleStartAcknowledgement ||
+        !canSendSourceVisibleLifecycleAcknowledgement()
+      ) {
+        return;
+      }
+      const normalizedLabel = sourceVisibleStartLabel(payload);
+      didSendSourceVisibleStartAcknowledgement = true;
+      const acknowledgementPayload: ReplyPayload = {
+        text: `Started/running — ${normalizedLabel}.`,
+      };
+      if (shouldRouteToOriginating) {
+        await sendPayloadAsync(acknowledgementPayload, undefined, false);
+        return;
+      }
+      markInboundDedupeReplayUnsafe();
+      dispatcher.sendToolResult(acknowledgementPayload);
+    };
+    const normalizeCompletionStatus = (payload: {
+      phase?: string;
+      status?: string;
+      exitCode?: number | null;
+      isError?: boolean;
+    }): string | undefined => {
+      const status = normalizeLifecycleState(payload.status);
+      const phase = normalizeLifecycleState(payload.phase);
+      const normalizeTerminalState = (value: string): string | undefined => {
+        switch (value) {
+          case "pass":
+          case "passed":
+            return "PASS";
+          case "success":
+          case "succeeded":
+          case "ok":
+          case "complete":
+          case "completed":
+          case "done":
+          case "end":
+          case "resolved":
+          case "approved":
+            return "completed";
+          case "error":
+          case "failed":
+          case "failure":
+          case "unavailable":
+          case "denied":
+          case "rejected":
+            return "failed";
+          case "cancelled":
+          case "canceled":
+            return "cancelled";
+          case "aborted":
+            return "aborted";
+          default:
+            return undefined;
+        }
+      };
+      const normalizedStatus = normalizeTerminalState(status);
+      if (normalizedStatus) {
+        return normalizedStatus;
+      }
+      const normalizedPhase = normalizeTerminalState(phase);
+      if (normalizedPhase) {
+        if (typeof payload.exitCode === "number") {
+          return payload.exitCode === 0 ? "completed" : "failed";
+        }
+        return normalizedPhase;
+      }
+      if (typeof payload.exitCode === "number") {
+        return payload.exitCode === 0 ? "completed" : "failed";
+      }
+      if (payload.isError === true) {
+        return "failed";
+      }
+      return undefined;
+    };
+    const sourceVisibleCompletionLabel = (payload: {
+      summary?: string;
+      title?: string;
+      name?: string;
+      kind?: string;
+      itemKind?: string;
+      command?: string;
+      error?: string;
+    }): string => {
+      const rawLabel =
+        normalizeOptionalString(payload.summary) ??
+        normalizeOptionalString(payload.title) ??
+        normalizeOptionalString(payload.name) ??
+        normalizeOptionalString(payload.kind) ??
+        normalizeOptionalString(payload.itemKind) ??
+        normalizeOptionalString(payload.command) ??
+        (normalizeOptionalString(payload.error) ? "run" : undefined) ??
+        "work";
+      return normalizeWorkingLabel(rawLabel) || "work";
+    };
+    const recordSourceVisibleCompletionCandidate = (payload: {
+      summary?: string;
+      title?: string;
+      name?: string;
+      kind?: string;
+      itemKind?: string;
+      command?: string;
+      phase?: string;
+      status?: string;
+      exitCode?: number | null;
+      isError?: boolean;
+      error?: string;
+      aborted?: boolean;
+      stopReason?: string;
+    }): void => {
+      const status = payload.aborted === true ? "aborted" : normalizeCompletionStatus(payload);
+      if (!status) {
+        return;
+      }
+      const candidate = {
+        label: sourceVisibleCompletionLabel(payload),
+        status,
+        material:
+          status === "PASS" ||
+          status === "failed" ||
+          status === "cancelled" ||
+          status === "aborted",
+      };
+      if (!sourceVisibleCompletionCandidate || candidate.material) {
+        sourceVisibleCompletionCandidate = candidate;
+      }
+    };
+    const markMeaningfulVisibleReplyDelivered = (payload: ReplyPayload): void => {
+      const text = normalizeOptionalString(payload.text);
+      if (!text) {
+        return;
+      }
+      didDeliverMeaningfulVisibleReply = true;
+      visibleReplyTexts.push(text);
+    };
+    const completionAlreadyVisibleInReply = (candidate: {
+      label: string;
+      status: string;
+    }): boolean => {
+      const label = candidate.label.toLowerCase();
+      const status = candidate.status.toLowerCase();
+      return visibleReplyTexts.some((text) => {
+        const lower = text.toLowerCase();
+        return lower.includes("completed") && lower.includes(label) && lower.includes(status);
+      });
+    };
+    const maybeSendSourceVisibleCompletionAcknowledgement = async (): Promise<void> => {
+      if (
+        didSendSourceVisibleCompletionAcknowledgement ||
+        !sourceVisibleCompletionCandidate ||
+        !canSendSourceVisibleLifecycleAcknowledgement()
+      ) {
+        return;
+      }
+      if (didDeliverMeaningfulVisibleReply && !sourceVisibleCompletionCandidate.material) {
+        return;
+      }
+      if (completionAlreadyVisibleInReply(sourceVisibleCompletionCandidate)) {
+        return;
+      }
+      didSendSourceVisibleCompletionAcknowledgement = true;
+      const acknowledgementPayload: ReplyPayload = {
+        text: `Completed — ${sourceVisibleCompletionCandidate.label}: ${sourceVisibleCompletionCandidate.status}.`,
+      };
+      if (shouldRouteToOriginating) {
+        await sendPayloadAsync(acknowledgementPayload, undefined, false);
+        return;
+      }
+      markInboundDedupeReplayUnsafe();
+      dispatcher.sendToolResult(acknowledgementPayload);
+    };
+    const recordAndMaybeSendTerminalCompletionCandidate = async (
+      payload: Parameters<typeof recordSourceVisibleCompletionCandidate>[0],
+    ): Promise<void> => {
+      recordSourceVisibleCompletionCandidate(payload);
+      if (didDeliverMeaningfulVisibleReply && sourceVisibleCompletionCandidate?.material) {
+        await maybeSendSourceVisibleCompletionAcknowledgement();
+      }
+    };
     const maybeSendWorkingStatus = async (label: string): Promise<void> => {
       if (shouldSuppressProgressDelivery()) {
         return;
@@ -2869,9 +3162,13 @@ export async function dispatchReplyFromConfig(
           },
         })
       : undefined;
-    const canConsumeItemEvents = deliverStandaloneCommentaryProgress || canForwardItemEvents;
+    const canConsumeItemEvents =
+      deliverStandaloneCommentaryProgress ||
+      canForwardItemEvents ||
+      canSendSourceVisibleLifecycleAcknowledgement();
     // Item-event presence gates CLI commentary classification downstream, so
-    // the handler exists exactly when verbose buffers it or a channel consumes it.
+    // the handler exists exactly when verbose buffers it, a channel consumes it,
+    // or direct-chat lifecycle acknowledgements need start/completion signals.
     const onItemEvent = canConsumeItemEvents
       ? async (payload: Parameters<NonNullable<GetReplyOptions["onItemEvent"]>>[0]) => {
           if (isDispatchOperationAborted()) {
@@ -2881,12 +3178,64 @@ export async function dispatchReplyFromConfig(
             // The wrapped forwarder marks progress itself when present.
             markProgress();
           }
+          await recordAndMaybeSendTerminalCompletionCandidate({
+            ...payload,
+            itemKind:
+              typeof (payload as { itemKind?: unknown }).itemKind === "string"
+                ? (payload as { itemKind?: string }).itemKind
+                : undefined,
+          });
+          if (isSourceVisibleItemStartSignal(payload)) {
+            await maybeSendSourceVisibleStartAcknowledgement({
+              ...payload,
+              itemKind:
+                typeof (payload as { itemKind?: unknown }).itemKind === "string"
+                  ? (payload as { itemKind?: string }).itemKind
+                  : undefined,
+            });
+          }
           if (deliverStandaloneCommentaryProgress && payload.kind === "preamble") {
             await noteCommentaryProgress(payload);
           }
           await forwardItemEvent?.(payload);
         }
       : undefined;
+    const forwardToolStart = wrapProgressCallback(params.replyOptions?.onToolStart, {
+      allowWhenToolSummariesHidden:
+        params.replyOptions?.allowToolLifecycleWhenProgressHidden === true,
+      forwardWhenSourceDeliverySuppressed: true,
+      requiresToolSummaryVisibility: true,
+      waitForDirectBlockReplyDelivery: true,
+      onForward: async () => {
+        // Commentary precedes the tool that follows it.
+        await flushPendingCommentaryProgress();
+      },
+    });
+    const onToolStart =
+      forwardToolStart || canSendSourceVisibleLifecycleAcknowledgement()
+        ? async (payload: Parameters<NonNullable<GetReplyOptions["onToolStart"]>>[0]) => {
+            if (isDispatchOperationAborted()) {
+              return;
+            }
+            if (!forwardToolStart) {
+              markProgress();
+            }
+            if (isSourceVisibleToolStartSignal(payload)) {
+              await maybeSendSourceVisibleStartAcknowledgement(payload);
+            }
+            await forwardToolStart?.(payload);
+          }
+        : undefined;
+    const forwardCommandOutput = wrapProgressCallback(params.replyOptions?.onCommandOutput, {
+      forwardWhenSourceDeliverySuppressed: true,
+      requiresToolSummaryVisibility: true,
+      waitForDirectBlockReplyDelivery: true,
+      onForward: (payload) => {
+        if (hasFailedProgressStatus(payload)) {
+          markVisibleToolErrorProgress();
+        }
+      },
+    });
     // Let draft-rendering channels yield their ephemeral commentary lines while
     // the durable verbose commentary lane is delivering the same content.
     params.replyOptions?.onVerboseProgressVisibility?.(
@@ -2927,32 +3276,25 @@ export async function dispatchReplyFromConfig(
               params.replyOptions?.onAssistantMessageStart,
             ),
             onBlockReplyQueued: wrapProgressCallback(params.replyOptions?.onBlockReplyQueued),
-            onToolStart: wrapProgressCallback(params.replyOptions?.onToolStart, {
-              allowWhenToolSummariesHidden:
-                params.replyOptions?.allowToolLifecycleWhenProgressHidden === true,
-              forwardWhenSourceDeliverySuppressed: true,
-              requiresToolSummaryVisibility: true,
-              waitForDirectBlockReplyDelivery: true,
-              onForward: async () => {
-                // Commentary precedes the tool that follows it.
-                await flushPendingCommentaryProgress();
-              },
-            }),
+            onToolStart,
             onItemEvent,
             commentaryProgressEnabled:
               deliverStandaloneCommentaryProgress ||
               canForwardSuppressedSourceItemEvents ||
               params.replyOptions?.commentaryProgressEnabled,
-            onCommandOutput: wrapProgressCallback(params.replyOptions?.onCommandOutput, {
-              forwardWhenSourceDeliverySuppressed: true,
-              requiresToolSummaryVisibility: true,
-              waitForDirectBlockReplyDelivery: true,
-              onForward: (payload) => {
-                if (hasFailedProgressStatus(payload)) {
-                  markVisibleToolErrorProgress();
-                }
-              },
-            }),
+            onCommandOutput: async (payload) => {
+              if (isDispatchOperationAborted()) {
+                return;
+              }
+              if (!forwardCommandOutput) {
+                markProgress();
+              }
+              await recordAndMaybeSendTerminalCompletionCandidate({
+                ...payload,
+                kind: "shell",
+              });
+              await forwardCommandOutput?.(payload);
+            },
             onCompactionStart: wrapProgressCallback(params.replyOptions?.onCompactionStart, {
               forwardWhenSourceDeliverySuppressed: true,
               requiresToolSummaryVisibility: true,
@@ -2965,6 +3307,11 @@ export async function dispatchReplyFromConfig(
             }),
             onToolResult: (payload: ReplyPayload) => {
               markProgress();
+              recordSourceVisibleCompletionCandidate({
+                title: normalizeOptionalString(payload.text) ?? undefined,
+                kind: "tool",
+                isError: payload.isError === true,
+              });
               const run = async () => {
                 if (isDispatchOperationAborted()) {
                   return;
@@ -3074,6 +3421,11 @@ export async function dispatchReplyFromConfig(
                 return;
               }
               markInboundDedupeReplayUnsafe();
+              await recordAndMaybeSendTerminalCompletionCandidate({
+                ...payload,
+                name: payload.title,
+                kind: "plan",
+              });
               if (
                 shouldForwardProgressCallback({
                   forwardWhenSourceDeliverySuppressed: true,
@@ -3100,6 +3452,10 @@ export async function dispatchReplyFromConfig(
                 return;
               }
               markInboundDedupeReplayUnsafe();
+              await recordAndMaybeSendTerminalCompletionCandidate({
+                ...payload,
+                kind: "patch",
+              });
               if (
                 shouldForwardProgressCallback({
                   forwardWhenSourceDeliverySuppressed: true,
@@ -3245,10 +3601,38 @@ export async function dispatchReplyFromConfig(
                   const delivered = dispatcher.sendBlockReply(normalizedPayload);
                   if (delivered) {
                     hasPendingDirectBlockReplyDelivery = true;
+                    markMeaningfulVisibleReplyDelivered(normalizedPayload);
                   }
                 }
               };
               return run();
+            },
+            onRunLifecycleTerminal: async (payload) => {
+              if (isDispatchOperationAborted()) {
+                return;
+              }
+              markProgress();
+              await recordAndMaybeSendTerminalCompletionCandidate({
+                phase: payload.phase,
+                status:
+                  payload.aborted === true
+                    ? "aborted"
+                    : (payload.status ?? (payload.phase === "error" ? "failed" : undefined)),
+                title: payload.title ?? "run",
+                summary: payload.summary,
+                exitCode: payload.exitCode,
+                error: payload.error,
+                aborted: payload.aborted,
+                stopReason: payload.stopReason,
+              });
+              if (
+                shouldForwardProgressCallback({
+                  forwardWhenSourceDeliverySuppressed: true,
+                  requiresToolSummaryVisibility: true,
+                })
+              ) {
+                await params.replyOptions?.onRunLifecycleTerminal?.(payload);
+              }
             },
           },
           replyConfig,
@@ -3466,6 +3850,7 @@ export async function dispatchReplyFromConfig(
 
     await waitForPendingDirectBlockReplyDelivery(getDispatchAbortSignal());
     const counts = dispatcher.getQueuedCounts();
+    await maybeSendSourceVisibleCompletionAcknowledgement();
     counts.final += routedFinalCount;
     commitInboundDedupeIfClaimed();
     recordAgentDispatchCompleted("completed");
