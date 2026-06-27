@@ -1,0 +1,2106 @@
+{
+  "items": [
+    {
+      "case_id": "m12_c1r16_001",
+      "pass": true,
+      "resolved_source_refs": [
+        "m11_7_mutation_freeze#artifact_memory_promoted"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#artifact_memory_promoted"
+        ],
+        "case_id": "m12_c1r16_001",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#artifact_memory_promoted",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": false,
+        "value_type": "boolean"
+      }
+    },
+    {
+      "case_id": "m12_c1r16_002",
+      "pass": true,
+      "resolved_source_refs": [
+        "m11_7_mutation_freeze#cache_enabled"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#cache_enabled"
+        ],
+        "case_id": "m12_c1r16_002",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#cache_enabled",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": false,
+        "value_type": "boolean"
+      }
+    },
+    {
+      "case_id": "m12_c1r16_003",
+      "pass": true,
+      "resolved_source_refs": [
+        "m11_7_mutation_freeze#fallback_chains_mutated"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#fallback_chains_mutated"
+        ],
+        "case_id": "m12_c1r16_003",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#fallback_chains_mutated",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": false,
+        "value_type": "boolean"
+      }
+    },
+    {
+      "case_id": "m12_c1r16_004",
+      "pass": true,
+      "resolved_source_refs": [
+        "m11_7_mutation_freeze#gateway_config_mutated"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#gateway_config_mutated"
+        ],
+        "case_id": "m12_c1r16_004",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#gateway_config_mutated",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": false,
+        "value_type": "boolean"
+      }
+    },
+    {
+      "case_id": "m12_c1r16_005",
+      "pass": true,
+      "resolved_source_refs": [
+        "m11_7_mutation_freeze#generated_utc"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#generated_utc"
+        ],
+        "case_id": "m12_c1r16_005",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#generated_utc",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": "2026-06-25T12:01:14Z",
+        "value_type": "string"
+      }
+    },
+    {
+      "case_id": "m12_c1r16_006",
+      "pass": true,
+      "resolved_source_refs": [
+        "m11_7_mutation_freeze#live_routes_mutated"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#live_routes_mutated"
+        ],
+        "case_id": "m12_c1r16_006",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#live_routes_mutated",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": false,
+        "value_type": "boolean"
+      }
+    },
+    {
+      "case_id": "m12_c1r16_007",
+      "pass": true,
+      "resolved_source_refs": [
+        "m11_7_mutation_freeze#m12_started"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#m12_started"
+        ],
+        "case_id": "m12_c1r16_007",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#m12_started",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": false,
+        "value_type": "boolean"
+      }
+    },
+    {
+      "case_id": "m12_c1r16_008",
+      "pass": true,
+      "resolved_source_refs": [
+        "m11_7_mutation_freeze#memory_routes_mutated"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#memory_routes_mutated"
+        ],
+        "case_id": "m12_c1r16_008",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#memory_routes_mutated",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": false,
+        "value_type": "boolean"
+      }
+    },
+    {
+      "case_id": "m12_c1r16_009",
+      "pass": true,
+      "resolved_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after./home/stickai/.openclaw/openclaw.json"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_after./home/stickai/.openclaw/openclaw.json"
+        ],
+        "case_id": "m12_c1r16_009",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#protected_hashes_after./home/stickai/.openclaw/openclaw.json",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": "45c8d4100610a54e82d4206334e7338f5e5f6cd0d9d3d073c2ff767319bd3115",
+        "value_type": "string"
+      }
+    },
+    {
+      "case_id": "m12_c1r16_010",
+      "pass": true,
+      "resolved_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.projects/token-broker-vmesh/config/common-reasoner-advisory-canary.default.json"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_after.projects/token-broker-vmesh/config/common-reasoner-advisory-canary.default.json"
+        ],
+        "case_id": "m12_c1r16_010",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#protected_hashes_after.projects/token-broker-vmesh/config/common-reasoner-advisory-canary.default.json",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": "6a73551c8d25b6843240e67733972b67a7198ac65308811d0cca6e593a826ddf",
+        "value_type": "string"
+      }
+    },
+    {
+      "case_id": "m12_c1r16_011",
+      "pass": true,
+      "resolved_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/mutation_sentinel_report.json"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/mutation_sentinel_report.json"
+        ],
+        "case_id": "m12_c1r16_011",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/mutation_sentinel_report.json",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": "30628aa51b6d803f1864c9d30dc482861b2b10390def90e6b25fd336d5e4ace4",
+        "value_type": "string"
+      }
+    },
+    {
+      "case_id": "m12_c1r16_012",
+      "pass": true,
+      "resolved_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/rollback_readiness.json"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/rollback_readiness.json"
+        ],
+        "case_id": "m12_c1r16_012",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/rollback_readiness.json",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": "07b888a3b4741519172f440b885af5f4255cdf8babaabf10631a967413f6dca4",
+        "value_type": "string"
+      }
+    },
+    {
+      "case_id": "m12_c1r16_013",
+      "pass": true,
+      "resolved_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/status.json"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/status.json"
+        ],
+        "case_id": "m12_c1r16_013",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/status.json",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": "cec4458551f946b204bc8ccf18f32c3a9a52114d6503038f2240c7c5e1af9194",
+        "value_type": "string"
+      }
+    },
+    {
+      "case_id": "m12_c1r16_014",
+      "pass": true,
+      "resolved_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/M11_6_ACTIVE_PRODUCTION_DECISION_EXERCISE_REPORT.md"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/M11_6_ACTIVE_PRODUCTION_DECISION_EXERCISE_REPORT.md"
+        ],
+        "case_id": "m12_c1r16_014",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/M11_6_ACTIVE_PRODUCTION_DECISION_EXERCISE_REPORT.md",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": "b930627bad1ccfb9c7b3e69733a55b9a06adccca8b60978be3e281415b09bd88",
+        "value_type": "string"
+      }
+    },
+    {
+      "case_id": "m12_c1r16_015",
+      "pass": true,
+      "resolved_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/mutation_sentinel_report.json"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/mutation_sentinel_report.json"
+        ],
+        "case_id": "m12_c1r16_015",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/mutation_sentinel_report.json",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": "77472364c162d08631b526da3f886cca4df231d9bf43ea3b5fb2ec91620f6b53",
+        "value_type": "string"
+      }
+    },
+    {
+      "case_id": "m12_c1r16_016",
+      "pass": true,
+      "resolved_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/provider_path_report.json"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/provider_path_report.json"
+        ],
+        "case_id": "m12_c1r16_016",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/provider_path_report.json",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": "273070c1f8b7f3b49efa5c25f8b8a51288ba371067950e40bbc1206552a8b649",
+        "value_type": "string"
+      }
+    },
+    {
+      "case_id": "m12_c1r16_017",
+      "pass": true,
+      "resolved_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/rollback_readiness.json"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/rollback_readiness.json"
+        ],
+        "case_id": "m12_c1r16_017",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/rollback_readiness.json",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": "9643263bc9e581f2469a89af76ba57f7ce9d43d25d12c1dea0b9c10c9f27f2d5",
+        "value_type": "string"
+      }
+    },
+    {
+      "case_id": "m12_c1r16_018",
+      "pass": true,
+      "resolved_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/status.json"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/status.json"
+        ],
+        "case_id": "m12_c1r16_018",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/status.json",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": "6e329c91b5b42c607ad4456defb47a4ea602596af889f0c8fc0cc33346e7a9ab",
+        "value_type": "string"
+      }
+    },
+    {
+      "case_id": "m12_c1r16_019",
+      "pass": true,
+      "resolved_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_production_activation_owner_operator_cutover/status.json"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_production_activation_owner_operator_cutover/status.json"
+        ],
+        "case_id": "m12_c1r16_019",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_production_activation_owner_operator_cutover/status.json",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": "71e75b7b0819cb4debf9eeefef51367c8001296b342b30661d0eff3657099f44",
+        "value_type": "string"
+      }
+    },
+    {
+      "case_id": "m12_c1r16_020",
+      "pass": true,
+      "resolved_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before./home/stickai/.openclaw/openclaw.json"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_before./home/stickai/.openclaw/openclaw.json"
+        ],
+        "case_id": "m12_c1r16_020",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#protected_hashes_before./home/stickai/.openclaw/openclaw.json",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": "45c8d4100610a54e82d4206334e7338f5e5f6cd0d9d3d073c2ff767319bd3115",
+        "value_type": "string"
+      }
+    },
+    {
+      "case_id": "m12_c1r16_021",
+      "pass": true,
+      "resolved_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.projects/token-broker-vmesh/config/common-reasoner-advisory-canary.default.json"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_before.projects/token-broker-vmesh/config/common-reasoner-advisory-canary.default.json"
+        ],
+        "case_id": "m12_c1r16_021",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#protected_hashes_before.projects/token-broker-vmesh/config/common-reasoner-advisory-canary.default.json",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": "6a73551c8d25b6843240e67733972b67a7198ac65308811d0cca6e593a826ddf",
+        "value_type": "string"
+      }
+    },
+    {
+      "case_id": "m12_c1r16_022",
+      "pass": true,
+      "resolved_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/mutation_sentinel_report.json"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/mutation_sentinel_report.json"
+        ],
+        "case_id": "m12_c1r16_022",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/mutation_sentinel_report.json",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": "30628aa51b6d803f1864c9d30dc482861b2b10390def90e6b25fd336d5e4ace4",
+        "value_type": "string"
+      }
+    },
+    {
+      "case_id": "m12_c1r16_023",
+      "pass": true,
+      "resolved_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/rollback_readiness.json"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/rollback_readiness.json"
+        ],
+        "case_id": "m12_c1r16_023",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/rollback_readiness.json",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": "07b888a3b4741519172f440b885af5f4255cdf8babaabf10631a967413f6dca4",
+        "value_type": "string"
+      }
+    },
+    {
+      "case_id": "m12_c1r16_024",
+      "pass": true,
+      "resolved_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/status.json"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/status.json"
+        ],
+        "case_id": "m12_c1r16_024",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/status.json",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": "cec4458551f946b204bc8ccf18f32c3a9a52114d6503038f2240c7c5e1af9194",
+        "value_type": "string"
+      }
+    },
+    {
+      "case_id": "m12_c1r16_025",
+      "pass": true,
+      "resolved_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/M11_6_ACTIVE_PRODUCTION_DECISION_EXERCISE_REPORT.md"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/M11_6_ACTIVE_PRODUCTION_DECISION_EXERCISE_REPORT.md"
+        ],
+        "case_id": "m12_c1r16_025",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/M11_6_ACTIVE_PRODUCTION_DECISION_EXERCISE_REPORT.md",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": "b930627bad1ccfb9c7b3e69733a55b9a06adccca8b60978be3e281415b09bd88",
+        "value_type": "string"
+      }
+    },
+    {
+      "case_id": "m12_c1r16_026",
+      "pass": true,
+      "resolved_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/mutation_sentinel_report.json"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/mutation_sentinel_report.json"
+        ],
+        "case_id": "m12_c1r16_026",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/mutation_sentinel_report.json",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": "77472364c162d08631b526da3f886cca4df231d9bf43ea3b5fb2ec91620f6b53",
+        "value_type": "string"
+      }
+    },
+    {
+      "case_id": "m12_c1r16_027",
+      "pass": true,
+      "resolved_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/provider_path_report.json"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/provider_path_report.json"
+        ],
+        "case_id": "m12_c1r16_027",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/provider_path_report.json",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": "273070c1f8b7f3b49efa5c25f8b8a51288ba371067950e40bbc1206552a8b649",
+        "value_type": "string"
+      }
+    },
+    {
+      "case_id": "m12_c1r16_028",
+      "pass": true,
+      "resolved_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/rollback_readiness.json"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/rollback_readiness.json"
+        ],
+        "case_id": "m12_c1r16_028",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/rollback_readiness.json",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": "9643263bc9e581f2469a89af76ba57f7ce9d43d25d12c1dea0b9c10c9f27f2d5",
+        "value_type": "string"
+      }
+    },
+    {
+      "case_id": "m12_c1r16_029",
+      "pass": true,
+      "resolved_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/status.json"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/status.json"
+        ],
+        "case_id": "m12_c1r16_029",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/status.json",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": "6e329c91b5b42c607ad4456defb47a4ea602596af889f0c8fc0cc33346e7a9ab",
+        "value_type": "string"
+      }
+    },
+    {
+      "case_id": "m12_c1r16_030",
+      "pass": true,
+      "resolved_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_production_activation_owner_operator_cutover/status.json"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_production_activation_owner_operator_cutover/status.json"
+        ],
+        "case_id": "m12_c1r16_030",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_production_activation_owner_operator_cutover/status.json",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": "71e75b7b0819cb4debf9eeefef51367c8001296b342b30661d0eff3657099f44",
+        "value_type": "string"
+      }
+    },
+    {
+      "case_id": "m12_c1r16_031",
+      "pass": true,
+      "resolved_source_refs": [
+        "m11_7_mutation_freeze#run_id"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#run_id"
+        ],
+        "case_id": "m12_c1r16_031",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#run_id",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": "m11_7_production_operating_baseline_finalization_20260625",
+        "value_type": "string"
+      }
+    },
+    {
+      "case_id": "m12_c1r16_032",
+      "pass": true,
+      "resolved_source_refs": [
+        "m11_7_mutation_freeze#runtime_authority_mutated"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#runtime_authority_mutated"
+        ],
+        "case_id": "m12_c1r16_032",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#runtime_authority_mutated",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": false,
+        "value_type": "boolean"
+      }
+    },
+    {
+      "case_id": "m12_c1r16_033",
+      "pass": true,
+      "resolved_source_refs": [
+        "m11_7_mutation_freeze#schema"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#schema"
+        ],
+        "case_id": "m12_c1r16_033",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#schema",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": "stickbot.vnext_semantic_gate.m11_7.mutation_freeze_report.v1",
+        "value_type": "string"
+      }
+    },
+    {
+      "case_id": "m12_c1r16_034",
+      "pass": true,
+      "resolved_source_refs": [
+        "m11_7_mutation_freeze#scope_expanded"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#scope_expanded"
+        ],
+        "case_id": "m12_c1r16_034",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#scope_expanded",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": false,
+        "value_type": "boolean"
+      }
+    },
+    {
+      "case_id": "m12_c1r16_035",
+      "pass": true,
+      "resolved_source_refs": [
+        "m12_c1r16_hold_035#reason",
+        "m12_c1r16_hold_035#decision"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m12_c1r16_hold_035#reason",
+          "m12_c1r16_hold_035#decision"
+        ],
+        "case_id": "m12_c1r16_035",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "HOLD",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": "fail_closed_stale_artifact",
+        "primary_source_ref": "m12_c1r16_hold_035#reason",
+        "required_fields": [
+          "status",
+          "hold_reason",
+          "source_refs",
+          "cited_source_ref",
+          "disposition"
+        ],
+        "requires_source_refs": true,
+        "typed_value": null,
+        "value_type": null
+      }
+    },
+    {
+      "case_id": "m12_c1r16_036",
+      "pass": true,
+      "resolved_source_refs": [
+        "m12_c1r16_hold_036#reason",
+        "m12_c1r16_hold_036#decision"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m12_c1r16_hold_036#reason",
+          "m12_c1r16_hold_036#decision"
+        ],
+        "case_id": "m12_c1r16_036",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "HOLD",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": "fail_closed_missing_artifact",
+        "primary_source_ref": "m12_c1r16_hold_036#reason",
+        "required_fields": [
+          "status",
+          "hold_reason",
+          "source_refs",
+          "cited_source_ref",
+          "disposition"
+        ],
+        "requires_source_refs": true,
+        "typed_value": null,
+        "value_type": null
+      }
+    },
+    {
+      "case_id": "m12_c1r16_037",
+      "pass": true,
+      "resolved_source_refs": [
+        "m12_c1r16_hold_037#reason",
+        "m12_c1r16_hold_037#decision"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m12_c1r16_hold_037#reason",
+          "m12_c1r16_hold_037#decision"
+        ],
+        "case_id": "m12_c1r16_037",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "HOLD",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": "fail_closed_ambiguous_source",
+        "primary_source_ref": "m12_c1r16_hold_037#reason",
+        "required_fields": [
+          "status",
+          "hold_reason",
+          "source_refs",
+          "cited_source_ref",
+          "disposition"
+        ],
+        "requires_source_refs": true,
+        "typed_value": null,
+        "value_type": null
+      }
+    },
+    {
+      "case_id": "m12_c1r16_038",
+      "pass": true,
+      "resolved_source_refs": [
+        "m12_c1r16_hold_038#reason",
+        "m12_c1r16_hold_038#decision"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m12_c1r16_hold_038#reason",
+          "m12_c1r16_hold_038#decision"
+        ],
+        "case_id": "m12_c1r16_038",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "HOLD",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": "fail_closed_unapproved_memory_source",
+        "primary_source_ref": "m12_c1r16_hold_038#reason",
+        "required_fields": [
+          "status",
+          "hold_reason",
+          "source_refs",
+          "cited_source_ref",
+          "disposition"
+        ],
+        "requires_source_refs": true,
+        "typed_value": null,
+        "value_type": null
+      }
+    },
+    {
+      "case_id": "m12_c1r16_039",
+      "pass": true,
+      "resolved_source_refs": [
+        "m12_c1r16_hold_039#reason",
+        "m12_c1r16_hold_039#decision"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m12_c1r16_hold_039#reason",
+          "m12_c1r16_hold_039#decision"
+        ],
+        "case_id": "m12_c1r16_039",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "HOLD",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": "fail_closed_unapproved_context_bridge_source",
+        "primary_source_ref": "m12_c1r16_hold_039#reason",
+        "required_fields": [
+          "status",
+          "hold_reason",
+          "source_refs",
+          "cited_source_ref",
+          "disposition"
+        ],
+        "requires_source_refs": true,
+        "typed_value": null,
+        "value_type": null
+      }
+    },
+    {
+      "case_id": "m12_c1r16_040",
+      "pass": true,
+      "resolved_source_refs": [
+        "m12_c1r16_hold_040#reason",
+        "m12_c1r16_hold_040#decision"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m12_c1r16_hold_040#reason",
+          "m12_c1r16_hold_040#decision"
+        ],
+        "case_id": "m12_c1r16_040",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "HOLD",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": "fail_closed_unapproved_daily_memory_source",
+        "primary_source_ref": "m12_c1r16_hold_040#reason",
+        "required_fields": [
+          "status",
+          "hold_reason",
+          "source_refs",
+          "cited_source_ref",
+          "disposition"
+        ],
+        "requires_source_refs": true,
+        "typed_value": null,
+        "value_type": null
+      }
+    },
+    {
+      "case_id": "m12_c1r16_041",
+      "pass": true,
+      "resolved_source_refs": [
+        "m12_c1r16_hold_041#reason",
+        "m12_c1r16_hold_041#decision"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m12_c1r16_hold_041#reason",
+          "m12_c1r16_hold_041#decision"
+        ],
+        "case_id": "m12_c1r16_041",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "HOLD",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": "fail_closed_wrong_ref",
+        "primary_source_ref": "m12_c1r16_hold_041#reason",
+        "required_fields": [
+          "status",
+          "hold_reason",
+          "source_refs",
+          "cited_source_ref",
+          "disposition"
+        ],
+        "requires_source_refs": true,
+        "typed_value": null,
+        "value_type": null
+      }
+    },
+    {
+      "case_id": "m12_c1r16_042",
+      "pass": true,
+      "resolved_source_refs": [
+        "m12_c1r16_hold_042#reason",
+        "m12_c1r16_hold_042#decision"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m12_c1r16_hold_042#reason",
+          "m12_c1r16_hold_042#decision"
+        ],
+        "case_id": "m12_c1r16_042",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "HOLD",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": "fail_closed_wrong_value",
+        "primary_source_ref": "m12_c1r16_hold_042#reason",
+        "required_fields": [
+          "status",
+          "hold_reason",
+          "source_refs",
+          "cited_source_ref",
+          "disposition"
+        ],
+        "requires_source_refs": true,
+        "typed_value": null,
+        "value_type": null
+      }
+    },
+    {
+      "case_id": "m12_c1r16_043",
+      "pass": true,
+      "resolved_source_refs": [
+        "m12_c1r16_hold_043#reason",
+        "m12_c1r16_hold_043#decision"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m12_c1r16_hold_043#reason",
+          "m12_c1r16_hold_043#decision"
+        ],
+        "case_id": "m12_c1r16_043",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "HOLD",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": "fail_closed_wrong_type",
+        "primary_source_ref": "m12_c1r16_hold_043#reason",
+        "required_fields": [
+          "status",
+          "hold_reason",
+          "source_refs",
+          "cited_source_ref",
+          "disposition"
+        ],
+        "requires_source_refs": true,
+        "typed_value": null,
+        "value_type": null
+      }
+    },
+    {
+      "case_id": "m12_c1r16_044",
+      "pass": true,
+      "resolved_source_refs": [
+        "m12_c1r16_hold_044#reason",
+        "m12_c1r16_hold_044#decision"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m12_c1r16_hold_044#reason",
+          "m12_c1r16_hold_044#decision"
+        ],
+        "case_id": "m12_c1r16_044",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "HOLD",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": "fail_closed_unsupported_source",
+        "primary_source_ref": "m12_c1r16_hold_044#reason",
+        "required_fields": [
+          "status",
+          "hold_reason",
+          "source_refs",
+          "cited_source_ref",
+          "disposition"
+        ],
+        "requires_source_refs": true,
+        "typed_value": null,
+        "value_type": null
+      }
+    },
+    {
+      "case_id": "m12_c1r16_045",
+      "pass": true,
+      "resolved_source_refs": [
+        "m12_c1r16_hold_045#reason",
+        "m12_c1r16_hold_045#decision"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m12_c1r16_hold_045#reason",
+          "m12_c1r16_hold_045#decision"
+        ],
+        "case_id": "m12_c1r16_045",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "HOLD",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": "fail_closed_out_of_scope_source",
+        "primary_source_ref": "m12_c1r16_hold_045#reason",
+        "required_fields": [
+          "status",
+          "hold_reason",
+          "source_refs",
+          "cited_source_ref",
+          "disposition"
+        ],
+        "requires_source_refs": true,
+        "typed_value": null,
+        "value_type": null
+      }
+    },
+    {
+      "case_id": "m12_c1r16_046",
+      "pass": true,
+      "resolved_source_refs": [
+        "m12_c1r16_hold_046#reason",
+        "m12_c1r16_hold_046#decision"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m12_c1r16_hold_046#reason",
+          "m12_c1r16_hold_046#decision"
+        ],
+        "case_id": "m12_c1r16_046",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "HOLD",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": "fail_closed_prompt_injection_text_content_only",
+        "primary_source_ref": "m12_c1r16_hold_046#reason",
+        "required_fields": [
+          "status",
+          "hold_reason",
+          "source_refs",
+          "cited_source_ref",
+          "disposition"
+        ],
+        "requires_source_refs": true,
+        "typed_value": null,
+        "value_type": null
+      }
+    },
+    {
+      "case_id": "m12_c1r16_047",
+      "pass": true,
+      "resolved_source_refs": [
+        "m12_c1r16_hold_047#reason",
+        "m12_c1r16_hold_047#decision"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m12_c1r16_hold_047#reason",
+          "m12_c1r16_hold_047#decision"
+        ],
+        "case_id": "m12_c1r16_047",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "HOLD",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": "fail_closed_arbitrary_path_denied",
+        "primary_source_ref": "m12_c1r16_hold_047#reason",
+        "required_fields": [
+          "status",
+          "hold_reason",
+          "source_refs",
+          "cited_source_ref",
+          "disposition"
+        ],
+        "requires_source_refs": true,
+        "typed_value": null,
+        "value_type": null
+      }
+    },
+    {
+      "case_id": "m12_c1r16_048",
+      "pass": true,
+      "resolved_source_refs": [
+        "m12_c1r16_hold_048#reason",
+        "m12_c1r16_hold_048#decision"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m12_c1r16_hold_048#reason",
+          "m12_c1r16_hold_048#decision"
+        ],
+        "case_id": "m12_c1r16_048",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "HOLD",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": "fail_closed_prose_citation_only",
+        "primary_source_ref": "m12_c1r16_hold_048#reason",
+        "required_fields": [
+          "status",
+          "hold_reason",
+          "source_refs",
+          "cited_source_ref",
+          "disposition"
+        ],
+        "requires_source_refs": true,
+        "typed_value": null,
+        "value_type": null
+      }
+    },
+    {
+      "case_id": "m12_c1r16_049",
+      "pass": true,
+      "resolved_source_refs": [
+        "m12_c1r16_hold_049#reason",
+        "m12_c1r16_hold_049#decision"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m12_c1r16_hold_049#reason",
+          "m12_c1r16_hold_049#decision"
+        ],
+        "case_id": "m12_c1r16_049",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "HOLD",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": "fail_closed_disposition_citation_only",
+        "primary_source_ref": "m12_c1r16_hold_049#reason",
+        "required_fields": [
+          "status",
+          "hold_reason",
+          "source_refs",
+          "cited_source_ref",
+          "disposition"
+        ],
+        "requires_source_refs": true,
+        "typed_value": null,
+        "value_type": null
+      }
+    },
+    {
+      "case_id": "m12_c1r16_050",
+      "pass": true,
+      "resolved_source_refs": [
+        "m12_c1r16_hold_050#reason",
+        "m12_c1r16_hold_050#decision"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m12_c1r16_hold_050#reason",
+          "m12_c1r16_hold_050#decision"
+        ],
+        "case_id": "m12_c1r16_050",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "HOLD",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": "fail_closed_trace_rationale_comment_only",
+        "primary_source_ref": "m12_c1r16_hold_050#reason",
+        "required_fields": [
+          "status",
+          "hold_reason",
+          "source_refs",
+          "cited_source_ref",
+          "disposition"
+        ],
+        "requires_source_refs": true,
+        "typed_value": null,
+        "value_type": null
+      }
+    }
+  ],
+  "schema": "stickbot.vnext_semantic_gate.m12_c1r16.answer_envelope_spec_report.v1",
+  "status": "PASS"
+}

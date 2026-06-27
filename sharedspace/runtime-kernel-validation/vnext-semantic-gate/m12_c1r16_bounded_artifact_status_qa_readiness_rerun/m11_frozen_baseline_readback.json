@@ -1,0 +1,19 @@
+{
+  "approved_m11_sources": {
+    "m11_7_mutation_freeze": {
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_7_production_operating_baseline_finalization/mutation_freeze_report.json",
+      "sha256": "3108ecc9a23200e3e7447b324ebe5ebb331de16653c7f3f3ce36c916cdc89da4"
+    },
+    "m11_7_rollback": {
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_7_production_operating_baseline_finalization/rollback_record.json",
+      "sha256": "b621ba4a38debf55b583979cdcb296835124ac7225cb6ca5e85486b8a255c701"
+    },
+    "m11_7_status": {
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_7_production_operating_baseline_finalization/status.json",
+      "sha256": "2e2aac9d2a97bf1e290dade2501c42fe0eaca5d0690cebb53637751512bb7022"
+    }
+  },
+  "m11_frozen_baseline_preserved": true,
+  "schema": "stickbot.vnext_semantic_gate.m12_c1r16.m11_frozen_baseline_readback.v1",
+  "status": "PASS"
+}

@@ -1,0 +1,206 @@
+{
+  "items": [
+    {
+      "case_id": "m12_c1r16_001",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_002",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_003",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_004",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_005",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_006",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_007",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_008",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_009",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_010",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_011",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_012",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_013",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_014",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_015",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_016",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_017",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_018",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_019",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_020",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_021",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_022",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_023",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_024",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_025",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_026",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_027",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_028",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_029",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_030",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_031",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_032",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_033",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_034",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_035",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_036",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_037",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_038",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_039",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_040",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_041",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_042",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_043",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_044",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_045",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_046",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_047",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_048",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_049",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_050",
+      "pass": true
+    }
+  ],
+  "schema": "stickbot.vnext_semantic_gate.m12_c1r16.exact_source_value_anchor_report.v1",
+  "status": "PASS"
+}

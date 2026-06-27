@@ -1,0 +1,538 @@
+{
+  "items": [
+    {
+      "canonical_source_refs": [
+        "m11_7_mutation_freeze#artifact_memory_promoted"
+      ],
+      "case_id": "m12_c1r16_001",
+      "observed_source_refs": [
+        "m11_7_mutation_freeze#artifact_memory_promoted"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m11_7_mutation_freeze#cache_enabled"
+      ],
+      "case_id": "m12_c1r16_002",
+      "observed_source_refs": [
+        "m11_7_mutation_freeze#cache_enabled"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m11_7_mutation_freeze#fallback_chains_mutated"
+      ],
+      "case_id": "m12_c1r16_003",
+      "observed_source_refs": [
+        "m11_7_mutation_freeze#fallback_chains_mutated"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m11_7_mutation_freeze#gateway_config_mutated"
+      ],
+      "case_id": "m12_c1r16_004",
+      "observed_source_refs": [
+        "m11_7_mutation_freeze#gateway_config_mutated"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m11_7_mutation_freeze#generated_utc"
+      ],
+      "case_id": "m12_c1r16_005",
+      "observed_source_refs": [
+        "m11_7_mutation_freeze#generated_utc"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m11_7_mutation_freeze#live_routes_mutated"
+      ],
+      "case_id": "m12_c1r16_006",
+      "observed_source_refs": [
+        "m11_7_mutation_freeze#live_routes_mutated"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m11_7_mutation_freeze#m12_started"
+      ],
+      "case_id": "m12_c1r16_007",
+      "observed_source_refs": [
+        "m11_7_mutation_freeze#m12_started"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m11_7_mutation_freeze#memory_routes_mutated"
+      ],
+      "case_id": "m12_c1r16_008",
+      "observed_source_refs": [
+        "m11_7_mutation_freeze#memory_routes_mutated"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after./home/stickai/.openclaw/openclaw.json"
+      ],
+      "case_id": "m12_c1r16_009",
+      "observed_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after./home/stickai/.openclaw/openclaw.json"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.projects/token-broker-vmesh/config/common-reasoner-advisory-canary.default.json"
+      ],
+      "case_id": "m12_c1r16_010",
+      "observed_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.projects/token-broker-vmesh/config/common-reasoner-advisory-canary.default.json"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/mutation_sentinel_report.json"
+      ],
+      "case_id": "m12_c1r16_011",
+      "observed_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/mutation_sentinel_report.json"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/rollback_readiness.json"
+      ],
+      "case_id": "m12_c1r16_012",
+      "observed_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/rollback_readiness.json"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/status.json"
+      ],
+      "case_id": "m12_c1r16_013",
+      "observed_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/status.json"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/M11_6_ACTIVE_PRODUCTION_DECISION_EXERCISE_REPORT.md"
+      ],
+      "case_id": "m12_c1r16_014",
+      "observed_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/M11_6_ACTIVE_PRODUCTION_DECISION_EXERCISE_REPORT.md"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/mutation_sentinel_report.json"
+      ],
+      "case_id": "m12_c1r16_015",
+      "observed_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/mutation_sentinel_report.json"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/provider_path_report.json"
+      ],
+      "case_id": "m12_c1r16_016",
+      "observed_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/provider_path_report.json"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/rollback_readiness.json"
+      ],
+      "case_id": "m12_c1r16_017",
+      "observed_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/rollback_readiness.json"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/status.json"
+      ],
+      "case_id": "m12_c1r16_018",
+      "observed_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/status.json"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_production_activation_owner_operator_cutover/status.json"
+      ],
+      "case_id": "m12_c1r16_019",
+      "observed_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_production_activation_owner_operator_cutover/status.json"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before./home/stickai/.openclaw/openclaw.json"
+      ],
+      "case_id": "m12_c1r16_020",
+      "observed_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before./home/stickai/.openclaw/openclaw.json"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.projects/token-broker-vmesh/config/common-reasoner-advisory-canary.default.json"
+      ],
+      "case_id": "m12_c1r16_021",
+      "observed_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.projects/token-broker-vmesh/config/common-reasoner-advisory-canary.default.json"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/mutation_sentinel_report.json"
+      ],
+      "case_id": "m12_c1r16_022",
+      "observed_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/mutation_sentinel_report.json"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/rollback_readiness.json"
+      ],
+      "case_id": "m12_c1r16_023",
+      "observed_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/rollback_readiness.json"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/status.json"
+      ],
+      "case_id": "m12_c1r16_024",
+      "observed_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/status.json"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/M11_6_ACTIVE_PRODUCTION_DECISION_EXERCISE_REPORT.md"
+      ],
+      "case_id": "m12_c1r16_025",
+      "observed_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/M11_6_ACTIVE_PRODUCTION_DECISION_EXERCISE_REPORT.md"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/mutation_sentinel_report.json"
+      ],
+      "case_id": "m12_c1r16_026",
+      "observed_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/mutation_sentinel_report.json"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/provider_path_report.json"
+      ],
+      "case_id": "m12_c1r16_027",
+      "observed_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/provider_path_report.json"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/rollback_readiness.json"
+      ],
+      "case_id": "m12_c1r16_028",
+      "observed_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/rollback_readiness.json"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/status.json"
+      ],
+      "case_id": "m12_c1r16_029",
+      "observed_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/status.json"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_production_activation_owner_operator_cutover/status.json"
+      ],
+      "case_id": "m12_c1r16_030",
+      "observed_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_production_activation_owner_operator_cutover/status.json"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m11_7_mutation_freeze#run_id"
+      ],
+      "case_id": "m12_c1r16_031",
+      "observed_source_refs": [
+        "m11_7_mutation_freeze#run_id"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m11_7_mutation_freeze#runtime_authority_mutated"
+      ],
+      "case_id": "m12_c1r16_032",
+      "observed_source_refs": [
+        "m11_7_mutation_freeze#runtime_authority_mutated"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m11_7_mutation_freeze#schema"
+      ],
+      "case_id": "m12_c1r16_033",
+      "observed_source_refs": [
+        "m11_7_mutation_freeze#schema"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m11_7_mutation_freeze#scope_expanded"
+      ],
+      "case_id": "m12_c1r16_034",
+      "observed_source_refs": [
+        "m11_7_mutation_freeze#scope_expanded"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m12_c1r16_hold_035#reason",
+        "m12_c1r16_hold_035#decision"
+      ],
+      "case_id": "m12_c1r16_035",
+      "observed_source_refs": [
+        "m12_c1r16_hold_035#reason",
+        "m12_c1r16_hold_035#decision"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m12_c1r16_hold_036#reason",
+        "m12_c1r16_hold_036#decision"
+      ],
+      "case_id": "m12_c1r16_036",
+      "observed_source_refs": [
+        "m12_c1r16_hold_036#reason",
+        "m12_c1r16_hold_036#decision"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m12_c1r16_hold_037#reason",
+        "m12_c1r16_hold_037#decision"
+      ],
+      "case_id": "m12_c1r16_037",
+      "observed_source_refs": [
+        "m12_c1r16_hold_037#reason",
+        "m12_c1r16_hold_037#decision"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m12_c1r16_hold_038#reason",
+        "m12_c1r16_hold_038#decision"
+      ],
+      "case_id": "m12_c1r16_038",
+      "observed_source_refs": [
+        "m12_c1r16_hold_038#reason",
+        "m12_c1r16_hold_038#decision"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m12_c1r16_hold_039#reason",
+        "m12_c1r16_hold_039#decision"
+      ],
+      "case_id": "m12_c1r16_039",
+      "observed_source_refs": [
+        "m12_c1r16_hold_039#reason",
+        "m12_c1r16_hold_039#decision"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m12_c1r16_hold_040#reason",
+        "m12_c1r16_hold_040#decision"
+      ],
+      "case_id": "m12_c1r16_040",
+      "observed_source_refs": [
+        "m12_c1r16_hold_040#reason",
+        "m12_c1r16_hold_040#decision"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m12_c1r16_hold_041#reason",
+        "m12_c1r16_hold_041#decision"
+      ],
+      "case_id": "m12_c1r16_041",
+      "observed_source_refs": [
+        "m12_c1r16_hold_041#reason",
+        "m12_c1r16_hold_041#decision"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m12_c1r16_hold_042#reason",
+        "m12_c1r16_hold_042#decision"
+      ],
+      "case_id": "m12_c1r16_042",
+      "observed_source_refs": [
+        "m12_c1r16_hold_042#reason",
+        "m12_c1r16_hold_042#decision"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m12_c1r16_hold_043#reason",
+        "m12_c1r16_hold_043#decision"
+      ],
+      "case_id": "m12_c1r16_043",
+      "observed_source_refs": [
+        "m12_c1r16_hold_043#reason",
+        "m12_c1r16_hold_043#decision"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m12_c1r16_hold_044#reason",
+        "m12_c1r16_hold_044#decision"
+      ],
+      "case_id": "m12_c1r16_044",
+      "observed_source_refs": [
+        "m12_c1r16_hold_044#reason",
+        "m12_c1r16_hold_044#decision"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m12_c1r16_hold_045#reason",
+        "m12_c1r16_hold_045#decision"
+      ],
+      "case_id": "m12_c1r16_045",
+      "observed_source_refs": [
+        "m12_c1r16_hold_045#reason",
+        "m12_c1r16_hold_045#decision"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m12_c1r16_hold_046#reason",
+        "m12_c1r16_hold_046#decision"
+      ],
+      "case_id": "m12_c1r16_046",
+      "observed_source_refs": [
+        "m12_c1r16_hold_046#reason",
+        "m12_c1r16_hold_046#decision"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m12_c1r16_hold_047#reason",
+        "m12_c1r16_hold_047#decision"
+      ],
+      "case_id": "m12_c1r16_047",
+      "observed_source_refs": [
+        "m12_c1r16_hold_047#reason",
+        "m12_c1r16_hold_047#decision"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m12_c1r16_hold_048#reason",
+        "m12_c1r16_hold_048#decision"
+      ],
+      "case_id": "m12_c1r16_048",
+      "observed_source_refs": [
+        "m12_c1r16_hold_048#reason",
+        "m12_c1r16_hold_048#decision"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m12_c1r16_hold_049#reason",
+        "m12_c1r16_hold_049#decision"
+      ],
+      "case_id": "m12_c1r16_049",
+      "observed_source_refs": [
+        "m12_c1r16_hold_049#reason",
+        "m12_c1r16_hold_049#decision"
+      ],
+      "pass": true
+    },
+    {
+      "canonical_source_refs": [
+        "m12_c1r16_hold_050#reason",
+        "m12_c1r16_hold_050#decision"
+      ],
+      "case_id": "m12_c1r16_050",
+      "observed_source_refs": [
+        "m12_c1r16_hold_050#reason",
+        "m12_c1r16_hold_050#decision"
+      ],
+      "pass": true
+    }
+  ],
+  "schema": "stickbot.vnext_semantic_gate.m12_c1r16.source_ref_canonicalization_report.v1",
+  "status": "PASS"
+}

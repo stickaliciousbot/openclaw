@@ -1,0 +1,8 @@
+{
+  "direct_provider_bypass_count": 0,
+  "gateway_token_broker_required": false,
+  "provider_model_calls": 0,
+  "provider_path_used": false,
+  "schema": "stickbot.vnext_semantic_gate.m12_c1r16.provider_path_report.v1",
+  "status": "PASS"
+}

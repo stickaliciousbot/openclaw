@@ -1,0 +1,16 @@
+{
+  "artifact_memory_promoted": false,
+  "cache_enabled": false,
+  "direct_provider_bypass": false,
+  "fallback_chain_mutated": false,
+  "gateway_config_mutated": false,
+  "live_route_mutated": false,
+  "m12_c2_c3_c4_started": false,
+  "memory_route_mutated": false,
+  "mutation_detected_count": 0,
+  "production_expansion_applied": false,
+  "provider_model_calls": 0,
+  "runtime_authority_mutated": false,
+  "schema": "stickbot.vnext_semantic_gate.m12_c1r16.mutation_sentinel_report.v1",
+  "status": "PASS"
+}

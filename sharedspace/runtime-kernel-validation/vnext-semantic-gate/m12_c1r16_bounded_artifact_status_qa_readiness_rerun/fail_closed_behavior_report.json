@@ -1,0 +1,118 @@
+{
+  "items": [
+    {
+      "case_id": "m12_c1r16_035",
+      "case_type": "fail_closed_stale_artifact",
+      "envelope_status": "HOLD",
+      "hold_reason": "fail_closed_stale_artifact",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_036",
+      "case_type": "fail_closed_missing_artifact",
+      "envelope_status": "HOLD",
+      "hold_reason": "fail_closed_missing_artifact",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_037",
+      "case_type": "fail_closed_ambiguous_source",
+      "envelope_status": "HOLD",
+      "hold_reason": "fail_closed_ambiguous_source",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_038",
+      "case_type": "fail_closed_unapproved_memory_source",
+      "envelope_status": "HOLD",
+      "hold_reason": "fail_closed_unapproved_memory_source",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_039",
+      "case_type": "fail_closed_unapproved_context_bridge_source",
+      "envelope_status": "HOLD",
+      "hold_reason": "fail_closed_unapproved_context_bridge_source",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_040",
+      "case_type": "fail_closed_unapproved_daily_memory_source",
+      "envelope_status": "HOLD",
+      "hold_reason": "fail_closed_unapproved_daily_memory_source",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_041",
+      "case_type": "fail_closed_wrong_ref",
+      "envelope_status": "HOLD",
+      "hold_reason": "fail_closed_wrong_ref",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_042",
+      "case_type": "fail_closed_wrong_value",
+      "envelope_status": "HOLD",
+      "hold_reason": "fail_closed_wrong_value",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_043",
+      "case_type": "fail_closed_wrong_type",
+      "envelope_status": "HOLD",
+      "hold_reason": "fail_closed_wrong_type",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_044",
+      "case_type": "fail_closed_unsupported_source",
+      "envelope_status": "HOLD",
+      "hold_reason": "fail_closed_unsupported_source",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_045",
+      "case_type": "fail_closed_out_of_scope_source",
+      "envelope_status": "HOLD",
+      "hold_reason": "fail_closed_out_of_scope_source",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_046",
+      "case_type": "fail_closed_prompt_injection_text_content_only",
+      "envelope_status": "HOLD",
+      "hold_reason": "fail_closed_prompt_injection_text_content_only",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_047",
+      "case_type": "fail_closed_arbitrary_path_denied",
+      "envelope_status": "HOLD",
+      "hold_reason": "fail_closed_arbitrary_path_denied",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_048",
+      "case_type": "fail_closed_prose_citation_only",
+      "envelope_status": "HOLD",
+      "hold_reason": "fail_closed_prose_citation_only",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_049",
+      "case_type": "fail_closed_disposition_citation_only",
+      "envelope_status": "HOLD",
+      "hold_reason": "fail_closed_disposition_citation_only",
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_050",
+      "case_type": "fail_closed_trace_rationale_comment_only",
+      "envelope_status": "HOLD",
+      "hold_reason": "fail_closed_trace_rationale_comment_only",
+      "pass": true
+    }
+  ],
+  "schema": "stickbot.vnext_semantic_gate.m12_c1r16.fail_closed_behavior_report.v1",
+  "status": "PASS"
+}

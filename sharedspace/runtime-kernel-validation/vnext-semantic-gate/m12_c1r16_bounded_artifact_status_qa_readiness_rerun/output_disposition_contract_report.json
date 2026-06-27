@@ -1,0 +1,572 @@
+{
+  "items": [
+    {
+      "case_id": "m12_c1r16_001",
+      "disposition": {
+        "authority": "approved_artifact_source_rows_only",
+        "control_claims": [],
+        "kind": "answer_from_approved_source_rows",
+        "source_authority": "approved_artifact_source_rows_only",
+        "source_row_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_002",
+      "disposition": {
+        "authority": "approved_artifact_source_rows_only",
+        "control_claims": [],
+        "kind": "answer_from_approved_source_rows",
+        "source_authority": "approved_artifact_source_rows_only",
+        "source_row_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_003",
+      "disposition": {
+        "authority": "approved_artifact_source_rows_only",
+        "control_claims": [],
+        "kind": "answer_from_approved_source_rows",
+        "source_authority": "approved_artifact_source_rows_only",
+        "source_row_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_004",
+      "disposition": {
+        "authority": "approved_artifact_source_rows_only",
+        "control_claims": [],
+        "kind": "answer_from_approved_source_rows",
+        "source_authority": "approved_artifact_source_rows_only",
+        "source_row_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_005",
+      "disposition": {
+        "authority": "approved_artifact_source_rows_only",
+        "control_claims": [],
+        "kind": "answer_from_approved_source_rows",
+        "source_authority": "approved_artifact_source_rows_only",
+        "source_row_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_006",
+      "disposition": {
+        "authority": "approved_artifact_source_rows_only",
+        "control_claims": [],
+        "kind": "answer_from_approved_source_rows",
+        "source_authority": "approved_artifact_source_rows_only",
+        "source_row_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_007",
+      "disposition": {
+        "authority": "approved_artifact_source_rows_only",
+        "control_claims": [],
+        "kind": "answer_from_approved_source_rows",
+        "source_authority": "approved_artifact_source_rows_only",
+        "source_row_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_008",
+      "disposition": {
+        "authority": "approved_artifact_source_rows_only",
+        "control_claims": [],
+        "kind": "answer_from_approved_source_rows",
+        "source_authority": "approved_artifact_source_rows_only",
+        "source_row_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_009",
+      "disposition": {
+        "authority": "approved_artifact_source_rows_only",
+        "control_claims": [],
+        "kind": "answer_from_approved_source_rows",
+        "source_authority": "approved_artifact_source_rows_only",
+        "source_row_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_010",
+      "disposition": {
+        "authority": "approved_artifact_source_rows_only",
+        "control_claims": [],
+        "kind": "answer_from_approved_source_rows",
+        "source_authority": "approved_artifact_source_rows_only",
+        "source_row_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_011",
+      "disposition": {
+        "authority": "approved_artifact_source_rows_only",
+        "control_claims": [],
+        "kind": "answer_from_approved_source_rows",
+        "source_authority": "approved_artifact_source_rows_only",
+        "source_row_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_012",
+      "disposition": {
+        "authority": "approved_artifact_source_rows_only",
+        "control_claims": [],
+        "kind": "answer_from_approved_source_rows",
+        "source_authority": "approved_artifact_source_rows_only",
+        "source_row_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_013",
+      "disposition": {
+        "authority": "approved_artifact_source_rows_only",
+        "control_claims": [],
+        "kind": "answer_from_approved_source_rows",
+        "source_authority": "approved_artifact_source_rows_only",
+        "source_row_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_014",
+      "disposition": {
+        "authority": "approved_artifact_source_rows_only",
+        "control_claims": [],
+        "kind": "answer_from_approved_source_rows",
+        "source_authority": "approved_artifact_source_rows_only",
+        "source_row_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_015",
+      "disposition": {
+        "authority": "approved_artifact_source_rows_only",
+        "control_claims": [],
+        "kind": "answer_from_approved_source_rows",
+        "source_authority": "approved_artifact_source_rows_only",
+        "source_row_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_016",
+      "disposition": {
+        "authority": "approved_artifact_source_rows_only",
+        "control_claims": [],
+        "kind": "answer_from_approved_source_rows",
+        "source_authority": "approved_artifact_source_rows_only",
+        "source_row_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_017",
+      "disposition": {
+        "authority": "approved_artifact_source_rows_only",
+        "control_claims": [],
+        "kind": "answer_from_approved_source_rows",
+        "source_authority": "approved_artifact_source_rows_only",
+        "source_row_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_018",
+      "disposition": {
+        "authority": "approved_artifact_source_rows_only",
+        "control_claims": [],
+        "kind": "answer_from_approved_source_rows",
+        "source_authority": "approved_artifact_source_rows_only",
+        "source_row_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_019",
+      "disposition": {
+        "authority": "approved_artifact_source_rows_only",
+        "control_claims": [],
+        "kind": "answer_from_approved_source_rows",
+        "source_authority": "approved_artifact_source_rows_only",
+        "source_row_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_020",
+      "disposition": {
+        "authority": "approved_artifact_source_rows_only",
+        "control_claims": [],
+        "kind": "answer_from_approved_source_rows",
+        "source_authority": "approved_artifact_source_rows_only",
+        "source_row_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_021",
+      "disposition": {
+        "authority": "approved_artifact_source_rows_only",
+        "control_claims": [],
+        "kind": "answer_from_approved_source_rows",
+        "source_authority": "approved_artifact_source_rows_only",
+        "source_row_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_022",
+      "disposition": {
+        "authority": "approved_artifact_source_rows_only",
+        "control_claims": [],
+        "kind": "answer_from_approved_source_rows",
+        "source_authority": "approved_artifact_source_rows_only",
+        "source_row_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_023",
+      "disposition": {
+        "authority": "approved_artifact_source_rows_only",
+        "control_claims": [],
+        "kind": "answer_from_approved_source_rows",
+        "source_authority": "approved_artifact_source_rows_only",
+        "source_row_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_024",
+      "disposition": {
+        "authority": "approved_artifact_source_rows_only",
+        "control_claims": [],
+        "kind": "answer_from_approved_source_rows",
+        "source_authority": "approved_artifact_source_rows_only",
+        "source_row_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_025",
+      "disposition": {
+        "authority": "approved_artifact_source_rows_only",
+        "control_claims": [],
+        "kind": "answer_from_approved_source_rows",
+        "source_authority": "approved_artifact_source_rows_only",
+        "source_row_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_026",
+      "disposition": {
+        "authority": "approved_artifact_source_rows_only",
+        "control_claims": [],
+        "kind": "answer_from_approved_source_rows",
+        "source_authority": "approved_artifact_source_rows_only",
+        "source_row_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_027",
+      "disposition": {
+        "authority": "approved_artifact_source_rows_only",
+        "control_claims": [],
+        "kind": "answer_from_approved_source_rows",
+        "source_authority": "approved_artifact_source_rows_only",
+        "source_row_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_028",
+      "disposition": {
+        "authority": "approved_artifact_source_rows_only",
+        "control_claims": [],
+        "kind": "answer_from_approved_source_rows",
+        "source_authority": "approved_artifact_source_rows_only",
+        "source_row_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_029",
+      "disposition": {
+        "authority": "approved_artifact_source_rows_only",
+        "control_claims": [],
+        "kind": "answer_from_approved_source_rows",
+        "source_authority": "approved_artifact_source_rows_only",
+        "source_row_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_030",
+      "disposition": {
+        "authority": "approved_artifact_source_rows_only",
+        "control_claims": [],
+        "kind": "answer_from_approved_source_rows",
+        "source_authority": "approved_artifact_source_rows_only",
+        "source_row_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_031",
+      "disposition": {
+        "authority": "approved_artifact_source_rows_only",
+        "control_claims": [],
+        "kind": "answer_from_approved_source_rows",
+        "source_authority": "approved_artifact_source_rows_only",
+        "source_row_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_032",
+      "disposition": {
+        "authority": "approved_artifact_source_rows_only",
+        "control_claims": [],
+        "kind": "answer_from_approved_source_rows",
+        "source_authority": "approved_artifact_source_rows_only",
+        "source_row_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_033",
+      "disposition": {
+        "authority": "approved_artifact_source_rows_only",
+        "control_claims": [],
+        "kind": "answer_from_approved_source_rows",
+        "source_authority": "approved_artifact_source_rows_only",
+        "source_row_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_034",
+      "disposition": {
+        "authority": "approved_artifact_source_rows_only",
+        "control_claims": [],
+        "kind": "answer_from_approved_source_rows",
+        "source_authority": "approved_artifact_source_rows_only",
+        "source_row_count": 1
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_035",
+      "disposition": {
+        "authority": "not_authoritative_for_requested_status",
+        "control_claims": [],
+        "fail_closed": true,
+        "kind": "fail_closed_hold",
+        "reason": "fail_closed_stale_artifact",
+        "source_authority": "no_authoritative_answer"
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_036",
+      "disposition": {
+        "authority": "not_authoritative_for_requested_status",
+        "control_claims": [],
+        "fail_closed": true,
+        "kind": "fail_closed_hold",
+        "reason": "fail_closed_missing_artifact",
+        "source_authority": "no_authoritative_answer"
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_037",
+      "disposition": {
+        "authority": "not_authoritative_for_requested_status",
+        "control_claims": [],
+        "fail_closed": true,
+        "kind": "fail_closed_hold",
+        "reason": "fail_closed_ambiguous_source",
+        "source_authority": "no_authoritative_answer"
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_038",
+      "disposition": {
+        "authority": "not_authoritative_for_requested_status",
+        "control_claims": [],
+        "fail_closed": true,
+        "kind": "fail_closed_hold",
+        "reason": "fail_closed_unapproved_memory_source",
+        "source_authority": "no_authoritative_answer"
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_039",
+      "disposition": {
+        "authority": "not_authoritative_for_requested_status",
+        "control_claims": [],
+        "fail_closed": true,
+        "kind": "fail_closed_hold",
+        "reason": "fail_closed_unapproved_context_bridge_source",
+        "source_authority": "no_authoritative_answer"
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_040",
+      "disposition": {
+        "authority": "not_authoritative_for_requested_status",
+        "control_claims": [],
+        "fail_closed": true,
+        "kind": "fail_closed_hold",
+        "reason": "fail_closed_unapproved_daily_memory_source",
+        "source_authority": "no_authoritative_answer"
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_041",
+      "disposition": {
+        "authority": "not_authoritative_for_requested_status",
+        "control_claims": [],
+        "fail_closed": true,
+        "kind": "fail_closed_hold",
+        "reason": "fail_closed_wrong_ref",
+        "source_authority": "no_authoritative_answer"
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_042",
+      "disposition": {
+        "authority": "not_authoritative_for_requested_status",
+        "control_claims": [],
+        "fail_closed": true,
+        "kind": "fail_closed_hold",
+        "reason": "fail_closed_wrong_value",
+        "source_authority": "no_authoritative_answer"
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_043",
+      "disposition": {
+        "authority": "not_authoritative_for_requested_status",
+        "control_claims": [],
+        "fail_closed": true,
+        "kind": "fail_closed_hold",
+        "reason": "fail_closed_wrong_type",
+        "source_authority": "no_authoritative_answer"
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_044",
+      "disposition": {
+        "authority": "not_authoritative_for_requested_status",
+        "control_claims": [],
+        "fail_closed": true,
+        "kind": "fail_closed_hold",
+        "reason": "fail_closed_unsupported_source",
+        "source_authority": "no_authoritative_answer"
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_045",
+      "disposition": {
+        "authority": "not_authoritative_for_requested_status",
+        "control_claims": [],
+        "fail_closed": true,
+        "kind": "fail_closed_hold",
+        "reason": "fail_closed_out_of_scope_source",
+        "source_authority": "no_authoritative_answer"
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_046",
+      "disposition": {
+        "authority": "not_authoritative_for_requested_status",
+        "control_claims": [],
+        "fail_closed": true,
+        "kind": "fail_closed_hold",
+        "reason": "fail_closed_prompt_injection_text_content_only",
+        "source_authority": "no_authoritative_answer"
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_047",
+      "disposition": {
+        "authority": "not_authoritative_for_requested_status",
+        "control_claims": [],
+        "fail_closed": true,
+        "kind": "fail_closed_hold",
+        "reason": "fail_closed_arbitrary_path_denied",
+        "source_authority": "no_authoritative_answer"
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_048",
+      "disposition": {
+        "authority": "not_authoritative_for_requested_status",
+        "control_claims": [],
+        "fail_closed": true,
+        "kind": "fail_closed_hold",
+        "reason": "fail_closed_prose_citation_only",
+        "source_authority": "no_authoritative_answer"
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_049",
+      "disposition": {
+        "authority": "not_authoritative_for_requested_status",
+        "control_claims": [],
+        "fail_closed": true,
+        "kind": "fail_closed_hold",
+        "reason": "fail_closed_disposition_citation_only",
+        "source_authority": "no_authoritative_answer"
+      },
+      "pass": true
+    },
+    {
+      "case_id": "m12_c1r16_050",
+      "disposition": {
+        "authority": "not_authoritative_for_requested_status",
+        "control_claims": [],
+        "fail_closed": true,
+        "kind": "fail_closed_hold",
+        "reason": "fail_closed_trace_rationale_comment_only",
+        "source_authority": "no_authoritative_answer"
+      },
+      "pass": true
+    }
+  ],
+  "schema": "stickbot.vnext_semantic_gate.m12_c1r16.output_disposition_contract_report.v1",
+  "status": "PASS"
+}

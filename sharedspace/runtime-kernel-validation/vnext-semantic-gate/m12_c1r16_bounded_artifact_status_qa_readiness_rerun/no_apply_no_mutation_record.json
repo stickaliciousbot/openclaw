@@ -1,0 +1,13 @@
+{
+  "no_apply": true,
+  "no_artifact_memory_promotion": true,
+  "no_c2_c3_c4": true,
+  "no_cache_enablement": true,
+  "no_full_c1_readiness_rerun": true,
+  "no_gateway_config_live_route_fallback_memory_route_mutation": true,
+  "no_production_expansion": true,
+  "no_provider_or_model_calls": true,
+  "no_runtime_authority_expansion": true,
+  "schema": "stickbot.vnext_semantic_gate.m12_c1r16.no_apply_no_mutation_record.v1",
+  "status": "PASS"
+}

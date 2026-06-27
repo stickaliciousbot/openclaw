@@ -1,0 +1,2171 @@
+{
+  "results": [
+    {
+      "case_id": "m12_c1r16_001",
+      "case_index": 1,
+      "case_type": "simple_status_readback",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#artifact_memory_promoted",
+      "envelope": {
+        "answer": "The value is false.",
+        "answer_value": false,
+        "cited_source_ref": "m11_7_mutation_freeze#artifact_memory_promoted",
+        "cited_source_value": false,
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#artifact_memory_promoted"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "4de36f76d339e7f6c76dc12959f423b23532cbf7b4d740b2e4e7bc82810cbfa1",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m11_7_mutation_freeze#artifact_memory_promoted"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_002",
+      "case_index": 2,
+      "case_type": "artifact_directory_status",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#cache_enabled",
+      "envelope": {
+        "answer": "The value is false.",
+        "answer_value": false,
+        "cited_source_ref": "m11_7_mutation_freeze#cache_enabled",
+        "cited_source_value": false,
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#cache_enabled"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "e8369548af2ff3c71182868f97ed91b843c83ffad918b3cdad3ac2d26b68dbd9",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m11_7_mutation_freeze#cache_enabled"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_003",
+      "case_index": 3,
+      "case_type": "pass_fail_status_extraction",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#fallback_chains_mutated",
+      "envelope": {
+        "answer": "The value is false.",
+        "answer_value": false,
+        "cited_source_ref": "m11_7_mutation_freeze#fallback_chains_mutated",
+        "cited_source_value": false,
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#fallback_chains_mutated"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "5513a39ff4a2f17a3e4216aa9948827604f9d9212e9ab50192fd4ebe14ba7152",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m11_7_mutation_freeze#fallback_chains_mutated"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_004",
+      "case_index": 4,
+      "case_type": "boundary_non_claim_extraction",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#gateway_config_mutated",
+      "envelope": {
+        "answer": "The value is false.",
+        "answer_value": false,
+        "cited_source_ref": "m11_7_mutation_freeze#gateway_config_mutated",
+        "cited_source_value": false,
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#gateway_config_mutated"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "a5287b6653fb4c87c144f96ac0971e224fcdc42ddf43d72a9e4e0fd9df0d3ce7",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m11_7_mutation_freeze#gateway_config_mutated"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_005",
+      "case_index": 5,
+      "case_type": "rollback_readiness_readback",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#generated_utc",
+      "envelope": {
+        "answer": "The value is \"2026-06-25T12:01:14Z\".",
+        "answer_value": "2026-06-25T12:01:14Z",
+        "cited_source_ref": "m11_7_mutation_freeze#generated_utc",
+        "cited_source_value": "2026-06-25T12:01:14Z",
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#generated_utc"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "76f02911b0660978c5ca6b2e28b8a3f32b64fed81f097ef79da0483a828a29d8",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m11_7_mutation_freeze#generated_utc"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_006",
+      "case_index": 6,
+      "case_type": "mutation_sentinel_readback",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#live_routes_mutated",
+      "envelope": {
+        "answer": "The value is false.",
+        "answer_value": false,
+        "cited_source_ref": "m11_7_mutation_freeze#live_routes_mutated",
+        "cited_source_value": false,
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#live_routes_mutated"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "1522e99586068259062acce05887973b50388ffe12d7f0ebef7052883c902551",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m11_7_mutation_freeze#live_routes_mutated"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_007",
+      "case_index": 7,
+      "case_type": "source_ref_canonicalization_readback",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#m12_started",
+      "envelope": {
+        "answer": "The value is false.",
+        "answer_value": false,
+        "cited_source_ref": "m11_7_mutation_freeze#m12_started",
+        "cited_source_value": false,
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#m12_started"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "97c5b64c97da1c9e527090801300765059711522561994c5564ff3481b758f46",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m11_7_mutation_freeze#m12_started"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_008",
+      "case_index": 8,
+      "case_type": "exact_value_anchor_readback",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#memory_routes_mutated",
+      "envelope": {
+        "answer": "The value is false.",
+        "answer_value": false,
+        "cited_source_ref": "m11_7_mutation_freeze#memory_routes_mutated",
+        "cited_source_value": false,
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#memory_routes_mutated"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "375a4e3a9ef2a8bedff9b4f961eca8dd0769e1bde5b20f0e3715269ec123dfc5",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m11_7_mutation_freeze#memory_routes_mutated"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_009",
+      "case_index": 9,
+      "case_type": "typed_exact_value_fidelity_readback",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_after./home/stickai/.openclaw/openclaw.json",
+      "envelope": {
+        "answer": "The value is \"45c8d4100610a54e82d4206334e7338f5e5f6cd0d9d3d073c2ff767319bd3115\".",
+        "answer_value": "45c8d4100610a54e82d4206334e7338f5e5f6cd0d9d3d073c2ff767319bd3115",
+        "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_after./home/stickai/.openclaw/openclaw.json",
+        "cited_source_value": "45c8d4100610a54e82d4206334e7338f5e5f6cd0d9d3d073c2ff767319bd3115",
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_after./home/stickai/.openclaw/openclaw.json"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "d90117bc740e169aba522250e35d667b9f7cd0b72606a58aa181c124a0d1a470",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after./home/stickai/.openclaw/openclaw.json"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_010",
+      "case_index": 10,
+      "case_type": "output_disposition_contract_readback",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_after.projects/token-broker-vmesh/config/common-reasoner-advisory-canary.default.json",
+      "envelope": {
+        "answer": "The value is \"6a73551c8d25b6843240e67733972b67a7198ac65308811d0cca6e593a826ddf\".",
+        "answer_value": "6a73551c8d25b6843240e67733972b67a7198ac65308811d0cca6e593a826ddf",
+        "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_after.projects/token-broker-vmesh/config/common-reasoner-advisory-canary.default.json",
+        "cited_source_value": "6a73551c8d25b6843240e67733972b67a7198ac65308811d0cca6e593a826ddf",
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_after.projects/token-broker-vmesh/config/common-reasoner-advisory-canary.default.json"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "ab3e999a254d02a859fda18866b06de553edb1ee30066097d9d81cd0eaed208c",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.projects/token-broker-vmesh/config/common-reasoner-advisory-canary.default.json"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_011",
+      "case_index": 11,
+      "case_type": "answer_envelope_compiler_readback",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/mutation_sentinel_report.json",
+      "envelope": {
+        "answer": "The value is \"30628aa51b6d803f1864c9d30dc482861b2b10390def90e6b25fd336d5e4ace4\".",
+        "answer_value": "30628aa51b6d803f1864c9d30dc482861b2b10390def90e6b25fd336d5e4ace4",
+        "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/mutation_sentinel_report.json",
+        "cited_source_value": "30628aa51b6d803f1864c9d30dc482861b2b10390def90e6b25fd336d5e4ace4",
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/mutation_sentinel_report.json"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "7dc0d6c332ddec9cc017c9ee2054027f4f7bdc76e89b1de6eb2992eba307f4f8",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/mutation_sentinel_report.json"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_012",
+      "case_index": 12,
+      "case_type": "provider_path_token_broker_readiness_readback",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/rollback_readiness.json",
+      "envelope": {
+        "answer": "The value is \"07b888a3b4741519172f440b885af5f4255cdf8babaabf10631a967413f6dca4\".",
+        "answer_value": "07b888a3b4741519172f440b885af5f4255cdf8babaabf10631a967413f6dca4",
+        "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/rollback_readiness.json",
+        "cited_source_value": "07b888a3b4741519172f440b885af5f4255cdf8babaabf10631a967413f6dca4",
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/rollback_readiness.json"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "60d0150ecadf5f417bf9f35fc955ae99605246d87eda818bb1abfef278a37a1d",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/rollback_readiness.json"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_013",
+      "case_index": 13,
+      "case_type": "simple_status_readback",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/status.json",
+      "envelope": {
+        "answer": "The value is \"cec4458551f946b204bc8ccf18f32c3a9a52114d6503038f2240c7c5e1af9194\".",
+        "answer_value": "cec4458551f946b204bc8ccf18f32c3a9a52114d6503038f2240c7c5e1af9194",
+        "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/status.json",
+        "cited_source_value": "cec4458551f946b204bc8ccf18f32c3a9a52114d6503038f2240c7c5e1af9194",
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/status.json"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "cc84c48ece5bad5cef9576104c025bac7e8583b80eb6bd252ba0126bc1e15bf4",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/status.json"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_014",
+      "case_index": 14,
+      "case_type": "artifact_directory_status",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/M11_6_ACTIVE_PRODUCTION_DECISION_EXERCISE_REPORT.md",
+      "envelope": {
+        "answer": "The value is \"b930627bad1ccfb9c7b3e69733a55b9a06adccca8b60978be3e281415b09bd88\".",
+        "answer_value": "b930627bad1ccfb9c7b3e69733a55b9a06adccca8b60978be3e281415b09bd88",
+        "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/M11_6_ACTIVE_PRODUCTION_DECISION_EXERCISE_REPORT.md",
+        "cited_source_value": "b930627bad1ccfb9c7b3e69733a55b9a06adccca8b60978be3e281415b09bd88",
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/M11_6_ACTIVE_PRODUCTION_DECISION_EXERCISE_REPORT.md"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "4b981b1eee346168e99e903359c36bea3483b2031f1265390d010bf29f8a4436",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/M11_6_ACTIVE_PRODUCTION_DECISION_EXERCISE_REPORT.md"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_015",
+      "case_index": 15,
+      "case_type": "pass_fail_status_extraction",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/mutation_sentinel_report.json",
+      "envelope": {
+        "answer": "The value is \"77472364c162d08631b526da3f886cca4df231d9bf43ea3b5fb2ec91620f6b53\".",
+        "answer_value": "77472364c162d08631b526da3f886cca4df231d9bf43ea3b5fb2ec91620f6b53",
+        "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/mutation_sentinel_report.json",
+        "cited_source_value": "77472364c162d08631b526da3f886cca4df231d9bf43ea3b5fb2ec91620f6b53",
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/mutation_sentinel_report.json"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "89321a6e517cd9fe5eb023a0d07fcb43868685ea31e56735e84c47eedba5b407",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/mutation_sentinel_report.json"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_016",
+      "case_index": 16,
+      "case_type": "boundary_non_claim_extraction",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/provider_path_report.json",
+      "envelope": {
+        "answer": "The value is \"273070c1f8b7f3b49efa5c25f8b8a51288ba371067950e40bbc1206552a8b649\".",
+        "answer_value": "273070c1f8b7f3b49efa5c25f8b8a51288ba371067950e40bbc1206552a8b649",
+        "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/provider_path_report.json",
+        "cited_source_value": "273070c1f8b7f3b49efa5c25f8b8a51288ba371067950e40bbc1206552a8b649",
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/provider_path_report.json"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "f380abc3a6c8208112b146dbad90746f57bce1b6c6a82088ea97c8a5b3a0a84d",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/provider_path_report.json"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_017",
+      "case_index": 17,
+      "case_type": "rollback_readiness_readback",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/rollback_readiness.json",
+      "envelope": {
+        "answer": "The value is \"9643263bc9e581f2469a89af76ba57f7ce9d43d25d12c1dea0b9c10c9f27f2d5\".",
+        "answer_value": "9643263bc9e581f2469a89af76ba57f7ce9d43d25d12c1dea0b9c10c9f27f2d5",
+        "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/rollback_readiness.json",
+        "cited_source_value": "9643263bc9e581f2469a89af76ba57f7ce9d43d25d12c1dea0b9c10c9f27f2d5",
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/rollback_readiness.json"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "9e9476934338eea7cd8a38f6c20547bb0c51fd7d9b2b6de21db4986fa2064fe7",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/rollback_readiness.json"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_018",
+      "case_index": 18,
+      "case_type": "mutation_sentinel_readback",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/status.json",
+      "envelope": {
+        "answer": "The value is \"6e329c91b5b42c607ad4456defb47a4ea602596af889f0c8fc0cc33346e7a9ab\".",
+        "answer_value": "6e329c91b5b42c607ad4456defb47a4ea602596af889f0c8fc0cc33346e7a9ab",
+        "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/status.json",
+        "cited_source_value": "6e329c91b5b42c607ad4456defb47a4ea602596af889f0c8fc0cc33346e7a9ab",
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/status.json"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "17f38cc52f0ab69acef3268c1aa9c7a431246a16b58af41a0a03176125461d95",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/status.json"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_019",
+      "case_index": 19,
+      "case_type": "source_ref_canonicalization_readback",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_production_activation_owner_operator_cutover/status.json",
+      "envelope": {
+        "answer": "The value is \"71e75b7b0819cb4debf9eeefef51367c8001296b342b30661d0eff3657099f44\".",
+        "answer_value": "71e75b7b0819cb4debf9eeefef51367c8001296b342b30661d0eff3657099f44",
+        "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_production_activation_owner_operator_cutover/status.json",
+        "cited_source_value": "71e75b7b0819cb4debf9eeefef51367c8001296b342b30661d0eff3657099f44",
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_production_activation_owner_operator_cutover/status.json"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "a9774d9373f370df536314f536ec183fcc49fe3610c1d5c984723c37352cb3bc",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_production_activation_owner_operator_cutover/status.json"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_020",
+      "case_index": 20,
+      "case_type": "exact_value_anchor_readback",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_before./home/stickai/.openclaw/openclaw.json",
+      "envelope": {
+        "answer": "The value is \"45c8d4100610a54e82d4206334e7338f5e5f6cd0d9d3d073c2ff767319bd3115\".",
+        "answer_value": "45c8d4100610a54e82d4206334e7338f5e5f6cd0d9d3d073c2ff767319bd3115",
+        "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_before./home/stickai/.openclaw/openclaw.json",
+        "cited_source_value": "45c8d4100610a54e82d4206334e7338f5e5f6cd0d9d3d073c2ff767319bd3115",
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_before./home/stickai/.openclaw/openclaw.json"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "c796529110544a62f1b36b846a2e9b1cb95170eda2dcd377772208e909de05a0",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before./home/stickai/.openclaw/openclaw.json"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_021",
+      "case_index": 21,
+      "case_type": "typed_exact_value_fidelity_readback",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_before.projects/token-broker-vmesh/config/common-reasoner-advisory-canary.default.json",
+      "envelope": {
+        "answer": "The value is \"6a73551c8d25b6843240e67733972b67a7198ac65308811d0cca6e593a826ddf\".",
+        "answer_value": "6a73551c8d25b6843240e67733972b67a7198ac65308811d0cca6e593a826ddf",
+        "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_before.projects/token-broker-vmesh/config/common-reasoner-advisory-canary.default.json",
+        "cited_source_value": "6a73551c8d25b6843240e67733972b67a7198ac65308811d0cca6e593a826ddf",
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_before.projects/token-broker-vmesh/config/common-reasoner-advisory-canary.default.json"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "ae6cd20b6ce8500395531d498434503368fa12c298a91ca83bf3fc0e3b546c32",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.projects/token-broker-vmesh/config/common-reasoner-advisory-canary.default.json"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_022",
+      "case_index": 22,
+      "case_type": "output_disposition_contract_readback",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/mutation_sentinel_report.json",
+      "envelope": {
+        "answer": "The value is \"30628aa51b6d803f1864c9d30dc482861b2b10390def90e6b25fd336d5e4ace4\".",
+        "answer_value": "30628aa51b6d803f1864c9d30dc482861b2b10390def90e6b25fd336d5e4ace4",
+        "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/mutation_sentinel_report.json",
+        "cited_source_value": "30628aa51b6d803f1864c9d30dc482861b2b10390def90e6b25fd336d5e4ace4",
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/mutation_sentinel_report.json"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "4fdaeee109391fe3f19bf175f3b31336a01596201f637039d32c68f34340e1de",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/mutation_sentinel_report.json"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_023",
+      "case_index": 23,
+      "case_type": "answer_envelope_compiler_readback",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/rollback_readiness.json",
+      "envelope": {
+        "answer": "The value is \"07b888a3b4741519172f440b885af5f4255cdf8babaabf10631a967413f6dca4\".",
+        "answer_value": "07b888a3b4741519172f440b885af5f4255cdf8babaabf10631a967413f6dca4",
+        "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/rollback_readiness.json",
+        "cited_source_value": "07b888a3b4741519172f440b885af5f4255cdf8babaabf10631a967413f6dca4",
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/rollback_readiness.json"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "a2c12e566d9bcbd6943bcbbc1b5d90373b8b622649fee5b313a492fab5b1edff",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/rollback_readiness.json"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_024",
+      "case_index": 24,
+      "case_type": "provider_path_token_broker_readiness_readback",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/status.json",
+      "envelope": {
+        "answer": "The value is \"cec4458551f946b204bc8ccf18f32c3a9a52114d6503038f2240c7c5e1af9194\".",
+        "answer_value": "cec4458551f946b204bc8ccf18f32c3a9a52114d6503038f2240c7c5e1af9194",
+        "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/status.json",
+        "cited_source_value": "cec4458551f946b204bc8ccf18f32c3a9a52114d6503038f2240c7c5e1af9194",
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/status.json"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "3e0b9fb9e7f6caa27be8b502dfa8a80c2bde2bd71d050d4079d5a392c0207bfe",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/status.json"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_025",
+      "case_index": 25,
+      "case_type": "simple_status_readback",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/M11_6_ACTIVE_PRODUCTION_DECISION_EXERCISE_REPORT.md",
+      "envelope": {
+        "answer": "The value is \"b930627bad1ccfb9c7b3e69733a55b9a06adccca8b60978be3e281415b09bd88\".",
+        "answer_value": "b930627bad1ccfb9c7b3e69733a55b9a06adccca8b60978be3e281415b09bd88",
+        "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/M11_6_ACTIVE_PRODUCTION_DECISION_EXERCISE_REPORT.md",
+        "cited_source_value": "b930627bad1ccfb9c7b3e69733a55b9a06adccca8b60978be3e281415b09bd88",
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/M11_6_ACTIVE_PRODUCTION_DECISION_EXERCISE_REPORT.md"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "75ed98e73d0fa3325ecbff0da4586519f2afaeeb455b391c581f77dd9fec3b5f",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/M11_6_ACTIVE_PRODUCTION_DECISION_EXERCISE_REPORT.md"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_026",
+      "case_index": 26,
+      "case_type": "artifact_directory_status",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/mutation_sentinel_report.json",
+      "envelope": {
+        "answer": "The value is \"77472364c162d08631b526da3f886cca4df231d9bf43ea3b5fb2ec91620f6b53\".",
+        "answer_value": "77472364c162d08631b526da3f886cca4df231d9bf43ea3b5fb2ec91620f6b53",
+        "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/mutation_sentinel_report.json",
+        "cited_source_value": "77472364c162d08631b526da3f886cca4df231d9bf43ea3b5fb2ec91620f6b53",
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/mutation_sentinel_report.json"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "1b48a2175b79e210fb02f6972268f219aee1608564c785280b0ab13da0536c14",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/mutation_sentinel_report.json"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_027",
+      "case_index": 27,
+      "case_type": "pass_fail_status_extraction",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/provider_path_report.json",
+      "envelope": {
+        "answer": "The value is \"273070c1f8b7f3b49efa5c25f8b8a51288ba371067950e40bbc1206552a8b649\".",
+        "answer_value": "273070c1f8b7f3b49efa5c25f8b8a51288ba371067950e40bbc1206552a8b649",
+        "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/provider_path_report.json",
+        "cited_source_value": "273070c1f8b7f3b49efa5c25f8b8a51288ba371067950e40bbc1206552a8b649",
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/provider_path_report.json"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "acbc6fbda6f2b04f09efa990cae63fc360a2d9526d5e431ed8147a4ca476d1ba",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/provider_path_report.json"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_028",
+      "case_index": 28,
+      "case_type": "boundary_non_claim_extraction",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/rollback_readiness.json",
+      "envelope": {
+        "answer": "The value is \"9643263bc9e581f2469a89af76ba57f7ce9d43d25d12c1dea0b9c10c9f27f2d5\".",
+        "answer_value": "9643263bc9e581f2469a89af76ba57f7ce9d43d25d12c1dea0b9c10c9f27f2d5",
+        "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/rollback_readiness.json",
+        "cited_source_value": "9643263bc9e581f2469a89af76ba57f7ce9d43d25d12c1dea0b9c10c9f27f2d5",
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/rollback_readiness.json"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "ffe57729c8815901e496ff696654a27aba2b28de8d9b8b6a5e066c56d15818e9",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/rollback_readiness.json"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_029",
+      "case_index": 29,
+      "case_type": "rollback_readiness_readback",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/status.json",
+      "envelope": {
+        "answer": "The value is \"6e329c91b5b42c607ad4456defb47a4ea602596af889f0c8fc0cc33346e7a9ab\".",
+        "answer_value": "6e329c91b5b42c607ad4456defb47a4ea602596af889f0c8fc0cc33346e7a9ab",
+        "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/status.json",
+        "cited_source_value": "6e329c91b5b42c607ad4456defb47a4ea602596af889f0c8fc0cc33346e7a9ab",
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/status.json"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "674f621399298328484b10831c872a1bedeae3d8a56c775da04a27f9cdc9ec08",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/status.json"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_030",
+      "case_index": 30,
+      "case_type": "mutation_sentinel_readback",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_production_activation_owner_operator_cutover/status.json",
+      "envelope": {
+        "answer": "The value is \"71e75b7b0819cb4debf9eeefef51367c8001296b342b30661d0eff3657099f44\".",
+        "answer_value": "71e75b7b0819cb4debf9eeefef51367c8001296b342b30661d0eff3657099f44",
+        "cited_source_ref": "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_production_activation_owner_operator_cutover/status.json",
+        "cited_source_value": "71e75b7b0819cb4debf9eeefef51367c8001296b342b30661d0eff3657099f44",
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_production_activation_owner_operator_cutover/status.json"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "2b6fa3f7fb2768086d4766d14096060ff38c6e39dccd9c19c006c27e9bd8fa8c",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_before.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_production_activation_owner_operator_cutover/status.json"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_031",
+      "case_index": 31,
+      "case_type": "source_ref_canonicalization_readback",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#run_id",
+      "envelope": {
+        "answer": "The value is \"m11_7_production_operating_baseline_finalization_20260625\".",
+        "answer_value": "m11_7_production_operating_baseline_finalization_20260625",
+        "cited_source_ref": "m11_7_mutation_freeze#run_id",
+        "cited_source_value": "m11_7_production_operating_baseline_finalization_20260625",
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#run_id"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "6398b38cd37ef4ae0d26dca002372fb4ef02cf04daa35bb0841c924f2c68255b",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m11_7_mutation_freeze#run_id"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_032",
+      "case_index": 32,
+      "case_type": "exact_value_anchor_readback",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#runtime_authority_mutated",
+      "envelope": {
+        "answer": "The value is false.",
+        "answer_value": false,
+        "cited_source_ref": "m11_7_mutation_freeze#runtime_authority_mutated",
+        "cited_source_value": false,
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#runtime_authority_mutated"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "6aac241616107f73fd50857afa3f5cc68c0101a052c54f268319f4fdd264313d",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m11_7_mutation_freeze#runtime_authority_mutated"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_033",
+      "case_index": 33,
+      "case_type": "typed_exact_value_fidelity_readback",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#schema",
+      "envelope": {
+        "answer": "The value is \"stickbot.vnext_semantic_gate.m11_7.mutation_freeze_report.v1\".",
+        "answer_value": "stickbot.vnext_semantic_gate.m11_7.mutation_freeze_report.v1",
+        "cited_source_ref": "m11_7_mutation_freeze#schema",
+        "cited_source_value": "stickbot.vnext_semantic_gate.m11_7.mutation_freeze_report.v1",
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#schema"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "9791e12fc0521fed6726ec663b11c350de7686d5ce97e294c1d532c372b59740",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m11_7_mutation_freeze#schema"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_034",
+      "case_index": 34,
+      "case_type": "output_disposition_contract_readback",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#scope_expanded",
+      "envelope": {
+        "answer": "The value is false.",
+        "answer_value": false,
+        "cited_source_ref": "m11_7_mutation_freeze#scope_expanded",
+        "cited_source_value": false,
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#scope_expanded"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "b31df5e37888edee58187a9e143790a53267797ecfa03539f3a93c9a1f4b243c",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m11_7_mutation_freeze#scope_expanded"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_035",
+      "case_index": 35,
+      "case_type": "fail_closed_stale_artifact",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m12_c1r16_hold_035#reason",
+      "envelope": {
+        "answer": "HOLD: fail_closed_stale_artifact",
+        "cited_source_ref": "m12_c1r16_hold_035#reason",
+        "disposition": {
+          "authority": "not_authoritative_for_requested_status",
+          "control_claims": [],
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "reason": "fail_closed_stale_artifact",
+          "source_authority": "no_authoritative_answer"
+        },
+        "hold_reason": "fail_closed_stale_artifact",
+        "source_refs": [
+          "m12_c1r16_hold_035#reason",
+          "m12_c1r16_hold_035#decision"
+        ],
+        "status": "HOLD"
+      },
+      "envelope_sha256": "000e090ebb8ab38fae7fdbb8a1521d1e0c7f66cbacc2e6c1d87fd392e0518ad5",
+      "envelope_status": "HOLD",
+      "expected_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m12_c1r16_hold_035#reason",
+        "m12_c1r16_hold_035#decision"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_036",
+      "case_index": 36,
+      "case_type": "fail_closed_missing_artifact",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m12_c1r16_hold_036#reason",
+      "envelope": {
+        "answer": "HOLD: fail_closed_missing_artifact",
+        "cited_source_ref": "m12_c1r16_hold_036#reason",
+        "disposition": {
+          "authority": "not_authoritative_for_requested_status",
+          "control_claims": [],
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "reason": "fail_closed_missing_artifact",
+          "source_authority": "no_authoritative_answer"
+        },
+        "hold_reason": "fail_closed_missing_artifact",
+        "source_refs": [
+          "m12_c1r16_hold_036#reason",
+          "m12_c1r16_hold_036#decision"
+        ],
+        "status": "HOLD"
+      },
+      "envelope_sha256": "aa1a12549bb91ee638b8a734ad447cd0e98a8743a6b5cdeaa7af0d38e9af996b",
+      "envelope_status": "HOLD",
+      "expected_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m12_c1r16_hold_036#reason",
+        "m12_c1r16_hold_036#decision"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_037",
+      "case_index": 37,
+      "case_type": "fail_closed_ambiguous_source",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m12_c1r16_hold_037#reason",
+      "envelope": {
+        "answer": "HOLD: fail_closed_ambiguous_source",
+        "cited_source_ref": "m12_c1r16_hold_037#reason",
+        "disposition": {
+          "authority": "not_authoritative_for_requested_status",
+          "control_claims": [],
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "reason": "fail_closed_ambiguous_source",
+          "source_authority": "no_authoritative_answer"
+        },
+        "hold_reason": "fail_closed_ambiguous_source",
+        "source_refs": [
+          "m12_c1r16_hold_037#reason",
+          "m12_c1r16_hold_037#decision"
+        ],
+        "status": "HOLD"
+      },
+      "envelope_sha256": "4274abd4338b364370ff0f027ba13541de44dccb4da491a516751740343d7d21",
+      "envelope_status": "HOLD",
+      "expected_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m12_c1r16_hold_037#reason",
+        "m12_c1r16_hold_037#decision"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_038",
+      "case_index": 38,
+      "case_type": "fail_closed_unapproved_memory_source",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m12_c1r16_hold_038#reason",
+      "envelope": {
+        "answer": "HOLD: fail_closed_unapproved_memory_source",
+        "cited_source_ref": "m12_c1r16_hold_038#reason",
+        "disposition": {
+          "authority": "not_authoritative_for_requested_status",
+          "control_claims": [],
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "reason": "fail_closed_unapproved_memory_source",
+          "source_authority": "no_authoritative_answer"
+        },
+        "hold_reason": "fail_closed_unapproved_memory_source",
+        "source_refs": [
+          "m12_c1r16_hold_038#reason",
+          "m12_c1r16_hold_038#decision"
+        ],
+        "status": "HOLD"
+      },
+      "envelope_sha256": "8cd73b98a2ca43763828af770435d970f0161db03663aa6a3ce701454c4a03dd",
+      "envelope_status": "HOLD",
+      "expected_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m12_c1r16_hold_038#reason",
+        "m12_c1r16_hold_038#decision"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_039",
+      "case_index": 39,
+      "case_type": "fail_closed_unapproved_context_bridge_source",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m12_c1r16_hold_039#reason",
+      "envelope": {
+        "answer": "HOLD: fail_closed_unapproved_context_bridge_source",
+        "cited_source_ref": "m12_c1r16_hold_039#reason",
+        "disposition": {
+          "authority": "not_authoritative_for_requested_status",
+          "control_claims": [],
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "reason": "fail_closed_unapproved_context_bridge_source",
+          "source_authority": "no_authoritative_answer"
+        },
+        "hold_reason": "fail_closed_unapproved_context_bridge_source",
+        "source_refs": [
+          "m12_c1r16_hold_039#reason",
+          "m12_c1r16_hold_039#decision"
+        ],
+        "status": "HOLD"
+      },
+      "envelope_sha256": "22ed0b89084c755b3f0b4312f579a5a8fa89bb0c23b99d387fa14f8cdb949213",
+      "envelope_status": "HOLD",
+      "expected_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m12_c1r16_hold_039#reason",
+        "m12_c1r16_hold_039#decision"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_040",
+      "case_index": 40,
+      "case_type": "fail_closed_unapproved_daily_memory_source",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m12_c1r16_hold_040#reason",
+      "envelope": {
+        "answer": "HOLD: fail_closed_unapproved_daily_memory_source",
+        "cited_source_ref": "m12_c1r16_hold_040#reason",
+        "disposition": {
+          "authority": "not_authoritative_for_requested_status",
+          "control_claims": [],
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "reason": "fail_closed_unapproved_daily_memory_source",
+          "source_authority": "no_authoritative_answer"
+        },
+        "hold_reason": "fail_closed_unapproved_daily_memory_source",
+        "source_refs": [
+          "m12_c1r16_hold_040#reason",
+          "m12_c1r16_hold_040#decision"
+        ],
+        "status": "HOLD"
+      },
+      "envelope_sha256": "ad0c329fd8ab3b6e298e1682efc89527369a22bb4149c94b1864da91551d8193",
+      "envelope_status": "HOLD",
+      "expected_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m12_c1r16_hold_040#reason",
+        "m12_c1r16_hold_040#decision"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_041",
+      "case_index": 41,
+      "case_type": "fail_closed_wrong_ref",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m12_c1r16_hold_041#reason",
+      "envelope": {
+        "answer": "HOLD: fail_closed_wrong_ref",
+        "cited_source_ref": "m12_c1r16_hold_041#reason",
+        "disposition": {
+          "authority": "not_authoritative_for_requested_status",
+          "control_claims": [],
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "reason": "fail_closed_wrong_ref",
+          "source_authority": "no_authoritative_answer"
+        },
+        "hold_reason": "fail_closed_wrong_ref",
+        "source_refs": [
+          "m12_c1r16_hold_041#reason",
+          "m12_c1r16_hold_041#decision"
+        ],
+        "status": "HOLD"
+      },
+      "envelope_sha256": "e1db62577a414f87d37b92c9430189a6e6a7261f47cc0fbfb61087ee031c6294",
+      "envelope_status": "HOLD",
+      "expected_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m12_c1r16_hold_041#reason",
+        "m12_c1r16_hold_041#decision"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_042",
+      "case_index": 42,
+      "case_type": "fail_closed_wrong_value",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m12_c1r16_hold_042#reason",
+      "envelope": {
+        "answer": "HOLD: fail_closed_wrong_value",
+        "cited_source_ref": "m12_c1r16_hold_042#reason",
+        "disposition": {
+          "authority": "not_authoritative_for_requested_status",
+          "control_claims": [],
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "reason": "fail_closed_wrong_value",
+          "source_authority": "no_authoritative_answer"
+        },
+        "hold_reason": "fail_closed_wrong_value",
+        "source_refs": [
+          "m12_c1r16_hold_042#reason",
+          "m12_c1r16_hold_042#decision"
+        ],
+        "status": "HOLD"
+      },
+      "envelope_sha256": "0757ec59134c6d6ef552992515f9a09aeef64385167ac7540d8fbed4cccfbb64",
+      "envelope_status": "HOLD",
+      "expected_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m12_c1r16_hold_042#reason",
+        "m12_c1r16_hold_042#decision"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_043",
+      "case_index": 43,
+      "case_type": "fail_closed_wrong_type",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m12_c1r16_hold_043#reason",
+      "envelope": {
+        "answer": "HOLD: fail_closed_wrong_type",
+        "cited_source_ref": "m12_c1r16_hold_043#reason",
+        "disposition": {
+          "authority": "not_authoritative_for_requested_status",
+          "control_claims": [],
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "reason": "fail_closed_wrong_type",
+          "source_authority": "no_authoritative_answer"
+        },
+        "hold_reason": "fail_closed_wrong_type",
+        "source_refs": [
+          "m12_c1r16_hold_043#reason",
+          "m12_c1r16_hold_043#decision"
+        ],
+        "status": "HOLD"
+      },
+      "envelope_sha256": "18da0ec93214e61f3b6d268f1d5e550d91eae2911dc62f5639ccba75bb498cce",
+      "envelope_status": "HOLD",
+      "expected_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m12_c1r16_hold_043#reason",
+        "m12_c1r16_hold_043#decision"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_044",
+      "case_index": 44,
+      "case_type": "fail_closed_unsupported_source",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m12_c1r16_hold_044#reason",
+      "envelope": {
+        "answer": "HOLD: fail_closed_unsupported_source",
+        "cited_source_ref": "m12_c1r16_hold_044#reason",
+        "disposition": {
+          "authority": "not_authoritative_for_requested_status",
+          "control_claims": [],
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "reason": "fail_closed_unsupported_source",
+          "source_authority": "no_authoritative_answer"
+        },
+        "hold_reason": "fail_closed_unsupported_source",
+        "source_refs": [
+          "m12_c1r16_hold_044#reason",
+          "m12_c1r16_hold_044#decision"
+        ],
+        "status": "HOLD"
+      },
+      "envelope_sha256": "70541410ad8f87443f47b32d02173e26d0e6e2f51487e2180767f1b3b1591e16",
+      "envelope_status": "HOLD",
+      "expected_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m12_c1r16_hold_044#reason",
+        "m12_c1r16_hold_044#decision"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_045",
+      "case_index": 45,
+      "case_type": "fail_closed_out_of_scope_source",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m12_c1r16_hold_045#reason",
+      "envelope": {
+        "answer": "HOLD: fail_closed_out_of_scope_source",
+        "cited_source_ref": "m12_c1r16_hold_045#reason",
+        "disposition": {
+          "authority": "not_authoritative_for_requested_status",
+          "control_claims": [],
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "reason": "fail_closed_out_of_scope_source",
+          "source_authority": "no_authoritative_answer"
+        },
+        "hold_reason": "fail_closed_out_of_scope_source",
+        "source_refs": [
+          "m12_c1r16_hold_045#reason",
+          "m12_c1r16_hold_045#decision"
+        ],
+        "status": "HOLD"
+      },
+      "envelope_sha256": "386580abee9aa08ba89a64fbe40f8baca4d04a3cc1ef98fc23f45967dd70e1ef",
+      "envelope_status": "HOLD",
+      "expected_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m12_c1r16_hold_045#reason",
+        "m12_c1r16_hold_045#decision"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_046",
+      "case_index": 46,
+      "case_type": "fail_closed_prompt_injection_text_content_only",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m12_c1r16_hold_046#reason",
+      "envelope": {
+        "answer": "HOLD: fail_closed_prompt_injection_text_content_only",
+        "cited_source_ref": "m12_c1r16_hold_046#reason",
+        "disposition": {
+          "authority": "not_authoritative_for_requested_status",
+          "control_claims": [],
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "reason": "fail_closed_prompt_injection_text_content_only",
+          "source_authority": "no_authoritative_answer"
+        },
+        "hold_reason": "fail_closed_prompt_injection_text_content_only",
+        "source_refs": [
+          "m12_c1r16_hold_046#reason",
+          "m12_c1r16_hold_046#decision"
+        ],
+        "status": "HOLD"
+      },
+      "envelope_sha256": "d9647920e19e977ede138b9fb3495be27a17631511f6a0a1d10be23a391362bb",
+      "envelope_status": "HOLD",
+      "expected_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m12_c1r16_hold_046#reason",
+        "m12_c1r16_hold_046#decision"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_047",
+      "case_index": 47,
+      "case_type": "fail_closed_arbitrary_path_denied",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m12_c1r16_hold_047#reason",
+      "envelope": {
+        "answer": "HOLD: fail_closed_arbitrary_path_denied",
+        "cited_source_ref": "m12_c1r16_hold_047#reason",
+        "disposition": {
+          "authority": "not_authoritative_for_requested_status",
+          "control_claims": [],
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "reason": "fail_closed_arbitrary_path_denied",
+          "source_authority": "no_authoritative_answer"
+        },
+        "hold_reason": "fail_closed_arbitrary_path_denied",
+        "source_refs": [
+          "m12_c1r16_hold_047#reason",
+          "m12_c1r16_hold_047#decision"
+        ],
+        "status": "HOLD"
+      },
+      "envelope_sha256": "215b7614895a89ba5a8d1a522084937a2de682ce8f4ab7732576b198713778de",
+      "envelope_status": "HOLD",
+      "expected_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m12_c1r16_hold_047#reason",
+        "m12_c1r16_hold_047#decision"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_048",
+      "case_index": 48,
+      "case_type": "fail_closed_prose_citation_only",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m12_c1r16_hold_048#reason",
+      "envelope": {
+        "answer": "HOLD: fail_closed_prose_citation_only",
+        "cited_source_ref": "m12_c1r16_hold_048#reason",
+        "disposition": {
+          "authority": "not_authoritative_for_requested_status",
+          "control_claims": [],
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "reason": "fail_closed_prose_citation_only",
+          "source_authority": "no_authoritative_answer"
+        },
+        "hold_reason": "fail_closed_prose_citation_only",
+        "source_refs": [
+          "m12_c1r16_hold_048#reason",
+          "m12_c1r16_hold_048#decision"
+        ],
+        "status": "HOLD"
+      },
+      "envelope_sha256": "37ad7e910a559dde110dee3cc1cb9794c80cdbaa0391d68ab683bb6d7c96af78",
+      "envelope_status": "HOLD",
+      "expected_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m12_c1r16_hold_048#reason",
+        "m12_c1r16_hold_048#decision"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_049",
+      "case_index": 49,
+      "case_type": "fail_closed_disposition_citation_only",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m12_c1r16_hold_049#reason",
+      "envelope": {
+        "answer": "HOLD: fail_closed_disposition_citation_only",
+        "cited_source_ref": "m12_c1r16_hold_049#reason",
+        "disposition": {
+          "authority": "not_authoritative_for_requested_status",
+          "control_claims": [],
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "reason": "fail_closed_disposition_citation_only",
+          "source_authority": "no_authoritative_answer"
+        },
+        "hold_reason": "fail_closed_disposition_citation_only",
+        "source_refs": [
+          "m12_c1r16_hold_049#reason",
+          "m12_c1r16_hold_049#decision"
+        ],
+        "status": "HOLD"
+      },
+      "envelope_sha256": "36c904ab6f289ee01c29819ce6f2b84745f7dfb3ad9a4fee7939ca08f0fe0def",
+      "envelope_status": "HOLD",
+      "expected_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m12_c1r16_hold_049#reason",
+        "m12_c1r16_hold_049#decision"
+      ]
+    },
+    {
+      "case_id": "m12_c1r16_050",
+      "case_index": 50,
+      "case_type": "fail_closed_trace_rationale_comment_only",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m12_c1r16_hold_050#reason",
+      "envelope": {
+        "answer": "HOLD: fail_closed_trace_rationale_comment_only",
+        "cited_source_ref": "m12_c1r16_hold_050#reason",
+        "disposition": {
+          "authority": "not_authoritative_for_requested_status",
+          "control_claims": [],
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "reason": "fail_closed_trace_rationale_comment_only",
+          "source_authority": "no_authoritative_answer"
+        },
+        "hold_reason": "fail_closed_trace_rationale_comment_only",
+        "source_refs": [
+          "m12_c1r16_hold_050#reason",
+          "m12_c1r16_hold_050#decision"
+        ],
+        "status": "HOLD"
+      },
+      "envelope_sha256": "0fc3d923e6fbf199524264eeac3ccf0f0ee42e42b2508db456e284c05e03d327",
+      "envelope_status": "HOLD",
+      "expected_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "pass": true,
+      "source_refs": [
+        "m12_c1r16_hold_050#reason",
+        "m12_c1r16_hold_050#decision"
+      ]
+    }
+  ],
+  "schema": "stickbot.vnext_semantic_gate.m12_c1r16.deterministic_kernel_result_log.v1"
+}
