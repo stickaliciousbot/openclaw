@@ -1,0 +1,66 @@
+{
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4_owner_review_design_acceptance",
+  "created_utc": "2026-06-27T13:06:11Z",
+  "files": [
+    {
+      "bytes": 1164,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4_owner_review_design_acceptance/M12_C4_OWNER_REVIEW_DESIGN_ACCEPTANCE.md",
+      "sha256": "05ea4bff74e564a8d07988b9e951be7c8e333db68e157593a5a14b35cf84601b"
+    },
+    {
+      "bytes": 1403,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4_owner_review_design_acceptance/c1_c2_c3_boundary_preservation_readback.json",
+      "sha256": "4d2ddc597f109ad18c51b96266e64b0f93fd6b8b60ea89238da4791cea66cb37"
+    },
+    {
+      "bytes": 2763,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4_owner_review_design_acceptance/c4_acceptance_matrix.json",
+      "sha256": "746e3e420a89e4f3ed91c6d91d6c39f74ee27f0bc478a58f989134a906082331"
+    },
+    {
+      "bytes": 1154,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4_owner_review_design_acceptance/c4_design_readback.json",
+      "sha256": "50e80e60732c592b97c920e41bd9c89d6eedf54bbedd7d75eca557cb62039737"
+    },
+    {
+      "bytes": 604,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4_owner_review_design_acceptance/c4_owner_decision_record.md",
+      "sha256": "698f1a7b59f31f6b4e0a9dbcb0c1c830401fc7c6884057dd2112eade14c210cd"
+    },
+    {
+      "bytes": 925,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4_owner_review_design_acceptance/mutation_sentinel_report.json",
+      "sha256": "567911d2c74fa7982dd6ac34e376c3d3c5c8b0da4be104606098456d41739919"
+    },
+    {
+      "bytes": 883,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4_owner_review_design_acceptance/no_apply_no_mutation_record.json",
+      "sha256": "a205e1c7a8c948604bc136dd210a11a9185d3cc19d845ccf2cfd3cc36f42729d"
+    },
+    {
+      "bytes": 1479,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4_owner_review_design_acceptance/rollback_readiness.json",
+      "sha256": "8dd7333ca91fa93880cc05f6b2bf218e7b7be5367f38deb0d2791c31c0bd01e7"
+    },
+    {
+      "bytes": 3691,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4_owner_review_design_acceptance/status.json",
+      "sha256": "6840f4024b9392701852e4b8de9a28b00da3d9b66c153913c1401c456ee7fa7a"
+    },
+    {
+      "bytes": 1090,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4_owner_review_design_acceptance/summary.json",
+      "sha256": "47afe24202fb920a337e98897ebb4473510f195474dca8a8db1d57139e3abea0"
+    }
+  ],
+  "schema": "stickbot.vnext_semantic_gate.m12_c4_owner_review.evidence_manifest.v1",
+  "self_hash_policy": "evidence_manifest.json excluded from its own file list",
+  "source_hashes": {
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_7_production_operating_baseline_finalization/status.json": "2e2aac9d2a97bf1e290dade2501c42fe0eaca5d0690cebb53637751512bb7022",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1_final_owner_acceptance_review/status.json": "4c4a7a0b234777d295ddcd0827399cc0c49bebfece1df90c6d3079cac21362f6",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2_final_owner_acceptance_review/status.json": "7213d4fdfcfebccdaf74e2e54e7571f48f097c07578c97e0126182682f2feed7",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c3_final_owner_acceptance_review/status.json": "3f4d4d74220a36e0b2dedc7731333baf23438b79436d19e88cbc0fb8b0c09be9",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4_bounded_next_step_proposal_readiness_design/status.json": "3f00532f6b02bfdbf80c2b427a1eb765814659a0fb3b9ffdcd6054db1f2370e7"
+  },
+  "status": "M12_C4_OWNER_REVIEW_DESIGN_ACCEPTED"
+}
