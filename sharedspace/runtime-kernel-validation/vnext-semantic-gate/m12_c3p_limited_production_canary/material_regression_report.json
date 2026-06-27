@@ -1,0 +1,10 @@
+{
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c3p_limited_production_canary",
+  "failed_gates": [],
+  "first_failure": null,
+  "material_regression_count": 0,
+  "regressions": [],
+  "schema": "stickbot.vnext_semantic_gate.m12_c3p.material_regression.v1",
+  "schema_base": "stickbot.vnext_semantic_gate.m12_c3p",
+  "status": "M12_C3P_LIMITED_PRODUCTION_CANARY_PASS"
+}

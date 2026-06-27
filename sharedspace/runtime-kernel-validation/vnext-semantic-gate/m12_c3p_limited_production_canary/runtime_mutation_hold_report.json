@@ -1,0 +1,11 @@
+{
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c3p_limited_production_canary",
+  "failed_gates": [],
+  "first_failure": null,
+  "runtime_authority_mutated": false,
+  "runtime_mutation_allowed": false,
+  "runtime_mutation_holds": 1,
+  "schema": "stickbot.vnext_semantic_gate.m12_c3p.runtime_mutation.v1",
+  "schema_base": "stickbot.vnext_semantic_gate.m12_c3p",
+  "status": "M12_C3P_LIMITED_PRODUCTION_CANARY_PASS"
+}
