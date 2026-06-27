@@ -1,0 +1,20 @@
+{
+  "accepted_limited_production_expansion": "M12-C3 deterministic two-artifact consistency comparison only",
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c3_final_owner_acceptance_review",
+  "artifact_memory_promoted": false,
+  "broad_production_expansion_applied": false,
+  "c4_started": false,
+  "cache_enabled": false,
+  "created_utc": "2026-06-27T12:31:28Z",
+  "external_action_executed": false,
+  "failed_gates": [],
+  "final_owner_acceptance_packet_only": true,
+  "first_failure": null,
+  "gateway_config_mutated": false,
+  "global_semantic_gate_promoted": false,
+  "rollback_applied": false,
+  "route_fallback_memory_runtime_authority_mutated": false,
+  "schema": "stickbot.vnext_semantic_gate.m12_c3_final.no_mutation.v1",
+  "schema_base": "stickbot.vnext_semantic_gate.m12_c3_final",
+  "status": "M12_C3_FINAL_OWNER_ACCEPTANCE_READY"
+}

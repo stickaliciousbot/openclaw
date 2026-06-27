@@ -1,0 +1,26 @@
+{
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c3_final_owner_acceptance_review",
+  "attempt_tracking": {
+    "arbitrary_path_attempts": 4,
+    "c4_proposal_drafting_attempts": 4,
+    "external_action_holds": 4,
+    "memory_context_daily_authority_attempts": 12,
+    "more_than_two_artifact_attempts": 4,
+    "one_artifact_attempts": 4,
+    "runtime_mutation_holds": 4
+  },
+  "c3h_requests": 100,
+  "c3h_status": "M12_C3H_LIMITED_PRODUCTION_HEALTH_WATCH_PASS",
+  "conflict": 20,
+  "consistent": 12,
+  "created_utc": "2026-06-27T12:31:28Z",
+  "failed_gates": [],
+  "first_failure": null,
+  "guard_reject": 4,
+  "hold": 48,
+  "reconciled": true,
+  "reject": 16,
+  "schema": "stickbot.vnext_semantic_gate.m12_c3_final.accounting.v1",
+  "schema_base": "stickbot.vnext_semantic_gate.m12_c3_final",
+  "status": "M12_C3_FINAL_OWNER_ACCEPTANCE_READY"
+}
