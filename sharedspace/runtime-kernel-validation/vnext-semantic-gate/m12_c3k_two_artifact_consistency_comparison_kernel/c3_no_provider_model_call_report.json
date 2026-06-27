@@ -1,0 +1,8 @@
+{
+  "direct_provider_bypass_count": 0,
+  "model_prose_authoritative": false,
+  "model_prose_enabled": false,
+  "provider_model_calls_for_authoritative_comparison": 0,
+  "schema": "stickbot.vnext_semantic_gate.m12_c3k.no_provider_model_call.v1",
+  "status": "M12_C3K_TWO_ARTIFACT_CONSISTENCY_COMPARISON_KERNEL_PASS"
+}

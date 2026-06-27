@@ -1,0 +1,30 @@
+{
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c3k_two_artifact_consistency_comparison_kernel",
+  "artifact_memory_promoted": false,
+  "c3_production_started": false,
+  "c4_started": false,
+  "cache_enabled": false,
+  "direct_provider_bypass_count": 0,
+  "envelope_counts": {
+    "CONFLICT": 5,
+    "CONSISTENT": 3,
+    "GUARD_ONLY": 9,
+    "HOLD": 12,
+    "REJECT": 4
+  },
+  "fail_count": 0,
+  "failed_gates": [],
+  "first_failure": null,
+  "global_semantic_gate_promoted": false,
+  "m12_c1_frozen_boundary_preserved": true,
+  "m12_c2_frozen_boundary_preserved": true,
+  "next_recommended_action": "Owner review C3K implementation packet; next step would be separate owner-approved C3 readiness exercise, not production.",
+  "pass_count": 33,
+  "production_expansion_applied": false,
+  "provider_model_calls": 0,
+  "rollback_ready": true,
+  "runtime_authority_mutated": false,
+  "schema": "stickbot.vnext_semantic_gate.m12_c3k.summary.v1",
+  "status": "M12_C3K_TWO_ARTIFACT_CONSISTENCY_COMPARISON_KERNEL_PASS",
+  "test_count": 33
+}

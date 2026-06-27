@@ -1,0 +1,10 @@
+{
+  "guard_tests_passed": true,
+  "missing_source_refs_rejected": true,
+  "provider_model_owned_authority_rejected": true,
+  "schema": "stickbot.vnext_semantic_gate.m12_c3k.guard_report.v1",
+  "source_authority_deterministic": true,
+  "status": "M12_C3K_TWO_ARTIFACT_CONSISTENCY_COMPARISON_KERNEL_PASS",
+  "unapproved_alias_rejected": true,
+  "wrong_section_rejected": true
+}

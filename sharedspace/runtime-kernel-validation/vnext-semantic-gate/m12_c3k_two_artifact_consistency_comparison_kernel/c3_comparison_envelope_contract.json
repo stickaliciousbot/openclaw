@@ -1,0 +1,47 @@
+{
+  "allowed_statuses": [
+    "CONSISTENT",
+    "CONFLICT",
+    "HOLD",
+    "REJECT"
+  ],
+  "authority": "approved_two_artifacts_only",
+  "conflict_required_fields": [
+    "status",
+    "artifact_a_ref",
+    "artifact_b_ref",
+    "compared_fields",
+    "conflict_points",
+    "artifact_a_value",
+    "artifact_b_value",
+    "cited_source_refs",
+    "disposition",
+    "authority"
+  ],
+  "consistent_required_fields": [
+    "status",
+    "artifact_a_ref",
+    "artifact_b_ref",
+    "compared_fields",
+    "agreement_points",
+    "cited_source_refs",
+    "disposition",
+    "authority"
+  ],
+  "hold_required_fields": [
+    "status",
+    "hold_reason",
+    "cited_source_refs where available",
+    "disposition",
+    "no authoritative comparison result"
+  ],
+  "provider_model_authority_allowed": false,
+  "reject_required_fields": [
+    "status",
+    "reject_reason",
+    "disposition",
+    "no authoritative comparison result"
+  ],
+  "schema": "stickbot.vnext_semantic_gate.m12_c3k.envelope_contract.v1",
+  "status": "M12_C3K_TWO_ARTIFACT_CONSISTENCY_COMPARISON_KERNEL_PASS"
+}

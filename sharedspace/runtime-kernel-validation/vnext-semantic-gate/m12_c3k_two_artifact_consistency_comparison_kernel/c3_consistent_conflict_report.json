@@ -1,0 +1,10 @@
+{
+  "conflict_cases": 5,
+  "consistent_cases": 3,
+  "non_reconciliatory": true,
+  "schema": "stickbot.vnext_semantic_gate.m12_c3k.consistent_conflict_report.v1",
+  "status": "M12_C3K_TWO_ARTIFACT_CONSISTENCY_COMPARISON_KERNEL_PASS",
+  "typed_boolean_conflict": true,
+  "typed_numeric_conflict": true,
+  "typed_string_status_conflict": true
+}

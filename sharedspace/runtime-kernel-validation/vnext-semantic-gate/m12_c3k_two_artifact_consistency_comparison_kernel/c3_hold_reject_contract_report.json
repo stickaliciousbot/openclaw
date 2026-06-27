@@ -1,0 +1,11 @@
+{
+  "c4_proposal_reject_or_hold": true,
+  "external_action_hold": true,
+  "hold_cases": 12,
+  "more_than_two_reject_or_hold": true,
+  "one_artifact_reject_or_hold": true,
+  "reject_cases": 4,
+  "runtime_mutation_hold": true,
+  "schema": "stickbot.vnext_semantic_gate.m12_c3k.hold_reject_report.v1",
+  "status": "M12_C3K_TWO_ARTIFACT_CONSISTENCY_COMPARISON_KERNEL_PASS"
+}
