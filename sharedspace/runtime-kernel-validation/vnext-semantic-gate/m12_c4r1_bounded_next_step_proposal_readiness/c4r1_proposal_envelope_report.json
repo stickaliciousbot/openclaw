@@ -1,0 +1,9 @@
+{
+  "approved_source_refs_required": true,
+  "non_execution_notice_enforced": true,
+  "proposal_count": 18,
+  "required_owner_review_true_enforced": true,
+  "schema": "stickbot.vnext_semantic_gate.m12_c4r1.proposal_envelope_report.v1",
+  "status": "M12_C4R1_BOUNDED_NEXT_STEP_PROPOSAL_READINESS_PASS_NO_APPLY",
+  "uncertainties_conflicts_prerequisites_preserved": true
+}

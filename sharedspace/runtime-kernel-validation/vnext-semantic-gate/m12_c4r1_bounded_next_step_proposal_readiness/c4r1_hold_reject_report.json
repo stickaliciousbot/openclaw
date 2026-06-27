@@ -1,0 +1,11 @@
+{
+  "arbitrary_path_hold_or_reject": true,
+  "guard_reject_count": 10,
+  "hold_count": 19,
+  "missing_stale_ambiguous_hold": true,
+  "reject_count": 3,
+  "runtime_external_production_safety_attempts_hold_or_reject": true,
+  "schema": "stickbot.vnext_semantic_gate.m12_c4r1.hold_reject_report.v1",
+  "status": "M12_C4R1_BOUNDED_NEXT_STEP_PROPOSAL_READINESS_PASS_NO_APPLY",
+  "unapproved_memory_context_daily_hold_or_reject": true
+}

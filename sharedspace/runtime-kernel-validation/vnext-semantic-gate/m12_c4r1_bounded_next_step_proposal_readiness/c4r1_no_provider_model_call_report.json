@@ -1,0 +1,7 @@
+{
+  "direct_provider_bypass_count": 0,
+  "model_prose_authoritative": false,
+  "provider_model_calls_for_authoritative_proposals": 0,
+  "schema": "stickbot.vnext_semantic_gate.m12_c4r1.no_provider_model_call_report.v1",
+  "status": "M12_C4R1_BOUNDED_NEXT_STEP_PROPOSAL_READINESS_PASS_NO_APPLY"
+}

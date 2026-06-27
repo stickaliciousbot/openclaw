@@ -1,0 +1,9 @@
+{
+  "all_guards_accepted_expected_envelopes": true,
+  "external_action_text_cannot_become_executable": true,
+  "guard_reject_count": 10,
+  "prompt_injection_text_not_control_authority": true,
+  "schema": "stickbot.vnext_semantic_gate.m12_c4r1.guard_report.v1",
+  "source_authority_deterministic": true,
+  "status": "M12_C4R1_BOUNDED_NEXT_STEP_PROPOSAL_READINESS_PASS_NO_APPLY"
+}

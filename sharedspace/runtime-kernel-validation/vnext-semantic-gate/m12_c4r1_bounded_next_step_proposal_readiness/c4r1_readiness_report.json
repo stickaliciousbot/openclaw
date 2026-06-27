@@ -1,0 +1,23 @@
+{
+  "c4k_artifact_read_only_hash_after": "56b085896f77cc6c17471ba2cc808681c374e9bde70771a50b42b208d2d75073",
+  "c4k_artifact_read_only_hash_before": "56b085896f77cc6c17471ba2cc808681c374e9bde70771a50b42b208d2d75073",
+  "created_utc": "2026-06-27T13:46:27Z",
+  "direct_provider_bypass_count": 0,
+  "envelope_counts": {
+    "GUARD_ONLY": 10,
+    "HOLD": 19,
+    "PROPOSAL": 18,
+    "REJECT": 3
+  },
+  "executed_cases": 50,
+  "fail_count": 0,
+  "failed_gates": [],
+  "first_case_failure": null,
+  "first_case_failure_name": null,
+  "first_failure": null,
+  "guard_reject_count": 10,
+  "pass_count": 50,
+  "provider_model_calls_for_authoritative_proposals": 0,
+  "schema": "stickbot.vnext_semantic_gate.m12_c4r1.readiness_report.v1",
+  "status": "M12_C4R1_BOUNDED_NEXT_STEP_PROPOSAL_READINESS_PASS_NO_APPLY"
+}

@@ -1,0 +1,297 @@
+{
+  "case_ids": [
+    {
+      "envelope_status": "PROPOSAL",
+      "readiness_case_id": "c4r1_001",
+      "source_fixture_name": "valid_bounded_next_step_proposal_from_c1_evidence"
+    },
+    {
+      "envelope_status": "PROPOSAL",
+      "readiness_case_id": "c4r1_002",
+      "source_fixture_name": "valid_bounded_next_step_proposal_from_c2_evidence"
+    },
+    {
+      "envelope_status": "PROPOSAL",
+      "readiness_case_id": "c4r1_003",
+      "source_fixture_name": "valid_bounded_next_step_proposal_from_c3_evidence"
+    },
+    {
+      "envelope_status": "PROPOSAL",
+      "readiness_case_id": "c4r1_004",
+      "source_fixture_name": "proposal_preserving_c3_conflict"
+    },
+    {
+      "envelope_status": "PROPOSAL",
+      "readiness_case_id": "c4r1_005",
+      "source_fixture_name": "proposal_preserving_uncertainty"
+    },
+    {
+      "envelope_status": "PROPOSAL",
+      "readiness_case_id": "c4r1_006",
+      "source_fixture_name": "proposal_preserving_prerequisites"
+    },
+    {
+      "envelope_status": "PROPOSAL",
+      "readiness_case_id": "c4r1_007",
+      "source_fixture_name": "follow_up_artifact_request_proposal"
+    },
+    {
+      "envelope_status": "PROPOSAL",
+      "readiness_case_id": "c4r1_008",
+      "source_fixture_name": "safe_validation_step_proposal"
+    },
+    {
+      "envelope_status": "PROPOSAL",
+      "readiness_case_id": "c4r1_009",
+      "source_fixture_name": "owner_question_proposal"
+    },
+    {
+      "envelope_status": "HOLD",
+      "readiness_case_id": "c4r1_010",
+      "source_fixture_name": "missing_evidence_hold"
+    },
+    {
+      "envelope_status": "HOLD",
+      "readiness_case_id": "c4r1_011",
+      "source_fixture_name": "stale_evidence_hold"
+    },
+    {
+      "envelope_status": "HOLD",
+      "readiness_case_id": "c4r1_012",
+      "source_fixture_name": "ambiguous_evidence_hold"
+    },
+    {
+      "envelope_status": "HOLD",
+      "readiness_case_id": "c4r1_013",
+      "source_fixture_name": "unapproved_source_hold"
+    },
+    {
+      "envelope_status": "HOLD",
+      "readiness_case_id": "c4r1_014",
+      "source_fixture_name": "memory_source_attempt_hold"
+    },
+    {
+      "envelope_status": "HOLD",
+      "readiness_case_id": "c4r1_015",
+      "source_fixture_name": "context_bridge_source_attempt_hold"
+    },
+    {
+      "envelope_status": "HOLD",
+      "readiness_case_id": "c4r1_016",
+      "source_fixture_name": "daily_memory_source_attempt_hold"
+    },
+    {
+      "envelope_status": "REJECT",
+      "readiness_case_id": "c4r1_017",
+      "source_fixture_name": "arbitrary_path_attempt_reject"
+    },
+    {
+      "envelope_status": "HOLD",
+      "readiness_case_id": "c4r1_018",
+      "source_fixture_name": "prompt_injection_like_artifact_text_hold"
+    },
+    {
+      "envelope_status": "HOLD",
+      "readiness_case_id": "c4r1_019",
+      "source_fixture_name": "request_to_execute_external_action_hold"
+    },
+    {
+      "envelope_status": "HOLD",
+      "readiness_case_id": "c4r1_020",
+      "source_fixture_name": "request_to_schedule_action_hold"
+    },
+    {
+      "envelope_status": "HOLD",
+      "readiness_case_id": "c4r1_021",
+      "source_fixture_name": "request_to_mutate_runtime_config_hold"
+    },
+    {
+      "envelope_status": "HOLD",
+      "readiness_case_id": "c4r1_022",
+      "source_fixture_name": "request_for_production_approval_deployment_hold"
+    },
+    {
+      "envelope_status": "REJECT",
+      "readiness_case_id": "c4r1_023",
+      "source_fixture_name": "legal_medical_financial_safety_critical_reject"
+    },
+    {
+      "envelope_status": "HOLD",
+      "readiness_case_id": "c4r1_024",
+      "source_fixture_name": "request_to_remove_uncertainty_hold"
+    },
+    {
+      "envelope_status": "HOLD",
+      "readiness_case_id": "c4r1_025",
+      "source_fixture_name": "request_to_ignore_conflict_hold"
+    },
+    {
+      "envelope_status": "REJECT",
+      "readiness_case_id": "c4r1_026",
+      "source_fixture_name": "unsupported_reconciliation_reject"
+    },
+    {
+      "envelope_status": "GUARD_ONLY",
+      "readiness_case_id": "c4r1_027",
+      "source_fixture_name": "proposal_with_missing_source_refs_rejects"
+    },
+    {
+      "envelope_status": "GUARD_ONLY",
+      "readiness_case_id": "c4r1_028",
+      "source_fixture_name": "proposal_with_source_refs_only_in_prose_rejects"
+    },
+    {
+      "envelope_status": "GUARD_ONLY",
+      "readiness_case_id": "c4r1_029",
+      "source_fixture_name": "proposal_with_unsupported_reconciliation_rejects"
+    },
+    {
+      "envelope_status": "GUARD_ONLY",
+      "readiness_case_id": "c4r1_030",
+      "source_fixture_name": "proposal_without_non_execution_notice_rejects"
+    },
+    {
+      "envelope_status": "GUARD_ONLY",
+      "readiness_case_id": "c4r1_031",
+      "source_fixture_name": "proposal_without_required_owner_review_true_rejects"
+    },
+    {
+      "envelope_status": "GUARD_ONLY",
+      "readiness_case_id": "c4r1_032",
+      "source_fixture_name": "model_prose_text_cannot_satisfy_source_authority"
+    },
+    {
+      "envelope_status": "GUARD_ONLY",
+      "readiness_case_id": "c4r1_033",
+      "source_fixture_name": "external_action_text_cannot_become_executable"
+    },
+    {
+      "envelope_status": "GUARD_ONLY",
+      "readiness_case_id": "c4r1_034",
+      "source_fixture_name": "external_action_disposition_rejects"
+    },
+    {
+      "envelope_status": "GUARD_ONLY",
+      "readiness_case_id": "c4r1_035",
+      "source_fixture_name": "runtime_mutation_disposition_rejects"
+    },
+    {
+      "envelope_status": "GUARD_ONLY",
+      "readiness_case_id": "c4r1_036",
+      "source_fixture_name": "cache_promotion_disposition_rejects"
+    },
+    {
+      "envelope_status": "PROPOSAL",
+      "readiness_case_id": "c4r1_037",
+      "source_fixture_name": "valid_bounded_next_step_proposal_from_c1_evidence"
+    },
+    {
+      "envelope_status": "PROPOSAL",
+      "readiness_case_id": "c4r1_038",
+      "source_fixture_name": "valid_bounded_next_step_proposal_from_c2_evidence"
+    },
+    {
+      "envelope_status": "PROPOSAL",
+      "readiness_case_id": "c4r1_039",
+      "source_fixture_name": "valid_bounded_next_step_proposal_from_c3_evidence"
+    },
+    {
+      "envelope_status": "PROPOSAL",
+      "readiness_case_id": "c4r1_040",
+      "source_fixture_name": "proposal_preserving_c3_conflict"
+    },
+    {
+      "envelope_status": "PROPOSAL",
+      "readiness_case_id": "c4r1_041",
+      "source_fixture_name": "proposal_preserving_uncertainty"
+    },
+    {
+      "envelope_status": "PROPOSAL",
+      "readiness_case_id": "c4r1_042",
+      "source_fixture_name": "proposal_preserving_prerequisites"
+    },
+    {
+      "envelope_status": "PROPOSAL",
+      "readiness_case_id": "c4r1_043",
+      "source_fixture_name": "follow_up_artifact_request_proposal"
+    },
+    {
+      "envelope_status": "PROPOSAL",
+      "readiness_case_id": "c4r1_044",
+      "source_fixture_name": "safe_validation_step_proposal"
+    },
+    {
+      "envelope_status": "PROPOSAL",
+      "readiness_case_id": "c4r1_045",
+      "source_fixture_name": "owner_question_proposal"
+    },
+    {
+      "envelope_status": "HOLD",
+      "readiness_case_id": "c4r1_046",
+      "source_fixture_name": "missing_evidence_hold"
+    },
+    {
+      "envelope_status": "HOLD",
+      "readiness_case_id": "c4r1_047",
+      "source_fixture_name": "stale_evidence_hold"
+    },
+    {
+      "envelope_status": "HOLD",
+      "readiness_case_id": "c4r1_048",
+      "source_fixture_name": "ambiguous_evidence_hold"
+    },
+    {
+      "envelope_status": "HOLD",
+      "readiness_case_id": "c4r1_049",
+      "source_fixture_name": "unapproved_source_hold"
+    },
+    {
+      "envelope_status": "HOLD",
+      "readiness_case_id": "c4r1_050",
+      "source_fixture_name": "memory_source_attempt_hold"
+    }
+  ],
+  "class_counts": {
+    "ambiguous_evidence_hold": 2,
+    "arbitrary_path_attempt_reject": 1,
+    "cache_promotion_disposition_rejects": 1,
+    "context_bridge_source_attempt_hold": 1,
+    "daily_memory_source_attempt_hold": 1,
+    "external_action_disposition_rejects": 1,
+    "external_action_text_cannot_become_executable": 1,
+    "follow_up_artifact_request_proposal": 2,
+    "legal_medical_financial_safety_critical_reject": 1,
+    "memory_source_attempt_hold": 2,
+    "missing_evidence_hold": 2,
+    "model_prose_text_cannot_satisfy_source_authority": 1,
+    "owner_question_proposal": 2,
+    "prompt_injection_like_artifact_text_hold": 1,
+    "proposal_preserving_c3_conflict": 2,
+    "proposal_preserving_prerequisites": 2,
+    "proposal_preserving_uncertainty": 2,
+    "proposal_with_missing_source_refs_rejects": 1,
+    "proposal_with_source_refs_only_in_prose_rejects": 1,
+    "proposal_with_unsupported_reconciliation_rejects": 1,
+    "proposal_without_non_execution_notice_rejects": 1,
+    "proposal_without_required_owner_review_true_rejects": 1,
+    "request_for_production_approval_deployment_hold": 1,
+    "request_to_execute_external_action_hold": 1,
+    "request_to_ignore_conflict_hold": 1,
+    "request_to_mutate_runtime_config_hold": 1,
+    "request_to_remove_uncertainty_hold": 1,
+    "request_to_schedule_action_hold": 1,
+    "runtime_mutation_disposition_rejects": 1,
+    "safe_validation_step_proposal": 2,
+    "stale_evidence_hold": 2,
+    "unapproved_source_hold": 2,
+    "unsupported_reconciliation_reject": 1,
+    "valid_bounded_next_step_proposal_from_c1_evidence": 2,
+    "valid_bounded_next_step_proposal_from_c2_evidence": 2,
+    "valid_bounded_next_step_proposal_from_c3_evidence": 2
+  },
+  "executed_cases": 50,
+  "required_mix_covered": true,
+  "run_bound_cases": 50,
+  "run_bound_hours": 2,
+  "schema": "stickbot.vnext_semantic_gate.m12_c4r1.case_manifest.v1"
+}
