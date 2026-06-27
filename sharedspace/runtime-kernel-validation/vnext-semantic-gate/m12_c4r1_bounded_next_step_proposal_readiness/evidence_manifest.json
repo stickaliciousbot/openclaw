@@ -2,14 +2,24 @@
   "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4r1_bounded_next_step_proposal_readiness",
   "files": [
     {
-      "bytes": 982,
+      "bytes": 1053,
       "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4r1_bounded_next_step_proposal_readiness/M12_C4R1_BOUNDED_NEXT_STEP_PROPOSAL_READINESS_REVIEW.md",
-      "sha256": "1af7fe104eea08398079d282ed1c5d0e8c56d1b68bdee248f36b1a815a123532"
+      "sha256": "00f1f5714435e7645bcb579ae0b6ee353a3fdc3721c8546b091ed4905b50432d"
     },
     {
-      "bytes": 2095,
+      "bytes": 2338,
       "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4r1_bounded_next_step_proposal_readiness/c1_c2_c3_boundary_preservation_readback.json",
-      "sha256": "d2155612a0a11ddea250ba7cfde45f3946df4216754a82de074e124858d24dc0"
+      "sha256": "5c3c7dec8971a4de5db97888a2f0bb89bdaf45ec36c7f541d1a0ad89cb2ecf82"
+    },
+    {
+      "bytes": 138488,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4r1_bounded_next_step_proposal_readiness/c4_case_result_log.json",
+      "sha256": "9a9d939f6f3336742cadeff834c4584c4559ebd878d7b27d4f6226f2f323d199"
+    },
+    {
+      "bytes": 767,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4r1_bounded_next_step_proposal_readiness/c4k_readback.json",
+      "sha256": "4b8593d08b9e0944fc7bf1d46561d324661313fd8dee331326eec733fb9bb202"
     },
     {
       "bytes": 9654,
@@ -52,32 +62,117 @@
       "sha256": "a69ecdcca9bb6e4414fb249da45c8cb8e1aef6624cf8bbcb0c0802873ba66afb"
     },
     {
-      "bytes": 651,
+      "bytes": 10437,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4r1_bounded_next_step_proposal_readiness/case_manifest.json",
+      "sha256": "547c251b3e86391ad262dc80d9d7ab74471c74a42591bfacb071cdc3bb5a6b85"
+    },
+    {
+      "bytes": 827,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4r1_bounded_next_step_proposal_readiness/exercise_config.json",
+      "sha256": "fd563d6640d3154c710f15a97229ba77b6cd151c391eb4a6efbb35ceaa2f65e1"
+    },
+    {
+      "bytes": 589,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4r1_bounded_next_step_proposal_readiness/external_action_hold_report.json",
+      "sha256": "99a07a703b071088f0d8c9e2c7f414345113fb8b14d7a98d73e7492d630c5480"
+    },
+    {
+      "bytes": 523,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4r1_bounded_next_step_proposal_readiness/fail_closed_policy_report.json",
+      "sha256": "096b294cae17dfc520bd29cbfb377f7c3b0fb01d3029e149651dc0f553786900"
+    },
+    {
+      "bytes": 512,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4r1_bounded_next_step_proposal_readiness/material_regression_report.json",
+      "sha256": "5016df32f070b227b3a8c9eb55c2f94e0fb6dc0ed2093c690b7a5f7f7aaf301d"
+    },
+    {
+      "bytes": 514,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4r1_bounded_next_step_proposal_readiness/missing_output_report.json",
+      "sha256": "4356b957e43eee4bdc7237c4e75d29ae5a2830208d1f12267e06934585409168"
+    },
+    {
+      "bytes": 894,
       "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4r1_bounded_next_step_proposal_readiness/mutation_sentinel_report.json",
-      "sha256": "21301115d46d745e82b8e3d26b7d2074e11f44caf4bc0702381b12d0dbd631a5"
+      "sha256": "3134055ed6db18863dc1a56adb915f4b88a6e7726d7453fda6f49c0ed5a870a3"
     },
     {
-      "bytes": 591,
+      "bytes": 834,
       "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4r1_bounded_next_step_proposal_readiness/no_apply_no_mutation_record.json",
-      "sha256": "6828e34dbdc6167839021acaff98cc991c2b93de43b1832bccd6cd721cce4304"
+      "sha256": "00fa27d124f30db8f91c3aa27e4fc891b45601e9fee8f6867f5fd608c8f25fff"
     },
     {
-      "bytes": 1778,
+      "bytes": 745,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4r1_bounded_next_step_proposal_readiness/non_execution_guard_report.json",
+      "sha256": "a85bab822ac8a65454a5b7d662aa21806c3499640f24e1b29c68c8c2b0cddf43"
+    },
+    {
+      "bytes": 750,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4r1_bounded_next_step_proposal_readiness/owner_approval_boundary_readback.json",
+      "sha256": "08e62a52561ddff58de0109428d213ef519416bd6f8c2bf29edb95967e99763e"
+    },
+    {
+      "bytes": 508,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4r1_bounded_next_step_proposal_readiness/owner_review_requirement_report.json",
+      "sha256": "a69796ae5976643034547ea14b53272b2bb6a639f02041961879ac1d658aad53"
+    },
+    {
+      "bytes": 597,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4r1_bounded_next_step_proposal_readiness/prompt_injection_disposition_report.json",
+      "sha256": "7ac0d5d617c664921ac664574142558921af7a9af6e7f0de1dd466ff51660d5e"
+    },
+    {
+      "bytes": 616,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4r1_bounded_next_step_proposal_readiness/proposal_envelope_report.json",
+      "sha256": "110950b0f9f7f6da33f9cd2eb77b3c3ea1c7983cafc02f40b91e277e113125ac"
+    },
+    {
+      "bytes": 669,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4r1_bounded_next_step_proposal_readiness/proposal_hold_reject_count_report.json",
+      "sha256": "10223ba644f4fd3b6f58470c9aa13eee7155962d90c1d2bb9ac3312da0bd9a29"
+    },
+    {
+      "bytes": 539,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4r1_bounded_next_step_proposal_readiness/provider_model_call_report.json",
+      "sha256": "d7790d4ddd6b7131a1a247f34660f01c145e861918cc61655ef5df4e99e8f11d"
+    },
+    {
+      "bytes": 521,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4r1_bounded_next_step_proposal_readiness/provider_path_report.json",
+      "sha256": "e831b37042d26e0230cb1c5804d78a0c13cb825b202fb2a354daca8b2a888412"
+    },
+    {
+      "bytes": 2021,
       "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4r1_bounded_next_step_proposal_readiness/rollback_readiness.json",
-      "sha256": "4e182e021e2bedeed1f435e0232100498b44ebeba28155dac2794e6d238cf258"
+      "sha256": "3f636153b85262e63de08c98fe7bee3807c0daf0ba8c05564ccad9b19f0d3c4b"
     },
     {
-      "bytes": 5483,
+      "bytes": 705,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4r1_bounded_next_step_proposal_readiness/runtime_mutation_hold_report.json",
+      "sha256": "5037c286c1e0fa535b500f7148ffe56e803eda3c384ffb1fad2b18adbd6b96d3"
+    },
+    {
+      "bytes": 696,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4r1_bounded_next_step_proposal_readiness/source_authority_report.json",
+      "sha256": "01ed692cc39c00f146ecc9dcda69d6a20c58772fe116329228dce197da7e045b"
+    },
+    {
+      "bytes": 7118,
       "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4r1_bounded_next_step_proposal_readiness/status.json",
-      "sha256": "91f3fa3c488493e0c51042945dcdedca7ed3a2dbc4374cf5d0e33f7afd398fb5"
+      "sha256": "be1be7fdfa31eaa662dd9a24ec629d1f15d0cf45d2c01066a8a8bd4cf344c38c"
     },
     {
-      "bytes": 1297,
+      "bytes": 1500,
       "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4r1_bounded_next_step_proposal_readiness/summary.json",
-      "sha256": "8216ac5066f96487f649d91147195b5e4e6c01b0248dd4efda774e494bb95a3a"
+      "sha256": "0124d477cd9b68e91050f97756213b91464bf96d06b92efa082f6ba15360962e"
+    },
+    {
+      "bytes": 770,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4r1_bounded_next_step_proposal_readiness/uncertainty_conflict_preservation_report.json",
+      "sha256": "02336b428a2a22ae8cfe26c092bd5fd66cf0b1eeb3720fbc9b74e3389514568e"
     }
   ],
-  "schema": "stickbot.vnext_semantic_gate.m12_c4r1.evidence_manifest.v1",
+  "schema": "stickbot.vnext_semantic_gate.m12_c4r1.evidence_manifest.v2.exact_contract",
   "self_hash_policy": "evidence_manifest.json excluded from its own file list",
   "source_hashes": {
     "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_7_production_operating_baseline_finalization/status.json": "2e2aac9d2a97bf1e290dade2501c42fe0eaca5d0690cebb53637751512bb7022",

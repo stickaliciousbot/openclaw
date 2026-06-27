@@ -1,11 +1,10 @@
 {
-  "abort_conditions_hit": [],
-  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4r1_bounded_next_step_proposal_readiness",
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4_owner_review_readiness_acceptance",
   "artifact_memory_promoted": false,
   "c4_canary_started": false,
   "c4_production_started": false,
   "cache_enabled": false,
-  "created_utc": "2026-06-27T13:57:01Z",
+  "created_utc": "2026-06-27T14:00:59Z",
   "external_action_executed": false,
   "failed_gates": [],
   "fallback_chain_mutated": false,
@@ -18,6 +17,6 @@
   "production_expansion_applied": false,
   "runtime_authority_mutated": false,
   "scheduled_action_created": false,
-  "schema": "stickbot.vnext_semantic_gate.m12_c4r1.mutation_sentinel_report.v2",
-  "status": "M12_C4R1_BOUNDED_NEXT_STEP_PROPOSAL_READINESS_PASS_NO_APPLY"
+  "schema": "stickbot.vnext_semantic_gate.m12_c4.owner_readiness_mutation_sentinel.v1",
+  "status": "M12_C4_OWNER_REVIEW_READINESS_ACCEPTED"
 }

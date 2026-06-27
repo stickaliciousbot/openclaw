@@ -1,0 +1,3211 @@
+{
+  "abort_conditions_hit": [],
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4r1_bounded_next_step_proposal_readiness",
+  "case_count": 50,
+  "cases": [
+    {
+      "envelope": {
+        "assumptions": [
+          "Approved evidence remains hash-pinned."
+        ],
+        "authority": "approved_evidence_only",
+        "case_id": "c4k_001",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c1_final",
+            "evidence_class": "C1",
+            "field_id": "status",
+            "path": "approved://c1_final.json",
+            "quote_hash": "2bedd0db35c37c0516985250e04122f3e6963f14040c005865e48cc29fb30fdd",
+            "section_id": "section:status",
+            "section_title": "Status",
+            "sha256": "4eaf037eff11f886c533a30d97692b9929508609afed40e3ac280b3c64aa991a",
+            "source_ref_id": "c1_final#section:status#status"
+          },
+          {
+            "artifact_id": "c1_final",
+            "evidence_class": "C1",
+            "field_id": "summary",
+            "path": "approved://c1_final.json",
+            "quote_hash": "cc13d4d3beffad68a869cdfee292b880391247f4741c1e12738f0ee9c17b0fe2",
+            "section_id": "section:summary",
+            "section_title": "Summary",
+            "sha256": "4eaf037eff11f886c533a30d97692b9929508609afed40e3ac280b3c64aa991a",
+            "source_ref_id": "c1_final#section:summary#summary"
+          },
+          {
+            "artifact_id": "c1_final",
+            "evidence_class": "C1",
+            "field_id": "assumption.default",
+            "path": "approved://c1_final.json",
+            "quote_hash": "a4a2acecd62457c2d750c7b31e54a61673e5d11f2d5a92e2725de987e8e7b2dd",
+            "section_id": "section:assumptions",
+            "section_title": "Assumptions",
+            "sha256": "4eaf037eff11f886c533a30d97692b9929508609afed40e3ac280b3c64aa991a",
+            "source_ref_id": "c1_final#section:assumptions#assumption_default"
+          }
+        ],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "non_execution_notice": "This proposal is non-executing: it does not execute, authorize, schedule, deploy, mutate runtime/config, or bypass owner review.",
+        "prerequisites": [
+          "Owner review is required before any action outside this non-executing proposal."
+        ],
+        "preserved_conflicts": [],
+        "proposal_steps": [
+          {
+            "action_class": "review",
+            "cited_source_refs": [
+              "c1_final#section:status#status",
+              "c1_final#section:summary#summary",
+              "c1_final#section:assumptions#assumption_default"
+            ],
+            "non_executing": true,
+            "step_id": "c4k_001.step.1",
+            "text": "Review the cited approved evidence and decide whether a bounded follow-up is warranted."
+          }
+        ],
+        "rationale": "Deterministic bounded proposal drafted from 3 approved source rows across 1 approved evidence handle(s).",
+        "required_owner_review": true,
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "PROPOSAL",
+        "uncertainties": [
+          "No additional uncertainty beyond the cited evidence was introduced by C4K."
+        ]
+      },
+      "envelope_sha256": "fd2c8b3afa7313be3390392d6cc24b0d018cee504e4711ca40a81e5987f595bc",
+      "envelope_status": "PROPOSAL",
+      "expected_envelope_status": "PROPOSAL",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": null,
+      "kernel_status": "PASS",
+      "name": "valid_bounded_next_step_proposal_from_c1_evidence",
+      "pass": true,
+      "readiness_case_id": "c4r1_001",
+      "reject_reason": null,
+      "result_digest": "a5e2eaf9a40b9d2f3714ae9849903ebb5200f69ea6d094a9936991ec74df1c95",
+      "source_fixture_name": "valid_bounded_next_step_proposal_from_c1_evidence"
+    },
+    {
+      "envelope": {
+        "assumptions": [
+          "Approved evidence remains hash-pinned."
+        ],
+        "authority": "approved_evidence_only",
+        "case_id": "c4k_002",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c2_final",
+            "evidence_class": "C2",
+            "field_id": "status",
+            "path": "approved://c2_final.json",
+            "quote_hash": "2bedd0db35c37c0516985250e04122f3e6963f14040c005865e48cc29fb30fdd",
+            "section_id": "section:status",
+            "section_title": "Status",
+            "sha256": "aa5029497c52287d84742dd2103ff7e1d93f23a7d4bb366f11be36ab355e536f",
+            "source_ref_id": "c2_final#section:status#status"
+          },
+          {
+            "artifact_id": "c2_final",
+            "evidence_class": "C2",
+            "field_id": "summary",
+            "path": "approved://c2_final.json",
+            "quote_hash": "d188547f156a2a5eee65da32992b9835d941c6b258999ae0580a901881b8da64",
+            "section_id": "section:summary",
+            "section_title": "Summary",
+            "sha256": "aa5029497c52287d84742dd2103ff7e1d93f23a7d4bb366f11be36ab355e536f",
+            "source_ref_id": "c2_final#section:summary#summary"
+          },
+          {
+            "artifact_id": "c2_final",
+            "evidence_class": "C2",
+            "field_id": "assumption.default",
+            "path": "approved://c2_final.json",
+            "quote_hash": "a4a2acecd62457c2d750c7b31e54a61673e5d11f2d5a92e2725de987e8e7b2dd",
+            "section_id": "section:assumptions",
+            "section_title": "Assumptions",
+            "sha256": "aa5029497c52287d84742dd2103ff7e1d93f23a7d4bb366f11be36ab355e536f",
+            "source_ref_id": "c2_final#section:assumptions#assumption_default"
+          }
+        ],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "non_execution_notice": "This proposal is non-executing: it does not execute, authorize, schedule, deploy, mutate runtime/config, or bypass owner review.",
+        "prerequisites": [
+          "Owner review is required before any action outside this non-executing proposal."
+        ],
+        "preserved_conflicts": [],
+        "proposal_steps": [
+          {
+            "action_class": "verify",
+            "cited_source_refs": [
+              "c2_final#section:status#status",
+              "c2_final#section:summary#summary",
+              "c2_final#section:assumptions#assumption_default"
+            ],
+            "non_executing": true,
+            "step_id": "c4k_002.step.1",
+            "text": "Verify the cited evidence fields against the approved artifact packet before any later action."
+          }
+        ],
+        "rationale": "Deterministic bounded proposal drafted from 3 approved source rows across 1 approved evidence handle(s).",
+        "required_owner_review": true,
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "PROPOSAL",
+        "uncertainties": [
+          "No additional uncertainty beyond the cited evidence was introduced by C4K."
+        ]
+      },
+      "envelope_sha256": "660495e68b4dc96e70060ddec704c105cb22d6f541ed69cded5256bc21ac8873",
+      "envelope_status": "PROPOSAL",
+      "expected_envelope_status": "PROPOSAL",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": null,
+      "kernel_status": "PASS",
+      "name": "valid_bounded_next_step_proposal_from_c2_evidence",
+      "pass": true,
+      "readiness_case_id": "c4r1_002",
+      "reject_reason": null,
+      "result_digest": "366becd02e3e5c13526f4882a5598e9ef484a91b9b12254fa82e639d9173ef69",
+      "source_fixture_name": "valid_bounded_next_step_proposal_from_c2_evidence"
+    },
+    {
+      "envelope": {
+        "assumptions": [
+          "Approved evidence remains hash-pinned."
+        ],
+        "authority": "approved_evidence_only",
+        "case_id": "c4k_003",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c3_final",
+            "evidence_class": "C3",
+            "field_id": "status",
+            "path": "approved://c3_final.json",
+            "quote_hash": "2bedd0db35c37c0516985250e04122f3e6963f14040c005865e48cc29fb30fdd",
+            "section_id": "section:status",
+            "section_title": "Status",
+            "sha256": "fb450882360c494cc791d075506e7aee91744cd0889f3bc16197e4af0a08674c",
+            "source_ref_id": "c3_final#section:status#status"
+          },
+          {
+            "artifact_id": "c3_final",
+            "evidence_class": "C3",
+            "field_id": "summary",
+            "path": "approved://c3_final.json",
+            "quote_hash": "241c5fb35a0e4ad2d5bd43f652ba794c40833bf061deb8662320e5f291b5cc2d",
+            "section_id": "section:summary",
+            "section_title": "Summary",
+            "sha256": "fb450882360c494cc791d075506e7aee91744cd0889f3bc16197e4af0a08674c",
+            "source_ref_id": "c3_final#section:summary#summary"
+          },
+          {
+            "artifact_id": "c3_final",
+            "evidence_class": "C3",
+            "field_id": "assumption.default",
+            "path": "approved://c3_final.json",
+            "quote_hash": "a4a2acecd62457c2d750c7b31e54a61673e5d11f2d5a92e2725de987e8e7b2dd",
+            "section_id": "section:assumptions",
+            "section_title": "Assumptions",
+            "sha256": "fb450882360c494cc791d075506e7aee91744cd0889f3bc16197e4af0a08674c",
+            "source_ref_id": "c3_final#section:assumptions#assumption_default"
+          }
+        ],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "non_execution_notice": "This proposal is non-executing: it does not execute, authorize, schedule, deploy, mutate runtime/config, or bypass owner review.",
+        "prerequisites": [
+          "Owner review is required before any action outside this non-executing proposal."
+        ],
+        "preserved_conflicts": [],
+        "proposal_steps": [
+          {
+            "action_class": "review",
+            "cited_source_refs": [
+              "c3_final#section:status#status",
+              "c3_final#section:summary#summary",
+              "c3_final#section:assumptions#assumption_default"
+            ],
+            "non_executing": true,
+            "step_id": "c4k_003.step.1",
+            "text": "Review the cited approved evidence and decide whether a bounded follow-up is warranted."
+          }
+        ],
+        "rationale": "Deterministic bounded proposal drafted from 3 approved source rows across 1 approved evidence handle(s).",
+        "required_owner_review": true,
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "PROPOSAL",
+        "uncertainties": [
+          "No additional uncertainty beyond the cited evidence was introduced by C4K."
+        ]
+      },
+      "envelope_sha256": "7313d90ce6a40f92b66b834124456d13d28f409f84fd8ed0df224c44248b50cd",
+      "envelope_status": "PROPOSAL",
+      "expected_envelope_status": "PROPOSAL",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": null,
+      "kernel_status": "PASS",
+      "name": "valid_bounded_next_step_proposal_from_c3_evidence",
+      "pass": true,
+      "readiness_case_id": "c4r1_003",
+      "reject_reason": null,
+      "result_digest": "921dfba0dbc197cdce48c6da63211e10783c52d38cf5a9e17025176d0f8d879a",
+      "source_fixture_name": "valid_bounded_next_step_proposal_from_c3_evidence"
+    },
+    {
+      "envelope": {
+        "assumptions": [
+          "Approved evidence remains hash-pinned."
+        ],
+        "authority": "approved_evidence_only",
+        "case_id": "c4k_004",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c3_conflict",
+            "evidence_class": "C3",
+            "field_id": "status",
+            "path": "approved://c3_conflict.json",
+            "quote_hash": "2bedd0db35c37c0516985250e04122f3e6963f14040c005865e48cc29fb30fdd",
+            "section_id": "section:status",
+            "section_title": "Status",
+            "sha256": "92b541df6bf4c74589b9cb37964f4a559f475aec01166e8ddf0a2b3c0fdfedec",
+            "source_ref_id": "c3_conflict#section:status#status"
+          },
+          {
+            "artifact_id": "c3_conflict",
+            "evidence_class": "C3",
+            "field_id": "summary",
+            "path": "approved://c3_conflict.json",
+            "quote_hash": "94415452c2b9571dcfbd6770df1a1752fc354a51ec452a74970ad20f2630f15f",
+            "section_id": "section:summary",
+            "section_title": "Summary",
+            "sha256": "92b541df6bf4c74589b9cb37964f4a559f475aec01166e8ddf0a2b3c0fdfedec",
+            "source_ref_id": "c3_conflict#section:summary#summary"
+          },
+          {
+            "artifact_id": "c3_conflict",
+            "evidence_class": "C3",
+            "field_id": "assumption.default",
+            "path": "approved://c3_conflict.json",
+            "quote_hash": "a4a2acecd62457c2d750c7b31e54a61673e5d11f2d5a92e2725de987e8e7b2dd",
+            "section_id": "section:assumptions",
+            "section_title": "Assumptions",
+            "sha256": "92b541df6bf4c74589b9cb37964f4a559f475aec01166e8ddf0a2b3c0fdfedec",
+            "source_ref_id": "c3_conflict#section:assumptions#assumption_default"
+          },
+          {
+            "artifact_id": "c3_conflict",
+            "evidence_class": "C3",
+            "field_id": "conflict.detail",
+            "path": "approved://c3_conflict.json",
+            "quote_hash": "3487792eddd8a3abbf0f949bc408a8b1fccd33100e6c98254f89de752addf352",
+            "section_id": "section:conflict",
+            "section_title": "Conflict",
+            "sha256": "92b541df6bf4c74589b9cb37964f4a559f475aec01166e8ddf0a2b3c0fdfedec",
+            "source_ref_id": "c3_conflict#section:conflict#conflict_detail"
+          }
+        ],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "non_execution_notice": "This proposal is non-executing: it does not execute, authorize, schedule, deploy, mutate runtime/config, or bypass owner review.",
+        "prerequisites": [
+          "Owner review is required before any action outside this non-executing proposal."
+        ],
+        "preserved_conflicts": [
+          "Artifact A and B disagree on status field."
+        ],
+        "proposal_steps": [
+          {
+            "action_class": "review",
+            "cited_source_refs": [
+              "c3_conflict#section:status#status",
+              "c3_conflict#section:summary#summary",
+              "c3_conflict#section:assumptions#assumption_default",
+              "c3_conflict#section:conflict#conflict_detail"
+            ],
+            "non_executing": true,
+            "step_id": "c4k_004.step.1",
+            "text": "Review the cited approved evidence and decide whether a bounded follow-up is warranted."
+          },
+          {
+            "action_class": "review",
+            "cited_source_refs": [
+              "c3_conflict#section:status#status",
+              "c3_conflict#section:summary#summary",
+              "c3_conflict#section:assumptions#assumption_default",
+              "c3_conflict#section:conflict#conflict_detail"
+            ],
+            "non_executing": true,
+            "step_id": "c4k_004.step.2",
+            "text": "Preserve the cited conflict in the next owner review; do not reconcile it without new approved evidence."
+          }
+        ],
+        "rationale": "Deterministic bounded proposal drafted from 4 approved source rows across 1 approved evidence handle(s).",
+        "required_owner_review": true,
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "PROPOSAL",
+        "uncertainties": [
+          "No additional uncertainty beyond the cited evidence was introduced by C4K."
+        ]
+      },
+      "envelope_sha256": "62c1cf485cad2d618334bc0af0d7f838cd08ba3be56454b1cda49a438ddefc7d",
+      "envelope_status": "PROPOSAL",
+      "expected_envelope_status": "PROPOSAL",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": null,
+      "kernel_status": "PASS",
+      "name": "proposal_preserving_c3_conflict",
+      "pass": true,
+      "readiness_case_id": "c4r1_004",
+      "reject_reason": null,
+      "result_digest": "63e391c7ba301c22d1ae23b25a14ab39b53dc1062f823e61c260e02aa2c5f904",
+      "source_fixture_name": "proposal_preserving_c3_conflict"
+    },
+    {
+      "envelope": {
+        "assumptions": [
+          "Approved evidence remains hash-pinned."
+        ],
+        "authority": "approved_evidence_only",
+        "case_id": "c4k_005",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c4_uncertainty",
+            "evidence_class": "C3",
+            "field_id": "status",
+            "path": "approved://c4_uncertainty.json",
+            "quote_hash": "2bedd0db35c37c0516985250e04122f3e6963f14040c005865e48cc29fb30fdd",
+            "section_id": "section:status",
+            "section_title": "Status",
+            "sha256": "817db13ed40cda05f6845f561675994f5564a9ca083d5e5c62368d12d7590d31",
+            "source_ref_id": "c4_uncertainty#section:status#status"
+          },
+          {
+            "artifact_id": "c4_uncertainty",
+            "evidence_class": "C3",
+            "field_id": "summary",
+            "path": "approved://c4_uncertainty.json",
+            "quote_hash": "94415452c2b9571dcfbd6770df1a1752fc354a51ec452a74970ad20f2630f15f",
+            "section_id": "section:summary",
+            "section_title": "Summary",
+            "sha256": "817db13ed40cda05f6845f561675994f5564a9ca083d5e5c62368d12d7590d31",
+            "source_ref_id": "c4_uncertainty#section:summary#summary"
+          },
+          {
+            "artifact_id": "c4_uncertainty",
+            "evidence_class": "C3",
+            "field_id": "assumption.default",
+            "path": "approved://c4_uncertainty.json",
+            "quote_hash": "a4a2acecd62457c2d750c7b31e54a61673e5d11f2d5a92e2725de987e8e7b2dd",
+            "section_id": "section:assumptions",
+            "section_title": "Assumptions",
+            "sha256": "817db13ed40cda05f6845f561675994f5564a9ca083d5e5c62368d12d7590d31",
+            "source_ref_id": "c4_uncertainty#section:assumptions#assumption_default"
+          },
+          {
+            "artifact_id": "c4_uncertainty",
+            "evidence_class": "C3",
+            "field_id": "uncertainty.detail",
+            "path": "approved://c4_uncertainty.json",
+            "quote_hash": "8e3badc39b9015ecac2f834dcfa05b3e969f321383bdfebab42d6febe664184d",
+            "section_id": "section:uncertainty",
+            "section_title": "Uncertainty",
+            "sha256": "817db13ed40cda05f6845f561675994f5564a9ca083d5e5c62368d12d7590d31",
+            "source_ref_id": "c4_uncertainty#section:uncertainty#uncertainty_detail"
+          }
+        ],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "non_execution_notice": "This proposal is non-executing: it does not execute, authorize, schedule, deploy, mutate runtime/config, or bypass owner review.",
+        "prerequisites": [
+          "Owner review is required before any action outside this non-executing proposal."
+        ],
+        "preserved_conflicts": [],
+        "proposal_steps": [
+          {
+            "action_class": "review",
+            "cited_source_refs": [
+              "c4_uncertainty#section:status#status",
+              "c4_uncertainty#section:summary#summary",
+              "c4_uncertainty#section:assumptions#assumption_default",
+              "c4_uncertainty#section:uncertainty#uncertainty_detail"
+            ],
+            "non_executing": true,
+            "step_id": "c4k_005.step.1",
+            "text": "Review the cited approved evidence and decide whether a bounded follow-up is warranted."
+          }
+        ],
+        "rationale": "Deterministic bounded proposal drafted from 4 approved source rows across 1 approved evidence handle(s).",
+        "required_owner_review": true,
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "PROPOSAL",
+        "uncertainties": [
+          "Timing remains unknown until owner confirms."
+        ]
+      },
+      "envelope_sha256": "d05cc683a861bc09a7bfa57cb229b9aca3e732de1319c664baf0c9118e317f9e",
+      "envelope_status": "PROPOSAL",
+      "expected_envelope_status": "PROPOSAL",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": null,
+      "kernel_status": "PASS",
+      "name": "proposal_preserving_uncertainty",
+      "pass": true,
+      "readiness_case_id": "c4r1_005",
+      "reject_reason": null,
+      "result_digest": "8d603bbc017b1870819fd127205a8ea35eff7ce1305350f8e10d75606e4ca3a3",
+      "source_fixture_name": "proposal_preserving_uncertainty"
+    },
+    {
+      "envelope": {
+        "assumptions": [
+          "Approved evidence remains hash-pinned."
+        ],
+        "authority": "approved_evidence_only",
+        "case_id": "c4k_006",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c4_prereq",
+            "evidence_class": "C2",
+            "field_id": "status",
+            "path": "approved://c4_prereq.json",
+            "quote_hash": "2bedd0db35c37c0516985250e04122f3e6963f14040c005865e48cc29fb30fdd",
+            "section_id": "section:status",
+            "section_title": "Status",
+            "sha256": "4122e5c233e9d46f9cc0d608093f3cb4eb11bf10d281c87a44301bb299ddee44",
+            "source_ref_id": "c4_prereq#section:status#status"
+          },
+          {
+            "artifact_id": "c4_prereq",
+            "evidence_class": "C2",
+            "field_id": "summary",
+            "path": "approved://c4_prereq.json",
+            "quote_hash": "94415452c2b9571dcfbd6770df1a1752fc354a51ec452a74970ad20f2630f15f",
+            "section_id": "section:summary",
+            "section_title": "Summary",
+            "sha256": "4122e5c233e9d46f9cc0d608093f3cb4eb11bf10d281c87a44301bb299ddee44",
+            "source_ref_id": "c4_prereq#section:summary#summary"
+          },
+          {
+            "artifact_id": "c4_prereq",
+            "evidence_class": "C2",
+            "field_id": "assumption.default",
+            "path": "approved://c4_prereq.json",
+            "quote_hash": "a4a2acecd62457c2d750c7b31e54a61673e5d11f2d5a92e2725de987e8e7b2dd",
+            "section_id": "section:assumptions",
+            "section_title": "Assumptions",
+            "sha256": "4122e5c233e9d46f9cc0d608093f3cb4eb11bf10d281c87a44301bb299ddee44",
+            "source_ref_id": "c4_prereq#section:assumptions#assumption_default"
+          },
+          {
+            "artifact_id": "c4_prereq",
+            "evidence_class": "C2",
+            "field_id": "prerequisite.owner",
+            "path": "approved://c4_prereq.json",
+            "quote_hash": "8a4142cf004bdffcf352817db098f3c29199f6eac9dd6cbfb70baabc934d3e05",
+            "section_id": "section:prerequisites",
+            "section_title": "Prerequisites",
+            "sha256": "4122e5c233e9d46f9cc0d608093f3cb4eb11bf10d281c87a44301bb299ddee44",
+            "source_ref_id": "c4_prereq#section:prerequisites#prerequisite_owner"
+          }
+        ],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "non_execution_notice": "This proposal is non-executing: it does not execute, authorize, schedule, deploy, mutate runtime/config, or bypass owner review.",
+        "prerequisites": [
+          "Owner must approve before any follow-up action."
+        ],
+        "preserved_conflicts": [],
+        "proposal_steps": [
+          {
+            "action_class": "review",
+            "cited_source_refs": [
+              "c4_prereq#section:status#status",
+              "c4_prereq#section:summary#summary",
+              "c4_prereq#section:assumptions#assumption_default",
+              "c4_prereq#section:prerequisites#prerequisite_owner"
+            ],
+            "non_executing": true,
+            "step_id": "c4k_006.step.1",
+            "text": "Review the cited approved evidence and decide whether a bounded follow-up is warranted."
+          }
+        ],
+        "rationale": "Deterministic bounded proposal drafted from 4 approved source rows across 1 approved evidence handle(s).",
+        "required_owner_review": true,
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "PROPOSAL",
+        "uncertainties": [
+          "No additional uncertainty beyond the cited evidence was introduced by C4K."
+        ]
+      },
+      "envelope_sha256": "1486e10619ef7a4dd9406856cfa2e37f0dbe8bc4864fad273f91fb06c26f2388",
+      "envelope_status": "PROPOSAL",
+      "expected_envelope_status": "PROPOSAL",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": null,
+      "kernel_status": "PASS",
+      "name": "proposal_preserving_prerequisites",
+      "pass": true,
+      "readiness_case_id": "c4r1_006",
+      "reject_reason": null,
+      "result_digest": "52203241e1f624359ce002c28dc2ceabf06a9ebc1581c50beae9a763525e5b7e",
+      "source_fixture_name": "proposal_preserving_prerequisites"
+    },
+    {
+      "envelope": {
+        "assumptions": [
+          "Approved evidence remains hash-pinned."
+        ],
+        "authority": "approved_evidence_only",
+        "case_id": "c4k_007",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c2_final",
+            "evidence_class": "C2",
+            "field_id": "status",
+            "path": "approved://c2_final.json",
+            "quote_hash": "2bedd0db35c37c0516985250e04122f3e6963f14040c005865e48cc29fb30fdd",
+            "section_id": "section:status",
+            "section_title": "Status",
+            "sha256": "aa5029497c52287d84742dd2103ff7e1d93f23a7d4bb366f11be36ab355e536f",
+            "source_ref_id": "c2_final#section:status#status"
+          },
+          {
+            "artifact_id": "c2_final",
+            "evidence_class": "C2",
+            "field_id": "summary",
+            "path": "approved://c2_final.json",
+            "quote_hash": "d188547f156a2a5eee65da32992b9835d941c6b258999ae0580a901881b8da64",
+            "section_id": "section:summary",
+            "section_title": "Summary",
+            "sha256": "aa5029497c52287d84742dd2103ff7e1d93f23a7d4bb366f11be36ab355e536f",
+            "source_ref_id": "c2_final#section:summary#summary"
+          },
+          {
+            "artifact_id": "c2_final",
+            "evidence_class": "C2",
+            "field_id": "assumption.default",
+            "path": "approved://c2_final.json",
+            "quote_hash": "a4a2acecd62457c2d750c7b31e54a61673e5d11f2d5a92e2725de987e8e7b2dd",
+            "section_id": "section:assumptions",
+            "section_title": "Assumptions",
+            "sha256": "aa5029497c52287d84742dd2103ff7e1d93f23a7d4bb366f11be36ab355e536f",
+            "source_ref_id": "c2_final#section:assumptions#assumption_default"
+          }
+        ],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "non_execution_notice": "This proposal is non-executing: it does not execute, authorize, schedule, deploy, mutate runtime/config, or bypass owner review.",
+        "prerequisites": [
+          "Owner review is required before any action outside this non-executing proposal."
+        ],
+        "preserved_conflicts": [],
+        "proposal_steps": [
+          {
+            "action_class": "request_artifact",
+            "cited_source_refs": [
+              "c2_final#section:status#status",
+              "c2_final#section:summary#summary",
+              "c2_final#section:assumptions#assumption_default"
+            ],
+            "non_executing": true,
+            "step_id": "c4k_007.step.1",
+            "text": "Request a follow-up artifact or clarification for the cited gap; keep the request non-executing."
+          }
+        ],
+        "rationale": "Deterministic bounded proposal drafted from 3 approved source rows across 1 approved evidence handle(s).",
+        "required_owner_review": true,
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "PROPOSAL",
+        "uncertainties": [
+          "No additional uncertainty beyond the cited evidence was introduced by C4K."
+        ]
+      },
+      "envelope_sha256": "dcc74d6abe9c5cd8be291f7a630b5e993722fb381c67a41b4e3ab7248b763b84",
+      "envelope_status": "PROPOSAL",
+      "expected_envelope_status": "PROPOSAL",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": null,
+      "kernel_status": "PASS",
+      "name": "follow_up_artifact_request_proposal",
+      "pass": true,
+      "readiness_case_id": "c4r1_007",
+      "reject_reason": null,
+      "result_digest": "db6b3ca95af49c92af18513ba22f7580935a46b03137adc57652d40667317a5a",
+      "source_fixture_name": "follow_up_artifact_request_proposal"
+    },
+    {
+      "envelope": {
+        "assumptions": [
+          "Approved evidence remains hash-pinned."
+        ],
+        "authority": "approved_evidence_only",
+        "case_id": "c4k_008",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c3_final",
+            "evidence_class": "C3",
+            "field_id": "status",
+            "path": "approved://c3_final.json",
+            "quote_hash": "2bedd0db35c37c0516985250e04122f3e6963f14040c005865e48cc29fb30fdd",
+            "section_id": "section:status",
+            "section_title": "Status",
+            "sha256": "fb450882360c494cc791d075506e7aee91744cd0889f3bc16197e4af0a08674c",
+            "source_ref_id": "c3_final#section:status#status"
+          },
+          {
+            "artifact_id": "c3_final",
+            "evidence_class": "C3",
+            "field_id": "summary",
+            "path": "approved://c3_final.json",
+            "quote_hash": "241c5fb35a0e4ad2d5bd43f652ba794c40833bf061deb8662320e5f291b5cc2d",
+            "section_id": "section:summary",
+            "section_title": "Summary",
+            "sha256": "fb450882360c494cc791d075506e7aee91744cd0889f3bc16197e4af0a08674c",
+            "source_ref_id": "c3_final#section:summary#summary"
+          },
+          {
+            "artifact_id": "c3_final",
+            "evidence_class": "C3",
+            "field_id": "assumption.default",
+            "path": "approved://c3_final.json",
+            "quote_hash": "a4a2acecd62457c2d750c7b31e54a61673e5d11f2d5a92e2725de987e8e7b2dd",
+            "section_id": "section:assumptions",
+            "section_title": "Assumptions",
+            "sha256": "fb450882360c494cc791d075506e7aee91744cd0889f3bc16197e4af0a08674c",
+            "source_ref_id": "c3_final#section:assumptions#assumption_default"
+          }
+        ],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "non_execution_notice": "This proposal is non-executing: it does not execute, authorize, schedule, deploy, mutate runtime/config, or bypass owner review.",
+        "prerequisites": [
+          "Owner review is required before any action outside this non-executing proposal."
+        ],
+        "preserved_conflicts": [],
+        "proposal_steps": [
+          {
+            "action_class": "safe_validation",
+            "cited_source_refs": [
+              "c3_final#section:status#status",
+              "c3_final#section:summary#summary",
+              "c3_final#section:assumptions#assumption_default"
+            ],
+            "non_executing": true,
+            "step_id": "c4k_008.step.1",
+            "text": "Prepare a read-only validation plan using the cited evidence; do not run production changes."
+          }
+        ],
+        "rationale": "Deterministic bounded proposal drafted from 3 approved source rows across 1 approved evidence handle(s).",
+        "required_owner_review": true,
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "PROPOSAL",
+        "uncertainties": [
+          "No additional uncertainty beyond the cited evidence was introduced by C4K."
+        ]
+      },
+      "envelope_sha256": "71769e5dc1b779d8b236252cb7f4cb3bd620e773515bfeafd5c9fda6d91e6cdf",
+      "envelope_status": "PROPOSAL",
+      "expected_envelope_status": "PROPOSAL",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": null,
+      "kernel_status": "PASS",
+      "name": "safe_validation_step_proposal",
+      "pass": true,
+      "readiness_case_id": "c4r1_008",
+      "reject_reason": null,
+      "result_digest": "fc671b4351f72c7beaaaa7c83f4b6ec4dbc19c1a4893595ba54a5203400151dd",
+      "source_fixture_name": "safe_validation_step_proposal"
+    },
+    {
+      "envelope": {
+        "assumptions": [
+          "Approved evidence remains hash-pinned."
+        ],
+        "authority": "approved_evidence_only",
+        "case_id": "c4k_009",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c1_final",
+            "evidence_class": "C1",
+            "field_id": "status",
+            "path": "approved://c1_final.json",
+            "quote_hash": "2bedd0db35c37c0516985250e04122f3e6963f14040c005865e48cc29fb30fdd",
+            "section_id": "section:status",
+            "section_title": "Status",
+            "sha256": "4eaf037eff11f886c533a30d97692b9929508609afed40e3ac280b3c64aa991a",
+            "source_ref_id": "c1_final#section:status#status"
+          },
+          {
+            "artifact_id": "c1_final",
+            "evidence_class": "C1",
+            "field_id": "summary",
+            "path": "approved://c1_final.json",
+            "quote_hash": "cc13d4d3beffad68a869cdfee292b880391247f4741c1e12738f0ee9c17b0fe2",
+            "section_id": "section:summary",
+            "section_title": "Summary",
+            "sha256": "4eaf037eff11f886c533a30d97692b9929508609afed40e3ac280b3c64aa991a",
+            "source_ref_id": "c1_final#section:summary#summary"
+          },
+          {
+            "artifact_id": "c1_final",
+            "evidence_class": "C1",
+            "field_id": "assumption.default",
+            "path": "approved://c1_final.json",
+            "quote_hash": "a4a2acecd62457c2d750c7b31e54a61673e5d11f2d5a92e2725de987e8e7b2dd",
+            "section_id": "section:assumptions",
+            "section_title": "Assumptions",
+            "sha256": "4eaf037eff11f886c533a30d97692b9929508609afed40e3ac280b3c64aa991a",
+            "source_ref_id": "c1_final#section:assumptions#assumption_default"
+          }
+        ],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "non_execution_notice": "This proposal is non-executing: it does not execute, authorize, schedule, deploy, mutate runtime/config, or bypass owner review.",
+        "prerequisites": [
+          "Owner review is required before any action outside this non-executing proposal."
+        ],
+        "preserved_conflicts": [],
+        "proposal_steps": [
+          {
+            "action_class": "owner_question",
+            "cited_source_refs": [
+              "c1_final#section:status#status",
+              "c1_final#section:summary#summary",
+              "c1_final#section:assumptions#assumption_default"
+            ],
+            "non_executing": true,
+            "step_id": "c4k_009.step.1",
+            "text": "Ask the owner a bounded question about the cited evidence before proceeding."
+          }
+        ],
+        "rationale": "Deterministic bounded proposal drafted from 3 approved source rows across 1 approved evidence handle(s).",
+        "required_owner_review": true,
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "PROPOSAL",
+        "uncertainties": [
+          "No additional uncertainty beyond the cited evidence was introduced by C4K."
+        ]
+      },
+      "envelope_sha256": "5b4ade1fee53f2fde70f55e038f18492253140ad1aeb02f73025f6de2aad9af1",
+      "envelope_status": "PROPOSAL",
+      "expected_envelope_status": "PROPOSAL",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": null,
+      "kernel_status": "PASS",
+      "name": "owner_question_proposal",
+      "pass": true,
+      "readiness_case_id": "c4r1_009",
+      "reject_reason": null,
+      "result_digest": "a702c4bfc3c5fd040225589f81a9fa6d69d363eb018ec4fa1c7a6be05e8bcfa1",
+      "source_fixture_name": "owner_question_proposal"
+    },
+    {
+      "envelope": {
+        "authority": "no_authority",
+        "case_id": "c4k_010",
+        "cited_source_refs": [],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "hold_reason": "missing_evidence",
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "HOLD"
+      },
+      "envelope_sha256": "752b7ee758c57870659f49856919e7bed18bfe77ad0e62f0b4ec05f9b9c8f3fb",
+      "envelope_status": "HOLD",
+      "expected_envelope_status": "HOLD",
+      "expected_kernel_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": "missing_evidence",
+      "kernel_status": "HOLD",
+      "name": "missing_evidence_hold",
+      "pass": true,
+      "readiness_case_id": "c4r1_010",
+      "reject_reason": null,
+      "result_digest": "9e796e4aa5363631cf60ba90bc4338ddc6c355c2dd9bf68ab80e0bebaada1d83",
+      "source_fixture_name": "missing_evidence_hold"
+    },
+    {
+      "envelope": {
+        "authority": "approved_evidence_only",
+        "case_id": "c4k_011",
+        "cited_source_refs": [
+          {
+            "artifact_id": "stale",
+            "evidence_class": "C1",
+            "field_id": "status",
+            "path": "approved://stale.json",
+            "quote_hash": "2bedd0db35c37c0516985250e04122f3e6963f14040c005865e48cc29fb30fdd",
+            "section_id": "section:status",
+            "section_title": "Status",
+            "sha256": "d009d2adc967b431485de8bbde19c96f7bcb50b25a7c15557a360c27aae247fe",
+            "source_ref_id": "stale#section:status#status"
+          },
+          {
+            "artifact_id": "stale",
+            "evidence_class": "C1",
+            "field_id": "summary",
+            "path": "approved://stale.json",
+            "quote_hash": "94415452c2b9571dcfbd6770df1a1752fc354a51ec452a74970ad20f2630f15f",
+            "section_id": "section:summary",
+            "section_title": "Summary",
+            "sha256": "d009d2adc967b431485de8bbde19c96f7bcb50b25a7c15557a360c27aae247fe",
+            "source_ref_id": "stale#section:summary#summary"
+          },
+          {
+            "artifact_id": "stale",
+            "evidence_class": "C1",
+            "field_id": "assumption.default",
+            "path": "approved://stale.json",
+            "quote_hash": "a4a2acecd62457c2d750c7b31e54a61673e5d11f2d5a92e2725de987e8e7b2dd",
+            "section_id": "section:assumptions",
+            "section_title": "Assumptions",
+            "sha256": "d009d2adc967b431485de8bbde19c96f7bcb50b25a7c15557a360c27aae247fe",
+            "source_ref_id": "stale#section:assumptions#assumption_default"
+          }
+        ],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "hold_reason": "stale_evidence",
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "HOLD"
+      },
+      "envelope_sha256": "5576da9b79e32403581b38f862f2216fb16e013f3ad10e856ec28ffd3b3177ef",
+      "envelope_status": "HOLD",
+      "expected_envelope_status": "HOLD",
+      "expected_kernel_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": "stale_evidence",
+      "kernel_status": "HOLD",
+      "name": "stale_evidence_hold",
+      "pass": true,
+      "readiness_case_id": "c4r1_011",
+      "reject_reason": null,
+      "result_digest": "64fd4305693d7be70236ec1bca6c5685118703b9d9b76f27ad505172f17a42de",
+      "source_fixture_name": "stale_evidence_hold"
+    },
+    {
+      "envelope": {
+        "authority": "approved_evidence_only",
+        "case_id": "c4k_012",
+        "cited_source_refs": [
+          {
+            "artifact_id": "ambiguous",
+            "evidence_class": "C1",
+            "field_id": "status",
+            "path": "approved://ambiguous.json",
+            "quote_hash": "2bedd0db35c37c0516985250e04122f3e6963f14040c005865e48cc29fb30fdd",
+            "section_id": "section:status",
+            "section_title": "Status",
+            "sha256": "d009d2adc967b431485de8bbde19c96f7bcb50b25a7c15557a360c27aae247fe",
+            "source_ref_id": "ambiguous#section:status#status"
+          },
+          {
+            "artifact_id": "ambiguous",
+            "evidence_class": "C1",
+            "field_id": "summary",
+            "path": "approved://ambiguous.json",
+            "quote_hash": "94415452c2b9571dcfbd6770df1a1752fc354a51ec452a74970ad20f2630f15f",
+            "section_id": "section:summary",
+            "section_title": "Summary",
+            "sha256": "d009d2adc967b431485de8bbde19c96f7bcb50b25a7c15557a360c27aae247fe",
+            "source_ref_id": "ambiguous#section:summary#summary"
+          },
+          {
+            "artifact_id": "ambiguous",
+            "evidence_class": "C1",
+            "field_id": "assumption.default",
+            "path": "approved://ambiguous.json",
+            "quote_hash": "a4a2acecd62457c2d750c7b31e54a61673e5d11f2d5a92e2725de987e8e7b2dd",
+            "section_id": "section:assumptions",
+            "section_title": "Assumptions",
+            "sha256": "d009d2adc967b431485de8bbde19c96f7bcb50b25a7c15557a360c27aae247fe",
+            "source_ref_id": "ambiguous#section:assumptions#assumption_default"
+          }
+        ],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "hold_reason": "ambiguous_evidence",
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "HOLD"
+      },
+      "envelope_sha256": "b18db34dd798676a4133a8a92476fa8742f789c98cbf2d42a0d6ce85563ce265",
+      "envelope_status": "HOLD",
+      "expected_envelope_status": "HOLD",
+      "expected_kernel_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": "ambiguous_evidence",
+      "kernel_status": "HOLD",
+      "name": "ambiguous_evidence_hold",
+      "pass": true,
+      "readiness_case_id": "c4r1_012",
+      "reject_reason": null,
+      "result_digest": "e46561cf39bb3b58ffe2b2520aa5472b28c50baf18993ba9debb584fc8eed32b",
+      "source_fixture_name": "ambiguous_evidence_hold"
+    },
+    {
+      "envelope": {
+        "authority": "no_authority",
+        "case_id": "c4k_013",
+        "cited_source_refs": [],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "hold_reason": "unapproved_source_authority",
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "HOLD"
+      },
+      "envelope_sha256": "cc14b9c0432516bd56c26780a84d03644b07842e6c47a612349a59d73d7e8780",
+      "envelope_status": "HOLD",
+      "expected_envelope_status": "HOLD",
+      "expected_kernel_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": "unapproved_source_authority",
+      "kernel_status": "HOLD",
+      "name": "unapproved_source_hold",
+      "pass": true,
+      "readiness_case_id": "c4r1_013",
+      "reject_reason": null,
+      "result_digest": "377dc2cf1d7d85afcdd415ea37cd6074ea63ea565e28f75df9ab9641d204b7f3",
+      "source_fixture_name": "unapproved_source_hold"
+    },
+    {
+      "envelope": {
+        "authority": "no_authority",
+        "case_id": "c4k_014",
+        "cited_source_refs": [],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "hold_reason": "unapproved_source_authority",
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "HOLD"
+      },
+      "envelope_sha256": "c2fb73589dea0b178be6c71f9ee6adae1554ce1d93a7407d94e566177c9141aa",
+      "envelope_status": "HOLD",
+      "expected_envelope_status": "HOLD",
+      "expected_kernel_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": "unapproved_source_authority",
+      "kernel_status": "HOLD",
+      "name": "memory_source_attempt_hold",
+      "pass": true,
+      "readiness_case_id": "c4r1_014",
+      "reject_reason": null,
+      "result_digest": "4e09c9c8e3ae635a35c39fc6b937e4ec48bfe486ad83434f47202f162fa5e053",
+      "source_fixture_name": "memory_source_attempt_hold"
+    },
+    {
+      "envelope": {
+        "authority": "no_authority",
+        "case_id": "c4k_015",
+        "cited_source_refs": [],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "hold_reason": "unapproved_source_authority",
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "HOLD"
+      },
+      "envelope_sha256": "ac7eaebbde3fb5785fb128269bfe44b7ea318be197a25dec66cd18f0f370ac15",
+      "envelope_status": "HOLD",
+      "expected_envelope_status": "HOLD",
+      "expected_kernel_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": "unapproved_source_authority",
+      "kernel_status": "HOLD",
+      "name": "context_bridge_source_attempt_hold",
+      "pass": true,
+      "readiness_case_id": "c4r1_015",
+      "reject_reason": null,
+      "result_digest": "94c360c030d1f5d3e2cc6af3b3f70029efe0d23c5a05c119f3636a7a174b4e87",
+      "source_fixture_name": "context_bridge_source_attempt_hold"
+    },
+    {
+      "envelope": {
+        "authority": "no_authority",
+        "case_id": "c4k_016",
+        "cited_source_refs": [],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "hold_reason": "unapproved_source_authority",
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "HOLD"
+      },
+      "envelope_sha256": "7ef2598fa4528cf5a372896c63bc2dc51ad5ea7a4df612b2bf63fe51d4110378",
+      "envelope_status": "HOLD",
+      "expected_envelope_status": "HOLD",
+      "expected_kernel_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": "unapproved_source_authority",
+      "kernel_status": "HOLD",
+      "name": "daily_memory_source_attempt_hold",
+      "pass": true,
+      "readiness_case_id": "c4r1_016",
+      "reject_reason": null,
+      "result_digest": "6accf0193ff8516561b0359544560b9a0445a5aeea6565262e84e8b72c924de4",
+      "source_fixture_name": "daily_memory_source_attempt_hold"
+    },
+    {
+      "envelope": {
+        "authority": "no_authority",
+        "case_id": "c4k_017",
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "reject_reason": "arbitrary_path_forbidden",
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "REJECT"
+      },
+      "envelope_sha256": "7cca94fead83415861861f3fa02727bea20308b7a9ff2e740e9e450e9769f3d7",
+      "envelope_status": "REJECT",
+      "expected_envelope_status": "REJECT",
+      "expected_kernel_status": "REJECT",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": null,
+      "kernel_status": "REJECT",
+      "name": "arbitrary_path_attempt_reject",
+      "pass": true,
+      "readiness_case_id": "c4r1_017",
+      "reject_reason": "arbitrary_path_forbidden",
+      "result_digest": "0b18a0d749299ad59e8eacf6b32cce453030f00d729d9d2b73a0d4c90ce38c66",
+      "source_fixture_name": "arbitrary_path_attempt_reject"
+    },
+    {
+      "envelope": {
+        "authority": "approved_evidence_only",
+        "case_id": "c4k_018",
+        "cited_source_refs": [
+          {
+            "artifact_id": "inject",
+            "evidence_class": "C1",
+            "field_id": "status",
+            "path": "approved://inject.json",
+            "quote_hash": "2bedd0db35c37c0516985250e04122f3e6963f14040c005865e48cc29fb30fdd",
+            "section_id": "section:status",
+            "section_title": "Status",
+            "sha256": "64d8cd15dfd401703d197373229c889bd2d584ca19179c6193dcb84096e12cb2",
+            "source_ref_id": "inject#section:status#status"
+          },
+          {
+            "artifact_id": "inject",
+            "evidence_class": "C1",
+            "field_id": "summary",
+            "path": "approved://inject.json",
+            "quote_hash": "94415452c2b9571dcfbd6770df1a1752fc354a51ec452a74970ad20f2630f15f",
+            "section_id": "section:summary",
+            "section_title": "Summary",
+            "sha256": "64d8cd15dfd401703d197373229c889bd2d584ca19179c6193dcb84096e12cb2",
+            "source_ref_id": "inject#section:summary#summary"
+          },
+          {
+            "artifact_id": "inject",
+            "evidence_class": "C1",
+            "field_id": "assumption.default",
+            "path": "approved://inject.json",
+            "quote_hash": "a4a2acecd62457c2d750c7b31e54a61673e5d11f2d5a92e2725de987e8e7b2dd",
+            "section_id": "section:assumptions",
+            "section_title": "Assumptions",
+            "sha256": "64d8cd15dfd401703d197373229c889bd2d584ca19179c6193dcb84096e12cb2",
+            "source_ref_id": "inject#section:assumptions#assumption_default"
+          }
+        ],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "hold_reason": "prompt_injection_like_artifact_text",
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "HOLD"
+      },
+      "envelope_sha256": "b936189c667958d87d8b4c8e4636e8da84aae4860cd2e4bd8a27e982748c54f8",
+      "envelope_status": "HOLD",
+      "expected_envelope_status": "HOLD",
+      "expected_kernel_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": "prompt_injection_like_artifact_text",
+      "kernel_status": "HOLD",
+      "name": "prompt_injection_like_artifact_text_hold",
+      "pass": true,
+      "readiness_case_id": "c4r1_018",
+      "reject_reason": null,
+      "result_digest": "9f08f0ea275daffd5797afbbd5b7331b6b289aae43c82455a2c7188cee01cbfa",
+      "source_fixture_name": "prompt_injection_like_artifact_text_hold"
+    },
+    {
+      "envelope": {
+        "authority": "approved_evidence_only",
+        "case_id": "c4k_019",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c1_final",
+            "evidence_class": "C1",
+            "field_id": "status",
+            "path": "approved://c1_final.json",
+            "quote_hash": "2bedd0db35c37c0516985250e04122f3e6963f14040c005865e48cc29fb30fdd",
+            "section_id": "section:status",
+            "section_title": "Status",
+            "sha256": "4eaf037eff11f886c533a30d97692b9929508609afed40e3ac280b3c64aa991a",
+            "source_ref_id": "c1_final#section:status#status"
+          },
+          {
+            "artifact_id": "c1_final",
+            "evidence_class": "C1",
+            "field_id": "summary",
+            "path": "approved://c1_final.json",
+            "quote_hash": "cc13d4d3beffad68a869cdfee292b880391247f4741c1e12738f0ee9c17b0fe2",
+            "section_id": "section:summary",
+            "section_title": "Summary",
+            "sha256": "4eaf037eff11f886c533a30d97692b9929508609afed40e3ac280b3c64aa991a",
+            "source_ref_id": "c1_final#section:summary#summary"
+          },
+          {
+            "artifact_id": "c1_final",
+            "evidence_class": "C1",
+            "field_id": "assumption.default",
+            "path": "approved://c1_final.json",
+            "quote_hash": "a4a2acecd62457c2d750c7b31e54a61673e5d11f2d5a92e2725de987e8e7b2dd",
+            "section_id": "section:assumptions",
+            "section_title": "Assumptions",
+            "sha256": "4eaf037eff11f886c533a30d97692b9929508609afed40e3ac280b3c64aa991a",
+            "source_ref_id": "c1_final#section:assumptions#assumption_default"
+          }
+        ],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "hold_reason": "request_outside_non_executing_c4_scope",
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "HOLD"
+      },
+      "envelope_sha256": "9476d3bd1919d83ecf8d740b50cd1e3f552aa31aad93b5e0b8c19690773b8ac6",
+      "envelope_status": "HOLD",
+      "expected_envelope_status": "HOLD",
+      "expected_kernel_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": "request_outside_non_executing_c4_scope",
+      "kernel_status": "HOLD",
+      "name": "request_to_execute_external_action_hold",
+      "pass": true,
+      "readiness_case_id": "c4r1_019",
+      "reject_reason": null,
+      "result_digest": "41eea0099442327aad537218ec37d00731ab8d3e331fc27b9e6e48a9957222c5",
+      "source_fixture_name": "request_to_execute_external_action_hold"
+    },
+    {
+      "envelope": {
+        "authority": "approved_evidence_only",
+        "case_id": "c4k_020",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c1_final",
+            "evidence_class": "C1",
+            "field_id": "status",
+            "path": "approved://c1_final.json",
+            "quote_hash": "2bedd0db35c37c0516985250e04122f3e6963f14040c005865e48cc29fb30fdd",
+            "section_id": "section:status",
+            "section_title": "Status",
+            "sha256": "4eaf037eff11f886c533a30d97692b9929508609afed40e3ac280b3c64aa991a",
+            "source_ref_id": "c1_final#section:status#status"
+          },
+          {
+            "artifact_id": "c1_final",
+            "evidence_class": "C1",
+            "field_id": "summary",
+            "path": "approved://c1_final.json",
+            "quote_hash": "cc13d4d3beffad68a869cdfee292b880391247f4741c1e12738f0ee9c17b0fe2",
+            "section_id": "section:summary",
+            "section_title": "Summary",
+            "sha256": "4eaf037eff11f886c533a30d97692b9929508609afed40e3ac280b3c64aa991a",
+            "source_ref_id": "c1_final#section:summary#summary"
+          },
+          {
+            "artifact_id": "c1_final",
+            "evidence_class": "C1",
+            "field_id": "assumption.default",
+            "path": "approved://c1_final.json",
+            "quote_hash": "a4a2acecd62457c2d750c7b31e54a61673e5d11f2d5a92e2725de987e8e7b2dd",
+            "section_id": "section:assumptions",
+            "section_title": "Assumptions",
+            "sha256": "4eaf037eff11f886c533a30d97692b9929508609afed40e3ac280b3c64aa991a",
+            "source_ref_id": "c1_final#section:assumptions#assumption_default"
+          }
+        ],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "hold_reason": "request_outside_non_executing_c4_scope",
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "HOLD"
+      },
+      "envelope_sha256": "a5992ebb951c9bebb3d886130a20da5e260384c935ca86fe3879df08cb5843fc",
+      "envelope_status": "HOLD",
+      "expected_envelope_status": "HOLD",
+      "expected_kernel_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": "request_outside_non_executing_c4_scope",
+      "kernel_status": "HOLD",
+      "name": "request_to_schedule_action_hold",
+      "pass": true,
+      "readiness_case_id": "c4r1_020",
+      "reject_reason": null,
+      "result_digest": "ee1b74f6b9e71e9a25b4b7bb94e0003adce906ee17396746ccddd265f3104e58",
+      "source_fixture_name": "request_to_schedule_action_hold"
+    },
+    {
+      "envelope": {
+        "authority": "approved_evidence_only",
+        "case_id": "c4k_021",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c1_final",
+            "evidence_class": "C1",
+            "field_id": "status",
+            "path": "approved://c1_final.json",
+            "quote_hash": "2bedd0db35c37c0516985250e04122f3e6963f14040c005865e48cc29fb30fdd",
+            "section_id": "section:status",
+            "section_title": "Status",
+            "sha256": "4eaf037eff11f886c533a30d97692b9929508609afed40e3ac280b3c64aa991a",
+            "source_ref_id": "c1_final#section:status#status"
+          },
+          {
+            "artifact_id": "c1_final",
+            "evidence_class": "C1",
+            "field_id": "summary",
+            "path": "approved://c1_final.json",
+            "quote_hash": "cc13d4d3beffad68a869cdfee292b880391247f4741c1e12738f0ee9c17b0fe2",
+            "section_id": "section:summary",
+            "section_title": "Summary",
+            "sha256": "4eaf037eff11f886c533a30d97692b9929508609afed40e3ac280b3c64aa991a",
+            "source_ref_id": "c1_final#section:summary#summary"
+          },
+          {
+            "artifact_id": "c1_final",
+            "evidence_class": "C1",
+            "field_id": "assumption.default",
+            "path": "approved://c1_final.json",
+            "quote_hash": "a4a2acecd62457c2d750c7b31e54a61673e5d11f2d5a92e2725de987e8e7b2dd",
+            "section_id": "section:assumptions",
+            "section_title": "Assumptions",
+            "sha256": "4eaf037eff11f886c533a30d97692b9929508609afed40e3ac280b3c64aa991a",
+            "source_ref_id": "c1_final#section:assumptions#assumption_default"
+          }
+        ],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "hold_reason": "request_outside_non_executing_c4_scope",
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "HOLD"
+      },
+      "envelope_sha256": "af9a672ee55601d893fcede1e6156b8309bdc50439739e89cbc8ae95507c94fe",
+      "envelope_status": "HOLD",
+      "expected_envelope_status": "HOLD",
+      "expected_kernel_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": "request_outside_non_executing_c4_scope",
+      "kernel_status": "HOLD",
+      "name": "request_to_mutate_runtime_config_hold",
+      "pass": true,
+      "readiness_case_id": "c4r1_021",
+      "reject_reason": null,
+      "result_digest": "0eb84e53279cf4a45cc883a918bab30fd04fcfbdebdfe07047cdd53f47bd5071",
+      "source_fixture_name": "request_to_mutate_runtime_config_hold"
+    },
+    {
+      "envelope": {
+        "authority": "approved_evidence_only",
+        "case_id": "c4k_022",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c1_final",
+            "evidence_class": "C1",
+            "field_id": "status",
+            "path": "approved://c1_final.json",
+            "quote_hash": "2bedd0db35c37c0516985250e04122f3e6963f14040c005865e48cc29fb30fdd",
+            "section_id": "section:status",
+            "section_title": "Status",
+            "sha256": "4eaf037eff11f886c533a30d97692b9929508609afed40e3ac280b3c64aa991a",
+            "source_ref_id": "c1_final#section:status#status"
+          },
+          {
+            "artifact_id": "c1_final",
+            "evidence_class": "C1",
+            "field_id": "summary",
+            "path": "approved://c1_final.json",
+            "quote_hash": "cc13d4d3beffad68a869cdfee292b880391247f4741c1e12738f0ee9c17b0fe2",
+            "section_id": "section:summary",
+            "section_title": "Summary",
+            "sha256": "4eaf037eff11f886c533a30d97692b9929508609afed40e3ac280b3c64aa991a",
+            "source_ref_id": "c1_final#section:summary#summary"
+          },
+          {
+            "artifact_id": "c1_final",
+            "evidence_class": "C1",
+            "field_id": "assumption.default",
+            "path": "approved://c1_final.json",
+            "quote_hash": "a4a2acecd62457c2d750c7b31e54a61673e5d11f2d5a92e2725de987e8e7b2dd",
+            "section_id": "section:assumptions",
+            "section_title": "Assumptions",
+            "sha256": "4eaf037eff11f886c533a30d97692b9929508609afed40e3ac280b3c64aa991a",
+            "source_ref_id": "c1_final#section:assumptions#assumption_default"
+          }
+        ],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "hold_reason": "request_outside_non_executing_c4_scope",
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "HOLD"
+      },
+      "envelope_sha256": "be1b1c80db5ef58e80a075e251a50001927cb1fce8debdec4129ad75ebbe6b74",
+      "envelope_status": "HOLD",
+      "expected_envelope_status": "HOLD",
+      "expected_kernel_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": "request_outside_non_executing_c4_scope",
+      "kernel_status": "HOLD",
+      "name": "request_for_production_approval_deployment_hold",
+      "pass": true,
+      "readiness_case_id": "c4r1_022",
+      "reject_reason": null,
+      "result_digest": "aa3ae042eefaf9e344a570338e4a0935065c52dffdfed8a2d04aada87787f68a",
+      "source_fixture_name": "request_for_production_approval_deployment_hold"
+    },
+    {
+      "envelope": {
+        "authority": "no_authority",
+        "case_id": "c4k_023",
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "reject_reason": "safety_critical_authority_forbidden",
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "REJECT"
+      },
+      "envelope_sha256": "df332998e7c6665474bb6671bacd88f74972e849e0118a8f3f83c211f6d00580",
+      "envelope_status": "REJECT",
+      "expected_envelope_status": "REJECT",
+      "expected_kernel_status": "REJECT",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": null,
+      "kernel_status": "REJECT",
+      "name": "legal_medical_financial_safety_critical_reject",
+      "pass": true,
+      "readiness_case_id": "c4r1_023",
+      "reject_reason": "safety_critical_authority_forbidden",
+      "result_digest": "114eddf56105a866fb73fb04f2027e72e9b45c50f3642cfd60b9f9348294f1e5",
+      "source_fixture_name": "legal_medical_financial_safety_critical_reject"
+    },
+    {
+      "envelope": {
+        "authority": "approved_evidence_only",
+        "case_id": "c4k_024",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c4_uncertainty",
+            "evidence_class": "C3",
+            "field_id": "status",
+            "path": "approved://c4_uncertainty.json",
+            "quote_hash": "2bedd0db35c37c0516985250e04122f3e6963f14040c005865e48cc29fb30fdd",
+            "section_id": "section:status",
+            "section_title": "Status",
+            "sha256": "817db13ed40cda05f6845f561675994f5564a9ca083d5e5c62368d12d7590d31",
+            "source_ref_id": "c4_uncertainty#section:status#status"
+          },
+          {
+            "artifact_id": "c4_uncertainty",
+            "evidence_class": "C3",
+            "field_id": "summary",
+            "path": "approved://c4_uncertainty.json",
+            "quote_hash": "94415452c2b9571dcfbd6770df1a1752fc354a51ec452a74970ad20f2630f15f",
+            "section_id": "section:summary",
+            "section_title": "Summary",
+            "sha256": "817db13ed40cda05f6845f561675994f5564a9ca083d5e5c62368d12d7590d31",
+            "source_ref_id": "c4_uncertainty#section:summary#summary"
+          },
+          {
+            "artifact_id": "c4_uncertainty",
+            "evidence_class": "C3",
+            "field_id": "assumption.default",
+            "path": "approved://c4_uncertainty.json",
+            "quote_hash": "a4a2acecd62457c2d750c7b31e54a61673e5d11f2d5a92e2725de987e8e7b2dd",
+            "section_id": "section:assumptions",
+            "section_title": "Assumptions",
+            "sha256": "817db13ed40cda05f6845f561675994f5564a9ca083d5e5c62368d12d7590d31",
+            "source_ref_id": "c4_uncertainty#section:assumptions#assumption_default"
+          },
+          {
+            "artifact_id": "c4_uncertainty",
+            "evidence_class": "C3",
+            "field_id": "uncertainty.detail",
+            "path": "approved://c4_uncertainty.json",
+            "quote_hash": "8e3badc39b9015ecac2f834dcfa05b3e969f321383bdfebab42d6febe664184d",
+            "section_id": "section:uncertainty",
+            "section_title": "Uncertainty",
+            "sha256": "817db13ed40cda05f6845f561675994f5564a9ca083d5e5c62368d12d7590d31",
+            "source_ref_id": "c4_uncertainty#section:uncertainty#uncertainty_detail"
+          }
+        ],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "hold_reason": "request_outside_non_executing_c4_scope",
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "HOLD"
+      },
+      "envelope_sha256": "cf44c553e924a1fa9929e9d268c1051ec6a13c3524f915fca961aa58fc85d7ba",
+      "envelope_status": "HOLD",
+      "expected_envelope_status": "HOLD",
+      "expected_kernel_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": "request_outside_non_executing_c4_scope",
+      "kernel_status": "HOLD",
+      "name": "request_to_remove_uncertainty_hold",
+      "pass": true,
+      "readiness_case_id": "c4r1_024",
+      "reject_reason": null,
+      "result_digest": "3f15342f824f76403b44966d75ef08b364e72cf525698fc0b189ea7bafdc38f7",
+      "source_fixture_name": "request_to_remove_uncertainty_hold"
+    },
+    {
+      "envelope": {
+        "authority": "approved_evidence_only",
+        "case_id": "c4k_025",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c3_conflict",
+            "evidence_class": "C3",
+            "field_id": "status",
+            "path": "approved://c3_conflict.json",
+            "quote_hash": "2bedd0db35c37c0516985250e04122f3e6963f14040c005865e48cc29fb30fdd",
+            "section_id": "section:status",
+            "section_title": "Status",
+            "sha256": "92b541df6bf4c74589b9cb37964f4a559f475aec01166e8ddf0a2b3c0fdfedec",
+            "source_ref_id": "c3_conflict#section:status#status"
+          },
+          {
+            "artifact_id": "c3_conflict",
+            "evidence_class": "C3",
+            "field_id": "summary",
+            "path": "approved://c3_conflict.json",
+            "quote_hash": "94415452c2b9571dcfbd6770df1a1752fc354a51ec452a74970ad20f2630f15f",
+            "section_id": "section:summary",
+            "section_title": "Summary",
+            "sha256": "92b541df6bf4c74589b9cb37964f4a559f475aec01166e8ddf0a2b3c0fdfedec",
+            "source_ref_id": "c3_conflict#section:summary#summary"
+          },
+          {
+            "artifact_id": "c3_conflict",
+            "evidence_class": "C3",
+            "field_id": "assumption.default",
+            "path": "approved://c3_conflict.json",
+            "quote_hash": "a4a2acecd62457c2d750c7b31e54a61673e5d11f2d5a92e2725de987e8e7b2dd",
+            "section_id": "section:assumptions",
+            "section_title": "Assumptions",
+            "sha256": "92b541df6bf4c74589b9cb37964f4a559f475aec01166e8ddf0a2b3c0fdfedec",
+            "source_ref_id": "c3_conflict#section:assumptions#assumption_default"
+          },
+          {
+            "artifact_id": "c3_conflict",
+            "evidence_class": "C3",
+            "field_id": "conflict.detail",
+            "path": "approved://c3_conflict.json",
+            "quote_hash": "3487792eddd8a3abbf0f949bc408a8b1fccd33100e6c98254f89de752addf352",
+            "section_id": "section:conflict",
+            "section_title": "Conflict",
+            "sha256": "92b541df6bf4c74589b9cb37964f4a559f475aec01166e8ddf0a2b3c0fdfedec",
+            "source_ref_id": "c3_conflict#section:conflict#conflict_detail"
+          }
+        ],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "hold_reason": "request_outside_non_executing_c4_scope",
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "HOLD"
+      },
+      "envelope_sha256": "4ba373ce338f4cfbbe99fd72c444d5c5d93a534cc3cf36e5e37978e27df44895",
+      "envelope_status": "HOLD",
+      "expected_envelope_status": "HOLD",
+      "expected_kernel_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": "request_outside_non_executing_c4_scope",
+      "kernel_status": "HOLD",
+      "name": "request_to_ignore_conflict_hold",
+      "pass": true,
+      "readiness_case_id": "c4r1_025",
+      "reject_reason": null,
+      "result_digest": "3c2ff88600799dabed9fd99ef1213e439b583022e5d25fcad9ca8810c04ebed3",
+      "source_fixture_name": "request_to_ignore_conflict_hold"
+    },
+    {
+      "envelope": {
+        "authority": "no_authority",
+        "case_id": "c4k_026",
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "reject_reason": "unsupported_reconciliation",
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "REJECT"
+      },
+      "envelope_sha256": "a2bb5ecfc00a7a63ad0736f922ffa8cbf13fe6f9a196f028c29f9312f25d608a",
+      "envelope_status": "REJECT",
+      "expected_envelope_status": "REJECT",
+      "expected_kernel_status": "REJECT",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": null,
+      "kernel_status": "REJECT",
+      "name": "unsupported_reconciliation_reject",
+      "pass": true,
+      "readiness_case_id": "c4r1_026",
+      "reject_reason": "unsupported_reconciliation",
+      "result_digest": "5285d2d8e8752844ae4ab99ff4472947d29f68092472b2639afec0d556d5bf4e",
+      "source_fixture_name": "unsupported_reconciliation_reject"
+    },
+    {
+      "envelope_sha256": "58a53f58875a1a2450dce13a761cd1e45c2d20cc866e990a8986564fe217ac0f",
+      "expect_accept": false,
+      "guard_accepted": false,
+      "guard_reasons": [
+        "proposal_requires_cited_source_refs",
+        "proposal_requires_expected_artifact_refs"
+      ],
+      "name": "proposal_with_missing_source_refs_rejects",
+      "pass": true,
+      "readiness_case_id": "c4r1_027",
+      "source_fixture_name": "proposal_with_missing_source_refs_rejects"
+    },
+    {
+      "envelope_sha256": "cdab4adee0cbedbbc5cf371873f5be1192f7d2b937efe39d83185aad9fdcbe7c",
+      "expect_accept": false,
+      "guard_accepted": false,
+      "guard_reasons": [
+        "proposal_requires_cited_source_refs",
+        "proposal_requires_expected_artifact_refs"
+      ],
+      "name": "proposal_with_source_refs_only_in_prose_rejects",
+      "pass": true,
+      "readiness_case_id": "c4r1_028",
+      "source_fixture_name": "proposal_with_source_refs_only_in_prose_rejects"
+    },
+    {
+      "envelope_sha256": "cc6176eea23b66e991edd57912c8b81acadfbc750a1f1cf3027cca29a58635af",
+      "expect_accept": false,
+      "guard_accepted": false,
+      "guard_reasons": [
+        "forbidden_proposal_step_text:unsupported_reconciliation_detected"
+      ],
+      "name": "proposal_with_unsupported_reconciliation_rejects",
+      "pass": true,
+      "readiness_case_id": "c4r1_029",
+      "source_fixture_name": "proposal_with_unsupported_reconciliation_rejects"
+    },
+    {
+      "envelope_sha256": "060c88c61f2a07c839837c17646a0f7086ebf0ec7171891dc1e2119e0b05436b",
+      "expect_accept": false,
+      "guard_accepted": false,
+      "guard_reasons": [
+        "proposal_requires_explicit_non_execution_notice"
+      ],
+      "name": "proposal_without_non_execution_notice_rejects",
+      "pass": true,
+      "readiness_case_id": "c4r1_030",
+      "source_fixture_name": "proposal_without_non_execution_notice_rejects"
+    },
+    {
+      "envelope_sha256": "6866d498bf384aca8feea247c7feda9031c47786bca1f722a65c65b63090cb32",
+      "expect_accept": false,
+      "guard_accepted": false,
+      "guard_reasons": [
+        "proposal_requires_required_owner_review_true"
+      ],
+      "name": "proposal_without_required_owner_review_true_rejects",
+      "pass": true,
+      "readiness_case_id": "c4r1_031",
+      "source_fixture_name": "proposal_without_required_owner_review_true_rejects"
+    },
+    {
+      "envelope_sha256": "3d9fa7db411a8388c9e864cf2685bda078acb5b2e7f4dcf021c7c964e56a84cf",
+      "expect_accept": false,
+      "guard_accepted": false,
+      "guard_reasons": [
+        "model_prose_cannot_satisfy_source_authority",
+        "proposal_requires_cited_source_refs",
+        "proposal_requires_expected_artifact_refs"
+      ],
+      "name": "model_prose_text_cannot_satisfy_source_authority",
+      "pass": true,
+      "readiness_case_id": "c4r1_032",
+      "source_fixture_name": "model_prose_text_cannot_satisfy_source_authority"
+    },
+    {
+      "envelope_sha256": "75f635780be78a61e78246a25cd63a4141f5782dacee47b1754220b724d4dc26",
+      "expect_accept": false,
+      "guard_accepted": false,
+      "guard_reasons": [
+        "forbidden_proposal_step_text:external_action_language_detected"
+      ],
+      "name": "external_action_text_cannot_become_executable",
+      "pass": true,
+      "readiness_case_id": "c4r1_033",
+      "source_fixture_name": "external_action_text_cannot_become_executable"
+    },
+    {
+      "envelope_sha256": "10099c2064725ffcef5653f3066c08f40122b8133afa233cedd6b78f75131b86",
+      "expect_accept": false,
+      "guard_accepted": false,
+      "guard_reasons": [
+        "external_action_execution_smuggled"
+      ],
+      "name": "external_action_disposition_rejects",
+      "pass": true,
+      "readiness_case_id": "c4r1_034",
+      "source_fixture_name": "external_action_disposition_rejects"
+    },
+    {
+      "envelope_sha256": "023e6008e47ba2c41507cfc3c64faef19105adc90530246207f32233513551d8",
+      "expect_accept": false,
+      "guard_accepted": false,
+      "guard_reasons": [
+        "runtime_authority_mutation_smuggled"
+      ],
+      "name": "runtime_mutation_disposition_rejects",
+      "pass": true,
+      "readiness_case_id": "c4r1_035",
+      "source_fixture_name": "runtime_mutation_disposition_rejects"
+    },
+    {
+      "envelope_sha256": "18c66fb4f0ad10591ec4682055d3766ab9c9fd5a442cbba390317ee60d2008bb",
+      "expect_accept": false,
+      "guard_accepted": false,
+      "guard_reasons": [
+        "cache_enablement_smuggled"
+      ],
+      "name": "cache_promotion_disposition_rejects",
+      "pass": true,
+      "readiness_case_id": "c4r1_036",
+      "source_fixture_name": "cache_promotion_disposition_rejects"
+    },
+    {
+      "envelope": {
+        "assumptions": [
+          "Approved evidence remains hash-pinned."
+        ],
+        "authority": "approved_evidence_only",
+        "case_id": "c4k_001",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c1_final",
+            "evidence_class": "C1",
+            "field_id": "status",
+            "path": "approved://c1_final.json",
+            "quote_hash": "2bedd0db35c37c0516985250e04122f3e6963f14040c005865e48cc29fb30fdd",
+            "section_id": "section:status",
+            "section_title": "Status",
+            "sha256": "4eaf037eff11f886c533a30d97692b9929508609afed40e3ac280b3c64aa991a",
+            "source_ref_id": "c1_final#section:status#status"
+          },
+          {
+            "artifact_id": "c1_final",
+            "evidence_class": "C1",
+            "field_id": "summary",
+            "path": "approved://c1_final.json",
+            "quote_hash": "cc13d4d3beffad68a869cdfee292b880391247f4741c1e12738f0ee9c17b0fe2",
+            "section_id": "section:summary",
+            "section_title": "Summary",
+            "sha256": "4eaf037eff11f886c533a30d97692b9929508609afed40e3ac280b3c64aa991a",
+            "source_ref_id": "c1_final#section:summary#summary"
+          },
+          {
+            "artifact_id": "c1_final",
+            "evidence_class": "C1",
+            "field_id": "assumption.default",
+            "path": "approved://c1_final.json",
+            "quote_hash": "a4a2acecd62457c2d750c7b31e54a61673e5d11f2d5a92e2725de987e8e7b2dd",
+            "section_id": "section:assumptions",
+            "section_title": "Assumptions",
+            "sha256": "4eaf037eff11f886c533a30d97692b9929508609afed40e3ac280b3c64aa991a",
+            "source_ref_id": "c1_final#section:assumptions#assumption_default"
+          }
+        ],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "non_execution_notice": "This proposal is non-executing: it does not execute, authorize, schedule, deploy, mutate runtime/config, or bypass owner review.",
+        "prerequisites": [
+          "Owner review is required before any action outside this non-executing proposal."
+        ],
+        "preserved_conflicts": [],
+        "proposal_steps": [
+          {
+            "action_class": "review",
+            "cited_source_refs": [
+              "c1_final#section:status#status",
+              "c1_final#section:summary#summary",
+              "c1_final#section:assumptions#assumption_default"
+            ],
+            "non_executing": true,
+            "step_id": "c4k_001.step.1",
+            "text": "Review the cited approved evidence and decide whether a bounded follow-up is warranted."
+          }
+        ],
+        "rationale": "Deterministic bounded proposal drafted from 3 approved source rows across 1 approved evidence handle(s).",
+        "required_owner_review": true,
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "PROPOSAL",
+        "uncertainties": [
+          "No additional uncertainty beyond the cited evidence was introduced by C4K."
+        ]
+      },
+      "envelope_sha256": "fd2c8b3afa7313be3390392d6cc24b0d018cee504e4711ca40a81e5987f595bc",
+      "envelope_status": "PROPOSAL",
+      "expected_envelope_status": "PROPOSAL",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": null,
+      "kernel_status": "PASS",
+      "name": "valid_bounded_next_step_proposal_from_c1_evidence",
+      "pass": true,
+      "readiness_case_id": "c4r1_037",
+      "reject_reason": null,
+      "result_digest": "a5e2eaf9a40b9d2f3714ae9849903ebb5200f69ea6d094a9936991ec74df1c95",
+      "source_fixture_name": "valid_bounded_next_step_proposal_from_c1_evidence"
+    },
+    {
+      "envelope": {
+        "assumptions": [
+          "Approved evidence remains hash-pinned."
+        ],
+        "authority": "approved_evidence_only",
+        "case_id": "c4k_002",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c2_final",
+            "evidence_class": "C2",
+            "field_id": "status",
+            "path": "approved://c2_final.json",
+            "quote_hash": "2bedd0db35c37c0516985250e04122f3e6963f14040c005865e48cc29fb30fdd",
+            "section_id": "section:status",
+            "section_title": "Status",
+            "sha256": "aa5029497c52287d84742dd2103ff7e1d93f23a7d4bb366f11be36ab355e536f",
+            "source_ref_id": "c2_final#section:status#status"
+          },
+          {
+            "artifact_id": "c2_final",
+            "evidence_class": "C2",
+            "field_id": "summary",
+            "path": "approved://c2_final.json",
+            "quote_hash": "d188547f156a2a5eee65da32992b9835d941c6b258999ae0580a901881b8da64",
+            "section_id": "section:summary",
+            "section_title": "Summary",
+            "sha256": "aa5029497c52287d84742dd2103ff7e1d93f23a7d4bb366f11be36ab355e536f",
+            "source_ref_id": "c2_final#section:summary#summary"
+          },
+          {
+            "artifact_id": "c2_final",
+            "evidence_class": "C2",
+            "field_id": "assumption.default",
+            "path": "approved://c2_final.json",
+            "quote_hash": "a4a2acecd62457c2d750c7b31e54a61673e5d11f2d5a92e2725de987e8e7b2dd",
+            "section_id": "section:assumptions",
+            "section_title": "Assumptions",
+            "sha256": "aa5029497c52287d84742dd2103ff7e1d93f23a7d4bb366f11be36ab355e536f",
+            "source_ref_id": "c2_final#section:assumptions#assumption_default"
+          }
+        ],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "non_execution_notice": "This proposal is non-executing: it does not execute, authorize, schedule, deploy, mutate runtime/config, or bypass owner review.",
+        "prerequisites": [
+          "Owner review is required before any action outside this non-executing proposal."
+        ],
+        "preserved_conflicts": [],
+        "proposal_steps": [
+          {
+            "action_class": "verify",
+            "cited_source_refs": [
+              "c2_final#section:status#status",
+              "c2_final#section:summary#summary",
+              "c2_final#section:assumptions#assumption_default"
+            ],
+            "non_executing": true,
+            "step_id": "c4k_002.step.1",
+            "text": "Verify the cited evidence fields against the approved artifact packet before any later action."
+          }
+        ],
+        "rationale": "Deterministic bounded proposal drafted from 3 approved source rows across 1 approved evidence handle(s).",
+        "required_owner_review": true,
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "PROPOSAL",
+        "uncertainties": [
+          "No additional uncertainty beyond the cited evidence was introduced by C4K."
+        ]
+      },
+      "envelope_sha256": "660495e68b4dc96e70060ddec704c105cb22d6f541ed69cded5256bc21ac8873",
+      "envelope_status": "PROPOSAL",
+      "expected_envelope_status": "PROPOSAL",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": null,
+      "kernel_status": "PASS",
+      "name": "valid_bounded_next_step_proposal_from_c2_evidence",
+      "pass": true,
+      "readiness_case_id": "c4r1_038",
+      "reject_reason": null,
+      "result_digest": "366becd02e3e5c13526f4882a5598e9ef484a91b9b12254fa82e639d9173ef69",
+      "source_fixture_name": "valid_bounded_next_step_proposal_from_c2_evidence"
+    },
+    {
+      "envelope": {
+        "assumptions": [
+          "Approved evidence remains hash-pinned."
+        ],
+        "authority": "approved_evidence_only",
+        "case_id": "c4k_003",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c3_final",
+            "evidence_class": "C3",
+            "field_id": "status",
+            "path": "approved://c3_final.json",
+            "quote_hash": "2bedd0db35c37c0516985250e04122f3e6963f14040c005865e48cc29fb30fdd",
+            "section_id": "section:status",
+            "section_title": "Status",
+            "sha256": "fb450882360c494cc791d075506e7aee91744cd0889f3bc16197e4af0a08674c",
+            "source_ref_id": "c3_final#section:status#status"
+          },
+          {
+            "artifact_id": "c3_final",
+            "evidence_class": "C3",
+            "field_id": "summary",
+            "path": "approved://c3_final.json",
+            "quote_hash": "241c5fb35a0e4ad2d5bd43f652ba794c40833bf061deb8662320e5f291b5cc2d",
+            "section_id": "section:summary",
+            "section_title": "Summary",
+            "sha256": "fb450882360c494cc791d075506e7aee91744cd0889f3bc16197e4af0a08674c",
+            "source_ref_id": "c3_final#section:summary#summary"
+          },
+          {
+            "artifact_id": "c3_final",
+            "evidence_class": "C3",
+            "field_id": "assumption.default",
+            "path": "approved://c3_final.json",
+            "quote_hash": "a4a2acecd62457c2d750c7b31e54a61673e5d11f2d5a92e2725de987e8e7b2dd",
+            "section_id": "section:assumptions",
+            "section_title": "Assumptions",
+            "sha256": "fb450882360c494cc791d075506e7aee91744cd0889f3bc16197e4af0a08674c",
+            "source_ref_id": "c3_final#section:assumptions#assumption_default"
+          }
+        ],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "non_execution_notice": "This proposal is non-executing: it does not execute, authorize, schedule, deploy, mutate runtime/config, or bypass owner review.",
+        "prerequisites": [
+          "Owner review is required before any action outside this non-executing proposal."
+        ],
+        "preserved_conflicts": [],
+        "proposal_steps": [
+          {
+            "action_class": "review",
+            "cited_source_refs": [
+              "c3_final#section:status#status",
+              "c3_final#section:summary#summary",
+              "c3_final#section:assumptions#assumption_default"
+            ],
+            "non_executing": true,
+            "step_id": "c4k_003.step.1",
+            "text": "Review the cited approved evidence and decide whether a bounded follow-up is warranted."
+          }
+        ],
+        "rationale": "Deterministic bounded proposal drafted from 3 approved source rows across 1 approved evidence handle(s).",
+        "required_owner_review": true,
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "PROPOSAL",
+        "uncertainties": [
+          "No additional uncertainty beyond the cited evidence was introduced by C4K."
+        ]
+      },
+      "envelope_sha256": "7313d90ce6a40f92b66b834124456d13d28f409f84fd8ed0df224c44248b50cd",
+      "envelope_status": "PROPOSAL",
+      "expected_envelope_status": "PROPOSAL",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": null,
+      "kernel_status": "PASS",
+      "name": "valid_bounded_next_step_proposal_from_c3_evidence",
+      "pass": true,
+      "readiness_case_id": "c4r1_039",
+      "reject_reason": null,
+      "result_digest": "921dfba0dbc197cdce48c6da63211e10783c52d38cf5a9e17025176d0f8d879a",
+      "source_fixture_name": "valid_bounded_next_step_proposal_from_c3_evidence"
+    },
+    {
+      "envelope": {
+        "assumptions": [
+          "Approved evidence remains hash-pinned."
+        ],
+        "authority": "approved_evidence_only",
+        "case_id": "c4k_004",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c3_conflict",
+            "evidence_class": "C3",
+            "field_id": "status",
+            "path": "approved://c3_conflict.json",
+            "quote_hash": "2bedd0db35c37c0516985250e04122f3e6963f14040c005865e48cc29fb30fdd",
+            "section_id": "section:status",
+            "section_title": "Status",
+            "sha256": "92b541df6bf4c74589b9cb37964f4a559f475aec01166e8ddf0a2b3c0fdfedec",
+            "source_ref_id": "c3_conflict#section:status#status"
+          },
+          {
+            "artifact_id": "c3_conflict",
+            "evidence_class": "C3",
+            "field_id": "summary",
+            "path": "approved://c3_conflict.json",
+            "quote_hash": "94415452c2b9571dcfbd6770df1a1752fc354a51ec452a74970ad20f2630f15f",
+            "section_id": "section:summary",
+            "section_title": "Summary",
+            "sha256": "92b541df6bf4c74589b9cb37964f4a559f475aec01166e8ddf0a2b3c0fdfedec",
+            "source_ref_id": "c3_conflict#section:summary#summary"
+          },
+          {
+            "artifact_id": "c3_conflict",
+            "evidence_class": "C3",
+            "field_id": "assumption.default",
+            "path": "approved://c3_conflict.json",
+            "quote_hash": "a4a2acecd62457c2d750c7b31e54a61673e5d11f2d5a92e2725de987e8e7b2dd",
+            "section_id": "section:assumptions",
+            "section_title": "Assumptions",
+            "sha256": "92b541df6bf4c74589b9cb37964f4a559f475aec01166e8ddf0a2b3c0fdfedec",
+            "source_ref_id": "c3_conflict#section:assumptions#assumption_default"
+          },
+          {
+            "artifact_id": "c3_conflict",
+            "evidence_class": "C3",
+            "field_id": "conflict.detail",
+            "path": "approved://c3_conflict.json",
+            "quote_hash": "3487792eddd8a3abbf0f949bc408a8b1fccd33100e6c98254f89de752addf352",
+            "section_id": "section:conflict",
+            "section_title": "Conflict",
+            "sha256": "92b541df6bf4c74589b9cb37964f4a559f475aec01166e8ddf0a2b3c0fdfedec",
+            "source_ref_id": "c3_conflict#section:conflict#conflict_detail"
+          }
+        ],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "non_execution_notice": "This proposal is non-executing: it does not execute, authorize, schedule, deploy, mutate runtime/config, or bypass owner review.",
+        "prerequisites": [
+          "Owner review is required before any action outside this non-executing proposal."
+        ],
+        "preserved_conflicts": [
+          "Artifact A and B disagree on status field."
+        ],
+        "proposal_steps": [
+          {
+            "action_class": "review",
+            "cited_source_refs": [
+              "c3_conflict#section:status#status",
+              "c3_conflict#section:summary#summary",
+              "c3_conflict#section:assumptions#assumption_default",
+              "c3_conflict#section:conflict#conflict_detail"
+            ],
+            "non_executing": true,
+            "step_id": "c4k_004.step.1",
+            "text": "Review the cited approved evidence and decide whether a bounded follow-up is warranted."
+          },
+          {
+            "action_class": "review",
+            "cited_source_refs": [
+              "c3_conflict#section:status#status",
+              "c3_conflict#section:summary#summary",
+              "c3_conflict#section:assumptions#assumption_default",
+              "c3_conflict#section:conflict#conflict_detail"
+            ],
+            "non_executing": true,
+            "step_id": "c4k_004.step.2",
+            "text": "Preserve the cited conflict in the next owner review; do not reconcile it without new approved evidence."
+          }
+        ],
+        "rationale": "Deterministic bounded proposal drafted from 4 approved source rows across 1 approved evidence handle(s).",
+        "required_owner_review": true,
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "PROPOSAL",
+        "uncertainties": [
+          "No additional uncertainty beyond the cited evidence was introduced by C4K."
+        ]
+      },
+      "envelope_sha256": "62c1cf485cad2d618334bc0af0d7f838cd08ba3be56454b1cda49a438ddefc7d",
+      "envelope_status": "PROPOSAL",
+      "expected_envelope_status": "PROPOSAL",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": null,
+      "kernel_status": "PASS",
+      "name": "proposal_preserving_c3_conflict",
+      "pass": true,
+      "readiness_case_id": "c4r1_040",
+      "reject_reason": null,
+      "result_digest": "63e391c7ba301c22d1ae23b25a14ab39b53dc1062f823e61c260e02aa2c5f904",
+      "source_fixture_name": "proposal_preserving_c3_conflict"
+    },
+    {
+      "envelope": {
+        "assumptions": [
+          "Approved evidence remains hash-pinned."
+        ],
+        "authority": "approved_evidence_only",
+        "case_id": "c4k_005",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c4_uncertainty",
+            "evidence_class": "C3",
+            "field_id": "status",
+            "path": "approved://c4_uncertainty.json",
+            "quote_hash": "2bedd0db35c37c0516985250e04122f3e6963f14040c005865e48cc29fb30fdd",
+            "section_id": "section:status",
+            "section_title": "Status",
+            "sha256": "817db13ed40cda05f6845f561675994f5564a9ca083d5e5c62368d12d7590d31",
+            "source_ref_id": "c4_uncertainty#section:status#status"
+          },
+          {
+            "artifact_id": "c4_uncertainty",
+            "evidence_class": "C3",
+            "field_id": "summary",
+            "path": "approved://c4_uncertainty.json",
+            "quote_hash": "94415452c2b9571dcfbd6770df1a1752fc354a51ec452a74970ad20f2630f15f",
+            "section_id": "section:summary",
+            "section_title": "Summary",
+            "sha256": "817db13ed40cda05f6845f561675994f5564a9ca083d5e5c62368d12d7590d31",
+            "source_ref_id": "c4_uncertainty#section:summary#summary"
+          },
+          {
+            "artifact_id": "c4_uncertainty",
+            "evidence_class": "C3",
+            "field_id": "assumption.default",
+            "path": "approved://c4_uncertainty.json",
+            "quote_hash": "a4a2acecd62457c2d750c7b31e54a61673e5d11f2d5a92e2725de987e8e7b2dd",
+            "section_id": "section:assumptions",
+            "section_title": "Assumptions",
+            "sha256": "817db13ed40cda05f6845f561675994f5564a9ca083d5e5c62368d12d7590d31",
+            "source_ref_id": "c4_uncertainty#section:assumptions#assumption_default"
+          },
+          {
+            "artifact_id": "c4_uncertainty",
+            "evidence_class": "C3",
+            "field_id": "uncertainty.detail",
+            "path": "approved://c4_uncertainty.json",
+            "quote_hash": "8e3badc39b9015ecac2f834dcfa05b3e969f321383bdfebab42d6febe664184d",
+            "section_id": "section:uncertainty",
+            "section_title": "Uncertainty",
+            "sha256": "817db13ed40cda05f6845f561675994f5564a9ca083d5e5c62368d12d7590d31",
+            "source_ref_id": "c4_uncertainty#section:uncertainty#uncertainty_detail"
+          }
+        ],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "non_execution_notice": "This proposal is non-executing: it does not execute, authorize, schedule, deploy, mutate runtime/config, or bypass owner review.",
+        "prerequisites": [
+          "Owner review is required before any action outside this non-executing proposal."
+        ],
+        "preserved_conflicts": [],
+        "proposal_steps": [
+          {
+            "action_class": "review",
+            "cited_source_refs": [
+              "c4_uncertainty#section:status#status",
+              "c4_uncertainty#section:summary#summary",
+              "c4_uncertainty#section:assumptions#assumption_default",
+              "c4_uncertainty#section:uncertainty#uncertainty_detail"
+            ],
+            "non_executing": true,
+            "step_id": "c4k_005.step.1",
+            "text": "Review the cited approved evidence and decide whether a bounded follow-up is warranted."
+          }
+        ],
+        "rationale": "Deterministic bounded proposal drafted from 4 approved source rows across 1 approved evidence handle(s).",
+        "required_owner_review": true,
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "PROPOSAL",
+        "uncertainties": [
+          "Timing remains unknown until owner confirms."
+        ]
+      },
+      "envelope_sha256": "d05cc683a861bc09a7bfa57cb229b9aca3e732de1319c664baf0c9118e317f9e",
+      "envelope_status": "PROPOSAL",
+      "expected_envelope_status": "PROPOSAL",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": null,
+      "kernel_status": "PASS",
+      "name": "proposal_preserving_uncertainty",
+      "pass": true,
+      "readiness_case_id": "c4r1_041",
+      "reject_reason": null,
+      "result_digest": "8d603bbc017b1870819fd127205a8ea35eff7ce1305350f8e10d75606e4ca3a3",
+      "source_fixture_name": "proposal_preserving_uncertainty"
+    },
+    {
+      "envelope": {
+        "assumptions": [
+          "Approved evidence remains hash-pinned."
+        ],
+        "authority": "approved_evidence_only",
+        "case_id": "c4k_006",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c4_prereq",
+            "evidence_class": "C2",
+            "field_id": "status",
+            "path": "approved://c4_prereq.json",
+            "quote_hash": "2bedd0db35c37c0516985250e04122f3e6963f14040c005865e48cc29fb30fdd",
+            "section_id": "section:status",
+            "section_title": "Status",
+            "sha256": "4122e5c233e9d46f9cc0d608093f3cb4eb11bf10d281c87a44301bb299ddee44",
+            "source_ref_id": "c4_prereq#section:status#status"
+          },
+          {
+            "artifact_id": "c4_prereq",
+            "evidence_class": "C2",
+            "field_id": "summary",
+            "path": "approved://c4_prereq.json",
+            "quote_hash": "94415452c2b9571dcfbd6770df1a1752fc354a51ec452a74970ad20f2630f15f",
+            "section_id": "section:summary",
+            "section_title": "Summary",
+            "sha256": "4122e5c233e9d46f9cc0d608093f3cb4eb11bf10d281c87a44301bb299ddee44",
+            "source_ref_id": "c4_prereq#section:summary#summary"
+          },
+          {
+            "artifact_id": "c4_prereq",
+            "evidence_class": "C2",
+            "field_id": "assumption.default",
+            "path": "approved://c4_prereq.json",
+            "quote_hash": "a4a2acecd62457c2d750c7b31e54a61673e5d11f2d5a92e2725de987e8e7b2dd",
+            "section_id": "section:assumptions",
+            "section_title": "Assumptions",
+            "sha256": "4122e5c233e9d46f9cc0d608093f3cb4eb11bf10d281c87a44301bb299ddee44",
+            "source_ref_id": "c4_prereq#section:assumptions#assumption_default"
+          },
+          {
+            "artifact_id": "c4_prereq",
+            "evidence_class": "C2",
+            "field_id": "prerequisite.owner",
+            "path": "approved://c4_prereq.json",
+            "quote_hash": "8a4142cf004bdffcf352817db098f3c29199f6eac9dd6cbfb70baabc934d3e05",
+            "section_id": "section:prerequisites",
+            "section_title": "Prerequisites",
+            "sha256": "4122e5c233e9d46f9cc0d608093f3cb4eb11bf10d281c87a44301bb299ddee44",
+            "source_ref_id": "c4_prereq#section:prerequisites#prerequisite_owner"
+          }
+        ],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "non_execution_notice": "This proposal is non-executing: it does not execute, authorize, schedule, deploy, mutate runtime/config, or bypass owner review.",
+        "prerequisites": [
+          "Owner must approve before any follow-up action."
+        ],
+        "preserved_conflicts": [],
+        "proposal_steps": [
+          {
+            "action_class": "review",
+            "cited_source_refs": [
+              "c4_prereq#section:status#status",
+              "c4_prereq#section:summary#summary",
+              "c4_prereq#section:assumptions#assumption_default",
+              "c4_prereq#section:prerequisites#prerequisite_owner"
+            ],
+            "non_executing": true,
+            "step_id": "c4k_006.step.1",
+            "text": "Review the cited approved evidence and decide whether a bounded follow-up is warranted."
+          }
+        ],
+        "rationale": "Deterministic bounded proposal drafted from 4 approved source rows across 1 approved evidence handle(s).",
+        "required_owner_review": true,
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "PROPOSAL",
+        "uncertainties": [
+          "No additional uncertainty beyond the cited evidence was introduced by C4K."
+        ]
+      },
+      "envelope_sha256": "1486e10619ef7a4dd9406856cfa2e37f0dbe8bc4864fad273f91fb06c26f2388",
+      "envelope_status": "PROPOSAL",
+      "expected_envelope_status": "PROPOSAL",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": null,
+      "kernel_status": "PASS",
+      "name": "proposal_preserving_prerequisites",
+      "pass": true,
+      "readiness_case_id": "c4r1_042",
+      "reject_reason": null,
+      "result_digest": "52203241e1f624359ce002c28dc2ceabf06a9ebc1581c50beae9a763525e5b7e",
+      "source_fixture_name": "proposal_preserving_prerequisites"
+    },
+    {
+      "envelope": {
+        "assumptions": [
+          "Approved evidence remains hash-pinned."
+        ],
+        "authority": "approved_evidence_only",
+        "case_id": "c4k_007",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c2_final",
+            "evidence_class": "C2",
+            "field_id": "status",
+            "path": "approved://c2_final.json",
+            "quote_hash": "2bedd0db35c37c0516985250e04122f3e6963f14040c005865e48cc29fb30fdd",
+            "section_id": "section:status",
+            "section_title": "Status",
+            "sha256": "aa5029497c52287d84742dd2103ff7e1d93f23a7d4bb366f11be36ab355e536f",
+            "source_ref_id": "c2_final#section:status#status"
+          },
+          {
+            "artifact_id": "c2_final",
+            "evidence_class": "C2",
+            "field_id": "summary",
+            "path": "approved://c2_final.json",
+            "quote_hash": "d188547f156a2a5eee65da32992b9835d941c6b258999ae0580a901881b8da64",
+            "section_id": "section:summary",
+            "section_title": "Summary",
+            "sha256": "aa5029497c52287d84742dd2103ff7e1d93f23a7d4bb366f11be36ab355e536f",
+            "source_ref_id": "c2_final#section:summary#summary"
+          },
+          {
+            "artifact_id": "c2_final",
+            "evidence_class": "C2",
+            "field_id": "assumption.default",
+            "path": "approved://c2_final.json",
+            "quote_hash": "a4a2acecd62457c2d750c7b31e54a61673e5d11f2d5a92e2725de987e8e7b2dd",
+            "section_id": "section:assumptions",
+            "section_title": "Assumptions",
+            "sha256": "aa5029497c52287d84742dd2103ff7e1d93f23a7d4bb366f11be36ab355e536f",
+            "source_ref_id": "c2_final#section:assumptions#assumption_default"
+          }
+        ],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "non_execution_notice": "This proposal is non-executing: it does not execute, authorize, schedule, deploy, mutate runtime/config, or bypass owner review.",
+        "prerequisites": [
+          "Owner review is required before any action outside this non-executing proposal."
+        ],
+        "preserved_conflicts": [],
+        "proposal_steps": [
+          {
+            "action_class": "request_artifact",
+            "cited_source_refs": [
+              "c2_final#section:status#status",
+              "c2_final#section:summary#summary",
+              "c2_final#section:assumptions#assumption_default"
+            ],
+            "non_executing": true,
+            "step_id": "c4k_007.step.1",
+            "text": "Request a follow-up artifact or clarification for the cited gap; keep the request non-executing."
+          }
+        ],
+        "rationale": "Deterministic bounded proposal drafted from 3 approved source rows across 1 approved evidence handle(s).",
+        "required_owner_review": true,
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "PROPOSAL",
+        "uncertainties": [
+          "No additional uncertainty beyond the cited evidence was introduced by C4K."
+        ]
+      },
+      "envelope_sha256": "dcc74d6abe9c5cd8be291f7a630b5e993722fb381c67a41b4e3ab7248b763b84",
+      "envelope_status": "PROPOSAL",
+      "expected_envelope_status": "PROPOSAL",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": null,
+      "kernel_status": "PASS",
+      "name": "follow_up_artifact_request_proposal",
+      "pass": true,
+      "readiness_case_id": "c4r1_043",
+      "reject_reason": null,
+      "result_digest": "db6b3ca95af49c92af18513ba22f7580935a46b03137adc57652d40667317a5a",
+      "source_fixture_name": "follow_up_artifact_request_proposal"
+    },
+    {
+      "envelope": {
+        "assumptions": [
+          "Approved evidence remains hash-pinned."
+        ],
+        "authority": "approved_evidence_only",
+        "case_id": "c4k_008",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c3_final",
+            "evidence_class": "C3",
+            "field_id": "status",
+            "path": "approved://c3_final.json",
+            "quote_hash": "2bedd0db35c37c0516985250e04122f3e6963f14040c005865e48cc29fb30fdd",
+            "section_id": "section:status",
+            "section_title": "Status",
+            "sha256": "fb450882360c494cc791d075506e7aee91744cd0889f3bc16197e4af0a08674c",
+            "source_ref_id": "c3_final#section:status#status"
+          },
+          {
+            "artifact_id": "c3_final",
+            "evidence_class": "C3",
+            "field_id": "summary",
+            "path": "approved://c3_final.json",
+            "quote_hash": "241c5fb35a0e4ad2d5bd43f652ba794c40833bf061deb8662320e5f291b5cc2d",
+            "section_id": "section:summary",
+            "section_title": "Summary",
+            "sha256": "fb450882360c494cc791d075506e7aee91744cd0889f3bc16197e4af0a08674c",
+            "source_ref_id": "c3_final#section:summary#summary"
+          },
+          {
+            "artifact_id": "c3_final",
+            "evidence_class": "C3",
+            "field_id": "assumption.default",
+            "path": "approved://c3_final.json",
+            "quote_hash": "a4a2acecd62457c2d750c7b31e54a61673e5d11f2d5a92e2725de987e8e7b2dd",
+            "section_id": "section:assumptions",
+            "section_title": "Assumptions",
+            "sha256": "fb450882360c494cc791d075506e7aee91744cd0889f3bc16197e4af0a08674c",
+            "source_ref_id": "c3_final#section:assumptions#assumption_default"
+          }
+        ],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "non_execution_notice": "This proposal is non-executing: it does not execute, authorize, schedule, deploy, mutate runtime/config, or bypass owner review.",
+        "prerequisites": [
+          "Owner review is required before any action outside this non-executing proposal."
+        ],
+        "preserved_conflicts": [],
+        "proposal_steps": [
+          {
+            "action_class": "safe_validation",
+            "cited_source_refs": [
+              "c3_final#section:status#status",
+              "c3_final#section:summary#summary",
+              "c3_final#section:assumptions#assumption_default"
+            ],
+            "non_executing": true,
+            "step_id": "c4k_008.step.1",
+            "text": "Prepare a read-only validation plan using the cited evidence; do not run production changes."
+          }
+        ],
+        "rationale": "Deterministic bounded proposal drafted from 3 approved source rows across 1 approved evidence handle(s).",
+        "required_owner_review": true,
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "PROPOSAL",
+        "uncertainties": [
+          "No additional uncertainty beyond the cited evidence was introduced by C4K."
+        ]
+      },
+      "envelope_sha256": "71769e5dc1b779d8b236252cb7f4cb3bd620e773515bfeafd5c9fda6d91e6cdf",
+      "envelope_status": "PROPOSAL",
+      "expected_envelope_status": "PROPOSAL",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": null,
+      "kernel_status": "PASS",
+      "name": "safe_validation_step_proposal",
+      "pass": true,
+      "readiness_case_id": "c4r1_044",
+      "reject_reason": null,
+      "result_digest": "fc671b4351f72c7beaaaa7c83f4b6ec4dbc19c1a4893595ba54a5203400151dd",
+      "source_fixture_name": "safe_validation_step_proposal"
+    },
+    {
+      "envelope": {
+        "assumptions": [
+          "Approved evidence remains hash-pinned."
+        ],
+        "authority": "approved_evidence_only",
+        "case_id": "c4k_009",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c1_final",
+            "evidence_class": "C1",
+            "field_id": "status",
+            "path": "approved://c1_final.json",
+            "quote_hash": "2bedd0db35c37c0516985250e04122f3e6963f14040c005865e48cc29fb30fdd",
+            "section_id": "section:status",
+            "section_title": "Status",
+            "sha256": "4eaf037eff11f886c533a30d97692b9929508609afed40e3ac280b3c64aa991a",
+            "source_ref_id": "c1_final#section:status#status"
+          },
+          {
+            "artifact_id": "c1_final",
+            "evidence_class": "C1",
+            "field_id": "summary",
+            "path": "approved://c1_final.json",
+            "quote_hash": "cc13d4d3beffad68a869cdfee292b880391247f4741c1e12738f0ee9c17b0fe2",
+            "section_id": "section:summary",
+            "section_title": "Summary",
+            "sha256": "4eaf037eff11f886c533a30d97692b9929508609afed40e3ac280b3c64aa991a",
+            "source_ref_id": "c1_final#section:summary#summary"
+          },
+          {
+            "artifact_id": "c1_final",
+            "evidence_class": "C1",
+            "field_id": "assumption.default",
+            "path": "approved://c1_final.json",
+            "quote_hash": "a4a2acecd62457c2d750c7b31e54a61673e5d11f2d5a92e2725de987e8e7b2dd",
+            "section_id": "section:assumptions",
+            "section_title": "Assumptions",
+            "sha256": "4eaf037eff11f886c533a30d97692b9929508609afed40e3ac280b3c64aa991a",
+            "source_ref_id": "c1_final#section:assumptions#assumption_default"
+          }
+        ],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "non_execution_notice": "This proposal is non-executing: it does not execute, authorize, schedule, deploy, mutate runtime/config, or bypass owner review.",
+        "prerequisites": [
+          "Owner review is required before any action outside this non-executing proposal."
+        ],
+        "preserved_conflicts": [],
+        "proposal_steps": [
+          {
+            "action_class": "owner_question",
+            "cited_source_refs": [
+              "c1_final#section:status#status",
+              "c1_final#section:summary#summary",
+              "c1_final#section:assumptions#assumption_default"
+            ],
+            "non_executing": true,
+            "step_id": "c4k_009.step.1",
+            "text": "Ask the owner a bounded question about the cited evidence before proceeding."
+          }
+        ],
+        "rationale": "Deterministic bounded proposal drafted from 3 approved source rows across 1 approved evidence handle(s).",
+        "required_owner_review": true,
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "PROPOSAL",
+        "uncertainties": [
+          "No additional uncertainty beyond the cited evidence was introduced by C4K."
+        ]
+      },
+      "envelope_sha256": "5b4ade1fee53f2fde70f55e038f18492253140ad1aeb02f73025f6de2aad9af1",
+      "envelope_status": "PROPOSAL",
+      "expected_envelope_status": "PROPOSAL",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": null,
+      "kernel_status": "PASS",
+      "name": "owner_question_proposal",
+      "pass": true,
+      "readiness_case_id": "c4r1_045",
+      "reject_reason": null,
+      "result_digest": "a702c4bfc3c5fd040225589f81a9fa6d69d363eb018ec4fa1c7a6be05e8bcfa1",
+      "source_fixture_name": "owner_question_proposal"
+    },
+    {
+      "envelope": {
+        "authority": "no_authority",
+        "case_id": "c4k_010",
+        "cited_source_refs": [],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "hold_reason": "missing_evidence",
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "HOLD"
+      },
+      "envelope_sha256": "752b7ee758c57870659f49856919e7bed18bfe77ad0e62f0b4ec05f9b9c8f3fb",
+      "envelope_status": "HOLD",
+      "expected_envelope_status": "HOLD",
+      "expected_kernel_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": "missing_evidence",
+      "kernel_status": "HOLD",
+      "name": "missing_evidence_hold",
+      "pass": true,
+      "readiness_case_id": "c4r1_046",
+      "reject_reason": null,
+      "result_digest": "9e796e4aa5363631cf60ba90bc4338ddc6c355c2dd9bf68ab80e0bebaada1d83",
+      "source_fixture_name": "missing_evidence_hold"
+    },
+    {
+      "envelope": {
+        "authority": "approved_evidence_only",
+        "case_id": "c4k_011",
+        "cited_source_refs": [
+          {
+            "artifact_id": "stale",
+            "evidence_class": "C1",
+            "field_id": "status",
+            "path": "approved://stale.json",
+            "quote_hash": "2bedd0db35c37c0516985250e04122f3e6963f14040c005865e48cc29fb30fdd",
+            "section_id": "section:status",
+            "section_title": "Status",
+            "sha256": "d009d2adc967b431485de8bbde19c96f7bcb50b25a7c15557a360c27aae247fe",
+            "source_ref_id": "stale#section:status#status"
+          },
+          {
+            "artifact_id": "stale",
+            "evidence_class": "C1",
+            "field_id": "summary",
+            "path": "approved://stale.json",
+            "quote_hash": "94415452c2b9571dcfbd6770df1a1752fc354a51ec452a74970ad20f2630f15f",
+            "section_id": "section:summary",
+            "section_title": "Summary",
+            "sha256": "d009d2adc967b431485de8bbde19c96f7bcb50b25a7c15557a360c27aae247fe",
+            "source_ref_id": "stale#section:summary#summary"
+          },
+          {
+            "artifact_id": "stale",
+            "evidence_class": "C1",
+            "field_id": "assumption.default",
+            "path": "approved://stale.json",
+            "quote_hash": "a4a2acecd62457c2d750c7b31e54a61673e5d11f2d5a92e2725de987e8e7b2dd",
+            "section_id": "section:assumptions",
+            "section_title": "Assumptions",
+            "sha256": "d009d2adc967b431485de8bbde19c96f7bcb50b25a7c15557a360c27aae247fe",
+            "source_ref_id": "stale#section:assumptions#assumption_default"
+          }
+        ],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "hold_reason": "stale_evidence",
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "HOLD"
+      },
+      "envelope_sha256": "5576da9b79e32403581b38f862f2216fb16e013f3ad10e856ec28ffd3b3177ef",
+      "envelope_status": "HOLD",
+      "expected_envelope_status": "HOLD",
+      "expected_kernel_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": "stale_evidence",
+      "kernel_status": "HOLD",
+      "name": "stale_evidence_hold",
+      "pass": true,
+      "readiness_case_id": "c4r1_047",
+      "reject_reason": null,
+      "result_digest": "64fd4305693d7be70236ec1bca6c5685118703b9d9b76f27ad505172f17a42de",
+      "source_fixture_name": "stale_evidence_hold"
+    },
+    {
+      "envelope": {
+        "authority": "approved_evidence_only",
+        "case_id": "c4k_012",
+        "cited_source_refs": [
+          {
+            "artifact_id": "ambiguous",
+            "evidence_class": "C1",
+            "field_id": "status",
+            "path": "approved://ambiguous.json",
+            "quote_hash": "2bedd0db35c37c0516985250e04122f3e6963f14040c005865e48cc29fb30fdd",
+            "section_id": "section:status",
+            "section_title": "Status",
+            "sha256": "d009d2adc967b431485de8bbde19c96f7bcb50b25a7c15557a360c27aae247fe",
+            "source_ref_id": "ambiguous#section:status#status"
+          },
+          {
+            "artifact_id": "ambiguous",
+            "evidence_class": "C1",
+            "field_id": "summary",
+            "path": "approved://ambiguous.json",
+            "quote_hash": "94415452c2b9571dcfbd6770df1a1752fc354a51ec452a74970ad20f2630f15f",
+            "section_id": "section:summary",
+            "section_title": "Summary",
+            "sha256": "d009d2adc967b431485de8bbde19c96f7bcb50b25a7c15557a360c27aae247fe",
+            "source_ref_id": "ambiguous#section:summary#summary"
+          },
+          {
+            "artifact_id": "ambiguous",
+            "evidence_class": "C1",
+            "field_id": "assumption.default",
+            "path": "approved://ambiguous.json",
+            "quote_hash": "a4a2acecd62457c2d750c7b31e54a61673e5d11f2d5a92e2725de987e8e7b2dd",
+            "section_id": "section:assumptions",
+            "section_title": "Assumptions",
+            "sha256": "d009d2adc967b431485de8bbde19c96f7bcb50b25a7c15557a360c27aae247fe",
+            "source_ref_id": "ambiguous#section:assumptions#assumption_default"
+          }
+        ],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "hold_reason": "ambiguous_evidence",
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "HOLD"
+      },
+      "envelope_sha256": "b18db34dd798676a4133a8a92476fa8742f789c98cbf2d42a0d6ce85563ce265",
+      "envelope_status": "HOLD",
+      "expected_envelope_status": "HOLD",
+      "expected_kernel_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": "ambiguous_evidence",
+      "kernel_status": "HOLD",
+      "name": "ambiguous_evidence_hold",
+      "pass": true,
+      "readiness_case_id": "c4r1_048",
+      "reject_reason": null,
+      "result_digest": "e46561cf39bb3b58ffe2b2520aa5472b28c50baf18993ba9debb584fc8eed32b",
+      "source_fixture_name": "ambiguous_evidence_hold"
+    },
+    {
+      "envelope": {
+        "authority": "no_authority",
+        "case_id": "c4k_013",
+        "cited_source_refs": [],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "hold_reason": "unapproved_source_authority",
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "HOLD"
+      },
+      "envelope_sha256": "cc14b9c0432516bd56c26780a84d03644b07842e6c47a612349a59d73d7e8780",
+      "envelope_status": "HOLD",
+      "expected_envelope_status": "HOLD",
+      "expected_kernel_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": "unapproved_source_authority",
+      "kernel_status": "HOLD",
+      "name": "unapproved_source_hold",
+      "pass": true,
+      "readiness_case_id": "c4r1_049",
+      "reject_reason": null,
+      "result_digest": "377dc2cf1d7d85afcdd415ea37cd6074ea63ea565e28f75df9ab9641d204b7f3",
+      "source_fixture_name": "unapproved_source_hold"
+    },
+    {
+      "envelope": {
+        "authority": "no_authority",
+        "case_id": "c4k_014",
+        "cited_source_refs": [],
+        "disposition": {
+          "artifact_memory_promoted": false,
+          "c4_production_route_activated": false,
+          "cache_enabled": false,
+          "external_action_executed": false,
+          "gateway_config_mutated": false,
+          "global_semantic_gate_promoted": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "provider_model_authoritative": false,
+          "provider_model_calls": 0,
+          "runtime_authority_mutated": false,
+          "scheduled_action_created": false
+        },
+        "hold_reason": "unapproved_source_authority",
+        "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope.v1",
+        "status": "HOLD"
+      },
+      "envelope_sha256": "c2fb73589dea0b178be6c71f9ee6adae1554ce1d93a7407d94e566177c9141aa",
+      "envelope_status": "HOLD",
+      "expected_envelope_status": "HOLD",
+      "expected_kernel_status": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": "unapproved_source_authority",
+      "kernel_status": "HOLD",
+      "name": "memory_source_attempt_hold",
+      "pass": true,
+      "readiness_case_id": "c4r1_050",
+      "reject_reason": null,
+      "result_digest": "4e09c9c8e3ae635a35c39fc6b937e4ec48bfe486ad83434f47202f162fa5e053",
+      "source_fixture_name": "memory_source_attempt_hold"
+    }
+  ],
+  "created_utc": "2026-06-27T13:57:01Z",
+  "failed_gates": [],
+  "first_failure": null,
+  "schema": "stickbot.vnext_semantic_gate.m12_c4r1.case_result_log.v1",
+  "status": "M12_C4R1_BOUNDED_NEXT_STEP_PROPOSAL_READINESS_PASS_NO_APPLY"
+}

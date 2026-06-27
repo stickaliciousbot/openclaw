@@ -1,0 +1,13 @@
+{
+  "abort_conditions_hit": [],
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4r1_bounded_next_step_proposal_readiness",
+  "created_utc": "2026-06-27T13:57:01Z",
+  "fail_closed_cases_hold_reject_correctly": true,
+  "failed_gates": [],
+  "first_failure": null,
+  "guard_reject_count": 10,
+  "hold_count": 19,
+  "reject_count": 3,
+  "schema": "stickbot.vnext_semantic_gate.m12_c4r1.fail_closed_policy_report.v1",
+  "status": "M12_C4R1_BOUNDED_NEXT_STEP_PROPOSAL_READINESS_PASS_NO_APPLY"
+}

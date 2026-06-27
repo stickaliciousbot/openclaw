@@ -1,0 +1,13 @@
+{
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4_owner_review_readiness_acceptance",
+  "created_utc": "2026-06-27T14:00:59Z",
+  "failed_gates": [],
+  "first_failure": null,
+  "limited_production_canary_authorized": false,
+  "owner_approval_boundary_preserved": true,
+  "production_authorized": false,
+  "readiness_candidate_accepted": true,
+  "requires_separate_owner_approval_for_canary": true,
+  "schema": "stickbot.vnext_semantic_gate.m12_c4.owner_approval_boundary_readback.v1",
+  "status": "M12_C4_OWNER_REVIEW_READINESS_ACCEPTED"
+}

@@ -1,4 +1,5 @@
 {
+  "abort_conditions_hit": [],
   "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4r1_bounded_next_step_proposal_readiness",
   "artifact_memory_promoted": false,
   "c4_bounded_proposal_drafting_only": true,
@@ -7,6 +8,7 @@
   "c4k_consumed_read_only": true,
   "c4r1_no_apply_readiness_exercise_only": true,
   "cache_enabled": false,
+  "created_utc": "2026-06-27T13:57:01Z",
   "direct_provider_bypass_count": 0,
   "envelope_counts": {
     "GUARD_ONLY": 10,
@@ -18,12 +20,14 @@
   "external_action_executed": false,
   "fail_count": 0,
   "failed_gates": [],
-  "first_case_failure": null,
   "first_failure": null,
   "global_semantic_gate_promoted": false,
   "m12_c1_frozen_boundary_preserved": true,
   "m12_c2_frozen_boundary_preserved": true,
   "m12_c3_frozen_boundary_preserved": true,
+  "m12_c4_ready_for_owner_review_as_no_apply_readiness_candidate": true,
+  "material_regression_count": 0,
+  "missing_output_regression_count": 0,
   "mutation_sentinels_clean": true,
   "pass_count": 50,
   "production_expansion_applied": false,
@@ -32,6 +36,6 @@
   "rollback_ready": true,
   "runtime_authority_mutated": false,
   "scheduled_action_created": false,
-  "schema": "stickbot.vnext_semantic_gate.m12_c4r1.summary.v1",
+  "schema": "stickbot.vnext_semantic_gate.m12_c4r1.summary.v2.exact_contract",
   "status": "M12_C4R1_BOUNDED_NEXT_STEP_PROPOSAL_READINESS_PASS_NO_APPLY"
 }

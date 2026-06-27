@@ -1,16 +1,21 @@
 {
+  "abort_conditions_hit": [],
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4r1_bounded_next_step_proposal_readiness",
   "artifact_memory_promoted": false,
   "c4_canary_started": false,
   "c4_production_started": false,
   "cache_enabled": false,
+  "created_utc": "2026-06-27T13:57:01Z",
   "direct_provider_bypass_count": 0,
   "external_action_executed": false,
+  "failed_gates": [],
+  "first_failure": null,
   "gateway_config_mutated": false,
   "global_semantic_gate_promoted": false,
   "production_expansion_applied": false,
   "readiness_exercise_only": true,
   "runtime_authority_mutated": false,
   "scheduled_action_created": false,
-  "schema": "stickbot.vnext_semantic_gate.m12_c4r1.no_apply_no_mutation_record.v1",
+  "schema": "stickbot.vnext_semantic_gate.m12_c4r1.no_apply_no_mutation_record.v2",
   "status": "M12_C4R1_BOUNDED_NEXT_STEP_PROPOSAL_READINESS_PASS_NO_APPLY"
 }

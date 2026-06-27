@@ -1,0 +1,15 @@
+{
+  "abort_conditions_hit": [],
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4r1_bounded_next_step_proposal_readiness",
+  "c4k_consumed_read_only": true,
+  "c4k_evidence_manifest_sha256": "6c765594782f8347e8d7f696ab35e59e9558de8c75acda6fd69063aa18fee11c",
+  "c4k_status": "M12_C4K_BOUNDED_NEXT_STEP_PROPOSAL_KERNEL_PASS",
+  "c4k_status_pass": true,
+  "c4k_status_sha256": "ae800b01d676d56f9ed03355327d02893630f6ad929301cb6d5c50a8a571028f",
+  "created_utc": "2026-06-27T13:57:01Z",
+  "failed_gates": [],
+  "first_failure": null,
+  "provider_model_calls_for_authoritative_proposals": 0,
+  "schema": "stickbot.vnext_semantic_gate.m12_c4r1.c4k_readback.v1",
+  "status": "M12_C4R1_BOUNDED_NEXT_STEP_PROPOSAL_READINESS_PASS_NO_APPLY"
+}

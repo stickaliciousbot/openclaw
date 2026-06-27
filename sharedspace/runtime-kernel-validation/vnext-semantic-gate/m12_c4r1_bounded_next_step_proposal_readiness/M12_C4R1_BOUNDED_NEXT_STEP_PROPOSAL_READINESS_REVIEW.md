@@ -2,6 +2,8 @@
 
 Final status: `M12_C4R1_BOUNDED_NEXT_STEP_PROPOSAL_READINESS_PASS_NO_APPLY`
 
+Exact required-file contract normalized: `true`
+
 Run bound: 50 C4 bounded proposal cases or 2 active hours, whichever came first. This run completed the 50-case bound.
 
 Counts:
@@ -14,11 +16,11 @@ Counts:
 - Direct provider bypass: `0`
 
 Failed gates: `[]`
+Abort conditions hit: `[]`
 First failure: `None`
-First case failure: `None` / `None`
 
-C4R1 consumed C4K read-only. C4K artifact hash before/after matched: `True`.
-
-No apply/no mutation boundary: no C4 production/canary, no production expansion, no cache enablement, no artifact-memory/global Semantic Gate promotion, no runtime/Gateway/config/live-route/fallback/memory-route mutation, no external action execution, no scheduling actions.
+C4R1 consumed C4K read-only. No production/canary/cache/artifact-memory/global Semantic Gate/runtime/Gateway/config/live-route/fallback/memory-route mutation/external action/scheduling occurred.
 
 Core principle preserved: proposal drafting is not action authority.
+
+If PASS: M12-C4 is ready for owner review as a no-apply readiness candidate only. This does not authorize C4 production, cache, artifact-memory promotion, or broader production expansion.
