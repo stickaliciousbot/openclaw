@@ -1,0 +1,32 @@
+{
+  "covered_fixture_classes": [
+    "valid single-artifact runbook guidance",
+    "valid prerequisites extraction",
+    "valid warnings extraction",
+    "valid ordered steps extraction",
+    "valid source section citation",
+    "missing artifact HOLD",
+    "stale artifact HOLD",
+    "ambiguous artifact HOLD",
+    "two-artifact input HOLD",
+    "unapproved artifact HOLD",
+    "memory source HOLD",
+    "context-bridge source HOLD",
+    "daily-memory source HOLD",
+    "arbitrary path HOLD",
+    "prompt-injection-like text HOLD",
+    "external-action HOLD",
+    "unsafe-authority HOLD",
+    "cross-artifact HOLD",
+    "multi-source proposal HOLD",
+    "malformed envelope guard rejects"
+  ],
+  "created_utc": "2026-06-27T07:34:29Z",
+  "fail_count": 0,
+  "guidance_count": 5,
+  "hold_count": 14,
+  "pass_count": 25,
+  "schema": "stickbot.vnext_semantic_gate.m12_c2k.fixture_coverage_report.v1",
+  "status": "PASS",
+  "test_count": 25
+}

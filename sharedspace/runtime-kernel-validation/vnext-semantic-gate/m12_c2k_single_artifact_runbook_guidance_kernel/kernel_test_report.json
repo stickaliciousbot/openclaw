@@ -1,0 +1,1719 @@
+{
+  "artifact_memory_promoted": false,
+  "c2_production_started": false,
+  "c3_c4_started": false,
+  "cache_enabled": false,
+  "direct_provider_bypass_count": 0,
+  "fail_count": 0,
+  "fallback_chain_mutated": false,
+  "gateway_config_mutated": false,
+  "global_semantic_gate_promoted": false,
+  "guidance_count": 5,
+  "hold_count": 14,
+  "live_route_mutated": false,
+  "m12_c1_frozen_boundary_preserved": true,
+  "memory_route_mutated": false,
+  "pass_count": 25,
+  "production_expansion_applied": false,
+  "provider_model_calls": 0,
+  "rollback_ready": true,
+  "runtime_authority_mutated": false,
+  "schema": "stickbot.vnext_semantic_gate.m12_c2k.test_report.v1",
+  "status": "M12_C2K_SINGLE_ARTIFACT_RUNBOOK_GUIDANCE_KERNEL_PASS_NO_PRODUCTION",
+  "test_count": 25,
+  "tests": [
+    {
+      "envelope": {
+        "applicability": "bounded to one approved artifact and cited sections only",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [
+          {
+            "artifact_id": "approved_runbook_fixture",
+            "path": "approved://approved_runbook_fixture.md",
+            "quote_hash": "6bb423e7327363362d38f89df9003a7bd61a81b5920806d3b8e002050326eccc",
+            "section_id": "approved_runbook_fixture:02:prerequisites",
+            "sha256": "18269b4251dcc32e1aeb53bf133272e2db596d03d9642225d8680d5fc6248264",
+            "source_ref_id": "approved_runbook_fixture#approved_runbook_fixture:02:prerequisites"
+          },
+          {
+            "artifact_id": "approved_runbook_fixture",
+            "path": "approved://approved_runbook_fixture.md",
+            "quote_hash": "77131db26aa9be941d4c88bc3f7a7ed17cb495b7f7e0e4c0452f34ec603ea56c",
+            "section_id": "approved_runbook_fixture:03:steps",
+            "sha256": "18269b4251dcc32e1aeb53bf133272e2db596d03d9642225d8680d5fc6248264",
+            "source_ref_id": "approved_runbook_fixture#approved_runbook_fixture:03:steps"
+          },
+          {
+            "artifact_id": "approved_runbook_fixture",
+            "path": "approved://approved_runbook_fixture.md",
+            "quote_hash": "146cea23b6d7105498a68ffae19f19ccc7bbca69c8891000adf699dd00ab400e",
+            "section_id": "approved_runbook_fixture:04:warnings",
+            "sha256": "18269b4251dcc32e1aeb53bf133272e2db596d03d9642225d8680d5fc6248264",
+            "source_ref_id": "approved_runbook_fixture#approved_runbook_fixture:04:warnings"
+          }
+        ],
+        "confidence": "high",
+        "disposition": {
+          "artifact_id": "approved_runbook_fixture",
+          "deterministic": true,
+          "external_action_executed": false,
+          "kind": "single_artifact_guidance",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "source_authority": "approved_single_artifact_only"
+        },
+        "guidance_steps": [
+          {
+            "applicability": "required",
+            "confidence": "high",
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:03:steps"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:03:steps"
+            ],
+            "step_id": "c2k_guidance_001_step_01",
+            "text": "Read the approved artifact status section."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:03:steps"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:03:steps"
+            ],
+            "step_id": "c2k_guidance_001_step_02",
+            "text": "Confirm the required evidence files are present."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:03:steps"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:03:steps"
+            ],
+            "step_id": "c2k_guidance_001_step_03",
+            "text": "Report GUIDANCE or HOLD with cited source sections only."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:04:warnings"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:04:warnings"
+            ],
+            "step_id": "c2k_guidance_001_step_04",
+            "text": "C2 production remains outside this runbook."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:04:warnings"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:04:warnings"
+            ],
+            "step_id": "c2k_guidance_001_step_05",
+            "text": "Protected operator controls remain unchanged."
+          }
+        ],
+        "hold_reason": null,
+        "prerequisites": [
+          {
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:02:prerequisites"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:02:prerequisites"
+            ],
+            "text": "Confirm owner approval boundary is intact."
+          },
+          {
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:02:prerequisites"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:02:prerequisites"
+            ],
+            "text": "Verify rollback readiness before proceeding."
+          }
+        ],
+        "source_sections": [
+          {
+            "heading": "Prerequisites",
+            "line_range": "3-6",
+            "section_hash": "6bb423e7327363362d38f89df9003a7bd61a81b5920806d3b8e002050326eccc",
+            "section_id": "approved_runbook_fixture:02:prerequisites"
+          },
+          {
+            "heading": "Steps",
+            "line_range": "7-11",
+            "section_hash": "77131db26aa9be941d4c88bc3f7a7ed17cb495b7f7e0e4c0452f34ec603ea56c",
+            "section_id": "approved_runbook_fixture:03:steps"
+          },
+          {
+            "heading": "Warnings",
+            "line_range": "12-15",
+            "section_hash": "146cea23b6d7105498a68ffae19f19ccc7bbca69c8891000adf699dd00ab400e",
+            "section_id": "approved_runbook_fixture:04:warnings"
+          }
+        ],
+        "status": "GUIDANCE",
+        "warnings": [
+          {
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:04:warnings"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:04:warnings"
+            ],
+            "text": "C2 production remains outside this runbook."
+          },
+          {
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:04:warnings"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:04:warnings"
+            ],
+            "text": "Protected operator controls remain unchanged."
+          }
+        ]
+      },
+      "envelope_status": "GUIDANCE",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": null,
+      "kernel_status": "PASS",
+      "name": "valid_single_artifact_runbook_guidance",
+      "pass": true,
+      "result_digest": "bf5d2083c94a5649d520afd969bb421e9529d96ca1349bd80e7cf1212deee464"
+    },
+    {
+      "envelope": {
+        "applicability": "bounded to one approved artifact and cited sections only",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [
+          {
+            "artifact_id": "approved_runbook_fixture",
+            "path": "approved://approved_runbook_fixture.md",
+            "quote_hash": "6bb423e7327363362d38f89df9003a7bd61a81b5920806d3b8e002050326eccc",
+            "section_id": "approved_runbook_fixture:02:prerequisites",
+            "sha256": "18269b4251dcc32e1aeb53bf133272e2db596d03d9642225d8680d5fc6248264",
+            "source_ref_id": "approved_runbook_fixture#approved_runbook_fixture:02:prerequisites"
+          },
+          {
+            "artifact_id": "approved_runbook_fixture",
+            "path": "approved://approved_runbook_fixture.md",
+            "quote_hash": "77131db26aa9be941d4c88bc3f7a7ed17cb495b7f7e0e4c0452f34ec603ea56c",
+            "section_id": "approved_runbook_fixture:03:steps",
+            "sha256": "18269b4251dcc32e1aeb53bf133272e2db596d03d9642225d8680d5fc6248264",
+            "source_ref_id": "approved_runbook_fixture#approved_runbook_fixture:03:steps"
+          },
+          {
+            "artifact_id": "approved_runbook_fixture",
+            "path": "approved://approved_runbook_fixture.md",
+            "quote_hash": "146cea23b6d7105498a68ffae19f19ccc7bbca69c8891000adf699dd00ab400e",
+            "section_id": "approved_runbook_fixture:04:warnings",
+            "sha256": "18269b4251dcc32e1aeb53bf133272e2db596d03d9642225d8680d5fc6248264",
+            "source_ref_id": "approved_runbook_fixture#approved_runbook_fixture:04:warnings"
+          }
+        ],
+        "confidence": "high",
+        "disposition": {
+          "artifact_id": "approved_runbook_fixture",
+          "deterministic": true,
+          "external_action_executed": false,
+          "kind": "single_artifact_guidance",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "source_authority": "approved_single_artifact_only"
+        },
+        "guidance_steps": [
+          {
+            "applicability": "required",
+            "confidence": "high",
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:03:steps"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:03:steps"
+            ],
+            "step_id": "c2k_guidance_002_step_01",
+            "text": "Read the approved artifact status section."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:03:steps"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:03:steps"
+            ],
+            "step_id": "c2k_guidance_002_step_02",
+            "text": "Confirm the required evidence files are present."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:03:steps"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:03:steps"
+            ],
+            "step_id": "c2k_guidance_002_step_03",
+            "text": "Report GUIDANCE or HOLD with cited source sections only."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:04:warnings"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:04:warnings"
+            ],
+            "step_id": "c2k_guidance_002_step_04",
+            "text": "C2 production remains outside this runbook."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:04:warnings"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:04:warnings"
+            ],
+            "step_id": "c2k_guidance_002_step_05",
+            "text": "Protected operator controls remain unchanged."
+          }
+        ],
+        "hold_reason": null,
+        "prerequisites": [
+          {
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:02:prerequisites"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:02:prerequisites"
+            ],
+            "text": "Confirm owner approval boundary is intact."
+          },
+          {
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:02:prerequisites"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:02:prerequisites"
+            ],
+            "text": "Verify rollback readiness before proceeding."
+          }
+        ],
+        "source_sections": [
+          {
+            "heading": "Prerequisites",
+            "line_range": "3-6",
+            "section_hash": "6bb423e7327363362d38f89df9003a7bd61a81b5920806d3b8e002050326eccc",
+            "section_id": "approved_runbook_fixture:02:prerequisites"
+          },
+          {
+            "heading": "Steps",
+            "line_range": "7-11",
+            "section_hash": "77131db26aa9be941d4c88bc3f7a7ed17cb495b7f7e0e4c0452f34ec603ea56c",
+            "section_id": "approved_runbook_fixture:03:steps"
+          },
+          {
+            "heading": "Warnings",
+            "line_range": "12-15",
+            "section_hash": "146cea23b6d7105498a68ffae19f19ccc7bbca69c8891000adf699dd00ab400e",
+            "section_id": "approved_runbook_fixture:04:warnings"
+          }
+        ],
+        "status": "GUIDANCE",
+        "warnings": [
+          {
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:04:warnings"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:04:warnings"
+            ],
+            "text": "C2 production remains outside this runbook."
+          },
+          {
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:04:warnings"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:04:warnings"
+            ],
+            "text": "Protected operator controls remain unchanged."
+          }
+        ]
+      },
+      "envelope_status": "GUIDANCE",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": null,
+      "kernel_status": "PASS",
+      "name": "valid_prerequisites_extraction",
+      "pass": true,
+      "result_digest": "5ce7220ce3e92781c783cec3b4669a37eb615aa78e55bd25f2370ba8a5b03d77"
+    },
+    {
+      "envelope": {
+        "applicability": "bounded to one approved artifact and cited sections only",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [
+          {
+            "artifact_id": "approved_runbook_fixture",
+            "path": "approved://approved_runbook_fixture.md",
+            "quote_hash": "6bb423e7327363362d38f89df9003a7bd61a81b5920806d3b8e002050326eccc",
+            "section_id": "approved_runbook_fixture:02:prerequisites",
+            "sha256": "18269b4251dcc32e1aeb53bf133272e2db596d03d9642225d8680d5fc6248264",
+            "source_ref_id": "approved_runbook_fixture#approved_runbook_fixture:02:prerequisites"
+          },
+          {
+            "artifact_id": "approved_runbook_fixture",
+            "path": "approved://approved_runbook_fixture.md",
+            "quote_hash": "77131db26aa9be941d4c88bc3f7a7ed17cb495b7f7e0e4c0452f34ec603ea56c",
+            "section_id": "approved_runbook_fixture:03:steps",
+            "sha256": "18269b4251dcc32e1aeb53bf133272e2db596d03d9642225d8680d5fc6248264",
+            "source_ref_id": "approved_runbook_fixture#approved_runbook_fixture:03:steps"
+          },
+          {
+            "artifact_id": "approved_runbook_fixture",
+            "path": "approved://approved_runbook_fixture.md",
+            "quote_hash": "146cea23b6d7105498a68ffae19f19ccc7bbca69c8891000adf699dd00ab400e",
+            "section_id": "approved_runbook_fixture:04:warnings",
+            "sha256": "18269b4251dcc32e1aeb53bf133272e2db596d03d9642225d8680d5fc6248264",
+            "source_ref_id": "approved_runbook_fixture#approved_runbook_fixture:04:warnings"
+          }
+        ],
+        "confidence": "high",
+        "disposition": {
+          "artifact_id": "approved_runbook_fixture",
+          "deterministic": true,
+          "external_action_executed": false,
+          "kind": "single_artifact_guidance",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "source_authority": "approved_single_artifact_only"
+        },
+        "guidance_steps": [
+          {
+            "applicability": "required",
+            "confidence": "high",
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:03:steps"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:03:steps"
+            ],
+            "step_id": "c2k_guidance_003_step_01",
+            "text": "Read the approved artifact status section."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:03:steps"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:03:steps"
+            ],
+            "step_id": "c2k_guidance_003_step_02",
+            "text": "Confirm the required evidence files are present."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:03:steps"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:03:steps"
+            ],
+            "step_id": "c2k_guidance_003_step_03",
+            "text": "Report GUIDANCE or HOLD with cited source sections only."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:04:warnings"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:04:warnings"
+            ],
+            "step_id": "c2k_guidance_003_step_04",
+            "text": "C2 production remains outside this runbook."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:04:warnings"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:04:warnings"
+            ],
+            "step_id": "c2k_guidance_003_step_05",
+            "text": "Protected operator controls remain unchanged."
+          }
+        ],
+        "hold_reason": null,
+        "prerequisites": [
+          {
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:02:prerequisites"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:02:prerequisites"
+            ],
+            "text": "Confirm owner approval boundary is intact."
+          },
+          {
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:02:prerequisites"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:02:prerequisites"
+            ],
+            "text": "Verify rollback readiness before proceeding."
+          }
+        ],
+        "source_sections": [
+          {
+            "heading": "Prerequisites",
+            "line_range": "3-6",
+            "section_hash": "6bb423e7327363362d38f89df9003a7bd61a81b5920806d3b8e002050326eccc",
+            "section_id": "approved_runbook_fixture:02:prerequisites"
+          },
+          {
+            "heading": "Steps",
+            "line_range": "7-11",
+            "section_hash": "77131db26aa9be941d4c88bc3f7a7ed17cb495b7f7e0e4c0452f34ec603ea56c",
+            "section_id": "approved_runbook_fixture:03:steps"
+          },
+          {
+            "heading": "Warnings",
+            "line_range": "12-15",
+            "section_hash": "146cea23b6d7105498a68ffae19f19ccc7bbca69c8891000adf699dd00ab400e",
+            "section_id": "approved_runbook_fixture:04:warnings"
+          }
+        ],
+        "status": "GUIDANCE",
+        "warnings": [
+          {
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:04:warnings"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:04:warnings"
+            ],
+            "text": "C2 production remains outside this runbook."
+          },
+          {
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:04:warnings"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:04:warnings"
+            ],
+            "text": "Protected operator controls remain unchanged."
+          }
+        ]
+      },
+      "envelope_status": "GUIDANCE",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": null,
+      "kernel_status": "PASS",
+      "name": "valid_warnings_extraction",
+      "pass": true,
+      "result_digest": "3c145850a6c4a757069090b73c7a54d7077e7bfdc00d78ed20831102d55e7f2d"
+    },
+    {
+      "envelope": {
+        "applicability": "bounded to one approved artifact and cited sections only",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [
+          {
+            "artifact_id": "approved_runbook_fixture",
+            "path": "approved://approved_runbook_fixture.md",
+            "quote_hash": "6bb423e7327363362d38f89df9003a7bd61a81b5920806d3b8e002050326eccc",
+            "section_id": "approved_runbook_fixture:02:prerequisites",
+            "sha256": "18269b4251dcc32e1aeb53bf133272e2db596d03d9642225d8680d5fc6248264",
+            "source_ref_id": "approved_runbook_fixture#approved_runbook_fixture:02:prerequisites"
+          },
+          {
+            "artifact_id": "approved_runbook_fixture",
+            "path": "approved://approved_runbook_fixture.md",
+            "quote_hash": "77131db26aa9be941d4c88bc3f7a7ed17cb495b7f7e0e4c0452f34ec603ea56c",
+            "section_id": "approved_runbook_fixture:03:steps",
+            "sha256": "18269b4251dcc32e1aeb53bf133272e2db596d03d9642225d8680d5fc6248264",
+            "source_ref_id": "approved_runbook_fixture#approved_runbook_fixture:03:steps"
+          },
+          {
+            "artifact_id": "approved_runbook_fixture",
+            "path": "approved://approved_runbook_fixture.md",
+            "quote_hash": "146cea23b6d7105498a68ffae19f19ccc7bbca69c8891000adf699dd00ab400e",
+            "section_id": "approved_runbook_fixture:04:warnings",
+            "sha256": "18269b4251dcc32e1aeb53bf133272e2db596d03d9642225d8680d5fc6248264",
+            "source_ref_id": "approved_runbook_fixture#approved_runbook_fixture:04:warnings"
+          }
+        ],
+        "confidence": "high",
+        "disposition": {
+          "artifact_id": "approved_runbook_fixture",
+          "deterministic": true,
+          "external_action_executed": false,
+          "kind": "single_artifact_guidance",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "source_authority": "approved_single_artifact_only"
+        },
+        "guidance_steps": [
+          {
+            "applicability": "required",
+            "confidence": "high",
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:03:steps"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:03:steps"
+            ],
+            "step_id": "c2k_guidance_004_step_01",
+            "text": "Read the approved artifact status section."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:03:steps"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:03:steps"
+            ],
+            "step_id": "c2k_guidance_004_step_02",
+            "text": "Confirm the required evidence files are present."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:03:steps"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:03:steps"
+            ],
+            "step_id": "c2k_guidance_004_step_03",
+            "text": "Report GUIDANCE or HOLD with cited source sections only."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:04:warnings"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:04:warnings"
+            ],
+            "step_id": "c2k_guidance_004_step_04",
+            "text": "C2 production remains outside this runbook."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:04:warnings"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:04:warnings"
+            ],
+            "step_id": "c2k_guidance_004_step_05",
+            "text": "Protected operator controls remain unchanged."
+          }
+        ],
+        "hold_reason": null,
+        "prerequisites": [
+          {
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:02:prerequisites"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:02:prerequisites"
+            ],
+            "text": "Confirm owner approval boundary is intact."
+          },
+          {
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:02:prerequisites"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:02:prerequisites"
+            ],
+            "text": "Verify rollback readiness before proceeding."
+          }
+        ],
+        "source_sections": [
+          {
+            "heading": "Prerequisites",
+            "line_range": "3-6",
+            "section_hash": "6bb423e7327363362d38f89df9003a7bd61a81b5920806d3b8e002050326eccc",
+            "section_id": "approved_runbook_fixture:02:prerequisites"
+          },
+          {
+            "heading": "Steps",
+            "line_range": "7-11",
+            "section_hash": "77131db26aa9be941d4c88bc3f7a7ed17cb495b7f7e0e4c0452f34ec603ea56c",
+            "section_id": "approved_runbook_fixture:03:steps"
+          },
+          {
+            "heading": "Warnings",
+            "line_range": "12-15",
+            "section_hash": "146cea23b6d7105498a68ffae19f19ccc7bbca69c8891000adf699dd00ab400e",
+            "section_id": "approved_runbook_fixture:04:warnings"
+          }
+        ],
+        "status": "GUIDANCE",
+        "warnings": [
+          {
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:04:warnings"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:04:warnings"
+            ],
+            "text": "C2 production remains outside this runbook."
+          },
+          {
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:04:warnings"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:04:warnings"
+            ],
+            "text": "Protected operator controls remain unchanged."
+          }
+        ]
+      },
+      "envelope_status": "GUIDANCE",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": null,
+      "kernel_status": "PASS",
+      "name": "valid_ordered_steps_extraction",
+      "pass": true,
+      "result_digest": "ae65767d96d503c910031142a6a368aa80f6895fe46f0cd40f30a3856c6d46ba"
+    },
+    {
+      "envelope": {
+        "applicability": "bounded to one approved artifact and cited sections only",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [
+          {
+            "artifact_id": "approved_runbook_fixture",
+            "path": "approved://approved_runbook_fixture.md",
+            "quote_hash": "6bb423e7327363362d38f89df9003a7bd61a81b5920806d3b8e002050326eccc",
+            "section_id": "approved_runbook_fixture:02:prerequisites",
+            "sha256": "18269b4251dcc32e1aeb53bf133272e2db596d03d9642225d8680d5fc6248264",
+            "source_ref_id": "approved_runbook_fixture#approved_runbook_fixture:02:prerequisites"
+          },
+          {
+            "artifact_id": "approved_runbook_fixture",
+            "path": "approved://approved_runbook_fixture.md",
+            "quote_hash": "77131db26aa9be941d4c88bc3f7a7ed17cb495b7f7e0e4c0452f34ec603ea56c",
+            "section_id": "approved_runbook_fixture:03:steps",
+            "sha256": "18269b4251dcc32e1aeb53bf133272e2db596d03d9642225d8680d5fc6248264",
+            "source_ref_id": "approved_runbook_fixture#approved_runbook_fixture:03:steps"
+          },
+          {
+            "artifact_id": "approved_runbook_fixture",
+            "path": "approved://approved_runbook_fixture.md",
+            "quote_hash": "146cea23b6d7105498a68ffae19f19ccc7bbca69c8891000adf699dd00ab400e",
+            "section_id": "approved_runbook_fixture:04:warnings",
+            "sha256": "18269b4251dcc32e1aeb53bf133272e2db596d03d9642225d8680d5fc6248264",
+            "source_ref_id": "approved_runbook_fixture#approved_runbook_fixture:04:warnings"
+          }
+        ],
+        "confidence": "high",
+        "disposition": {
+          "artifact_id": "approved_runbook_fixture",
+          "deterministic": true,
+          "external_action_executed": false,
+          "kind": "single_artifact_guidance",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "source_authority": "approved_single_artifact_only"
+        },
+        "guidance_steps": [
+          {
+            "applicability": "required",
+            "confidence": "high",
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:03:steps"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:03:steps"
+            ],
+            "step_id": "c2k_guidance_005_step_01",
+            "text": "Read the approved artifact status section."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:03:steps"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:03:steps"
+            ],
+            "step_id": "c2k_guidance_005_step_02",
+            "text": "Confirm the required evidence files are present."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:03:steps"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:03:steps"
+            ],
+            "step_id": "c2k_guidance_005_step_03",
+            "text": "Report GUIDANCE or HOLD with cited source sections only."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:04:warnings"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:04:warnings"
+            ],
+            "step_id": "c2k_guidance_005_step_04",
+            "text": "C2 production remains outside this runbook."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:04:warnings"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:04:warnings"
+            ],
+            "step_id": "c2k_guidance_005_step_05",
+            "text": "Protected operator controls remain unchanged."
+          }
+        ],
+        "hold_reason": null,
+        "prerequisites": [
+          {
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:02:prerequisites"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:02:prerequisites"
+            ],
+            "text": "Confirm owner approval boundary is intact."
+          },
+          {
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:02:prerequisites"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:02:prerequisites"
+            ],
+            "text": "Verify rollback readiness before proceeding."
+          }
+        ],
+        "source_sections": [
+          {
+            "heading": "Prerequisites",
+            "line_range": "3-6",
+            "section_hash": "6bb423e7327363362d38f89df9003a7bd61a81b5920806d3b8e002050326eccc",
+            "section_id": "approved_runbook_fixture:02:prerequisites"
+          },
+          {
+            "heading": "Steps",
+            "line_range": "7-11",
+            "section_hash": "77131db26aa9be941d4c88bc3f7a7ed17cb495b7f7e0e4c0452f34ec603ea56c",
+            "section_id": "approved_runbook_fixture:03:steps"
+          },
+          {
+            "heading": "Warnings",
+            "line_range": "12-15",
+            "section_hash": "146cea23b6d7105498a68ffae19f19ccc7bbca69c8891000adf699dd00ab400e",
+            "section_id": "approved_runbook_fixture:04:warnings"
+          }
+        ],
+        "status": "GUIDANCE",
+        "warnings": [
+          {
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:04:warnings"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:04:warnings"
+            ],
+            "text": "C2 production remains outside this runbook."
+          },
+          {
+            "source_ref_ids": [
+              "approved_runbook_fixture#approved_runbook_fixture:04:warnings"
+            ],
+            "source_section_ids": [
+              "approved_runbook_fixture:04:warnings"
+            ],
+            "text": "Protected operator controls remain unchanged."
+          }
+        ]
+      },
+      "envelope_status": "GUIDANCE",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": null,
+      "kernel_status": "PASS",
+      "name": "valid_source_section_citation",
+      "pass": true,
+      "result_digest": "e9ac07ec95228eabe661645b82de2902fc516a51dc9b6e2df1af0b2fb597054d"
+    },
+    {
+      "envelope": {
+        "applicability": "insufficient",
+        "authority": "no_authority",
+        "cited_source_refs": [],
+        "confidence": "high",
+        "disposition": {
+          "deterministic": true,
+          "external_action_executed": false,
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "reason": "missing_artifact",
+          "source_authority": "no_authoritative_guidance"
+        },
+        "guidance_steps": [],
+        "hold_reason": "missing_artifact",
+        "prerequisites": [],
+        "source_sections": [],
+        "status": "HOLD",
+        "warnings": []
+      },
+      "envelope_status": "HOLD",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": "missing_artifact",
+      "kernel_status": "PASS",
+      "name": "missing_artifact_hold",
+      "pass": true,
+      "result_digest": "4a8ba604de202175f9a200bb32a4c466c4a8629b2a37957d2d061a28639b9886"
+    },
+    {
+      "envelope": {
+        "applicability": "insufficient",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [],
+        "confidence": "high",
+        "disposition": {
+          "deterministic": true,
+          "external_action_executed": false,
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "reason": "stale_artifact",
+          "source_authority": "no_authoritative_guidance"
+        },
+        "guidance_steps": [],
+        "hold_reason": "stale_artifact",
+        "prerequisites": [],
+        "source_sections": [],
+        "status": "HOLD",
+        "warnings": []
+      },
+      "envelope_status": "HOLD",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": "stale_artifact",
+      "kernel_status": "PASS",
+      "name": "stale_artifact_hold",
+      "pass": true,
+      "result_digest": "98ca5bc383b99a5c2e991b74ea507e758c6eeab28ffa07bb08e59f4b4717d4c8"
+    },
+    {
+      "envelope": {
+        "applicability": "insufficient",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [],
+        "confidence": "high",
+        "disposition": {
+          "deterministic": true,
+          "external_action_executed": false,
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "reason": "ambiguous_artifact",
+          "source_authority": "no_authoritative_guidance"
+        },
+        "guidance_steps": [],
+        "hold_reason": "ambiguous_artifact",
+        "prerequisites": [],
+        "source_sections": [],
+        "status": "HOLD",
+        "warnings": []
+      },
+      "envelope_status": "HOLD",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": "ambiguous_artifact",
+      "kernel_status": "PASS",
+      "name": "ambiguous_artifact_hold",
+      "pass": true,
+      "result_digest": "4a2c26235895bc4b343718a4cefc98ec1b14600abcb3aa8df5f49c59d37ce9b7"
+    },
+    {
+      "envelope": {
+        "applicability": "insufficient",
+        "authority": "no_authority",
+        "cited_source_refs": [],
+        "confidence": "high",
+        "disposition": {
+          "deterministic": true,
+          "external_action_executed": false,
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "reason": "multiple_artifacts",
+          "source_authority": "no_authoritative_guidance"
+        },
+        "guidance_steps": [],
+        "hold_reason": "multiple_artifacts",
+        "prerequisites": [],
+        "source_sections": [],
+        "status": "HOLD",
+        "warnings": []
+      },
+      "envelope_status": "HOLD",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": "multiple_artifacts",
+      "kernel_status": "PASS",
+      "name": "two_artifact_input_hold",
+      "pass": true,
+      "result_digest": "e827c2bc4e883c30d75e9d40e6205db5ceb47c531be41479e002125ac47df5bc"
+    },
+    {
+      "envelope": {
+        "applicability": "insufficient",
+        "authority": "no_authority",
+        "cited_source_refs": [],
+        "confidence": "high",
+        "disposition": {
+          "deterministic": true,
+          "external_action_executed": false,
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "reason": "unapproved_source",
+          "source_authority": "no_authoritative_guidance"
+        },
+        "guidance_steps": [],
+        "hold_reason": "unapproved_source",
+        "prerequisites": [],
+        "source_sections": [],
+        "status": "HOLD",
+        "warnings": []
+      },
+      "envelope_status": "HOLD",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": "unapproved_source",
+      "kernel_status": "PASS",
+      "name": "unapproved_artifact_hold",
+      "pass": true,
+      "result_digest": "325be6aad7cbe97bfd6d70db296d348cf8c7866392b699353d70297c5fa09dd9"
+    },
+    {
+      "envelope": {
+        "applicability": "insufficient",
+        "authority": "no_authority",
+        "cited_source_refs": [],
+        "confidence": "high",
+        "disposition": {
+          "deterministic": true,
+          "external_action_executed": false,
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "reason": "unapproved_source",
+          "source_authority": "no_authoritative_guidance"
+        },
+        "guidance_steps": [],
+        "hold_reason": "unapproved_source",
+        "prerequisites": [],
+        "source_sections": [],
+        "status": "HOLD",
+        "warnings": []
+      },
+      "envelope_status": "HOLD",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": "unapproved_source",
+      "kernel_status": "PASS",
+      "name": "memory_source_attempt_hold",
+      "pass": true,
+      "result_digest": "346c2ba72a473107017621201a04ae33b834a33e39e811ceec83bedbbaeb3f48"
+    },
+    {
+      "envelope": {
+        "applicability": "insufficient",
+        "authority": "no_authority",
+        "cited_source_refs": [],
+        "confidence": "high",
+        "disposition": {
+          "deterministic": true,
+          "external_action_executed": false,
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "reason": "unapproved_source",
+          "source_authority": "no_authoritative_guidance"
+        },
+        "guidance_steps": [],
+        "hold_reason": "unapproved_source",
+        "prerequisites": [],
+        "source_sections": [],
+        "status": "HOLD",
+        "warnings": []
+      },
+      "envelope_status": "HOLD",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": "unapproved_source",
+      "kernel_status": "PASS",
+      "name": "context_bridge_source_attempt_hold",
+      "pass": true,
+      "result_digest": "ef800855b76775e572f0aad2ac3f0df9ccd75ee00e278428faf46f49fd95b515"
+    },
+    {
+      "envelope": {
+        "applicability": "insufficient",
+        "authority": "no_authority",
+        "cited_source_refs": [],
+        "confidence": "high",
+        "disposition": {
+          "deterministic": true,
+          "external_action_executed": false,
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "reason": "unapproved_source",
+          "source_authority": "no_authoritative_guidance"
+        },
+        "guidance_steps": [],
+        "hold_reason": "unapproved_source",
+        "prerequisites": [],
+        "source_sections": [],
+        "status": "HOLD",
+        "warnings": []
+      },
+      "envelope_status": "HOLD",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": "unapproved_source",
+      "kernel_status": "PASS",
+      "name": "daily_memory_source_attempt_hold",
+      "pass": true,
+      "result_digest": "ce8b8c9e77395031b4c8078e8f18687cfc82d5ca81628d813180e2e4b510bb94"
+    },
+    {
+      "envelope": {
+        "applicability": "insufficient",
+        "authority": "no_authority",
+        "cited_source_refs": [],
+        "confidence": "high",
+        "disposition": {
+          "deterministic": true,
+          "external_action_executed": false,
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "reason": "unapproved_source",
+          "source_authority": "no_authoritative_guidance"
+        },
+        "guidance_steps": [],
+        "hold_reason": "unapproved_source",
+        "prerequisites": [],
+        "source_sections": [],
+        "status": "HOLD",
+        "warnings": []
+      },
+      "envelope_status": "HOLD",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": "unapproved_source",
+      "kernel_status": "PASS",
+      "name": "arbitrary_path_attempt_hold",
+      "pass": true,
+      "result_digest": "b927ef1cc8bb5d00ad2412410b8c0c1ab97550395b64c696f8b8f83fb799a1c4"
+    },
+    {
+      "envelope": {
+        "applicability": "insufficient",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [
+          {
+            "artifact_id": "injection_runbook",
+            "path": "approved://injection_runbook.md",
+            "quote_hash": "cdfb58df539726de4f2f5b1e6efeac7a4e087f713cc816cb650415bedb3448fe",
+            "section_id": "injection_runbook:01:suspicious_runbook",
+            "sha256": "1385229074af7c6a9d62860b044d5eb2e4e1c6d7e0cf34a7c79b72880258ea36",
+            "source_ref_id": "injection_runbook#injection_runbook:01:suspicious_runbook"
+          },
+          {
+            "artifact_id": "injection_runbook",
+            "path": "approved://injection_runbook.md",
+            "quote_hash": "027b1b95465c1de24c67d0a5a23bc7b5890bcccd116b93876a4bac433460b23f",
+            "section_id": "injection_runbook:02:steps",
+            "sha256": "1385229074af7c6a9d62860b044d5eb2e4e1c6d7e0cf34a7c79b72880258ea36",
+            "source_ref_id": "injection_runbook#injection_runbook:02:steps"
+          }
+        ],
+        "confidence": "high",
+        "disposition": {
+          "deterministic": true,
+          "external_action_executed": false,
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "reason": "prompt_injection_risk",
+          "source_authority": "no_authoritative_guidance"
+        },
+        "guidance_steps": [],
+        "hold_reason": "prompt_injection_risk",
+        "prerequisites": [],
+        "source_sections": [
+          {
+            "heading": "Suspicious Runbook",
+            "line_range": "1-2",
+            "section_hash": "cdfb58df539726de4f2f5b1e6efeac7a4e087f713cc816cb650415bedb3448fe",
+            "section_id": "injection_runbook:01:suspicious_runbook"
+          },
+          {
+            "heading": "Steps",
+            "line_range": "3-5",
+            "section_hash": "027b1b95465c1de24c67d0a5a23bc7b5890bcccd116b93876a4bac433460b23f",
+            "section_id": "injection_runbook:02:steps"
+          }
+        ],
+        "status": "HOLD",
+        "warnings": []
+      },
+      "envelope_status": "HOLD",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": "prompt_injection_risk",
+      "kernel_status": "PASS",
+      "name": "prompt_injection_like_artifact_text_hold",
+      "pass": true,
+      "result_digest": "17aafa06d145582c71aef2c5e5f1e61fd68d85d69d433994cd53e865833147cc"
+    },
+    {
+      "envelope": {
+        "applicability": "insufficient",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [
+          {
+            "artifact_id": "external_action_runbook",
+            "path": "approved://external_action_runbook.md",
+            "quote_hash": "658dfa76b9c6e29246ac3a028a865c3c7296daf71ef8bea632003ed08f889efa",
+            "section_id": "external_action_runbook:01:external_action_runbook",
+            "sha256": "3437c9df3c2b67ee6a9ed9fd6621e3608beb9545f5628ec5d076299f9e4c6d9f",
+            "source_ref_id": "external_action_runbook#external_action_runbook:01:external_action_runbook"
+          },
+          {
+            "artifact_id": "external_action_runbook",
+            "path": "approved://external_action_runbook.md",
+            "quote_hash": "58b7bec78c52384cf5acd519741778fcc46787665dbfdce91fd2a7e09f0525de",
+            "section_id": "external_action_runbook:02:steps",
+            "sha256": "3437c9df3c2b67ee6a9ed9fd6621e3608beb9545f5628ec5d076299f9e4c6d9f",
+            "source_ref_id": "external_action_runbook#external_action_runbook:02:steps"
+          }
+        ],
+        "confidence": "high",
+        "disposition": {
+          "deterministic": true,
+          "external_action_executed": false,
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "reason": "external_action_required",
+          "source_authority": "no_authoritative_guidance"
+        },
+        "guidance_steps": [],
+        "hold_reason": "external_action_required",
+        "prerequisites": [],
+        "source_sections": [
+          {
+            "heading": "External Action Runbook",
+            "line_range": "1-2",
+            "section_hash": "658dfa76b9c6e29246ac3a028a865c3c7296daf71ef8bea632003ed08f889efa",
+            "section_id": "external_action_runbook:01:external_action_runbook"
+          },
+          {
+            "heading": "Steps",
+            "line_range": "3-5",
+            "section_hash": "58b7bec78c52384cf5acd519741778fcc46787665dbfdce91fd2a7e09f0525de",
+            "section_id": "external_action_runbook:02:steps"
+          }
+        ],
+        "status": "HOLD",
+        "warnings": []
+      },
+      "envelope_status": "HOLD",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": "external_action_required",
+      "kernel_status": "PASS",
+      "name": "external_action_required_hold",
+      "pass": true,
+      "result_digest": "02e40b64572478ffaa3b1d4a4c60ae78d857990ef480eb833c8c83a35db7de22"
+    },
+    {
+      "envelope": {
+        "applicability": "insufficient",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [
+          {
+            "artifact_id": "approved_runbook_fixture",
+            "path": "approved://approved_runbook_fixture.md",
+            "quote_hash": "8422c5166fcf47371823acebe9be1f599be402f118966c9b549d0ddd2c7e2cc9",
+            "section_id": "approved_runbook_fixture:01:approved_runbook_c2_fixture",
+            "sha256": "18269b4251dcc32e1aeb53bf133272e2db596d03d9642225d8680d5fc6248264",
+            "source_ref_id": "approved_runbook_fixture#approved_runbook_fixture:01:approved_runbook_c2_fixture"
+          },
+          {
+            "artifact_id": "approved_runbook_fixture",
+            "path": "approved://approved_runbook_fixture.md",
+            "quote_hash": "6bb423e7327363362d38f89df9003a7bd61a81b5920806d3b8e002050326eccc",
+            "section_id": "approved_runbook_fixture:02:prerequisites",
+            "sha256": "18269b4251dcc32e1aeb53bf133272e2db596d03d9642225d8680d5fc6248264",
+            "source_ref_id": "approved_runbook_fixture#approved_runbook_fixture:02:prerequisites"
+          },
+          {
+            "artifact_id": "approved_runbook_fixture",
+            "path": "approved://approved_runbook_fixture.md",
+            "quote_hash": "77131db26aa9be941d4c88bc3f7a7ed17cb495b7f7e0e4c0452f34ec603ea56c",
+            "section_id": "approved_runbook_fixture:03:steps",
+            "sha256": "18269b4251dcc32e1aeb53bf133272e2db596d03d9642225d8680d5fc6248264",
+            "source_ref_id": "approved_runbook_fixture#approved_runbook_fixture:03:steps"
+          },
+          {
+            "artifact_id": "approved_runbook_fixture",
+            "path": "approved://approved_runbook_fixture.md",
+            "quote_hash": "146cea23b6d7105498a68ffae19f19ccc7bbca69c8891000adf699dd00ab400e",
+            "section_id": "approved_runbook_fixture:04:warnings",
+            "sha256": "18269b4251dcc32e1aeb53bf133272e2db596d03d9642225d8680d5fc6248264",
+            "source_ref_id": "approved_runbook_fixture#approved_runbook_fixture:04:warnings"
+          },
+          {
+            "artifact_id": "approved_runbook_fixture",
+            "path": "approved://approved_runbook_fixture.md",
+            "quote_hash": "2ae813ffbde81e518d800491819f691b44593e0b144aaf4febe8770795135eaf",
+            "section_id": "approved_runbook_fixture:05:support",
+            "sha256": "18269b4251dcc32e1aeb53bf133272e2db596d03d9642225d8680d5fc6248264",
+            "source_ref_id": "approved_runbook_fixture#approved_runbook_fixture:05:support"
+          }
+        ],
+        "confidence": "high",
+        "disposition": {
+          "deterministic": true,
+          "external_action_executed": false,
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "reason": "external_action_required",
+          "source_authority": "no_authoritative_guidance"
+        },
+        "guidance_steps": [],
+        "hold_reason": "external_action_required",
+        "prerequisites": [],
+        "source_sections": [
+          {
+            "heading": "Approved Runbook: C2 Fixture",
+            "line_range": "1-2",
+            "section_hash": "8422c5166fcf47371823acebe9be1f599be402f118966c9b549d0ddd2c7e2cc9",
+            "section_id": "approved_runbook_fixture:01:approved_runbook_c2_fixture"
+          },
+          {
+            "heading": "Prerequisites",
+            "line_range": "3-6",
+            "section_hash": "6bb423e7327363362d38f89df9003a7bd61a81b5920806d3b8e002050326eccc",
+            "section_id": "approved_runbook_fixture:02:prerequisites"
+          },
+          {
+            "heading": "Steps",
+            "line_range": "7-11",
+            "section_hash": "77131db26aa9be941d4c88bc3f7a7ed17cb495b7f7e0e4c0452f34ec603ea56c",
+            "section_id": "approved_runbook_fixture:03:steps"
+          },
+          {
+            "heading": "Warnings",
+            "line_range": "12-15",
+            "section_hash": "146cea23b6d7105498a68ffae19f19ccc7bbca69c8891000adf699dd00ab400e",
+            "section_id": "approved_runbook_fixture:04:warnings"
+          },
+          {
+            "heading": "Support",
+            "line_range": "16-17",
+            "section_hash": "2ae813ffbde81e518d800491819f691b44593e0b144aaf4febe8770795135eaf",
+            "section_id": "approved_runbook_fixture:05:support"
+          }
+        ],
+        "status": "HOLD",
+        "warnings": []
+      },
+      "envelope_status": "HOLD",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": "external_action_required",
+      "kernel_status": "PASS",
+      "name": "unsafe_authority_required_hold",
+      "pass": true,
+      "result_digest": "fedd8cd8b5808c09f87b3eedbc9ebd4eff000dce9e0e8eb377736a6eab9f7e1b"
+    },
+    {
+      "envelope": {
+        "applicability": "insufficient",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [
+          {
+            "artifact_id": "approved_runbook_fixture",
+            "path": "approved://approved_runbook_fixture.md",
+            "quote_hash": "8422c5166fcf47371823acebe9be1f599be402f118966c9b549d0ddd2c7e2cc9",
+            "section_id": "approved_runbook_fixture:01:approved_runbook_c2_fixture",
+            "sha256": "18269b4251dcc32e1aeb53bf133272e2db596d03d9642225d8680d5fc6248264",
+            "source_ref_id": "approved_runbook_fixture#approved_runbook_fixture:01:approved_runbook_c2_fixture"
+          },
+          {
+            "artifact_id": "approved_runbook_fixture",
+            "path": "approved://approved_runbook_fixture.md",
+            "quote_hash": "6bb423e7327363362d38f89df9003a7bd61a81b5920806d3b8e002050326eccc",
+            "section_id": "approved_runbook_fixture:02:prerequisites",
+            "sha256": "18269b4251dcc32e1aeb53bf133272e2db596d03d9642225d8680d5fc6248264",
+            "source_ref_id": "approved_runbook_fixture#approved_runbook_fixture:02:prerequisites"
+          },
+          {
+            "artifact_id": "approved_runbook_fixture",
+            "path": "approved://approved_runbook_fixture.md",
+            "quote_hash": "77131db26aa9be941d4c88bc3f7a7ed17cb495b7f7e0e4c0452f34ec603ea56c",
+            "section_id": "approved_runbook_fixture:03:steps",
+            "sha256": "18269b4251dcc32e1aeb53bf133272e2db596d03d9642225d8680d5fc6248264",
+            "source_ref_id": "approved_runbook_fixture#approved_runbook_fixture:03:steps"
+          },
+          {
+            "artifact_id": "approved_runbook_fixture",
+            "path": "approved://approved_runbook_fixture.md",
+            "quote_hash": "146cea23b6d7105498a68ffae19f19ccc7bbca69c8891000adf699dd00ab400e",
+            "section_id": "approved_runbook_fixture:04:warnings",
+            "sha256": "18269b4251dcc32e1aeb53bf133272e2db596d03d9642225d8680d5fc6248264",
+            "source_ref_id": "approved_runbook_fixture#approved_runbook_fixture:04:warnings"
+          },
+          {
+            "artifact_id": "approved_runbook_fixture",
+            "path": "approved://approved_runbook_fixture.md",
+            "quote_hash": "2ae813ffbde81e518d800491819f691b44593e0b144aaf4febe8770795135eaf",
+            "section_id": "approved_runbook_fixture:05:support",
+            "sha256": "18269b4251dcc32e1aeb53bf133272e2db596d03d9642225d8680d5fc6248264",
+            "source_ref_id": "approved_runbook_fixture#approved_runbook_fixture:05:support"
+          }
+        ],
+        "confidence": "high",
+        "disposition": {
+          "deterministic": true,
+          "external_action_executed": false,
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "reason": "cross_artifact_synthesis_forbidden",
+          "source_authority": "no_authoritative_guidance"
+        },
+        "guidance_steps": [],
+        "hold_reason": "cross_artifact_synthesis_forbidden",
+        "prerequisites": [],
+        "source_sections": [
+          {
+            "heading": "Approved Runbook: C2 Fixture",
+            "line_range": "1-2",
+            "section_hash": "8422c5166fcf47371823acebe9be1f599be402f118966c9b549d0ddd2c7e2cc9",
+            "section_id": "approved_runbook_fixture:01:approved_runbook_c2_fixture"
+          },
+          {
+            "heading": "Prerequisites",
+            "line_range": "3-6",
+            "section_hash": "6bb423e7327363362d38f89df9003a7bd61a81b5920806d3b8e002050326eccc",
+            "section_id": "approved_runbook_fixture:02:prerequisites"
+          },
+          {
+            "heading": "Steps",
+            "line_range": "7-11",
+            "section_hash": "77131db26aa9be941d4c88bc3f7a7ed17cb495b7f7e0e4c0452f34ec603ea56c",
+            "section_id": "approved_runbook_fixture:03:steps"
+          },
+          {
+            "heading": "Warnings",
+            "line_range": "12-15",
+            "section_hash": "146cea23b6d7105498a68ffae19f19ccc7bbca69c8891000adf699dd00ab400e",
+            "section_id": "approved_runbook_fixture:04:warnings"
+          },
+          {
+            "heading": "Support",
+            "line_range": "16-17",
+            "section_hash": "2ae813ffbde81e518d800491819f691b44593e0b144aaf4febe8770795135eaf",
+            "section_id": "approved_runbook_fixture:05:support"
+          }
+        ],
+        "status": "HOLD",
+        "warnings": []
+      },
+      "envelope_status": "HOLD",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": "cross_artifact_synthesis_forbidden",
+      "kernel_status": "PASS",
+      "name": "cross_artifact_question_hold",
+      "pass": true,
+      "result_digest": "070473e88aababd1e6336bc20e1fb4b7b67ee2bcd316940e4b1081cf777a5125"
+    },
+    {
+      "envelope": {
+        "applicability": "insufficient",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [
+          {
+            "artifact_id": "approved_runbook_fixture",
+            "path": "approved://approved_runbook_fixture.md",
+            "quote_hash": "8422c5166fcf47371823acebe9be1f599be402f118966c9b549d0ddd2c7e2cc9",
+            "section_id": "approved_runbook_fixture:01:approved_runbook_c2_fixture",
+            "sha256": "18269b4251dcc32e1aeb53bf133272e2db596d03d9642225d8680d5fc6248264",
+            "source_ref_id": "approved_runbook_fixture#approved_runbook_fixture:01:approved_runbook_c2_fixture"
+          },
+          {
+            "artifact_id": "approved_runbook_fixture",
+            "path": "approved://approved_runbook_fixture.md",
+            "quote_hash": "6bb423e7327363362d38f89df9003a7bd61a81b5920806d3b8e002050326eccc",
+            "section_id": "approved_runbook_fixture:02:prerequisites",
+            "sha256": "18269b4251dcc32e1aeb53bf133272e2db596d03d9642225d8680d5fc6248264",
+            "source_ref_id": "approved_runbook_fixture#approved_runbook_fixture:02:prerequisites"
+          },
+          {
+            "artifact_id": "approved_runbook_fixture",
+            "path": "approved://approved_runbook_fixture.md",
+            "quote_hash": "77131db26aa9be941d4c88bc3f7a7ed17cb495b7f7e0e4c0452f34ec603ea56c",
+            "section_id": "approved_runbook_fixture:03:steps",
+            "sha256": "18269b4251dcc32e1aeb53bf133272e2db596d03d9642225d8680d5fc6248264",
+            "source_ref_id": "approved_runbook_fixture#approved_runbook_fixture:03:steps"
+          },
+          {
+            "artifact_id": "approved_runbook_fixture",
+            "path": "approved://approved_runbook_fixture.md",
+            "quote_hash": "146cea23b6d7105498a68ffae19f19ccc7bbca69c8891000adf699dd00ab400e",
+            "section_id": "approved_runbook_fixture:04:warnings",
+            "sha256": "18269b4251dcc32e1aeb53bf133272e2db596d03d9642225d8680d5fc6248264",
+            "source_ref_id": "approved_runbook_fixture#approved_runbook_fixture:04:warnings"
+          },
+          {
+            "artifact_id": "approved_runbook_fixture",
+            "path": "approved://approved_runbook_fixture.md",
+            "quote_hash": "2ae813ffbde81e518d800491819f691b44593e0b144aaf4febe8770795135eaf",
+            "section_id": "approved_runbook_fixture:05:support",
+            "sha256": "18269b4251dcc32e1aeb53bf133272e2db596d03d9642225d8680d5fc6248264",
+            "source_ref_id": "approved_runbook_fixture#approved_runbook_fixture:05:support"
+          }
+        ],
+        "confidence": "high",
+        "disposition": {
+          "deterministic": true,
+          "external_action_executed": false,
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "reason": "cross_artifact_synthesis_forbidden",
+          "source_authority": "no_authoritative_guidance"
+        },
+        "guidance_steps": [],
+        "hold_reason": "cross_artifact_synthesis_forbidden",
+        "prerequisites": [],
+        "source_sections": [
+          {
+            "heading": "Approved Runbook: C2 Fixture",
+            "line_range": "1-2",
+            "section_hash": "8422c5166fcf47371823acebe9be1f599be402f118966c9b549d0ddd2c7e2cc9",
+            "section_id": "approved_runbook_fixture:01:approved_runbook_c2_fixture"
+          },
+          {
+            "heading": "Prerequisites",
+            "line_range": "3-6",
+            "section_hash": "6bb423e7327363362d38f89df9003a7bd61a81b5920806d3b8e002050326eccc",
+            "section_id": "approved_runbook_fixture:02:prerequisites"
+          },
+          {
+            "heading": "Steps",
+            "line_range": "7-11",
+            "section_hash": "77131db26aa9be941d4c88bc3f7a7ed17cb495b7f7e0e4c0452f34ec603ea56c",
+            "section_id": "approved_runbook_fixture:03:steps"
+          },
+          {
+            "heading": "Warnings",
+            "line_range": "12-15",
+            "section_hash": "146cea23b6d7105498a68ffae19f19ccc7bbca69c8891000adf699dd00ab400e",
+            "section_id": "approved_runbook_fixture:04:warnings"
+          },
+          {
+            "heading": "Support",
+            "line_range": "16-17",
+            "section_hash": "2ae813ffbde81e518d800491819f691b44593e0b144aaf4febe8770795135eaf",
+            "section_id": "approved_runbook_fixture:05:support"
+          }
+        ],
+        "status": "HOLD",
+        "warnings": []
+      },
+      "envelope_status": "HOLD",
+      "expected_kernel_status": "PASS",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "hold_reason": "cross_artifact_synthesis_forbidden",
+      "kernel_status": "PASS",
+      "name": "multi_source_proposal_hold",
+      "pass": true,
+      "result_digest": "070473e88aababd1e6336bc20e1fb4b7b67ee2bcd316940e4b1081cf777a5125"
+    },
+    {
+      "envelope_sha256": "ce1d21e49b929dcbd8216060dea85a0654f3e4f7b7f2a2fccce7bad0733b82d0",
+      "expect_accept": false,
+      "guard_accepted": false,
+      "guard_reasons": [
+        "guidance_requires_cited_source_refs"
+      ],
+      "name": "guard_rejects_guidance_without_citations",
+      "pass": true
+    },
+    {
+      "envelope_sha256": "f9e92c49fdd37faded0dd70f647adde075c77c9a07e6696d636e513f97921ff2",
+      "expect_accept": false,
+      "guard_accepted": false,
+      "guard_reasons": [
+        "multiple_artifacts_in_citations",
+        "wrong_artifact_id:other_artifact"
+      ],
+      "name": "guard_rejects_guidance_with_wrong_artifact",
+      "pass": true
+    },
+    {
+      "envelope_sha256": "d4fca8ac529de08ae3aba457229ea735342900472159eaabdd60374962a62821",
+      "expect_accept": false,
+      "guard_accepted": false,
+      "guard_reasons": [
+        "guidance_step_unapproved_section:unknown_section"
+      ],
+      "name": "guard_rejects_guidance_with_unapproved_section",
+      "pass": true
+    },
+    {
+      "envelope_sha256": "1e979b3db924e54030c58dfce3ca3cf0082bda6abde8678f0e9d75d8c547b20e",
+      "expect_accept": false,
+      "guard_accepted": false,
+      "guard_reasons": [
+        "mutation_smuggled"
+      ],
+      "name": "guard_rejects_guidance_with_mutation_smuggling",
+      "pass": true
+    },
+    {
+      "envelope_sha256": "f943be65bbc34743a898f4ea9bee04e3b22ae006967ae55a032ba82f635430c5",
+      "expect_accept": false,
+      "guard_accepted": false,
+      "guard_reasons": [
+        "production_expansion_smuggled"
+      ],
+      "name": "guard_rejects_guidance_with_production_expansion",
+      "pass": true
+    },
+    {
+      "envelope_sha256": "75385e9354bebab8f8b45edef8f69208df09c4a0595447df8fd20fc20ab74405",
+      "expect_accept": false,
+      "guard_accepted": false,
+      "guard_reasons": [
+        "hold_must_not_include_authoritative_guidance_steps"
+      ],
+      "name": "guard_rejects_hold_with_guidance_steps",
+      "pass": true
+    }
+  ]
+}

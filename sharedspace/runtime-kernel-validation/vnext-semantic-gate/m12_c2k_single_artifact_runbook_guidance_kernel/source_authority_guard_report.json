@@ -1,0 +1,16 @@
+{
+  "approved_section_citations_required": true,
+  "arbitrary_path_reads_allowed": false,
+  "created_utc": "2026-06-27T07:34:29Z",
+  "cross_artifact_comparison_allowed": false,
+  "deterministic_source_selection": true,
+  "direct_provider_bypass_count": 0,
+  "final_guard_authoritative": true,
+  "memory_context_daily_authority_allowed": false,
+  "multi_source_proposal_drafting_allowed": false,
+  "optional_model_prose_enabled": false,
+  "provider_model_calls": 0,
+  "schema": "stickbot.vnext_semantic_gate.m12_c2k.source_authority_guard_report.v1",
+  "single_approved_artifact_only": true,
+  "status": "PASS"
+}
