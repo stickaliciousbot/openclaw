@@ -1,0 +1,24 @@
+{
+  "command": [
+    "python3",
+    "-m",
+    "py_compile",
+    "scripts/m12_c1_artifact_qa_kernel.py",
+    "scripts/m12_c1_source_authority_guard.py",
+    "scripts/test_m12_c1_artifact_qa_kernel.py",
+    "scripts/m12_c1k_read_only_guard.py"
+  ],
+  "compiled_files": [
+    "scripts/m12_c1_artifact_qa_kernel.py",
+    "scripts/m12_c1_source_authority_guard.py",
+    "scripts/test_m12_c1_artifact_qa_kernel.py",
+    "scripts/m12_c1k_read_only_guard.py"
+  ],
+  "created_utc": "2026-06-27T03:38:30Z",
+  "provider_model_calls": 0,
+  "returncode": 0,
+  "schema": "stickbot.vnext_semantic_gate.m12_c1k.compile_test_report.v1",
+  "status": "PASS",
+  "stderr": "",
+  "stdout": ""
+}

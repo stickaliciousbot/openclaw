@@ -1,0 +1,12 @@
+{
+  "artifact_memory_promoted": false,
+  "cache_enabled": false,
+  "created_utc": "2026-06-27T03:38:30Z",
+  "failed_gates": [],
+  "production_expansion_applied": false,
+  "provider_model_calls": 0,
+  "rollback_ready": true,
+  "runtime_authority_mutated": false,
+  "schema": "stickbot.vnext_semantic_gate.m12_c1k_durability_evidence_freeze.status.v1",
+  "status": "M12_C1K_DURABILITY_EVIDENCE_FREEZE_PASS"
+}

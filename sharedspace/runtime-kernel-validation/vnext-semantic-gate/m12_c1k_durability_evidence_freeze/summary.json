@@ -1,0 +1,17 @@
+{
+  "accepted_evidence_manifest_sha256": "097c0819182001fcf0c0497c7c072be12a8c51f948d2d8f52a39c2ceaf7f28dd",
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1k_durability_evidence_freeze",
+  "c1k_artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1k_deterministic_artifact_qa_kernel",
+  "c1k_status": "M12_C1K_DETERMINISTIC_ARTIFACT_QA_KERNEL_PASS",
+  "commit_scope": "C1K implementation files, read-only guard, accepted evidence packet, C1K-D freeze packet only",
+  "compile_status": "PASS",
+  "created_utc": "2026-06-27T03:38:30Z",
+  "guard_status": "PASS",
+  "mutation_sentinels_clean": true,
+  "prior_superseded_evidence_manifest_sha256": "50527805a332a4ebecb8737bdb82354d9503edca2986b71fba536c20c0e27e75",
+  "read_only_validation_status": "PASS",
+  "rollback_ready": true,
+  "schema": "stickbot.vnext_semantic_gate.m12_c1k_durability_evidence_freeze.summary.v1",
+  "status": "M12_C1K_DURABILITY_EVIDENCE_FREEZE_PASS",
+  "tests": "70/70"
+}

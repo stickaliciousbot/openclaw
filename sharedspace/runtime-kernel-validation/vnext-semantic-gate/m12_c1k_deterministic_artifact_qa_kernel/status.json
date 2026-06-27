@@ -1,0 +1,14 @@
+{
+  "artifact_memory_promoted": false,
+  "cache_enabled": false,
+  "fail_count": 0,
+  "m11_frozen_baseline_preserved": true,
+  "pass_count": 70,
+  "production_expansion_applied": false,
+  "provider_model_calls": 0,
+  "rollback_ready": true,
+  "runtime_authority_mutated": false,
+  "schema": "stickbot.vnext_semantic_gate.m12_c1k.test_report.v1",
+  "status": "M12_C1K_DETERMINISTIC_ARTIFACT_QA_KERNEL_PASS",
+  "test_count": 70
+}

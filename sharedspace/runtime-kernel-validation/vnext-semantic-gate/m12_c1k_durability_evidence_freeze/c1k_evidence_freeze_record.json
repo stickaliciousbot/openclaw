@@ -1,0 +1,24 @@
+{
+  "accepted_evidence_manifest_sha256": "097c0819182001fcf0c0497c7c072be12a8c51f948d2d8f52a39c2ceaf7f28dd",
+  "c1k_final_status": "M12_C1K_DETERMINISTIC_ARTIFACT_QA_KERNEL_PASS",
+  "c1r16_guard": "scripts/m12_c1k_read_only_guard.py --purpose c1r16_preflight",
+  "created_utc": "2026-06-27T03:38:30Z",
+  "frozen_artifacts": {
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1k_deterministic_artifact_qa_kernel/LOW_LEVEL_DESIGN_AND_IMPLEMENTATION_PLAN.md": "2ec65523d2d44156e1a28082c1b4e79825666305ff2ece5b911a05d26dc8d4c6",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1k_deterministic_artifact_qa_kernel/evidence_manifest.json": "097c0819182001fcf0c0497c7c072be12a8c51f948d2d8f52a39c2ceaf7f28dd",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1k_deterministic_artifact_qa_kernel/kernel_test_report.json": "fe3b2a28abf71f17a00c49a61d1f970f2c009855683e0173f8b62adea3cf1eb8",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1k_deterministic_artifact_qa_kernel/status.json": "981970b6755a3378dff534a78f606d105198029014f465ccc9f14137f79d64ec"
+  },
+  "implementation_files": {
+    "scripts/m12_c1_artifact_qa_kernel.py": "951c2d2554615732a0b872c3ff4d6c41f2bff54c9d025bc7f4b8485b39e13db3",
+    "scripts/m12_c1_source_authority_guard.py": "ea9c69d516e4618245b9ee0858a063052fe59a3468da1fa3c5adcbf295cf7f9b",
+    "scripts/m12_c1k_read_only_guard.py": "1f71bb95ad604520324a1bcba6c012b747dc16b9661537a51487d46292c90e1b",
+    "scripts/test_m12_c1_artifact_qa_kernel.py": "f5defb03da25754831c248e92ef68d76010c103b501a8d024d19fd4a91273d28"
+  },
+  "prior_superseded_evidence_manifest_sha256": "50527805a332a4ebecb8737bdb82354d9503edca2986b71fba536c20c0e27e75",
+  "read_only_validation_mode": "scripts/test_m12_c1_artifact_qa_kernel.py --read-only-validate --expected-evidence-sha <sha>",
+  "schema": "stickbot.vnext_semantic_gate.m12_c1k.evidence_freeze_record.v1",
+  "sha_transition_reason": "Prior SHA was superseded after accidental local regeneration before C1R16. C1R16 correctly blocked because it required read-only consumption of the prior SHA. Current SHA is now explicitly accepted/frozen as C1K-D baseline.",
+  "status": "PASS",
+  "tests": "70/70"
+}

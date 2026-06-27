@@ -1,0 +1,72 @@
+{
+  "created_utc": "2026-06-27T03:38:30Z",
+  "current_accepted_evidence_manifest_sha256": "097c0819182001fcf0c0497c7c072be12a8c51f948d2d8f52a39c2ceaf7f28dd",
+  "items": [
+    {
+      "bytes": 13165,
+      "exists": true,
+      "kind": "implementation_or_guard",
+      "mode_octal": "0o664",
+      "path": "scripts/m12_c1_artifact_qa_kernel.py",
+      "sha256": "951c2d2554615732a0b872c3ff4d6c41f2bff54c9d025bc7f4b8485b39e13db3"
+    },
+    {
+      "bytes": 32458,
+      "exists": true,
+      "kind": "implementation_or_guard",
+      "mode_octal": "0o664",
+      "path": "scripts/m12_c1_source_authority_guard.py",
+      "sha256": "ea9c69d516e4618245b9ee0858a063052fe59a3468da1fa3c5adcbf295cf7f9b"
+    },
+    {
+      "bytes": 14724,
+      "exists": true,
+      "kind": "implementation_or_guard",
+      "mode_octal": "0o664",
+      "path": "scripts/test_m12_c1_artifact_qa_kernel.py",
+      "sha256": "f5defb03da25754831c248e92ef68d76010c103b501a8d024d19fd4a91273d28"
+    },
+    {
+      "bytes": 3514,
+      "exists": true,
+      "kind": "implementation_or_guard",
+      "mode_octal": "0o755",
+      "path": "scripts/m12_c1k_read_only_guard.py",
+      "sha256": "1f71bb95ad604520324a1bcba6c012b747dc16b9661537a51487d46292c90e1b"
+    },
+    {
+      "bytes": 9988,
+      "exists": true,
+      "kind": "accepted_c1k_evidence_artifact",
+      "mode_octal": "0o664",
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1k_deterministic_artifact_qa_kernel/LOW_LEVEL_DESIGN_AND_IMPLEMENTATION_PLAN.md",
+      "sha256": "2ec65523d2d44156e1a28082c1b4e79825666305ff2ece5b911a05d26dc8d4c6"
+    },
+    {
+      "bytes": 1555,
+      "exists": true,
+      "kind": "accepted_c1k_evidence_artifact",
+      "mode_octal": "0o664",
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1k_deterministic_artifact_qa_kernel/evidence_manifest.json",
+      "sha256": "097c0819182001fcf0c0497c7c072be12a8c51f948d2d8f52a39c2ceaf7f28dd"
+    },
+    {
+      "bytes": 53289,
+      "exists": true,
+      "kind": "accepted_c1k_evidence_artifact",
+      "mode_octal": "0o664",
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1k_deterministic_artifact_qa_kernel/kernel_test_report.json",
+      "sha256": "fe3b2a28abf71f17a00c49a61d1f970f2c009855683e0173f8b62adea3cf1eb8"
+    },
+    {
+      "bytes": 428,
+      "exists": true,
+      "kind": "accepted_c1k_evidence_artifact",
+      "mode_octal": "0o664",
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1k_deterministic_artifact_qa_kernel/status.json",
+      "sha256": "981970b6755a3378dff534a78f606d105198029014f465ccc9f14137f79d64ec"
+    }
+  ],
+  "prior_superseded_evidence_manifest_sha256": "50527805a332a4ebecb8737bdb82354d9503edca2986b71fba536c20c0e27e75",
+  "schema": "stickbot.vnext_semantic_gate.m12_c1k.file_inventory.v1"
+}

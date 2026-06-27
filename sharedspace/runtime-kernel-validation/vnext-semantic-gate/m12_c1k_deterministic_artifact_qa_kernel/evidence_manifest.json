@@ -1,0 +1,36 @@
+{
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1k_deterministic_artifact_qa_kernel",
+  "files": [
+    {
+      "bytes": 9988,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1k_deterministic_artifact_qa_kernel/LOW_LEVEL_DESIGN_AND_IMPLEMENTATION_PLAN.md",
+      "sha256": "2ec65523d2d44156e1a28082c1b4e79825666305ff2ece5b911a05d26dc8d4c6"
+    },
+    {
+      "bytes": 53289,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1k_deterministic_artifact_qa_kernel/kernel_test_report.json",
+      "sha256": "fe3b2a28abf71f17a00c49a61d1f970f2c009855683e0173f8b62adea3cf1eb8"
+    },
+    {
+      "bytes": 428,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1k_deterministic_artifact_qa_kernel/status.json",
+      "sha256": "981970b6755a3378dff534a78f606d105198029014f465ccc9f14137f79d64ec"
+    }
+  ],
+  "schema": "stickbot.vnext_semantic_gate.m12_c1k.evidence_manifest.v1",
+  "self_hash_policy": "evidence_manifest.json excluded from its own file list",
+  "source_files": [
+    {
+      "path": "scripts/m12_c1_artifact_qa_kernel.py",
+      "sha256": "951c2d2554615732a0b872c3ff4d6c41f2bff54c9d025bc7f4b8485b39e13db3"
+    },
+    {
+      "path": "scripts/test_m12_c1_artifact_qa_kernel.py",
+      "sha256": "59ef06401cf76f6345b1b475eff71035b74c962ae526542f0eb5e5efcbdb2c46"
+    },
+    {
+      "path": "scripts/m12_c1_source_authority_guard.py",
+      "sha256": "ea9c69d516e4618245b9ee0858a063052fe59a3468da1fa3c5adcbf295cf7f9b"
+    }
+  ]
+}

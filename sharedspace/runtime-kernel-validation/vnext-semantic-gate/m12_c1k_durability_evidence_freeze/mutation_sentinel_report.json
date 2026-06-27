@@ -1,0 +1,19 @@
+{
+  "artifact_memory_promoted": false,
+  "c1r16_rerun_performed": false,
+  "c2_c3_c4_started": false,
+  "cache_enabled": false,
+  "created_utc": "2026-06-27T03:38:30Z",
+  "direct_provider_bypass": false,
+  "fallback_chain_mutated": false,
+  "full_c1_readiness_rerun_performed": false,
+  "gateway_config_mutated": false,
+  "live_route_mutated": false,
+  "m11_frozen_baseline_preserved": true,
+  "memory_route_mutated": false,
+  "production_expansion_applied": false,
+  "provider_model_calls": 0,
+  "runtime_authority_mutated": false,
+  "schema": "stickbot.vnext_semantic_gate.mutation_sentinel_report.v1",
+  "status": "PASS"
+}

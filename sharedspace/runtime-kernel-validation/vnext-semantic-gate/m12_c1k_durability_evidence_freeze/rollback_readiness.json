@@ -1,0 +1,9 @@
+{
+  "c1k_status_rollback_ready": true,
+  "created_utc": "2026-06-27T03:38:30Z",
+  "reason": "No production/runtime/config mutation was performed; rollback posture preserved.",
+  "rollback_needed": false,
+  "rollback_ready": true,
+  "schema": "stickbot.vnext_semantic_gate.rollback_readiness.v1",
+  "status": "PASS"
+}
