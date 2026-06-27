@@ -1,0 +1,26 @@
+{
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c3p5_limited_production_acceptance_finalization",
+  "attempt_tracking": {
+    "arbitrary_path_attempts": 1,
+    "c4_proposal_drafting_attempts": 1,
+    "external_action_holds": 1,
+    "memory_context_daily_authority_attempts": 3,
+    "more_than_two_artifact_attempts": 1,
+    "one_artifact_attempts": 1,
+    "runtime_mutation_holds": 1
+  },
+  "conflict": 5,
+  "consistent": 3,
+  "created_utc": "2026-06-27T12:09:34Z",
+  "failed_gates": [],
+  "first_failure": null,
+  "guard_reject": 1,
+  "hold": 12,
+  "reconciled": true,
+  "reject": 4,
+  "requests": 25,
+  "schema": "stickbot.vnext_semantic_gate.m12_c3p5.accounting.v1",
+  "schema_base": "stickbot.vnext_semantic_gate.m12_c3p5",
+  "source_c3p_status_hash": "a6e1b9f91c4796ab10adbdead97b1ae99fd1bbf5c51a15dd40f421895009e48c",
+  "status": "M12_C3P5_LIMITED_PRODUCTION_ACCEPTANCE_FINALIZATION_PASS"
+}

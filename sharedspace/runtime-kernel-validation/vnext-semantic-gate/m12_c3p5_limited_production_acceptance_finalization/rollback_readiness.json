@@ -1,0 +1,23 @@
+{
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c3p5_limited_production_acceptance_finalization",
+  "created_utc": "2026-06-27T12:09:34Z",
+  "failed_gates": [],
+  "first_failure": null,
+  "m11_frozen_baseline_preserved": true,
+  "m12_c1_frozen_boundary_preserved": true,
+  "m12_c2_frozen_boundary_preserved": true,
+  "rollback_applied": false,
+  "rollback_ready": true,
+  "schema": "stickbot.vnext_semantic_gate.m12_c3p5.rollback.v1",
+  "schema_base": "stickbot.vnext_semantic_gate.m12_c3p5",
+  "source_hashes": {
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_7_production_operating_baseline_finalization/status.json": "2e2aac9d2a97bf1e290dade2501c42fe0eaca5d0690cebb53637751512bb7022",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1_final_owner_acceptance_review/status.json": "4c4a7a0b234777d295ddcd0827399cc0c49bebfece1df90c6d3079cac21362f6",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2_final_owner_acceptance_review/status.json": "7213d4fdfcfebccdaf74e2e54e7571f48f097c07578c97e0126182682f2feed7",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c3_owner_review_readiness_acceptance/status.json": "6c76b97ec68afe726d0a0b5bcf3a43e79ca29437e1be55a37245e98634556bd6",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c3k_two_artifact_consistency_comparison_kernel/status.json": "74921483678b82946ab9c4c6d150c30318009171fba02960ff659a7dd3b7bc02",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c3p_limited_production_canary/status.json": "a6e1b9f91c4796ab10adbdead97b1ae99fd1bbf5c51a15dd40f421895009e48c",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c3r1_two_artifact_consistency_comparison_readiness/status.json": "f8ebae7ed44b1d97a9944da4119616ac2a4f63411897f915e468d47e397e8cd4"
+  },
+  "status": "M12_C3P5_LIMITED_PRODUCTION_ACCEPTANCE_FINALIZATION_PASS"
+}

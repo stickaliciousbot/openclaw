@@ -1,0 +1,37 @@
+{
+  "accepted_candidate": "M12-C3",
+  "accepted_limited_production_expansion": true,
+  "accepted_scope": "M12-C3 deterministic two-artifact consistency comparison through C3K only",
+  "allowed_outcomes": [
+    "CONSISTENT",
+    "CONFLICT",
+    "HOLD",
+    "REJECT",
+    "guard REJECT"
+  ],
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c3p5_limited_production_acceptance_finalization",
+  "created_utc": "2026-06-27T12:09:34Z",
+  "direct_provider_bypass_allowed": false,
+  "failed_gates": [],
+  "first_failure": null,
+  "forbidden_scope": [
+    "C4",
+    "more than two authoritative artifacts",
+    "one-artifact C3 comparison",
+    "proposal drafting",
+    "unsupported reconciliation",
+    "external action execution",
+    "runtime/config/route/fallback/memory/Gateway mutation",
+    "arbitrary path reads as authority",
+    "memory/context-bridge/daily-memory production authority",
+    "provider/model-owned authoritative comparison",
+    "cache/artifact-memory promotion",
+    "direct provider bypass",
+    "broad/global Semantic Gate promotion"
+  ],
+  "owner_boundary_updated": true,
+  "provider_model_authority_calls_allowed": 0,
+  "schema": "stickbot.vnext_semantic_gate.m12_c3p5.owner_boundary_update.v1",
+  "schema_base": "stickbot.vnext_semantic_gate.m12_c3p5",
+  "status": "M12_C3P5_LIMITED_PRODUCTION_ACCEPTANCE_FINALIZATION_PASS"
+}
