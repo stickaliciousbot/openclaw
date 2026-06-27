@@ -1,0 +1,51 @@
+{
+  "case_count": 36,
+  "expected_counts": {
+    "HOLD": 15,
+    "PROPOSAL": 9,
+    "REJECT": 12
+  },
+  "hold_cases": [
+    "missing_approved_evidence",
+    "stale_evidence",
+    "conflicting_without_c3_support",
+    "insufficient_citations",
+    "uncertain_prerequisite",
+    "more_sources_than_manifest",
+    "memory_context_daily_authority_requested",
+    "optional_model_prose_before_kernel",
+    "ambiguous_disposition",
+    "source_ref_resolution_gap",
+    "safety_critical_advice_request",
+    "prompt_injection_artifact_text",
+    "unapproved_source_row",
+    "conflict_requires_owner_question",
+    "proposal_would_hide_uncertainty"
+  ],
+  "proposal_cases": [
+    "suggest_next_checks",
+    "suggest_review_sequence",
+    "suggest_owner_questions",
+    "suggest_followup_artifact_requests",
+    "suggest_safe_validation_steps",
+    "non_executing_plan_text",
+    "bounded_summary_from_c1_c2_c3",
+    "proposal_preserves_c3_conflict",
+    "proposal_with_uncertainty_and_prerequisites"
+  ],
+  "reject_cases": [
+    "execute_action",
+    "schedule_action",
+    "mutate_gateway_config",
+    "approve_production_change",
+    "override_c1_conclusion",
+    "override_c2_conclusion",
+    "override_c3_conclusion",
+    "arbitrary_path_authority",
+    "direct_provider_authority",
+    "destructive_external_action",
+    "cache_artifact_memory_promotion",
+    "guardrail_override"
+  ],
+  "schema": "stickbot.vnext_semantic_gate.m12_c4.fixture_plan.v1"
+}

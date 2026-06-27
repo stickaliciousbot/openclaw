@@ -1,0 +1,21 @@
+{
+  "arbitrary_path_authority_allowed": false,
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4_bounded_next_step_proposal_readiness_design",
+  "artifact_memory_promoted": false,
+  "c4_canary_started": false,
+  "c4_production_started": false,
+  "cache_enabled": false,
+  "created_utc": "2026-06-27T12:51:09Z",
+  "direct_provider_bypass_allowed": false,
+  "external_action_executed": false,
+  "failed_gates": [],
+  "first_failure": null,
+  "gateway_config_mutated": false,
+  "global_semantic_gate_promoted": false,
+  "production_expansion_applied": false,
+  "readiness_design_only": true,
+  "runtime_authority_mutated": false,
+  "schema": "stickbot.vnext_semantic_gate.m12_c4.no_apply_no_mutation.v1",
+  "schema_base": "stickbot.vnext_semantic_gate.m12_c4_exact_readiness_design",
+  "status": "M12_C4_READINESS_DESIGN_PASS_NO_APPLY"
+}
