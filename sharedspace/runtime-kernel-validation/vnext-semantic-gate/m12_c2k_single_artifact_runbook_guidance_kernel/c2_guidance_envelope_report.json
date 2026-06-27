@@ -1,0 +1,13 @@
+{
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2k_single_artifact_runbook_guidance_kernel",
+  "created_utc": "2026-06-27T07:43:55Z",
+  "guidance_contract_enforced": true,
+  "guidance_count": 5,
+  "mutation_smuggling_rejected": true,
+  "production_expansion_smuggling_rejected": true,
+  "schema": "stickbot.vnext_semantic_gate.m12_c2k.guidance_envelope_report.v1",
+  "section_refs_required": true,
+  "source_refs_required": true,
+  "status": "M12_C2K_SINGLE_ARTIFACT_RUNBOOK_GUIDANCE_KERNEL_PASS",
+  "wrong_artifact_rejected": true
+}

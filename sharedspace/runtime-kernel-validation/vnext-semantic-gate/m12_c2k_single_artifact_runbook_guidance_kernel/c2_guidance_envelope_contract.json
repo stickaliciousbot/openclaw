@@ -1,0 +1,33 @@
+{
+  "allowed_statuses": [
+    "GUIDANCE",
+    "HOLD"
+  ],
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2k_single_artifact_runbook_guidance_kernel",
+  "created_utc": "2026-06-27T07:43:55Z",
+  "guidance_forbids": [
+    "hold_reason",
+    "external_action_execution",
+    "mutation_applied",
+    "production_expansion_applied",
+    "uncited/prose-only source authority",
+    "unapproved section ids",
+    "wrong artifact ids"
+  ],
+  "guidance_requires": [
+    "guidance_steps",
+    "cited_source_refs",
+    "source_sections",
+    "source_ref_ids on every step",
+    "source_section_ids on every step",
+    "approved_single_artifact_only authority"
+  ],
+  "hold_requires": [
+    "hold_reason",
+    "no authoritative guidance_steps",
+    "fail_closed disposition"
+  ],
+  "model_prose_authoritative": false,
+  "schema": "stickbot.vnext_semantic_gate.m12_c2k.guidance_envelope_contract.v1",
+  "status": "M12_C2K_SINGLE_ARTIFACT_RUNBOOK_GUIDANCE_KERNEL_PASS"
+}

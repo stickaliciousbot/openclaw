@@ -1,11 +1,21 @@
 {
   "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2k_single_artifact_runbook_guidance_kernel",
-  "created_utc": "2026-06-27T07:34:29Z",
+  "created_utc": "2026-06-27T07:43:55Z",
   "files": [
     {
-      "bytes": 631,
+      "bytes": 617,
       "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2k_single_artifact_runbook_guidance_kernel/M12_C2K_SINGLE_ARTIFACT_RUNBOOK_GUIDANCE_KERNEL.md",
-      "sha256": "96be59f5860544c54f08e6b14c07e7b64a36b669cb11a5200b8d896d4917230d"
+      "sha256": "a32a6ebb91ae17128c89e4eb02e7bed74ece3e28871bbda177871fbf4ec8318f"
+    },
+    {
+      "bytes": 692,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2k_single_artifact_runbook_guidance_kernel/M12_C2K_SINGLE_ARTIFACT_RUNBOOK_GUIDANCE_KERNEL_REVIEW.md",
+      "sha256": "a7bba42380801946dc7191620ce8df791e595e0d901139755c5de6af351037d3"
+    },
+    {
+      "bytes": 647,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2k_single_artifact_runbook_guidance_kernel/c1_boundary_preservation_readback.json",
+      "sha256": "13462cebc0266e34ffbba48b69550b9e172b49d68181235be5df4815046b57ed"
     },
     {
       "bytes": 506,
@@ -13,29 +23,79 @@
       "sha256": "40ca8426ac83f673a441d359aeb20ac2e3b9245f63a30df6bcf4268ce6440042"
     },
     {
+      "bytes": 389,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2k_single_artifact_runbook_guidance_kernel/c2_fail_closed_contract.md",
+      "sha256": "8a1c34e135341fc8416c4dafa9f2ea71efcc5937f0499f13ec20a491c315dc8e"
+    },
+    {
+      "bytes": 5918,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2k_single_artifact_runbook_guidance_kernel/c2_fixture_manifest.json",
+      "sha256": "2256dc76156aebc97ce4df55bae3e05f154842d8f57f67d50837f6e172c4b040"
+    },
+    {
+      "bytes": 990,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2k_single_artifact_runbook_guidance_kernel/c2_guidance_envelope_contract.json",
+      "sha256": "b91b30b658473ab936c1818599130633795175219b649e1b6cca3ea773675c97"
+    },
+    {
+      "bytes": 570,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2k_single_artifact_runbook_guidance_kernel/c2_guidance_envelope_report.json",
+      "sha256": "2812cd1df39861aa082caf6485bd5903a32b9341eb4c8f67ea69645f8c3f096c"
+    },
+    {
+      "bytes": 606,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2k_single_artifact_runbook_guidance_kernel/c2_hold_contract_report.json",
+      "sha256": "df66db0047d86bd62da209b552bf6fe3749c73cff014f40485732b4a470c5828"
+    },
+    {
+      "bytes": 684,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2k_single_artifact_runbook_guidance_kernel/c2_kernel_design.md",
+      "sha256": "d29147dc66e9b68a6e56034289b056ccac710b32a6e76b2d0b54d8a24845db2c"
+    },
+    {
+      "bytes": 73757,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2k_single_artifact_runbook_guidance_kernel/c2_kernel_test_report.json",
+      "sha256": "f6cd78196141e9354e32ddfdf9481dcb2a6f566eb4238c0e6fcd0d554b1f735a"
+    },
+    {
+      "bytes": 477,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2k_single_artifact_runbook_guidance_kernel/c2_no_provider_model_call_report.json",
+      "sha256": "e63bd296a32be52812933145d92ef46b16480d30f24273fa228c25c41b86c11f"
+    },
+    {
+      "bytes": 476,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2k_single_artifact_runbook_guidance_kernel/c2_source_authority_contract.md",
+      "sha256": "83a71b12f8cc52112b361506710b92b65dd89ea106aa6c5b8128978046870ec6"
+    },
+    {
+      "bytes": 897,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2k_single_artifact_runbook_guidance_kernel/c2_source_authority_guard_report.json",
+      "sha256": "5d47d5dc6f7097cd78fe4eb3e01cff5399626f8aa5ea95559ee00d15b7370dfb"
+    },
+    {
       "bytes": 938,
       "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2k_single_artifact_runbook_guidance_kernel/fixture_coverage_report.json",
       "sha256": "d5bbdba799678d0f80d620bfed8b70f3e57846fa5377bf6c283c4da6404d5178"
     },
     {
-      "bytes": 68118,
+      "bytes": 73757,
       "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2k_single_artifact_runbook_guidance_kernel/kernel_test_report.json",
-      "sha256": "f8fb28324c3ab1100530645e9ad49b4cfa8082d154d0df93b165705578d1aabd"
+      "sha256": "f6cd78196141e9354e32ddfdf9481dcb2a6f566eb4238c0e6fcd0d554b1f735a"
     },
     {
-      "bytes": 522,
+      "bytes": 733,
       "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2k_single_artifact_runbook_guidance_kernel/mutation_sentinel_report.json",
-      "sha256": "82ce66bb4295c4990fe82e586deb3f027ff14e08a65b49cb7ff7fc421e367ce0"
+      "sha256": "3740e9be924a9b06b156851a1e4e3c836fbb52110136bf04894edf7c4ff4e316"
     },
     {
-      "bytes": 506,
+      "bytes": 681,
       "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2k_single_artifact_runbook_guidance_kernel/no_apply_no_mutation_record.json",
-      "sha256": "65bfcee02626f36024d68d4b15eb1db46db26ade7b33b97f6c4c8fa99c46753b"
+      "sha256": "90231e334320e16f8b64d752155bcb2614a4fbdb7581d9b03df97a9817b7cfe2"
     },
     {
-      "bytes": 307,
+      "bytes": 466,
       "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2k_single_artifact_runbook_guidance_kernel/rollback_readiness.json",
-      "sha256": "177047bc9c360487807d5cf8d5e431d4cec6f593214514d980c189b98cff35f1"
+      "sha256": "f1b25c61b20acef20c1c6b8b2f0e94a1af4d22300b9729dc05d527bf0fec6ce9"
     },
     {
       "bytes": 612,
@@ -43,17 +103,17 @@
       "sha256": "aa65c73ef4395bd0a273ba8900bd52c0c2fa11dd1a1a28c512033370b2a06039"
     },
     {
-      "bytes": 2703,
+      "bytes": 3875,
       "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2k_single_artifact_runbook_guidance_kernel/status.json",
-      "sha256": "31dfddac8fa120deb7a89b46d59eb1f427db57e87b36db1edfd6ee77e7163200"
+      "sha256": "10b3fe2954cb7132bf1659a851ecfe1e48b8a3f923f2c6363c506f80a08f2ab8"
     },
     {
-      "bytes": 988,
+      "bytes": 936,
       "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2k_single_artifact_runbook_guidance_kernel/summary.json",
-      "sha256": "52cc458ccd1d9673d36d446c41aaf703c03edb0b0d8ae1c3404d1947bafc960b"
+      "sha256": "1f7f9af7e5e4376ffaa5dfa15349fc0c5c2855beb5e1941cf269d661334c5c26"
     }
   ],
-  "schema": "stickbot.vnext_semantic_gate.m12_c2k.evidence_manifest.v1",
+  "schema": "stickbot.vnext_semantic_gate.m12_c2k.evidence_manifest.v2",
   "self_hash_policy": "evidence_manifest.json excluded from its own file list",
   "source_files": [
     {
@@ -66,8 +126,8 @@
     },
     {
       "path": "scripts/test_m12_c2_single_artifact_guidance_kernel.py",
-      "sha256": "eb20fd09f244a328c392033a03320586b911a0e32c7eded49e29c1749acd1f9b"
+      "sha256": "eafba577f14d84d1b9658c19800fdbc8fc576bca44942ccc01a9ffe0ed90ea85"
     }
   ],
-  "status": "M12_C2K_SINGLE_ARTIFACT_RUNBOOK_GUIDANCE_KERNEL_PASS_NO_PRODUCTION"
+  "status": "M12_C2K_SINGLE_ARTIFACT_RUNBOOK_GUIDANCE_KERNEL_PASS"
 }

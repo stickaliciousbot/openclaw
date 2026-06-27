@@ -4,35 +4,69 @@
   "c2_production_started": false,
   "c3_c4_started": false,
   "cache_enabled": false,
-  "created_utc": "2026-06-27T07:34:29Z",
+  "created_utc": "2026-06-27T07:43:55Z",
   "direct_provider_bypass_count": 0,
   "fail_count": 0,
   "failed_gates": [],
+  "fallback_chain_mutated": false,
   "first_failure": null,
+  "gateway_config_mutated": false,
   "global_semantic_gate_promoted": false,
   "guidance_count": 5,
-  "hold_count": 14,
-  "m12_c1_frozen_boundary_preserved": true,
-  "next_recommended_action": "Owner review C2K implementation packet; next step is C2K durability/freeze or readiness rerun, not production.",
-  "pass_count": 25,
+  "hold_count": 15,
+  "live_route_mutated": false,
+  "m11_frozen_baseline_preserved": true,
+  "m12_c1_frozen_production_acceptance_preserved": true,
+  "memory_route_mutated": false,
+  "pass_condition_checks": {
+    "arbitrary_paths_reject": true,
+    "c1_boundary_preserved": true,
+    "cross_artifact_comparison_rejects": true,
+    "design_accepted": true,
+    "deterministic_kernel_implemented": true,
+    "external_action_runtime_mutation_hold": true,
+    "fixture_suite_passes": true,
+    "guidance_envelope_enforced": true,
+    "hold_contract_enforced": true,
+    "memory_context_daily_reject": true,
+    "missing_source_refs_reject": true,
+    "model_prose_not_authority": true,
+    "multi_source_drafting_rejects": true,
+    "mutation_sentinels_clean": true,
+    "prompt_injection_control_safe": true,
+    "provider_model_calls_zero": true,
+    "rollback_ready": true,
+    "single_artifact_only": true,
+    "source_authority_deterministic": true,
+    "source_refs_prose_disposition_only_reject": true,
+    "wrong_source_section_reject": true
+  },
+  "pass_count": 28,
   "production_expansion_applied": false,
   "provider_model_calls": 0,
   "required_files": [
     "status.json",
     "summary.json",
-    "kernel_test_report.json",
-    "source_authority_guard_report.json",
-    "fixture_coverage_report.json",
+    "c2_kernel_design.md",
+    "c2_guidance_envelope_contract.json",
+    "c2_source_authority_contract.md",
+    "c2_fail_closed_contract.md",
+    "c2_fixture_manifest.json",
+    "c2_kernel_test_report.json",
+    "c2_source_authority_guard_report.json",
+    "c2_guidance_envelope_report.json",
+    "c2_hold_contract_report.json",
+    "c2_no_provider_model_call_report.json",
+    "c1_boundary_preservation_readback.json",
     "mutation_sentinel_report.json",
     "rollback_readiness.json",
     "no_apply_no_mutation_record.json",
-    "c1_c2_boundary_preservation_readback.json",
-    "M12_C2K_SINGLE_ARTIFACT_RUNBOOK_GUIDANCE_KERNEL.md"
+    "M12_C2K_SINGLE_ARTIFACT_RUNBOOK_GUIDANCE_KERNEL_REVIEW.md"
   ],
   "required_files_missing": [],
   "rollback_ready": true,
   "runtime_authority_mutated": false,
-  "schema": "stickbot.vnext_semantic_gate.m12_c2k.status.v1",
+  "schema": "stickbot.vnext_semantic_gate.m12_c2k.status.v2",
   "source_files": [
     {
       "path": "scripts/m12_c2_single_artifact_guidance_kernel.py",
@@ -44,7 +78,7 @@
     },
     {
       "path": "scripts/test_m12_c2_single_artifact_guidance_kernel.py",
-      "sha256": "eb20fd09f244a328c392033a03320586b911a0e32c7eded49e29c1749acd1f9b"
+      "sha256": "eafba577f14d84d1b9658c19800fdbc8fc576bca44942ccc01a9ffe0ed90ea85"
     }
   ],
   "source_hashes": {
@@ -53,6 +87,6 @@
     "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2_owner_review_design_acceptance/status.json": "f87a457fd6d3b3be04b2f97df8b26cdeac5bd12f53a58815449a7f90df60ab9f",
     "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2_single_artifact_runbook_guidance_readiness_design/status.json": "d39d08b4aab6f0f2d7ff9a1979200bd707d1895998ebd14a1d1e8e5629d964e2"
   },
-  "status": "M12_C2K_SINGLE_ARTIFACT_RUNBOOK_GUIDANCE_KERNEL_PASS_NO_PRODUCTION",
-  "test_count": 25
+  "status": "M12_C2K_SINGLE_ARTIFACT_RUNBOOK_GUIDANCE_KERNEL_PASS",
+  "test_count": 28
 }

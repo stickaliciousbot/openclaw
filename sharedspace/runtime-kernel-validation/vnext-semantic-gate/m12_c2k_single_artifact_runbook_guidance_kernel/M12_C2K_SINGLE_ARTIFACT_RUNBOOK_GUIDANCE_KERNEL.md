@@ -1,11 +1,11 @@
 
 # M12-C2K Single-Artifact Runbook Guidance Kernel
 
-Final status: `M12_C2K_SINGLE_ARTIFACT_RUNBOOK_GUIDANCE_KERNEL_PASS_NO_PRODUCTION`
+Final status: `M12_C2K_SINGLE_ARTIFACT_RUNBOOK_GUIDANCE_KERNEL_PASS`
 
-- Fixture tests: `25/25`
+- Fixture tests: `28/28`
 - GUIDANCE outputs: `5`
-- HOLD outputs: `14`
+- HOLD outputs: `15`
 - Provider/model calls: `0`
 - Direct provider bypass: `0`
 - C2 production started: `False`

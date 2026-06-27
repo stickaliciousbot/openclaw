@@ -1,0 +1,20 @@
+{
+  "arbitrary_paths_rejected": true,
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2k_single_artifact_runbook_guidance_kernel",
+  "created_utc": "2026-06-27T07:43:55Z",
+  "cross_artifact_comparison_rejected": true,
+  "deterministic_source_selection": true,
+  "direct_provider_bypass_count": 0,
+  "memory_context_daily_sources_rejected": true,
+  "missing_source_refs_rejected": true,
+  "model_prose_as_authority_rejected": true,
+  "model_prose_authoritative": false,
+  "multi_source_synthesis_rejected": true,
+  "prose_only_source_refs_rejected": true,
+  "provider_model_calls": 0,
+  "schema": "stickbot.vnext_semantic_gate.m12_c2k.source_authority_guard_report.v1",
+  "single_approved_artifact_only": true,
+  "status": "M12_C2K_SINGLE_ARTIFACT_RUNBOOK_GUIDANCE_KERNEL_PASS",
+  "structured_source_refs_required": true,
+  "wrong_source_section_rejected": true
+}

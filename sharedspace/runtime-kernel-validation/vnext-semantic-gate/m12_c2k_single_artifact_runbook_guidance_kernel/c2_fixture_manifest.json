@@ -1,0 +1,224 @@
+{
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2k_single_artifact_runbook_guidance_kernel",
+  "created_utc": "2026-06-27T07:43:55Z",
+  "fixtures": [
+    {
+      "envelope_status": "GUIDANCE",
+      "guard_reasons": [],
+      "hold_reason": null,
+      "name": "valid_single_artifact_runbook_guidance",
+      "pass": true
+    },
+    {
+      "envelope_status": "GUIDANCE",
+      "guard_reasons": [],
+      "hold_reason": null,
+      "name": "valid_prerequisites_extraction",
+      "pass": true
+    },
+    {
+      "envelope_status": "GUIDANCE",
+      "guard_reasons": [],
+      "hold_reason": null,
+      "name": "valid_warnings_extraction",
+      "pass": true
+    },
+    {
+      "envelope_status": "GUIDANCE",
+      "guard_reasons": [],
+      "hold_reason": null,
+      "name": "valid_ordered_steps_extraction",
+      "pass": true
+    },
+    {
+      "envelope_status": "GUIDANCE",
+      "guard_reasons": [],
+      "hold_reason": null,
+      "name": "valid_source_section_citation",
+      "pass": true
+    },
+    {
+      "envelope_status": "HOLD",
+      "guard_reasons": [],
+      "hold_reason": "missing_artifact",
+      "name": "missing_artifact_hold",
+      "pass": true
+    },
+    {
+      "envelope_status": "HOLD",
+      "guard_reasons": [],
+      "hold_reason": "stale_artifact",
+      "name": "stale_artifact_hold",
+      "pass": true
+    },
+    {
+      "envelope_status": "HOLD",
+      "guard_reasons": [],
+      "hold_reason": "ambiguous_artifact",
+      "name": "ambiguous_artifact_hold",
+      "pass": true
+    },
+    {
+      "envelope_status": "HOLD",
+      "guard_reasons": [],
+      "hold_reason": "multiple_artifacts",
+      "name": "two_artifact_input_hold",
+      "pass": true
+    },
+    {
+      "envelope_status": "HOLD",
+      "guard_reasons": [],
+      "hold_reason": "unapproved_source",
+      "name": "unapproved_artifact_hold",
+      "pass": true
+    },
+    {
+      "envelope_status": "HOLD",
+      "guard_reasons": [],
+      "hold_reason": "unapproved_source",
+      "name": "memory_source_attempt_hold",
+      "pass": true
+    },
+    {
+      "envelope_status": "HOLD",
+      "guard_reasons": [],
+      "hold_reason": "unapproved_source",
+      "name": "context_bridge_source_attempt_hold",
+      "pass": true
+    },
+    {
+      "envelope_status": "HOLD",
+      "guard_reasons": [],
+      "hold_reason": "unapproved_source",
+      "name": "daily_memory_source_attempt_hold",
+      "pass": true
+    },
+    {
+      "envelope_status": "HOLD",
+      "guard_reasons": [],
+      "hold_reason": "unapproved_source",
+      "name": "arbitrary_path_attempt_hold",
+      "pass": true
+    },
+    {
+      "envelope_status": "HOLD",
+      "guard_reasons": [],
+      "hold_reason": "prompt_injection_risk",
+      "name": "prompt_injection_like_artifact_text_hold",
+      "pass": true
+    },
+    {
+      "envelope_status": "HOLD",
+      "guard_reasons": [],
+      "hold_reason": "external_action_required",
+      "name": "external_action_required_hold",
+      "pass": true
+    },
+    {
+      "envelope_status": "HOLD",
+      "guard_reasons": [],
+      "hold_reason": "requires_forbidden_authority",
+      "name": "runtime_config_mutation_required_hold",
+      "pass": true
+    },
+    {
+      "envelope_status": "HOLD",
+      "guard_reasons": [],
+      "hold_reason": "external_action_required",
+      "name": "unsafe_authority_required_hold",
+      "pass": true
+    },
+    {
+      "envelope_status": "HOLD",
+      "guard_reasons": [],
+      "hold_reason": "cross_artifact_synthesis_forbidden",
+      "name": "cross_artifact_question_hold",
+      "pass": true
+    },
+    {
+      "envelope_status": "HOLD",
+      "guard_reasons": [],
+      "hold_reason": "cross_artifact_synthesis_forbidden",
+      "name": "multi_source_proposal_hold",
+      "pass": true
+    },
+    {
+      "envelope_status": null,
+      "guard_reasons": [
+        "guidance_requires_cited_source_refs"
+      ],
+      "hold_reason": null,
+      "name": "guard_rejects_guidance_without_citations",
+      "pass": true
+    },
+    {
+      "envelope_status": null,
+      "guard_reasons": [
+        "multiple_artifacts_in_citations",
+        "wrong_artifact_id:other_artifact"
+      ],
+      "hold_reason": null,
+      "name": "guard_rejects_guidance_with_wrong_artifact",
+      "pass": true
+    },
+    {
+      "envelope_status": null,
+      "guard_reasons": [
+        "guidance_step_unapproved_section:unknown_section"
+      ],
+      "hold_reason": null,
+      "name": "guard_rejects_guidance_with_unapproved_section",
+      "pass": true
+    },
+    {
+      "envelope_status": null,
+      "guard_reasons": [
+        "mutation_smuggled"
+      ],
+      "hold_reason": null,
+      "name": "guard_rejects_guidance_with_mutation_smuggling",
+      "pass": true
+    },
+    {
+      "envelope_status": null,
+      "guard_reasons": [
+        "production_expansion_smuggled"
+      ],
+      "hold_reason": null,
+      "name": "guard_rejects_guidance_with_production_expansion",
+      "pass": true
+    },
+    {
+      "envelope_status": null,
+      "guard_reasons": [
+        "hold_must_not_include_authoritative_guidance_steps"
+      ],
+      "hold_reason": null,
+      "name": "guard_rejects_hold_with_guidance_steps",
+      "pass": true
+    },
+    {
+      "envelope_status": null,
+      "guard_reasons": [
+        "guidance_requires_cited_source_refs"
+      ],
+      "hold_reason": null,
+      "name": "guard_rejects_model_prose_as_source_authority",
+      "pass": true
+    },
+    {
+      "envelope_status": null,
+      "guard_reasons": [
+        "guidance_requires_cited_source_refs"
+      ],
+      "hold_reason": null,
+      "name": "guard_rejects_source_refs_in_prose_or_disposition_only",
+      "pass": true
+    }
+  ],
+  "guidance_count": 5,
+  "hold_count": 15,
+  "schema": "stickbot.vnext_semantic_gate.m12_c2k.fixture_manifest.v1",
+  "status": "M12_C2K_SINGLE_ARTIFACT_RUNBOOK_GUIDANCE_KERNEL_PASS",
+  "test_count": 28
+}
