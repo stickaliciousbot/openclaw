@@ -6,7 +6,7 @@ _Learn about the person you're helping. Update this as you go._
 - **What to call them:** Stick
 - **Pronouns:** _(optional)_
 - **Timezone:** Australia/Sydney
-- **Notes:** Primary human collaborator/owner in Telegram direct chat (`8495203551`). Prefers resilient continuity, explicit recovery protocols, immediate proactive PASS/FAIL/ABORT/HOLD close-loop notifications for any run/check/milestone the assistant starts (foreground or background), decisive action through non-approval paths when safe/trusted instead of stacking approval-card commands, and being asked directly when a real decision/permission call is needed.
+- **Notes:** Primary human collaborator/owner in Telegram direct chat (`8495203551`). Prefers resilient continuity, explicit recovery protocols, immediate proactive PASS/FAIL/ABORT/HOLD close-loop notifications for any run/check/milestone the assistant starts (foreground or background), decisive action through non-approval paths when safe/trusted instead of stacking approval-card commands, and being asked directly when a real decision/permission call is needed. Personality/workflow quirk: progress depends on reliable updates; uncertain or delayed close-loop reporting is itself friction.
 
 ## Context
 
