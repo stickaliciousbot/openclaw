@@ -1,0 +1,3851 @@
+{
+  "results": [
+    {
+      "cited_source_ref_count": 4,
+      "completed_utc": "2026-06-27T09:19:23Z",
+      "direct_provider_bypass_count": 0,
+      "envelope": {
+        "applicability": "bounded to one approved artifact and cited sections only",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "2f1c7f02bffa4ed49b734e24479e9411f14fa2ad1fb4c4145d0db9005d40c636",
+            "section_id": "c2p_approved_runbook:02:applicability",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:02:applicability"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "dbb55998c33987f4e9791dfe993332133646d25d041b537f6132e78801796876",
+            "section_id": "c2p_approved_runbook:03:prerequisites",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "625bc359065d361e11ead50ac101b5eaab69b8bcb6d2b09b26c3ac6322e158f7",
+            "section_id": "c2p_approved_runbook:04:ordered_steps",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "bd6aa345f05692e35701cc50ac3c8963de23e84630fd06a4c8dab5a200ceccd8",
+            "section_id": "c2p_approved_runbook:05:warnings",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+          }
+        ],
+        "confidence": "high",
+        "disposition": {
+          "artifact_id": "c2p_approved_runbook",
+          "deterministic": true,
+          "external_action_executed": false,
+          "kind": "single_artifact_guidance",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "source_authority": "approved_single_artifact_only"
+        },
+        "guidance_steps": [
+          {
+            "applicability": "required",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:02:applicability"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:02:applicability"
+            ],
+            "step_id": "c2p_001_step_01",
+            "text": "This artifact supports M12-C2 single-artifact runbook guidance canary requests."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:02:applicability"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:02:applicability"
+            ],
+            "step_id": "c2p_001_step_02",
+            "text": "It remains bounded to one approved artifact and deterministic section citations."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_001_step_03",
+            "text": "Read the approved artifact status section."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_001_step_04",
+            "text": "Confirm evidence files are present."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_001_step_05",
+            "text": "Validate the GUIDANCE or HOLD envelope."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_001_step_06",
+            "text": "Cite approved source sections only."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_001_step_07",
+            "text": "Report the canary result within the accepted M12-C2 boundary."
+          }
+        ],
+        "hold_reason": null,
+        "prerequisites": [
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:03:prerequisites"
+            ],
+            "text": "Confirm C2 owner review readiness acceptance."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:03:prerequisites"
+            ],
+            "text": "Confirm M11 frozen baseline and M12-C1 frozen production acceptance."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:03:prerequisites"
+            ],
+            "text": "Confirm rollback readiness."
+          }
+        ],
+        "source_sections": [
+          {
+            "heading": "Applicability",
+            "line_range": "3-6",
+            "section_hash": "2f1c7f02bffa4ed49b734e24479e9411f14fa2ad1fb4c4145d0db9005d40c636",
+            "section_id": "c2p_approved_runbook:02:applicability"
+          },
+          {
+            "heading": "Prerequisites",
+            "line_range": "7-11",
+            "section_hash": "dbb55998c33987f4e9791dfe993332133646d25d041b537f6132e78801796876",
+            "section_id": "c2p_approved_runbook:03:prerequisites"
+          },
+          {
+            "heading": "Ordered Steps",
+            "line_range": "12-18",
+            "section_hash": "625bc359065d361e11ead50ac101b5eaab69b8bcb6d2b09b26c3ac6322e158f7",
+            "section_id": "c2p_approved_runbook:04:ordered_steps"
+          },
+          {
+            "heading": "Warnings",
+            "line_range": "19-22",
+            "section_hash": "bd6aa345f05692e35701cc50ac3c8963de23e84630fd06a4c8dab5a200ceccd8",
+            "section_id": "c2p_approved_runbook:05:warnings"
+          }
+        ],
+        "status": "GUIDANCE",
+        "warnings": [
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:05:warnings"
+            ],
+            "text": "Downstream milestones remain outside this canary."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:05:warnings"
+            ],
+            "text": "Durable artifact promotion remains outside this canary."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:05:warnings"
+            ],
+            "text": "Protected operator controls remain unchanged."
+          }
+        ]
+      },
+      "expected": "GUIDANCE",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "guidance_step_count": 7,
+      "hold_reason": null,
+      "kind": "guidance",
+      "material_regression": false,
+      "missing_output_regression": false,
+      "name": "guidance_01",
+      "outcome": "GUIDANCE",
+      "passed": true,
+      "provider_model_calls": 0,
+      "request_id": "c2p_001",
+      "source_section_count": 4,
+      "started_utc": "2026-06-27T09:19:23Z"
+    },
+    {
+      "cited_source_ref_count": 4,
+      "completed_utc": "2026-06-27T09:19:23Z",
+      "direct_provider_bypass_count": 0,
+      "envelope": {
+        "applicability": "bounded to one approved artifact and cited sections only",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "2f1c7f02bffa4ed49b734e24479e9411f14fa2ad1fb4c4145d0db9005d40c636",
+            "section_id": "c2p_approved_runbook:02:applicability",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:02:applicability"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "dbb55998c33987f4e9791dfe993332133646d25d041b537f6132e78801796876",
+            "section_id": "c2p_approved_runbook:03:prerequisites",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "625bc359065d361e11ead50ac101b5eaab69b8bcb6d2b09b26c3ac6322e158f7",
+            "section_id": "c2p_approved_runbook:04:ordered_steps",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "bd6aa345f05692e35701cc50ac3c8963de23e84630fd06a4c8dab5a200ceccd8",
+            "section_id": "c2p_approved_runbook:05:warnings",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+          }
+        ],
+        "confidence": "high",
+        "disposition": {
+          "artifact_id": "c2p_approved_runbook",
+          "deterministic": true,
+          "external_action_executed": false,
+          "kind": "single_artifact_guidance",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "source_authority": "approved_single_artifact_only"
+        },
+        "guidance_steps": [
+          {
+            "applicability": "required",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:02:applicability"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:02:applicability"
+            ],
+            "step_id": "c2p_002_step_01",
+            "text": "This artifact supports M12-C2 single-artifact runbook guidance canary requests."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:02:applicability"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:02:applicability"
+            ],
+            "step_id": "c2p_002_step_02",
+            "text": "It remains bounded to one approved artifact and deterministic section citations."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_002_step_03",
+            "text": "Read the approved artifact status section."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_002_step_04",
+            "text": "Confirm evidence files are present."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_002_step_05",
+            "text": "Validate the GUIDANCE or HOLD envelope."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_002_step_06",
+            "text": "Cite approved source sections only."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_002_step_07",
+            "text": "Report the canary result within the accepted M12-C2 boundary."
+          }
+        ],
+        "hold_reason": null,
+        "prerequisites": [
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:03:prerequisites"
+            ],
+            "text": "Confirm C2 owner review readiness acceptance."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:03:prerequisites"
+            ],
+            "text": "Confirm M11 frozen baseline and M12-C1 frozen production acceptance."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:03:prerequisites"
+            ],
+            "text": "Confirm rollback readiness."
+          }
+        ],
+        "source_sections": [
+          {
+            "heading": "Applicability",
+            "line_range": "3-6",
+            "section_hash": "2f1c7f02bffa4ed49b734e24479e9411f14fa2ad1fb4c4145d0db9005d40c636",
+            "section_id": "c2p_approved_runbook:02:applicability"
+          },
+          {
+            "heading": "Prerequisites",
+            "line_range": "7-11",
+            "section_hash": "dbb55998c33987f4e9791dfe993332133646d25d041b537f6132e78801796876",
+            "section_id": "c2p_approved_runbook:03:prerequisites"
+          },
+          {
+            "heading": "Ordered Steps",
+            "line_range": "12-18",
+            "section_hash": "625bc359065d361e11ead50ac101b5eaab69b8bcb6d2b09b26c3ac6322e158f7",
+            "section_id": "c2p_approved_runbook:04:ordered_steps"
+          },
+          {
+            "heading": "Warnings",
+            "line_range": "19-22",
+            "section_hash": "bd6aa345f05692e35701cc50ac3c8963de23e84630fd06a4c8dab5a200ceccd8",
+            "section_id": "c2p_approved_runbook:05:warnings"
+          }
+        ],
+        "status": "GUIDANCE",
+        "warnings": [
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:05:warnings"
+            ],
+            "text": "Downstream milestones remain outside this canary."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:05:warnings"
+            ],
+            "text": "Durable artifact promotion remains outside this canary."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:05:warnings"
+            ],
+            "text": "Protected operator controls remain unchanged."
+          }
+        ]
+      },
+      "expected": "GUIDANCE",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "guidance_step_count": 7,
+      "hold_reason": null,
+      "kind": "guidance",
+      "material_regression": false,
+      "missing_output_regression": false,
+      "name": "guidance_02",
+      "outcome": "GUIDANCE",
+      "passed": true,
+      "provider_model_calls": 0,
+      "request_id": "c2p_002",
+      "source_section_count": 4,
+      "started_utc": "2026-06-27T09:19:23Z"
+    },
+    {
+      "cited_source_ref_count": 4,
+      "completed_utc": "2026-06-27T09:19:23Z",
+      "direct_provider_bypass_count": 0,
+      "envelope": {
+        "applicability": "bounded to one approved artifact and cited sections only",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "2f1c7f02bffa4ed49b734e24479e9411f14fa2ad1fb4c4145d0db9005d40c636",
+            "section_id": "c2p_approved_runbook:02:applicability",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:02:applicability"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "dbb55998c33987f4e9791dfe993332133646d25d041b537f6132e78801796876",
+            "section_id": "c2p_approved_runbook:03:prerequisites",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "625bc359065d361e11ead50ac101b5eaab69b8bcb6d2b09b26c3ac6322e158f7",
+            "section_id": "c2p_approved_runbook:04:ordered_steps",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "bd6aa345f05692e35701cc50ac3c8963de23e84630fd06a4c8dab5a200ceccd8",
+            "section_id": "c2p_approved_runbook:05:warnings",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+          }
+        ],
+        "confidence": "high",
+        "disposition": {
+          "artifact_id": "c2p_approved_runbook",
+          "deterministic": true,
+          "external_action_executed": false,
+          "kind": "single_artifact_guidance",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "source_authority": "approved_single_artifact_only"
+        },
+        "guidance_steps": [
+          {
+            "applicability": "required",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:02:applicability"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:02:applicability"
+            ],
+            "step_id": "c2p_003_step_01",
+            "text": "This artifact supports M12-C2 single-artifact runbook guidance canary requests."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:02:applicability"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:02:applicability"
+            ],
+            "step_id": "c2p_003_step_02",
+            "text": "It remains bounded to one approved artifact and deterministic section citations."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_003_step_03",
+            "text": "Read the approved artifact status section."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_003_step_04",
+            "text": "Confirm evidence files are present."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_003_step_05",
+            "text": "Validate the GUIDANCE or HOLD envelope."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_003_step_06",
+            "text": "Cite approved source sections only."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_003_step_07",
+            "text": "Report the canary result within the accepted M12-C2 boundary."
+          }
+        ],
+        "hold_reason": null,
+        "prerequisites": [
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:03:prerequisites"
+            ],
+            "text": "Confirm C2 owner review readiness acceptance."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:03:prerequisites"
+            ],
+            "text": "Confirm M11 frozen baseline and M12-C1 frozen production acceptance."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:03:prerequisites"
+            ],
+            "text": "Confirm rollback readiness."
+          }
+        ],
+        "source_sections": [
+          {
+            "heading": "Applicability",
+            "line_range": "3-6",
+            "section_hash": "2f1c7f02bffa4ed49b734e24479e9411f14fa2ad1fb4c4145d0db9005d40c636",
+            "section_id": "c2p_approved_runbook:02:applicability"
+          },
+          {
+            "heading": "Prerequisites",
+            "line_range": "7-11",
+            "section_hash": "dbb55998c33987f4e9791dfe993332133646d25d041b537f6132e78801796876",
+            "section_id": "c2p_approved_runbook:03:prerequisites"
+          },
+          {
+            "heading": "Ordered Steps",
+            "line_range": "12-18",
+            "section_hash": "625bc359065d361e11ead50ac101b5eaab69b8bcb6d2b09b26c3ac6322e158f7",
+            "section_id": "c2p_approved_runbook:04:ordered_steps"
+          },
+          {
+            "heading": "Warnings",
+            "line_range": "19-22",
+            "section_hash": "bd6aa345f05692e35701cc50ac3c8963de23e84630fd06a4c8dab5a200ceccd8",
+            "section_id": "c2p_approved_runbook:05:warnings"
+          }
+        ],
+        "status": "GUIDANCE",
+        "warnings": [
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:05:warnings"
+            ],
+            "text": "Downstream milestones remain outside this canary."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:05:warnings"
+            ],
+            "text": "Durable artifact promotion remains outside this canary."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:05:warnings"
+            ],
+            "text": "Protected operator controls remain unchanged."
+          }
+        ]
+      },
+      "expected": "GUIDANCE",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "guidance_step_count": 7,
+      "hold_reason": null,
+      "kind": "guidance",
+      "material_regression": false,
+      "missing_output_regression": false,
+      "name": "guidance_03",
+      "outcome": "GUIDANCE",
+      "passed": true,
+      "provider_model_calls": 0,
+      "request_id": "c2p_003",
+      "source_section_count": 4,
+      "started_utc": "2026-06-27T09:19:23Z"
+    },
+    {
+      "cited_source_ref_count": 4,
+      "completed_utc": "2026-06-27T09:19:23Z",
+      "direct_provider_bypass_count": 0,
+      "envelope": {
+        "applicability": "bounded to one approved artifact and cited sections only",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "2f1c7f02bffa4ed49b734e24479e9411f14fa2ad1fb4c4145d0db9005d40c636",
+            "section_id": "c2p_approved_runbook:02:applicability",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:02:applicability"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "dbb55998c33987f4e9791dfe993332133646d25d041b537f6132e78801796876",
+            "section_id": "c2p_approved_runbook:03:prerequisites",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "625bc359065d361e11ead50ac101b5eaab69b8bcb6d2b09b26c3ac6322e158f7",
+            "section_id": "c2p_approved_runbook:04:ordered_steps",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "bd6aa345f05692e35701cc50ac3c8963de23e84630fd06a4c8dab5a200ceccd8",
+            "section_id": "c2p_approved_runbook:05:warnings",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+          }
+        ],
+        "confidence": "high",
+        "disposition": {
+          "artifact_id": "c2p_approved_runbook",
+          "deterministic": true,
+          "external_action_executed": false,
+          "kind": "single_artifact_guidance",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "source_authority": "approved_single_artifact_only"
+        },
+        "guidance_steps": [
+          {
+            "applicability": "required",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:02:applicability"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:02:applicability"
+            ],
+            "step_id": "c2p_004_step_01",
+            "text": "This artifact supports M12-C2 single-artifact runbook guidance canary requests."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:02:applicability"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:02:applicability"
+            ],
+            "step_id": "c2p_004_step_02",
+            "text": "It remains bounded to one approved artifact and deterministic section citations."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_004_step_03",
+            "text": "Read the approved artifact status section."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_004_step_04",
+            "text": "Confirm evidence files are present."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_004_step_05",
+            "text": "Validate the GUIDANCE or HOLD envelope."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_004_step_06",
+            "text": "Cite approved source sections only."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_004_step_07",
+            "text": "Report the canary result within the accepted M12-C2 boundary."
+          }
+        ],
+        "hold_reason": null,
+        "prerequisites": [
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:03:prerequisites"
+            ],
+            "text": "Confirm C2 owner review readiness acceptance."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:03:prerequisites"
+            ],
+            "text": "Confirm M11 frozen baseline and M12-C1 frozen production acceptance."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:03:prerequisites"
+            ],
+            "text": "Confirm rollback readiness."
+          }
+        ],
+        "source_sections": [
+          {
+            "heading": "Applicability",
+            "line_range": "3-6",
+            "section_hash": "2f1c7f02bffa4ed49b734e24479e9411f14fa2ad1fb4c4145d0db9005d40c636",
+            "section_id": "c2p_approved_runbook:02:applicability"
+          },
+          {
+            "heading": "Prerequisites",
+            "line_range": "7-11",
+            "section_hash": "dbb55998c33987f4e9791dfe993332133646d25d041b537f6132e78801796876",
+            "section_id": "c2p_approved_runbook:03:prerequisites"
+          },
+          {
+            "heading": "Ordered Steps",
+            "line_range": "12-18",
+            "section_hash": "625bc359065d361e11ead50ac101b5eaab69b8bcb6d2b09b26c3ac6322e158f7",
+            "section_id": "c2p_approved_runbook:04:ordered_steps"
+          },
+          {
+            "heading": "Warnings",
+            "line_range": "19-22",
+            "section_hash": "bd6aa345f05692e35701cc50ac3c8963de23e84630fd06a4c8dab5a200ceccd8",
+            "section_id": "c2p_approved_runbook:05:warnings"
+          }
+        ],
+        "status": "GUIDANCE",
+        "warnings": [
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:05:warnings"
+            ],
+            "text": "Downstream milestones remain outside this canary."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:05:warnings"
+            ],
+            "text": "Durable artifact promotion remains outside this canary."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:05:warnings"
+            ],
+            "text": "Protected operator controls remain unchanged."
+          }
+        ]
+      },
+      "expected": "GUIDANCE",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "guidance_step_count": 7,
+      "hold_reason": null,
+      "kind": "guidance",
+      "material_regression": false,
+      "missing_output_regression": false,
+      "name": "guidance_04",
+      "outcome": "GUIDANCE",
+      "passed": true,
+      "provider_model_calls": 0,
+      "request_id": "c2p_004",
+      "source_section_count": 4,
+      "started_utc": "2026-06-27T09:19:23Z"
+    },
+    {
+      "cited_source_ref_count": 4,
+      "completed_utc": "2026-06-27T09:19:23Z",
+      "direct_provider_bypass_count": 0,
+      "envelope": {
+        "applicability": "bounded to one approved artifact and cited sections only",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "2f1c7f02bffa4ed49b734e24479e9411f14fa2ad1fb4c4145d0db9005d40c636",
+            "section_id": "c2p_approved_runbook:02:applicability",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:02:applicability"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "dbb55998c33987f4e9791dfe993332133646d25d041b537f6132e78801796876",
+            "section_id": "c2p_approved_runbook:03:prerequisites",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "625bc359065d361e11ead50ac101b5eaab69b8bcb6d2b09b26c3ac6322e158f7",
+            "section_id": "c2p_approved_runbook:04:ordered_steps",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "bd6aa345f05692e35701cc50ac3c8963de23e84630fd06a4c8dab5a200ceccd8",
+            "section_id": "c2p_approved_runbook:05:warnings",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+          }
+        ],
+        "confidence": "high",
+        "disposition": {
+          "artifact_id": "c2p_approved_runbook",
+          "deterministic": true,
+          "external_action_executed": false,
+          "kind": "single_artifact_guidance",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "source_authority": "approved_single_artifact_only"
+        },
+        "guidance_steps": [
+          {
+            "applicability": "required",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:02:applicability"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:02:applicability"
+            ],
+            "step_id": "c2p_005_step_01",
+            "text": "This artifact supports M12-C2 single-artifact runbook guidance canary requests."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:02:applicability"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:02:applicability"
+            ],
+            "step_id": "c2p_005_step_02",
+            "text": "It remains bounded to one approved artifact and deterministic section citations."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_005_step_03",
+            "text": "Read the approved artifact status section."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_005_step_04",
+            "text": "Confirm evidence files are present."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_005_step_05",
+            "text": "Validate the GUIDANCE or HOLD envelope."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_005_step_06",
+            "text": "Cite approved source sections only."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_005_step_07",
+            "text": "Report the canary result within the accepted M12-C2 boundary."
+          }
+        ],
+        "hold_reason": null,
+        "prerequisites": [
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:03:prerequisites"
+            ],
+            "text": "Confirm C2 owner review readiness acceptance."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:03:prerequisites"
+            ],
+            "text": "Confirm M11 frozen baseline and M12-C1 frozen production acceptance."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:03:prerequisites"
+            ],
+            "text": "Confirm rollback readiness."
+          }
+        ],
+        "source_sections": [
+          {
+            "heading": "Applicability",
+            "line_range": "3-6",
+            "section_hash": "2f1c7f02bffa4ed49b734e24479e9411f14fa2ad1fb4c4145d0db9005d40c636",
+            "section_id": "c2p_approved_runbook:02:applicability"
+          },
+          {
+            "heading": "Prerequisites",
+            "line_range": "7-11",
+            "section_hash": "dbb55998c33987f4e9791dfe993332133646d25d041b537f6132e78801796876",
+            "section_id": "c2p_approved_runbook:03:prerequisites"
+          },
+          {
+            "heading": "Ordered Steps",
+            "line_range": "12-18",
+            "section_hash": "625bc359065d361e11ead50ac101b5eaab69b8bcb6d2b09b26c3ac6322e158f7",
+            "section_id": "c2p_approved_runbook:04:ordered_steps"
+          },
+          {
+            "heading": "Warnings",
+            "line_range": "19-22",
+            "section_hash": "bd6aa345f05692e35701cc50ac3c8963de23e84630fd06a4c8dab5a200ceccd8",
+            "section_id": "c2p_approved_runbook:05:warnings"
+          }
+        ],
+        "status": "GUIDANCE",
+        "warnings": [
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:05:warnings"
+            ],
+            "text": "Downstream milestones remain outside this canary."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:05:warnings"
+            ],
+            "text": "Durable artifact promotion remains outside this canary."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:05:warnings"
+            ],
+            "text": "Protected operator controls remain unchanged."
+          }
+        ]
+      },
+      "expected": "GUIDANCE",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "guidance_step_count": 7,
+      "hold_reason": null,
+      "kind": "guidance",
+      "material_regression": false,
+      "missing_output_regression": false,
+      "name": "guidance_05",
+      "outcome": "GUIDANCE",
+      "passed": true,
+      "provider_model_calls": 0,
+      "request_id": "c2p_005",
+      "source_section_count": 4,
+      "started_utc": "2026-06-27T09:19:23Z"
+    },
+    {
+      "cited_source_ref_count": 4,
+      "completed_utc": "2026-06-27T09:19:23Z",
+      "direct_provider_bypass_count": 0,
+      "envelope": {
+        "applicability": "bounded to one approved artifact and cited sections only",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "2f1c7f02bffa4ed49b734e24479e9411f14fa2ad1fb4c4145d0db9005d40c636",
+            "section_id": "c2p_approved_runbook:02:applicability",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:02:applicability"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "dbb55998c33987f4e9791dfe993332133646d25d041b537f6132e78801796876",
+            "section_id": "c2p_approved_runbook:03:prerequisites",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "625bc359065d361e11ead50ac101b5eaab69b8bcb6d2b09b26c3ac6322e158f7",
+            "section_id": "c2p_approved_runbook:04:ordered_steps",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "bd6aa345f05692e35701cc50ac3c8963de23e84630fd06a4c8dab5a200ceccd8",
+            "section_id": "c2p_approved_runbook:05:warnings",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+          }
+        ],
+        "confidence": "high",
+        "disposition": {
+          "artifact_id": "c2p_approved_runbook",
+          "deterministic": true,
+          "external_action_executed": false,
+          "kind": "single_artifact_guidance",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "source_authority": "approved_single_artifact_only"
+        },
+        "guidance_steps": [
+          {
+            "applicability": "required",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:02:applicability"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:02:applicability"
+            ],
+            "step_id": "c2p_006_step_01",
+            "text": "This artifact supports M12-C2 single-artifact runbook guidance canary requests."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:02:applicability"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:02:applicability"
+            ],
+            "step_id": "c2p_006_step_02",
+            "text": "It remains bounded to one approved artifact and deterministic section citations."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_006_step_03",
+            "text": "Read the approved artifact status section."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_006_step_04",
+            "text": "Confirm evidence files are present."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_006_step_05",
+            "text": "Validate the GUIDANCE or HOLD envelope."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_006_step_06",
+            "text": "Cite approved source sections only."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_006_step_07",
+            "text": "Report the canary result within the accepted M12-C2 boundary."
+          }
+        ],
+        "hold_reason": null,
+        "prerequisites": [
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:03:prerequisites"
+            ],
+            "text": "Confirm C2 owner review readiness acceptance."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:03:prerequisites"
+            ],
+            "text": "Confirm M11 frozen baseline and M12-C1 frozen production acceptance."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:03:prerequisites"
+            ],
+            "text": "Confirm rollback readiness."
+          }
+        ],
+        "source_sections": [
+          {
+            "heading": "Applicability",
+            "line_range": "3-6",
+            "section_hash": "2f1c7f02bffa4ed49b734e24479e9411f14fa2ad1fb4c4145d0db9005d40c636",
+            "section_id": "c2p_approved_runbook:02:applicability"
+          },
+          {
+            "heading": "Prerequisites",
+            "line_range": "7-11",
+            "section_hash": "dbb55998c33987f4e9791dfe993332133646d25d041b537f6132e78801796876",
+            "section_id": "c2p_approved_runbook:03:prerequisites"
+          },
+          {
+            "heading": "Ordered Steps",
+            "line_range": "12-18",
+            "section_hash": "625bc359065d361e11ead50ac101b5eaab69b8bcb6d2b09b26c3ac6322e158f7",
+            "section_id": "c2p_approved_runbook:04:ordered_steps"
+          },
+          {
+            "heading": "Warnings",
+            "line_range": "19-22",
+            "section_hash": "bd6aa345f05692e35701cc50ac3c8963de23e84630fd06a4c8dab5a200ceccd8",
+            "section_id": "c2p_approved_runbook:05:warnings"
+          }
+        ],
+        "status": "GUIDANCE",
+        "warnings": [
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:05:warnings"
+            ],
+            "text": "Downstream milestones remain outside this canary."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:05:warnings"
+            ],
+            "text": "Durable artifact promotion remains outside this canary."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:05:warnings"
+            ],
+            "text": "Protected operator controls remain unchanged."
+          }
+        ]
+      },
+      "expected": "GUIDANCE",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "guidance_step_count": 7,
+      "hold_reason": null,
+      "kind": "guidance",
+      "material_regression": false,
+      "missing_output_regression": false,
+      "name": "guidance_06",
+      "outcome": "GUIDANCE",
+      "passed": true,
+      "provider_model_calls": 0,
+      "request_id": "c2p_006",
+      "source_section_count": 4,
+      "started_utc": "2026-06-27T09:19:23Z"
+    },
+    {
+      "cited_source_ref_count": 4,
+      "completed_utc": "2026-06-27T09:19:23Z",
+      "direct_provider_bypass_count": 0,
+      "envelope": {
+        "applicability": "bounded to one approved artifact and cited sections only",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "2f1c7f02bffa4ed49b734e24479e9411f14fa2ad1fb4c4145d0db9005d40c636",
+            "section_id": "c2p_approved_runbook:02:applicability",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:02:applicability"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "dbb55998c33987f4e9791dfe993332133646d25d041b537f6132e78801796876",
+            "section_id": "c2p_approved_runbook:03:prerequisites",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "625bc359065d361e11ead50ac101b5eaab69b8bcb6d2b09b26c3ac6322e158f7",
+            "section_id": "c2p_approved_runbook:04:ordered_steps",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "bd6aa345f05692e35701cc50ac3c8963de23e84630fd06a4c8dab5a200ceccd8",
+            "section_id": "c2p_approved_runbook:05:warnings",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+          }
+        ],
+        "confidence": "high",
+        "disposition": {
+          "artifact_id": "c2p_approved_runbook",
+          "deterministic": true,
+          "external_action_executed": false,
+          "kind": "single_artifact_guidance",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "source_authority": "approved_single_artifact_only"
+        },
+        "guidance_steps": [
+          {
+            "applicability": "required",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:02:applicability"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:02:applicability"
+            ],
+            "step_id": "c2p_007_step_01",
+            "text": "This artifact supports M12-C2 single-artifact runbook guidance canary requests."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:02:applicability"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:02:applicability"
+            ],
+            "step_id": "c2p_007_step_02",
+            "text": "It remains bounded to one approved artifact and deterministic section citations."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_007_step_03",
+            "text": "Read the approved artifact status section."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_007_step_04",
+            "text": "Confirm evidence files are present."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_007_step_05",
+            "text": "Validate the GUIDANCE or HOLD envelope."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_007_step_06",
+            "text": "Cite approved source sections only."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_007_step_07",
+            "text": "Report the canary result within the accepted M12-C2 boundary."
+          }
+        ],
+        "hold_reason": null,
+        "prerequisites": [
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:03:prerequisites"
+            ],
+            "text": "Confirm C2 owner review readiness acceptance."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:03:prerequisites"
+            ],
+            "text": "Confirm M11 frozen baseline and M12-C1 frozen production acceptance."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:03:prerequisites"
+            ],
+            "text": "Confirm rollback readiness."
+          }
+        ],
+        "source_sections": [
+          {
+            "heading": "Applicability",
+            "line_range": "3-6",
+            "section_hash": "2f1c7f02bffa4ed49b734e24479e9411f14fa2ad1fb4c4145d0db9005d40c636",
+            "section_id": "c2p_approved_runbook:02:applicability"
+          },
+          {
+            "heading": "Prerequisites",
+            "line_range": "7-11",
+            "section_hash": "dbb55998c33987f4e9791dfe993332133646d25d041b537f6132e78801796876",
+            "section_id": "c2p_approved_runbook:03:prerequisites"
+          },
+          {
+            "heading": "Ordered Steps",
+            "line_range": "12-18",
+            "section_hash": "625bc359065d361e11ead50ac101b5eaab69b8bcb6d2b09b26c3ac6322e158f7",
+            "section_id": "c2p_approved_runbook:04:ordered_steps"
+          },
+          {
+            "heading": "Warnings",
+            "line_range": "19-22",
+            "section_hash": "bd6aa345f05692e35701cc50ac3c8963de23e84630fd06a4c8dab5a200ceccd8",
+            "section_id": "c2p_approved_runbook:05:warnings"
+          }
+        ],
+        "status": "GUIDANCE",
+        "warnings": [
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:05:warnings"
+            ],
+            "text": "Downstream milestones remain outside this canary."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:05:warnings"
+            ],
+            "text": "Durable artifact promotion remains outside this canary."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:05:warnings"
+            ],
+            "text": "Protected operator controls remain unchanged."
+          }
+        ]
+      },
+      "expected": "GUIDANCE",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "guidance_step_count": 7,
+      "hold_reason": null,
+      "kind": "guidance",
+      "material_regression": false,
+      "missing_output_regression": false,
+      "name": "guidance_07",
+      "outcome": "GUIDANCE",
+      "passed": true,
+      "provider_model_calls": 0,
+      "request_id": "c2p_007",
+      "source_section_count": 4,
+      "started_utc": "2026-06-27T09:19:23Z"
+    },
+    {
+      "cited_source_ref_count": 4,
+      "completed_utc": "2026-06-27T09:19:23Z",
+      "direct_provider_bypass_count": 0,
+      "envelope": {
+        "applicability": "bounded to one approved artifact and cited sections only",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "2f1c7f02bffa4ed49b734e24479e9411f14fa2ad1fb4c4145d0db9005d40c636",
+            "section_id": "c2p_approved_runbook:02:applicability",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:02:applicability"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "dbb55998c33987f4e9791dfe993332133646d25d041b537f6132e78801796876",
+            "section_id": "c2p_approved_runbook:03:prerequisites",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "625bc359065d361e11ead50ac101b5eaab69b8bcb6d2b09b26c3ac6322e158f7",
+            "section_id": "c2p_approved_runbook:04:ordered_steps",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "bd6aa345f05692e35701cc50ac3c8963de23e84630fd06a4c8dab5a200ceccd8",
+            "section_id": "c2p_approved_runbook:05:warnings",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+          }
+        ],
+        "confidence": "high",
+        "disposition": {
+          "artifact_id": "c2p_approved_runbook",
+          "deterministic": true,
+          "external_action_executed": false,
+          "kind": "single_artifact_guidance",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "source_authority": "approved_single_artifact_only"
+        },
+        "guidance_steps": [
+          {
+            "applicability": "required",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:02:applicability"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:02:applicability"
+            ],
+            "step_id": "c2p_008_step_01",
+            "text": "This artifact supports M12-C2 single-artifact runbook guidance canary requests."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:02:applicability"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:02:applicability"
+            ],
+            "step_id": "c2p_008_step_02",
+            "text": "It remains bounded to one approved artifact and deterministic section citations."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_008_step_03",
+            "text": "Read the approved artifact status section."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_008_step_04",
+            "text": "Confirm evidence files are present."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_008_step_05",
+            "text": "Validate the GUIDANCE or HOLD envelope."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_008_step_06",
+            "text": "Cite approved source sections only."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_008_step_07",
+            "text": "Report the canary result within the accepted M12-C2 boundary."
+          }
+        ],
+        "hold_reason": null,
+        "prerequisites": [
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:03:prerequisites"
+            ],
+            "text": "Confirm C2 owner review readiness acceptance."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:03:prerequisites"
+            ],
+            "text": "Confirm M11 frozen baseline and M12-C1 frozen production acceptance."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:03:prerequisites"
+            ],
+            "text": "Confirm rollback readiness."
+          }
+        ],
+        "source_sections": [
+          {
+            "heading": "Applicability",
+            "line_range": "3-6",
+            "section_hash": "2f1c7f02bffa4ed49b734e24479e9411f14fa2ad1fb4c4145d0db9005d40c636",
+            "section_id": "c2p_approved_runbook:02:applicability"
+          },
+          {
+            "heading": "Prerequisites",
+            "line_range": "7-11",
+            "section_hash": "dbb55998c33987f4e9791dfe993332133646d25d041b537f6132e78801796876",
+            "section_id": "c2p_approved_runbook:03:prerequisites"
+          },
+          {
+            "heading": "Ordered Steps",
+            "line_range": "12-18",
+            "section_hash": "625bc359065d361e11ead50ac101b5eaab69b8bcb6d2b09b26c3ac6322e158f7",
+            "section_id": "c2p_approved_runbook:04:ordered_steps"
+          },
+          {
+            "heading": "Warnings",
+            "line_range": "19-22",
+            "section_hash": "bd6aa345f05692e35701cc50ac3c8963de23e84630fd06a4c8dab5a200ceccd8",
+            "section_id": "c2p_approved_runbook:05:warnings"
+          }
+        ],
+        "status": "GUIDANCE",
+        "warnings": [
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:05:warnings"
+            ],
+            "text": "Downstream milestones remain outside this canary."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:05:warnings"
+            ],
+            "text": "Durable artifact promotion remains outside this canary."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_approved_runbook:05:warnings"
+            ],
+            "text": "Protected operator controls remain unchanged."
+          }
+        ]
+      },
+      "expected": "GUIDANCE",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "guidance_step_count": 7,
+      "hold_reason": null,
+      "kind": "guidance",
+      "material_regression": false,
+      "missing_output_regression": false,
+      "name": "guidance_08",
+      "outcome": "GUIDANCE",
+      "passed": true,
+      "provider_model_calls": 0,
+      "request_id": "c2p_008",
+      "source_section_count": 4,
+      "started_utc": "2026-06-27T09:19:23Z"
+    },
+    {
+      "cited_source_ref_count": 0,
+      "completed_utc": "2026-06-27T09:19:23Z",
+      "direct_provider_bypass_count": 0,
+      "envelope": {
+        "applicability": "insufficient",
+        "authority": "no_authority",
+        "cited_source_refs": [],
+        "confidence": "high",
+        "disposition": {
+          "deterministic": true,
+          "external_action_executed": false,
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "reason": "missing_artifact",
+          "source_authority": "no_authoritative_guidance"
+        },
+        "guidance_steps": [],
+        "hold_reason": "missing_artifact",
+        "prerequisites": [],
+        "source_sections": [],
+        "status": "HOLD",
+        "warnings": []
+      },
+      "expected": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "guidance_step_count": 0,
+      "hold_reason": "missing_artifact",
+      "kind": "hold",
+      "material_regression": false,
+      "missing_output_regression": false,
+      "name": "missing_artifact",
+      "outcome": "HOLD",
+      "passed": true,
+      "provider_model_calls": 0,
+      "request_id": "c2p_009",
+      "source_section_count": 0,
+      "started_utc": "2026-06-27T09:19:23Z"
+    },
+    {
+      "cited_source_ref_count": 0,
+      "completed_utc": "2026-06-27T09:19:23Z",
+      "direct_provider_bypass_count": 0,
+      "envelope": {
+        "applicability": "insufficient",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [],
+        "confidence": "high",
+        "disposition": {
+          "deterministic": true,
+          "external_action_executed": false,
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "reason": "stale_artifact",
+          "source_authority": "no_authoritative_guidance"
+        },
+        "guidance_steps": [],
+        "hold_reason": "stale_artifact",
+        "prerequisites": [],
+        "source_sections": [],
+        "status": "HOLD",
+        "warnings": []
+      },
+      "expected": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "guidance_step_count": 0,
+      "hold_reason": "stale_artifact",
+      "kind": "hold",
+      "material_regression": false,
+      "missing_output_regression": false,
+      "name": "stale_artifact",
+      "outcome": "HOLD",
+      "passed": true,
+      "provider_model_calls": 0,
+      "request_id": "c2p_010",
+      "source_section_count": 0,
+      "started_utc": "2026-06-27T09:19:23Z"
+    },
+    {
+      "cited_source_ref_count": 0,
+      "completed_utc": "2026-06-27T09:19:23Z",
+      "direct_provider_bypass_count": 0,
+      "envelope": {
+        "applicability": "insufficient",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [],
+        "confidence": "high",
+        "disposition": {
+          "deterministic": true,
+          "external_action_executed": false,
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "reason": "ambiguous_artifact",
+          "source_authority": "no_authoritative_guidance"
+        },
+        "guidance_steps": [],
+        "hold_reason": "ambiguous_artifact",
+        "prerequisites": [],
+        "source_sections": [],
+        "status": "HOLD",
+        "warnings": []
+      },
+      "expected": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "guidance_step_count": 0,
+      "hold_reason": "ambiguous_artifact",
+      "kind": "hold",
+      "material_regression": false,
+      "missing_output_regression": false,
+      "name": "ambiguous_artifact",
+      "outcome": "HOLD",
+      "passed": true,
+      "provider_model_calls": 0,
+      "request_id": "c2p_011",
+      "source_section_count": 0,
+      "started_utc": "2026-06-27T09:19:23Z"
+    },
+    {
+      "cited_source_ref_count": 0,
+      "completed_utc": "2026-06-27T09:19:23Z",
+      "direct_provider_bypass_count": 0,
+      "envelope": {
+        "applicability": "insufficient",
+        "authority": "no_authority",
+        "cited_source_refs": [],
+        "confidence": "high",
+        "disposition": {
+          "deterministic": true,
+          "external_action_executed": false,
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "reason": "multiple_artifacts",
+          "source_authority": "no_authoritative_guidance"
+        },
+        "guidance_steps": [],
+        "hold_reason": "multiple_artifacts",
+        "prerequisites": [],
+        "source_sections": [],
+        "status": "HOLD",
+        "warnings": []
+      },
+      "expected": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "guidance_step_count": 0,
+      "hold_reason": "multiple_artifacts",
+      "kind": "hold",
+      "material_regression": false,
+      "missing_output_regression": false,
+      "name": "two_artifact_input",
+      "outcome": "HOLD",
+      "passed": true,
+      "provider_model_calls": 0,
+      "request_id": "c2p_012",
+      "source_section_count": 0,
+      "started_utc": "2026-06-27T09:19:23Z"
+    },
+    {
+      "cited_source_ref_count": 0,
+      "completed_utc": "2026-06-27T09:19:23Z",
+      "direct_provider_bypass_count": 0,
+      "envelope": {
+        "applicability": "insufficient",
+        "authority": "no_authority",
+        "cited_source_refs": [],
+        "confidence": "high",
+        "disposition": {
+          "deterministic": true,
+          "external_action_executed": false,
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "reason": "unapproved_source",
+          "source_authority": "no_authoritative_guidance"
+        },
+        "guidance_steps": [],
+        "hold_reason": "unapproved_source",
+        "prerequisites": [],
+        "source_sections": [],
+        "status": "HOLD",
+        "warnings": []
+      },
+      "expected": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "guidance_step_count": 0,
+      "hold_reason": "unapproved_source",
+      "kind": "hold",
+      "material_regression": false,
+      "missing_output_regression": false,
+      "name": "unapproved_artifact",
+      "outcome": "HOLD",
+      "passed": true,
+      "provider_model_calls": 0,
+      "request_id": "c2p_013",
+      "source_section_count": 0,
+      "started_utc": "2026-06-27T09:19:23Z"
+    },
+    {
+      "cited_source_ref_count": 0,
+      "completed_utc": "2026-06-27T09:19:23Z",
+      "direct_provider_bypass_count": 0,
+      "envelope": {
+        "applicability": "insufficient",
+        "authority": "no_authority",
+        "cited_source_refs": [],
+        "confidence": "high",
+        "disposition": {
+          "deterministic": true,
+          "external_action_executed": false,
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "reason": "unapproved_source",
+          "source_authority": "no_authoritative_guidance"
+        },
+        "guidance_steps": [],
+        "hold_reason": "unapproved_source",
+        "prerequisites": [],
+        "source_sections": [],
+        "status": "HOLD",
+        "warnings": []
+      },
+      "expected": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "guidance_step_count": 0,
+      "hold_reason": "unapproved_source",
+      "kind": "hold",
+      "material_regression": false,
+      "missing_output_regression": false,
+      "name": "memory_source_attempt",
+      "outcome": "HOLD",
+      "passed": true,
+      "provider_model_calls": 0,
+      "request_id": "c2p_014",
+      "source_section_count": 0,
+      "started_utc": "2026-06-27T09:19:23Z"
+    },
+    {
+      "cited_source_ref_count": 0,
+      "completed_utc": "2026-06-27T09:19:23Z",
+      "direct_provider_bypass_count": 0,
+      "envelope": {
+        "applicability": "insufficient",
+        "authority": "no_authority",
+        "cited_source_refs": [],
+        "confidence": "high",
+        "disposition": {
+          "deterministic": true,
+          "external_action_executed": false,
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "reason": "unapproved_source",
+          "source_authority": "no_authoritative_guidance"
+        },
+        "guidance_steps": [],
+        "hold_reason": "unapproved_source",
+        "prerequisites": [],
+        "source_sections": [],
+        "status": "HOLD",
+        "warnings": []
+      },
+      "expected": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "guidance_step_count": 0,
+      "hold_reason": "unapproved_source",
+      "kind": "hold",
+      "material_regression": false,
+      "missing_output_regression": false,
+      "name": "arbitrary_path_attempt",
+      "outcome": "HOLD",
+      "passed": true,
+      "provider_model_calls": 0,
+      "request_id": "c2p_015",
+      "source_section_count": 0,
+      "started_utc": "2026-06-27T09:19:23Z"
+    },
+    {
+      "cited_source_ref_count": 2,
+      "completed_utc": "2026-06-27T09:19:23Z",
+      "direct_provider_bypass_count": 0,
+      "envelope": {
+        "applicability": "insufficient",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c2p_injection",
+            "path": "approved://c2p_injection.md",
+            "quote_hash": "dcb22bf061f7ec2a51faa50a652d1fdb70764e994ccb87d4248299d9b2785d60",
+            "section_id": "c2p_injection:01:suspicious_c2p_runbook",
+            "sha256": "aebcdc4f089e65cb8ce2a8b4d0209157a2413bb26c864088e1ca173ac2a850e4",
+            "source_ref_id": "c2p_injection#c2p_injection:01:suspicious_c2p_runbook"
+          },
+          {
+            "artifact_id": "c2p_injection",
+            "path": "approved://c2p_injection.md",
+            "quote_hash": "96306698cb90d3b763a0032ae3225395fbc75836cdff596ee3424af802dee023",
+            "section_id": "c2p_injection:02:ordered_steps",
+            "sha256": "aebcdc4f089e65cb8ce2a8b4d0209157a2413bb26c864088e1ca173ac2a850e4",
+            "source_ref_id": "c2p_injection#c2p_injection:02:ordered_steps"
+          }
+        ],
+        "confidence": "high",
+        "disposition": {
+          "deterministic": true,
+          "external_action_executed": false,
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "reason": "prompt_injection_risk",
+          "source_authority": "no_authoritative_guidance"
+        },
+        "guidance_steps": [],
+        "hold_reason": "prompt_injection_risk",
+        "prerequisites": [],
+        "source_sections": [
+          {
+            "heading": "Suspicious C2P Runbook",
+            "line_range": "1-2",
+            "section_hash": "dcb22bf061f7ec2a51faa50a652d1fdb70764e994ccb87d4248299d9b2785d60",
+            "section_id": "c2p_injection:01:suspicious_c2p_runbook"
+          },
+          {
+            "heading": "Ordered Steps",
+            "line_range": "3-5",
+            "section_hash": "96306698cb90d3b763a0032ae3225395fbc75836cdff596ee3424af802dee023",
+            "section_id": "c2p_injection:02:ordered_steps"
+          }
+        ],
+        "status": "HOLD",
+        "warnings": []
+      },
+      "expected": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "guidance_step_count": 0,
+      "hold_reason": "prompt_injection_risk",
+      "kind": "hold",
+      "material_regression": false,
+      "missing_output_regression": false,
+      "name": "prompt_injection_text",
+      "outcome": "HOLD",
+      "passed": true,
+      "provider_model_calls": 0,
+      "request_id": "c2p_016",
+      "source_section_count": 2,
+      "started_utc": "2026-06-27T09:19:23Z"
+    },
+    {
+      "cited_source_ref_count": 2,
+      "completed_utc": "2026-06-27T09:19:23Z",
+      "direct_provider_bypass_count": 0,
+      "envelope": {
+        "applicability": "insufficient",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c2p_external",
+            "path": "approved://c2p_external.md",
+            "quote_hash": "29e407298b952cbde2ba64470fa0f8151042a49268b1a966c619f481dd1030cf",
+            "section_id": "c2p_external:01:external_action_c2p_runbook",
+            "sha256": "fd7ac0bed7c6d5eca1c718a7f03d66bf535d06aa5dd0d3b42c4ae65f7166f9bd",
+            "source_ref_id": "c2p_external#c2p_external:01:external_action_c2p_runbook"
+          },
+          {
+            "artifact_id": "c2p_external",
+            "path": "approved://c2p_external.md",
+            "quote_hash": "38934a5874366fa5eb7874ef485029f404da18ee4515162ed7376c71c21874c4",
+            "section_id": "c2p_external:02:ordered_steps",
+            "sha256": "fd7ac0bed7c6d5eca1c718a7f03d66bf535d06aa5dd0d3b42c4ae65f7166f9bd",
+            "source_ref_id": "c2p_external#c2p_external:02:ordered_steps"
+          }
+        ],
+        "confidence": "high",
+        "disposition": {
+          "deterministic": true,
+          "external_action_executed": false,
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "reason": "external_action_required",
+          "source_authority": "no_authoritative_guidance"
+        },
+        "guidance_steps": [],
+        "hold_reason": "external_action_required",
+        "prerequisites": [],
+        "source_sections": [
+          {
+            "heading": "External Action C2P Runbook",
+            "line_range": "1-2",
+            "section_hash": "29e407298b952cbde2ba64470fa0f8151042a49268b1a966c619f481dd1030cf",
+            "section_id": "c2p_external:01:external_action_c2p_runbook"
+          },
+          {
+            "heading": "Ordered Steps",
+            "line_range": "3-5",
+            "section_hash": "38934a5874366fa5eb7874ef485029f404da18ee4515162ed7376c71c21874c4",
+            "section_id": "c2p_external:02:ordered_steps"
+          }
+        ],
+        "status": "HOLD",
+        "warnings": []
+      },
+      "expected": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "guidance_step_count": 0,
+      "hold_reason": "external_action_required",
+      "kind": "hold",
+      "material_regression": false,
+      "missing_output_regression": false,
+      "name": "external_action_hold",
+      "outcome": "HOLD",
+      "passed": true,
+      "provider_model_calls": 0,
+      "request_id": "c2p_017",
+      "source_section_count": 2,
+      "started_utc": "2026-06-27T09:19:23Z"
+    },
+    {
+      "cited_source_ref_count": 5,
+      "completed_utc": "2026-06-27T09:19:23Z",
+      "direct_provider_bypass_count": 0,
+      "envelope": {
+        "applicability": "insufficient",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "06875e4357b0aeaf1f7c5cd570ca00939a92136ee1f4a626a9fdd29b10c51c2d",
+            "section_id": "c2p_approved_runbook:01:approved_c2p_canary_runbook",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:01:approved_c2p_canary_runbook"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "2f1c7f02bffa4ed49b734e24479e9411f14fa2ad1fb4c4145d0db9005d40c636",
+            "section_id": "c2p_approved_runbook:02:applicability",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:02:applicability"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "dbb55998c33987f4e9791dfe993332133646d25d041b537f6132e78801796876",
+            "section_id": "c2p_approved_runbook:03:prerequisites",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "625bc359065d361e11ead50ac101b5eaab69b8bcb6d2b09b26c3ac6322e158f7",
+            "section_id": "c2p_approved_runbook:04:ordered_steps",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "bd6aa345f05692e35701cc50ac3c8963de23e84630fd06a4c8dab5a200ceccd8",
+            "section_id": "c2p_approved_runbook:05:warnings",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+          }
+        ],
+        "confidence": "high",
+        "disposition": {
+          "deterministic": true,
+          "external_action_executed": false,
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "reason": "requires_forbidden_authority",
+          "source_authority": "no_authoritative_guidance"
+        },
+        "guidance_steps": [],
+        "hold_reason": "requires_forbidden_authority",
+        "prerequisites": [],
+        "source_sections": [
+          {
+            "heading": "Approved C2P Canary Runbook",
+            "line_range": "1-2",
+            "section_hash": "06875e4357b0aeaf1f7c5cd570ca00939a92136ee1f4a626a9fdd29b10c51c2d",
+            "section_id": "c2p_approved_runbook:01:approved_c2p_canary_runbook"
+          },
+          {
+            "heading": "Applicability",
+            "line_range": "3-6",
+            "section_hash": "2f1c7f02bffa4ed49b734e24479e9411f14fa2ad1fb4c4145d0db9005d40c636",
+            "section_id": "c2p_approved_runbook:02:applicability"
+          },
+          {
+            "heading": "Prerequisites",
+            "line_range": "7-11",
+            "section_hash": "dbb55998c33987f4e9791dfe993332133646d25d041b537f6132e78801796876",
+            "section_id": "c2p_approved_runbook:03:prerequisites"
+          },
+          {
+            "heading": "Ordered Steps",
+            "line_range": "12-18",
+            "section_hash": "625bc359065d361e11ead50ac101b5eaab69b8bcb6d2b09b26c3ac6322e158f7",
+            "section_id": "c2p_approved_runbook:04:ordered_steps"
+          },
+          {
+            "heading": "Warnings",
+            "line_range": "19-22",
+            "section_hash": "bd6aa345f05692e35701cc50ac3c8963de23e84630fd06a4c8dab5a200ceccd8",
+            "section_id": "c2p_approved_runbook:05:warnings"
+          }
+        ],
+        "status": "HOLD",
+        "warnings": []
+      },
+      "expected": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "guidance_step_count": 0,
+      "hold_reason": "requires_forbidden_authority",
+      "kind": "hold",
+      "material_regression": false,
+      "missing_output_regression": false,
+      "name": "runtime_mutation_hold",
+      "outcome": "HOLD",
+      "passed": true,
+      "provider_model_calls": 0,
+      "request_id": "c2p_018",
+      "source_section_count": 5,
+      "started_utc": "2026-06-27T09:19:23Z"
+    },
+    {
+      "cited_source_ref_count": 5,
+      "completed_utc": "2026-06-27T09:19:23Z",
+      "direct_provider_bypass_count": 0,
+      "envelope": {
+        "applicability": "insufficient",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "06875e4357b0aeaf1f7c5cd570ca00939a92136ee1f4a626a9fdd29b10c51c2d",
+            "section_id": "c2p_approved_runbook:01:approved_c2p_canary_runbook",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:01:approved_c2p_canary_runbook"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "2f1c7f02bffa4ed49b734e24479e9411f14fa2ad1fb4c4145d0db9005d40c636",
+            "section_id": "c2p_approved_runbook:02:applicability",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:02:applicability"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "dbb55998c33987f4e9791dfe993332133646d25d041b537f6132e78801796876",
+            "section_id": "c2p_approved_runbook:03:prerequisites",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "625bc359065d361e11ead50ac101b5eaab69b8bcb6d2b09b26c3ac6322e158f7",
+            "section_id": "c2p_approved_runbook:04:ordered_steps",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "bd6aa345f05692e35701cc50ac3c8963de23e84630fd06a4c8dab5a200ceccd8",
+            "section_id": "c2p_approved_runbook:05:warnings",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+          }
+        ],
+        "confidence": "high",
+        "disposition": {
+          "deterministic": true,
+          "external_action_executed": false,
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "reason": "cross_artifact_synthesis_forbidden",
+          "source_authority": "no_authoritative_guidance"
+        },
+        "guidance_steps": [],
+        "hold_reason": "cross_artifact_synthesis_forbidden",
+        "prerequisites": [],
+        "source_sections": [
+          {
+            "heading": "Approved C2P Canary Runbook",
+            "line_range": "1-2",
+            "section_hash": "06875e4357b0aeaf1f7c5cd570ca00939a92136ee1f4a626a9fdd29b10c51c2d",
+            "section_id": "c2p_approved_runbook:01:approved_c2p_canary_runbook"
+          },
+          {
+            "heading": "Applicability",
+            "line_range": "3-6",
+            "section_hash": "2f1c7f02bffa4ed49b734e24479e9411f14fa2ad1fb4c4145d0db9005d40c636",
+            "section_id": "c2p_approved_runbook:02:applicability"
+          },
+          {
+            "heading": "Prerequisites",
+            "line_range": "7-11",
+            "section_hash": "dbb55998c33987f4e9791dfe993332133646d25d041b537f6132e78801796876",
+            "section_id": "c2p_approved_runbook:03:prerequisites"
+          },
+          {
+            "heading": "Ordered Steps",
+            "line_range": "12-18",
+            "section_hash": "625bc359065d361e11ead50ac101b5eaab69b8bcb6d2b09b26c3ac6322e158f7",
+            "section_id": "c2p_approved_runbook:04:ordered_steps"
+          },
+          {
+            "heading": "Warnings",
+            "line_range": "19-22",
+            "section_hash": "bd6aa345f05692e35701cc50ac3c8963de23e84630fd06a4c8dab5a200ceccd8",
+            "section_id": "c2p_approved_runbook:05:warnings"
+          }
+        ],
+        "status": "HOLD",
+        "warnings": []
+      },
+      "expected": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "guidance_step_count": 0,
+      "hold_reason": "cross_artifact_synthesis_forbidden",
+      "kind": "hold",
+      "material_regression": false,
+      "missing_output_regression": false,
+      "name": "cross_artifact_attempt",
+      "outcome": "HOLD",
+      "passed": true,
+      "provider_model_calls": 0,
+      "request_id": "c2p_019",
+      "source_section_count": 5,
+      "started_utc": "2026-06-27T09:19:23Z"
+    },
+    {
+      "cited_source_ref_count": 5,
+      "completed_utc": "2026-06-27T09:19:23Z",
+      "direct_provider_bypass_count": 0,
+      "envelope": {
+        "applicability": "insufficient",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "06875e4357b0aeaf1f7c5cd570ca00939a92136ee1f4a626a9fdd29b10c51c2d",
+            "section_id": "c2p_approved_runbook:01:approved_c2p_canary_runbook",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:01:approved_c2p_canary_runbook"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "2f1c7f02bffa4ed49b734e24479e9411f14fa2ad1fb4c4145d0db9005d40c636",
+            "section_id": "c2p_approved_runbook:02:applicability",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:02:applicability"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "dbb55998c33987f4e9791dfe993332133646d25d041b537f6132e78801796876",
+            "section_id": "c2p_approved_runbook:03:prerequisites",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:03:prerequisites"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "625bc359065d361e11ead50ac101b5eaab69b8bcb6d2b09b26c3ac6322e158f7",
+            "section_id": "c2p_approved_runbook:04:ordered_steps",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:04:ordered_steps"
+          },
+          {
+            "artifact_id": "c2p_approved_runbook",
+            "path": "approved://c2p_approved_runbook.md",
+            "quote_hash": "bd6aa345f05692e35701cc50ac3c8963de23e84630fd06a4c8dab5a200ceccd8",
+            "section_id": "c2p_approved_runbook:05:warnings",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_approved_runbook#c2p_approved_runbook:05:warnings"
+          }
+        ],
+        "confidence": "high",
+        "disposition": {
+          "deterministic": true,
+          "external_action_executed": false,
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "reason": "cross_artifact_synthesis_forbidden",
+          "source_authority": "no_authoritative_guidance"
+        },
+        "guidance_steps": [],
+        "hold_reason": "cross_artifact_synthesis_forbidden",
+        "prerequisites": [],
+        "source_sections": [
+          {
+            "heading": "Approved C2P Canary Runbook",
+            "line_range": "1-2",
+            "section_hash": "06875e4357b0aeaf1f7c5cd570ca00939a92136ee1f4a626a9fdd29b10c51c2d",
+            "section_id": "c2p_approved_runbook:01:approved_c2p_canary_runbook"
+          },
+          {
+            "heading": "Applicability",
+            "line_range": "3-6",
+            "section_hash": "2f1c7f02bffa4ed49b734e24479e9411f14fa2ad1fb4c4145d0db9005d40c636",
+            "section_id": "c2p_approved_runbook:02:applicability"
+          },
+          {
+            "heading": "Prerequisites",
+            "line_range": "7-11",
+            "section_hash": "dbb55998c33987f4e9791dfe993332133646d25d041b537f6132e78801796876",
+            "section_id": "c2p_approved_runbook:03:prerequisites"
+          },
+          {
+            "heading": "Ordered Steps",
+            "line_range": "12-18",
+            "section_hash": "625bc359065d361e11ead50ac101b5eaab69b8bcb6d2b09b26c3ac6322e158f7",
+            "section_id": "c2p_approved_runbook:04:ordered_steps"
+          },
+          {
+            "heading": "Warnings",
+            "line_range": "19-22",
+            "section_hash": "bd6aa345f05692e35701cc50ac3c8963de23e84630fd06a4c8dab5a200ceccd8",
+            "section_id": "c2p_approved_runbook:05:warnings"
+          }
+        ],
+        "status": "HOLD",
+        "warnings": []
+      },
+      "expected": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "guidance_step_count": 0,
+      "hold_reason": "cross_artifact_synthesis_forbidden",
+      "kind": "hold",
+      "material_regression": false,
+      "missing_output_regression": false,
+      "name": "multi_source_proposal_attempt",
+      "outcome": "HOLD",
+      "passed": true,
+      "provider_model_calls": 0,
+      "request_id": "c2p_020",
+      "source_section_count": 5,
+      "started_utc": "2026-06-27T09:19:23Z"
+    },
+    {
+      "cited_source_ref_count": 0,
+      "completed_utc": "2026-06-27T09:19:23Z",
+      "direct_provider_bypass_count": 0,
+      "envelope": {
+        "applicability": "bounded to one approved artifact and cited sections only",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [],
+        "confidence": "high",
+        "disposition": {
+          "artifact_id": "c2p_guard_runbook",
+          "deterministic": true,
+          "external_action_executed": false,
+          "kind": "single_artifact_guidance",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "source_authority": "approved_single_artifact_only"
+        },
+        "guidance_steps": [
+          {
+            "applicability": "required",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:02:applicability"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:02:applicability"
+            ],
+            "step_id": "c2p_021_step_01",
+            "text": "This artifact supports M12-C2 single-artifact runbook guidance canary requests."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:02:applicability"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:02:applicability"
+            ],
+            "step_id": "c2p_021_step_02",
+            "text": "It remains bounded to one approved artifact and deterministic section citations."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_021_step_03",
+            "text": "Read the approved artifact status section."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_021_step_04",
+            "text": "Confirm evidence files are present."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_021_step_05",
+            "text": "Validate the GUIDANCE or HOLD envelope."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_021_step_06",
+            "text": "Cite approved source sections only."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_021_step_07",
+            "text": "Report the canary result within the accepted M12-C2 boundary."
+          }
+        ],
+        "hold_reason": null,
+        "model_prose": "source_ref_id=c2p_guard_runbook#prose-only",
+        "prerequisites": [
+          {
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:03:prerequisites"
+            ],
+            "text": "Confirm C2 owner review readiness acceptance."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:03:prerequisites"
+            ],
+            "text": "Confirm M11 frozen baseline and M12-C1 frozen production acceptance."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:03:prerequisites"
+            ],
+            "text": "Confirm rollback readiness."
+          }
+        ],
+        "source_sections": [],
+        "status": "GUIDANCE",
+        "warnings": [
+          {
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:05:warnings"
+            ],
+            "text": "Downstream milestones remain outside this canary."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:05:warnings"
+            ],
+            "text": "Durable artifact promotion remains outside this canary."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:05:warnings"
+            ],
+            "text": "Protected operator controls remain unchanged."
+          }
+        ]
+      },
+      "expected": "REJECT",
+      "guard_accepted": false,
+      "guard_reasons": [
+        "guidance_requires_cited_source_refs"
+      ],
+      "guidance_step_count": 7,
+      "hold_reason": null,
+      "kind": "guard_reject",
+      "material_regression": false,
+      "missing_output_regression": false,
+      "name": "source_refs_prose_only_reject",
+      "outcome": "REJECT",
+      "passed": true,
+      "provider_model_calls": 0,
+      "request_id": "c2p_021",
+      "source_section_count": 0,
+      "started_utc": "2026-06-27T09:19:23Z"
+    },
+    {
+      "cited_source_ref_count": 4,
+      "completed_utc": "2026-06-27T09:19:23Z",
+      "direct_provider_bypass_count": 0,
+      "envelope": {
+        "applicability": "bounded to one approved artifact and cited sections only",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c2p_guard_runbook",
+            "path": "approved://c2p_guard_runbook.md",
+            "quote_hash": "2f1c7f02bffa4ed49b734e24479e9411f14fa2ad1fb4c4145d0db9005d40c636",
+            "section_id": "c2p_guard_runbook:02:applicability",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_guard_runbook#c2p_guard_runbook:02:applicability"
+          },
+          {
+            "artifact_id": "c2p_guard_runbook",
+            "path": "approved://c2p_guard_runbook.md",
+            "quote_hash": "dbb55998c33987f4e9791dfe993332133646d25d041b537f6132e78801796876",
+            "section_id": "c2p_guard_runbook:03:prerequisites",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_guard_runbook#c2p_guard_runbook:03:prerequisites"
+          },
+          {
+            "artifact_id": "c2p_guard_runbook",
+            "path": "approved://c2p_guard_runbook.md",
+            "quote_hash": "625bc359065d361e11ead50ac101b5eaab69b8bcb6d2b09b26c3ac6322e158f7",
+            "section_id": "c2p_guard_runbook:04:ordered_steps",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_guard_runbook#c2p_guard_runbook:04:ordered_steps"
+          },
+          {
+            "artifact_id": "c2p_guard_runbook",
+            "path": "approved://c2p_guard_runbook.md",
+            "quote_hash": "bd6aa345f05692e35701cc50ac3c8963de23e84630fd06a4c8dab5a200ceccd8",
+            "section_id": "c2p_guard_runbook:05:warnings",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_guard_runbook#c2p_guard_runbook:05:warnings"
+          }
+        ],
+        "confidence": "high",
+        "disposition": {
+          "artifact_id": "c2p_guard_runbook",
+          "deterministic": true,
+          "external_action_executed": false,
+          "kind": "single_artifact_guidance",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "source_authority": "approved_single_artifact_only"
+        },
+        "guidance_steps": [
+          {
+            "applicability": "required",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:02:applicability"
+            ],
+            "source_section_ids": [
+              "wrong_section"
+            ],
+            "step_id": "c2p_022_step_01",
+            "text": "This artifact supports M12-C2 single-artifact runbook guidance canary requests."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:02:applicability"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:02:applicability"
+            ],
+            "step_id": "c2p_022_step_02",
+            "text": "It remains bounded to one approved artifact and deterministic section citations."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_022_step_03",
+            "text": "Read the approved artifact status section."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_022_step_04",
+            "text": "Confirm evidence files are present."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_022_step_05",
+            "text": "Validate the GUIDANCE or HOLD envelope."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_022_step_06",
+            "text": "Cite approved source sections only."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_022_step_07",
+            "text": "Report the canary result within the accepted M12-C2 boundary."
+          }
+        ],
+        "hold_reason": null,
+        "prerequisites": [
+          {
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:03:prerequisites"
+            ],
+            "text": "Confirm C2 owner review readiness acceptance."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:03:prerequisites"
+            ],
+            "text": "Confirm M11 frozen baseline and M12-C1 frozen production acceptance."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:03:prerequisites"
+            ],
+            "text": "Confirm rollback readiness."
+          }
+        ],
+        "source_sections": [
+          {
+            "heading": "Applicability",
+            "line_range": "3-6",
+            "section_hash": "2f1c7f02bffa4ed49b734e24479e9411f14fa2ad1fb4c4145d0db9005d40c636",
+            "section_id": "c2p_guard_runbook:02:applicability"
+          },
+          {
+            "heading": "Prerequisites",
+            "line_range": "7-11",
+            "section_hash": "dbb55998c33987f4e9791dfe993332133646d25d041b537f6132e78801796876",
+            "section_id": "c2p_guard_runbook:03:prerequisites"
+          },
+          {
+            "heading": "Ordered Steps",
+            "line_range": "12-18",
+            "section_hash": "625bc359065d361e11ead50ac101b5eaab69b8bcb6d2b09b26c3ac6322e158f7",
+            "section_id": "c2p_guard_runbook:04:ordered_steps"
+          },
+          {
+            "heading": "Warnings",
+            "line_range": "19-22",
+            "section_hash": "bd6aa345f05692e35701cc50ac3c8963de23e84630fd06a4c8dab5a200ceccd8",
+            "section_id": "c2p_guard_runbook:05:warnings"
+          }
+        ],
+        "status": "GUIDANCE",
+        "warnings": [
+          {
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:05:warnings"
+            ],
+            "text": "Downstream milestones remain outside this canary."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:05:warnings"
+            ],
+            "text": "Durable artifact promotion remains outside this canary."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:05:warnings"
+            ],
+            "text": "Protected operator controls remain unchanged."
+          }
+        ]
+      },
+      "expected": "REJECT",
+      "guard_accepted": false,
+      "guard_reasons": [
+        "guidance_step_unapproved_section:wrong_section"
+      ],
+      "guidance_step_count": 7,
+      "hold_reason": null,
+      "kind": "guard_reject",
+      "material_regression": false,
+      "missing_output_regression": false,
+      "name": "wrong_source_section_reject",
+      "outcome": "REJECT",
+      "passed": true,
+      "provider_model_calls": 0,
+      "request_id": "c2p_022",
+      "source_section_count": 4,
+      "started_utc": "2026-06-27T09:19:23Z"
+    },
+    {
+      "cited_source_ref_count": 0,
+      "completed_utc": "2026-06-27T09:19:23Z",
+      "direct_provider_bypass_count": 0,
+      "envelope": {
+        "applicability": "bounded to one approved artifact and cited sections only",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [],
+        "confidence": "high",
+        "disposition": {
+          "artifact_id": "c2p_guard_runbook",
+          "deterministic": true,
+          "external_action_executed": false,
+          "kind": "single_artifact_guidance",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "source_authority": "approved_single_artifact_only"
+        },
+        "guidance_steps": [
+          {
+            "applicability": "required",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:02:applicability"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:02:applicability"
+            ],
+            "step_id": "c2p_023_step_01",
+            "text": "This artifact supports M12-C2 single-artifact runbook guidance canary requests."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:02:applicability"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:02:applicability"
+            ],
+            "step_id": "c2p_023_step_02",
+            "text": "It remains bounded to one approved artifact and deterministic section citations."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_023_step_03",
+            "text": "Read the approved artifact status section."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_023_step_04",
+            "text": "Confirm evidence files are present."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_023_step_05",
+            "text": "Validate the GUIDANCE or HOLD envelope."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_023_step_06",
+            "text": "Cite approved source sections only."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_023_step_07",
+            "text": "Report the canary result within the accepted M12-C2 boundary."
+          }
+        ],
+        "hold_reason": null,
+        "prerequisites": [
+          {
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:03:prerequisites"
+            ],
+            "text": "Confirm C2 owner review readiness acceptance."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:03:prerequisites"
+            ],
+            "text": "Confirm M11 frozen baseline and M12-C1 frozen production acceptance."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:03:prerequisites"
+            ],
+            "text": "Confirm rollback readiness."
+          }
+        ],
+        "source_sections": [
+          {
+            "heading": "Applicability",
+            "line_range": "3-6",
+            "section_hash": "2f1c7f02bffa4ed49b734e24479e9411f14fa2ad1fb4c4145d0db9005d40c636",
+            "section_id": "c2p_guard_runbook:02:applicability"
+          },
+          {
+            "heading": "Prerequisites",
+            "line_range": "7-11",
+            "section_hash": "dbb55998c33987f4e9791dfe993332133646d25d041b537f6132e78801796876",
+            "section_id": "c2p_guard_runbook:03:prerequisites"
+          },
+          {
+            "heading": "Ordered Steps",
+            "line_range": "12-18",
+            "section_hash": "625bc359065d361e11ead50ac101b5eaab69b8bcb6d2b09b26c3ac6322e158f7",
+            "section_id": "c2p_guard_runbook:04:ordered_steps"
+          },
+          {
+            "heading": "Warnings",
+            "line_range": "19-22",
+            "section_hash": "bd6aa345f05692e35701cc50ac3c8963de23e84630fd06a4c8dab5a200ceccd8",
+            "section_id": "c2p_guard_runbook:05:warnings"
+          }
+        ],
+        "status": "GUIDANCE",
+        "warnings": [
+          {
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:05:warnings"
+            ],
+            "text": "Downstream milestones remain outside this canary."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:05:warnings"
+            ],
+            "text": "Durable artifact promotion remains outside this canary."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:05:warnings"
+            ],
+            "text": "Protected operator controls remain unchanged."
+          }
+        ]
+      },
+      "expected": "REJECT",
+      "guard_accepted": false,
+      "guard_reasons": [
+        "guidance_requires_cited_source_refs"
+      ],
+      "guidance_step_count": 7,
+      "hold_reason": null,
+      "kind": "guard_reject",
+      "material_regression": false,
+      "missing_output_regression": false,
+      "name": "missing_source_refs_reject",
+      "outcome": "REJECT",
+      "passed": true,
+      "provider_model_calls": 0,
+      "request_id": "c2p_023",
+      "source_section_count": 4,
+      "started_utc": "2026-06-27T09:19:23Z"
+    },
+    {
+      "cited_source_ref_count": 4,
+      "completed_utc": "2026-06-27T09:19:23Z",
+      "direct_provider_bypass_count": 0,
+      "envelope": {
+        "applicability": "bounded to one approved artifact and cited sections only",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c2p_guard_runbook",
+            "path": "approved://c2p_guard_runbook.md",
+            "quote_hash": "2f1c7f02bffa4ed49b734e24479e9411f14fa2ad1fb4c4145d0db9005d40c636",
+            "section_id": "c2p_guard_runbook:02:applicability",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_guard_runbook#c2p_guard_runbook:02:applicability"
+          },
+          {
+            "artifact_id": "c2p_guard_runbook",
+            "path": "approved://c2p_guard_runbook.md",
+            "quote_hash": "dbb55998c33987f4e9791dfe993332133646d25d041b537f6132e78801796876",
+            "section_id": "c2p_guard_runbook:03:prerequisites",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_guard_runbook#c2p_guard_runbook:03:prerequisites"
+          },
+          {
+            "artifact_id": "c2p_guard_runbook",
+            "path": "approved://c2p_guard_runbook.md",
+            "quote_hash": "625bc359065d361e11ead50ac101b5eaab69b8bcb6d2b09b26c3ac6322e158f7",
+            "section_id": "c2p_guard_runbook:04:ordered_steps",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_guard_runbook#c2p_guard_runbook:04:ordered_steps"
+          },
+          {
+            "artifact_id": "c2p_guard_runbook",
+            "path": "approved://c2p_guard_runbook.md",
+            "quote_hash": "bd6aa345f05692e35701cc50ac3c8963de23e84630fd06a4c8dab5a200ceccd8",
+            "section_id": "c2p_guard_runbook:05:warnings",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_guard_runbook#c2p_guard_runbook:05:warnings"
+          }
+        ],
+        "confidence": "high",
+        "disposition": {
+          "artifact_id": "c2p_guard_runbook",
+          "deterministic": true,
+          "external_action_executed": false,
+          "kind": "single_artifact_guidance",
+          "model_prose_used": false,
+          "mutation_applied": true,
+          "production_expansion_applied": false,
+          "source_authority": "approved_single_artifact_only"
+        },
+        "guidance_steps": [
+          {
+            "applicability": "required",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:02:applicability"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:02:applicability"
+            ],
+            "step_id": "c2p_024_step_01",
+            "text": "This artifact supports M12-C2 single-artifact runbook guidance canary requests."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:02:applicability"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:02:applicability"
+            ],
+            "step_id": "c2p_024_step_02",
+            "text": "It remains bounded to one approved artifact and deterministic section citations."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_024_step_03",
+            "text": "Read the approved artifact status section."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_024_step_04",
+            "text": "Confirm evidence files are present."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_024_step_05",
+            "text": "Validate the GUIDANCE or HOLD envelope."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_024_step_06",
+            "text": "Cite approved source sections only."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_024_step_07",
+            "text": "Report the canary result within the accepted M12-C2 boundary."
+          }
+        ],
+        "hold_reason": null,
+        "prerequisites": [
+          {
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:03:prerequisites"
+            ],
+            "text": "Confirm C2 owner review readiness acceptance."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:03:prerequisites"
+            ],
+            "text": "Confirm M11 frozen baseline and M12-C1 frozen production acceptance."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:03:prerequisites"
+            ],
+            "text": "Confirm rollback readiness."
+          }
+        ],
+        "source_sections": [
+          {
+            "heading": "Applicability",
+            "line_range": "3-6",
+            "section_hash": "2f1c7f02bffa4ed49b734e24479e9411f14fa2ad1fb4c4145d0db9005d40c636",
+            "section_id": "c2p_guard_runbook:02:applicability"
+          },
+          {
+            "heading": "Prerequisites",
+            "line_range": "7-11",
+            "section_hash": "dbb55998c33987f4e9791dfe993332133646d25d041b537f6132e78801796876",
+            "section_id": "c2p_guard_runbook:03:prerequisites"
+          },
+          {
+            "heading": "Ordered Steps",
+            "line_range": "12-18",
+            "section_hash": "625bc359065d361e11ead50ac101b5eaab69b8bcb6d2b09b26c3ac6322e158f7",
+            "section_id": "c2p_guard_runbook:04:ordered_steps"
+          },
+          {
+            "heading": "Warnings",
+            "line_range": "19-22",
+            "section_hash": "bd6aa345f05692e35701cc50ac3c8963de23e84630fd06a4c8dab5a200ceccd8",
+            "section_id": "c2p_guard_runbook:05:warnings"
+          }
+        ],
+        "status": "GUIDANCE",
+        "warnings": [
+          {
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:05:warnings"
+            ],
+            "text": "Downstream milestones remain outside this canary."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:05:warnings"
+            ],
+            "text": "Durable artifact promotion remains outside this canary."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:05:warnings"
+            ],
+            "text": "Protected operator controls remain unchanged."
+          }
+        ]
+      },
+      "expected": "REJECT",
+      "guard_accepted": false,
+      "guard_reasons": [
+        "mutation_smuggled"
+      ],
+      "guidance_step_count": 7,
+      "hold_reason": null,
+      "kind": "guard_reject",
+      "material_regression": false,
+      "missing_output_regression": false,
+      "name": "mutation_smuggling_reject",
+      "outcome": "REJECT",
+      "passed": true,
+      "provider_model_calls": 0,
+      "request_id": "c2p_024",
+      "source_section_count": 4,
+      "started_utc": "2026-06-27T09:19:23Z"
+    },
+    {
+      "cited_source_ref_count": 4,
+      "completed_utc": "2026-06-27T09:19:23Z",
+      "direct_provider_bypass_count": 0,
+      "envelope": {
+        "applicability": "bounded to one approved artifact and cited sections only",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c2p_guard_runbook",
+            "path": "approved://c2p_guard_runbook.md",
+            "quote_hash": "2f1c7f02bffa4ed49b734e24479e9411f14fa2ad1fb4c4145d0db9005d40c636",
+            "section_id": "c2p_guard_runbook:02:applicability",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_guard_runbook#c2p_guard_runbook:02:applicability"
+          },
+          {
+            "artifact_id": "c2p_guard_runbook",
+            "path": "approved://c2p_guard_runbook.md",
+            "quote_hash": "dbb55998c33987f4e9791dfe993332133646d25d041b537f6132e78801796876",
+            "section_id": "c2p_guard_runbook:03:prerequisites",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_guard_runbook#c2p_guard_runbook:03:prerequisites"
+          },
+          {
+            "artifact_id": "c2p_guard_runbook",
+            "path": "approved://c2p_guard_runbook.md",
+            "quote_hash": "625bc359065d361e11ead50ac101b5eaab69b8bcb6d2b09b26c3ac6322e158f7",
+            "section_id": "c2p_guard_runbook:04:ordered_steps",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_guard_runbook#c2p_guard_runbook:04:ordered_steps"
+          },
+          {
+            "artifact_id": "c2p_guard_runbook",
+            "path": "approved://c2p_guard_runbook.md",
+            "quote_hash": "bd6aa345f05692e35701cc50ac3c8963de23e84630fd06a4c8dab5a200ceccd8",
+            "section_id": "c2p_guard_runbook:05:warnings",
+            "sha256": "13ccf5d69a814c33fbf728ce8baf628364d7c70dc7f75984b0c7a4a02901d078",
+            "source_ref_id": "c2p_guard_runbook#c2p_guard_runbook:05:warnings"
+          }
+        ],
+        "confidence": "high",
+        "disposition": {
+          "artifact_id": "c2p_guard_runbook",
+          "deterministic": true,
+          "external_action_executed": true,
+          "kind": "single_artifact_guidance",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "source_authority": "approved_single_artifact_only"
+        },
+        "guidance_steps": [
+          {
+            "applicability": "required",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:02:applicability"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:02:applicability"
+            ],
+            "step_id": "c2p_025_step_01",
+            "text": "This artifact supports M12-C2 single-artifact runbook guidance canary requests."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:02:applicability"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:02:applicability"
+            ],
+            "step_id": "c2p_025_step_02",
+            "text": "It remains bounded to one approved artifact and deterministic section citations."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_025_step_03",
+            "text": "Read the approved artifact status section."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_025_step_04",
+            "text": "Confirm evidence files are present."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_025_step_05",
+            "text": "Validate the GUIDANCE or HOLD envelope."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_025_step_06",
+            "text": "Cite approved source sections only."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2p_025_step_07",
+            "text": "Report the canary result within the accepted M12-C2 boundary."
+          }
+        ],
+        "hold_reason": null,
+        "prerequisites": [
+          {
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:03:prerequisites"
+            ],
+            "text": "Confirm C2 owner review readiness acceptance."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:03:prerequisites"
+            ],
+            "text": "Confirm M11 frozen baseline and M12-C1 frozen production acceptance."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:03:prerequisites"
+            ],
+            "text": "Confirm rollback readiness."
+          }
+        ],
+        "source_sections": [
+          {
+            "heading": "Applicability",
+            "line_range": "3-6",
+            "section_hash": "2f1c7f02bffa4ed49b734e24479e9411f14fa2ad1fb4c4145d0db9005d40c636",
+            "section_id": "c2p_guard_runbook:02:applicability"
+          },
+          {
+            "heading": "Prerequisites",
+            "line_range": "7-11",
+            "section_hash": "dbb55998c33987f4e9791dfe993332133646d25d041b537f6132e78801796876",
+            "section_id": "c2p_guard_runbook:03:prerequisites"
+          },
+          {
+            "heading": "Ordered Steps",
+            "line_range": "12-18",
+            "section_hash": "625bc359065d361e11ead50ac101b5eaab69b8bcb6d2b09b26c3ac6322e158f7",
+            "section_id": "c2p_guard_runbook:04:ordered_steps"
+          },
+          {
+            "heading": "Warnings",
+            "line_range": "19-22",
+            "section_hash": "bd6aa345f05692e35701cc50ac3c8963de23e84630fd06a4c8dab5a200ceccd8",
+            "section_id": "c2p_guard_runbook:05:warnings"
+          }
+        ],
+        "status": "GUIDANCE",
+        "warnings": [
+          {
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:05:warnings"
+            ],
+            "text": "Downstream milestones remain outside this canary."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:05:warnings"
+            ],
+            "text": "Durable artifact promotion remains outside this canary."
+          },
+          {
+            "source_ref_ids": [
+              "c2p_guard_runbook#c2p_guard_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2p_guard_runbook:05:warnings"
+            ],
+            "text": "Protected operator controls remain unchanged."
+          }
+        ]
+      },
+      "expected": "REJECT",
+      "guard_accepted": false,
+      "guard_reasons": [
+        "external_action_execution_smuggled"
+      ],
+      "guidance_step_count": 7,
+      "hold_reason": null,
+      "kind": "guard_reject",
+      "material_regression": false,
+      "missing_output_regression": false,
+      "name": "external_action_execution_smuggling_reject",
+      "outcome": "REJECT",
+      "passed": true,
+      "provider_model_calls": 0,
+      "request_id": "c2p_025",
+      "source_section_count": 4,
+      "started_utc": "2026-06-27T09:19:23Z"
+    }
+  ],
+  "schema": "stickbot.vnext_semantic_gate.m12_c2p.request_log.v1",
+  "status": "M12_C2P_LIMITED_PRODUCTION_CANARY_PASS"
+}

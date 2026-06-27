@@ -1,0 +1,31 @@
+{
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p_limited_production_canary",
+  "artifact_memory_promoted": false,
+  "c2_production_request_count": 25,
+  "c2_production_route_activated": false,
+  "c3_c4_started": false,
+  "cache_enabled": false,
+  "direct_provider_bypass_count": 0,
+  "failed_gates": [],
+  "first_failure": null,
+  "global_semantic_gate_promoted": false,
+  "guard_reject_count": 5,
+  "guidance_count": 8,
+  "hold_count": 12,
+  "m11_frozen_baseline_preserved": true,
+  "m12_c1_frozen_production_acceptance_preserved": true,
+  "material_regression_count": 0,
+  "missing_output_regression_count": 0,
+  "production_expansion_applied": false,
+  "provider_model_calls": 0,
+  "rollback_ready": true,
+  "run_bound": {
+    "completed_by": "request_bound",
+    "completed_requests": 25,
+    "max_active_seconds": 7200,
+    "target_requests": 25
+  },
+  "runtime_authority_mutated": false,
+  "schema": "stickbot.vnext_semantic_gate.m12_c2p.status.v1",
+  "status": "M12_C2P_LIMITED_PRODUCTION_CANARY_PASS"
+}

@@ -1,0 +1,7 @@
+{
+  "authoritative_c2_guidance_provider_calls": 0,
+  "optional_model_prose_enabled": false,
+  "provider_model_calls": 0,
+  "schema": "stickbot.vnext_semantic_gate.m12_c2p.provider_model.v1",
+  "status": "M12_C2P_LIMITED_PRODUCTION_CANARY_PASS"
+}

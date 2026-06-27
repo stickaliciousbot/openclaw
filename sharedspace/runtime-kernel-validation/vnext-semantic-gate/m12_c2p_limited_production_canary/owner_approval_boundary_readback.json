@@ -1,0 +1,13 @@
+{
+  "not_approved": [
+    "C3/C4",
+    "broad production expansion",
+    "cache",
+    "artifact-memory/global promotion",
+    "runtime authority expansion"
+  ],
+  "owner_approval": "M12-C2P limited production canary only",
+  "prior_owner_review_status": "M12_C2_OWNER_REVIEW_READY",
+  "schema": "stickbot.vnext_semantic_gate.m12_c2p.owner_boundary.v1",
+  "status": "M12_C2P_LIMITED_PRODUCTION_CANARY_PASS"
+}

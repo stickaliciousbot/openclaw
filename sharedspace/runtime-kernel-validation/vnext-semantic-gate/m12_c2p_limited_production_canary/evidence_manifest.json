@@ -1,0 +1,130 @@
+{
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p_limited_production_canary",
+  "created_utc": "2026-06-27T09:19:23Z",
+  "files": [
+    {
+      "bytes": 890,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p_limited_production_canary/M12_C2P_LIMITED_PRODUCTION_CANARY_REVIEW.md",
+      "sha256": "3c2fefd1ebf516f8134b6ff31ff02d41a411bb39b9a3b2c844e0e77898a9b2e3"
+    },
+    {
+      "bytes": 269,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p_limited_production_canary/c1_boundary_preservation_readback.json",
+      "sha256": "c351343f5337a0ed9b9064ca34da8b16a1160cdb8eba31fadb2445e29ad7cd33"
+    },
+    {
+      "bytes": 148107,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p_limited_production_canary/c2_production_request_log.json",
+      "sha256": "a21c26196cb8566c45464d9fc648c9b1b2b71ddaade27c6250ede6291d907768"
+    },
+    {
+      "bytes": 2216,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p_limited_production_canary/canary_config.json",
+      "sha256": "1a6e1db07c7d1f87d6fef3e99f486cd1889a6a535a7cd182b4410ae146104f2c"
+    },
+    {
+      "bytes": 179,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p_limited_production_canary/cross_artifact_attempt_report.json",
+      "sha256": "f28dc97bfb2e756ac220f088277c442fa987057d2f377083aa5040ccbec63595"
+    },
+    {
+      "bytes": 195,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p_limited_production_canary/external_action_hold_report.json",
+      "sha256": "ea46c81d62d25344ccf90df1632ae4b80bc4782f43dacefae06275c79b54f322"
+    },
+    {
+      "bytes": 208,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p_limited_production_canary/guidance_hold_reject_count_report.json",
+      "sha256": "fb7a9bc012be045056de9053644e57d1486ba71bdf629c68e1386ee3df5549cf"
+    },
+    {
+      "bytes": 187,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p_limited_production_canary/material_regression_report.json",
+      "sha256": "6f82b3550d4b79a335864fdcbab37bf1d87515cec6a05551af9b6cfead622c69"
+    },
+    {
+      "bytes": 188,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p_limited_production_canary/missing_output_report.json",
+      "sha256": "1e68dbebcecf588eae81a41df80b7d81d9a81f8c296e50b7069f1ea88265c4e1"
+    },
+    {
+      "bytes": 177,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p_limited_production_canary/multi_source_proposal_attempt_report.json",
+      "sha256": "e44ddd6a32bfe3d3fd57b053641d7ae5796f8619e027be2b6fc63eb0252ea5aa"
+    },
+    {
+      "bytes": 552,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p_limited_production_canary/mutation_sentinel_report.json",
+      "sha256": "a9fdec0974d35924da3ff9ea6a829816d96fd1982b6432a3f5508e227606d69a"
+    },
+    {
+      "bytes": 481,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p_limited_production_canary/no_apply_no_mutation_record.json",
+      "sha256": "83a6cd43f1889a9a9f91d3b299982aad406b9ccf5ad5e5ebf715d9dcd6fc3d37"
+    },
+    {
+      "bytes": 408,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p_limited_production_canary/owner_approval_boundary_readback.json",
+      "sha256": "c24ef0eed220d5e5ac735dd0e1f0a71af2d9069e55ef13bf4b85537b7d038014"
+    },
+    {
+      "bytes": 246,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p_limited_production_canary/provider_model_call_report.json",
+      "sha256": "4c385de13e429baaf76c0a4c22f12d9565babfe8d3e8dbe94a8c7f4afe193290"
+    },
+    {
+      "bytes": 207,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p_limited_production_canary/provider_path_report.json",
+      "sha256": "d832de833c36782cc47544d1dcac3d14b61f202d2a99c1502624641b61a6bf36"
+    },
+    {
+      "bytes": 274,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p_limited_production_canary/rollback_readiness.json",
+      "sha256": "d99474b904100d2386b81401269bf1701354a71e4907f038a0364207d57148fc"
+    },
+    {
+      "bytes": 197,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p_limited_production_canary/runtime_mutation_hold_report.json",
+      "sha256": "b6df4cb9378b0ff1c712926a33c1eb7217435bd7793c990d7d6f7ef4f8206039"
+    },
+    {
+      "bytes": 385,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p_limited_production_canary/source_authority_report.json",
+      "sha256": "69b12468ff6356037006b182c4e3ac39ef1dfb1977db6fcca3abdf23984a2e07"
+    },
+    {
+      "bytes": 3023,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p_limited_production_canary/status.json",
+      "sha256": "32b27810ec0c5f71352154c800a98ebd1a9d6dc4eaea7fafb1e5901f8181a4cd"
+    },
+    {
+      "bytes": 1049,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p_limited_production_canary/summary.json",
+      "sha256": "6350921d05d3cae2521410e003bbc34b86c5eaa2ede230368d7a9d0f656f7874"
+    }
+  ],
+  "schema": "stickbot.vnext_semantic_gate.m12_c2p.evidence_manifest.v1",
+  "self_hash_policy": "evidence_manifest.json excluded from its own file list",
+  "source_files": [
+    {
+      "path": "scripts/m12_c2p_limited_production_canary.py",
+      "sha256": "7f970e438aeac705df34cfe7642dcf2e2632a50962cf0c20c8cd60c003c58e1a"
+    },
+    {
+      "path": "scripts/m12_c2_single_artifact_guidance_kernel.py",
+      "sha256": "ce9ec9fd7a84a04de3ff9c45a41afa4286e8491eeed62802833a7a04a10a5361"
+    },
+    {
+      "path": "scripts/m12_c2_source_authority_guard.py",
+      "sha256": "1736366ab0556307e45a4bf8194aa13910b75ac23d89f4fb6d9ccc886ff4964b"
+    }
+  ],
+  "source_status_hashes": {
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_7_production_operating_baseline_finalization/status.json": "2e2aac9d2a97bf1e290dade2501c42fe0eaca5d0690cebb53637751512bb7022",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1_final_owner_acceptance_review/status.json": "4c4a7a0b234777d295ddcd0827399cc0c49bebfece1df90c6d3079cac21362f6",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2_owner_review_readiness_acceptance/status.json": "4a061a485da262e3828e7532363a9b06d94ab578649ef3291a06cf0fe7e88f64",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2k_single_artifact_runbook_guidance_kernel/status.json": "10b3fe2954cb7132bf1659a851ecfe1e48b8a3f923f2c6363c506f80a08f2ab8",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2r1_single_artifact_runbook_guidance_readiness/status.json": "395cac6515d9ff06ea599b5a4876d8ae1b79c9b82203ac25a4688f430cf60017"
+  },
+  "status": "M12_C2P_LIMITED_PRODUCTION_CANARY_PASS"
+}

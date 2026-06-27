@@ -1,0 +1,50 @@
+{
+  "allowed_scope": [
+    "M12-C2 only",
+    "single approved artifact only",
+    "deterministic C2K path",
+    "GUIDANCE/HOLD/guard REJECT only"
+  ],
+  "forbidden": [
+    "C3/C4",
+    "broad production expansion",
+    "cache",
+    "artifact-memory",
+    "global promotion",
+    "runtime authority expansion",
+    "direct provider bypass",
+    "provider/model-owned authority"
+  ],
+  "preflight": {
+    "checks": {
+      "artifact_memory_promotion_disabled": true,
+      "authoritative_provider_calls_disabled": true,
+      "c1_frozen_production_acceptance_preserved": true,
+      "c2k_pass": true,
+      "c2r1_pass_no_apply": true,
+      "c3_c4_not_started": true,
+      "cache_disabled": true,
+      "m11_frozen_baseline_preserved": true,
+      "mutation_sentinels_clean": true,
+      "owner_review_ready": true,
+      "rollback_ready": true
+    },
+    "failures": [],
+    "source_hashes": {
+      "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_7_production_operating_baseline_finalization/status.json": "2e2aac9d2a97bf1e290dade2501c42fe0eaca5d0690cebb53637751512bb7022",
+      "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1_final_owner_acceptance_review/status.json": "4c4a7a0b234777d295ddcd0827399cc0c49bebfece1df90c6d3079cac21362f6",
+      "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2_owner_review_readiness_acceptance/status.json": "4a061a485da262e3828e7532363a9b06d94ab578649ef3291a06cf0fe7e88f64",
+      "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2k_single_artifact_runbook_guidance_kernel/status.json": "10b3fe2954cb7132bf1659a851ecfe1e48b8a3f923f2c6363c506f80a08f2ab8",
+      "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2r1_single_artifact_runbook_guidance_readiness/status.json": "395cac6515d9ff06ea599b5a4876d8ae1b79c9b82203ac25a4688f430cf60017"
+    }
+  },
+  "run_bound": {
+    "max_active_seconds": 7200,
+    "max_requests": 25,
+    "stop_rule": "whichever_comes_first"
+  },
+  "schema": "stickbot.vnext_semantic_gate.m12_c2p.config.v1",
+  "started_utc": "2026-06-27T09:19:23Z",
+  "status_if_abort": "M12_C2P_LIMITED_PRODUCTION_CANARY_ABORT",
+  "status_if_pass": "M12_C2P_LIMITED_PRODUCTION_CANARY_PASS"
+}

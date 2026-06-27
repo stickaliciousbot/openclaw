@@ -1,0 +1,9 @@
+{
+  "guard_reject": 5,
+  "guidance": 8,
+  "hold": 12,
+  "reconciled": true,
+  "schema": "stickbot.vnext_semantic_gate.m12_c2p.counts.v1",
+  "status": "M12_C2P_LIMITED_PRODUCTION_CANARY_PASS",
+  "total": 25
+}

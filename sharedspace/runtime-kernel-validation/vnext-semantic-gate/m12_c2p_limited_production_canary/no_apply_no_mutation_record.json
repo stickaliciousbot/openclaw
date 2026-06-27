@@ -1,0 +1,13 @@
+{
+  "artifact_memory_promoted": false,
+  "broad_production_expansion_applied": false,
+  "c2_production_route_activated": false,
+  "c3_c4_started": false,
+  "cache_enabled": false,
+  "gateway_config_mutated": false,
+  "global_semantic_gate_promoted": false,
+  "limited_production_canary_only": true,
+  "route_fallback_memory_runtime_authority_mutated": false,
+  "schema": "stickbot.vnext_semantic_gate.m12_c2p.no_mutation.v1",
+  "status": "M12_C2P_LIMITED_PRODUCTION_CANARY_PASS"
+}
