@@ -1,0 +1,18 @@
+{
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2_owner_review_readiness_acceptance",
+  "artifact_memory_promoted": false,
+  "c2_accepted_only_as_no_apply_readiness_candidate": true,
+  "c2_production_started": false,
+  "c3_c4_started": false,
+  "cache_enabled": false,
+  "created_utc": "2026-06-27T08:29:41Z",
+  "failed_gates": [],
+  "first_failure": null,
+  "gateway_config_mutated": false,
+  "global_semantic_gate_promoted": false,
+  "no_apply": true,
+  "production_expansion_applied": false,
+  "route_fallback_memory_runtime_authority_mutated": false,
+  "schema": "stickbot.vnext_semantic_gate.m12_c2_owner_review.no_apply.v1",
+  "status": "M12_C2_OWNER_REVIEW_READY"
+}

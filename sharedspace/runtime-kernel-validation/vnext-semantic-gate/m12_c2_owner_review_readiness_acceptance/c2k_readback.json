@@ -1,0 +1,20 @@
+{
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2_owner_review_readiness_acceptance",
+  "c2k_status": "M12_C2K_SINGLE_ARTIFACT_RUNBOOK_GUIDANCE_KERNEL_PASS",
+  "created_utc": "2026-06-27T08:29:41Z",
+  "direct_provider_bypass_count": 0,
+  "failed_gates": [],
+  "first_failure": null,
+  "guard_reject_count": 8,
+  "guidance_count": 5,
+  "hold_count": 15,
+  "pass_count": 28,
+  "provider_model_calls": 0,
+  "required_files_missing": [],
+  "schema": "stickbot.vnext_semantic_gate.m12_c2_owner_review.c2k_readback.v1",
+  "single_artifact_only": true,
+  "source_authority_deterministic": true,
+  "source_hash": "10b3fe2954cb7132bf1659a851ecfe1e48b8a3f923f2c6363c506f80a08f2ab8",
+  "status": "M12_C2_OWNER_REVIEW_READY",
+  "test_count": 28
+}

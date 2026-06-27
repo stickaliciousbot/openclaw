@@ -1,0 +1,41 @@
+{
+  "accepted_scope": "M12-C2 single-artifact runbook guidance readiness only",
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2_owner_review_readiness_acceptance",
+  "checks": {
+    "accounting_verified": true,
+    "c1_frozen_production_boundary_preserved": true,
+    "c2k_verified": true,
+    "c2r1_verified": true,
+    "c3_c4_not_started": true,
+    "direct_provider_bypass_zero": true,
+    "mutation_sentinels_clean": true,
+    "no_cache_artifact_memory_global_promotion": true,
+    "no_cross_artifact_comparison": true,
+    "no_multi_source_proposal_drafting": true,
+    "no_production_expansion": true,
+    "owner_decision_record_written": true,
+    "provider_model_calls_zero": true,
+    "rollback_ready": true,
+    "single_artifact_only": true,
+    "source_authority_deterministic": true
+  },
+  "created_utc": "2026-06-27T08:29:41Z",
+  "decision": "ready_as_no_apply_readiness_candidate",
+  "failed_gates": [],
+  "first_failure": null,
+  "forbidden_scope": [
+    "C2 production",
+    "C3/C4",
+    "production expansion",
+    "cache enablement",
+    "artifact-memory promotion",
+    "global Semantic Gate promotion",
+    "runtime/Gateway/config/live-route/fallback/memory-route mutation",
+    "provider/model-owned authoritative guidance",
+    "direct provider bypass",
+    "cross-artifact comparison",
+    "multi-source proposal drafting"
+  ],
+  "schema": "stickbot.vnext_semantic_gate.m12_c2_owner_review.acceptance_matrix.v1",
+  "status": "M12_C2_OWNER_REVIEW_READY"
+}
