@@ -1,0 +1,12 @@
+{
+  "accepted_limited_production_expansion": true,
+  "broader_expansion_applied": false,
+  "c1k_sha_unchanged": true,
+  "direct_provider_bypass_count": 0,
+  "m12_c1_final_status": "M12_C1_FINAL_OWNER_ACCEPTANCE_READY",
+  "m12_c1_preserved": true,
+  "production_boundary_explicit": true,
+  "provider_model_calls": 0,
+  "schema": "stickbot.vnext_semantic_gate.m12_c2_owner_review.c1_boundary_preservation.v1",
+  "status": "PASS"
+}

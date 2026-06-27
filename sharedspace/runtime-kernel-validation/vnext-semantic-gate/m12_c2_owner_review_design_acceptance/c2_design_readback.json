@@ -1,0 +1,17 @@
+{
+  "abort_gates_adequate": true,
+  "created_utc": "2026-06-27T07:22:03Z",
+  "cross_artifact_comparison_included": false,
+  "fail_closed_policy_explicit": true,
+  "fixture_plan_adequate": true,
+  "multi_source_proposal_drafting_included": false,
+  "not_ready_for_production": true,
+  "output_contract_explicit": true,
+  "ready_for_separate_fixture_kernel_packet": true,
+  "schema": "stickbot.vnext_semantic_gate.m12_c2_owner_review.design_readback.v1",
+  "single_artifact_only": true,
+  "source_authority_deterministic": true,
+  "source_design_artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2_single_artifact_runbook_guidance_readiness_design",
+  "source_design_status": "M12_C2_READINESS_DESIGN_PASS_NO_APPLY",
+  "status": "PASS"
+}

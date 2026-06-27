@@ -1,0 +1,35 @@
+{
+  "blocked_reasons": [],
+  "checks": {
+    "abort_gates_adequate": true,
+    "c1_frozen_boundary_preserved": true,
+    "c2_single_artifact_only": true,
+    "cache_artifact_memory_global_off": true,
+    "deterministic_source_authority": true,
+    "explicit_fail_closed_policy": true,
+    "explicit_output_contract": true,
+    "fixture_plan_adequate": true,
+    "mutation_sentinels_clean": true,
+    "no_c3_c4": true,
+    "no_cross_artifact_comparison": true,
+    "no_multi_source_proposal_drafting": true,
+    "no_production_expansion": true,
+    "owner_decision_record_written": true,
+    "prior_design_pass_no_apply": true,
+    "rollback_ready": true
+  },
+  "created_utc": "2026-06-27T07:22:03Z",
+  "decision": {
+    "accept_design": true,
+    "authorize_artifact_memory_promotion": false,
+    "authorize_c2_production": false,
+    "authorize_c3_c4": false,
+    "authorize_cache": false,
+    "authorize_global_semantic_gate_promotion": false,
+    "authorize_runtime_mutation": false,
+    "ready_for_separate_c2_fixture_kernel_implementation_packet": true
+  },
+  "failed_checks": [],
+  "schema": "stickbot.vnext_semantic_gate.m12_c2_owner_review.acceptance_matrix.v1",
+  "status": "M12_C2_OWNER_REVIEW_DESIGN_ACCEPTED"
+}
