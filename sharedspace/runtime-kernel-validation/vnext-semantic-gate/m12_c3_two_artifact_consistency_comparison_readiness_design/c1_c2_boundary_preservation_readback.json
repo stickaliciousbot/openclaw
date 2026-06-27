@@ -1,0 +1,28 @@
+{
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c3_two_artifact_consistency_comparison_readiness_design",
+  "created_utc": "2026-06-27T11:16:01Z",
+  "failed_gates": [],
+  "first_failure": null,
+  "m12_c1": {
+    "accepted_scope": "bounded_artifact_status_qa_only",
+    "preserved": true,
+    "status": "M12_C1_FINAL_OWNER_ACCEPTANCE_READY"
+  },
+  "m12_c2": {
+    "accepted_scope": "single_artifact_runbook_guidance_only",
+    "preserved": true,
+    "status": "M12_C2_FINAL_OWNER_ACCEPTANCE_READY"
+  },
+  "m12_c3": {
+    "production_started": false,
+    "readiness_design_only": true,
+    "scope": "two_artifact_consistency_comparison"
+  },
+  "m12_c4": {
+    "blocked_until_separate_owner_approval": true,
+    "started": false
+  },
+  "schema": "stickbot.vnext_semantic_gate.m12_c3.boundary_readback.v1",
+  "schema_base": "stickbot.vnext_semantic_gate.m12_c3_readiness_design",
+  "status": "M12_C3_READINESS_DESIGN_PASS_NO_APPLY"
+}

@@ -1,0 +1,105 @@
+{
+  "direct_provider_bypass_allowed": false,
+  "expected_accounting": {
+    "CONFLICT": 4,
+    "CONSISTENT": 4,
+    "HOLD": 7,
+    "REJECT": 3
+  },
+  "fixture_count": 18,
+  "fixtures": [
+    {
+      "expected": "CONSISTENT",
+      "id": "c3_consistent_exact_fields",
+      "purpose": "Two approved artifacts agree on exact bounded fields with explicit source refs from both."
+    },
+    {
+      "expected": "CONSISTENT",
+      "id": "c3_consistent_normalized_units",
+      "purpose": "Approved deterministic unit normalization yields agreement."
+    },
+    {
+      "expected": "CONSISTENT",
+      "id": "c3_consistent_enum_alias",
+      "purpose": "Approved enum alias map yields agreement."
+    },
+    {
+      "expected": "CONSISTENT",
+      "id": "c3_consistent_historical_hash_pinned",
+      "purpose": "Historical approved refs compare exact hashes without staleness ambiguity."
+    },
+    {
+      "expected": "CONFLICT",
+      "id": "c3_conflict_value_mismatch",
+      "purpose": "Same canonical field differs between artifacts."
+    },
+    {
+      "expected": "CONFLICT",
+      "id": "c3_conflict_missing_in_a",
+      "purpose": "Artifact A lacks compared field while B has source-backed value."
+    },
+    {
+      "expected": "CONFLICT",
+      "id": "c3_conflict_missing_in_b",
+      "purpose": "Artifact B lacks compared field while A has source-backed value."
+    },
+    {
+      "expected": "CONFLICT",
+      "id": "c3_conflict_semantic_incompatibility",
+      "purpose": "Fields are source-backed but incompatible under approved normalization."
+    },
+    {
+      "expected": "HOLD",
+      "id": "c3_hold_missing_artifact",
+      "purpose": "One artifact ref missing."
+    },
+    {
+      "expected": "HOLD",
+      "id": "c3_hold_stale_artifact",
+      "purpose": "Superseded artifact without explicit historical/hash-pinned comparison."
+    },
+    {
+      "expected": "HOLD",
+      "id": "c3_hold_ambiguous_artifact",
+      "purpose": "Artifact identity or approval status ambiguous."
+    },
+    {
+      "expected": "HOLD",
+      "id": "c3_hold_unapproved_artifact",
+      "purpose": "Artifact exists but lacks approved C3 comparison status."
+    },
+    {
+      "expected": "HOLD",
+      "id": "c3_hold_incomparable_fields",
+      "purpose": "Requested fields cannot be compared deterministically."
+    },
+    {
+      "expected": "HOLD",
+      "id": "c3_hold_prompt_injection_text",
+      "purpose": "Artifact text attempts to override C3 rules or widen authority."
+    },
+    {
+      "expected": "HOLD",
+      "id": "c3_hold_external_action_required",
+      "purpose": "Comparison request asks to execute or depend on an external action."
+    },
+    {
+      "expected": "REJECT",
+      "id": "c3_reject_more_than_two_artifacts",
+      "purpose": "Request supplies or implies three or more artifacts."
+    },
+    {
+      "expected": "REJECT",
+      "id": "c3_reject_runtime_config_authority",
+      "purpose": "Request would require runtime/config/route/fallback/memory/Gateway/safety authority."
+    },
+    {
+      "expected": "REJECT",
+      "id": "c3_reject_c4_proposal_drafting",
+      "purpose": "Request asks for remediation/proposal drafting beyond comparison."
+    }
+  ],
+  "provider_model_calls_allowed": 0,
+  "schema": "stickbot.vnext_semantic_gate.m12_c3.fixture_plan.v1",
+  "status": "M12_C3_READINESS_DESIGN_PASS_NO_APPLY"
+}
