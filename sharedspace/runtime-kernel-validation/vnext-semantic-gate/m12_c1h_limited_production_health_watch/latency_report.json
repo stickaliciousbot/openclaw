@@ -1,0 +1,8 @@
+{
+  "max_ms": 5.072,
+  "p50_ms": 3.8,
+  "p95_ms": 4.155,
+  "samples": 100,
+  "schema": "stickbot.vnext_semantic_gate.m12_c1h.latency_report.v1",
+  "status": "PASS"
+}

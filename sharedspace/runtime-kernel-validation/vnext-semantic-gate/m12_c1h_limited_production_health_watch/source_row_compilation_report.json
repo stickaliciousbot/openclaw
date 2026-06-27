@@ -1,0 +1,203 @@
+{
+  "approved_source_count": 24,
+  "arbitrary_path_reads": 0,
+  "compiled_source_row_count": 761,
+  "deterministic_source_row_compilation": true,
+  "forbidden_memory_context_daily_rows": [],
+  "schema": "stickbot.vnext_semantic_gate.m12_c1r16.source_row_compilation_report.v1",
+  "source_reports": [
+    {
+      "exists": true,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_7_production_operating_baseline_finalization/mutation_freeze_report.json",
+      "rows": 35,
+      "sha256": "3108ecc9a23200e3e7447b324ebe5ebb331de16653c7f3f3ce36c916cdc89da4",
+      "source_id": "m11_7_mutation_freeze",
+      "status": "COMPILED"
+    },
+    {
+      "exists": true,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_7_production_operating_baseline_finalization/rollback_record.json",
+      "rows": 15,
+      "sha256": "b621ba4a38debf55b583979cdcb296835124ac7225cb6ca5e85486b8a255c701",
+      "source_id": "m11_7_rollback",
+      "status": "COMPILED"
+    },
+    {
+      "exists": true,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_7_production_operating_baseline_finalization/status.json",
+      "rows": 44,
+      "sha256": "2e2aac9d2a97bf1e290dade2501c42fe0eaca5d0690cebb53637751512bb7022",
+      "source_id": "m11_7_status",
+      "status": "COMPILED"
+    },
+    {
+      "exists": true,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1k_durability_evidence_freeze/status.json",
+      "rows": 10,
+      "sha256": "2913cf816e751de72483349734261796aa7f66f582574e640d0e8e3797df2ee7",
+      "source_id": "m12_c1k_freeze_status",
+      "status": "COMPILED"
+    },
+    {
+      "exists": true,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1k_durability_evidence_freeze/summary.json",
+      "rows": 15,
+      "sha256": "ae014ba3088fdb566f2c3c416b8fa7deb9029d5370ad41d3ea3e859fbbd3cb0d",
+      "source_id": "m12_c1k_freeze_summary",
+      "status": "COMPILED"
+    },
+    {
+      "exists": true,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1k_deterministic_artifact_qa_kernel/kernel_test_report.json",
+      "rows": 13,
+      "sha256": "fe3b2a28abf71f17a00c49a61d1f970f2c009855683e0173f8b62adea3cf1eb8",
+      "source_id": "m12_c1k_kernel_report",
+      "status": "COMPILED"
+    },
+    {
+      "exists": true,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1k_deterministic_artifact_qa_kernel/status.json",
+      "rows": 12,
+      "sha256": "981970b6755a3378dff534a78f606d105198029014f465ccc9f14137f79d64ec",
+      "source_id": "m12_c1k_status",
+      "status": "COMPILED"
+    },
+    {
+      "exists": true,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r10r_provider_path_token_broker_readiness_repair/status.json",
+      "rows": 46,
+      "sha256": "b05090ad83a30918cffc1d65c864bb9da12cb2073fcc1d8299ca1c76e04e6d99",
+      "source_id": "m12_c1r10r_status",
+      "status": "COMPILED"
+    },
+    {
+      "exists": true,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r11r_typed_numeric_output_emission_repair/status.json",
+      "rows": 38,
+      "sha256": "b3c787a331f8837778f4f5ff1c1f123e10937e21efb09f9eee8e1892b414761b",
+      "source_id": "m12_c1r11r_status",
+      "status": "COMPILED"
+    },
+    {
+      "exists": true,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r12r_source_ref_exact_anchor_repair/status.json",
+      "rows": 34,
+      "sha256": "9e24b6d1dfdfc0b79fec5a92f3261e2b768c43286e88a8612ff76c3167500b5f",
+      "source_id": "m12_c1r12r_status",
+      "status": "COMPILED"
+    },
+    {
+      "exists": true,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r13r_answer_envelope_compiler_normalizer_repair/status.json",
+      "rows": 35,
+      "sha256": "9e9c7fdf59193de42d182cd9be820552a12870dab4c29d051aa000d993fabb3b",
+      "source_id": "m12_c1r13r_status",
+      "status": "COMPILED"
+    },
+    {
+      "exists": true,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r14r_fail_closed_hold_envelope_normalization_repair/status.json",
+      "rows": 24,
+      "sha256": "04c6782c77cf7bf2f76b01854240b750e3020d4ce858165dd9844135fa65ead1",
+      "source_id": "m12_c1r14r_status",
+      "status": "COMPILED"
+    },
+    {
+      "exists": true,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r15r_hold_citation_source_ref_contract_repair/status.json",
+      "rows": 24,
+      "sha256": "e12ab31242a17e527f4d104f0871c3ea616814ae85e629472b5a34ce63a7d0ad",
+      "source_id": "m12_c1r15r_status",
+      "status": "COMPILED"
+    },
+    {
+      "exists": true,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r2r_source_ref_canonicalization_repair/status.json",
+      "rows": 52,
+      "sha256": "b69a1e209f7dea7cd4dc9cc86202d4b691646b58a9adaaeab983edc2a5229238",
+      "source_id": "m12_c1r2r_status",
+      "status": "COMPILED"
+    },
+    {
+      "exists": true,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r3r_exact_source_value_readback_repair/status.json",
+      "rows": 25,
+      "sha256": "204ea8e206515c2b787a96cb5f87987dd253817c59f1493ba88659b7ef21d861",
+      "source_id": "m12_c1r3r_status",
+      "status": "COMPILED"
+    },
+    {
+      "exists": true,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r4r_exact_anchor_schema_envelope_normalization_repair/status.json",
+      "rows": 43,
+      "sha256": "7ade5238dca3e8defe6a5b711e673c15830433e698d4e3e61ea9eb586a011cf3",
+      "source_id": "m12_c1r4r_status",
+      "status": "COMPILED"
+    },
+    {
+      "exists": true,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r5r_output_contract_enforcement_repair/status.json",
+      "rows": 39,
+      "sha256": "555655383c8fa500bd290068b526508ef3208c2e44cea9cffd6004e563b548f0",
+      "source_id": "m12_c1r5r_status",
+      "status": "COMPILED"
+    },
+    {
+      "exists": true,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r6r_schema_constrained_output_emission_repair/status.json",
+      "rows": 41,
+      "sha256": "81cd7bdb3061d9f71756d92b22fa5776c898c0aa101253410b72ab6fa32e2579",
+      "source_id": "m12_c1r6r_status",
+      "status": "COMPILED"
+    },
+    {
+      "exists": true,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r7r_fail_closed_hold_status_contract_repair/status.json",
+      "rows": 40,
+      "sha256": "13c3a00b1e7a3a0216323981850903d638e8ad90136beface71a3b7c7894e922",
+      "source_id": "m12_c1r7r_status",
+      "status": "COMPILED"
+    },
+    {
+      "exists": true,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r8r_typed_exact_value_fidelity_repair/status.json",
+      "rows": 42,
+      "sha256": "b204b8814ef38de77e99dbab451d477d88137dc10874fa0add7e6b6de3248b3f",
+      "source_id": "m12_c1r8r_status",
+      "status": "COMPILED"
+    },
+    {
+      "exists": true,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r9r_output_disposition_contract_repair/status.json",
+      "rows": 22,
+      "sha256": "6ec4a9b0b9ac326109f77147bc678023f1e83b7420ae24a948392384095b232e",
+      "source_id": "m12_c1r9r_status",
+      "status": "COMPILED"
+    },
+    {
+      "exists": true,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r_source_authority_isolation_repair/status.json",
+      "rows": 28,
+      "sha256": "62f827f466f26df05feb0509d58148b7346bfcbce1918922361325d352e27511",
+      "source_id": "m12_c1r_status",
+      "status": "COMPILED"
+    },
+    {
+      "exists": true,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_limited_expansion_readiness_design/mutation_sentinel_report.json",
+      "rows": 37,
+      "sha256": "8ebeff905b8f5d9d2f3dd6614c30e9d7441fa39501680524d823a8295bb573d6",
+      "source_id": "m12_design_mutation",
+      "status": "COMPILED"
+    },
+    {
+      "exists": true,
+      "path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_limited_expansion_readiness_design/status.json",
+      "rows": 47,
+      "sha256": "593b85412f4a804d39f37fcd1aa6cb0aa505cbb22ed3c93d281035e99d61b10f",
+      "source_id": "m12_design_status",
+      "status": "COMPILED"
+    }
+  ],
+  "status": "PASS"
+}

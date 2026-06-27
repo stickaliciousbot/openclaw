@@ -1,0 +1,18 @@
+{
+  "abort_on": [
+    "material regression",
+    "missing output regression",
+    "provider/model call",
+    "direct provider bypass",
+    "mutation",
+    "C1K hash drift",
+    "C1K read-only guard failure",
+    "C2/C3/C4 start",
+    "cache or artifact-memory enablement",
+    "authority boundary violation",
+    "HOLD/ANSWER contract failure"
+  ],
+  "failed_gates": [],
+  "schema": "stickbot.vnext_semantic_gate.m12_c1h.abort_gate_report.v1",
+  "status": "PASS"
+}

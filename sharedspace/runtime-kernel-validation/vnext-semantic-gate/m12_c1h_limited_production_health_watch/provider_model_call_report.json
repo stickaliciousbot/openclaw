@@ -1,0 +1,6 @@
+{
+  "provider_model_calls": 0,
+  "provider_model_calls_allowed_for_c1_authoritative_answers": false,
+  "schema": "stickbot.vnext_semantic_gate.m12_c1h.provider_model_call_report.v1",
+  "status": "PASS"
+}

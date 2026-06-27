@@ -1,0 +1,23 @@
+{
+  "accepted_scope": "M12-C1 bounded artifact status Q&A only",
+  "arbitrary_path_read_attempt_count": 2,
+  "c2_c3_c4_started": false,
+  "forbidden_remains": [
+    "M12-C2/C3/C4",
+    "cache enablement",
+    "artifact-memory promotion",
+    "global Semantic Gate promotion",
+    "Gateway/config/live-route/fallback/memory-route/runtime-authority mutation",
+    "provider/model answer generation for C1",
+    "arbitrary path Q&A",
+    "memory/context-bridge/daily-memory as production authority",
+    "direct provider bypass",
+    "C1K artifact regeneration",
+    "C1K --write-artifacts"
+  ],
+  "memory_context_daily_authority_attempt_count": 6,
+  "provider_model_answer_generation": false,
+  "schema": "stickbot.vnext_semantic_gate.m12_c1h.authority_boundary_report.v1",
+  "status": "PASS",
+  "unsupported_source_attempt_count": 4
+}

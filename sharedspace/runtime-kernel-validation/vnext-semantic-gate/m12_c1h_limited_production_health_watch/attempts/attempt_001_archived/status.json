@@ -1,0 +1,9 @@
+{
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1h_limited_production_health_watch",
+  "run_id": "m12_c1h_limited_production_health_watch",
+  "schema": "stickbot.vnext_semantic_gate.m12_c1h.status.v1",
+  "started_utc": "2026-06-27T05:02:24Z",
+  "status": "M12_C1H_LIMITED_PRODUCTION_HEALTH_WATCH_RUNNING",
+  "target_c1_production_requests": 100,
+  "time_limit_seconds": 86400
+}
