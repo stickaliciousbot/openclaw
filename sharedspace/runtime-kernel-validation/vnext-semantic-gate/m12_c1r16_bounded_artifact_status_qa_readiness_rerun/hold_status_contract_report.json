@@ -1,0 +1,313 @@
+{
+  "generated_utc": "2026-06-27T03:52:54Z",
+  "report": {
+    "items": [
+      {
+        "case_id": "m12_c1r16_001",
+        "envelope_status": "ANSWER",
+        "expected_status": "ANSWER",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_002",
+        "envelope_status": "ANSWER",
+        "expected_status": "ANSWER",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_003",
+        "envelope_status": "ANSWER",
+        "expected_status": "ANSWER",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_004",
+        "envelope_status": "ANSWER",
+        "expected_status": "ANSWER",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_005",
+        "envelope_status": "ANSWER",
+        "expected_status": "ANSWER",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_006",
+        "envelope_status": "ANSWER",
+        "expected_status": "ANSWER",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_007",
+        "envelope_status": "ANSWER",
+        "expected_status": "ANSWER",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_008",
+        "envelope_status": "ANSWER",
+        "expected_status": "ANSWER",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_009",
+        "envelope_status": "ANSWER",
+        "expected_status": "ANSWER",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_010",
+        "envelope_status": "ANSWER",
+        "expected_status": "ANSWER",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_011",
+        "envelope_status": "ANSWER",
+        "expected_status": "ANSWER",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_012",
+        "envelope_status": "ANSWER",
+        "expected_status": "ANSWER",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_013",
+        "envelope_status": "ANSWER",
+        "expected_status": "ANSWER",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_014",
+        "envelope_status": "ANSWER",
+        "expected_status": "ANSWER",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_015",
+        "envelope_status": "ANSWER",
+        "expected_status": "ANSWER",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_016",
+        "envelope_status": "ANSWER",
+        "expected_status": "ANSWER",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_017",
+        "envelope_status": "ANSWER",
+        "expected_status": "ANSWER",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_018",
+        "envelope_status": "ANSWER",
+        "expected_status": "ANSWER",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_019",
+        "envelope_status": "ANSWER",
+        "expected_status": "ANSWER",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_020",
+        "envelope_status": "ANSWER",
+        "expected_status": "ANSWER",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_021",
+        "envelope_status": "ANSWER",
+        "expected_status": "ANSWER",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_022",
+        "envelope_status": "ANSWER",
+        "expected_status": "ANSWER",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_023",
+        "envelope_status": "ANSWER",
+        "expected_status": "ANSWER",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_024",
+        "envelope_status": "ANSWER",
+        "expected_status": "ANSWER",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_025",
+        "envelope_status": "ANSWER",
+        "expected_status": "ANSWER",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_026",
+        "envelope_status": "ANSWER",
+        "expected_status": "ANSWER",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_027",
+        "envelope_status": "ANSWER",
+        "expected_status": "ANSWER",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_028",
+        "envelope_status": "ANSWER",
+        "expected_status": "ANSWER",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_029",
+        "envelope_status": "ANSWER",
+        "expected_status": "ANSWER",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_030",
+        "envelope_status": "ANSWER",
+        "expected_status": "ANSWER",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_031",
+        "envelope_status": "ANSWER",
+        "expected_status": "ANSWER",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_032",
+        "envelope_status": "ANSWER",
+        "expected_status": "ANSWER",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_033",
+        "envelope_status": "ANSWER",
+        "expected_status": "ANSWER",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_034",
+        "envelope_status": "ANSWER",
+        "expected_status": "ANSWER",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_035",
+        "envelope_status": "HOLD",
+        "expected_status": "HOLD",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_036",
+        "envelope_status": "HOLD",
+        "expected_status": "HOLD",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_037",
+        "envelope_status": "HOLD",
+        "expected_status": "HOLD",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_038",
+        "envelope_status": "HOLD",
+        "expected_status": "HOLD",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_039",
+        "envelope_status": "HOLD",
+        "expected_status": "HOLD",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_040",
+        "envelope_status": "HOLD",
+        "expected_status": "HOLD",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_041",
+        "envelope_status": "HOLD",
+        "expected_status": "HOLD",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_042",
+        "envelope_status": "HOLD",
+        "expected_status": "HOLD",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_043",
+        "envelope_status": "HOLD",
+        "expected_status": "HOLD",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_044",
+        "envelope_status": "HOLD",
+        "expected_status": "HOLD",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_045",
+        "envelope_status": "HOLD",
+        "expected_status": "HOLD",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_046",
+        "envelope_status": "HOLD",
+        "expected_status": "HOLD",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_047",
+        "envelope_status": "HOLD",
+        "expected_status": "HOLD",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_048",
+        "envelope_status": "HOLD",
+        "expected_status": "HOLD",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_049",
+        "envelope_status": "HOLD",
+        "expected_status": "HOLD",
+        "pass": true
+      },
+      {
+        "case_id": "m12_c1r16_050",
+        "envelope_status": "HOLD",
+        "expected_status": "HOLD",
+        "pass": true
+      }
+    ],
+    "schema": "stickbot.vnext_semantic_gate.m12_c1r16.fail_closed_hold_status_contract_report.v1",
+    "status": "PASS"
+  },
+  "schema": "stickbot.vnext_semantic_gate.m12_c1r16.hold_status_contract_report.v1",
+  "source_report": "fail_closed_hold_status_contract_report.json",
+  "status": "PASS",
+  "title": "HOLD status contract"
+}

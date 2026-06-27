@@ -1,0 +1,18 @@
+{
+  "answer_count": 34,
+  "canonical_envelope_failure_count": 0,
+  "canonical_envelope_failures": [],
+  "case_count": 50,
+  "finalizer_contract": {
+    "deterministic_c1k_kernel_authoritative_envelope_generator": true,
+    "exact_source_value_anchor_required": true,
+    "no_acceptance_from_prose_disposition_comments_rationale_trace": true,
+    "source_authority_guard_required": true,
+    "typed_value_fidelity_required": true,
+    "valid_canonical_envelopes_required": true
+  },
+  "generated_utc": "2026-06-27T03:52:54Z",
+  "hold_count": 16,
+  "schema": "stickbot.vnext_semantic_gate.m12_c1r16.answer_envelope_finalizer_report.v1",
+  "status": "PASS"
+}

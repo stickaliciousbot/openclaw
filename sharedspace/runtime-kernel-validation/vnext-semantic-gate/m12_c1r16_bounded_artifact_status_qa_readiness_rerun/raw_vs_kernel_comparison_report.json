@@ -1,0 +1,12 @@
+{
+  "case_count": 50,
+  "comparison_mode": "approved SourceRows vs deterministic C1K kernel envelopes; no provider/raw model path used",
+  "generated_utc": "2026-06-27T03:52:54Z",
+  "kernel_pass_count": 50,
+  "mismatch_count": 0,
+  "mismatches": [],
+  "provider_model_calls": 0,
+  "raw_provider_outputs_observed": 0,
+  "schema": "stickbot.vnext_semantic_gate.m12_c1r16.raw_vs_kernel_comparison_report.v1",
+  "status": "PASS"
+}
