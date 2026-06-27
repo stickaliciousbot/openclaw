@@ -1,0 +1,14 @@
+{
+  "not_authorized": [
+    "C3 production",
+    "C4",
+    "cache",
+    "artifact-memory/global promotion",
+    "production expansion",
+    "Gateway/config/live-route/fallback/memory-route/runtime-authority mutation",
+    "direct provider bypass"
+  ],
+  "owner_approval_boundary": "C3R1 no-apply readiness exercise only",
+  "schema": "stickbot.vnext_semantic_gate.m12_c3r1.owner_boundary.v1",
+  "status": "M12_C3R1_TWO_ARTIFACT_CONSISTENCY_COMPARISON_READINESS_PASS_NO_APPLY"
+}

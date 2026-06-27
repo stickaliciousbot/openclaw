@@ -1,0 +1,7 @@
+{
+  "conflict_count": 10,
+  "schema": "stickbot.vnext_semantic_gate.m12_c3r1.conflict_policy.v1",
+  "status": "M12_C3R1_TWO_ARTIFACT_CONSISTENCY_COMPARISON_READINESS_PASS_NO_APPLY",
+  "typed_value_mismatch_accepted_as_consistent": false,
+  "unsupported_reconciliation_observed": false
+}

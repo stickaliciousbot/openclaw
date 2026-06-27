@@ -1,0 +1,7 @@
+{
+  "c4_proposal_attempts_hold_reject_correctly": true,
+  "c4_proposal_drafting_attempts": 1,
+  "c4_started": false,
+  "schema": "stickbot.vnext_semantic_gate.m12_c3r1.c4_guard.v1",
+  "status": "M12_C3R1_TWO_ARTIFACT_CONSISTENCY_COMPARISON_READINESS_PASS_NO_APPLY"
+}

@@ -1,0 +1,22 @@
+{
+  "c3k_hashes_after": {
+    "scripts/m12_c3_source_authority_guard.py": "36f3714ca56b894a54fb15e32db5b86e6a32da9bdde87fa1e4701c86c50c85e8",
+    "scripts/m12_c3_two_artifact_comparison_kernel.py": "1ffe79e1ba94bcf7282377a9cc7eba55833c085c5993d0be7f3dfe2668f50d8e",
+    "scripts/test_m12_c3_two_artifact_comparison_kernel.py": "a3aa1bb6c88345ad21f3fca7e4308ada71ae90e9e8b43bf59f419d8952c22682",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c3k_two_artifact_consistency_comparison_kernel/c3_kernel_test_report.json": "c974ca5e49fcf5c7f4a8c34b9348345b96a2b65e7c9328ee13fce5d19b0ce26b",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c3k_two_artifact_consistency_comparison_kernel/evidence_manifest.json": "e6b571d812c0eb402bc17d9fbedeafc90bc37a216e88910c3523127136580651",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c3k_two_artifact_consistency_comparison_kernel/status.json": "74921483678b82946ab9c4c6d150c30318009171fba02960ff659a7dd3b7bc02"
+  },
+  "c3k_hashes_before": {
+    "scripts/m12_c3_source_authority_guard.py": "36f3714ca56b894a54fb15e32db5b86e6a32da9bdde87fa1e4701c86c50c85e8",
+    "scripts/m12_c3_two_artifact_comparison_kernel.py": "1ffe79e1ba94bcf7282377a9cc7eba55833c085c5993d0be7f3dfe2668f50d8e",
+    "scripts/test_m12_c3_two_artifact_comparison_kernel.py": "a3aa1bb6c88345ad21f3fca7e4308ada71ae90e9e8b43bf59f419d8952c22682",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c3k_two_artifact_consistency_comparison_kernel/c3_kernel_test_report.json": "c974ca5e49fcf5c7f4a8c34b9348345b96a2b65e7c9328ee13fce5d19b0ce26b",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c3k_two_artifact_consistency_comparison_kernel/evidence_manifest.json": "e6b571d812c0eb402bc17d9fbedeafc90bc37a216e88910c3523127136580651",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c3k_two_artifact_consistency_comparison_kernel/status.json": "74921483678b82946ab9c4c6d150c30318009171fba02960ff659a7dd3b7bc02"
+  },
+  "c3k_read_only_consumed": true,
+  "c3k_status": "M12_C3K_TWO_ARTIFACT_CONSISTENCY_COMPARISON_KERNEL_PASS",
+  "schema": "stickbot.vnext_semantic_gate.m12_c3r1.c3k_readback.v1",
+  "status": "M12_C3R1_TWO_ARTIFACT_CONSISTENCY_COMPARISON_READINESS_PASS_NO_APPLY"
+}

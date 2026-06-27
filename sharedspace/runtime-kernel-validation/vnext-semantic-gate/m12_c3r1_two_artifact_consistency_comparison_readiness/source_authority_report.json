@@ -1,0 +1,9 @@
+{
+  "approved_source_rows_only": true,
+  "arbitrary_path_attempts": 1,
+  "memory_context_daily_authority_attempts": 6,
+  "schema": "stickbot.vnext_semantic_gate.m12_c3r1.source_authority.v1",
+  "source_authority_violations": 0,
+  "source_refs_from_prose_or_disposition_accepted": false,
+  "status": "M12_C3R1_TWO_ARTIFACT_CONSISTENCY_COMPARISON_READINESS_PASS_NO_APPLY"
+}

@@ -1,0 +1,9 @@
+{
+  "arbitrary_path_attempts": 1,
+  "fail_closed_cases_hold_reject_correctly": true,
+  "memory_context_daily_authority_attempts": 6,
+  "more_than_two_artifact_attempts": 3,
+  "one_artifact_attempts": 2,
+  "schema": "stickbot.vnext_semantic_gate.m12_c3r1.fail_closed.v1",
+  "status": "M12_C3R1_TWO_ARTIFACT_CONSISTENCY_COMPARISON_READINESS_PASS_NO_APPLY"
+}

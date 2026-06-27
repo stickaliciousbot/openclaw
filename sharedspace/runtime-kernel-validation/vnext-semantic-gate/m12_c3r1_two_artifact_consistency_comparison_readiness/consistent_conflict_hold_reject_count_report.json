@@ -1,0 +1,11 @@
+{
+  "case_count": 50,
+  "conflict_count": 10,
+  "consistent_count": 5,
+  "guard_only_reject_count": 9,
+  "hold_count": 20,
+  "reconciled": true,
+  "reject_count": 6,
+  "schema": "stickbot.vnext_semantic_gate.m12_c3r1.counts.v1",
+  "status": "M12_C3R1_TWO_ARTIFACT_CONSISTENCY_COMPARISON_READINESS_PASS_NO_APPLY"
+}

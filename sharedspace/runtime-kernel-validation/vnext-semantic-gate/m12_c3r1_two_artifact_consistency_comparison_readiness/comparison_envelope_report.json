@@ -1,0 +1,8 @@
+{
+  "accepted_comparisons_exactly_two_approved_artifacts": true,
+  "conflict_contract_passes": true,
+  "consistent_contract_passes": true,
+  "hold_reject_contract_passes": true,
+  "schema": "stickbot.vnext_semantic_gate.m12_c3r1.envelope.v1",
+  "status": "M12_C3R1_TWO_ARTIFACT_CONSISTENCY_COMPARISON_READINESS_PASS_NO_APPLY"
+}

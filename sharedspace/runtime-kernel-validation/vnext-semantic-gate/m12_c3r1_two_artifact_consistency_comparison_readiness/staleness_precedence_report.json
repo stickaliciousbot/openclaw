@@ -1,0 +1,6 @@
+{
+  "ambiguous_precedence_applied": false,
+  "schema": "stickbot.vnext_semantic_gate.m12_c3r1.staleness_precedence.v1",
+  "stale_precedence_policy_failures": 0,
+  "status": "M12_C3R1_TWO_ARTIFACT_CONSISTENCY_COMPARISON_READINESS_PASS_NO_APPLY"
+}
