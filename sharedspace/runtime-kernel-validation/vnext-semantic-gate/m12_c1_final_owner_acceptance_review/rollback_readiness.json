@@ -1,0 +1,8 @@
+{
+  "m11_baseline_preserved": true,
+  "rollback_applied": false,
+  "rollback_mutated": false,
+  "rollback_ready": true,
+  "schema": "stickbot.vnext_semantic_gate.m12_c1_final_owner_acceptance.rollback_readiness.v1",
+  "status": "PASS"
+}

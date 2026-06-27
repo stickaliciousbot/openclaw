@@ -1,0 +1,11 @@
+{
+  "actual_sha256": "097c0819182001fcf0c0497c7c072be12a8c51f948d2d8f52a39c2ceaf7f28dd",
+  "c1k_evidence_manifest": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1k_deterministic_artifact_qa_kernel/evidence_manifest.json",
+  "evidence_regenerated_by_this_review": false,
+  "expected_frozen_sha256": "097c0819182001fcf0c0497c7c072be12a8c51f948d2d8f52a39c2ceaf7f28dd",
+  "read_only_consumption_enforced": true,
+  "schema": "stickbot.vnext_semantic_gate.m12_c1_final_owner_acceptance.c1k_sha_readback.v1",
+  "sha_unchanged": true,
+  "status": "PASS",
+  "write_artifacts_invoked": false
+}

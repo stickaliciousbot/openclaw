@@ -1,0 +1,58 @@
+{
+  "accepted_prior_state": {
+    "c1h_answer_count": 68,
+    "c1h_failed_gates": [],
+    "c1h_first_failure": null,
+    "c1h_hold_count": 32,
+    "c1h_requests": "100/100",
+    "m12_c1h_status": "M12_C1H_LIMITED_PRODUCTION_HEALTH_WATCH_PASS",
+    "m12_c1p5_status": "M12_C1P5_LIMITED_PRODUCTION_ACCEPTANCE_FINALIZATION_PASS"
+  },
+  "boundary_decision": {
+    "accepted_candidate": "M12-C1",
+    "accepted_limited_production_expansion": true,
+    "final_owner_acceptance_packet_ready": true,
+    "not_applied": [
+      "cache enablement",
+      "artifact-memory promotion",
+      "global Semantic Gate promotion",
+      "runtime authority expansion",
+      "Gateway/config/live-route/fallback/memory-route mutation"
+    ],
+    "not_started": [
+      "M12-C2",
+      "M12-C3",
+      "M12-C4"
+    ],
+    "production_scope": "bounded artifact status Q&A over approved artifacts through deterministic C1K only"
+  },
+  "checks": {
+    "artifact_memory_promotion_disabled": true,
+    "c1h_100_of_100": true,
+    "c1k_frozen_sha_unchanged": true,
+    "c1k_read_only_consumption_enforced": true,
+    "c2_c3_c4_not_started": true,
+    "cache_disabled": true,
+    "direct_provider_bypass_zero": true,
+    "failed_gates_empty": true,
+    "first_failure_null": true,
+    "m11_frozen_baseline_preserved": true,
+    "m12_c1h_pass": true,
+    "m12_c1p5_pass": true,
+    "mutation_sentinels_clean": true,
+    "no_broader_expansion_applied": true,
+    "owner_approval_boundary_intact": true,
+    "provider_model_c1_answer_calls_zero": true,
+    "rollback_ready": true
+  },
+  "created_utc": "2026-06-27T05:55:35Z",
+  "failed_checks": [],
+  "schema": "stickbot.vnext_semantic_gate.m12_c1_final_owner_acceptance.matrix.v1",
+  "source_artifacts": {
+    "c1k_evidence_manifest": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1k_deterministic_artifact_qa_kernel/evidence_manifest.json",
+    "m11_baseline_status": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_7_production_operating_baseline_finalization/status.json",
+    "m12_c1h_status": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1h_limited_production_health_watch/status.json",
+    "m12_c1p5_status": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1p5_limited_production_acceptance_finalization/status.json"
+  },
+  "status": "M12_C1_FINAL_OWNER_ACCEPTANCE_READY"
+}

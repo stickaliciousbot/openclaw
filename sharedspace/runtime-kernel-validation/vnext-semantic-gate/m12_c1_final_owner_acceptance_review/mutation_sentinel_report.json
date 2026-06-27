@@ -1,0 +1,16 @@
+{
+  "artifact_memory_promoted": false,
+  "c2_c3_c4_artifact_dirs": [],
+  "c2_c3_c4_started": false,
+  "cache_enabled": false,
+  "fallback_chain_mutated": false,
+  "gateway_config_mutated": false,
+  "global_semantic_gate_promoted": false,
+  "live_route_mutated": false,
+  "memory_route_mutated": false,
+  "mutation_detected_count": 0,
+  "mutation_sentinels_clean": true,
+  "runtime_authority_mutated": false,
+  "schema": "stickbot.vnext_semantic_gate.m12_c1_final_owner_acceptance.mutation_sentinel_report.v1",
+  "status": "PASS"
+}
