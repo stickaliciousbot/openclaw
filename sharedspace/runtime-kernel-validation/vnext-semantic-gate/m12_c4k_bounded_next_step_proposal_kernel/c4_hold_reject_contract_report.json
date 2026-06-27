@@ -1,0 +1,9 @@
+{
+  "external_action_attempts_hold_or_reject": true,
+  "hold_reject_contract_enforced": true,
+  "production_approval_deployment_attempts_hold_or_reject": true,
+  "runtime_config_mutation_attempts_hold_or_reject": true,
+  "schema": "stickbot.vnext_semantic_gate.m12_c4k.hold_reject_contract_report.v1",
+  "status": "M12_C4K_BOUNDED_NEXT_STEP_PROPOSAL_KERNEL_PASS",
+  "unsupported_reconciliation_rejects": true
+}

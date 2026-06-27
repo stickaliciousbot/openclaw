@@ -1,0 +1,30 @@
+{
+  "hold_required_fields": [
+    "status",
+    "hold_reason",
+    "disposition"
+  ],
+  "proposal_authority": "approved_evidence_only",
+  "proposal_required_fields": [
+    "status",
+    "proposal_steps",
+    "cited_source_refs",
+    "rationale",
+    "assumptions",
+    "uncertainties",
+    "prerequisites",
+    "required_owner_review",
+    "non_execution_notice",
+    "disposition",
+    "authority"
+  ],
+  "proposal_status": "PROPOSAL",
+  "proposal_steps_must_be_non_executing": true,
+  "reject_required_fields": [
+    "status",
+    "reject_reason",
+    "disposition"
+  ],
+  "required_owner_review": true,
+  "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope_contract.v1"
+}

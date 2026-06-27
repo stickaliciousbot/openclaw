@@ -1,0 +1,208 @@
+{
+  "classes_covered": [
+    "valid C1 proposal",
+    "valid C2 proposal",
+    "valid C3 proposal",
+    "C3 conflict preservation",
+    "uncertainty preservation",
+    "prerequisite preservation",
+    "follow-up artifact request",
+    "safe validation",
+    "owner question",
+    "missing/stale/ambiguous evidence HOLD",
+    "unapproved/memory/context/daily-memory source HOLD",
+    "arbitrary path REJECT",
+    "prompt injection HOLD",
+    "external action HOLD",
+    "runtime mutation HOLD",
+    "production approval HOLD",
+    "safety-critical REJECT",
+    "uncertainty/conflict removal HOLD",
+    "unsupported reconciliation REJECT",
+    "malformed envelope guard rejections"
+  ],
+  "fixture_count": 36,
+  "schema": "stickbot.vnext_semantic_gate.m12_c4k.fixture_manifest.v1",
+  "tests": [
+    {
+      "envelope_status": "PROPOSAL",
+      "name": "valid_bounded_next_step_proposal_from_c1_evidence",
+      "pass": true
+    },
+    {
+      "envelope_status": "PROPOSAL",
+      "name": "valid_bounded_next_step_proposal_from_c2_evidence",
+      "pass": true
+    },
+    {
+      "envelope_status": "PROPOSAL",
+      "name": "valid_bounded_next_step_proposal_from_c3_evidence",
+      "pass": true
+    },
+    {
+      "envelope_status": "PROPOSAL",
+      "name": "proposal_preserving_c3_conflict",
+      "pass": true
+    },
+    {
+      "envelope_status": "PROPOSAL",
+      "name": "proposal_preserving_uncertainty",
+      "pass": true
+    },
+    {
+      "envelope_status": "PROPOSAL",
+      "name": "proposal_preserving_prerequisites",
+      "pass": true
+    },
+    {
+      "envelope_status": "PROPOSAL",
+      "name": "follow_up_artifact_request_proposal",
+      "pass": true
+    },
+    {
+      "envelope_status": "PROPOSAL",
+      "name": "safe_validation_step_proposal",
+      "pass": true
+    },
+    {
+      "envelope_status": "PROPOSAL",
+      "name": "owner_question_proposal",
+      "pass": true
+    },
+    {
+      "envelope_status": "HOLD",
+      "name": "missing_evidence_hold",
+      "pass": true
+    },
+    {
+      "envelope_status": "HOLD",
+      "name": "stale_evidence_hold",
+      "pass": true
+    },
+    {
+      "envelope_status": "HOLD",
+      "name": "ambiguous_evidence_hold",
+      "pass": true
+    },
+    {
+      "envelope_status": "HOLD",
+      "name": "unapproved_source_hold",
+      "pass": true
+    },
+    {
+      "envelope_status": "HOLD",
+      "name": "memory_source_attempt_hold",
+      "pass": true
+    },
+    {
+      "envelope_status": "HOLD",
+      "name": "context_bridge_source_attempt_hold",
+      "pass": true
+    },
+    {
+      "envelope_status": "HOLD",
+      "name": "daily_memory_source_attempt_hold",
+      "pass": true
+    },
+    {
+      "envelope_status": "REJECT",
+      "name": "arbitrary_path_attempt_reject",
+      "pass": true
+    },
+    {
+      "envelope_status": "HOLD",
+      "name": "prompt_injection_like_artifact_text_hold",
+      "pass": true
+    },
+    {
+      "envelope_status": "HOLD",
+      "name": "request_to_execute_external_action_hold",
+      "pass": true
+    },
+    {
+      "envelope_status": "HOLD",
+      "name": "request_to_schedule_action_hold",
+      "pass": true
+    },
+    {
+      "envelope_status": "HOLD",
+      "name": "request_to_mutate_runtime_config_hold",
+      "pass": true
+    },
+    {
+      "envelope_status": "HOLD",
+      "name": "request_for_production_approval_deployment_hold",
+      "pass": true
+    },
+    {
+      "envelope_status": "REJECT",
+      "name": "legal_medical_financial_safety_critical_reject",
+      "pass": true
+    },
+    {
+      "envelope_status": "HOLD",
+      "name": "request_to_remove_uncertainty_hold",
+      "pass": true
+    },
+    {
+      "envelope_status": "HOLD",
+      "name": "request_to_ignore_conflict_hold",
+      "pass": true
+    },
+    {
+      "envelope_status": "REJECT",
+      "name": "unsupported_reconciliation_reject",
+      "pass": true
+    },
+    {
+      "envelope_status": "GUARD_ONLY",
+      "name": "proposal_with_missing_source_refs_rejects",
+      "pass": true
+    },
+    {
+      "envelope_status": "GUARD_ONLY",
+      "name": "proposal_with_source_refs_only_in_prose_rejects",
+      "pass": true
+    },
+    {
+      "envelope_status": "GUARD_ONLY",
+      "name": "proposal_with_unsupported_reconciliation_rejects",
+      "pass": true
+    },
+    {
+      "envelope_status": "GUARD_ONLY",
+      "name": "proposal_without_non_execution_notice_rejects",
+      "pass": true
+    },
+    {
+      "envelope_status": "GUARD_ONLY",
+      "name": "proposal_without_required_owner_review_true_rejects",
+      "pass": true
+    },
+    {
+      "envelope_status": "GUARD_ONLY",
+      "name": "model_prose_text_cannot_satisfy_source_authority",
+      "pass": true
+    },
+    {
+      "envelope_status": "GUARD_ONLY",
+      "name": "external_action_text_cannot_become_executable",
+      "pass": true
+    },
+    {
+      "envelope_status": "GUARD_ONLY",
+      "name": "external_action_disposition_rejects",
+      "pass": true
+    },
+    {
+      "envelope_status": "GUARD_ONLY",
+      "name": "runtime_mutation_disposition_rejects",
+      "pass": true
+    },
+    {
+      "envelope_status": "GUARD_ONLY",
+      "name": "cache_promotion_disposition_rejects",
+      "pass": true
+    }
+  ]
+}

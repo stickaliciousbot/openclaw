@@ -1,0 +1,13 @@
+{
+  "envelope_counts": {
+    "GUARD_ONLY": 10,
+    "HOLD": 14,
+    "PROPOSAL": 9,
+    "REJECT": 3
+  },
+  "non_execution_contract_enforced": true,
+  "proposal_envelope_contract_enforced": true,
+  "required_owner_review_true_enforced": true,
+  "schema": "stickbot.vnext_semantic_gate.m12_c4k.proposal_envelope_report.v1",
+  "status": "M12_C4K_BOUNDED_NEXT_STEP_PROPOSAL_KERNEL_PASS"
+}

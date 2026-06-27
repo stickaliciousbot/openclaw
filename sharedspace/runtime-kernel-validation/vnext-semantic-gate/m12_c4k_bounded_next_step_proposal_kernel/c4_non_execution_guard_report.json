@@ -1,0 +1,12 @@
+{
+  "artifact_memory_promoted": false,
+  "c4_production_route_activated": false,
+  "cache_enabled": false,
+  "external_action_executed": false,
+  "gateway_config_mutated": false,
+  "production_expansion_applied": false,
+  "runtime_authority_mutated": false,
+  "scheduled_action_created": false,
+  "schema": "stickbot.vnext_semantic_gate.m12_c4k.non_execution_guard_report.v1",
+  "status": "M12_C4K_BOUNDED_NEXT_STEP_PROPOSAL_KERNEL_PASS"
+}

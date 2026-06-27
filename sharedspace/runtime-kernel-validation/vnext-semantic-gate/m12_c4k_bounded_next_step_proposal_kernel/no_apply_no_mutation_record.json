@@ -1,0 +1,15 @@
+{
+  "artifact_memory_promoted": false,
+  "c4_canary_started": false,
+  "c4_production_started": false,
+  "c4k_implementation_packet_only": true,
+  "cache_enabled": false,
+  "direct_provider_bypass_count": 0,
+  "external_action_executed": false,
+  "gateway_config_mutated": false,
+  "global_semantic_gate_promoted": false,
+  "production_expansion_applied": false,
+  "runtime_authority_mutated": false,
+  "schema": "stickbot.vnext_semantic_gate.m12_c4k.no_apply_no_mutation_record.v1",
+  "status": "M12_C4K_BOUNDED_NEXT_STEP_PROPOSAL_KERNEL_PASS"
+}

@@ -1,0 +1,9 @@
+{
+  "arbitrary_paths_reject": true,
+  "failed_gates": [],
+  "memory_context_daily_sources_reject_or_hold": true,
+  "model_prose_authority_forbidden": true,
+  "schema": "stickbot.vnext_semantic_gate.m12_c4k.source_authority_guard_report.v1",
+  "source_authority_deterministic": true,
+  "status": "M12_C4K_BOUNDED_NEXT_STEP_PROPOSAL_KERNEL_PASS"
+}

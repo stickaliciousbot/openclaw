@@ -1,0 +1,33 @@
+{
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4k_bounded_next_step_proposal_kernel",
+  "artifact_memory_promoted": false,
+  "c4_bounded_proposal_drafting_only": true,
+  "c4_canary_started": false,
+  "c4_production_started": false,
+  "cache_enabled": false,
+  "direct_provider_bypass_count": 0,
+  "envelope_counts": {
+    "GUARD_ONLY": 10,
+    "HOLD": 14,
+    "PROPOSAL": 9,
+    "REJECT": 3
+  },
+  "external_action_executed": false,
+  "fail_count": 0,
+  "failed_gates": [],
+  "first_failure": null,
+  "global_semantic_gate_promoted": false,
+  "m12_c1_frozen_boundary_preserved": true,
+  "m12_c2_frozen_boundary_preserved": true,
+  "m12_c3_frozen_boundary_preserved": true,
+  "mutation_sentinels_clean": true,
+  "pass_count": 36,
+  "production_expansion_applied": false,
+  "proposal_drafting_not_action_authority": true,
+  "provider_model_calls_for_authoritative_proposals": 0,
+  "rollback_ready": true,
+  "runtime_authority_mutated": false,
+  "schema": "stickbot.vnext_semantic_gate.m12_c4k.summary.v1",
+  "status": "M12_C4K_BOUNDED_NEXT_STEP_PROPOSAL_KERNEL_PASS",
+  "test_count": 36
+}
