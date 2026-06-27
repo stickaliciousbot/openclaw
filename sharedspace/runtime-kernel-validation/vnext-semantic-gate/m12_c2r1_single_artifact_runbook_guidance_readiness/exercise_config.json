@@ -1,0 +1,31 @@
+{
+  "allowed_scope": [
+    "M12-C2 only",
+    "single approved artifact only",
+    "deterministic runbook guidance",
+    "GUIDANCE or fail-closed HOLD only"
+  ],
+  "direct_provider_bypass_count": 0,
+  "forbidden": [
+    "cross-artifact comparison",
+    "multi-source proposal drafting",
+    "external actions",
+    "runtime/config/route/fallback/memory/Gateway mutation",
+    "arbitrary path reads",
+    "memory/context-bridge/daily-memory authority",
+    "provider/model-owned authoritative guidance",
+    "C2 production route",
+    "C3/C4 activation"
+  ],
+  "no_apply": true,
+  "provider_model_calls_authoritative": 0,
+  "run_bound": {
+    "max_active_seconds": 7200,
+    "max_cases": 50,
+    "stop_rule": "whichever_comes_first"
+  },
+  "schema": "stickbot.vnext_semantic_gate.m12_c2r1.exercise_config.v1",
+  "started_utc": "2026-06-27T07:54:41Z",
+  "status_if_abort": "M12_C2R1_SINGLE_ARTIFACT_RUNBOOK_GUIDANCE_READINESS_ABORT",
+  "status_if_pass": "M12_C2R1_SINGLE_ARTIFACT_RUNBOOK_GUIDANCE_READINESS_PASS_NO_APPLY"
+}

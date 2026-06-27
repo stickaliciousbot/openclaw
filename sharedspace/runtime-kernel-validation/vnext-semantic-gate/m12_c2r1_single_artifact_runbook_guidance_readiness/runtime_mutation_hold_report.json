@@ -1,0 +1,780 @@
+{
+  "runtime_mutation_allowed": false,
+  "runtime_mutation_cases": [
+    {
+      "case_id": "c2r1_022",
+      "cited_source_ref_count": 6,
+      "completed_utc": "2026-06-27T07:54:41Z",
+      "direct_provider_bypass_count": 0,
+      "envelope": {
+        "applicability": "insufficient",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c2r1_approved_runbook",
+            "path": "approved://c2r1_approved_runbook.md",
+            "quote_hash": "c0dd48ea444ab14af73a89924ad4fd34db2ed4d2f189461af83a233455bdf94c",
+            "section_id": "c2r1_approved_runbook:01:approved_c2r1_runbook",
+            "sha256": "0f9a8fca7f2589fbc31570c8d07d9ba17173073bc6b698abb5126b5d5ccdf937",
+            "source_ref_id": "c2r1_approved_runbook#c2r1_approved_runbook:01:approved_c2r1_runbook"
+          },
+          {
+            "artifact_id": "c2r1_approved_runbook",
+            "path": "approved://c2r1_approved_runbook.md",
+            "quote_hash": "cf3180f7a1a1932e68311a06e256e413a1cdccce57beecac60d16319570e974d",
+            "section_id": "c2r1_approved_runbook:02:applicability",
+            "sha256": "0f9a8fca7f2589fbc31570c8d07d9ba17173073bc6b698abb5126b5d5ccdf937",
+            "source_ref_id": "c2r1_approved_runbook#c2r1_approved_runbook:02:applicability"
+          },
+          {
+            "artifact_id": "c2r1_approved_runbook",
+            "path": "approved://c2r1_approved_runbook.md",
+            "quote_hash": "e2b40a08ae06be95ee829df2b27e9b39cdd4557e40791ba84884a4a3e818e9d9",
+            "section_id": "c2r1_approved_runbook:03:prerequisites",
+            "sha256": "0f9a8fca7f2589fbc31570c8d07d9ba17173073bc6b698abb5126b5d5ccdf937",
+            "source_ref_id": "c2r1_approved_runbook#c2r1_approved_runbook:03:prerequisites"
+          },
+          {
+            "artifact_id": "c2r1_approved_runbook",
+            "path": "approved://c2r1_approved_runbook.md",
+            "quote_hash": "10b26f166d12270f2b50d940e8a203a2f206ffa329019976fcf6794c19f54d02",
+            "section_id": "c2r1_approved_runbook:04:ordered_steps",
+            "sha256": "0f9a8fca7f2589fbc31570c8d07d9ba17173073bc6b698abb5126b5d5ccdf937",
+            "source_ref_id": "c2r1_approved_runbook#c2r1_approved_runbook:04:ordered_steps"
+          },
+          {
+            "artifact_id": "c2r1_approved_runbook",
+            "path": "approved://c2r1_approved_runbook.md",
+            "quote_hash": "0966c329c7aa9f9166bfaba0003ebeef1aa5e345e75bc9195390dcd45d5308a7",
+            "section_id": "c2r1_approved_runbook:05:warnings",
+            "sha256": "0f9a8fca7f2589fbc31570c8d07d9ba17173073bc6b698abb5126b5d5ccdf937",
+            "source_ref_id": "c2r1_approved_runbook#c2r1_approved_runbook:05:warnings"
+          },
+          {
+            "artifact_id": "c2r1_approved_runbook",
+            "path": "approved://c2r1_approved_runbook.md",
+            "quote_hash": "8aa9303546086c650b5387e3c7e274a11af7aa0075ca674ba0391e45329f38f0",
+            "section_id": "c2r1_approved_runbook:06:source_sections",
+            "sha256": "0f9a8fca7f2589fbc31570c8d07d9ba17173073bc6b698abb5126b5d5ccdf937",
+            "source_ref_id": "c2r1_approved_runbook#c2r1_approved_runbook:06:source_sections"
+          }
+        ],
+        "confidence": "high",
+        "disposition": {
+          "deterministic": true,
+          "external_action_executed": false,
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "reason": "requires_forbidden_authority",
+          "source_authority": "no_authoritative_guidance"
+        },
+        "guidance_steps": [],
+        "hold_reason": "requires_forbidden_authority",
+        "prerequisites": [],
+        "source_sections": [
+          {
+            "heading": "Approved C2R1 Runbook",
+            "line_range": "1-2",
+            "section_hash": "c0dd48ea444ab14af73a89924ad4fd34db2ed4d2f189461af83a233455bdf94c",
+            "section_id": "c2r1_approved_runbook:01:approved_c2r1_runbook"
+          },
+          {
+            "heading": "Applicability",
+            "line_range": "3-6",
+            "section_hash": "cf3180f7a1a1932e68311a06e256e413a1cdccce57beecac60d16319570e974d",
+            "section_id": "c2r1_approved_runbook:02:applicability"
+          },
+          {
+            "heading": "Prerequisites",
+            "line_range": "7-12",
+            "section_hash": "e2b40a08ae06be95ee829df2b27e9b39cdd4557e40791ba84884a4a3e818e9d9",
+            "section_id": "c2r1_approved_runbook:03:prerequisites"
+          },
+          {
+            "heading": "Ordered Steps",
+            "line_range": "13-19",
+            "section_hash": "10b26f166d12270f2b50d940e8a203a2f206ffa329019976fcf6794c19f54d02",
+            "section_id": "c2r1_approved_runbook:04:ordered_steps"
+          },
+          {
+            "heading": "Warnings",
+            "line_range": "20-24",
+            "section_hash": "0966c329c7aa9f9166bfaba0003ebeef1aa5e345e75bc9195390dcd45d5308a7",
+            "section_id": "c2r1_approved_runbook:05:warnings"
+          },
+          {
+            "heading": "Source Sections",
+            "line_range": "25-26",
+            "section_hash": "8aa9303546086c650b5387e3c7e274a11af7aa0075ca674ba0391e45329f38f0",
+            "section_id": "c2r1_approved_runbook:06:source_sections"
+          }
+        ],
+        "status": "HOLD",
+        "warnings": []
+      },
+      "expected_outcome": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "guidance_step_count": 0,
+      "hold_reason": "requires_forbidden_authority",
+      "kind": "fail_closed_hold",
+      "material_regression": false,
+      "missing_output_regression": false,
+      "name": "guidance_requiring_runtime_config_mutation_hold",
+      "outcome": "HOLD",
+      "passed": true,
+      "provider_model_calls": 0,
+      "result_digest": "4d8588c8d5c38ea5eae697e603ca18d5b6e77882540be62c3cad50fd09ce7e2a",
+      "source_section_count": 6,
+      "started_utc": "2026-06-27T07:54:41Z"
+    },
+    {
+      "case_id": "c2r1_023",
+      "cited_source_ref_count": 6,
+      "completed_utc": "2026-06-27T07:54:41Z",
+      "direct_provider_bypass_count": 0,
+      "envelope": {
+        "applicability": "insufficient",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c2r1_approved_runbook",
+            "path": "approved://c2r1_approved_runbook.md",
+            "quote_hash": "c0dd48ea444ab14af73a89924ad4fd34db2ed4d2f189461af83a233455bdf94c",
+            "section_id": "c2r1_approved_runbook:01:approved_c2r1_runbook",
+            "sha256": "0f9a8fca7f2589fbc31570c8d07d9ba17173073bc6b698abb5126b5d5ccdf937",
+            "source_ref_id": "c2r1_approved_runbook#c2r1_approved_runbook:01:approved_c2r1_runbook"
+          },
+          {
+            "artifact_id": "c2r1_approved_runbook",
+            "path": "approved://c2r1_approved_runbook.md",
+            "quote_hash": "cf3180f7a1a1932e68311a06e256e413a1cdccce57beecac60d16319570e974d",
+            "section_id": "c2r1_approved_runbook:02:applicability",
+            "sha256": "0f9a8fca7f2589fbc31570c8d07d9ba17173073bc6b698abb5126b5d5ccdf937",
+            "source_ref_id": "c2r1_approved_runbook#c2r1_approved_runbook:02:applicability"
+          },
+          {
+            "artifact_id": "c2r1_approved_runbook",
+            "path": "approved://c2r1_approved_runbook.md",
+            "quote_hash": "e2b40a08ae06be95ee829df2b27e9b39cdd4557e40791ba84884a4a3e818e9d9",
+            "section_id": "c2r1_approved_runbook:03:prerequisites",
+            "sha256": "0f9a8fca7f2589fbc31570c8d07d9ba17173073bc6b698abb5126b5d5ccdf937",
+            "source_ref_id": "c2r1_approved_runbook#c2r1_approved_runbook:03:prerequisites"
+          },
+          {
+            "artifact_id": "c2r1_approved_runbook",
+            "path": "approved://c2r1_approved_runbook.md",
+            "quote_hash": "10b26f166d12270f2b50d940e8a203a2f206ffa329019976fcf6794c19f54d02",
+            "section_id": "c2r1_approved_runbook:04:ordered_steps",
+            "sha256": "0f9a8fca7f2589fbc31570c8d07d9ba17173073bc6b698abb5126b5d5ccdf937",
+            "source_ref_id": "c2r1_approved_runbook#c2r1_approved_runbook:04:ordered_steps"
+          },
+          {
+            "artifact_id": "c2r1_approved_runbook",
+            "path": "approved://c2r1_approved_runbook.md",
+            "quote_hash": "0966c329c7aa9f9166bfaba0003ebeef1aa5e345e75bc9195390dcd45d5308a7",
+            "section_id": "c2r1_approved_runbook:05:warnings",
+            "sha256": "0f9a8fca7f2589fbc31570c8d07d9ba17173073bc6b698abb5126b5d5ccdf937",
+            "source_ref_id": "c2r1_approved_runbook#c2r1_approved_runbook:05:warnings"
+          },
+          {
+            "artifact_id": "c2r1_approved_runbook",
+            "path": "approved://c2r1_approved_runbook.md",
+            "quote_hash": "8aa9303546086c650b5387e3c7e274a11af7aa0075ca674ba0391e45329f38f0",
+            "section_id": "c2r1_approved_runbook:06:source_sections",
+            "sha256": "0f9a8fca7f2589fbc31570c8d07d9ba17173073bc6b698abb5126b5d5ccdf937",
+            "source_ref_id": "c2r1_approved_runbook#c2r1_approved_runbook:06:source_sections"
+          }
+        ],
+        "confidence": "high",
+        "disposition": {
+          "deterministic": true,
+          "external_action_executed": false,
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "reason": "requires_forbidden_authority",
+          "source_authority": "no_authoritative_guidance"
+        },
+        "guidance_steps": [],
+        "hold_reason": "requires_forbidden_authority",
+        "prerequisites": [],
+        "source_sections": [
+          {
+            "heading": "Approved C2R1 Runbook",
+            "line_range": "1-2",
+            "section_hash": "c0dd48ea444ab14af73a89924ad4fd34db2ed4d2f189461af83a233455bdf94c",
+            "section_id": "c2r1_approved_runbook:01:approved_c2r1_runbook"
+          },
+          {
+            "heading": "Applicability",
+            "line_range": "3-6",
+            "section_hash": "cf3180f7a1a1932e68311a06e256e413a1cdccce57beecac60d16319570e974d",
+            "section_id": "c2r1_approved_runbook:02:applicability"
+          },
+          {
+            "heading": "Prerequisites",
+            "line_range": "7-12",
+            "section_hash": "e2b40a08ae06be95ee829df2b27e9b39cdd4557e40791ba84884a4a3e818e9d9",
+            "section_id": "c2r1_approved_runbook:03:prerequisites"
+          },
+          {
+            "heading": "Ordered Steps",
+            "line_range": "13-19",
+            "section_hash": "10b26f166d12270f2b50d940e8a203a2f206ffa329019976fcf6794c19f54d02",
+            "section_id": "c2r1_approved_runbook:04:ordered_steps"
+          },
+          {
+            "heading": "Warnings",
+            "line_range": "20-24",
+            "section_hash": "0966c329c7aa9f9166bfaba0003ebeef1aa5e345e75bc9195390dcd45d5308a7",
+            "section_id": "c2r1_approved_runbook:05:warnings"
+          },
+          {
+            "heading": "Source Sections",
+            "line_range": "25-26",
+            "section_hash": "8aa9303546086c650b5387e3c7e274a11af7aa0075ca674ba0391e45329f38f0",
+            "section_id": "c2r1_approved_runbook:06:source_sections"
+          }
+        ],
+        "status": "HOLD",
+        "warnings": []
+      },
+      "expected_outcome": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "guidance_step_count": 0,
+      "hold_reason": "requires_forbidden_authority",
+      "kind": "fail_closed_hold",
+      "material_regression": false,
+      "missing_output_regression": false,
+      "name": "guidance_requiring_exact_code_config_routing_safety_authority_hold",
+      "outcome": "HOLD",
+      "passed": true,
+      "provider_model_calls": 0,
+      "result_digest": "4d8588c8d5c38ea5eae697e603ca18d5b6e77882540be62c3cad50fd09ce7e2a",
+      "source_section_count": 6,
+      "started_utc": "2026-06-27T07:54:41Z"
+    },
+    {
+      "case_id": "c2r1_037",
+      "cited_source_ref_count": 6,
+      "completed_utc": "2026-06-27T07:54:41Z",
+      "direct_provider_bypass_count": 0,
+      "envelope": {
+        "applicability": "insufficient",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c2r1_approved_runbook",
+            "path": "approved://c2r1_approved_runbook.md",
+            "quote_hash": "c0dd48ea444ab14af73a89924ad4fd34db2ed4d2f189461af83a233455bdf94c",
+            "section_id": "c2r1_approved_runbook:01:approved_c2r1_runbook",
+            "sha256": "0f9a8fca7f2589fbc31570c8d07d9ba17173073bc6b698abb5126b5d5ccdf937",
+            "source_ref_id": "c2r1_approved_runbook#c2r1_approved_runbook:01:approved_c2r1_runbook"
+          },
+          {
+            "artifact_id": "c2r1_approved_runbook",
+            "path": "approved://c2r1_approved_runbook.md",
+            "quote_hash": "cf3180f7a1a1932e68311a06e256e413a1cdccce57beecac60d16319570e974d",
+            "section_id": "c2r1_approved_runbook:02:applicability",
+            "sha256": "0f9a8fca7f2589fbc31570c8d07d9ba17173073bc6b698abb5126b5d5ccdf937",
+            "source_ref_id": "c2r1_approved_runbook#c2r1_approved_runbook:02:applicability"
+          },
+          {
+            "artifact_id": "c2r1_approved_runbook",
+            "path": "approved://c2r1_approved_runbook.md",
+            "quote_hash": "e2b40a08ae06be95ee829df2b27e9b39cdd4557e40791ba84884a4a3e818e9d9",
+            "section_id": "c2r1_approved_runbook:03:prerequisites",
+            "sha256": "0f9a8fca7f2589fbc31570c8d07d9ba17173073bc6b698abb5126b5d5ccdf937",
+            "source_ref_id": "c2r1_approved_runbook#c2r1_approved_runbook:03:prerequisites"
+          },
+          {
+            "artifact_id": "c2r1_approved_runbook",
+            "path": "approved://c2r1_approved_runbook.md",
+            "quote_hash": "10b26f166d12270f2b50d940e8a203a2f206ffa329019976fcf6794c19f54d02",
+            "section_id": "c2r1_approved_runbook:04:ordered_steps",
+            "sha256": "0f9a8fca7f2589fbc31570c8d07d9ba17173073bc6b698abb5126b5d5ccdf937",
+            "source_ref_id": "c2r1_approved_runbook#c2r1_approved_runbook:04:ordered_steps"
+          },
+          {
+            "artifact_id": "c2r1_approved_runbook",
+            "path": "approved://c2r1_approved_runbook.md",
+            "quote_hash": "0966c329c7aa9f9166bfaba0003ebeef1aa5e345e75bc9195390dcd45d5308a7",
+            "section_id": "c2r1_approved_runbook:05:warnings",
+            "sha256": "0f9a8fca7f2589fbc31570c8d07d9ba17173073bc6b698abb5126b5d5ccdf937",
+            "source_ref_id": "c2r1_approved_runbook#c2r1_approved_runbook:05:warnings"
+          },
+          {
+            "artifact_id": "c2r1_approved_runbook",
+            "path": "approved://c2r1_approved_runbook.md",
+            "quote_hash": "8aa9303546086c650b5387e3c7e274a11af7aa0075ca674ba0391e45329f38f0",
+            "section_id": "c2r1_approved_runbook:06:source_sections",
+            "sha256": "0f9a8fca7f2589fbc31570c8d07d9ba17173073bc6b698abb5126b5d5ccdf937",
+            "source_ref_id": "c2r1_approved_runbook#c2r1_approved_runbook:06:source_sections"
+          }
+        ],
+        "confidence": "high",
+        "disposition": {
+          "deterministic": true,
+          "external_action_executed": false,
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "reason": "requires_forbidden_authority",
+          "source_authority": "no_authoritative_guidance"
+        },
+        "guidance_steps": [],
+        "hold_reason": "requires_forbidden_authority",
+        "prerequisites": [],
+        "source_sections": [
+          {
+            "heading": "Approved C2R1 Runbook",
+            "line_range": "1-2",
+            "section_hash": "c0dd48ea444ab14af73a89924ad4fd34db2ed4d2f189461af83a233455bdf94c",
+            "section_id": "c2r1_approved_runbook:01:approved_c2r1_runbook"
+          },
+          {
+            "heading": "Applicability",
+            "line_range": "3-6",
+            "section_hash": "cf3180f7a1a1932e68311a06e256e413a1cdccce57beecac60d16319570e974d",
+            "section_id": "c2r1_approved_runbook:02:applicability"
+          },
+          {
+            "heading": "Prerequisites",
+            "line_range": "7-12",
+            "section_hash": "e2b40a08ae06be95ee829df2b27e9b39cdd4557e40791ba84884a4a3e818e9d9",
+            "section_id": "c2r1_approved_runbook:03:prerequisites"
+          },
+          {
+            "heading": "Ordered Steps",
+            "line_range": "13-19",
+            "section_hash": "10b26f166d12270f2b50d940e8a203a2f206ffa329019976fcf6794c19f54d02",
+            "section_id": "c2r1_approved_runbook:04:ordered_steps"
+          },
+          {
+            "heading": "Warnings",
+            "line_range": "20-24",
+            "section_hash": "0966c329c7aa9f9166bfaba0003ebeef1aa5e345e75bc9195390dcd45d5308a7",
+            "section_id": "c2r1_approved_runbook:05:warnings"
+          },
+          {
+            "heading": "Source Sections",
+            "line_range": "25-26",
+            "section_hash": "8aa9303546086c650b5387e3c7e274a11af7aa0075ca674ba0391e45329f38f0",
+            "section_id": "c2r1_approved_runbook:06:source_sections"
+          }
+        ],
+        "status": "HOLD",
+        "warnings": []
+      },
+      "expected_outcome": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "guidance_step_count": 0,
+      "hold_reason": "requires_forbidden_authority",
+      "kind": "fail_closed_hold_variant",
+      "material_regression": false,
+      "missing_output_regression": false,
+      "name": "guidance_requiring_runtime_config_mutation_hold_variant_12",
+      "outcome": "HOLD",
+      "passed": true,
+      "provider_model_calls": 0,
+      "result_digest": "4d8588c8d5c38ea5eae697e603ca18d5b6e77882540be62c3cad50fd09ce7e2a",
+      "source_section_count": 6,
+      "started_utc": "2026-06-27T07:54:41Z"
+    },
+    {
+      "case_id": "c2r1_038",
+      "cited_source_ref_count": 6,
+      "completed_utc": "2026-06-27T07:54:41Z",
+      "direct_provider_bypass_count": 0,
+      "envelope": {
+        "applicability": "insufficient",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c2r1_approved_runbook",
+            "path": "approved://c2r1_approved_runbook.md",
+            "quote_hash": "c0dd48ea444ab14af73a89924ad4fd34db2ed4d2f189461af83a233455bdf94c",
+            "section_id": "c2r1_approved_runbook:01:approved_c2r1_runbook",
+            "sha256": "0f9a8fca7f2589fbc31570c8d07d9ba17173073bc6b698abb5126b5d5ccdf937",
+            "source_ref_id": "c2r1_approved_runbook#c2r1_approved_runbook:01:approved_c2r1_runbook"
+          },
+          {
+            "artifact_id": "c2r1_approved_runbook",
+            "path": "approved://c2r1_approved_runbook.md",
+            "quote_hash": "cf3180f7a1a1932e68311a06e256e413a1cdccce57beecac60d16319570e974d",
+            "section_id": "c2r1_approved_runbook:02:applicability",
+            "sha256": "0f9a8fca7f2589fbc31570c8d07d9ba17173073bc6b698abb5126b5d5ccdf937",
+            "source_ref_id": "c2r1_approved_runbook#c2r1_approved_runbook:02:applicability"
+          },
+          {
+            "artifact_id": "c2r1_approved_runbook",
+            "path": "approved://c2r1_approved_runbook.md",
+            "quote_hash": "e2b40a08ae06be95ee829df2b27e9b39cdd4557e40791ba84884a4a3e818e9d9",
+            "section_id": "c2r1_approved_runbook:03:prerequisites",
+            "sha256": "0f9a8fca7f2589fbc31570c8d07d9ba17173073bc6b698abb5126b5d5ccdf937",
+            "source_ref_id": "c2r1_approved_runbook#c2r1_approved_runbook:03:prerequisites"
+          },
+          {
+            "artifact_id": "c2r1_approved_runbook",
+            "path": "approved://c2r1_approved_runbook.md",
+            "quote_hash": "10b26f166d12270f2b50d940e8a203a2f206ffa329019976fcf6794c19f54d02",
+            "section_id": "c2r1_approved_runbook:04:ordered_steps",
+            "sha256": "0f9a8fca7f2589fbc31570c8d07d9ba17173073bc6b698abb5126b5d5ccdf937",
+            "source_ref_id": "c2r1_approved_runbook#c2r1_approved_runbook:04:ordered_steps"
+          },
+          {
+            "artifact_id": "c2r1_approved_runbook",
+            "path": "approved://c2r1_approved_runbook.md",
+            "quote_hash": "0966c329c7aa9f9166bfaba0003ebeef1aa5e345e75bc9195390dcd45d5308a7",
+            "section_id": "c2r1_approved_runbook:05:warnings",
+            "sha256": "0f9a8fca7f2589fbc31570c8d07d9ba17173073bc6b698abb5126b5d5ccdf937",
+            "source_ref_id": "c2r1_approved_runbook#c2r1_approved_runbook:05:warnings"
+          },
+          {
+            "artifact_id": "c2r1_approved_runbook",
+            "path": "approved://c2r1_approved_runbook.md",
+            "quote_hash": "8aa9303546086c650b5387e3c7e274a11af7aa0075ca674ba0391e45329f38f0",
+            "section_id": "c2r1_approved_runbook:06:source_sections",
+            "sha256": "0f9a8fca7f2589fbc31570c8d07d9ba17173073bc6b698abb5126b5d5ccdf937",
+            "source_ref_id": "c2r1_approved_runbook#c2r1_approved_runbook:06:source_sections"
+          }
+        ],
+        "confidence": "high",
+        "disposition": {
+          "deterministic": true,
+          "external_action_executed": false,
+          "fail_closed": true,
+          "kind": "fail_closed_hold",
+          "model_prose_used": false,
+          "mutation_applied": false,
+          "production_expansion_applied": false,
+          "reason": "requires_forbidden_authority",
+          "source_authority": "no_authoritative_guidance"
+        },
+        "guidance_steps": [],
+        "hold_reason": "requires_forbidden_authority",
+        "prerequisites": [],
+        "source_sections": [
+          {
+            "heading": "Approved C2R1 Runbook",
+            "line_range": "1-2",
+            "section_hash": "c0dd48ea444ab14af73a89924ad4fd34db2ed4d2f189461af83a233455bdf94c",
+            "section_id": "c2r1_approved_runbook:01:approved_c2r1_runbook"
+          },
+          {
+            "heading": "Applicability",
+            "line_range": "3-6",
+            "section_hash": "cf3180f7a1a1932e68311a06e256e413a1cdccce57beecac60d16319570e974d",
+            "section_id": "c2r1_approved_runbook:02:applicability"
+          },
+          {
+            "heading": "Prerequisites",
+            "line_range": "7-12",
+            "section_hash": "e2b40a08ae06be95ee829df2b27e9b39cdd4557e40791ba84884a4a3e818e9d9",
+            "section_id": "c2r1_approved_runbook:03:prerequisites"
+          },
+          {
+            "heading": "Ordered Steps",
+            "line_range": "13-19",
+            "section_hash": "10b26f166d12270f2b50d940e8a203a2f206ffa329019976fcf6794c19f54d02",
+            "section_id": "c2r1_approved_runbook:04:ordered_steps"
+          },
+          {
+            "heading": "Warnings",
+            "line_range": "20-24",
+            "section_hash": "0966c329c7aa9f9166bfaba0003ebeef1aa5e345e75bc9195390dcd45d5308a7",
+            "section_id": "c2r1_approved_runbook:05:warnings"
+          },
+          {
+            "heading": "Source Sections",
+            "line_range": "25-26",
+            "section_hash": "8aa9303546086c650b5387e3c7e274a11af7aa0075ca674ba0391e45329f38f0",
+            "section_id": "c2r1_approved_runbook:06:source_sections"
+          }
+        ],
+        "status": "HOLD",
+        "warnings": []
+      },
+      "expected_outcome": "HOLD",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "guidance_step_count": 0,
+      "hold_reason": "requires_forbidden_authority",
+      "kind": "fail_closed_hold_variant",
+      "material_regression": false,
+      "missing_output_regression": false,
+      "name": "guidance_requiring_exact_code_config_routing_safety_authority_hold_variant_13",
+      "outcome": "HOLD",
+      "passed": true,
+      "provider_model_calls": 0,
+      "result_digest": "4d8588c8d5c38ea5eae697e603ca18d5b6e77882540be62c3cad50fd09ce7e2a",
+      "source_section_count": 6,
+      "started_utc": "2026-06-27T07:54:41Z"
+    },
+    {
+      "case_id": "c2r1_046",
+      "cited_source_ref_count": 4,
+      "completed_utc": "2026-06-27T07:54:41Z",
+      "direct_provider_bypass_count": 0,
+      "envelope": {
+        "applicability": "bounded to one approved artifact and cited sections only",
+        "authority": "approved_single_artifact_only",
+        "cited_source_refs": [
+          {
+            "artifact_id": "c2r1_guard_runbook",
+            "path": "approved://c2r1_guard_runbook.md",
+            "quote_hash": "cf3180f7a1a1932e68311a06e256e413a1cdccce57beecac60d16319570e974d",
+            "section_id": "c2r1_guard_runbook:02:applicability",
+            "sha256": "0f9a8fca7f2589fbc31570c8d07d9ba17173073bc6b698abb5126b5d5ccdf937",
+            "source_ref_id": "c2r1_guard_runbook#c2r1_guard_runbook:02:applicability"
+          },
+          {
+            "artifact_id": "c2r1_guard_runbook",
+            "path": "approved://c2r1_guard_runbook.md",
+            "quote_hash": "e2b40a08ae06be95ee829df2b27e9b39cdd4557e40791ba84884a4a3e818e9d9",
+            "section_id": "c2r1_guard_runbook:03:prerequisites",
+            "sha256": "0f9a8fca7f2589fbc31570c8d07d9ba17173073bc6b698abb5126b5d5ccdf937",
+            "source_ref_id": "c2r1_guard_runbook#c2r1_guard_runbook:03:prerequisites"
+          },
+          {
+            "artifact_id": "c2r1_guard_runbook",
+            "path": "approved://c2r1_guard_runbook.md",
+            "quote_hash": "10b26f166d12270f2b50d940e8a203a2f206ffa329019976fcf6794c19f54d02",
+            "section_id": "c2r1_guard_runbook:04:ordered_steps",
+            "sha256": "0f9a8fca7f2589fbc31570c8d07d9ba17173073bc6b698abb5126b5d5ccdf937",
+            "source_ref_id": "c2r1_guard_runbook#c2r1_guard_runbook:04:ordered_steps"
+          },
+          {
+            "artifact_id": "c2r1_guard_runbook",
+            "path": "approved://c2r1_guard_runbook.md",
+            "quote_hash": "0966c329c7aa9f9166bfaba0003ebeef1aa5e345e75bc9195390dcd45d5308a7",
+            "section_id": "c2r1_guard_runbook:05:warnings",
+            "sha256": "0f9a8fca7f2589fbc31570c8d07d9ba17173073bc6b698abb5126b5d5ccdf937",
+            "source_ref_id": "c2r1_guard_runbook#c2r1_guard_runbook:05:warnings"
+          }
+        ],
+        "confidence": "high",
+        "disposition": {
+          "artifact_id": "c2r1_guard_runbook",
+          "deterministic": true,
+          "external_action_executed": false,
+          "kind": "single_artifact_guidance",
+          "model_prose_used": false,
+          "mutation_applied": true,
+          "production_expansion_applied": false,
+          "source_authority": "approved_single_artifact_only"
+        },
+        "guidance_steps": [
+          {
+            "applicability": "required",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2r1_guard_runbook#c2r1_guard_runbook:02:applicability"
+            ],
+            "source_section_ids": [
+              "c2r1_guard_runbook:02:applicability"
+            ],
+            "step_id": "c2r1_046_step_01",
+            "text": "This runbook applies only to M12-C2 single-artifact readiness guidance."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2r1_guard_runbook#c2r1_guard_runbook:02:applicability"
+            ],
+            "source_section_ids": [
+              "c2r1_guard_runbook:02:applicability"
+            ],
+            "step_id": "c2r1_046_step_02",
+            "text": "It is readiness-only and excludes downstream milestones, caching, durable artifact promotion, and operator-control expansion."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2r1_guard_runbook#c2r1_guard_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2r1_guard_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2r1_046_step_03",
+            "text": "Read the approved artifact status section."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2r1_guard_runbook#c2r1_guard_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2r1_guard_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2r1_046_step_04",
+            "text": "Confirm required evidence files are present."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2r1_guard_runbook#c2r1_guard_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2r1_guard_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2r1_046_step_05",
+            "text": "Validate GUIDANCE/HOLD envelope shape."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2r1_guard_runbook#c2r1_guard_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2r1_guard_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2r1_046_step_06",
+            "text": "Cite approved source sections only."
+          },
+          {
+            "applicability": "conditional",
+            "confidence": "high",
+            "source_ref_ids": [
+              "c2r1_guard_runbook#c2r1_guard_runbook:04:ordered_steps"
+            ],
+            "source_section_ids": [
+              "c2r1_guard_runbook:04:ordered_steps"
+            ],
+            "step_id": "c2r1_046_step_07",
+            "text": "Report readiness as review-only owner candidate."
+          }
+        ],
+        "hold_reason": null,
+        "prerequisites": [
+          {
+            "source_ref_ids": [
+              "c2r1_guard_runbook#c2r1_guard_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2r1_guard_runbook:03:prerequisites"
+            ],
+            "text": "Confirm C2K PASS before consuming this artifact."
+          },
+          {
+            "source_ref_ids": [
+              "c2r1_guard_runbook#c2r1_guard_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2r1_guard_runbook:03:prerequisites"
+            ],
+            "text": "Confirm M11 frozen baseline is preserved."
+          },
+          {
+            "source_ref_ids": [
+              "c2r1_guard_runbook#c2r1_guard_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2r1_guard_runbook:03:prerequisites"
+            ],
+            "text": "Confirm M12-C1 frozen production acceptance is preserved."
+          },
+          {
+            "source_ref_ids": [
+              "c2r1_guard_runbook#c2r1_guard_runbook:03:prerequisites"
+            ],
+            "source_section_ids": [
+              "c2r1_guard_runbook:03:prerequisites"
+            ],
+            "text": "Confirm rollback readiness before reporting readiness."
+          }
+        ],
+        "source_sections": [
+          {
+            "heading": "Applicability",
+            "line_range": "3-6",
+            "section_hash": "cf3180f7a1a1932e68311a06e256e413a1cdccce57beecac60d16319570e974d",
+            "section_id": "c2r1_guard_runbook:02:applicability"
+          },
+          {
+            "heading": "Prerequisites",
+            "line_range": "7-12",
+            "section_hash": "e2b40a08ae06be95ee829df2b27e9b39cdd4557e40791ba84884a4a3e818e9d9",
+            "section_id": "c2r1_guard_runbook:03:prerequisites"
+          },
+          {
+            "heading": "Ordered Steps",
+            "line_range": "13-19",
+            "section_hash": "10b26f166d12270f2b50d940e8a203a2f206ffa329019976fcf6794c19f54d02",
+            "section_id": "c2r1_guard_runbook:04:ordered_steps"
+          },
+          {
+            "heading": "Warnings",
+            "line_range": "20-24",
+            "section_hash": "0966c329c7aa9f9166bfaba0003ebeef1aa5e345e75bc9195390dcd45d5308a7",
+            "section_id": "c2r1_guard_runbook:05:warnings"
+          }
+        ],
+        "status": "GUIDANCE",
+        "warnings": [
+          {
+            "source_ref_ids": [
+              "c2r1_guard_runbook#c2r1_guard_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2r1_guard_runbook:05:warnings"
+            ],
+            "text": "Live rollout authorization remains outside this readiness exercise."
+          },
+          {
+            "source_ref_ids": [
+              "c2r1_guard_runbook#c2r1_guard_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2r1_guard_runbook:05:warnings"
+            ],
+            "text": "Off-machine execution remains outside this readiness exercise."
+          },
+          {
+            "source_ref_ids": [
+              "c2r1_guard_runbook#c2r1_guard_runbook:05:warnings"
+            ],
+            "source_section_ids": [
+              "c2r1_guard_runbook:05:warnings"
+            ],
+            "text": "Protected operator controls remain unchanged."
+          }
+        ]
+      },
+      "expected_outcome": "REJECT",
+      "guard_accepted": false,
+      "guard_reasons": [
+        "mutation_smuggled"
+      ],
+      "guidance_step_count": 7,
+      "hold_reason": null,
+      "kind": "guard_reject",
+      "material_regression": false,
+      "missing_output_regression": false,
+      "name": "mutation_smuggling_reject",
+      "outcome": "REJECT",
+      "passed": true,
+      "provider_model_calls": 0,
+      "result_digest": "518027c51d2b0f77f545d2d0285e6aa2a160e007151b8fe577454f2cd7c18dbe",
+      "source_section_count": 4,
+      "started_utc": "2026-06-27T07:54:41Z"
+    }
+  ],
+  "schema": "stickbot.vnext_semantic_gate.m12_c2r1.runtime_mutation_hold_report.v1",
+  "status": "M12_C2R1_SINGLE_ARTIFACT_RUNBOOK_GUIDANCE_READINESS_PASS_NO_APPLY"
+}

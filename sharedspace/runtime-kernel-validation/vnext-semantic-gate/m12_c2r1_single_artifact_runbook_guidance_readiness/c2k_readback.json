@@ -1,0 +1,49 @@
+{
+  "c2k_artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2k_single_artifact_runbook_guidance_kernel",
+  "c2k_commit_expected": "7d0cec016e135c0f968f5efc09d93fdcb72ea77b",
+  "c2k_fixture_accounting": {
+    "guard_reject": 8,
+    "guidance": 5,
+    "hold": 15,
+    "reconciled": true,
+    "total": 28
+  },
+  "c2k_source_hashes": [
+    {
+      "path": "scripts/m12_c2_single_artifact_guidance_kernel.py",
+      "sha256": "ce9ec9fd7a84a04de3ff9c45a41afa4286e8491eeed62802833a7a04a10a5361"
+    },
+    {
+      "path": "scripts/m12_c2_source_authority_guard.py",
+      "sha256": "1736366ab0556307e45a4bf8194aa13910b75ac23d89f4fb6d9ccc886ff4964b"
+    },
+    {
+      "path": "scripts/test_m12_c2_single_artifact_guidance_kernel.py",
+      "sha256": "eafba577f14d84d1b9658c19800fdbc8fc576bca44942ccc01a9ffe0ed90ea85"
+    }
+  ],
+  "c2k_status": "M12_C2K_SINGLE_ARTIFACT_RUNBOOK_GUIDANCE_KERNEL_PASS",
+  "checks": {
+    "artifact_memory_promotion_disabled": true,
+    "c1_frozen_production_boundary_preserved": true,
+    "c2k_consumed_read_only": true,
+    "c2k_pass": true,
+    "c2k_required_files_complete": true,
+    "c3_c4_not_started": true,
+    "cache_disabled": true,
+    "fixture_accounting_reconciled": true,
+    "m11_frozen_baseline_preserved": true,
+    "mutation_sentinels_clean": true,
+    "owner_design_accepted": true,
+    "rollback_ready": true
+  },
+  "failures": [],
+  "schema": "stickbot.vnext_semantic_gate.m12_c2r1.c2k_readback.v1",
+  "source_status_hashes": {
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_7_production_operating_baseline_finalization/status.json": "2e2aac9d2a97bf1e290dade2501c42fe0eaca5d0690cebb53637751512bb7022",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1_final_owner_acceptance_review/status.json": "4c4a7a0b234777d295ddcd0827399cc0c49bebfece1df90c6d3079cac21362f6",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2_owner_review_design_acceptance/status.json": "f87a457fd6d3b3be04b2f97df8b26cdeac5bd12f53a58815449a7f90df60ab9f",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2_single_artifact_runbook_guidance_readiness_design/status.json": "d39d08b4aab6f0f2d7ff9a1979200bd707d1895998ebd14a1d1e8e5629d964e2",
+    "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2k_single_artifact_runbook_guidance_kernel/status.json": "10b3fe2954cb7132bf1659a851ecfe1e48b8a3f923f2c6363c506f80a08f2ab8"
+  }
+}

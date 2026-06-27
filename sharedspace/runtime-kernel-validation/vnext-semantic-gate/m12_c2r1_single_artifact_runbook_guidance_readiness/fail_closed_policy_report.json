@@ -1,0 +1,8 @@
+{
+  "fail_closed_cases": 30,
+  "fail_closed_cases_passed": 30,
+  "material_regressions": 0,
+  "missing_output_regressions": 0,
+  "schema": "stickbot.vnext_semantic_gate.m12_c2r1.fail_closed_policy_report.v1",
+  "status": "M12_C2R1_SINGLE_ARTIFACT_RUNBOOK_GUIDANCE_READINESS_PASS_NO_APPLY"
+}

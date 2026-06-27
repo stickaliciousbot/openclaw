@@ -1,0 +1,13 @@
+{
+  "artifact_memory_promoted": false,
+  "c2_production_started": false,
+  "c3_c4_started": false,
+  "cache_enabled": false,
+  "gateway_config_mutated": false,
+  "global_semantic_gate_promoted": false,
+  "no_apply": true,
+  "production_expansion_applied": false,
+  "route_fallback_memory_runtime_authority_mutated": false,
+  "schema": "stickbot.vnext_semantic_gate.m12_c2r1.no_apply_no_mutation_record.v1",
+  "status": "M12_C2R1_SINGLE_ARTIFACT_RUNBOOK_GUIDANCE_READINESS_PASS_NO_APPLY"
+}

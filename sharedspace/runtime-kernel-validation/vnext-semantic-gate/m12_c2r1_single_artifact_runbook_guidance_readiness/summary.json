@@ -1,0 +1,32 @@
+{
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2r1_single_artifact_runbook_guidance_readiness",
+  "artifact_memory_promoted": false,
+  "c2_production_started": false,
+  "c3_c4_started": false,
+  "cache_enabled": false,
+  "completed_utc": "2026-06-27T07:54:41Z",
+  "direct_provider_bypass_count": 0,
+  "failed_gates": [],
+  "first_failure": null,
+  "global_semantic_gate_promoted": false,
+  "guidance_count": 10,
+  "hold_count": 30,
+  "m11_frozen_baseline_preserved": true,
+  "m12_c1_frozen_production_acceptance_preserved": true,
+  "material_regression_count": 0,
+  "missing_output_regression_count": 0,
+  "production_expansion_applied": false,
+  "provider_model_calls": 0,
+  "reject_count": 10,
+  "rollback_ready": true,
+  "run_bound": {
+    "completed_by": "case_bound",
+    "completed_cases": 50,
+    "max_active_seconds": 7200,
+    "target_cases": 50
+  },
+  "runtime_authority_mutated": false,
+  "schema": "stickbot.vnext_semantic_gate.m12_c2r1.status.v1",
+  "started_utc": "2026-06-27T07:54:41Z",
+  "status": "M12_C2R1_SINGLE_ARTIFACT_RUNBOOK_GUIDANCE_READINESS_PASS_NO_APPLY"
+}

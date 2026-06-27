@@ -1,0 +1,59 @@
+{
+  "approved_canonical": true,
+  "guidance_citation_details": [
+    {
+      "case_id": "c2r1_001",
+      "source_refs": 4,
+      "source_sections": 4
+    },
+    {
+      "case_id": "c2r1_002",
+      "source_refs": 4,
+      "source_sections": 4
+    },
+    {
+      "case_id": "c2r1_003",
+      "source_refs": 4,
+      "source_sections": 4
+    },
+    {
+      "case_id": "c2r1_004",
+      "source_refs": 4,
+      "source_sections": 4
+    },
+    {
+      "case_id": "c2r1_005",
+      "source_refs": 4,
+      "source_sections": 4
+    },
+    {
+      "case_id": "c2r1_006",
+      "source_refs": 4,
+      "source_sections": 4
+    },
+    {
+      "case_id": "c2r1_007",
+      "source_refs": 4,
+      "source_sections": 4
+    },
+    {
+      "case_id": "c2r1_008",
+      "source_refs": 4,
+      "source_sections": 4
+    },
+    {
+      "case_id": "c2r1_009",
+      "source_refs": 4,
+      "source_sections": 4
+    },
+    {
+      "case_id": "c2r1_010",
+      "source_refs": 4,
+      "source_sections": 4
+    }
+  ],
+  "missing_source_refs_accepted": false,
+  "schema": "stickbot.vnext_semantic_gate.m12_c2r1.source_section_citation_report.v1",
+  "status": "M12_C2R1_SINGLE_ARTIFACT_RUNBOOK_GUIDANCE_READINESS_PASS_NO_APPLY",
+  "wrong_source_section_accepted": false
+}

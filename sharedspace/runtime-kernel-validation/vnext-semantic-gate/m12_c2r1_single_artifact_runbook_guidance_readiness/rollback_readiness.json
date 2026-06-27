@@ -1,0 +1,8 @@
+{
+  "m11_frozen_baseline_preserved": true,
+  "m12_c1_frozen_production_acceptance_preserved": true,
+  "rollback_applied": false,
+  "rollback_ready": true,
+  "schema": "stickbot.vnext_semantic_gate.m12_c2r1.rollback_readiness.v1",
+  "status": "M12_C2R1_SINGLE_ARTIFACT_RUNBOOK_GUIDANCE_READINESS_PASS_NO_APPLY"
+}

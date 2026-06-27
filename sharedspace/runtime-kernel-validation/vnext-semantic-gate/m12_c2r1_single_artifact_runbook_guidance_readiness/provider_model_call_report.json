@@ -1,0 +1,7 @@
+{
+  "authoritative_c2_guidance_provider_calls": 0,
+  "optional_model_prose_enabled": false,
+  "provider_model_calls": 0,
+  "schema": "stickbot.vnext_semantic_gate.m12_c2r1.provider_model_call_report.v1",
+  "status": "M12_C2R1_SINGLE_ARTIFACT_RUNBOOK_GUIDANCE_READINESS_PASS_NO_APPLY"
+}

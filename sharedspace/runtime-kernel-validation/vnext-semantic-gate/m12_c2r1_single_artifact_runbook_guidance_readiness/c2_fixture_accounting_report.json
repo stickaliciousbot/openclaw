@@ -1,0 +1,18 @@
+{
+  "c2k_fixture_accounting": {
+    "guard_reject": 8,
+    "guidance": 5,
+    "hold": 15,
+    "reconciled": true,
+    "total": 28
+  },
+  "c2r1_accounting": {
+    "guard_reject": 10,
+    "guidance": 10,
+    "hold": 30,
+    "reconciled": true,
+    "total": 50
+  },
+  "schema": "stickbot.vnext_semantic_gate.m12_c2r1.fixture_accounting_report.v1",
+  "status": "M12_C2R1_SINGLE_ARTIFACT_RUNBOOK_GUIDANCE_READINESS_PASS_NO_APPLY"
+}

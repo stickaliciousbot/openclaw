@@ -1,0 +1,8 @@
+{
+  "c1_status_sha256": "4c4a7a0b234777d295ddcd0827399cc0c49bebfece1df90c6d3079cac21362f6",
+  "c2_production_started": false,
+  "c3_c4_started": false,
+  "m12_c1_frozen_production_acceptance_preserved": true,
+  "schema": "stickbot.vnext_semantic_gate.m12_c2r1.c1_boundary_preservation_readback.v1",
+  "status": "M12_C2R1_SINGLE_ARTIFACT_RUNBOOK_GUIDANCE_READINESS_PASS_NO_APPLY"
+}
