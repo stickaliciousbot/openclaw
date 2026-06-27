@@ -1,0 +1,15 @@
+{
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c3h_limited_production_health_watch",
+  "conflict_count": 20,
+  "consistent_count": 12,
+  "failed_gates": [],
+  "first_failure": null,
+  "guard_reject_count": 4,
+  "hold_count": 48,
+  "reconciled": true,
+  "reject_count": 16,
+  "request_count": 100,
+  "schema": "stickbot.vnext_semantic_gate.m12_c3h.counts.v1",
+  "schema_base": "stickbot.vnext_semantic_gate.m12_c3h",
+  "status": "M12_C3H_LIMITED_PRODUCTION_HEALTH_WATCH_PASS"
+}

@@ -1,0 +1,53 @@
+{
+  "accepted_scope": "M12-C3 deterministic two-artifact consistency comparison only",
+  "allowed_outcomes": [
+    "CONSISTENT",
+    "CONFLICT",
+    "HOLD",
+    "REJECT",
+    "guard REJECT"
+  ],
+  "direct_provider_bypass_allowed": false,
+  "preflight": {
+    "checks": {
+      "accepted_comparisons_exactly_two_approved_artifacts": true,
+      "accepted_scope_two_artifact_consistency": true,
+      "artifact_memory_promotion_disabled": true,
+      "c1_boundary_preserved": true,
+      "c2_boundary_preserved": true,
+      "c3k_pass": true,
+      "c3p5_acceptance_pass": true,
+      "c3p_accounting_verified": true,
+      "c3p_pass": true,
+      "c4_not_started": true,
+      "cache_disabled": true,
+      "direct_provider_bypass_zero": true,
+      "m11_frozen_baseline_preserved": true,
+      "material_missing_regressions_zero": true,
+      "mutation_sentinels_clean": true,
+      "no_runtime_gateway_config_route_fallback_memory_mutation": true,
+      "provider_model_calls_zero": true,
+      "rollback_ready": true,
+      "source_typed_stale_zero": true
+    },
+    "failures": [],
+    "source_hashes": {
+      "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_7_production_operating_baseline_finalization/status.json": "2e2aac9d2a97bf1e290dade2501c42fe0eaca5d0690cebb53637751512bb7022",
+      "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1_final_owner_acceptance_review/status.json": "4c4a7a0b234777d295ddcd0827399cc0c49bebfece1df90c6d3079cac21362f6",
+      "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2_final_owner_acceptance_review/status.json": "7213d4fdfcfebccdaf74e2e54e7571f48f097c07578c97e0126182682f2feed7",
+      "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c3k_two_artifact_consistency_comparison_kernel/status.json": "74921483678b82946ab9c4c6d150c30318009171fba02960ff659a7dd3b7bc02",
+      "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c3p5_limited_production_acceptance_finalization/status.json": "feb09cde33d6e04aaaba27d28616117b2e7bf903fb435d086b341b422dea0474",
+      "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c3p_limited_production_canary/status.json": "a6e1b9f91c4796ab10adbdead97b1ae99fd1bbf5c51a15dd40f421895009e48c"
+    }
+  },
+  "provider_model_authoritative_calls_allowed": 0,
+  "run_bound": {
+    "max_active_seconds": 86400,
+    "max_requests": 100,
+    "stop_rule": "whichever_comes_first"
+  },
+  "schema": "stickbot.vnext_semantic_gate.m12_c3h.config.v1",
+  "started_utc": "2026-06-27T12:20:06Z",
+  "status_if_abort": "M12_C3H_LIMITED_PRODUCTION_HEALTH_WATCH_ABORT",
+  "status_if_pass": "M12_C3H_LIMITED_PRODUCTION_HEALTH_WATCH_PASS"
+}
