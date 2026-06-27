@@ -1,0 +1,42 @@
+{
+  "accepted_prior_evidence": {
+    "c1k_freeze_status": "M12_C1K_DURABILITY_EVIDENCE_FREEZE_PASS",
+    "c1k_frozen_evidence_sha256": "097c0819182001fcf0c0497c7c072be12a8c51f948d2d8f52a39c2ceaf7f28dd",
+    "c1r16_status": "M12_C1R16_BOUNDED_ARTIFACT_STATUS_QA_READINESS_PASS_NO_APPLY",
+    "c1r16_status_path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r16_bounded_artifact_status_qa_readiness_rerun/status.json",
+    "c1r16_status_sha256": "cfff4b39122056862baa7ebee40b37a3358823b8d0e6c159104642a6fdaddf33",
+    "m11_status": "M11_7_PRODUCTION_OPERATING_BASELINE_FINALIZATION_PASS",
+    "m11_status_path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_7_production_operating_baseline_finalization/status.json",
+    "m11_status_sha256": "2e2aac9d2a97bf1e290dade2501c42fe0eaca5d0690cebb53637751512bb7022"
+  },
+  "candidate": {
+    "candidate_scope": "read-only extractive answers over approved artifact paths/status fields",
+    "id": "M12-C1",
+    "name": "bounded artifact status Q&A",
+    "readiness_recommendation": "recommended_first_candidate_after_owner_approval",
+    "risk_level": "low"
+  },
+  "checks": {
+    "artifact_memory_promotion_disabled": true,
+    "c1k_read_only_consumption_verifies": true,
+    "c1r16_cases_50_50": true,
+    "c1r16_pass_no_apply_evidence_verifies": true,
+    "cache_disabled": true,
+    "direct_provider_bypass_zero": true,
+    "frozen_sha_verifies_after": true,
+    "frozen_sha_verifies_before": true,
+    "m11_baseline_preserved": true,
+    "material_regressions_zero": true,
+    "missing_output_regressions_zero": true,
+    "mutation_sentinels_clean": true,
+    "no_c2_c3_c4_started": true,
+    "no_production_expansion": true,
+    "owner_decision_record_written": true,
+    "provider_model_calls_zero": true,
+    "rollback_ready": true
+  },
+  "created_utc": "2026-06-27T04:20:09Z",
+  "failed_checks": [],
+  "schema": "stickbot.vnext_semantic_gate.m12_c1.owner_review_acceptance_matrix.v1",
+  "status": "PASS"
+}

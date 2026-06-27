@@ -1,0 +1,16 @@
+{
+  "artifact_memory_promoted": false,
+  "cache_enabled": false,
+  "created_utc": "2026-06-27T04:20:09Z",
+  "fallback_chain_mutated": false,
+  "gateway_config_mutated": false,
+  "global_semantic_gate_promoted": false,
+  "live_route_mutated": false,
+  "m12_c2_c3_c4_started": false,
+  "memory_route_mutated": false,
+  "production_expansion_applied": false,
+  "runtime_authority_mutated": false,
+  "schema": "stickbot.vnext_semantic_gate.m12_c1.owner_review_mutation_sentinel_report.v1",
+  "source": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r16_bounded_artifact_status_qa_readiness_rerun/mutation_sentinel_report.json",
+  "status": "PASS"
+}

@@ -1,0 +1,23 @@
+{
+  "artifact_memory_promoted": false,
+  "cache_enabled": false,
+  "created_utc": "2026-06-27T04:20:09Z",
+  "direct_provider_bypass": 0,
+  "global_semantic_gate_promoted": false,
+  "m12_c2_c3_c4_started": false,
+  "owner_approval_boundary_intact": true,
+  "production_expansion_applied": false,
+  "provider_model_calls": 0,
+  "runtime_authority_mutated": false,
+  "schema": "stickbot.vnext_semantic_gate.m12_c1.pass_no_apply_boundary_record.v1",
+  "status": "PASS",
+  "this_packet_is": "owner_review_acceptance_packet_only",
+  "this_packet_is_not": [
+    "production expansion",
+    "M12-C2/C3/C4 start",
+    "cache enablement",
+    "artifact-memory promotion",
+    "global Semantic Gate promotion",
+    "Gateway/config/live-route/fallback/memory-route/runtime-authority mutation"
+  ]
+}
