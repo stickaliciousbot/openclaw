@@ -1,0 +1,16 @@
+{
+  "arbitrary_path_authority_allowed": false,
+  "artifact_memory_promoted": false,
+  "c2_production_started": false,
+  "c3_c4_started": false,
+  "cache_enabled": false,
+  "design_only": true,
+  "direct_provider_bypass_allowed": false,
+  "gateway_config_mutated": false,
+  "global_semantic_gate_promoted": false,
+  "no_apply": true,
+  "production_expansion_applied": false,
+  "route_fallback_memory_runtime_authority_mutated": false,
+  "schema": "stickbot.vnext_semantic_gate.m12_c2.no_apply_no_mutation_record.v1",
+  "status": "PASS"
+}

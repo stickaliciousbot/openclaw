@@ -1,0 +1,17 @@
+{
+  "c1_boundary_preserved": true,
+  "c1_frozen_as_first_limited_production_expansion": true,
+  "c1h_requests": "100/100",
+  "c1k_actual_sha256": "097c0819182001fcf0c0497c7c072be12a8c51f948d2d8f52a39c2ceaf7f28dd",
+  "c1k_expected_sha256": "097c0819182001fcf0c0497c7c072be12a8c51f948d2d8f52a39c2ceaf7f28dd",
+  "direct_provider_bypass_count": 0,
+  "m12_c1_final_status": "M12_C1_FINAL_OWNER_ACCEPTANCE_READY",
+  "m12_c1h_status": "M12_C1H_LIMITED_PRODUCTION_HEALTH_WATCH_PASS",
+  "m12_c1p5_status": "M12_C1P5_LIMITED_PRODUCTION_ACCEPTANCE_FINALIZATION_PASS",
+  "operator_prompt_sha256": "097c0819182001fcf0c0497c156c00e9d5f5ddf50c48384f926f5eb68c70ae",
+  "operator_prompt_sha_mismatch": true,
+  "prompt_sha_authoritative": false,
+  "provider_model_c1_answer_calls": 0,
+  "schema": "stickbot.vnext_semantic_gate.m12_c2.c1_boundary_preservation.v1",
+  "status": "PASS"
+}

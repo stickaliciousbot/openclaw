@@ -1,0 +1,9 @@
+{
+  "m11_frozen_baseline_preserved": true,
+  "m12_c1_frozen_boundary_preserved": true,
+  "rollback_applied": false,
+  "rollback_mutated": false,
+  "rollback_ready": true,
+  "schema": "stickbot.vnext_semantic_gate.m12_c2.rollback_readiness.v1",
+  "status": "PASS"
+}
