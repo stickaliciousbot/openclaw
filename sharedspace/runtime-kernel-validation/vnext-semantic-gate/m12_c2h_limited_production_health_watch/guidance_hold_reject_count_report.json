@@ -1,0 +1,9 @@
+{
+  "guard_reject": 20,
+  "guidance": 32,
+  "hold": 48,
+  "reconciled": true,
+  "schema": "stickbot.vnext_semantic_gate.m12_c2h.counts.v1",
+  "status": "M12_C2H_LIMITED_PRODUCTION_HEALTH_WATCH_PASS",
+  "total": 100
+}

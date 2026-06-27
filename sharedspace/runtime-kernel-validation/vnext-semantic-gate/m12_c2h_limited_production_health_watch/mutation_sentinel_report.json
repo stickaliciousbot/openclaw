@@ -1,0 +1,14 @@
+{
+  "artifact_memory_promoted": false,
+  "c3_c4_started": false,
+  "cache_enabled": false,
+  "fallback_chain_mutated": false,
+  "gateway_config_mutated": false,
+  "global_semantic_gate_promoted": false,
+  "live_route_mutated": false,
+  "memory_route_mutated": false,
+  "mutation_sentinels_clean": true,
+  "runtime_authority_mutated": false,
+  "schema": "stickbot.vnext_semantic_gate.m12_c2h.mutation_sentinel.v1",
+  "status": "M12_C2H_LIMITED_PRODUCTION_HEALTH_WATCH_PASS"
+}

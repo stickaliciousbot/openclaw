@@ -1,0 +1,40 @@
+{
+  "accepted_scope": "M12-C2 single-artifact runbook guidance only",
+  "direct_provider_bypass_allowed": false,
+  "preflight": {
+    "checks": {
+      "accepted_scope_single_artifact": true,
+      "artifact_memory_promotion_disabled": true,
+      "c1_boundary_preserved": true,
+      "c2k_pass": true,
+      "c2p5_pass": true,
+      "c2p_pass": true,
+      "c3_c4_not_started": true,
+      "cache_disabled": true,
+      "direct_provider_bypass_zero": true,
+      "m11_frozen_baseline_preserved": true,
+      "mutation_sentinels_clean": true,
+      "no_runtime_gateway_config_route_fallback_memory_mutation": true,
+      "provider_model_calls_zero": true,
+      "rollback_ready": true
+    },
+    "failures": [],
+    "source_hashes": {
+      "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_7_production_operating_baseline_finalization/status.json": "2e2aac9d2a97bf1e290dade2501c42fe0eaca5d0690cebb53637751512bb7022",
+      "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1_final_owner_acceptance_review/status.json": "4c4a7a0b234777d295ddcd0827399cc0c49bebfece1df90c6d3079cac21362f6",
+      "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2k_single_artifact_runbook_guidance_kernel/status.json": "10b3fe2954cb7132bf1659a851ecfe1e48b8a3f923f2c6363c506f80a08f2ab8",
+      "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p5_limited_production_acceptance_finalization/status.json": "0aa49d6db3d2cee5efdd3351a9d8f527ec1a5eed4ec1e040378f3a62cf573d38",
+      "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2p_limited_production_canary/status.json": "32b27810ec0c5f71352154c800a98ebd1a9d6dc4eaea7fafb1e5901f8181a4cd"
+    }
+  },
+  "provider_model_calls_authoritative_allowed": 0,
+  "run_bound": {
+    "max_active_seconds": 86400,
+    "max_requests": 100,
+    "stop_rule": "whichever_comes_first"
+  },
+  "schema": "stickbot.vnext_semantic_gate.m12_c2h.config.v1",
+  "started_utc": "2026-06-27T10:59:25Z",
+  "status_if_abort": "M12_C2H_LIMITED_PRODUCTION_HEALTH_WATCH_ABORT",
+  "status_if_pass": "M12_C2H_LIMITED_PRODUCTION_HEALTH_WATCH_PASS"
+}

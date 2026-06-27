@@ -1,0 +1,30 @@
+{
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c2h_limited_production_health_watch",
+  "artifact_memory_promoted": false,
+  "c2_production_request_count": 100,
+  "c3_c4_started": false,
+  "cache_enabled": false,
+  "direct_provider_bypass_count": 0,
+  "failed_gates": [],
+  "first_failure": null,
+  "global_semantic_gate_promoted": false,
+  "guard_reject_count": 20,
+  "guidance_count": 32,
+  "hold_count": 48,
+  "m11_frozen_baseline_preserved": true,
+  "m12_c1_frozen_production_boundary_preserved": true,
+  "material_regression_count": 0,
+  "missing_output_regression_count": 0,
+  "provider_model_calls": 0,
+  "rollback_ready": true,
+  "run_bound": {
+    "completed_by": "request_bound",
+    "completed_requests": 100,
+    "max_active_seconds": 86400,
+    "target_requests": 100
+  },
+  "runtime_authority_mutated": false,
+  "schema": "stickbot.vnext_semantic_gate.m12_c2h.status.v1",
+  "source_authority_violations": 0,
+  "status": "M12_C2H_LIMITED_PRODUCTION_HEALTH_WATCH_PASS"
+}

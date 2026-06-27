@@ -1,0 +1,10 @@
+{
+  "arbitrary_path_read_occurred": false,
+  "cross_artifact_comparison_occurred": false,
+  "memory_context_daily_authority_used": false,
+  "multi_source_proposal_drafting_occurred": false,
+  "schema": "stickbot.vnext_semantic_gate.m12_c2h.source_authority.v1",
+  "single_artifact_only": true,
+  "source_authority_violations": 0,
+  "status": "M12_C2H_LIMITED_PRODUCTION_HEALTH_WATCH_PASS"
+}

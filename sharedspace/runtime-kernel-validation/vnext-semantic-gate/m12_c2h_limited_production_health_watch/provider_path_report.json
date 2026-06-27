@@ -1,0 +1,6 @@
+{
+  "direct_provider_bypass_count": 0,
+  "direct_provider_bypass_observed": false,
+  "schema": "stickbot.vnext_semantic_gate.m12_c2h.provider_path.v1",
+  "status": "M12_C2H_LIMITED_PRODUCTION_HEALTH_WATCH_PASS"
+}

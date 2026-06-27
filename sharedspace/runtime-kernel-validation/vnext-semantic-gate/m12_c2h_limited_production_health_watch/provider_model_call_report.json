@@ -1,0 +1,6 @@
+{
+  "authoritative_c2_guidance_provider_calls": 0,
+  "provider_model_calls": 0,
+  "schema": "stickbot.vnext_semantic_gate.m12_c2h.provider_model.v1",
+  "status": "M12_C2H_LIMITED_PRODUCTION_HEALTH_WATCH_PASS"
+}

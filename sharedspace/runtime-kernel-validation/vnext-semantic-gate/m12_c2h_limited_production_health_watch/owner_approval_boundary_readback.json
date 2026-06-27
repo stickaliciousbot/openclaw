@@ -1,0 +1,12 @@
+{
+  "not_approved": [
+    "C3/C4",
+    "cache",
+    "artifact-memory/global promotion",
+    "broad expansion",
+    "runtime authority mutation"
+  ],
+  "owner_boundary": "M12-C2H health watch only for accepted M12-C2 limited production scope",
+  "schema": "stickbot.vnext_semantic_gate.m12_c2h.owner_boundary.v1",
+  "status": "M12_C2H_LIMITED_PRODUCTION_HEALTH_WATCH_PASS"
+}
