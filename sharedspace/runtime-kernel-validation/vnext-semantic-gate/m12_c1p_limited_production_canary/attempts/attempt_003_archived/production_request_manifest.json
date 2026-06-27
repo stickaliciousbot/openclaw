@@ -1,0 +1,264 @@
+{
+  "request_count": 25,
+  "requests": [
+    {
+      "approved_source_refs": [
+        "m11_7_mutation_freeze#artifact_memory_promoted"
+      ],
+      "expected_status": "ANSWER",
+      "production_scope": true,
+      "request_id": "m12_c1p_prod_001",
+      "request_index": 1,
+      "request_type": "simple_status_readback"
+    },
+    {
+      "approved_source_refs": [
+        "m11_7_mutation_freeze#cache_enabled"
+      ],
+      "expected_status": "ANSWER",
+      "production_scope": true,
+      "request_id": "m12_c1p_prod_002",
+      "request_index": 2,
+      "request_type": "artifact_directory_status"
+    },
+    {
+      "approved_source_refs": [
+        "m11_7_mutation_freeze#fallback_chains_mutated"
+      ],
+      "expected_status": "ANSWER",
+      "production_scope": true,
+      "request_id": "m12_c1p_prod_003",
+      "request_index": 3,
+      "request_type": "pass_fail_status_extraction"
+    },
+    {
+      "approved_source_refs": [
+        "m11_7_mutation_freeze#gateway_config_mutated"
+      ],
+      "expected_status": "ANSWER",
+      "production_scope": true,
+      "request_id": "m12_c1p_prod_004",
+      "request_index": 4,
+      "request_type": "boundary_non_claim_extraction"
+    },
+    {
+      "approved_source_refs": [
+        "m11_7_mutation_freeze#generated_utc"
+      ],
+      "expected_status": "ANSWER",
+      "production_scope": true,
+      "request_id": "m12_c1p_prod_005",
+      "request_index": 5,
+      "request_type": "rollback_readiness_readback"
+    },
+    {
+      "approved_source_refs": [
+        "m11_7_mutation_freeze#live_routes_mutated"
+      ],
+      "expected_status": "ANSWER",
+      "production_scope": true,
+      "request_id": "m12_c1p_prod_006",
+      "request_index": 6,
+      "request_type": "mutation_sentinel_readback"
+    },
+    {
+      "approved_source_refs": [
+        "m11_7_mutation_freeze#m12_started"
+      ],
+      "expected_status": "ANSWER",
+      "production_scope": true,
+      "request_id": "m12_c1p_prod_007",
+      "request_index": 7,
+      "request_type": "source_ref_canonicalization_readback"
+    },
+    {
+      "approved_source_refs": [
+        "m11_7_mutation_freeze#memory_routes_mutated"
+      ],
+      "expected_status": "ANSWER",
+      "production_scope": true,
+      "request_id": "m12_c1p_prod_008",
+      "request_index": 8,
+      "request_type": "exact_value_anchor_readback"
+    },
+    {
+      "approved_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after./home/stickai/.openclaw/openclaw.json"
+      ],
+      "expected_status": "ANSWER",
+      "production_scope": true,
+      "request_id": "m12_c1p_prod_009",
+      "request_index": 9,
+      "request_type": "typed_exact_value_fidelity_readback"
+    },
+    {
+      "approved_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.projects/token-broker-vmesh/config/common-reasoner-advisory-canary.default.json"
+      ],
+      "expected_status": "ANSWER",
+      "production_scope": true,
+      "request_id": "m12_c1p_prod_010",
+      "request_index": 10,
+      "request_type": "output_disposition_contract_readback"
+    },
+    {
+      "approved_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/mutation_sentinel_report.json"
+      ],
+      "expected_status": "ANSWER",
+      "production_scope": true,
+      "request_id": "m12_c1p_prod_011",
+      "request_index": 11,
+      "request_type": "answer_envelope_compiler_readback"
+    },
+    {
+      "approved_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/rollback_readiness.json"
+      ],
+      "expected_status": "ANSWER",
+      "production_scope": true,
+      "request_id": "m12_c1p_prod_012",
+      "request_index": 12,
+      "request_type": "provider_path_token_broker_readiness_readback"
+    },
+    {
+      "approved_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/status.json"
+      ],
+      "expected_status": "ANSWER",
+      "production_scope": true,
+      "request_id": "m12_c1p_prod_013",
+      "request_index": 13,
+      "request_type": "simple_status_readback"
+    },
+    {
+      "approved_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/M11_6_ACTIVE_PRODUCTION_DECISION_EXERCISE_REPORT.md"
+      ],
+      "expected_status": "ANSWER",
+      "production_scope": true,
+      "request_id": "m12_c1p_prod_014",
+      "request_index": 14,
+      "request_type": "artifact_directory_status"
+    },
+    {
+      "approved_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/mutation_sentinel_report.json"
+      ],
+      "expected_status": "ANSWER",
+      "production_scope": true,
+      "request_id": "m12_c1p_prod_015",
+      "request_index": 15,
+      "request_type": "pass_fail_status_extraction"
+    },
+    {
+      "approved_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/provider_path_report.json"
+      ],
+      "expected_status": "ANSWER",
+      "production_scope": true,
+      "request_id": "m12_c1p_prod_016",
+      "request_index": 16,
+      "request_type": "boundary_non_claim_extraction"
+    },
+    {
+      "approved_source_refs": [
+        "m11_7_mutation_freeze#protected_hashes_after.sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/rollback_readiness.json"
+      ],
+      "expected_status": "ANSWER",
+      "production_scope": true,
+      "request_id": "m12_c1p_prod_017",
+      "request_index": 17,
+      "request_type": "rollback_readiness_readback"
+    },
+    {
+      "approved_source_refs": [
+        "m12_c1r16_hold_018#reason",
+        "m12_c1r16_hold_018#decision"
+      ],
+      "expected_status": "HOLD",
+      "production_scope": true,
+      "request_id": "m12_c1p_prod_018",
+      "request_index": 18,
+      "request_type": "fail_closed_stale_artifact"
+    },
+    {
+      "approved_source_refs": [
+        "m12_c1r16_hold_019#reason",
+        "m12_c1r16_hold_019#decision"
+      ],
+      "expected_status": "HOLD",
+      "production_scope": true,
+      "request_id": "m12_c1p_prod_019",
+      "request_index": 19,
+      "request_type": "fail_closed_missing_artifact"
+    },
+    {
+      "approved_source_refs": [
+        "m12_c1r16_hold_020#reason",
+        "m12_c1r16_hold_020#decision"
+      ],
+      "expected_status": "HOLD",
+      "production_scope": true,
+      "request_id": "m12_c1p_prod_020",
+      "request_index": 20,
+      "request_type": "fail_closed_ambiguous_source"
+    },
+    {
+      "approved_source_refs": [
+        "m12_c1r16_hold_021#reason",
+        "m12_c1r16_hold_021#decision"
+      ],
+      "expected_status": "HOLD",
+      "production_scope": true,
+      "request_id": "m12_c1p_prod_021",
+      "request_index": 21,
+      "request_type": "fail_closed_unapproved_memory_source"
+    },
+    {
+      "approved_source_refs": [
+        "m12_c1r16_hold_022#reason",
+        "m12_c1r16_hold_022#decision"
+      ],
+      "expected_status": "HOLD",
+      "production_scope": true,
+      "request_id": "m12_c1p_prod_022",
+      "request_index": 22,
+      "request_type": "fail_closed_unapproved_context_bridge_source"
+    },
+    {
+      "approved_source_refs": [
+        "m12_c1r16_hold_023#reason",
+        "m12_c1r16_hold_023#decision"
+      ],
+      "expected_status": "HOLD",
+      "production_scope": true,
+      "request_id": "m12_c1p_prod_023",
+      "request_index": 23,
+      "request_type": "fail_closed_unapproved_daily_memory_source"
+    },
+    {
+      "approved_source_refs": [
+        "m12_c1r16_hold_024#reason",
+        "m12_c1r16_hold_024#decision"
+      ],
+      "expected_status": "HOLD",
+      "production_scope": true,
+      "request_id": "m12_c1p_prod_024",
+      "request_index": 24,
+      "request_type": "fail_closed_wrong_ref"
+    },
+    {
+      "approved_source_refs": [
+        "m12_c1r16_hold_025#reason",
+        "m12_c1r16_hold_025#decision"
+      ],
+      "expected_status": "HOLD",
+      "production_scope": true,
+      "request_id": "m12_c1p_prod_025",
+      "request_index": 25,
+      "request_type": "fail_closed_wrong_value"
+    }
+  ],
+  "schema": "stickbot.vnext_semantic_gate.m12_c1p.production_request_manifest.v1"
+}

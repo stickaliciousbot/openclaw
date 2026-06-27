@@ -1,0 +1,38 @@
+{
+  "items": [
+    {
+      "pass": true,
+      "request_id": "m12_c1p_prod_018"
+    },
+    {
+      "pass": true,
+      "request_id": "m12_c1p_prod_019"
+    },
+    {
+      "pass": true,
+      "request_id": "m12_c1p_prod_020"
+    },
+    {
+      "pass": true,
+      "request_id": "m12_c1p_prod_021"
+    },
+    {
+      "pass": true,
+      "request_id": "m12_c1p_prod_022"
+    },
+    {
+      "pass": true,
+      "request_id": "m12_c1p_prod_023"
+    },
+    {
+      "pass": true,
+      "request_id": "m12_c1p_prod_024"
+    },
+    {
+      "pass": true,
+      "request_id": "m12_c1p_prod_025"
+    }
+  ],
+  "schema": "stickbot.vnext_semantic_gate.m12_c1p.hold_status_contract_report.v1",
+  "status": "PASS"
+}

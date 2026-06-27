@@ -1,0 +1,10 @@
+{
+  "items": [
+    {
+      "pass": true,
+      "request_id": "m12_c1p_prod_001"
+    }
+  ],
+  "schema": "stickbot.vnext_semantic_gate.m12_c1p.typed_exact_value_fidelity_report.v1",
+  "status": "PASS"
+}

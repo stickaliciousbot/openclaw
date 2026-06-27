@@ -1,0 +1,13 @@
+{
+  "archived_utc": "2026-06-27T04:44:41Z",
+  "previous_status": {
+    "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1p_limited_production_canary",
+    "run_id": "m12_c1p_limited_production_canary",
+    "schema": "stickbot.vnext_semantic_gate.m12_c1p.status.v1",
+    "started_utc": "2026-06-27T04:44:08Z",
+    "status": "M12_C1P_LIMITED_PRODUCTION_CANARY_RUNNING",
+    "target_production_c1_requests": 25,
+    "time_limit_seconds": 7200
+  },
+  "reason": "previous M12-C1P attempt preserved before rerun; attempt aborted before request 1 because the C1K guard CLI rejected a new purpose label, not because C1K SHA changed or mutation occurred."
+}

@@ -1,0 +1,8 @@
+{
+  "m11_frozen_baseline_preserved": true,
+  "reason": "C1P performed no Gateway/config/route mutation; rollback readiness remains inherited from M11.7 baseline.",
+  "rollback_needed": false,
+  "rollback_ready": true,
+  "schema": "stickbot.vnext_semantic_gate.m12_c1p.rollback_readiness.v1",
+  "status": "PASS"
+}

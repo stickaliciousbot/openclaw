@@ -1,0 +1,45 @@
+{
+  "items": [
+    {
+      "pass": true,
+      "request_id": "m12_c1p_prod_001",
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#artifact_memory_promoted"
+        ],
+        "case_id": "m12_c1p_prod_001",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#artifact_memory_promoted",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": false,
+        "value_type": "boolean"
+      }
+    }
+  ],
+  "schema": "stickbot.vnext_semantic_gate.m12_c1p.answer_envelope_spec_report.v1",
+  "status": "PASS"
+}

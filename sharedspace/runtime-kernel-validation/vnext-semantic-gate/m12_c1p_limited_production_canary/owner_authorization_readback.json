@@ -1,0 +1,19 @@
+{
+  "authorized_by_user_message": "Proceed to M12-C1P Limited Production Canary; M12-C1 only; bounded artifact status Q&A; 25 production C1 requests or 2 active hours, whichever comes first.",
+  "authorized_scope": "M12-C1 bounded artifact status Q&A only",
+  "not_authorized": [
+    "M12-C2",
+    "M12-C3",
+    "M12-C4",
+    "cache enablement",
+    "artifact-memory promotion",
+    "global Semantic Gate promotion",
+    "Gateway/config/live-route/fallback/memory-route/runtime-authority mutation"
+  ],
+  "owner_review_status": "M12_C1_OWNER_REVIEW_READY",
+  "owner_review_status_sha256": "e1b5b615f26079b20f5fdca9abcac5a632cb12b3cb036655576e355f0e0ffb37",
+  "request_bound": 25,
+  "schema": "stickbot.vnext_semantic_gate.m12_c1p.owner_authorization_readback.v1",
+  "status": "PASS",
+  "time_bound_seconds": 7200
+}

@@ -1,0 +1,98 @@
+{
+  "events": [
+    {
+      "authorized_scope": "M12-C1 bounded artifact status Q&A only",
+      "checks": {
+        "answer_envelope_spec_compiled": true,
+        "exact_source_value_anchor": true,
+        "hold_citation_source_ref_contract": true,
+        "hold_status_contract": true,
+        "output_disposition_contract": false,
+        "protected_files_unchanged": true,
+        "source_authority_isolated": true,
+        "typed_exact_value_fidelity": true
+      },
+      "cited_source_ref": "m11_7_mutation_freeze#artifact_memory_promoted",
+      "created_utc": "2026-06-27T04:44:42Z",
+      "direct_provider_bypass": false,
+      "duration_ms": 5.178,
+      "envelope": {
+        "answer": "The value is false.",
+        "answer_value": false,
+        "cited_source_ref": "m11_7_mutation_freeze#artifact_memory_promoted",
+        "cited_source_value": false,
+        "disposition": {
+          "authority": "approved_artifact_source_rows_only",
+          "control_claims": [],
+          "kind": "answer_from_approved_source_rows",
+          "source_authority": "approved_artifact_source_rows_only",
+          "source_row_count": 1
+        },
+        "source_refs": [
+          "m11_7_mutation_freeze#artifact_memory_promoted"
+        ],
+        "status": "ANSWER",
+        "value_match": true
+      },
+      "envelope_sha256": "4de36f76d339e7f6c76dc12959f423b23532cbf7b4d740b2e4e7bc82810cbfa1",
+      "envelope_status": "ANSWER",
+      "expected_status": "ANSWER",
+      "guard_accepted": true,
+      "guard_reasons": [],
+      "kernel_status": "PASS",
+      "material_regression": true,
+      "missing_output_regression": false,
+      "mutation_detected": false,
+      "pass": false,
+      "production_scope": true,
+      "protected_changes": {},
+      "provider_model_calls": 0,
+      "request_id": "m12_c1p_prod_001",
+      "request_index": 1,
+      "request_type": "simple_status_readback",
+      "run_id": "m12_c1p_limited_production_canary",
+      "schema": "stickbot.vnext_semantic_gate.m12_c1p.production_c1_request.v1",
+      "source_refs": [
+        "m11_7_mutation_freeze#artifact_memory_promoted"
+      ],
+      "spec": {
+        "allowed_aliases": {},
+        "canonical_source_refs": [
+          "m11_7_mutation_freeze#artifact_memory_promoted"
+        ],
+        "case_id": "m12_c1p_prod_001",
+        "display_policy": {
+          "allow_display_text": true,
+          "display_text_non_authoritative": true
+        },
+        "expected_status": "ANSWER",
+        "forbid_answer_value": true,
+        "forbid_value_match_true": true,
+        "forbidden_source_kinds": [
+          "memory",
+          "daily_memory",
+          "context_bridge",
+          "runtime_metadata",
+          "arbitrary_path"
+        ],
+        "hold_reason": null,
+        "primary_source_ref": "m11_7_mutation_freeze#artifact_memory_promoted",
+        "required_fields": [
+          "status",
+          "answer_value",
+          "cited_source_ref",
+          "cited_source_value",
+          "value_match",
+          "source_refs",
+          "disposition"
+        ],
+        "requires_source_refs": false,
+        "typed_value": false,
+        "value_type": "boolean"
+      }
+    }
+  ],
+  "material_regression_count": 1,
+  "schema": "stickbot.vnext_semantic_gate.m12_c1p.material_regression_report.v1",
+  "status": "FAIL"
+}

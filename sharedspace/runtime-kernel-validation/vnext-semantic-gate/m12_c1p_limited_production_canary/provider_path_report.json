@@ -1,0 +1,8 @@
+{
+  "deterministic_c1k_kernel_only": true,
+  "direct_provider_bypass_count": 0,
+  "provider_model_calls": 0,
+  "provider_path_used": false,
+  "schema": "stickbot.vnext_semantic_gate.m12_c1p.provider_path_report.v1",
+  "status": "PASS"
+}

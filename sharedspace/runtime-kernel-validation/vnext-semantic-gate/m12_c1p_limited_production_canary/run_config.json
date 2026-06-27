@@ -1,0 +1,21 @@
+{
+  "answer_target": 17,
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1p_limited_production_canary",
+  "artifact_memory_promoted": false,
+  "authorized_scope": "M12-C1 bounded artifact status Q&A only",
+  "c1k_consumption": "read_only_guard_preflight_and_postcheck",
+  "c1k_frozen_evidence_sha256": "097c0819182001fcf0c0497c7c072be12a8c51f948d2d8f52a39c2ceaf7f28dd",
+  "cache_enabled": false,
+  "deterministic_c1k_kernel_only": true,
+  "gateway_config_live_route_fallback_memory_route_runtime_authority_mutation_allowed": false,
+  "global_semantic_gate_promoted": false,
+  "hold_target": 8,
+  "m12_c1_only": true,
+  "m12_c2_c3_c4_started": false,
+  "provider_model_calls": 0,
+  "provider_model_calls_allowed": false,
+  "run_id": "m12_c1p_limited_production_canary",
+  "schema": "stickbot.vnext_semantic_gate.m12_c1p.run_config.v1",
+  "target_production_c1_requests": 25,
+  "time_limit_seconds": 7200
+}

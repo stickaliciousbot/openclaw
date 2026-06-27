@@ -1,0 +1,46 @@
+{
+  "items": [
+    {
+      "cited_source_ref": "m12_c1r16_hold_018#reason",
+      "pass": true,
+      "request_id": "m12_c1p_prod_018"
+    },
+    {
+      "cited_source_ref": "m12_c1r16_hold_019#reason",
+      "pass": true,
+      "request_id": "m12_c1p_prod_019"
+    },
+    {
+      "cited_source_ref": "m12_c1r16_hold_020#reason",
+      "pass": true,
+      "request_id": "m12_c1p_prod_020"
+    },
+    {
+      "cited_source_ref": "m12_c1r16_hold_021#reason",
+      "pass": true,
+      "request_id": "m12_c1p_prod_021"
+    },
+    {
+      "cited_source_ref": "m12_c1r16_hold_022#reason",
+      "pass": true,
+      "request_id": "m12_c1p_prod_022"
+    },
+    {
+      "cited_source_ref": "m12_c1r16_hold_023#reason",
+      "pass": true,
+      "request_id": "m12_c1p_prod_023"
+    },
+    {
+      "cited_source_ref": "m12_c1r16_hold_024#reason",
+      "pass": true,
+      "request_id": "m12_c1p_prod_024"
+    },
+    {
+      "cited_source_ref": "m12_c1r16_hold_025#reason",
+      "pass": true,
+      "request_id": "m12_c1p_prod_025"
+    }
+  ],
+  "schema": "stickbot.vnext_semantic_gate.m12_c1p.hold_citation_contract_report.v1",
+  "status": "PASS"
+}
