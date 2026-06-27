@@ -1,0 +1,28 @@
+{
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c3_owner_review_readiness_acceptance",
+  "created_utc": "2026-06-27T11:42:53Z",
+  "failed_gates": [],
+  "first_failure": null,
+  "m12_c1": {
+    "preserved": true,
+    "scope": "bounded artifact status Q&A only",
+    "status": "M12_C1_FINAL_OWNER_ACCEPTANCE_READY"
+  },
+  "m12_c2": {
+    "preserved": true,
+    "scope": "deterministic single-artifact runbook guidance only",
+    "status": "M12_C2_FINAL_OWNER_ACCEPTANCE_READY"
+  },
+  "m12_c3": {
+    "production_started": false,
+    "scope": "two-artifact consistency comparison no-apply readiness candidate",
+    "status": "M12_C3_OWNER_REVIEW_READY"
+  },
+  "m12_c4": {
+    "blocked_until_separate_owner_approval": true,
+    "started": false
+  },
+  "schema": "stickbot.vnext_semantic_gate.m12_c3_owner_review.boundary_readback.v1",
+  "schema_base": "stickbot.vnext_semantic_gate.m12_c3_owner_review_readiness_acceptance",
+  "status": "M12_C3_OWNER_REVIEW_READY"
+}
