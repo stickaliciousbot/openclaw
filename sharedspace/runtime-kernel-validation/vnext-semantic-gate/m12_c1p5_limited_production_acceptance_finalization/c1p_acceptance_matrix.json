@@ -1,0 +1,36 @@
+{
+  "checks": {
+    "artifact_memory_promotion_off": true,
+    "bounded_artifact_status_only": true,
+    "c1_production_expansion_accepted_only_for_bounded_artifact_status": true,
+    "c1k_frozen_sha_after_matches": true,
+    "c1k_frozen_sha_before_matches": true,
+    "c1k_hash_unchanged": true,
+    "c1k_read_only_guard_pass": true,
+    "c1p_25_25": true,
+    "c1p_answer_hold_distribution": true,
+    "c1p_canary_pass": true,
+    "c1p_failed_gates_empty": true,
+    "c2_c3_c4_not_started": true,
+    "cache_off": true,
+    "direct_provider_bypass_zero": true,
+    "m11_baseline_preserved": true,
+    "mutation_sentinels_clean": true,
+    "owner_boundary_updated": true,
+    "owner_review_ready": true,
+    "provider_model_calls_zero": true,
+    "rollback_ready": true
+  },
+  "created_utc": "2026-06-27T04:52:32Z",
+  "evidence": {
+    "c1k_evidence_manifest_sha256": "097c0819182001fcf0c0497c7c072be12a8c51f948d2d8f52a39c2ceaf7f28dd",
+    "c1p_evidence_manifest_sha256": "a9ca4ace95daf45d9e9c57aea0127af592ad3ba0c264616a76b6ea0765f90bff",
+    "c1p_status_path": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1p_limited_production_canary/status.json",
+    "c1p_status_sha256": "b1f2a12e1a443eab7ebfbff3b08777577c08f82990c5ba3bc4c8a28dd768da38",
+    "m11_status_sha256": "2e2aac9d2a97bf1e290dade2501c42fe0eaca5d0690cebb53637751512bb7022",
+    "owner_review_status_sha256": "e1b5b615f26079b20f5fdca9abcac5a632cb12b3cb036655576e355f0e0ffb37"
+  },
+  "failed_gates": [],
+  "schema": "stickbot.vnext_semantic_gate.m12_c1p5.acceptance_matrix.v1",
+  "status": "PASS"
+}

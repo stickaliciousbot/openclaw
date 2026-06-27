@@ -1,0 +1,18 @@
+{
+  "c2_c3_c4_artifact_dirs_found": [],
+  "c2_c3_c4_started": false,
+  "created_utc": "2026-06-27T04:52:32Z",
+  "forbidden_by_default_until_explicit_owner_authorization": true,
+  "forbidden_remains": [
+    "M12-C2/C3/C4",
+    "cache or semantic cache",
+    "artifact-memory promotion or memory promotion paths",
+    "global Semantic Gate promotion",
+    "Gateway/default-model/provider-route/live-route/fallback-chain/memory-route/runtime-authority mutation",
+    "direct provider bypass or provider/model calls for C1 answer generation",
+    "arbitrary file/path Q&A outside approved source rows",
+    "private/daily memory or context bridge as production authority"
+  ],
+  "schema": "stickbot.vnext_semantic_gate.m12_c1p5.forbidden_scope_record.v1",
+  "status": "PASS"
+}

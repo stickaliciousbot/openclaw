@@ -1,0 +1,28 @@
+{
+  "accepted_production_expansion": true,
+  "accepted_production_expansion_scope": "M12-C1 bounded artifact status Q&A only",
+  "created_utc": "2026-06-27T04:52:32Z",
+  "explicitly_not_accepted": [
+    "M12-C2/C3/C4",
+    "cache or semantic cache",
+    "artifact-memory promotion or memory promotion paths",
+    "global Semantic Gate promotion",
+    "Gateway/default-model/provider-route/live-route/fallback-chain/memory-route/runtime-authority mutation",
+    "direct provider bypass or provider/model calls for C1 answer generation",
+    "arbitrary file/path Q&A outside approved source rows",
+    "private/daily memory or context bridge as production authority"
+  ],
+  "new_boundary": "M12-C1 is accepted as the first limited production expansion only for bounded artifact status Q&A under the recorded operating boundary",
+  "next_owner_approval_required_for": [
+    "starting M12-C2, M12-C3, or M12-C4",
+    "changing C1 source allowlist or request class",
+    "turning on provider/model calls for C1",
+    "enabling cache or artifact-memory promotion",
+    "mutating Gateway/config/routes/fallback/memory routes/runtime authority",
+    "claiming broader/global Semantic Gate readiness"
+  ],
+  "owner_boundary_updated": true,
+  "previous_boundary": "M12-C1 was owner-review ready and C1P canary-authorized only",
+  "schema": "stickbot.vnext_semantic_gate.m12_c1p5.owner_boundary_update.v1",
+  "status": "PASS"
+}

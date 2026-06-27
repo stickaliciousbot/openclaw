@@ -1,0 +1,29 @@
+{
+  "accepted_limited_production_expansion": "M12-C1",
+  "accepted_request_classes": [
+    "read exact approved artifact status/value fields",
+    "read approved artifact directory/status metadata",
+    "read rollback readiness and mutation sentinel status from approved artifacts",
+    "fail-closed HOLD for stale, missing, ambiguous, unapproved, arbitrary, memory, daily-memory, context-bridge, wrong-ref, wrong-value, or wrong-type sources"
+  ],
+  "accepted_scope": "bounded artifact status Q&A only",
+  "artifact_memory_promoted": false,
+  "authoritative_sources": [
+    "approved M11/M12/C1K/C1R/C1P artifact JSON fields compiled into deterministic SourceRows",
+    "deterministic C1K answer envelope and source-authority guard"
+  ],
+  "cache_enabled": false,
+  "created_utc": "2026-06-27T04:52:32Z",
+  "execution_mode": "deterministic C1K kernel/read-only artifact Q&A; provider/model calls remain disabled for this accepted expansion",
+  "gateway_config_route_runtime_mutation_required": false,
+  "non_authoritative_sources": [
+    "private MEMORY.md or daily memory as production evidence",
+    "context bridge summaries/events as production evidence",
+    "arbitrary filesystem path reads",
+    "uncited model prose",
+    "lossy summaries/T3/T4 abstractions"
+  ],
+  "provider_model_calls": 0,
+  "schema": "stickbot.vnext_semantic_gate.m12_c1p5.accepted_operating_boundary.v1",
+  "status": "PASS"
+}
