@@ -1,0 +1,20 @@
+{
+  "abort_conditions_hit": [],
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4p_limited_production_canary",
+  "artifact_memory_promoted": false,
+  "c4_production_route_activated": false,
+  "cache_enabled": false,
+  "external_action_executed": false,
+  "failed_gates": [],
+  "first_failure": null,
+  "gateway_config_mutated": false,
+  "global_semantic_gate_promoted": false,
+  "limited_production_canary_authorized": true,
+  "limited_production_canary_executed": true,
+  "production_expansion_scope": "M12-C4P limited production canary only",
+  "runtime_authority_mutated": false,
+  "scheduled_action_created": false,
+  "schema": "stickbot.vnext_semantic_gate.m12_c4p.no_apply_no_mutation_record.v1",
+  "schema_base": "stickbot.vnext_semantic_gate.m12_c4p",
+  "status": "M12_C4P_LIMITED_PRODUCTION_CANARY_PASS"
+}

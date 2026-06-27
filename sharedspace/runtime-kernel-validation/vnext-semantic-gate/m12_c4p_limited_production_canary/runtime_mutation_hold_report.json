@@ -1,0 +1,11 @@
+{
+  "abort_conditions_hit": [],
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4p_limited_production_canary",
+  "failed_gates": [],
+  "first_failure": null,
+  "runtime_config_mutation_attempts_hold_or_reject": true,
+  "runtime_config_route_fallback_memory_gateway_mutation_occurred": false,
+  "schema": "stickbot.vnext_semantic_gate.m12_c4p.runtime_mutation_hold_report.v1",
+  "schema_base": "stickbot.vnext_semantic_gate.m12_c4p",
+  "status": "M12_C4P_LIMITED_PRODUCTION_CANARY_PASS"
+}

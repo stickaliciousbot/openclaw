@@ -1,0 +1,15 @@
+{
+  "abort_conditions_hit": [],
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4p_limited_production_canary",
+  "failed_gates": [],
+  "first_failure": null,
+  "guard_reject_count": 0,
+  "hold_count": 14,
+  "proposal_count": 9,
+  "reconciled": true,
+  "reject_count": 2,
+  "request_count": 25,
+  "schema": "stickbot.vnext_semantic_gate.m12_c4p.count_report.v1",
+  "schema_base": "stickbot.vnext_semantic_gate.m12_c4p",
+  "status": "M12_C4P_LIMITED_PRODUCTION_CANARY_PASS"
+}

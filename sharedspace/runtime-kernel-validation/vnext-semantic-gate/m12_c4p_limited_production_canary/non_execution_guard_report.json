@@ -1,0 +1,15 @@
+{
+  "abort_conditions_hit": [],
+  "artifact_dir": "sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4p_limited_production_canary",
+  "external_action_executed": false,
+  "failed_gates": [],
+  "first_failure": null,
+  "hard_rule": "proposal drafting is not action authority",
+  "production_authority_claimed": false,
+  "proposal_drafting_not_action_authority": true,
+  "runtime_authority_mutated": false,
+  "scheduled_action_created": false,
+  "schema": "stickbot.vnext_semantic_gate.m12_c4p.non_execution_guard_report.v1",
+  "schema_base": "stickbot.vnext_semantic_gate.m12_c4p",
+  "status": "M12_C4P_LIMITED_PRODUCTION_CANARY_PASS"
+}
