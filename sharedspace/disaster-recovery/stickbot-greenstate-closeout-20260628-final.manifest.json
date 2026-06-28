@@ -1,0 +1,59 @@
+{
+  "runId": "final",
+  "createdUtc": "2026-06-28T07:55:38.871Z",
+  "classification": "CLOSEOUT_DELIVERY_CONTRACT_PRODUCTION_HEALTH_PASS_TELEGRAM_APPEND_GAP",
+  "target": {
+    "runtime": "OpenClaw 2026.5.7 (5c3a327)",
+    "packageVersion": "openclaw@2026.5.7",
+    "gatewayPid": 46341,
+    "health": "running_connectivity_ok_admin_capable",
+    "rollbackPerformed": false,
+    "upgradedTo2026_6_10": false
+  },
+  "artifact": {
+    "source": "/tmp/openclaw-closeout-delivery-57-pack/openclaw-2026.5.7.tgz",
+    "bundledPath": "payload/artifacts/openclaw-2026.5.7.tgz",
+    "sha256": "9ffa4cafda8b1185b09cebb7905a063c3851d8f83d74abfee9017dcf18a1e616"
+  },
+  "git": {
+    "branch": "stickbot/v3-selected-model-persona-injection",
+    "head": "445665321033c561a20be29ea31c61e64ef11644",
+    "remote": "https://github.com/stickaliciousbot/webworkspace.git"
+  },
+  "copied": [
+    "MEMORY.md",
+    "AGENTS.md",
+    "SOUL.md",
+    "IDENTITY.md",
+    "USER.md",
+    "TOOLS.md",
+    "HEARTBEAT.md",
+    "scripts/recover_closeout_delivery_greenstate_20260628.sh",
+    "scripts/openclaw_gateway_self_heal_watchdog.py",
+    "sharedspace/runtime-kernel-validation/closeout-delivery-production-apply/CLOSEOUT_DELIVERY_CONTRACT_PRODUCTION_HEALTH_PASS_TELEGRAM_APPEND_GAP_20260628.md",
+    "sharedspace/runtime-kernel-validation/closeout-delivery-production-apply/GREENSTATE_RECOVERY_RUNBOOK_20260628.md",
+    "memory/",
+    "sharedspace/context-bridge/",
+    "state/gateway-self-heal-watchdog/"
+  ],
+  "copiedSystemd": [
+    "openclaw-gateway-self-heal-watchdog.service",
+    "openclaw-gateway-self-heal-watchdog.timer",
+    "openclaw-gateway.service",
+    "openclaw-gateway.service.d/override.conf"
+  ],
+  "evidence": {
+    "note": "sharedspace/runtime-kernel-validation/closeout-delivery-production-apply/CLOSEOUT_DELIVERY_CONTRACT_PRODUCTION_HEALTH_PASS_TELEGRAM_APPEND_GAP_20260628.md",
+    "lesson": "memory/lessons-learned-closeout-delivery-telegram-append-gap-2026-06-28.md",
+    "runbook": "sharedspace/runtime-kernel-validation/closeout-delivery-production-apply/GREENSTATE_RECOVERY_RUNBOOK_20260628.md",
+    "recoveryScript": "scripts/recover_closeout_delivery_greenstate_20260628.sh"
+  },
+  "liveHealthProof": "Service: systemd user (enabled)\nFile logs: /tmp/openclaw/openclaw-2026-06-28.log\nCommand: /usr/bin/node /home/stickai/.npm-global/lib/node_modules/openclaw/dist/index.js gateway --port 18789\nService file: ~/.config/systemd/user/openclaw-gateway.service\nService env: OPENCLAW_GATEWAY_PORT=18789\n\nConfig (cli): ~/.openclaw/openclaw.json\nConfig (service): ~/.openclaw/openclaw.json\n\nGateway: bind=lan (0.0.0.0), port=18789 (service args)\nProbe target: ws://127.0.0.1:18789\nDashboard: http://172.24.168.46:18789/\nProbe note: bind=lan listens on 0.0.0.0 (all interfaces); probing via 127.0.0.1.\n\nRuntime: running (pid 46341, state active, sub running, last exit 0, reason 0)\nConnectivity probe: ok\nCapability: admin-capable\n\nListening: *:18789\nTroubles: run openclaw status\nTroubleshooting: https://docs.openclaw.ai/troubleshooting",
+  "liveVersionProof": "OpenClaw 2026.5.7 (5c3a327)",
+  "bundle": {
+    "path": "sharedspace/disaster-recovery/stickbot-greenstate-closeout-20260628-final.tar.gz",
+    "absolutePath": "/home/stickai/.openclaw/workspace/sharedspace/disaster-recovery/stickbot-greenstate-closeout-20260628-final.tar.gz",
+    "sha256": "d18efd940e1bbe421bedcec7a4dbbbc0a7103a11e761783794a93121b97cc3b5",
+    "bytes": 25427038
+  }
+}
