@@ -3,6 +3,7 @@ import type { ReplyPayload } from "../auto-reply/reply-payload.js";
 import type { ReasoningLevel, ThinkLevel, VerboseLevel } from "../auto-reply/thinking.js";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import type { HookRunner } from "../plugins/hooks.js";
+import type { CloseoutDeliveryPayload } from "../process/close-loop-visibility.js";
 import type { AgentInternalEvent } from "./internal-events.js";
 import type { BlockReplyPayload } from "./pi-embedded-payloads.js";
 import type { EmbeddedRunReplayState } from "./pi-embedded-runner/replay-state.js";
@@ -30,6 +31,10 @@ export type SubscribeEmbeddedPiSessionParams = {
   shouldEmitToolResult?: () => boolean;
   shouldEmitToolOutput?: () => boolean;
   onToolResult?: (payload: ReplyPayload) => void | Promise<void>;
+  /** Synchronous private observer for the sanitized per-tool result. */
+  onAgentToolResult?: (event: { toolName: string; result: unknown; isError: boolean }) => void;
+  /** Synchronous contract observer for accepted closeout payloads before detached tool-end work. */
+  onAgentCloseoutPayload?: (payload: CloseoutDeliveryPayload) => void;
   onReasoningStream?: (payload: { text?: string; mediaUrls?: string[] }) => void | Promise<void>;
   /** Called when a thinking/reasoning block ends (</think> tag processed). */
   onReasoningEnd?: () => void | Promise<void>;

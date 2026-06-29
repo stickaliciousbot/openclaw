@@ -1,6 +1,6 @@
 import { mkdtemp, readFile, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
-import { join } from "node:path";
+import { dirname, join } from "node:path";
 import { beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
 import type { SessionEntry } from "../../config/sessions.js";
 import type { TypingMode } from "../../config/types.js";
@@ -21,6 +21,8 @@ type AgentRunParams = {
   onReasoningStream?: (payload: { text?: string }) => Promise<void> | void;
   onBlockReply?: (payload: { text?: string; mediaUrls?: string[] }) => Promise<void> | void;
   onToolResult?: (payload: ReplyPayload) => Promise<void> | void;
+  onAgentToolResult?: (event: { toolName: string; result: unknown; isError: boolean }) => void;
+  onAgentCloseoutPayload?: (payload: unknown) => void;
   onAgentEvent?: (evt: { stream: string; data: Record<string, unknown> }) => void;
   silentExpected?: boolean;
 };
@@ -290,6 +292,23 @@ describe("runReplyAgent pending final delivery capture", () => {
     return storePath;
   }
 
+  async function writeToolResultTranscript(file: string, texts: string[]) {
+    const lines = texts.map((text, index) =>
+      JSON.stringify({
+        type: "message",
+        id: `tool-${index}`,
+        timestamp: new Date().toISOString(),
+        message: {
+          role: "toolResult",
+          toolName: "exec",
+          content: [{ type: "text", text }],
+          isError: false,
+        },
+      }),
+    );
+    await writeFile(file, `${lines.join("\n")}\n`, "utf8");
+  }
+
   async function readStoredMainSession(storePath: string): Promise<SessionEntry> {
     const raw = await readFile(storePath, "utf8");
     return JSON.parse(raw).main as SessionEntry;
@@ -373,6 +392,417 @@ describe("runReplyAgent pending final delivery capture", () => {
     const stored = await readStoredMainSession(storePath);
     expect(stored.pendingFinalDelivery).toBe(true);
     expect(stored.pendingFinalDeliveryText).toBe("visible final");
+  });
+
+  it("appends text-shaped closeout tool payload exactly once for direct Telegram final replies", async () => {
+    const sessionEntry: SessionEntry = {
+      sessionId: "session",
+      updatedAt: Date.now(),
+      chatType: "direct",
+      channel: "telegram",
+    };
+    const sessionStore = { main: sessionEntry };
+    const storePath = await createSessionStoreFile(sessionEntry);
+    const closeoutPayload = {
+      title: "TELEGRAM_DIRECT_CLOSEOUT_PROJECTOR_SMOKE_20260628T0700Z",
+      status: "PASS",
+      artifactDir:
+        "sharedspace/runtime-kernel-validation/closeout-delivery-production-apply-smoke/direct-telegram-current-turn",
+      failedGates: [],
+      requiredFilesMissing: [],
+      evidenceFiles: [
+        {
+          path: "/tmp/openclaw-closeout-delivery-57-pack/openclaw-2026.5.7.tgz",
+          sha256: "9ffa4cafda8b1185b09cebb7905a063c3851d8f83d74abfee9017dcf18a1e616",
+        },
+      ],
+      productionMutation: true,
+      operatorSummary:
+        "Direct Telegram current-turn smoke emitted a terminal closeout payload via tool result.",
+      closeoutDelivered: false,
+      closeoutPending: true,
+    };
+    state.runEmbeddedPiAgentMock.mockImplementationOnce(async (params: AgentRunParams) => {
+      params.onAgentToolResult?.({
+        toolName: "exec",
+        result: JSON.stringify(closeoutPayload),
+        isError: false,
+      });
+      return { payloads: [{ text: "normal final report" }], meta: {} };
+    });
+
+    const { run } = createMinimalRun({
+      sessionEntry,
+      sessionStore,
+      sessionKey: "main",
+      storePath,
+      sessionCtx: {
+        Provider: "telegram",
+        Surface: "telegram",
+        ChatType: "direct",
+        OriginatingChannel: "telegram",
+      },
+    });
+
+    const result = await run();
+    const payloads = Array.isArray(result) ? result : result ? [result] : [];
+    const text = payloads.map((payload) => payload.text ?? "").join("\n");
+
+    expect(payloads).toHaveLength(2);
+    expect(payloads[0]?.text).toBe("normal final report");
+    expect(payloads[1]?.text).toContain("Closeout: PASS.");
+    expect(payloads[1]?.text).toContain("Production mutation occurred.");
+    expect(payloads[1]?.text).not.toContain("Failed gates: none.");
+    expect(payloads[1]?.text).not.toContain("FAIL");
+    expect(payloads[1]?.channelData).toMatchObject({
+      openclawCloseoutDelivered: true,
+      openclawCloseoutPending: false,
+    });
+    expect(text.match(/Closeout: PASS/g) ?? []).toHaveLength(1);
+
+    const stored = await readStoredMainSession(storePath);
+    expect(stored.pendingFinalDelivery).toBe(true);
+    expect(stored.pendingFinalDeliveryText).toContain("normal final report");
+    expect(stored.pendingFinalDeliveryText).toContain("Closeout: PASS.");
+    expect(stored.pendingCloseoutDelivery).toBe(true);
+    expect(stored.pendingCloseoutDeliveryText).toContain("Closeout: PASS.");
+  });
+
+  it("appends transcript tool-output closeout JSON exactly once for direct Telegram final replies", async () => {
+    const sessionEntry: SessionEntry = {
+      sessionId: "session",
+      updatedAt: Date.now(),
+      chatType: "direct",
+      channel: "telegram",
+    };
+    const storePath = await createSessionStoreFile(sessionEntry);
+    const transcriptFile = join(dirname(storePath), "session.jsonl");
+    const closeoutPayload = {
+      title: "STATUSFIX_FINALMILE_PRODUCTION_SMOKE_20260628T2105Z",
+      status: "PASS",
+      failedGates: [],
+      requiredFilesMissing: [],
+      productionMutation: false,
+      evidenceFiles: [
+        { path: "status.json" },
+        { path: "summary.json" },
+        { path: "evidence_manifest.json" },
+      ],
+      closeoutDelivered: false,
+      closeoutPending: true,
+    };
+    state.runEmbeddedPiAgentMock.mockImplementationOnce(async () => {
+      await writeToolResultTranscript(transcriptFile, [JSON.stringify(closeoutPayload)]);
+      return { payloads: [{ text: "normal final report" }], meta: {} };
+    });
+
+    const { run } = createMinimalRun({
+      sessionEntry,
+      sessionStore: { main: sessionEntry },
+      sessionKey: "main",
+      storePath,
+      runOverrides: { sessionFile: transcriptFile },
+      sessionCtx: {
+        Provider: "telegram",
+        Surface: "telegram",
+        ChatType: "direct",
+        OriginatingChannel: "telegram",
+      },
+    });
+
+    const result = await run();
+    const payloads = Array.isArray(result) ? result : result ? [result] : [];
+    const text = payloads.map((payload) => payload.text ?? "").join("\n");
+    const expected =
+      "Closeout: PASS. No production mutation occurred. Evidence: status.json, summary.json, evidence_manifest.json.";
+
+    expect(payloads).toHaveLength(2);
+    expect(text).toContain("normal final report");
+    expect(text).toContain(expected);
+    expect(text.match(/Closeout: PASS/g) ?? []).toHaveLength(1);
+    expect(text).not.toContain("Failed: FAIL");
+    expect(text).not.toContain("Failed gates: none");
+
+    const stored = await readStoredMainSession(storePath);
+    expect(stored.pendingCloseoutDelivery).toBe(true);
+    expect(stored.pendingCloseoutDeliveryText).toBe(expected);
+  });
+
+  it("ignores generic transcript operational failure metadata without closeout shape", async () => {
+    const sessionEntry: SessionEntry = {
+      sessionId: "session",
+      updatedAt: Date.now(),
+      chatType: "direct",
+      channel: "telegram",
+    };
+    const storePath = await createSessionStoreFile(sessionEntry);
+    const transcriptFile = join(dirname(storePath), "session.jsonl");
+    state.runEmbeddedPiAgentMock.mockImplementationOnce(async () => {
+      await writeToolResultTranscript(transcriptFile, [
+        JSON.stringify({
+          content: [{ type: "text", text: "approval failed" }],
+          details: { status: "failed" },
+          isError: false,
+        }),
+      ]);
+      return { payloads: [{ text: "normal final report" }], meta: {} };
+    });
+
+    const { run } = createMinimalRun({
+      sessionEntry,
+      sessionStore: { main: sessionEntry },
+      sessionKey: "main",
+      storePath,
+      runOverrides: { sessionFile: transcriptFile },
+      sessionCtx: {
+        Provider: "telegram",
+        Surface: "telegram",
+        ChatType: "direct",
+        OriginatingChannel: "telegram",
+      },
+    });
+
+    const result = await run();
+    const payloads = Array.isArray(result) ? result : result ? [result] : [];
+    const text = payloads.map((payload) => payload.text ?? "").join("\n");
+
+    expect(payloads).toHaveLength(1);
+    expect(text).toBe("normal final report");
+    expect(text).not.toContain("Closeout:");
+    const stored = await readStoredMainSession(storePath);
+    expect(stored.pendingCloseoutDelivery).toBeUndefined();
+  });
+
+  it("lets transcript closeout-shaped PASS win after generic failed metadata and tool epilogue text", async () => {
+    const sessionEntry: SessionEntry = {
+      sessionId: "session",
+      updatedAt: Date.now(),
+      chatType: "direct",
+      channel: "telegram",
+    };
+    const storePath = await createSessionStoreFile(sessionEntry);
+    const transcriptFile = join(dirname(storePath), "session.jsonl");
+    const closeoutPayload = {
+      title: "STATUSFIX_FINALMILE_PRODUCTION_SMOKE_20260628T2105Z",
+      status: "PASS",
+      failedGates: [],
+      requiredFilesMissing: [],
+      productionMutation: false,
+      evidenceFiles: [
+        { path: "status.json" },
+        { path: "summary.json" },
+        { path: "evidence_manifest.json" },
+      ],
+      closeoutDelivered: false,
+      closeoutPending: true,
+    };
+    state.runEmbeddedPiAgentMock.mockImplementationOnce(async () => {
+      await writeToolResultTranscript(transcriptFile, [
+        JSON.stringify({ details: { status: "failed" }, isError: false }),
+        `${JSON.stringify(closeoutPayload)}\ncompleted`,
+      ]);
+      return { payloads: [{ text: "normal final report" }], meta: {} };
+    });
+
+    const { run } = createMinimalRun({
+      sessionEntry,
+      sessionStore: { main: sessionEntry },
+      sessionKey: "main",
+      storePath,
+      runOverrides: { sessionFile: transcriptFile },
+      sessionCtx: {
+        Provider: "telegram",
+        Surface: "telegram",
+        ChatType: "direct",
+        OriginatingChannel: "telegram",
+      },
+    });
+
+    const result = await run();
+    const payloads = Array.isArray(result) ? result : result ? [result] : [];
+    const text = payloads.map((payload) => payload.text ?? "").join("\n");
+    const expected =
+      "Closeout: PASS. No production mutation occurred. Evidence: status.json, summary.json, evidence_manifest.json.";
+
+    expect(payloads).toHaveLength(2);
+    expect(text).toContain("normal final report");
+    expect(text).toContain(expected);
+    expect(text.match(/Closeout: PASS/g) ?? []).toHaveLength(1);
+    expect(text).not.toContain("Failed: FAIL");
+    expect(text).not.toContain("Failed gates: none");
+    expect(Math.max(0, (text.match(/Closeout: PASS/g) ?? []).length - 1)).toBe(0);
+  });
+
+  it("appends PI synchronous closeout observer payload before detached tool-end callbacks finish", async () => {
+    const sessionEntry: SessionEntry = {
+      sessionId: "session",
+      updatedAt: Date.now(),
+      chatType: "direct",
+      channel: "telegram",
+    };
+    const sessionStore = { main: sessionEntry };
+    const storePath = await createSessionStoreFile(sessionEntry);
+    const closeoutPayload = {
+      title: "OBSERVER_ATTACHMENT_PRODUCTION_SMOKE_20260628T1248Z",
+      status: "PASS",
+      failedGates: [],
+      requiredFilesMissing: [],
+      productionMutation: false,
+      evidenceFiles: [
+        { path: "status.json" },
+        { path: "summary.json" },
+        { path: "evidence_manifest.json" },
+      ],
+      closeoutDelivered: false,
+      closeoutPending: true,
+    };
+    state.runEmbeddedPiAgentMock.mockImplementationOnce(async (params: AgentRunParams) => {
+      params.onAgentCloseoutPayload?.(closeoutPayload);
+      return { payloads: [{ text: "normal final report" }], meta: {} };
+    });
+
+    const { run } = createMinimalRun({
+      sessionEntry,
+      sessionStore,
+      sessionKey: "main",
+      storePath,
+      sessionCtx: {
+        Provider: "telegram",
+        Surface: "telegram",
+        ChatType: "direct",
+        OriginatingChannel: "telegram",
+      },
+    });
+
+    const result = await run();
+    const payloads = Array.isArray(result) ? result : result ? [result] : [];
+    const text = payloads.map((payload) => payload.text ?? "").join("\n");
+    const expected =
+      "Closeout: PASS. No production mutation occurred. Evidence: status.json, summary.json, evidence_manifest.json.";
+
+    expect(payloads).toHaveLength(2);
+    expect(text).toContain("normal final report");
+    expect(text).toContain(expected);
+    expect(text.match(/Closeout: PASS/g) ?? []).toHaveLength(1);
+    expect(Math.max(0, (text.match(/Closeout: PASS/g) ?? []).length - 1)).toBe(0);
+    expect(text.match(/Failed: FAIL/g) ?? []).toHaveLength(0);
+    expect(text.match(/Failed gates: none/g) ?? []).toHaveLength(0);
+
+    const stored = await readStoredMainSession(storePath);
+    expect(stored.pendingCloseoutDelivery).toBe(true);
+    expect(stored.pendingCloseoutDeliveryText).toBe(expected);
+  });
+
+  it("does not let generic failed operational tool details override a later text-shaped PASS closeout", async () => {
+    const sessionEntry: SessionEntry = {
+      sessionId: "session",
+      updatedAt: Date.now(),
+      chatType: "direct",
+      channel: "telegram",
+    };
+    const sessionStore = { main: sessionEntry };
+    const storePath = await createSessionStoreFile(sessionEntry);
+    const closeoutPayload = {
+      title: "FINALMILE_CLOSEOUT_APPEND_PRODUCTION_SMOKE_20260628T0915Z",
+      status: "PASS",
+      failedGates: [],
+      requiredFilesMissing: [],
+      closeoutDelivered: false,
+      closeoutPending: true,
+      isError: false,
+      productionMutation: false,
+    };
+    state.runEmbeddedPiAgentMock.mockImplementationOnce(async (params: AgentRunParams) => {
+      params.onAgentToolResult?.({
+        toolName: "exec",
+        result: {
+          content: [{ type: "text", text: "approval failed" }],
+          details: { status: "failed" },
+          isError: false,
+        },
+        isError: false,
+      });
+      params.onAgentToolResult?.({
+        toolName: "exec",
+        result: JSON.stringify(closeoutPayload),
+        isError: false,
+      });
+      return { payloads: [{ text: "normal final report" }], meta: {} };
+    });
+
+    const { run } = createMinimalRun({
+      sessionEntry,
+      sessionStore,
+      sessionKey: "main",
+      storePath,
+      sessionCtx: {
+        Provider: "telegram",
+        Surface: "telegram",
+        ChatType: "direct",
+        OriginatingChannel: "telegram",
+      },
+    });
+
+    const result = await run();
+    const payloads = Array.isArray(result) ? result : result ? [result] : [];
+    const text = payloads.map((payload) => payload.text ?? "").join("\n");
+
+    expect(payloads).toHaveLength(2);
+    expect(text).toContain("normal final report");
+    expect(text).toContain("Closeout: PASS.");
+    expect(text).not.toContain("Failed: FAIL");
+    expect(text).not.toContain("Closeout: FAIL");
+    expect(text.match(/Closeout: PASS/g) ?? []).toHaveLength(1);
+  });
+
+  it("keeps direct closeout payload quiet when source delivery mode is message_tool_only", async () => {
+    const sessionEntry: SessionEntry = {
+      sessionId: "session",
+      updatedAt: Date.now(),
+      chatType: "direct",
+      channel: "telegram",
+    };
+    const sessionStore = { main: sessionEntry };
+    const storePath = await createSessionStoreFile(sessionEntry);
+    state.runEmbeddedPiAgentMock.mockImplementationOnce(async (params: AgentRunParams) => {
+      params.onAgentToolResult?.({
+        toolName: "exec",
+        result: JSON.stringify({
+          title: "MESSAGE_TOOL_ONLY_CLOSEOUT_SHOULD_NOT_APPEND",
+          status: "PASS",
+          failedGates: [],
+          requiredFilesMissing: [],
+          productionMutation: false,
+          closeoutDelivered: false,
+          closeoutPending: true,
+        }),
+        isError: false,
+      });
+      return { payloads: [{ text: "normal final report" }], meta: {} };
+    });
+
+    const { run } = createMinimalRun({
+      opts: { sourceReplyDeliveryMode: "message_tool_only" },
+      sessionEntry,
+      sessionStore,
+      sessionKey: "main",
+      storePath,
+      sessionCtx: {
+        Provider: "telegram",
+        Surface: "telegram",
+        ChatType: "direct",
+        OriginatingChannel: "telegram",
+      },
+    });
+
+    const result = await run();
+    const payloads = Array.isArray(result) ? result : result ? [result] : [];
+    expect(payloads).toHaveLength(1);
+    expect(payloads[0]?.text).toBe("normal final report");
+
+    const stored = await readStoredMainSession(storePath);
+    expect(stored.pendingFinalDelivery).toBeUndefined();
+    expect(stored.pendingCloseoutDelivery).toBeUndefined();
   });
 });
 

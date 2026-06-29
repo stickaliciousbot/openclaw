@@ -6,6 +6,7 @@ import type { ReplyOperation } from "../../../auto-reply/reply/reply-run-registr
 import type { ReasoningLevel, ThinkLevel, VerboseLevel } from "../../../auto-reply/thinking.js";
 import type { OpenClawConfig } from "../../../config/types.openclaw.js";
 import type { PromptImageOrderEntry } from "../../../media/prompt-image-order.js";
+import type { CloseoutDeliveryPayload } from "../../../process/close-loop-visibility.js";
 import type { CommandQueueEnqueueFn } from "../../../process/command-queue.types.js";
 import type { InputProvenance } from "../../../sessions/input-provenance.js";
 import type { ExecElevatedDefaults, ExecToolDefaults } from "../../bash-tools.exec-types.js";
@@ -164,6 +165,10 @@ export type RunEmbeddedPiAgentParams = {
   onReasoningStream?: (payload: { text?: string; mediaUrls?: string[] }) => void | Promise<void>;
   onReasoningEnd?: () => void | Promise<void>;
   onToolResult?: (payload: ReplyPayload) => void | Promise<void>;
+  /** Synchronous private observer for the sanitized per-tool result. */
+  onAgentToolResult?: (event: { toolName: string; result: unknown; isError: boolean }) => void;
+  /** Synchronous contract observer for accepted closeout payloads before detached tool-end work. */
+  onAgentCloseoutPayload?: (payload: CloseoutDeliveryPayload) => void;
   onAgentEvent?: (evt: {
     stream: string;
     data: Record<string, unknown>;

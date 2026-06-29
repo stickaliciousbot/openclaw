@@ -301,6 +301,13 @@ export type SessionEntry = {
   fallbackNoticeSelectedModel?: string;
   fallbackNoticeActiveModel?: string;
   fallbackNoticeReason?: string;
+  /** Durable closeout debt that must be surfaced before the next operator answer. */
+  pendingCloseoutDelivery?: boolean;
+  pendingCloseoutDeliveryText?: string | null;
+  pendingCloseoutDeliveryCreatedAt?: number;
+  pendingCloseoutDeliveryLastAttemptAt?: number;
+  pendingCloseoutDeliveryAttemptCount?: number;
+  pendingCloseoutDeliveryLastError?: string | null;
   contextTokens?: number;
   compactionCount?: number;
   compactionCheckpoints?: SessionCompactionCheckpoint[];

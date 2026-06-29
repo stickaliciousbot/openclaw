@@ -2318,6 +2318,8 @@ export async function runEmbeddedAttempt(
           shouldEmitToolResult: params.shouldEmitToolResult,
           shouldEmitToolOutput: params.shouldEmitToolOutput,
           onToolResult: params.onToolResult,
+          onAgentToolResult: params.onAgentToolResult,
+          onAgentCloseoutPayload: params.onAgentCloseoutPayload,
           onReasoningStream: params.onReasoningStream,
           onReasoningEnd: params.onReasoningEnd,
           onBlockReply: params.onBlockReply,

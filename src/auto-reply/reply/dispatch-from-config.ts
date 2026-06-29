@@ -57,6 +57,11 @@ import {
   toPluginConversationBinding,
 } from "../../plugins/conversation-binding.js";
 import { getGlobalHookRunner, getGlobalPluginRegistry } from "../../plugins/hook-runner-global.js";
+import {
+  extractCloseoutDeliveryPayloadFromToolResult,
+  resolveCloseoutDeliveryDecision,
+  type CloseoutDeliveryPayload,
+} from "../../process/close-loop-visibility.js";
 import { isAcpSessionKey } from "../../routing/session-key.js";
 import { resolveSendPolicy } from "../../sessions/send-policy.js";
 import { createLazyImportLoader } from "../../shared/lazy-promise.js";
@@ -330,6 +335,8 @@ const resolveHarnessSourceVisibleRepliesDefault = (params: {
 async function clearPendingFinalDeliveryAfterSuccess(params: {
   storePath?: string;
   sessionKey?: string;
+  clearCloseoutDelivery?: boolean;
+  closeoutDeliveryTexts?: string[];
 }): Promise<void> {
   if (!params.storePath || !params.sessionKey) {
     return;
@@ -338,7 +345,22 @@ async function clearPendingFinalDeliveryAfterSuccess(params: {
     storePath: params.storePath,
     sessionKey: params.sessionKey,
     update: async (entry) => {
-      if (!entry.pendingFinalDelivery && !entry.pendingFinalDeliveryText) {
+      const shouldClearCloseoutDelivery = params.clearCloseoutDelivery === true;
+      const pendingCloseoutText = normalizeOptionalString(entry.pendingCloseoutDeliveryText);
+      const deliveredCloseoutTexts = new Set(
+        (params.closeoutDeliveryTexts ?? [])
+          .map((text) => normalizeOptionalString(text))
+          .filter((text): text is string => Boolean(text)),
+      );
+      const shouldClearMatchingCloseoutDelivery =
+        shouldClearCloseoutDelivery &&
+        (!pendingCloseoutText || deliveredCloseoutTexts.has(pendingCloseoutText));
+      if (
+        !entry.pendingFinalDelivery &&
+        !entry.pendingFinalDeliveryText &&
+        (!shouldClearMatchingCloseoutDelivery ||
+          (!entry.pendingCloseoutDelivery && !entry.pendingCloseoutDeliveryText))
+      ) {
         return null;
       }
       return {
@@ -349,10 +371,87 @@ async function clearPendingFinalDeliveryAfterSuccess(params: {
         pendingFinalDeliveryAttemptCount: undefined,
         pendingFinalDeliveryLastError: undefined,
         pendingFinalDeliveryContext: undefined,
+        ...(shouldClearMatchingCloseoutDelivery
+          ? {
+              pendingCloseoutDelivery: undefined,
+              pendingCloseoutDeliveryText: undefined,
+              pendingCloseoutDeliveryCreatedAt: undefined,
+              pendingCloseoutDeliveryLastAttemptAt: undefined,
+              pendingCloseoutDeliveryAttemptCount: undefined,
+              pendingCloseoutDeliveryLastError: undefined,
+            }
+          : {}),
         updatedAt: Date.now(),
       };
     },
   });
+}
+
+function buildFinalDeliveryText(payloads: ReplyPayload[]): string {
+  return payloads
+    .filter((payload) => payload.isReasoning !== true)
+    .map((payload) => payload.text)
+    .filter((text): text is string => Boolean(text))
+    .join("\n\n");
+}
+
+function isDirectTelegramFinalDeliveryBoundary(ctx: FinalizedMsgContext): boolean {
+  const channel = normalizeLowercaseStringOrEmpty(
+    ctx.OriginatingChannel ?? ctx.Surface ?? ctx.Provider ?? "",
+  );
+  if (channel !== "telegram") {
+    return false;
+  }
+  const chatType = normalizeChatType(ctx.ChatType);
+  if (chatType === "group" || chatType === "channel") {
+    return false;
+  }
+  const rawChatType = normalizeLowercaseStringOrEmpty(ctx.ChatType ?? "");
+  return chatType === "direct" || rawChatType === "private" || !rawChatType;
+}
+
+async function persistPendingCloseoutDelivery(params: {
+  storePath?: string;
+  sessionKey?: string;
+  finalText: string;
+  closeoutText: string;
+  existingEntry?: SessionEntry;
+  lastError?: string | null;
+}): Promise<void> {
+  if (!params.storePath || !params.sessionKey || !params.closeoutText) {
+    return;
+  }
+  const finalText = normalizeOptionalString(params.finalText) ?? params.closeoutText;
+  const now = Date.now();
+  const existingAttemptCount = params.existingEntry?.pendingCloseoutDeliveryAttemptCount ?? 0;
+  await updateSessionStoreEntry({
+    storePath: params.storePath,
+    sessionKey: params.sessionKey,
+    update: async (entry) => ({
+      pendingFinalDelivery: true,
+      pendingFinalDeliveryText: finalText,
+      pendingFinalDeliveryCreatedAt: entry.pendingFinalDeliveryCreatedAt ?? now,
+      pendingCloseoutDelivery: true,
+      pendingCloseoutDeliveryText: params.closeoutText,
+      pendingCloseoutDeliveryCreatedAt: entry.pendingCloseoutDeliveryCreatedAt ?? now,
+      pendingCloseoutDeliveryLastAttemptAt: now,
+      pendingCloseoutDeliveryAttemptCount:
+        (entry.pendingCloseoutDeliveryAttemptCount ?? existingAttemptCount) + 1,
+      pendingCloseoutDeliveryLastError: params.lastError ?? null,
+      updatedAt: now,
+    }),
+  });
+}
+
+function isCloseoutDeliveryReplyPayload(payload: ReplyPayload): boolean {
+  const channelData = payload.channelData;
+  if (!channelData || typeof channelData !== "object" || Array.isArray(channelData)) {
+    return false;
+  }
+  return (
+    channelData.openclawCloseoutDelivered === true ||
+    channelData.openclawCloseoutDebtReplay === true
+  );
 }
 
 export type {
@@ -1441,6 +1540,52 @@ export async function dispatchReplyFromConfig(
       markInboundDedupeReplayUnsafe();
       dispatcher.sendToolResult(replyPayload);
     };
+    let observedBoundaryCloseoutPayload: CloseoutDeliveryPayload | undefined;
+    const observeBoundaryCloseoutFromToolPayload = (payload: ReplyPayload): void => {
+      const textCandidates: string[] = [];
+      const seen = new Set<object>();
+      const collectTextCandidates = (value: unknown): void => {
+        if (typeof value === "string") {
+          const trimmed = value.trim();
+          if (trimmed) {
+            textCandidates.push(trimmed);
+          }
+          return;
+        }
+        if (!value || typeof value !== "object") {
+          return;
+        }
+        if (seen.has(value)) {
+          return;
+        }
+        seen.add(value);
+        if (Array.isArray(value)) {
+          for (const entry of value) {
+            collectTextCandidates(entry);
+          }
+          return;
+        }
+        const record = value as Record<string, unknown>;
+        for (const key of [
+          "text",
+          "message",
+          "details",
+          "result",
+          "content",
+          "aggregated",
+          "aggregate",
+          "summary",
+        ]) {
+          collectTextCandidates(record[key]);
+        }
+      };
+      collectTextCandidates(payload);
+      const candidate = extractCloseoutDeliveryPayloadFromToolResult({
+        result: payload,
+        content: textCandidates.map((text) => ({ type: "text", text })),
+      });
+      observedBoundaryCloseoutPayload = candidate ?? observedBoundaryCloseoutPayload;
+    };
     const summarizeApprovalLabel = (payload: {
       status?: string;
       command?: string;
@@ -1637,6 +1782,7 @@ export async function dispatchReplyFromConfig(
         }),
         onToolResult: (payload: ReplyPayload) => {
           markProgress();
+          observeBoundaryCloseoutFromToolPayload(payload);
           recordSourceVisibleCompletionCandidate({
             title: normalizeOptionalString(payload.text) ?? undefined,
             kind: "tool",
@@ -1888,16 +2034,60 @@ export async function dispatchReplyFromConfig(
     }
 
     const replies = replyResult ? (Array.isArray(replyResult) ? replyResult : [replyResult]) : [];
+    const projectBoundaryCloseoutOntoFinalReplies = (payloads: ReplyPayload[]) => {
+      const closeoutDeliveryDecision = resolveCloseoutDeliveryDecision({
+        payload: observedBoundaryCloseoutPayload,
+        directChat: isDirectTelegramFinalDeliveryBoundary(ctx),
+        inboundEventKind:
+          typeof (ctx as { InboundEventKind?: unknown }).InboundEventKind === "string"
+            ? (ctx as { InboundEventKind?: string }).InboundEventKind
+            : undefined,
+        sendPolicyDenied,
+        messageToolOnly: sourceReplyDeliveryMode === "message_tool_only",
+        existingFinalText: buildFinalDeliveryText(payloads),
+      });
+      if (closeoutDeliveryDecision.action !== "deliver") {
+        return { payloads };
+      }
+      let projected = false;
+      const projectedPayloads = payloads.map((payload) => {
+        if (projected || payload.isReasoning === true) {
+          return payload;
+        }
+        projected = true;
+        const existingText = payload.text?.trimEnd();
+        return {
+          ...payload,
+          text: existingText
+            ? `${existingText}\n\n${closeoutDeliveryDecision.text}`
+            : closeoutDeliveryDecision.text,
+          channelData: {
+            ...payload.channelData,
+            openclawCloseoutDelivered: closeoutDeliveryDecision.payload.closeoutDelivered,
+            openclawCloseoutPending: closeoutDeliveryDecision.payload.closeoutPending,
+          },
+        } satisfies ReplyPayload;
+      });
+      return {
+        payloads: projectedPayloads,
+        closeoutText: projected ? closeoutDeliveryDecision.text : undefined,
+      };
+    };
+    const projectedFinalReplies = projectBoundaryCloseoutOntoFinalReplies(replies);
+    const repliesForDelivery = projectedFinalReplies.payloads;
 
     let queuedFinal = false;
     let routedFinalCount = 0;
     let attemptedFinalDelivery = false;
     let finalDeliveryFailed = false;
+    let attemptedCloseoutDelivery = false;
+    let closeoutDeliverySucceeded = false;
+    const deliveredCloseoutTexts: string[] = [];
     const shouldDeliverDespiteSourceReplySuppression = (reply: ReplyPayload) =>
       suppressAutomaticSourceDelivery &&
       !sendPolicyDenied &&
       getReplyPayloadMetadata(reply)?.deliverDespiteSourceReplySuppression === true;
-    for (const reply of replies) {
+    for (const reply of repliesForDelivery) {
       // Suppress reasoning payloads from channel delivery — channels using this
       // generic dispatch path do not have a dedicated reasoning lane.
       if (reply.isReasoning === true) {
@@ -1906,22 +2096,50 @@ export async function dispatchReplyFromConfig(
       if (suppressDelivery && !shouldDeliverDespiteSourceReplySuppression(reply)) {
         continue;
       }
+      const isCloseoutDeliveryReply = isCloseoutDeliveryReplyPayload(reply);
+      if (isCloseoutDeliveryReply) {
+        attemptedCloseoutDelivery = true;
+      }
       attemptedFinalDelivery = true;
       const finalReply = await sendFinalPayload(reply);
       queuedFinal = finalReply.queuedFinal || queuedFinal;
       routedFinalCount += finalReply.routedFinalCount;
       if (finalReply.queuedFinal || finalReply.routedFinalCount > 0) {
         markMeaningfulVisibleReplyDelivered(reply);
+        if (isCloseoutDeliveryReply) {
+          closeoutDeliverySucceeded = true;
+          const text = normalizeOptionalString(reply.text);
+          if (text) {
+            deliveredCloseoutTexts.push(projectedFinalReplies.closeoutText ?? text);
+          }
+        }
       }
       if (!finalReply.queuedFinal && finalReply.routedFinalCount === 0) {
         finalDeliveryFailed = true;
       }
     }
 
+    if (
+      attemptedCloseoutDelivery &&
+      !closeoutDeliverySucceeded &&
+      projectedFinalReplies.closeoutText
+    ) {
+      await persistPendingCloseoutDelivery({
+        storePath: sessionStoreEntry.storePath,
+        sessionKey: sessionStoreEntry.sessionKey ?? sessionKey,
+        finalText: buildFinalDeliveryText(repliesForDelivery),
+        closeoutText: projectedFinalReplies.closeoutText,
+        existingEntry: sessionStoreEntry.entry,
+        lastError: "final_delivery_not_confirmed",
+      });
+    }
+
     if (attemptedFinalDelivery && !finalDeliveryFailed) {
       await clearPendingFinalDeliveryAfterSuccess({
         storePath: sessionStoreEntry.storePath,
         sessionKey: sessionStoreEntry.sessionKey ?? sessionKey,
+        clearCloseoutDelivery: attemptedCloseoutDelivery && closeoutDeliverySucceeded,
+        closeoutDeliveryTexts: deliveredCloseoutTexts,
       });
     }
 

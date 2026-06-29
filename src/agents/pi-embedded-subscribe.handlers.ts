@@ -1,3 +1,4 @@
+import { extractCloseoutDeliveryPayloadFromToolResult } from "../process/close-loop-visibility.js";
 import {
   handleAgentEnd,
   handleAgentStart,
@@ -19,9 +20,27 @@ import type {
   EmbeddedPiSubscribeEvent,
 } from "./pi-embedded-subscribe.handlers.types.js";
 import { isPromiseLike } from "./pi-embedded-subscribe.promise.js";
+import { isToolResultError } from "./pi-embedded-subscribe.tools.js";
 
 export function createEmbeddedPiSessionEventHandler(ctx: EmbeddedPiSubscribeContext) {
   let pendingEventChain: Promise<void> | null = null;
+
+  const observeCloseoutPayloadSynchronously = (evt: EmbeddedPiSubscribeEvent): void => {
+    if (evt.type !== "tool_execution_end" || !ctx.params.onAgentCloseoutPayload) {
+      return;
+    }
+    const toolEnd = evt as { isError?: unknown; result?: unknown };
+    if (toolEnd.isError === true || isToolResultError(toolEnd.result)) {
+      return;
+    }
+    const payload =
+      extractCloseoutDeliveryPayloadFromToolResult(toolEnd.result) ??
+      extractCloseoutDeliveryPayloadFromToolResult(evt);
+    if (!payload) {
+      return;
+    }
+    ctx.params.onAgentCloseoutPayload(payload);
+  };
 
   const scheduleEvent = (
     evt: EmbeddedPiSubscribeEvent,
@@ -100,6 +119,7 @@ export function createEmbeddedPiSessionEventHandler(ctx: EmbeddedPiSubscribeCont
         });
         return;
       case "tool_execution_end":
+        observeCloseoutPayloadSynchronously(evt);
         scheduleEvent(
           evt,
           () => {

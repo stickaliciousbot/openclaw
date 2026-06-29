@@ -182,6 +182,8 @@ type ToolHandlerParams = Pick<
   | "onBlockReplyFlush"
   | "onAgentEvent"
   | "onToolResult"
+  | "onAgentToolResult"
+  | "onAgentCloseoutPayload"
   | "sessionKey"
   | "sessionId"
   | "agentId"

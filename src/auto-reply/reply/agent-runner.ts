@@ -6,6 +6,7 @@ import { resolveModelAuthMode } from "../../agents/model-auth.js";
 import { isCliProvider } from "../../agents/model-selection.js";
 import { queueEmbeddedPiMessage } from "../../agents/pi-embedded-runner/runs.js";
 import { deriveContextPromptTokens, hasNonzeroUsage, normalizeUsage } from "../../agents/usage.js";
+import { normalizeChatType } from "../../channels/chat-type.js";
 import { enqueueCommitmentExtraction } from "../../commitments/runtime.js";
 import type { OpenClawConfig } from "../../config/config.js";
 import {
@@ -25,6 +26,11 @@ import {
   freezeDiagnosticTraceContext,
 } from "../../infra/diagnostic-trace-context.js";
 import { enqueueSystemEvent } from "../../infra/system-events.js";
+import {
+  extractCloseoutDeliveryPayloadFromToolResult,
+  resolveCloseoutDeliveryDecision,
+  type CloseoutDeliveryPayload,
+} from "../../process/close-loop-visibility.js";
 import { CommandLaneClearedError, GatewayDrainingError } from "../../process/command-queue.js";
 import { resolveSendPolicy } from "../../sessions/send-policy.js";
 import { normalizeOptionalString } from "../../shared/string-coerce.js";
@@ -236,6 +242,73 @@ function formatKeyValueTraceBlock(
     return undefined;
   }
   return `🔎 ${title}:\n~~~text\n${lines.join("\n")}\n~~~`;
+}
+
+function asRecord(value: unknown): Record<string, unknown> | undefined {
+  return value && typeof value === "object" && !Array.isArray(value)
+    ? (value as Record<string, unknown>)
+    : undefined;
+}
+
+function isTranscriptToolResultEntry(value: unknown): value is {
+  timestamp?: string;
+  message?: { role?: string; content?: unknown; details?: unknown; isError?: unknown };
+} {
+  const root = asRecord(value);
+  const message = asRecord(root?.message);
+  return message?.role === "toolResult";
+}
+
+async function extractCloseoutDeliveryPayloadFromTranscript(params: {
+  sessionId?: string;
+  storePath?: string;
+  sessionFile?: string;
+  sinceMs: number;
+}): Promise<CloseoutDeliveryPayload | undefined> {
+  const sessionId = normalizeOptionalString(params.sessionId);
+  if (!sessionId) {
+    return undefined;
+  }
+  const candidates = resolveSessionTranscriptCandidates(
+    sessionId,
+    params.storePath,
+    params.sessionFile,
+  );
+  for (const candidate of candidates) {
+    let transcriptText: string;
+    try {
+      transcriptText = await fs.readFile(candidate, "utf-8");
+    } catch {
+      continue;
+    }
+    for (const line of transcriptText.split(/\r?\n/)) {
+      if (!line.trim()) {
+        continue;
+      }
+      let parsed: unknown;
+      try {
+        parsed = JSON.parse(line);
+      } catch {
+        continue;
+      }
+      if (!isTranscriptToolResultEntry(parsed)) {
+        continue;
+      }
+      const timestamp = typeof parsed.timestamp === "string" ? Date.parse(parsed.timestamp) : NaN;
+      if (Number.isFinite(timestamp) && timestamp + 1_000 < params.sinceMs) {
+        continue;
+      }
+      const message = parsed.message;
+      if (message?.isError === true) {
+        continue;
+      }
+      const payload = extractCloseoutDeliveryPayloadFromToolResult(message);
+      if (payload) {
+        return payload;
+      }
+    }
+  }
+  return undefined;
 }
 
 function inferFallbackAttemptResult(attempt: { reason?: string; status?: number }): string {
@@ -1261,6 +1334,11 @@ export async function runReplyAgent(params: {
 
     replyOperation.setPhase("running");
     const runStartedAt = Date.now();
+    let observedCloseoutPayload: CloseoutDeliveryPayload | undefined;
+    const pendingCloseoutTextForReplay =
+      activeSessionEntry?.pendingCloseoutDelivery === true
+        ? normalizeOptionalString(activeSessionEntry.pendingCloseoutDeliveryText)
+        : undefined;
     const runOutcome = await runAgentTurnWithFallback({
       commandBody,
       transcriptCommandBody,
@@ -1289,13 +1367,125 @@ export async function runReplyAgent(params: {
       resolvedVerboseLevel,
       toolProgressDetail,
       replyMediaContext,
+      onAgentToolResult: (event) => {
+        if (event.isError || observedCloseoutPayload) {
+          return;
+        }
+        observedCloseoutPayload = extractCloseoutDeliveryPayloadFromToolResult(event.result);
+      },
+      onAgentCloseoutPayload: (payload) => {
+        if (observedCloseoutPayload) {
+          return;
+        }
+        observedCloseoutPayload = payload;
+      },
     });
 
     if (runOutcome.kind === "final") {
       if (!replyOperation.result) {
         replyOperation.fail("run_failed", new Error("reply operation exited with final payload"));
       }
-      return returnWithQueuedFollowupDrain(runOutcome.payload);
+      let finalOutcomePayloads = Array.isArray(runOutcome.payload)
+        ? runOutcome.payload
+        : [runOutcome.payload];
+      if (!observedCloseoutPayload) {
+        observedCloseoutPayload = await extractCloseoutDeliveryPayloadFromTranscript({
+          sessionId: followupRun.run.sessionId,
+          storePath,
+          sessionFile: followupRun.run.sessionFile,
+          sinceMs: runStartedAt,
+        });
+      }
+      const finalOutcomeSendPolicy = sessionKey
+        ? resolveSendPolicy({
+            cfg,
+            entry: activeSessionEntry,
+            sessionKey: runtimePolicySessionKey ?? sessionKey,
+            channel:
+              sessionCtx.OriginatingChannel ??
+              sessionCtx.Surface ??
+              sessionCtx.Provider ??
+              activeSessionEntry?.channel,
+            chatType: activeSessionEntry?.chatType,
+          })
+        : undefined;
+      const finalOutcomeSourceReplyPolicy =
+        sessionKey && finalOutcomeSendPolicy
+          ? resolveSourceReplyVisibilityPolicy({
+              cfg,
+              ctx: sessionCtx,
+              requested: opts?.sourceReplyDeliveryMode,
+              sendPolicy: finalOutcomeSendPolicy,
+            })
+          : undefined;
+      const finalOutcomeInboundEventKind = (sessionCtx as { InboundEventKind?: unknown })
+        .InboundEventKind;
+      const finalOutcomeCloseoutDeliveryDecision = resolveCloseoutDeliveryDecision({
+        payload: observedCloseoutPayload,
+        directChat:
+          Boolean(sessionKey) &&
+          normalizeChatType(sessionCtx.ChatType ?? activeSessionEntry?.chatType) === "direct",
+        inboundEventKind:
+          typeof finalOutcomeInboundEventKind === "string"
+            ? finalOutcomeInboundEventKind
+            : undefined,
+        sendPolicyDenied: finalOutcomeSourceReplyPolicy?.sendPolicyDenied,
+        messageToolOnly:
+          finalOutcomeSourceReplyPolicy?.sourceReplyDeliveryMode === "message_tool_only",
+        existingFinalText: buildPendingFinalDeliveryText(finalOutcomePayloads),
+      });
+      if (finalOutcomeCloseoutDeliveryDecision.action === "deliver") {
+        finalOutcomePayloads = [
+          ...finalOutcomePayloads,
+          {
+            text: finalOutcomeCloseoutDeliveryDecision.text,
+            channelData: {
+              openclawCloseoutDelivered:
+                finalOutcomeCloseoutDeliveryDecision.payload.closeoutDelivered,
+              openclawCloseoutPending: finalOutcomeCloseoutDeliveryDecision.payload.closeoutPending,
+            },
+          },
+        ];
+      }
+      if (sessionKey && storePath && finalOutcomePayloads.length > 0) {
+        const finalOutcomePendingText = finalOutcomeSourceReplyPolicy?.suppressDelivery
+          ? ""
+          : buildPendingFinalDeliveryText(finalOutcomePayloads);
+        if (finalOutcomePendingText) {
+          const finalOutcomeCloseoutTextToPersist =
+            finalOutcomeCloseoutDeliveryDecision.action === "deliver"
+              ? finalOutcomeCloseoutDeliveryDecision.text
+              : pendingCloseoutTextForReplay;
+          const finalOutcomeHasCloseoutTextToPersist = Boolean(finalOutcomeCloseoutTextToPersist);
+          const finalOutcomeCloseoutAttemptCount =
+            (activeSessionEntry?.pendingCloseoutDeliveryAttemptCount ?? 0) +
+            (finalOutcomeHasCloseoutTextToPersist ? 1 : 0);
+          await updateSessionStoreEntry({
+            storePath,
+            sessionKey,
+            update: async () => ({
+              pendingFinalDelivery: true,
+              pendingFinalDeliveryText: finalOutcomePendingText,
+              pendingFinalDeliveryCreatedAt: Date.now(),
+              ...(finalOutcomeHasCloseoutTextToPersist && finalOutcomeCloseoutTextToPersist
+                ? {
+                    pendingCloseoutDelivery: true,
+                    pendingCloseoutDeliveryText: finalOutcomeCloseoutTextToPersist,
+                    pendingCloseoutDeliveryCreatedAt:
+                      activeSessionEntry?.pendingCloseoutDeliveryCreatedAt ?? Date.now(),
+                    pendingCloseoutDeliveryLastAttemptAt: Date.now(),
+                    pendingCloseoutDeliveryAttemptCount: finalOutcomeCloseoutAttemptCount,
+                    pendingCloseoutDeliveryLastError: null,
+                  }
+                : {}),
+              updatedAt: Date.now(),
+            }),
+          });
+        }
+      }
+      return returnWithQueuedFollowupDrain(
+        finalOutcomePayloads.length === 1 ? finalOutcomePayloads[0] : finalOutcomePayloads,
+      );
     }
 
     const {
@@ -1839,31 +2029,112 @@ export async function runReplyAgent(params: {
       finalPayloads = appendUsageLine(finalPayloads, responseUsageLine);
     }
 
+    if (!observedCloseoutPayload) {
+      observedCloseoutPayload = await extractCloseoutDeliveryPayloadFromTranscript({
+        sessionId: runResult.meta?.agentMeta?.sessionId ?? followupRun.run.sessionId,
+        storePath,
+        sessionFile: followupRun.run.sessionFile,
+        sinceMs: runStartedAt,
+      });
+    }
+
+    if (pendingCloseoutTextForReplay) {
+      finalPayloads = [
+        {
+          text: pendingCloseoutTextForReplay,
+          channelData: {
+            openclawCloseoutDebtReplay: true,
+            openclawCloseoutDelivered: true,
+            openclawCloseoutPending: false,
+          },
+        },
+        ...finalPayloads,
+      ];
+    }
+
+    const closeoutSendPolicy = sessionKey
+      ? resolveSendPolicy({
+          cfg,
+          entry: activeSessionEntry,
+          sessionKey: runtimePolicySessionKey ?? sessionKey,
+          channel:
+            sessionCtx.OriginatingChannel ??
+            sessionCtx.Surface ??
+            sessionCtx.Provider ??
+            activeSessionEntry?.channel,
+          chatType: activeSessionEntry?.chatType,
+        })
+      : undefined;
+    const closeoutSourceReplyPolicy =
+      sessionKey && closeoutSendPolicy
+        ? resolveSourceReplyVisibilityPolicy({
+            cfg,
+            ctx: sessionCtx,
+            requested: opts?.sourceReplyDeliveryMode,
+            sendPolicy: closeoutSendPolicy,
+          })
+        : undefined;
+    const inboundEventKind = (sessionCtx as { InboundEventKind?: unknown }).InboundEventKind;
+    const closeoutDeliveryDecision = resolveCloseoutDeliveryDecision({
+      payload: observedCloseoutPayload,
+      directChat:
+        Boolean(sessionKey) &&
+        normalizeChatType(sessionCtx.ChatType ?? activeSessionEntry?.chatType) === "direct",
+      inboundEventKind: typeof inboundEventKind === "string" ? inboundEventKind : undefined,
+      sendPolicyDenied: closeoutSourceReplyPolicy?.sendPolicyDenied,
+      messageToolOnly: closeoutSourceReplyPolicy?.sourceReplyDeliveryMode === "message_tool_only",
+      existingFinalText: buildPendingFinalDeliveryText(finalPayloads),
+    });
+    if (closeoutDeliveryDecision.action === "deliver") {
+      finalPayloads = [
+        ...finalPayloads,
+        {
+          text: closeoutDeliveryDecision.text,
+          channelData: {
+            openclawCloseoutDelivered: closeoutDeliveryDecision.payload.closeoutDelivered,
+            openclawCloseoutPending: closeoutDeliveryDecision.payload.closeoutPending,
+          },
+        },
+      ];
+    }
+
     // Capture only policy-visible final payloads in session store to support
     // durable delivery retries. Hidden reasoning, message-tool-only replies,
     // and sendPolicy-denied replies must not become heartbeat-replayable text.
     if (sessionKey && storePath && finalPayloads.length > 0) {
-      const sendPolicy = resolveSendPolicy({
-        cfg,
-        entry: activeSessionEntry,
-        sessionKey: params.runtimePolicySessionKey ?? sessionKey,
-        channel:
-          sessionCtx.OriginatingChannel ??
-          sessionCtx.Surface ??
-          sessionCtx.Provider ??
-          activeSessionEntry?.channel,
-        chatType: activeSessionEntry?.chatType,
-      });
-      const sourceReplyPolicy = resolveSourceReplyVisibilityPolicy({
-        cfg,
-        ctx: sessionCtx,
-        requested: opts?.sourceReplyDeliveryMode,
-        sendPolicy,
-      });
+      const sendPolicy =
+        closeoutSendPolicy ??
+        resolveSendPolicy({
+          cfg,
+          entry: activeSessionEntry,
+          sessionKey: runtimePolicySessionKey ?? sessionKey,
+          channel:
+            sessionCtx.OriginatingChannel ??
+            sessionCtx.Surface ??
+            sessionCtx.Provider ??
+            activeSessionEntry?.channel,
+          chatType: activeSessionEntry?.chatType,
+        });
+      const sourceReplyPolicy =
+        closeoutSourceReplyPolicy ??
+        resolveSourceReplyVisibilityPolicy({
+          cfg,
+          ctx: sessionCtx,
+          requested: opts?.sourceReplyDeliveryMode,
+          sendPolicy,
+        });
       const pendingText = sourceReplyPolicy.suppressDelivery
         ? ""
         : buildPendingFinalDeliveryText(finalPayloads);
       if (pendingText) {
+        const closeoutTextToPersist =
+          closeoutDeliveryDecision.action === "deliver"
+            ? closeoutDeliveryDecision.text
+            : pendingCloseoutTextForReplay;
+        const hasCloseoutTextToPersist = Boolean(closeoutTextToPersist);
+        const closeoutAttemptCount =
+          (activeSessionEntry?.pendingCloseoutDeliveryAttemptCount ?? 0) +
+          (hasCloseoutTextToPersist ? 1 : 0);
         await updateSessionStoreEntry({
           storePath,
           sessionKey,
@@ -1871,6 +2142,17 @@ export async function runReplyAgent(params: {
             pendingFinalDelivery: true,
             pendingFinalDeliveryText: pendingText,
             pendingFinalDeliveryCreatedAt: Date.now(),
+            ...(hasCloseoutTextToPersist && closeoutTextToPersist
+              ? {
+                  pendingCloseoutDelivery: true,
+                  pendingCloseoutDeliveryText: closeoutTextToPersist,
+                  pendingCloseoutDeliveryCreatedAt:
+                    activeSessionEntry?.pendingCloseoutDeliveryCreatedAt ?? Date.now(),
+                  pendingCloseoutDeliveryLastAttemptAt: Date.now(),
+                  pendingCloseoutDeliveryAttemptCount: closeoutAttemptCount,
+                  pendingCloseoutDeliveryLastError: null,
+                }
+              : {}),
             updatedAt: Date.now(),
           }),
         });

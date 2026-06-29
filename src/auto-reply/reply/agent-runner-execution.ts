@@ -43,6 +43,7 @@ import {
 import { logVerbose } from "../../globals.js";
 import { emitAgentEvent, registerAgentRunContext } from "../../infra/agent-events.js";
 import { formatErrorMessage } from "../../infra/errors.js";
+import type { CloseoutDeliveryPayload } from "../../process/close-loop-visibility.js";
 import { CommandLaneClearedError, GatewayDrainingError } from "../../process/command-queue.js";
 import { CommandLane } from "../../process/lanes.js";
 import { defaultRuntime } from "../../runtime.js";
@@ -1012,6 +1013,8 @@ export async function runAgentTurnWithFallback(params: {
   resolvedVerboseLevel: VerboseLevel;
   toolProgressDetail?: "explain" | "raw";
   replyMediaContext?: ReplyMediaContext;
+  onAgentToolResult?: (event: { toolName: string; result: unknown; isError: boolean }) => void;
+  onAgentCloseoutPayload?: (payload: CloseoutDeliveryPayload) => void;
 }): Promise<AgentRunLoopResult> {
   const TRANSIENT_HTTP_RETRY_DELAY_MS = 2_500;
   let didLogHeartbeatStrip = false;
@@ -1615,6 +1618,8 @@ export async function runAgentTurnWithFallback(params: {
                 imageOrder: params.opts?.imageOrder,
                 abortSignal: params.replyOperation?.abortSignal ?? params.opts?.abortSignal,
                 replyOperation: params.replyOperation,
+                onAgentToolResult: params.onAgentToolResult,
+                onAgentCloseoutPayload: params.onAgentCloseoutPayload,
                 blockReplyBreak: params.resolvedBlockStreamingBreak,
                 blockReplyChunking: params.blockReplyChunking,
                 onPartialReply: async (payload) => {
