@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-06-30T06:00:12.400Z",
+  "identity": "non-identical by observation",
+  "proof": {
+    "hookRegistryShowsGe2": true,
+    "liveRpcCommandsListShowsGe2": false,
+    "liveRpcPluginNames": [
+      "pair",
+      "dreaming",
+      "phone",
+      "voice"
+    ],
+    "localSingleProcessProbeSharedIdentity": true
+  },
+  "conclusion": "Within a local single Node process, types-CdFhLeaX.js registrar and commands-D2qp4St4.js listPluginCommands share identity. In the running Gateway, hook-side registry observations and RPC commands.list observations diverge, proving the hook registrar registry object is not the authoritative RPC command-list registry object."
+}

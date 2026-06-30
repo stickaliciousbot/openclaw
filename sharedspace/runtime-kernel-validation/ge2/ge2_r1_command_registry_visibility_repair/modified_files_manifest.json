@@ -1,0 +1,59 @@
+{
+  "generatedAt": "2026-06-30T04:18:48.484Z",
+  "files": [
+    {
+      "path": "/home/stickai/.openclaw/workspace/hooks/ge2-register/handler.js",
+      "exists": true,
+      "sha256": "df02674d9a67d764b411ec9864e388c9c76cb42b47155aec419dbc44f19b6bf2",
+      "size": 9228
+    },
+    {
+      "path": "/home/stickai/.openclaw/workspace/ge2-native-runtime/src/ge2_command_router.mjs",
+      "exists": true,
+      "sha256": "672b61070b04905880f5ba3a9bb45795cf542469848e61f88e696823c82c2e83",
+      "size": 3126
+    },
+    {
+      "path": "/home/stickai/.openclaw/workspace/ge2-native-runtime/src/ge2_dispatcher.mjs",
+      "exists": true,
+      "sha256": "075e52c019994132f407578a85bd9aca9e37fcea543717c6f705f38d2e46cc8a",
+      "size": 6532
+    },
+    {
+      "path": "/home/stickai/.openclaw/workspace/plugins/ge2-command/index.mjs",
+      "exists": true,
+      "sha256": "c7bd4c9853457482fab930d3d9f6af71752ac301c93086a35386ca6bd0c4e1ca",
+      "size": 3984
+    },
+    {
+      "path": "/home/stickai/.openclaw/workspace/plugins/ge2-command/openclaw.plugin.json",
+      "exists": true,
+      "sha256": "13f93e1f7d85e76658d9537c043d8ac7e60c9a41135c3960c1735e565bede723",
+      "size": 340
+    },
+    {
+      "path": "/home/stickai/.openclaw/workspace/plugins/ge2-command/package.json",
+      "exists": true,
+      "sha256": "95ac46de5f643813d87fd2e92d7f5ef7178b06eee43d2792ed78db89eaeba196",
+      "size": 144
+    },
+    {
+      "path": "/home/stickai/.openclaw/extensions/ge2-command/index.mjs",
+      "exists": true,
+      "sha256": "d2006bbd10df4a6d7bb2c7eff3c254e4edd0d88b13096f71367f67ccf1ba43e4",
+      "size": 4054
+    },
+    {
+      "path": "/home/stickai/.openclaw/extensions/ge2-command/openclaw.plugin.json",
+      "exists": true,
+      "sha256": "13f93e1f7d85e76658d9537c043d8ac7e60c9a41135c3960c1735e565bede723",
+      "size": 340
+    },
+    {
+      "path": "/home/stickai/.openclaw/extensions/ge2-command/package.json",
+      "exists": true,
+      "sha256": "95ac46de5f643813d87fd2e92d7f5ef7178b06eee43d2792ed78db89eaeba196",
+      "size": 144
+    }
+  ]
+}

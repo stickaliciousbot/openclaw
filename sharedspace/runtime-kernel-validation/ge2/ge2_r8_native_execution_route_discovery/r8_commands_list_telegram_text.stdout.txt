@@ -1,0 +1,1325 @@
+{
+  "commands": [
+    {
+      "name": "help",
+      "nativeName": "help",
+      "textAliases": [
+        "/help"
+      ],
+      "description": "Show available commands.",
+      "category": "status",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": false
+    },
+    {
+      "name": "commands",
+      "nativeName": "commands",
+      "textAliases": [
+        "/commands"
+      ],
+      "description": "List all slash commands.",
+      "category": "status",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": false
+    },
+    {
+      "name": "tools",
+      "nativeName": "tools",
+      "textAliases": [
+        "/tools"
+      ],
+      "description": "List available runtime tools.",
+      "category": "status",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": true,
+      "args": [
+        {
+          "name": "mode",
+          "description": "compact or verbose",
+          "type": "string",
+          "choices": [
+            {
+              "value": "compact",
+              "label": "compact"
+            },
+            {
+              "value": "verbose",
+              "label": "verbose"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "skill",
+      "nativeName": "skill",
+      "textAliases": [
+        "/skill"
+      ],
+      "description": "Run a skill by name.",
+      "category": "tools",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": true,
+      "args": [
+        {
+          "name": "name",
+          "description": "Skill name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "input",
+          "description": "Skill input",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "status",
+      "nativeName": "status",
+      "textAliases": [
+        "/status"
+      ],
+      "description": "Show current status.",
+      "category": "status",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": false
+    },
+    {
+      "name": "diagnostics",
+      "nativeName": "diagnostics",
+      "textAliases": [
+        "/diagnostics"
+      ],
+      "description": "Explain Gateway diagnostics and Codex feedback upload options.",
+      "category": "status",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": true,
+      "args": [
+        {
+          "name": "note",
+          "description": "Optional note for Codex feedback upload",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "crestodian",
+      "textAliases": [
+        "/crestodian"
+      ],
+      "description": "Run the Crestodian setup and repair helper.",
+      "category": "management",
+      "source": "native",
+      "scope": "text",
+      "acceptsArgs": true
+    },
+    {
+      "name": "tasks",
+      "nativeName": "tasks",
+      "textAliases": [
+        "/tasks"
+      ],
+      "description": "List background tasks for this session.",
+      "category": "status",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": false
+    },
+    {
+      "name": "allowlist",
+      "textAliases": [
+        "/allowlist"
+      ],
+      "description": "List/add/remove allowlist entries.",
+      "category": "management",
+      "source": "native",
+      "scope": "text",
+      "acceptsArgs": true
+    },
+    {
+      "name": "approve",
+      "nativeName": "approve",
+      "textAliases": [
+        "/approve"
+      ],
+      "description": "Approve or deny exec requests.",
+      "category": "management",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": true
+    },
+    {
+      "name": "context",
+      "nativeName": "context",
+      "textAliases": [
+        "/context"
+      ],
+      "description": "Explain how context is built and used.",
+      "category": "status",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": true
+    },
+    {
+      "name": "btw",
+      "nativeName": "btw",
+      "textAliases": [
+        "/btw",
+        "/side"
+      ],
+      "description": "Ask a side question without changing future session context.",
+      "category": "tools",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": true
+    },
+    {
+      "name": "export-session",
+      "nativeName": "export-session",
+      "textAliases": [
+        "/export-session",
+        "/export"
+      ],
+      "description": "Export current session to HTML file with full system prompt.",
+      "category": "status",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": true,
+      "args": [
+        {
+          "name": "path",
+          "description": "Output path (default: workspace)",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "export-trajectory",
+      "nativeName": "export-trajectory",
+      "textAliases": [
+        "/export-trajectory",
+        "/trajectory"
+      ],
+      "description": "Export a JSONL trajectory bundle for the active session.",
+      "category": "status",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": true,
+      "args": [
+        {
+          "name": "path",
+          "description": "Output directory (default: workspace)",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "tts",
+      "nativeName": "tts",
+      "textAliases": [
+        "/tts"
+      ],
+      "description": "Control text-to-speech (TTS).",
+      "category": "media",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": true,
+      "args": [
+        {
+          "name": "action",
+          "description": "TTS action",
+          "type": "string",
+          "choices": [
+            {
+              "value": "on",
+              "label": "On"
+            },
+            {
+              "value": "off",
+              "label": "Off"
+            },
+            {
+              "value": "status",
+              "label": "Status"
+            },
+            {
+              "value": "provider",
+              "label": "Provider"
+            },
+            {
+              "value": "limit",
+              "label": "Limit"
+            },
+            {
+              "value": "summary",
+              "label": "Summary"
+            },
+            {
+              "value": "audio",
+              "label": "Audio"
+            },
+            {
+              "value": "help",
+              "label": "Help"
+            }
+          ]
+        },
+        {
+          "name": "value",
+          "description": "Provider, limit, or text",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "whoami",
+      "nativeName": "whoami",
+      "textAliases": [
+        "/whoami",
+        "/id"
+      ],
+      "description": "Show your sender id.",
+      "category": "status",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": false
+    },
+    {
+      "name": "session",
+      "nativeName": "session",
+      "textAliases": [
+        "/session"
+      ],
+      "description": "Manage session-level settings (for example /session idle).",
+      "category": "session",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": true,
+      "args": [
+        {
+          "name": "action",
+          "description": "idle | max-age",
+          "type": "string",
+          "choices": [
+            {
+              "value": "idle",
+              "label": "idle"
+            },
+            {
+              "value": "max-age",
+              "label": "max-age"
+            }
+          ]
+        },
+        {
+          "name": "value",
+          "description": "Duration (24h, 90m) or off",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "subagents",
+      "nativeName": "subagents",
+      "textAliases": [
+        "/subagents"
+      ],
+      "description": "List, kill, log, spawn, or steer subagent runs for this session.",
+      "category": "management",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": true,
+      "args": [
+        {
+          "name": "action",
+          "description": "list | kill | log | info | send | steer | spawn",
+          "type": "string",
+          "choices": [
+            {
+              "value": "list",
+              "label": "list"
+            },
+            {
+              "value": "kill",
+              "label": "kill"
+            },
+            {
+              "value": "log",
+              "label": "log"
+            },
+            {
+              "value": "info",
+              "label": "info"
+            },
+            {
+              "value": "send",
+              "label": "send"
+            },
+            {
+              "value": "steer",
+              "label": "steer"
+            },
+            {
+              "value": "spawn",
+              "label": "spawn"
+            }
+          ]
+        },
+        {
+          "name": "target",
+          "description": "Run id, index, or session key",
+          "type": "string"
+        },
+        {
+          "name": "value",
+          "description": "Additional input (limit/message)",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "acp",
+      "nativeName": "acp",
+      "textAliases": [
+        "/acp"
+      ],
+      "description": "Manage ACP sessions and runtime options.",
+      "category": "management",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": true,
+      "args": [
+        {
+          "name": "action",
+          "description": "Action to run",
+          "type": "string",
+          "choices": [
+            {
+              "value": "spawn",
+              "label": "spawn"
+            },
+            {
+              "value": "cancel",
+              "label": "cancel"
+            },
+            {
+              "value": "steer",
+              "label": "steer"
+            },
+            {
+              "value": "close",
+              "label": "close"
+            },
+            {
+              "value": "sessions",
+              "label": "sessions"
+            },
+            {
+              "value": "status",
+              "label": "status"
+            },
+            {
+              "value": "set-mode",
+              "label": "set-mode"
+            },
+            {
+              "value": "set",
+              "label": "set"
+            },
+            {
+              "value": "cwd",
+              "label": "cwd"
+            },
+            {
+              "value": "permissions",
+              "label": "permissions"
+            },
+            {
+              "value": "timeout",
+              "label": "timeout"
+            },
+            {
+              "value": "model",
+              "label": "model"
+            },
+            {
+              "value": "reset-options",
+              "label": "reset-options"
+            },
+            {
+              "value": "doctor",
+              "label": "doctor"
+            },
+            {
+              "value": "install",
+              "label": "install"
+            },
+            {
+              "value": "help",
+              "label": "help"
+            }
+          ]
+        },
+        {
+          "name": "value",
+          "description": "Action arguments",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "focus",
+      "nativeName": "focus",
+      "textAliases": [
+        "/focus"
+      ],
+      "description": "Bind this thread (Discord) or topic/conversation (Telegram) to a session target.",
+      "category": "management",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": true,
+      "args": [
+        {
+          "name": "target",
+          "description": "Subagent label/index or session key/id/label",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "unfocus",
+      "nativeName": "unfocus",
+      "textAliases": [
+        "/unfocus"
+      ],
+      "description": "Remove the current thread (Discord) or topic/conversation (Telegram) binding.",
+      "category": "management",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": false
+    },
+    {
+      "name": "agents",
+      "nativeName": "agents",
+      "textAliases": [
+        "/agents"
+      ],
+      "description": "List thread-bound agents for this session.",
+      "category": "management",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": false
+    },
+    {
+      "name": "kill",
+      "nativeName": "kill",
+      "textAliases": [
+        "/kill"
+      ],
+      "description": "Kill a running subagent (or all).",
+      "category": "management",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": true,
+      "args": [
+        {
+          "name": "target",
+          "description": "Label, run id, index, or all",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "steer",
+      "nativeName": "steer",
+      "textAliases": [
+        "/steer",
+        "/tell"
+      ],
+      "description": "Send guidance to the active run in this session.",
+      "category": "management",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": true,
+      "args": [
+        {
+          "name": "message",
+          "description": "Steering message",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "usage",
+      "nativeName": "usage",
+      "textAliases": [
+        "/usage"
+      ],
+      "description": "Usage footer or cost summary.",
+      "category": "options",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": true,
+      "args": [
+        {
+          "name": "mode",
+          "description": "off, tokens, full, or cost",
+          "type": "string",
+          "choices": [
+            {
+              "value": "off",
+              "label": "off"
+            },
+            {
+              "value": "tokens",
+              "label": "tokens"
+            },
+            {
+              "value": "full",
+              "label": "full"
+            },
+            {
+              "value": "cost",
+              "label": "cost"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stop",
+      "nativeName": "stop",
+      "textAliases": [
+        "/stop"
+      ],
+      "description": "Stop the current run.",
+      "category": "session",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": false
+    },
+    {
+      "name": "restart",
+      "nativeName": "restart",
+      "textAliases": [
+        "/restart"
+      ],
+      "description": "Restart OpenClaw.",
+      "category": "tools",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": false
+    },
+    {
+      "name": "activation",
+      "nativeName": "activation",
+      "textAliases": [
+        "/activation"
+      ],
+      "description": "Set group activation mode.",
+      "category": "management",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": true,
+      "args": [
+        {
+          "name": "mode",
+          "description": "mention or always",
+          "type": "string",
+          "choices": [
+            {
+              "value": "mention",
+              "label": "mention"
+            },
+            {
+              "value": "always",
+              "label": "always"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "send",
+      "nativeName": "send",
+      "textAliases": [
+        "/send"
+      ],
+      "description": "Set send policy.",
+      "category": "management",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": true,
+      "args": [
+        {
+          "name": "mode",
+          "description": "on, off, or inherit",
+          "type": "string",
+          "choices": [
+            {
+              "value": "on",
+              "label": "on"
+            },
+            {
+              "value": "off",
+              "label": "off"
+            },
+            {
+              "value": "inherit",
+              "label": "inherit"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "reset",
+      "nativeName": "reset",
+      "textAliases": [
+        "/reset"
+      ],
+      "description": "Reset the current session.",
+      "category": "session",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": true
+    },
+    {
+      "name": "new",
+      "nativeName": "new",
+      "textAliases": [
+        "/new"
+      ],
+      "description": "Start a new session.",
+      "category": "session",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": true
+    },
+    {
+      "name": "compact",
+      "nativeName": "compact",
+      "textAliases": [
+        "/compact"
+      ],
+      "description": "Compact the session context.",
+      "category": "session",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": true,
+      "args": [
+        {
+          "name": "instructions",
+          "description": "Extra compaction instructions",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "think",
+      "nativeName": "think",
+      "textAliases": [
+        "/think",
+        "/thinking",
+        "/t"
+      ],
+      "description": "Set thinking level.",
+      "category": "options",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": true,
+      "args": [
+        {
+          "name": "level",
+          "description": "Thinking level",
+          "type": "string",
+          "dynamic": true
+        }
+      ]
+    },
+    {
+      "name": "verbose",
+      "nativeName": "verbose",
+      "textAliases": [
+        "/verbose",
+        "/v"
+      ],
+      "description": "Toggle verbose mode.",
+      "category": "options",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": true,
+      "args": [
+        {
+          "name": "mode",
+          "description": "on, off, or full",
+          "type": "string",
+          "choices": [
+            {
+              "value": "on",
+              "label": "on"
+            },
+            {
+              "value": "off",
+              "label": "off"
+            },
+            {
+              "value": "full",
+              "label": "full"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "trace",
+      "nativeName": "trace",
+      "textAliases": [
+        "/trace"
+      ],
+      "description": "Toggle plugin trace lines.",
+      "category": "options",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": true,
+      "args": [
+        {
+          "name": "mode",
+          "description": "on, off, or raw",
+          "type": "string",
+          "choices": [
+            {
+              "value": "on",
+              "label": "on"
+            },
+            {
+              "value": "off",
+              "label": "off"
+            },
+            {
+              "value": "raw",
+              "label": "raw"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fast",
+      "nativeName": "fast",
+      "textAliases": [
+        "/fast"
+      ],
+      "description": "Toggle fast mode.",
+      "category": "options",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": true,
+      "args": [
+        {
+          "name": "mode",
+          "description": "status, on, or off",
+          "type": "string",
+          "choices": [
+            {
+              "value": "status",
+              "label": "status"
+            },
+            {
+              "value": "on",
+              "label": "on"
+            },
+            {
+              "value": "off",
+              "label": "off"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "reasoning",
+      "nativeName": "reasoning",
+      "textAliases": [
+        "/reasoning",
+        "/reason"
+      ],
+      "description": "Toggle reasoning visibility.",
+      "category": "options",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": true,
+      "args": [
+        {
+          "name": "mode",
+          "description": "on, off, or stream",
+          "type": "string",
+          "choices": [
+            {
+              "value": "on",
+              "label": "on"
+            },
+            {
+              "value": "off",
+              "label": "off"
+            },
+            {
+              "value": "stream",
+              "label": "stream"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "elevated",
+      "nativeName": "elevated",
+      "textAliases": [
+        "/elevated",
+        "/elev"
+      ],
+      "description": "Toggle elevated mode.",
+      "category": "options",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": true,
+      "args": [
+        {
+          "name": "mode",
+          "description": "on, off, ask, or full",
+          "type": "string",
+          "choices": [
+            {
+              "value": "on",
+              "label": "on"
+            },
+            {
+              "value": "off",
+              "label": "off"
+            },
+            {
+              "value": "ask",
+              "label": "ask"
+            },
+            {
+              "value": "full",
+              "label": "full"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "exec",
+      "nativeName": "exec",
+      "textAliases": [
+        "/exec"
+      ],
+      "description": "Set exec defaults for this session.",
+      "category": "options",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": true,
+      "args": [
+        {
+          "name": "host",
+          "description": "sandbox, gateway, or node",
+          "type": "string",
+          "choices": [
+            {
+              "value": "sandbox",
+              "label": "sandbox"
+            },
+            {
+              "value": "gateway",
+              "label": "gateway"
+            },
+            {
+              "value": "node",
+              "label": "node"
+            }
+          ]
+        },
+        {
+          "name": "security",
+          "description": "deny, allowlist, or full",
+          "type": "string",
+          "choices": [
+            {
+              "value": "deny",
+              "label": "deny"
+            },
+            {
+              "value": "allowlist",
+              "label": "allowlist"
+            },
+            {
+              "value": "full",
+              "label": "full"
+            }
+          ]
+        },
+        {
+          "name": "ask",
+          "description": "off, on-miss, or always",
+          "type": "string",
+          "choices": [
+            {
+              "value": "off",
+              "label": "off"
+            },
+            {
+              "value": "on-miss",
+              "label": "on-miss"
+            },
+            {
+              "value": "always",
+              "label": "always"
+            }
+          ]
+        },
+        {
+          "name": "node",
+          "description": "Node id or name",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "model",
+      "nativeName": "model",
+      "textAliases": [
+        "/model"
+      ],
+      "description": "Show or set the model.",
+      "category": "options",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": true,
+      "args": [
+        {
+          "name": "model",
+          "description": "Model id (provider/model or id)",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "models",
+      "nativeName": "models",
+      "textAliases": [
+        "/models"
+      ],
+      "description": "List model providers/models.",
+      "category": "options",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": true
+    },
+    {
+      "name": "queue",
+      "nativeName": "queue",
+      "textAliases": [
+        "/queue"
+      ],
+      "description": "Adjust queue settings.",
+      "category": "options",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": true,
+      "args": [
+        {
+          "name": "mode",
+          "description": "queue mode",
+          "type": "string",
+          "choices": [
+            {
+              "value": "steer",
+              "label": "steer"
+            },
+            {
+              "value": "queue",
+              "label": "queue"
+            },
+            {
+              "value": "interrupt",
+              "label": "interrupt"
+            },
+            {
+              "value": "followup",
+              "label": "followup"
+            },
+            {
+              "value": "collect",
+              "label": "collect"
+            },
+            {
+              "value": "steer-backlog",
+              "label": "steer-backlog"
+            }
+          ]
+        },
+        {
+          "name": "debounce",
+          "description": "debounce duration (e.g. 500ms, 2s)",
+          "type": "string"
+        },
+        {
+          "name": "cap",
+          "description": "queue cap",
+          "type": "number"
+        },
+        {
+          "name": "drop",
+          "description": "drop policy",
+          "type": "string",
+          "choices": [
+            {
+              "value": "old",
+              "label": "old"
+            },
+            {
+              "value": "new",
+              "label": "new"
+            },
+            {
+              "value": "summarize",
+              "label": "summarize"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dock-telegram",
+      "nativeName": "dock_telegram",
+      "textAliases": [
+        "/dock-telegram",
+        "/dock_telegram"
+      ],
+      "description": "Switch to telegram for replies.",
+      "category": "docks",
+      "source": "native",
+      "scope": "both",
+      "acceptsArgs": false
+    },
+    {
+      "name": "at_risk_student_csv_analyzer",
+      "nativeName": "at_risk_student_csv_analyzer",
+      "textAliases": [
+        "/at_risk_student_csv_analyzer"
+      ],
+      "description": "Analyze student grade CSVs, flag at-risk students across subject/attendance thresholds, and draft w…",
+      "category": "tools",
+      "source": "skill",
+      "scope": "both",
+      "acceptsArgs": true
+    },
+    {
+      "name": "data_formulator",
+      "nativeName": "data_formulator",
+      "textAliases": [
+        "/data_formulator"
+      ],
+      "description": "Local Microsoft Research Data Formulator workflow for data rendering, visualization, charting, and …",
+      "category": "tools",
+      "source": "skill",
+      "scope": "both",
+      "acceptsArgs": true
+    },
+    {
+      "name": "execution_validation",
+      "nativeName": "execution_validation",
+      "textAliases": [
+        "/execution_validation"
+      ],
+      "description": "Run and report the local execution verification pipeline ONLY when the user’s message ends with /gu…",
+      "category": "tools",
+      "source": "skill",
+      "scope": "both",
+      "acceptsArgs": true
+    },
+    {
+      "name": "gog",
+      "nativeName": "gog",
+      "textAliases": [
+        "/gog"
+      ],
+      "description": "Google Workspace CLI for Gmail, Calendar, Drive, Contacts, Sheets, and Docs.",
+      "category": "tools",
+      "source": "skill",
+      "scope": "both",
+      "acceptsArgs": true
+    },
+    {
+      "name": "healthcheck",
+      "nativeName": "healthcheck",
+      "textAliases": [
+        "/healthcheck"
+      ],
+      "description": "Audit and harden hosts running OpenClaw for SSH, firewall, updates, exposure, cron checks, and risk…",
+      "category": "tools",
+      "source": "skill",
+      "scope": "both",
+      "acceptsArgs": true
+    },
+    {
+      "name": "node_connect",
+      "nativeName": "node_connect",
+      "textAliases": [
+        "/node_connect"
+      ],
+      "description": "Diagnose OpenClaw Android, iOS, or macOS node pairing, QR/setup code, route, auth, and connection f…",
+      "category": "tools",
+      "source": "skill",
+      "scope": "both",
+      "acceptsArgs": true
+    },
+    {
+      "name": "openai_whisper_api",
+      "nativeName": "openai_whisper_api",
+      "textAliases": [
+        "/openai_whisper_api"
+      ],
+      "description": "Transcribe audio via OpenAI Audio Transcriptions API (Whisper).",
+      "category": "tools",
+      "source": "skill",
+      "scope": "both",
+      "acceptsArgs": true
+    },
+    {
+      "name": "skill_creator",
+      "nativeName": "skill_creator",
+      "textAliases": [
+        "/skill_creator"
+      ],
+      "description": "Create, edit, improve, tidy, review, audit, or restructure AgentSkills and SKILL.md files.",
+      "category": "tools",
+      "source": "skill",
+      "scope": "both",
+      "acceptsArgs": true
+    },
+    {
+      "name": "taskflow",
+      "nativeName": "taskflow",
+      "textAliases": [
+        "/taskflow"
+      ],
+      "description": "Coordinate multi-step detached tasks as one durable TaskFlow job with owner context, state, waits, …",
+      "category": "tools",
+      "source": "skill",
+      "scope": "both",
+      "acceptsArgs": true
+    },
+    {
+      "name": "taskflow_inbox_triage",
+      "nativeName": "taskflow_inbox_triage",
+      "textAliases": [
+        "/taskflow_inbox_triage"
+      ],
+      "description": "Example TaskFlow pattern for inbox triage, intent routing, waiting on replies, and later summaries.",
+      "category": "tools",
+      "source": "skill",
+      "scope": "both",
+      "acceptsArgs": true
+    },
+    {
+      "name": "tmux",
+      "nativeName": "tmux",
+      "textAliases": [
+        "/tmux"
+      ],
+      "description": "Remote-control tmux sessions for interactive CLIs by sending keystrokes and scraping pane output.",
+      "category": "tools",
+      "source": "skill",
+      "scope": "both",
+      "acceptsArgs": true
+    },
+    {
+      "name": "weather",
+      "nativeName": "weather",
+      "textAliases": [
+        "/weather"
+      ],
+      "description": "Get current weather, rain, temperature, and forecasts for locations or travel planning.",
+      "category": "tools",
+      "source": "skill",
+      "scope": "both",
+      "acceptsArgs": true
+    },
+    {
+      "name": "webwright",
+      "nativeName": "webwright",
+      "textAliases": [
+        "/webwright"
+      ],
+      "description": "Solve a user-specified web task code-as-action style by driving a local Playwright browser through …",
+      "category": "tools",
+      "source": "skill",
+      "scope": "both",
+      "acceptsArgs": true
+    },
+    {
+      "name": "pair",
+      "nativeName": "pair",
+      "textAliases": [
+        "/pair"
+      ],
+      "description": "Generate setup codes and approve device pairing requests.",
+      "source": "plugin",
+      "scope": "both",
+      "acceptsArgs": true
+    },
+    {
+      "name": "dreaming",
+      "nativeName": "dreaming",
+      "textAliases": [
+        "/dreaming"
+      ],
+      "description": "Enable or disable memory dreaming.",
+      "source": "plugin",
+      "scope": "both",
+      "acceptsArgs": true
+    },
+    {
+      "name": "phone",
+      "nativeName": "phone",
+      "textAliases": [
+        "/phone"
+      ],
+      "description": "Arm/disarm high-risk phone node commands (camera/screen/writes).",
+      "source": "plugin",
+      "scope": "both",
+      "acceptsArgs": true
+    },
+    {
+      "name": "voice",
+      "nativeName": "voice",
+      "textAliases": [
+        "/voice"
+      ],
+      "description": "List/set Talk provider voices (affects iOS Talk playback).",
+      "source": "plugin",
+      "scope": "both",
+      "acceptsArgs": true
+    },
+    {
+      "name": "ge2",
+      "nativeName": "ge2",
+      "textAliases": [
+        "/ge2"
+      ],
+      "description": "Run and inspect native GE2 durable command-surface operations.",
+      "source": "plugin",
+      "scope": "both",
+      "acceptsArgs": true
+    }
+  ]
+}

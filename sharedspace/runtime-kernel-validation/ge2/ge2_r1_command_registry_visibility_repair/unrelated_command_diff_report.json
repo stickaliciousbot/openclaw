@@ -1,0 +1,11 @@
+{
+  "generatedAt": "2026-06-30T04:18:48.484Z",
+  "status": "PASS_WITH_NOTE",
+  "pluginCommandNames": [
+    "pair",
+    "dreaming",
+    "phone",
+    "voice"
+  ],
+  "note": "Existing visible plugin commands remain pair/dreaming/phone/voice; ge2 absent."
+}

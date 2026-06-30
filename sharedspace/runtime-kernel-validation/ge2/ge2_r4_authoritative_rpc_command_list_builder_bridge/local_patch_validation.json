@@ -1,0 +1,14 @@
+{
+  "generatedAt": "2026-06-30T06:48:05.391Z",
+  "importOk": true,
+  "exportedKeys": [
+    "handleGatewayRequest"
+  ],
+  "markers": {
+    "collectActiveRegistryPluginCommandEntries": true,
+    "resolveActiveRegistryCommandNativeName": true,
+    "activeRegistryCommandSupportsProvider": true,
+    "entries.push(...collectActiveRegistryPluginCommandEntries(params, entries))": true
+  },
+  "sha256": "638aa2dbf4cc7a9758b0d3f5679ec745e329e0f8f164408731a2107357993986"
+}

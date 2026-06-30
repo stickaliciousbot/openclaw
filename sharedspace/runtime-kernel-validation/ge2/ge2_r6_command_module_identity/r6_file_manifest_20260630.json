@@ -1,0 +1,14 @@
+{
+  "generatedAt": "2026-06-30T07:49:29.179Z",
+  "allExist": true,
+  "files": [
+    {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r6_command_module_identity/r6_command_module_identity_report_20260630.json",
+      "sha256": "bb9863735b1bc9b5be73b55a1ae663fae2b7e0c3c3e1f14fa047cd354105fa7b"
+    },
+    {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r6_command_module_identity/GE2_R6_COMMAND_MODULE_IDENTITY_DIAGNOSIS.md",
+      "sha256": "2fac71b63ddf2a1cbd86a171f6db9c414f579f40361d03b563800e639b9fb2e2"
+    }
+  ]
+}

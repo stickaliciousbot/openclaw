@@ -1,0 +1,114 @@
+{
+  "generatedAt": "2026-06-30T04:19:37.491Z",
+  "dir": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r1_command_registry_visibility_repair",
+  "files": [
+    {
+      "name": "status.json",
+      "exists": true,
+      "bytes": 2246,
+      "sha256": "3d1ed72bc678d104c337664abea22e95c76c1be39ad428b5a8623317921953b3"
+    },
+    {
+      "name": "summary.json",
+      "exists": true,
+      "bytes": 2246,
+      "sha256": "3d1ed72bc678d104c337664abea22e95c76c1be39ad428b5a8623317921953b3"
+    },
+    {
+      "name": "investigation_report.md",
+      "exists": true,
+      "bytes": 614,
+      "sha256": "936135d4440b8959237eadb12a03b727f21e58a44cc3a4eef539703478a1dbef"
+    },
+    {
+      "name": "registrar_path_report.json",
+      "exists": true,
+      "bytes": 604,
+      "sha256": "66d56a8355fd0396b691d3af43331ae9b2348626e63983fca2601c4fb50900a1"
+    },
+    {
+      "name": "command_list_path_report.json",
+      "exists": true,
+      "bytes": 1343,
+      "sha256": "04ac515662f64e169d94460952bc3c1ccd34dadf937075615096ac05c91b2a53"
+    },
+    {
+      "name": "registry_identity_report.json",
+      "exists": true,
+      "bytes": 290,
+      "sha256": "c91a82b6524235668ad4536ed66791181f2cfc53ebcb6a4fe6e863eafdf66672"
+    },
+    {
+      "name": "registration_loss_point_report.json",
+      "exists": true,
+      "bytes": 351,
+      "sha256": "9e7b0c6deff0784ebb33f78ccce3d09aaed12a1ffc1441217415166c402d9e86"
+    },
+    {
+      "name": "implementation_diff_summary.md",
+      "exists": true,
+      "bytes": 723,
+      "sha256": "23066bc67078b3b8e936d871092bcab26007729b939e99ab9fa491d5fab245f2"
+    },
+    {
+      "name": "modified_files_manifest.json",
+      "exists": true,
+      "bytes": 2067,
+      "sha256": "8df7df0523f8ea4e5b33b49963903e491fe4cb0b5dbf16086ee21f17c3455b08"
+    },
+    {
+      "name": "registrar_direct_test_report.json",
+      "exists": true,
+      "bytes": 189,
+      "sha256": "4ec6521c85b9c7b5a8fbb3038af865e8487f146377e68ddb0153c0581c09b33b"
+    },
+    {
+      "name": "live_commands_list_test_report.json",
+      "exists": true,
+      "bytes": 1213,
+      "sha256": "ea988c4dc6cb8db8a41a69c24009e18d47c31fff6edf774a3c0dec0faf26bbf5"
+    },
+    {
+      "name": "restart_durability_test_report.json",
+      "exists": true,
+      "bytes": 210,
+      "sha256": "7cfb844bbcbb5031cd8991219db34716408b877c6c611406c559dc78c73eb15d"
+    },
+    {
+      "name": "permission_visibility_test_report.json",
+      "exists": true,
+      "bytes": 252,
+      "sha256": "32e243c0bf40b3b7d0beaa0c7b994691c6a8c6ac400fe07256509410a56c1622"
+    },
+    {
+      "name": "negative_command_visibility_test_report.json",
+      "exists": true,
+      "bytes": 99,
+      "sha256": "542c9ff5795392a2fea9af59450af14ebb634ad5ea8c02af91f93f03e67f6f3c"
+    },
+    {
+      "name": "unrelated_command_diff_report.json",
+      "exists": true,
+      "bytes": 254,
+      "sha256": "74bc77b1a9cff807e9df8c0cf26717bdc4d05c85dcce54b97b94038bd4f68eeb"
+    },
+    {
+      "name": "mutation_scope_report.json",
+      "exists": true,
+      "bytes": 210,
+      "sha256": "b949b23700032139688ef7e1b76b43b29215fba7bb785bca6bd743ca0522f047"
+    },
+    {
+      "name": "rollback_readiness.json",
+      "exists": true,
+      "bytes": 431,
+      "sha256": "7d5e17cbf806eb4cbf6a8ab722386879696917262c21776bb1335fec88d300ec"
+    },
+    {
+      "name": "GE2_R1_COMMAND_REGISTRY_VISIBILITY_REPAIR.md",
+      "exists": true,
+      "bytes": 811,
+      "sha256": "db2491491f41c618a5ac6303ff3e94cade6452e53949f9f9a04be7f11208a144"
+    }
+  ]
+}

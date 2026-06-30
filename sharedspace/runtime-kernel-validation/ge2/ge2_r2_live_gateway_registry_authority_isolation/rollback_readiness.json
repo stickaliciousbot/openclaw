@@ -1,0 +1,5 @@
+{
+  "generatedAt": "2026-06-30T06:00:12.400Z",
+  "status": "READY",
+  "note": "R2 made diagnostic artifact-only changes. Existing R1 rollback readiness remains valid for GE2 plugin/hook staging. No runtime/config apply to roll back from R2."
+}

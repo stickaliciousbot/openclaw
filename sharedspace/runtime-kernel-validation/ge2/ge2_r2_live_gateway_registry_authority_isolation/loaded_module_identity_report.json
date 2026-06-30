@@ -1,0 +1,64 @@
+{
+  "generatedAt": "2026-06-30T05:54:58.670Z",
+  "pid": "285000",
+  "proc": {
+    "cmdline": [
+      "/usr/bin/node",
+      "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/index.js",
+      "gateway",
+      "--port",
+      "18789"
+    ],
+    "cwd": "/home/stickai",
+    "exe": "/usr/bin/node",
+    "root": "/",
+    "environ": {
+      "HOME": "/home/stickai",
+      "PATH": "/usr/bin:/home/stickai/.local/bin:/home/stickai/.npm-global/bin:/home/stickai/bin:/home/stickai/.nix-profile/bin:/usr/local/bin:/bin:/home/stickai/.bun/bin",
+      "USER": "stickai",
+      "OPENCLAW_GATEWAY_PORT": "18789",
+      "OPENCLAW_SYSTEMD_UNIT": "<redacted>",
+      "OPENCLAW_WINDOWS_TASK_NAME": "<redacted>",
+      "OPENCLAW_SERVICE_MARKER": "<redacted>",
+      "OPENCLAW_SERVICE_KIND": "<redacted>",
+      "OPENCLAW_SERVICE_VERSION": "<redacted>"
+    }
+  },
+  "files": [
+    {
+      "file": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/index.js",
+      "exists": true,
+      "realpath": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/index.js",
+      "sha256": "8accf91e27267200eb484e431d47bd1ec138c572ac12720b828c33e06d175574",
+      "size": 3056
+    },
+    {
+      "file": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/server-methods-Dw6hzI_j.js",
+      "exists": true,
+      "realpath": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/server-methods-Dw6hzI_j.js",
+      "sha256": "3755aac90683d85283bf5d270dba9a6aac8d5bec042295e60d2f799163dbd9f7",
+      "size": 444560
+    },
+    {
+      "file": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/commands-D2qp4St4.js",
+      "exists": true,
+      "realpath": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/commands-D2qp4St4.js",
+      "sha256": "358e3b5d430d057ed0b2edd0e66a5003ff321a310506d5ce95459a91b1c7c376",
+      "size": 11841
+    },
+    {
+      "file": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/types-CdFhLeaX.js",
+      "exists": true,
+      "realpath": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/types-CdFhLeaX.js",
+      "sha256": "9c052cfd3f1f825863ef9f94021b1fff54fc1bdb3108c669cf1b5af10504324a",
+      "size": 18558
+    },
+    {
+      "file": "/home/stickai/.openclaw/extensions/ge2-command/index.mjs",
+      "exists": true,
+      "realpath": "/home/stickai/.openclaw/extensions/ge2-command/index.mjs",
+      "sha256": "d2006bbd10df4a6d7bb2c7eff3c254e4edd0d88b13096f71367f67ccf1ba43e4",
+      "size": 4054
+    }
+  ]
+}

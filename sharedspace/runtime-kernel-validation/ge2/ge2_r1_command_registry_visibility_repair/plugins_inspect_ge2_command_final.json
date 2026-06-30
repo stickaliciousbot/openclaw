@@ -1,0 +1,96 @@
+{
+  "workspaceDir": "/home/stickai/.openclaw/workspace",
+  "plugin": {
+    "id": "ge2-command",
+    "name": "ge2-command",
+    "version": "0.0.2",
+    "packageName": "ge2-command",
+    "format": "openclaw",
+    "source": "/home/stickai/.openclaw/extensions/ge2-command/index.mjs",
+    "rootDir": "/home/stickai/.openclaw/extensions/ge2-command",
+    "origin": "global",
+    "enabled": true,
+    "compat": [],
+    "explicitlyEnabled": false,
+    "activated": true,
+    "activationSource": "default",
+    "syntheticAuthRefs": [],
+    "status": "loaded",
+    "toolNames": [],
+    "hookNames": [],
+    "channelIds": [],
+    "cliBackendIds": [],
+    "providerIds": [],
+    "speechProviderIds": [],
+    "realtimeTranscriptionProviderIds": [],
+    "realtimeVoiceProviderIds": [],
+    "mediaUnderstandingProviderIds": [],
+    "imageGenerationProviderIds": [],
+    "videoGenerationProviderIds": [],
+    "musicGenerationProviderIds": [],
+    "webFetchProviderIds": [],
+    "webSearchProviderIds": [],
+    "migrationProviderIds": [],
+    "contextEngineIds": [],
+    "memoryEmbeddingProviderIds": [],
+    "agentHarnessIds": [],
+    "gatewayMethods": [],
+    "cliCommands": [],
+    "services": [],
+    "gatewayDiscoveryServiceIds": [],
+    "commands": [
+      "ge2"
+    ],
+    "httpRoutes": 0,
+    "hookCount": 0,
+    "configSchema": true,
+    "configJsonSchema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {}
+    },
+    "imported": false,
+    "dependencyStatus": {
+      "hasDependencies": false,
+      "installed": true,
+      "requiredInstalled": true,
+      "optionalInstalled": true,
+      "missing": [],
+      "missingOptional": [],
+      "dependencies": [],
+      "optionalDependencies": []
+    }
+  },
+  "shape": "non-capability",
+  "capabilityMode": "none",
+  "capabilityCount": 0,
+  "capabilities": [],
+  "typedHooks": [],
+  "customHooks": [],
+  "tools": [],
+  "commands": [
+    "ge2"
+  ],
+  "cliCommands": [],
+  "services": [],
+  "gatewayDiscoveryServices": [],
+  "gatewayMethods": [],
+  "mcpServers": [],
+  "lspServers": [],
+  "httpRouteCount": 0,
+  "bundleCapabilities": [],
+  "diagnostics": [
+    {
+      "level": "warn",
+      "pluginId": "ge2-command",
+      "source": "/home/stickai/.openclaw/extensions/ge2-command/index.mjs",
+      "message": "loaded without install/load-path provenance; treat as untracked local code and pin trust via plugins.allow or install records"
+    }
+  ],
+  "policy": {
+    "allowedModels": [],
+    "hasAllowedModelsConfig": false
+  },
+  "usesLegacyBeforeAgentStart": false,
+  "compatibility": []
+}

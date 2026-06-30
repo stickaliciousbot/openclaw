@@ -1,0 +1,1855 @@
+{
+  "generatedAt": "2026-06-30T09:35:48.143Z",
+  "finalClassification": "GE2_R10_ADAPTER_FIXTURE_PARITY_FAIL_P2_BLOCKED",
+  "proofLevel": "P2 adapter fixture only",
+  "noP3Claim": true,
+  "previousClassification": "GE2_R9_NATIVE_HANDLER_RUN_STATUS_ARTIFACTS_PASS_P2_PENDING",
+  "surfaces": {
+    "telegram": {
+      "surface": "telegram",
+      "adapterEvidence": {
+        "exportedAdapter": "createTelegramBot from bot-Ds7bwqAK.js",
+        "fixtureKind": "synthetic grammy update via bot.handleUpdate",
+        "sourceLines": "bot-Ds7bwqAK.js registerTelegramNativeCommands command handler builds commandBody, calls loadTelegramNativeCommandRuntime().matchPluginCommand(), then executePluginCommand()"
+      },
+      "calls": [
+        {
+          "method": "deleteMyCommands",
+          "payload": {},
+          "text": "",
+          "url": "https://api.telegram.org/bot123456789:TESTTOKEN/deleteMyCommands"
+        },
+        {
+          "method": "deleteMyCommands",
+          "payload": {
+            "scope": {
+              "type": "all_group_chats"
+            }
+          },
+          "text": "",
+          "url": "https://api.telegram.org/bot123456789:TESTTOKEN/deleteMyCommands"
+        },
+        {
+          "method": "setMyCommands",
+          "payload": {
+            "commands": [
+              {
+                "command": "help",
+                "description": "Show available commands."
+              },
+              {
+                "command": "commands",
+                "description": "List all slash commands."
+              },
+              {
+                "command": "tools",
+                "description": "List available runtime tools."
+              },
+              {
+                "command": "skill",
+                "description": "Run a skill by name."
+              },
+              {
+                "command": "status",
+                "description": "Show current status."
+              },
+              {
+                "command": "diagnostics",
+                "description": "Explain Gateway diagnostics and Codex feedback upload options."
+              },
+              {
+                "command": "tasks",
+                "description": "List background tasks for this session."
+              },
+              {
+                "command": "approve",
+                "description": "Approve or deny exec requests."
+              },
+              {
+                "command": "context",
+                "description": "Explain how context is built and used."
+              },
+              {
+                "command": "btw",
+                "description": "Ask a side question without changing future session context."
+              },
+              {
+                "command": "side",
+                "description": "Ask a side question without changing future session context."
+              },
+              {
+                "command": "export_session",
+                "description": "Export current session to HTML file with full system prompt."
+              },
+              {
+                "command": "export_trajectory",
+                "description": "Export a JSONL trajectory bundle for the active session."
+              },
+              {
+                "command": "tts",
+                "description": "Control text-to-speech (TTS)."
+              },
+              {
+                "command": "whoami",
+                "description": "Show your sender id."
+              },
+              {
+                "command": "session",
+                "description": "Manage session-level settings (for example /session idle)."
+              },
+              {
+                "command": "subagents",
+                "description": "List, kill, log, spawn, or steer subagent runs for this session."
+              },
+              {
+                "command": "acp",
+                "description": "Manage ACP sessions and runtime options."
+              },
+              {
+                "command": "focus",
+                "description": "Bind this thread (Discord) or topic/conversation (Telegram) to a session target."
+              },
+              {
+                "command": "unfocus",
+                "description": "Remove the current thread (Discord) or topic/conversation (Telegram) binding."
+              },
+              {
+                "command": "agents",
+                "description": "List thread-bound agents for this session."
+              },
+              {
+                "command": "kill",
+                "description": "Kill a running subagent (or all)."
+              },
+              {
+                "command": "steer",
+                "description": "Send guidance to the active run in this session."
+              },
+              {
+                "command": "usage",
+                "description": "Usage footer or cost summary."
+              },
+              {
+                "command": "stop",
+                "description": "Stop the current run."
+              },
+              {
+                "command": "restart",
+                "description": "Restart OpenClaw."
+              },
+              {
+                "command": "activation",
+                "description": "Set group activation mode."
+              },
+              {
+                "command": "send",
+                "description": "Set send policy."
+              },
+              {
+                "command": "reset",
+                "description": "Reset the current session."
+              },
+              {
+                "command": "new",
+                "description": "Start a new session."
+              },
+              {
+                "command": "compact",
+                "description": "Compact the session context."
+              },
+              {
+                "command": "think",
+                "description": "Set thinking level."
+              },
+              {
+                "command": "verbose",
+                "description": "Toggle verbose mode."
+              },
+              {
+                "command": "trace",
+                "description": "Toggle plugin trace lines."
+              },
+              {
+                "command": "fast",
+                "description": "Toggle fast mode."
+              },
+              {
+                "command": "reasoning",
+                "description": "Toggle reasoning visibility."
+              },
+              {
+                "command": "elevated",
+                "description": "Toggle elevated mode."
+              },
+              {
+                "command": "exec",
+                "description": "Set exec defaults for this session."
+              },
+              {
+                "command": "model",
+                "description": "Show or set the model."
+              },
+              {
+                "command": "models",
+                "description": "List model providers/models."
+              },
+              {
+                "command": "queue",
+                "description": "Adjust queue settings."
+              },
+              {
+                "command": "dock_telegram",
+                "description": "Switch to telegram for replies."
+              },
+              {
+                "command": "at_risk_student_csv_analyzer",
+                "description": "Analyze student grade CSVs, flag at-risk students across subject/attendance thresholds…"
+              },
+              {
+                "command": "data_formulator",
+                "description": "Local Microsoft Research Data Formulator workflow for data rendering, visualization, c…"
+              },
+              {
+                "command": "execution_validation",
+                "description": "Run and report the local execution verification pipeline ONLY when the user’s message …"
+              },
+              {
+                "command": "gog",
+                "description": "Google Workspace CLI for Gmail, Calendar, Drive, Contacts, Sheets, and Docs."
+              },
+              {
+                "command": "healthcheck",
+                "description": "Audit and harden hosts running OpenClaw for SSH, firewall, updates, exposure, cron che…"
+              },
+              {
+                "command": "node_connect",
+                "description": "Diagnose OpenClaw Android, iOS, or macOS node pairing, QR/setup code, route, auth, and…"
+              },
+              {
+                "command": "openai_whisper_api",
+                "description": "Transcribe audio via OpenAI Audio Transcriptions API (Whisper)."
+              },
+              {
+                "command": "skill_creator",
+                "description": "Create, edit, improve, tidy, review, audit, or restructure AgentSkills and SKILL.md fi…"
+              },
+              {
+                "command": "taskflow",
+                "description": "Coordinate multi-step detached tasks as one durable TaskFlow job with owner context, s…"
+              },
+              {
+                "command": "taskflow_inbox_triage",
+                "description": "Example TaskFlow pattern for inbox triage, intent routing, waiting on replies, and lat…"
+              },
+              {
+                "command": "tmux",
+                "description": "Remote-control tmux sessions for interactive CLIs by sending keystrokes and scraping p…"
+              },
+              {
+                "command": "weather",
+                "description": "Get current weather, rain, temperature, and forecasts for locations or travel planning."
+              },
+              {
+                "command": "webwright",
+                "description": "Solve a user-specified web task code-as-action style by driving a local Playwright bro…"
+              },
+              {
+                "command": "pair",
+                "description": "Generate setup codes and approve device pairing requests."
+              },
+              {
+                "command": "dreaming",
+                "description": "Enable or disable memory dreaming."
+              },
+              {
+                "command": "phone",
+                "description": "Arm/disarm high-risk phone node commands (camera/screen/writes)."
+              },
+              {
+                "command": "voice",
+                "description": "List/set Talk provider voices (affects iOS Talk playback)."
+              },
+              {
+                "command": "ge2",
+                "description": "Run and inspect native GE2 durable command-surface operations."
+              }
+            ]
+          },
+          "text": "",
+          "url": "https://api.telegram.org/bot123456789:TESTTOKEN/setMyCommands"
+        },
+        {
+          "method": "setMyCommands",
+          "payload": {
+            "commands": [
+              {
+                "command": "help",
+                "description": "Show available commands."
+              },
+              {
+                "command": "commands",
+                "description": "List all slash commands."
+              },
+              {
+                "command": "tools",
+                "description": "List available runtime tools."
+              },
+              {
+                "command": "skill",
+                "description": "Run a skill by name."
+              },
+              {
+                "command": "status",
+                "description": "Show current status."
+              },
+              {
+                "command": "diagnostics",
+                "description": "Explain Gateway diagnostics and Codex feedback upload options."
+              },
+              {
+                "command": "tasks",
+                "description": "List background tasks for this session."
+              },
+              {
+                "command": "approve",
+                "description": "Approve or deny exec requests."
+              },
+              {
+                "command": "context",
+                "description": "Explain how context is built and used."
+              },
+              {
+                "command": "btw",
+                "description": "Ask a side question without changing future session context."
+              },
+              {
+                "command": "side",
+                "description": "Ask a side question without changing future session context."
+              },
+              {
+                "command": "export_session",
+                "description": "Export current session to HTML file with full system prompt."
+              },
+              {
+                "command": "export_trajectory",
+                "description": "Export a JSONL trajectory bundle for the active session."
+              },
+              {
+                "command": "tts",
+                "description": "Control text-to-speech (TTS)."
+              },
+              {
+                "command": "whoami",
+                "description": "Show your sender id."
+              },
+              {
+                "command": "session",
+                "description": "Manage session-level settings (for example /session idle)."
+              },
+              {
+                "command": "subagents",
+                "description": "List, kill, log, spawn, or steer subagent runs for this session."
+              },
+              {
+                "command": "acp",
+                "description": "Manage ACP sessions and runtime options."
+              },
+              {
+                "command": "focus",
+                "description": "Bind this thread (Discord) or topic/conversation (Telegram) to a session target."
+              },
+              {
+                "command": "unfocus",
+                "description": "Remove the current thread (Discord) or topic/conversation (Telegram) binding."
+              },
+              {
+                "command": "agents",
+                "description": "List thread-bound agents for this session."
+              },
+              {
+                "command": "kill",
+                "description": "Kill a running subagent (or all)."
+              },
+              {
+                "command": "steer",
+                "description": "Send guidance to the active run in this session."
+              },
+              {
+                "command": "usage",
+                "description": "Usage footer or cost summary."
+              },
+              {
+                "command": "stop",
+                "description": "Stop the current run."
+              },
+              {
+                "command": "restart",
+                "description": "Restart OpenClaw."
+              },
+              {
+                "command": "activation",
+                "description": "Set group activation mode."
+              },
+              {
+                "command": "send",
+                "description": "Set send policy."
+              },
+              {
+                "command": "reset",
+                "description": "Reset the current session."
+              },
+              {
+                "command": "new",
+                "description": "Start a new session."
+              },
+              {
+                "command": "compact",
+                "description": "Compact the session context."
+              },
+              {
+                "command": "think",
+                "description": "Set thinking level."
+              },
+              {
+                "command": "verbose",
+                "description": "Toggle verbose mode."
+              },
+              {
+                "command": "trace",
+                "description": "Toggle plugin trace lines."
+              },
+              {
+                "command": "fast",
+                "description": "Toggle fast mode."
+              },
+              {
+                "command": "reasoning",
+                "description": "Toggle reasoning visibility."
+              },
+              {
+                "command": "elevated",
+                "description": "Toggle elevated mode."
+              },
+              {
+                "command": "exec",
+                "description": "Set exec defaults for this session."
+              },
+              {
+                "command": "model",
+                "description": "Show or set the model."
+              },
+              {
+                "command": "models",
+                "description": "List model providers/models."
+              },
+              {
+                "command": "queue",
+                "description": "Adjust queue settings."
+              },
+              {
+                "command": "dock_telegram",
+                "description": "Switch to telegram for replies."
+              },
+              {
+                "command": "at_risk_student_csv_analyzer",
+                "description": "Analyze student grade CSVs, flag at-risk students across subject/attendance thresholds…"
+              },
+              {
+                "command": "data_formulator",
+                "description": "Local Microsoft Research Data Formulator workflow for data rendering, visualization, c…"
+              },
+              {
+                "command": "execution_validation",
+                "description": "Run and report the local execution verification pipeline ONLY when the user’s message …"
+              },
+              {
+                "command": "gog",
+                "description": "Google Workspace CLI for Gmail, Calendar, Drive, Contacts, Sheets, and Docs."
+              },
+              {
+                "command": "healthcheck",
+                "description": "Audit and harden hosts running OpenClaw for SSH, firewall, updates, exposure, cron che…"
+              },
+              {
+                "command": "node_connect",
+                "description": "Diagnose OpenClaw Android, iOS, or macOS node pairing, QR/setup code, route, auth, and…"
+              },
+              {
+                "command": "openai_whisper_api",
+                "description": "Transcribe audio via OpenAI Audio Transcriptions API (Whisper)."
+              },
+              {
+                "command": "skill_creator",
+                "description": "Create, edit, improve, tidy, review, audit, or restructure AgentSkills and SKILL.md fi…"
+              },
+              {
+                "command": "taskflow",
+                "description": "Coordinate multi-step detached tasks as one durable TaskFlow job with owner context, s…"
+              },
+              {
+                "command": "taskflow_inbox_triage",
+                "description": "Example TaskFlow pattern for inbox triage, intent routing, waiting on replies, and lat…"
+              },
+              {
+                "command": "tmux",
+                "description": "Remote-control tmux sessions for interactive CLIs by sending keystrokes and scraping p…"
+              },
+              {
+                "command": "weather",
+                "description": "Get current weather, rain, temperature, and forecasts for locations or travel planning."
+              },
+              {
+                "command": "webwright",
+                "description": "Solve a user-specified web task code-as-action style by driving a local Playwright bro…"
+              },
+              {
+                "command": "pair",
+                "description": "Generate setup codes and approve device pairing requests."
+              },
+              {
+                "command": "dreaming",
+                "description": "Enable or disable memory dreaming."
+              },
+              {
+                "command": "phone",
+                "description": "Arm/disarm high-risk phone node commands (camera/screen/writes)."
+              },
+              {
+                "command": "voice",
+                "description": "List/set Talk provider voices (affects iOS Talk playback)."
+              },
+              {
+                "command": "ge2",
+                "description": "Run and inspect native GE2 durable command-surface operations."
+              }
+            ],
+            "scope": {
+              "type": "all_group_chats"
+            }
+          },
+          "text": "",
+          "url": "https://api.telegram.org/bot123456789:TESTTOKEN/setMyCommands"
+        },
+        {
+          "method": "sendMessage",
+          "payload": {
+            "chat_id": "8495203551",
+            "text": "GE2 native commands:\n/ge2 run &lt;task&gt;\n/ge2 status\n/ge2 status &lt;run_id&gt;\n/ge2 artifacts &lt;run_id&gt;\n/ge2 cancel &lt;run_id&gt;\n/ge2 help",
+            "parse_mode": "HTML"
+          },
+          "text": "GE2 native commands:\n/ge2 run &lt;task&gt;\n/ge2 status\n/ge2 status &lt;run_id&gt;\n/ge2 artifacts &lt;run_id&gt;\n/ge2 cancel &lt;run_id&gt;\n/ge2 help",
+          "url": "https://api.telegram.org/bot123456789:TESTTOKEN/sendMessage"
+        },
+        {
+          "method": "sendMessage",
+          "payload": {
+            "chat_id": "8495203551",
+            "text": "GE2 status:\nrun_id: ge2-20260630091740-0c4c95a3\nstatus: completed\ntask: r9-native-handler-smoke\nmilestones: 0\nartifacts: 0\nerrors: 0\nupdated_at: 2026-06-30T09:17:41.163Z",
+            "parse_mode": "HTML"
+          },
+          "text": "GE2 status:\nrun_id: ge2-20260630091740-0c4c95a3\nstatus: completed\ntask: r9-native-handler-smoke\nmilestones: 0\nartifacts: 0\nerrors: 0\nupdated_at: 2026-06-30T09:17:41.163Z",
+          "url": "https://api.telegram.org/bot123456789:TESTTOKEN/sendMessage"
+        },
+        {
+          "method": "sendMessage",
+          "payload": {
+            "chat_id": "8495203551",
+            "text": "✅ GE2 run accepted.\nrun_id: ge2-20260630093527-d6193cf1\nstatus: accepted\ntask: r10-telegram-adapter-fixture-smoke\nUse /ge2 status ge2-20260630093527-d6193cf1 for progress.",
+            "parse_mode": "HTML"
+          },
+          "text": "✅ GE2 run accepted.\nrun_id: ge2-20260630093527-d6193cf1\nstatus: accepted\ntask: r10-telegram-adapter-fixture-smoke\nUse /ge2 status ge2-20260630093527-d6193cf1 for progress.",
+          "url": "https://api.telegram.org/bot123456789:TESTTOKEN/sendMessage"
+        },
+        {
+          "method": "sendMessage",
+          "payload": {
+            "chat_id": "8495203551",
+            "text": "GE2 status:\nrun_id: ge2-20260630093527-d6193cf1\nstatus: completed\ntask: r10-telegram-adapter-fixture-smoke\nmilestones: 7\nartifacts: 1\nerrors: 0\nupdated_at: 2026-06-30T09:35:27.810Z",
+            "parse_mode": "HTML"
+          },
+          "text": "GE2 status:\nrun_id: ge2-20260630093527-d6193cf1\nstatus: completed\ntask: r10-telegram-adapter-fixture-smoke\nmilestones: 7\nartifacts: 1\nerrors: 0\nupdated_at: 2026-06-30T09:35:27.810Z",
+          "url": "https://api.telegram.org/bot123456789:TESTTOKEN/sendMessage"
+        },
+        {
+          "method": "sendMessage",
+          "payload": {
+            "chat_id": "8495203551",
+            "text": "GE2 artifacts for ge2-20260630093527-d6193cf1:\n\n• run-summary.json: 5a07d2983bd65fbee07a605ae4eb76214ee86bf69c98abed17e32e78f93e7d5c /home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630093527-d6193cf1/run-summary.json",
+            "parse_mode": "HTML"
+          },
+          "text": "GE2 artifacts for ge2-20260630093527-d6193cf1:\n\n• run-summary.json: 5a07d2983bd65fbee07a605ae4eb76214ee86bf69c98abed17e32e78f93e7d5c /home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630093527-d6193cf1/run-summary.json",
+          "url": "https://api.telegram.org/bot123456789:TESTTOKEN/sendMessage"
+        }
+      ],
+      "commandResults": {
+        "help": {
+          "body": "/ge2 help",
+          "calls": [
+            {
+              "method": "deleteMyCommands",
+              "payload": {
+                "scope": {
+                  "type": "all_group_chats"
+                }
+              },
+              "text": "",
+              "url": "https://api.telegram.org/bot123456789:TESTTOKEN/deleteMyCommands"
+            },
+            {
+              "method": "setMyCommands",
+              "payload": {
+                "commands": [
+                  {
+                    "command": "help",
+                    "description": "Show available commands."
+                  },
+                  {
+                    "command": "commands",
+                    "description": "List all slash commands."
+                  },
+                  {
+                    "command": "tools",
+                    "description": "List available runtime tools."
+                  },
+                  {
+                    "command": "skill",
+                    "description": "Run a skill by name."
+                  },
+                  {
+                    "command": "status",
+                    "description": "Show current status."
+                  },
+                  {
+                    "command": "diagnostics",
+                    "description": "Explain Gateway diagnostics and Codex feedback upload options."
+                  },
+                  {
+                    "command": "tasks",
+                    "description": "List background tasks for this session."
+                  },
+                  {
+                    "command": "approve",
+                    "description": "Approve or deny exec requests."
+                  },
+                  {
+                    "command": "context",
+                    "description": "Explain how context is built and used."
+                  },
+                  {
+                    "command": "btw",
+                    "description": "Ask a side question without changing future session context."
+                  },
+                  {
+                    "command": "side",
+                    "description": "Ask a side question without changing future session context."
+                  },
+                  {
+                    "command": "export_session",
+                    "description": "Export current session to HTML file with full system prompt."
+                  },
+                  {
+                    "command": "export_trajectory",
+                    "description": "Export a JSONL trajectory bundle for the active session."
+                  },
+                  {
+                    "command": "tts",
+                    "description": "Control text-to-speech (TTS)."
+                  },
+                  {
+                    "command": "whoami",
+                    "description": "Show your sender id."
+                  },
+                  {
+                    "command": "session",
+                    "description": "Manage session-level settings (for example /session idle)."
+                  },
+                  {
+                    "command": "subagents",
+                    "description": "List, kill, log, spawn, or steer subagent runs for this session."
+                  },
+                  {
+                    "command": "acp",
+                    "description": "Manage ACP sessions and runtime options."
+                  },
+                  {
+                    "command": "focus",
+                    "description": "Bind this thread (Discord) or topic/conversation (Telegram) to a session target."
+                  },
+                  {
+                    "command": "unfocus",
+                    "description": "Remove the current thread (Discord) or topic/conversation (Telegram) binding."
+                  },
+                  {
+                    "command": "agents",
+                    "description": "List thread-bound agents for this session."
+                  },
+                  {
+                    "command": "kill",
+                    "description": "Kill a running subagent (or all)."
+                  },
+                  {
+                    "command": "steer",
+                    "description": "Send guidance to the active run in this session."
+                  },
+                  {
+                    "command": "usage",
+                    "description": "Usage footer or cost summary."
+                  },
+                  {
+                    "command": "stop",
+                    "description": "Stop the current run."
+                  },
+                  {
+                    "command": "restart",
+                    "description": "Restart OpenClaw."
+                  },
+                  {
+                    "command": "activation",
+                    "description": "Set group activation mode."
+                  },
+                  {
+                    "command": "send",
+                    "description": "Set send policy."
+                  },
+                  {
+                    "command": "reset",
+                    "description": "Reset the current session."
+                  },
+                  {
+                    "command": "new",
+                    "description": "Start a new session."
+                  },
+                  {
+                    "command": "compact",
+                    "description": "Compact the session context."
+                  },
+                  {
+                    "command": "think",
+                    "description": "Set thinking level."
+                  },
+                  {
+                    "command": "verbose",
+                    "description": "Toggle verbose mode."
+                  },
+                  {
+                    "command": "trace",
+                    "description": "Toggle plugin trace lines."
+                  },
+                  {
+                    "command": "fast",
+                    "description": "Toggle fast mode."
+                  },
+                  {
+                    "command": "reasoning",
+                    "description": "Toggle reasoning visibility."
+                  },
+                  {
+                    "command": "elevated",
+                    "description": "Toggle elevated mode."
+                  },
+                  {
+                    "command": "exec",
+                    "description": "Set exec defaults for this session."
+                  },
+                  {
+                    "command": "model",
+                    "description": "Show or set the model."
+                  },
+                  {
+                    "command": "models",
+                    "description": "List model providers/models."
+                  },
+                  {
+                    "command": "queue",
+                    "description": "Adjust queue settings."
+                  },
+                  {
+                    "command": "dock_telegram",
+                    "description": "Switch to telegram for replies."
+                  },
+                  {
+                    "command": "at_risk_student_csv_analyzer",
+                    "description": "Analyze student grade CSVs, flag at-risk students across subject/attendance thresholds…"
+                  },
+                  {
+                    "command": "data_formulator",
+                    "description": "Local Microsoft Research Data Formulator workflow for data rendering, visualization, c…"
+                  },
+                  {
+                    "command": "execution_validation",
+                    "description": "Run and report the local execution verification pipeline ONLY when the user’s message …"
+                  },
+                  {
+                    "command": "gog",
+                    "description": "Google Workspace CLI for Gmail, Calendar, Drive, Contacts, Sheets, and Docs."
+                  },
+                  {
+                    "command": "healthcheck",
+                    "description": "Audit and harden hosts running OpenClaw for SSH, firewall, updates, exposure, cron che…"
+                  },
+                  {
+                    "command": "node_connect",
+                    "description": "Diagnose OpenClaw Android, iOS, or macOS node pairing, QR/setup code, route, auth, and…"
+                  },
+                  {
+                    "command": "openai_whisper_api",
+                    "description": "Transcribe audio via OpenAI Audio Transcriptions API (Whisper)."
+                  },
+                  {
+                    "command": "skill_creator",
+                    "description": "Create, edit, improve, tidy, review, audit, or restructure AgentSkills and SKILL.md fi…"
+                  },
+                  {
+                    "command": "taskflow",
+                    "description": "Coordinate multi-step detached tasks as one durable TaskFlow job with owner context, s…"
+                  },
+                  {
+                    "command": "taskflow_inbox_triage",
+                    "description": "Example TaskFlow pattern for inbox triage, intent routing, waiting on replies, and lat…"
+                  },
+                  {
+                    "command": "tmux",
+                    "description": "Remote-control tmux sessions for interactive CLIs by sending keystrokes and scraping p…"
+                  },
+                  {
+                    "command": "weather",
+                    "description": "Get current weather, rain, temperature, and forecasts for locations or travel planning."
+                  },
+                  {
+                    "command": "webwright",
+                    "description": "Solve a user-specified web task code-as-action style by driving a local Playwright bro…"
+                  },
+                  {
+                    "command": "pair",
+                    "description": "Generate setup codes and approve device pairing requests."
+                  },
+                  {
+                    "command": "dreaming",
+                    "description": "Enable or disable memory dreaming."
+                  },
+                  {
+                    "command": "phone",
+                    "description": "Arm/disarm high-risk phone node commands (camera/screen/writes)."
+                  },
+                  {
+                    "command": "voice",
+                    "description": "List/set Talk provider voices (affects iOS Talk playback)."
+                  },
+                  {
+                    "command": "ge2",
+                    "description": "Run and inspect native GE2 durable command-surface operations."
+                  }
+                ]
+              },
+              "text": "",
+              "url": "https://api.telegram.org/bot123456789:TESTTOKEN/setMyCommands"
+            },
+            {
+              "method": "setMyCommands",
+              "payload": {
+                "commands": [
+                  {
+                    "command": "help",
+                    "description": "Show available commands."
+                  },
+                  {
+                    "command": "commands",
+                    "description": "List all slash commands."
+                  },
+                  {
+                    "command": "tools",
+                    "description": "List available runtime tools."
+                  },
+                  {
+                    "command": "skill",
+                    "description": "Run a skill by name."
+                  },
+                  {
+                    "command": "status",
+                    "description": "Show current status."
+                  },
+                  {
+                    "command": "diagnostics",
+                    "description": "Explain Gateway diagnostics and Codex feedback upload options."
+                  },
+                  {
+                    "command": "tasks",
+                    "description": "List background tasks for this session."
+                  },
+                  {
+                    "command": "approve",
+                    "description": "Approve or deny exec requests."
+                  },
+                  {
+                    "command": "context",
+                    "description": "Explain how context is built and used."
+                  },
+                  {
+                    "command": "btw",
+                    "description": "Ask a side question without changing future session context."
+                  },
+                  {
+                    "command": "side",
+                    "description": "Ask a side question without changing future session context."
+                  },
+                  {
+                    "command": "export_session",
+                    "description": "Export current session to HTML file with full system prompt."
+                  },
+                  {
+                    "command": "export_trajectory",
+                    "description": "Export a JSONL trajectory bundle for the active session."
+                  },
+                  {
+                    "command": "tts",
+                    "description": "Control text-to-speech (TTS)."
+                  },
+                  {
+                    "command": "whoami",
+                    "description": "Show your sender id."
+                  },
+                  {
+                    "command": "session",
+                    "description": "Manage session-level settings (for example /session idle)."
+                  },
+                  {
+                    "command": "subagents",
+                    "description": "List, kill, log, spawn, or steer subagent runs for this session."
+                  },
+                  {
+                    "command": "acp",
+                    "description": "Manage ACP sessions and runtime options."
+                  },
+                  {
+                    "command": "focus",
+                    "description": "Bind this thread (Discord) or topic/conversation (Telegram) to a session target."
+                  },
+                  {
+                    "command": "unfocus",
+                    "description": "Remove the current thread (Discord) or topic/conversation (Telegram) binding."
+                  },
+                  {
+                    "command": "agents",
+                    "description": "List thread-bound agents for this session."
+                  },
+                  {
+                    "command": "kill",
+                    "description": "Kill a running subagent (or all)."
+                  },
+                  {
+                    "command": "steer",
+                    "description": "Send guidance to the active run in this session."
+                  },
+                  {
+                    "command": "usage",
+                    "description": "Usage footer or cost summary."
+                  },
+                  {
+                    "command": "stop",
+                    "description": "Stop the current run."
+                  },
+                  {
+                    "command": "restart",
+                    "description": "Restart OpenClaw."
+                  },
+                  {
+                    "command": "activation",
+                    "description": "Set group activation mode."
+                  },
+                  {
+                    "command": "send",
+                    "description": "Set send policy."
+                  },
+                  {
+                    "command": "reset",
+                    "description": "Reset the current session."
+                  },
+                  {
+                    "command": "new",
+                    "description": "Start a new session."
+                  },
+                  {
+                    "command": "compact",
+                    "description": "Compact the session context."
+                  },
+                  {
+                    "command": "think",
+                    "description": "Set thinking level."
+                  },
+                  {
+                    "command": "verbose",
+                    "description": "Toggle verbose mode."
+                  },
+                  {
+                    "command": "trace",
+                    "description": "Toggle plugin trace lines."
+                  },
+                  {
+                    "command": "fast",
+                    "description": "Toggle fast mode."
+                  },
+                  {
+                    "command": "reasoning",
+                    "description": "Toggle reasoning visibility."
+                  },
+                  {
+                    "command": "elevated",
+                    "description": "Toggle elevated mode."
+                  },
+                  {
+                    "command": "exec",
+                    "description": "Set exec defaults for this session."
+                  },
+                  {
+                    "command": "model",
+                    "description": "Show or set the model."
+                  },
+                  {
+                    "command": "models",
+                    "description": "List model providers/models."
+                  },
+                  {
+                    "command": "queue",
+                    "description": "Adjust queue settings."
+                  },
+                  {
+                    "command": "dock_telegram",
+                    "description": "Switch to telegram for replies."
+                  },
+                  {
+                    "command": "at_risk_student_csv_analyzer",
+                    "description": "Analyze student grade CSVs, flag at-risk students across subject/attendance thresholds…"
+                  },
+                  {
+                    "command": "data_formulator",
+                    "description": "Local Microsoft Research Data Formulator workflow for data rendering, visualization, c…"
+                  },
+                  {
+                    "command": "execution_validation",
+                    "description": "Run and report the local execution verification pipeline ONLY when the user’s message …"
+                  },
+                  {
+                    "command": "gog",
+                    "description": "Google Workspace CLI for Gmail, Calendar, Drive, Contacts, Sheets, and Docs."
+                  },
+                  {
+                    "command": "healthcheck",
+                    "description": "Audit and harden hosts running OpenClaw for SSH, firewall, updates, exposure, cron che…"
+                  },
+                  {
+                    "command": "node_connect",
+                    "description": "Diagnose OpenClaw Android, iOS, or macOS node pairing, QR/setup code, route, auth, and…"
+                  },
+                  {
+                    "command": "openai_whisper_api",
+                    "description": "Transcribe audio via OpenAI Audio Transcriptions API (Whisper)."
+                  },
+                  {
+                    "command": "skill_creator",
+                    "description": "Create, edit, improve, tidy, review, audit, or restructure AgentSkills and SKILL.md fi…"
+                  },
+                  {
+                    "command": "taskflow",
+                    "description": "Coordinate multi-step detached tasks as one durable TaskFlow job with owner context, s…"
+                  },
+                  {
+                    "command": "taskflow_inbox_triage",
+                    "description": "Example TaskFlow pattern for inbox triage, intent routing, waiting on replies, and lat…"
+                  },
+                  {
+                    "command": "tmux",
+                    "description": "Remote-control tmux sessions for interactive CLIs by sending keystrokes and scraping p…"
+                  },
+                  {
+                    "command": "weather",
+                    "description": "Get current weather, rain, temperature, and forecasts for locations or travel planning."
+                  },
+                  {
+                    "command": "webwright",
+                    "description": "Solve a user-specified web task code-as-action style by driving a local Playwright bro…"
+                  },
+                  {
+                    "command": "pair",
+                    "description": "Generate setup codes and approve device pairing requests."
+                  },
+                  {
+                    "command": "dreaming",
+                    "description": "Enable or disable memory dreaming."
+                  },
+                  {
+                    "command": "phone",
+                    "description": "Arm/disarm high-risk phone node commands (camera/screen/writes)."
+                  },
+                  {
+                    "command": "voice",
+                    "description": "List/set Talk provider voices (affects iOS Talk playback)."
+                  },
+                  {
+                    "command": "ge2",
+                    "description": "Run and inspect native GE2 durable command-surface operations."
+                  }
+                ],
+                "scope": {
+                  "type": "all_group_chats"
+                }
+              },
+              "text": "",
+              "url": "https://api.telegram.org/bot123456789:TESTTOKEN/setMyCommands"
+            },
+            {
+              "method": "sendMessage",
+              "payload": {
+                "chat_id": "8495203551",
+                "text": "GE2 native commands:\n/ge2 run &lt;task&gt;\n/ge2 status\n/ge2 status &lt;run_id&gt;\n/ge2 artifacts &lt;run_id&gt;\n/ge2 cancel &lt;run_id&gt;\n/ge2 help",
+                "parse_mode": "HTML"
+              },
+              "text": "GE2 native commands:\n/ge2 run &lt;task&gt;\n/ge2 status\n/ge2 status &lt;run_id&gt;\n/ge2 artifacts &lt;run_id&gt;\n/ge2 cancel &lt;run_id&gt;\n/ge2 help",
+              "url": "https://api.telegram.org/bot123456789:TESTTOKEN/sendMessage"
+            }
+          ],
+          "text": "GE2 native commands:\n/ge2 run &lt;task&gt;\n/ge2 status\n/ge2 status &lt;run_id&gt;\n/ge2 artifacts &lt;run_id&gt;\n/ge2 cancel &lt;run_id&gt;\n/ge2 help",
+          "responseSummary": {
+            "bytes": 148,
+            "chars": 148,
+            "boundedUnder4k": true,
+            "preview": "GE2 native commands:\n/ge2 run &lt;task&gt;\n/ge2 status\n/ge2 status &lt;run_id&gt;\n/ge2 artifacts &lt;run_id&gt;\n/ge2 cancel &lt;run_id&gt;\n/ge2 help"
+          },
+          "sendMethod": "sendMessage"
+        },
+        "statusNoArg": {
+          "body": "/ge2 status",
+          "calls": [
+            {
+              "method": "sendMessage",
+              "payload": {
+                "chat_id": "8495203551",
+                "text": "GE2 status:\nrun_id: ge2-20260630091740-0c4c95a3\nstatus: completed\ntask: r9-native-handler-smoke\nmilestones: 0\nartifacts: 0\nerrors: 0\nupdated_at: 2026-06-30T09:17:41.163Z",
+                "parse_mode": "HTML"
+              },
+              "text": "GE2 status:\nrun_id: ge2-20260630091740-0c4c95a3\nstatus: completed\ntask: r9-native-handler-smoke\nmilestones: 0\nartifacts: 0\nerrors: 0\nupdated_at: 2026-06-30T09:17:41.163Z",
+              "url": "https://api.telegram.org/bot123456789:TESTTOKEN/sendMessage"
+            }
+          ],
+          "text": "GE2 status:\nrun_id: ge2-20260630091740-0c4c95a3\nstatus: completed\ntask: r9-native-handler-smoke\nmilestones: 0\nartifacts: 0\nerrors: 0\nupdated_at: 2026-06-30T09:17:41.163Z",
+          "responseSummary": {
+            "bytes": 169,
+            "chars": 169,
+            "boundedUnder4k": true,
+            "preview": "GE2 status:\nrun_id: ge2-20260630091740-0c4c95a3\nstatus: completed\ntask: r9-native-handler-smoke\nmilestones: 0\nartifacts: 0\nerrors: 0\nupdated_at: 2026-06-30T09:17:41.163Z"
+          },
+          "sendMethod": "sendMessage"
+        },
+        "run": {
+          "body": "/ge2 run r10-telegram-adapter-fixture-smoke",
+          "calls": [
+            {
+              "method": "sendMessage",
+              "payload": {
+                "chat_id": "8495203551",
+                "text": "✅ GE2 run accepted.\nrun_id: ge2-20260630093527-d6193cf1\nstatus: accepted\ntask: r10-telegram-adapter-fixture-smoke\nUse /ge2 status ge2-20260630093527-d6193cf1 for progress.",
+                "parse_mode": "HTML"
+              },
+              "text": "✅ GE2 run accepted.\nrun_id: ge2-20260630093527-d6193cf1\nstatus: accepted\ntask: r10-telegram-adapter-fixture-smoke\nUse /ge2 status ge2-20260630093527-d6193cf1 for progress.",
+              "url": "https://api.telegram.org/bot123456789:TESTTOKEN/sendMessage"
+            }
+          ],
+          "text": "✅ GE2 run accepted.\nrun_id: ge2-20260630093527-d6193cf1\nstatus: accepted\ntask: r10-telegram-adapter-fixture-smoke\nUse /ge2 status ge2-20260630093527-d6193cf1 for progress.",
+          "responseSummary": {
+            "bytes": 173,
+            "chars": 171,
+            "boundedUnder4k": true,
+            "preview": "✅ GE2 run accepted.\nrun_id: ge2-20260630093527-d6193cf1\nstatus: accepted\ntask: r10-telegram-adapter-fixture-smoke\nUse /ge2 status ge2-20260630093527-d6193cf1 for progress."
+          },
+          "sendMethod": "sendMessage"
+        },
+        "statusExact": {
+          "body": "/ge2 status ge2-20260630093527-d6193cf1",
+          "calls": [
+            {
+              "method": "sendMessage",
+              "payload": {
+                "chat_id": "8495203551",
+                "text": "GE2 status:\nrun_id: ge2-20260630093527-d6193cf1\nstatus: completed\ntask: r10-telegram-adapter-fixture-smoke\nmilestones: 7\nartifacts: 1\nerrors: 0\nupdated_at: 2026-06-30T09:35:27.810Z",
+                "parse_mode": "HTML"
+              },
+              "text": "GE2 status:\nrun_id: ge2-20260630093527-d6193cf1\nstatus: completed\ntask: r10-telegram-adapter-fixture-smoke\nmilestones: 7\nartifacts: 1\nerrors: 0\nupdated_at: 2026-06-30T09:35:27.810Z",
+              "url": "https://api.telegram.org/bot123456789:TESTTOKEN/sendMessage"
+            }
+          ],
+          "text": "GE2 status:\nrun_id: ge2-20260630093527-d6193cf1\nstatus: completed\ntask: r10-telegram-adapter-fixture-smoke\nmilestones: 7\nartifacts: 1\nerrors: 0\nupdated_at: 2026-06-30T09:35:27.810Z",
+          "responseSummary": {
+            "bytes": 180,
+            "chars": 180,
+            "boundedUnder4k": true,
+            "preview": "GE2 status:\nrun_id: ge2-20260630093527-d6193cf1\nstatus: completed\ntask: r10-telegram-adapter-fixture-smoke\nmilestones: 7\nartifacts: 1\nerrors: 0\nupdated_at: 2026-06-30T09:35:27.810Z"
+          },
+          "sendMethod": "sendMessage"
+        },
+        "artifactsExact": {
+          "body": "/ge2 artifacts ge2-20260630093527-d6193cf1",
+          "calls": [
+            {
+              "method": "sendMessage",
+              "payload": {
+                "chat_id": "8495203551",
+                "text": "GE2 artifacts for ge2-20260630093527-d6193cf1:\n\n• run-summary.json: 5a07d2983bd65fbee07a605ae4eb76214ee86bf69c98abed17e32e78f93e7d5c /home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630093527-d6193cf1/run-summary.json",
+                "parse_mode": "HTML"
+              },
+              "text": "GE2 artifacts for ge2-20260630093527-d6193cf1:\n\n• run-summary.json: 5a07d2983bd65fbee07a605ae4eb76214ee86bf69c98abed17e32e78f93e7d5c /home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630093527-d6193cf1/run-summary.json",
+              "url": "https://api.telegram.org/bot123456789:TESTTOKEN/sendMessage"
+            }
+          ],
+          "text": "GE2 artifacts for ge2-20260630093527-d6193cf1:\n\n• run-summary.json: 5a07d2983bd65fbee07a605ae4eb76214ee86bf69c98abed17e32e78f93e7d5c /home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630093527-d6193cf1/run-summary.json",
+          "responseSummary": {
+            "bytes": 240,
+            "chars": 238,
+            "boundedUnder4k": true,
+            "preview": "GE2 artifacts for ge2-20260630093527-d6193cf1:\n\n• run-summary.json: 5a07d2983bd65fbee07a605ae4eb76214ee86bf69c98abed17e32e78f93e7d5c /home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630093527-d6193cf1/run-summary.json"
+          },
+          "sendMethod": "sendMessage"
+        }
+      },
+      "checks": {
+        "fixtureEnteredAdapterPath": true,
+        "matchesNativeGe2": true,
+        "pluginIdGe2Native": true,
+        "continueAgentFalse": true,
+        "noModelChatFallthrough": true,
+        "nativeGe2Responses": true,
+        "runReturnedRunId": true,
+        "durableLedgerEntry": true,
+        "emitsMilestones": true,
+        "artifactExists": true,
+        "artifactShaMatches": true,
+        "statusRetrievesExactRun": true,
+        "artifactsRetrievesExactRun": true,
+        "boundedCompressedResponses": true,
+        "noRawLogDump": true
+      },
+      "runId": "ge2-20260630093527-d6193cf1",
+      "verification": {
+        "runPath": "/home/stickai/.openclaw/workspace/state/ge2-native/runs/ge2-20260630093527-d6193cf1.json",
+        "run": {
+          "run_id": "ge2-20260630093527-d6193cf1",
+          "status": "completed",
+          "task": "r10-telegram-adapter-fixture-smoke",
+          "origin": {
+            "surface": "telegram",
+            "channel": "telegram",
+            "sessionKey": "agent:main:telegram:direct:8495203551",
+            "sessionId": "41e4b90c-b04c-4597-a774-774f72f245c8",
+            "accountId": "default",
+            "messageId": null,
+            "senderId": "8495203551"
+          },
+          "requestId": "35391863-317f-47e4-b2ce-5375c0f922e7",
+          "started_at": "2026-06-30T09:35:27.571Z",
+          "updated_at": "2026-06-30T09:35:27.810Z",
+          "milestones": [
+            {
+              "milestone": "accepted",
+              "detail": "Run accepted by dispatcher",
+              "metadata": null,
+              "at": "2026-06-30T09:35:27.580Z"
+            },
+            {
+              "milestone": "validated",
+              "detail": "Command validated and queued for execution",
+              "metadata": null,
+              "at": "2026-06-30T09:35:27.596Z"
+            },
+            {
+              "milestone": "running",
+              "detail": "Runtime execution started",
+              "metadata": null,
+              "at": "2026-06-30T09:35:27.617Z"
+            },
+            {
+              "milestone": "milestone_emitted",
+              "detail": "Planning and validation complete",
+              "metadata": null,
+              "at": "2026-06-30T09:35:27.754Z"
+            },
+            {
+              "milestone": "artifact_written",
+              "detail": "/home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630093527-d6193cf1/run-summary.json",
+              "metadata": {
+                "sha256": "5a07d2983bd65fbee07a605ae4eb76214ee86bf69c98abed17e32e78f93e7d5c"
+              },
+              "at": "2026-06-30T09:35:27.770Z"
+            },
+            {
+              "milestone": "verification_passed",
+              "detail": "Artifact hash generated",
+              "metadata": {
+                "sha256": "5a07d2983bd65fbee07a605ae4eb76214ee86bf69c98abed17e32e78f93e7d5c"
+              },
+              "at": "2026-06-30T09:35:27.783Z"
+            },
+            {
+              "milestone": "completed",
+              "detail": "Run completed successfully",
+              "metadata": null,
+              "at": "2026-06-30T09:35:27.801Z"
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "run-summary",
+              "run_id": "ge2-20260630093527-d6193cf1",
+              "name": "run-summary.json",
+              "path": "/home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630093527-d6193cf1/run-summary.json",
+              "sha256": "5a07d2983bd65fbee07a605ae4eb76214ee86bf69c98abed17e32e78f93e7d5c",
+              "size": 572,
+              "contentType": "application/json",
+              "created_at": "2026-06-30T09:35:27.770Z"
+            }
+          ],
+          "errors": [],
+          "cancel_requested": false
+        },
+        "artifacts": [
+          {
+            "kind": "run-summary",
+            "run_id": "ge2-20260630093527-d6193cf1",
+            "name": "run-summary.json",
+            "path": "/home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630093527-d6193cf1/run-summary.json",
+            "sha256": "5a07d2983bd65fbee07a605ae4eb76214ee86bf69c98abed17e32e78f93e7d5c",
+            "size": 572,
+            "contentType": "application/json",
+            "created_at": "2026-06-30T09:35:27.770Z",
+            "exists": true,
+            "computedSha256": "5a07d2983bd65fbee07a605ae4eb76214ee86bf69c98abed17e32e78f93e7d5c",
+            "shaMatches": true
+          }
+        ],
+        "milestones": [
+          {
+            "milestone": "accepted",
+            "detail": "Run accepted by dispatcher",
+            "metadata": null,
+            "at": "2026-06-30T09:35:27.580Z"
+          },
+          {
+            "milestone": "validated",
+            "detail": "Command validated and queued for execution",
+            "metadata": null,
+            "at": "2026-06-30T09:35:27.596Z"
+          },
+          {
+            "milestone": "running",
+            "detail": "Runtime execution started",
+            "metadata": null,
+            "at": "2026-06-30T09:35:27.617Z"
+          },
+          {
+            "milestone": "milestone_emitted",
+            "detail": "Planning and validation complete",
+            "metadata": null,
+            "at": "2026-06-30T09:35:27.754Z"
+          },
+          {
+            "milestone": "artifact_written",
+            "detail": "/home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630093527-d6193cf1/run-summary.json",
+            "metadata": {
+              "sha256": "5a07d2983bd65fbee07a605ae4eb76214ee86bf69c98abed17e32e78f93e7d5c"
+            },
+            "at": "2026-06-30T09:35:27.770Z"
+          },
+          {
+            "milestone": "verification_passed",
+            "detail": "Artifact hash generated",
+            "metadata": {
+              "sha256": "5a07d2983bd65fbee07a605ae4eb76214ee86bf69c98abed17e32e78f93e7d5c"
+            },
+            "at": "2026-06-30T09:35:27.783Z"
+          },
+          {
+            "milestone": "completed",
+            "detail": "Run completed successfully",
+            "metadata": null,
+            "at": "2026-06-30T09:35:27.801Z"
+          }
+        ],
+        "ledger": {
+          "ledgerExists": true,
+          "runIdRecordedInRunFile": true,
+          "runIdRecordedInIndex": true,
+          "runIdRecordedInRunsJsonl": true,
+          "originSessionMetadataPresent": true,
+          "milestoneHistoryPresent": true,
+          "artifactInventoryPresent": true
+        },
+        "checks": {
+          "durableLedgerEntry": true,
+          "emitsMilestones": true,
+          "artifactExists": true,
+          "artifactShaMatches": true,
+          "terminalCompleted": true,
+          "statusRetrievesExactRun": true,
+          "artifactsRetrievesExactRun": true,
+          "boundedStatus": true,
+          "boundedArtifacts": true
+        }
+      },
+      "surfaceClassification": "TELEGRAM_PASS"
+    },
+    "webui": {
+      "surface": "webui",
+      "adapterEvidence": {
+        "exportedAdapter": "loadCommandHandlers from commands-handlers.runtime-DlESKC_s.js",
+        "fixtureKind": "WebUI/internal command-handler params through first plugin command handler",
+        "sourceLines": "commands-handlers.runtime-DlESKC_s.js handlePluginCommand: allowTextCommands -> matchPluginCommand(commandBodyNormalized,{channel}) -> executePluginCommand(...) -> shouldContinue=result.continueAgent===true"
+      },
+      "commandResults": {
+        "help": {
+          "body": "/ge2 help",
+          "match": {
+            "matched": true,
+            "commandName": "ge2",
+            "pluginId": "ge2-native",
+            "args": "help"
+          },
+          "rawResult": {
+            "shouldContinue": false,
+            "reply": {
+              "text": "GE2 native commands:\n/ge2 run <task>\n/ge2 status\n/ge2 status <run_id>\n/ge2 artifacts <run_id>\n/ge2 cancel <run_id>\n/ge2 help"
+            }
+          },
+          "shouldContinue": false,
+          "text": "GE2 native commands:\n/ge2 run <task>\n/ge2 status\n/ge2 status <run_id>\n/ge2 artifacts <run_id>\n/ge2 cancel <run_id>\n/ge2 help",
+          "responseSummary": {
+            "bytes": 124,
+            "chars": 124,
+            "boundedUnder4k": true,
+            "preview": "GE2 native commands:\n/ge2 run <task>\n/ge2 status\n/ge2 status <run_id>\n/ge2 artifacts <run_id>\n/ge2 cancel <run_id>\n/ge2 help"
+          }
+        },
+        "statusNoArg": {
+          "body": "/ge2 status",
+          "match": {
+            "matched": true,
+            "commandName": "ge2",
+            "pluginId": "ge2-native",
+            "args": "status"
+          },
+          "rawResult": {
+            "shouldContinue": false,
+            "reply": {
+              "text": "GE2 status:\nrun_id: ge2-20260630093527-d6193cf1\nstatus: completed\ntask: r10-telegram-adapter-fixture-smoke\nmilestones: 0\nartifacts: 0\nerrors: 0\nupdated_at: 2026-06-30T09:35:27.810Z"
+            }
+          },
+          "shouldContinue": false,
+          "text": "GE2 status:\nrun_id: ge2-20260630093527-d6193cf1\nstatus: completed\ntask: r10-telegram-adapter-fixture-smoke\nmilestones: 0\nartifacts: 0\nerrors: 0\nupdated_at: 2026-06-30T09:35:27.810Z",
+          "responseSummary": {
+            "bytes": 180,
+            "chars": 180,
+            "boundedUnder4k": true,
+            "preview": "GE2 status:\nrun_id: ge2-20260630093527-d6193cf1\nstatus: completed\ntask: r10-telegram-adapter-fixture-smoke\nmilestones: 0\nartifacts: 0\nerrors: 0\nupdated_at: 2026-06-30T09:35:27.810Z"
+          }
+        },
+        "run": {
+          "body": "/ge2 run r10-webui-adapter-fixture-smoke",
+          "match": {
+            "matched": true,
+            "commandName": "ge2",
+            "pluginId": "ge2-native",
+            "args": "run r10-webui-adapter-fixture-smoke"
+          },
+          "rawResult": {
+            "shouldContinue": false,
+            "reply": {
+              "text": "✅ GE2 run accepted.\nrun_id: ge2-20260630093530-398319fe\nstatus: accepted\ntask: r10-webui-adapter-fixture-smoke\nUse /ge2 status ge2-20260630093530-398319fe for progress."
+            }
+          },
+          "shouldContinue": false,
+          "text": "✅ GE2 run accepted.\nrun_id: ge2-20260630093530-398319fe\nstatus: accepted\ntask: r10-webui-adapter-fixture-smoke\nUse /ge2 status ge2-20260630093530-398319fe for progress.",
+          "responseSummary": {
+            "bytes": 170,
+            "chars": 168,
+            "boundedUnder4k": true,
+            "preview": "✅ GE2 run accepted.\nrun_id: ge2-20260630093530-398319fe\nstatus: accepted\ntask: r10-webui-adapter-fixture-smoke\nUse /ge2 status ge2-20260630093530-398319fe for progress."
+          }
+        },
+        "statusExact": {
+          "body": "/ge2 status ge2-20260630093530-398319fe",
+          "match": {
+            "matched": true,
+            "commandName": "ge2",
+            "pluginId": "ge2-native",
+            "args": "status ge2-20260630093530-398319fe"
+          },
+          "rawResult": {
+            "shouldContinue": false,
+            "reply": {
+              "text": "GE2 status:\nrun_id: ge2-20260630093530-398319fe\nstatus: completed\ntask: r10-webui-adapter-fixture-smoke\nmilestones: 7\nartifacts: 1\nerrors: 0\nupdated_at: 2026-06-30T09:35:30.935Z"
+            }
+          },
+          "shouldContinue": false,
+          "text": "GE2 status:\nrun_id: ge2-20260630093530-398319fe\nstatus: completed\ntask: r10-webui-adapter-fixture-smoke\nmilestones: 7\nartifacts: 1\nerrors: 0\nupdated_at: 2026-06-30T09:35:30.935Z",
+          "responseSummary": {
+            "bytes": 177,
+            "chars": 177,
+            "boundedUnder4k": true,
+            "preview": "GE2 status:\nrun_id: ge2-20260630093530-398319fe\nstatus: completed\ntask: r10-webui-adapter-fixture-smoke\nmilestones: 7\nartifacts: 1\nerrors: 0\nupdated_at: 2026-06-30T09:35:30.935Z"
+          }
+        },
+        "artifactsExact": {
+          "body": "/ge2 artifacts ge2-20260630093530-398319fe",
+          "match": {
+            "matched": true,
+            "commandName": "ge2",
+            "pluginId": "ge2-native",
+            "args": "artifacts ge2-20260630093530-398319fe"
+          },
+          "rawResult": {
+            "shouldContinue": false,
+            "reply": {
+              "text": "GE2 artifacts for ge2-20260630093530-398319fe:\n- run-summary.json: 273a92f7f6a29e15617b39b6bcdb6c22f0b5cfab4b84703dbafb73494ffc92f2 /home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630093530-398319fe/run-summary.json"
+            }
+          },
+          "shouldContinue": false,
+          "text": "GE2 artifacts for ge2-20260630093530-398319fe:\n- run-summary.json: 273a92f7f6a29e15617b39b6bcdb6c22f0b5cfab4b84703dbafb73494ffc92f2 /home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630093530-398319fe/run-summary.json",
+          "responseSummary": {
+            "bytes": 237,
+            "chars": 237,
+            "boundedUnder4k": true,
+            "preview": "GE2 artifacts for ge2-20260630093530-398319fe:\n- run-summary.json: 273a92f7f6a29e15617b39b6bcdb6c22f0b5cfab4b84703dbafb73494ffc92f2 /home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630093530-398319fe/run-summary.json"
+          }
+        }
+      },
+      "checks": {
+        "fixtureEnteredAdapterPath": true,
+        "matchesNativeGe2": true,
+        "pluginIdGe2Native": true,
+        "continueAgentFalse": true,
+        "noModelChatFallthrough": true,
+        "nativeGe2Responses": true,
+        "runReturnedRunId": true,
+        "durableLedgerEntry": true,
+        "emitsMilestones": true,
+        "artifactExists": true,
+        "artifactShaMatches": true,
+        "statusRetrievesExactRun": true,
+        "artifactsRetrievesExactRun": true,
+        "boundedCompressedResponses": true,
+        "noRawLogDump": true
+      },
+      "runId": "ge2-20260630093530-398319fe",
+      "verification": {
+        "runPath": "/home/stickai/.openclaw/workspace/state/ge2-native/runs/ge2-20260630093530-398319fe.json",
+        "run": {
+          "run_id": "ge2-20260630093530-398319fe",
+          "status": "completed",
+          "task": "r10-webui-adapter-fixture-smoke",
+          "origin": {
+            "surface": "webchat",
+            "channel": "webchat",
+            "sessionKey": "agent:main:webchat:direct:r10-webui-adapter-fixture",
+            "sessionId": "r10-webui-adapter-fixture-session",
+            "accountId": "webui-fixture",
+            "messageId": null,
+            "senderId": "webui-fixture-user"
+          },
+          "requestId": "a85e6bf8-7887-4c5d-b2c8-b9dfbf810530",
+          "started_at": "2026-06-30T09:35:30.702Z",
+          "updated_at": "2026-06-30T09:35:30.935Z",
+          "milestones": [
+            {
+              "milestone": "accepted",
+              "detail": "Run accepted by dispatcher",
+              "metadata": null,
+              "at": "2026-06-30T09:35:30.706Z"
+            },
+            {
+              "milestone": "validated",
+              "detail": "Command validated and queued for execution",
+              "metadata": null,
+              "at": "2026-06-30T09:35:30.719Z"
+            },
+            {
+              "milestone": "running",
+              "detail": "Runtime execution started",
+              "metadata": null,
+              "at": "2026-06-30T09:35:30.735Z"
+            },
+            {
+              "milestone": "milestone_emitted",
+              "detail": "Planning and validation complete",
+              "metadata": null,
+              "at": "2026-06-30T09:35:30.870Z"
+            },
+            {
+              "milestone": "artifact_written",
+              "detail": "/home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630093530-398319fe/run-summary.json",
+              "metadata": {
+                "sha256": "273a92f7f6a29e15617b39b6bcdb6c22f0b5cfab4b84703dbafb73494ffc92f2"
+              },
+              "at": "2026-06-30T09:35:30.889Z"
+            },
+            {
+              "milestone": "verification_passed",
+              "detail": "Artifact hash generated",
+              "metadata": {
+                "sha256": "273a92f7f6a29e15617b39b6bcdb6c22f0b5cfab4b84703dbafb73494ffc92f2"
+              },
+              "at": "2026-06-30T09:35:30.903Z"
+            },
+            {
+              "milestone": "completed",
+              "detail": "Run completed successfully",
+              "metadata": null,
+              "at": "2026-06-30T09:35:30.924Z"
+            }
+          ],
+          "artifacts": [
+            {
+              "kind": "run-summary",
+              "run_id": "ge2-20260630093530-398319fe",
+              "name": "run-summary.json",
+              "path": "/home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630093530-398319fe/run-summary.json",
+              "sha256": "273a92f7f6a29e15617b39b6bcdb6c22f0b5cfab4b84703dbafb73494ffc92f2",
+              "size": 592,
+              "contentType": "application/json",
+              "created_at": "2026-06-30T09:35:30.889Z"
+            }
+          ],
+          "errors": [],
+          "cancel_requested": false
+        },
+        "artifacts": [
+          {
+            "kind": "run-summary",
+            "run_id": "ge2-20260630093530-398319fe",
+            "name": "run-summary.json",
+            "path": "/home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630093530-398319fe/run-summary.json",
+            "sha256": "273a92f7f6a29e15617b39b6bcdb6c22f0b5cfab4b84703dbafb73494ffc92f2",
+            "size": 592,
+            "contentType": "application/json",
+            "created_at": "2026-06-30T09:35:30.889Z",
+            "exists": true,
+            "computedSha256": "273a92f7f6a29e15617b39b6bcdb6c22f0b5cfab4b84703dbafb73494ffc92f2",
+            "shaMatches": true
+          }
+        ],
+        "milestones": [
+          {
+            "milestone": "accepted",
+            "detail": "Run accepted by dispatcher",
+            "metadata": null,
+            "at": "2026-06-30T09:35:30.706Z"
+          },
+          {
+            "milestone": "validated",
+            "detail": "Command validated and queued for execution",
+            "metadata": null,
+            "at": "2026-06-30T09:35:30.719Z"
+          },
+          {
+            "milestone": "running",
+            "detail": "Runtime execution started",
+            "metadata": null,
+            "at": "2026-06-30T09:35:30.735Z"
+          },
+          {
+            "milestone": "milestone_emitted",
+            "detail": "Planning and validation complete",
+            "metadata": null,
+            "at": "2026-06-30T09:35:30.870Z"
+          },
+          {
+            "milestone": "artifact_written",
+            "detail": "/home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630093530-398319fe/run-summary.json",
+            "metadata": {
+              "sha256": "273a92f7f6a29e15617b39b6bcdb6c22f0b5cfab4b84703dbafb73494ffc92f2"
+            },
+            "at": "2026-06-30T09:35:30.889Z"
+          },
+          {
+            "milestone": "verification_passed",
+            "detail": "Artifact hash generated",
+            "metadata": {
+              "sha256": "273a92f7f6a29e15617b39b6bcdb6c22f0b5cfab4b84703dbafb73494ffc92f2"
+            },
+            "at": "2026-06-30T09:35:30.903Z"
+          },
+          {
+            "milestone": "completed",
+            "detail": "Run completed successfully",
+            "metadata": null,
+            "at": "2026-06-30T09:35:30.924Z"
+          }
+        ],
+        "ledger": {
+          "ledgerExists": true,
+          "runIdRecordedInRunFile": true,
+          "runIdRecordedInIndex": true,
+          "runIdRecordedInRunsJsonl": true,
+          "originSessionMetadataPresent": true,
+          "milestoneHistoryPresent": true,
+          "artifactInventoryPresent": true
+        },
+        "checks": {
+          "durableLedgerEntry": true,
+          "emitsMilestones": true,
+          "artifactExists": true,
+          "artifactShaMatches": true,
+          "terminalCompleted": true,
+          "statusRetrievesExactRun": true,
+          "artifactsRetrievesExactRun": true,
+          "boundedStatus": true,
+          "boundedArtifacts": true
+        }
+      },
+      "surfaceClassification": "WEBUI_PASS"
+    }
+  },
+  "crossSurfaceParity": {
+    "bothSurfacesRan": true,
+    "distinctRunIds": true,
+    "distinctArtifacts": true,
+    "bothArtifactHashesMatch": true,
+    "duplicateGe2CountOne": false,
+    "fakeAbsent": true,
+    "existingCommandsPreserved": false,
+    "gatewayHealthGreen": true,
+    "liveVisibilityStillPass": false
+  },
+  "duplicateGe2Count": {
+    "registered": 1,
+    "listPluginCommands": 1,
+    "live": {
+      "default": 1,
+      "telegram_both": 1,
+      "telegram_text": 1,
+      "webchat_both": 0,
+      "webchat_text": 1
+    }
+  },
+  "fakeCommandAbsent": true,
+  "existingCommandsPreserved": false,
+  "gatewayHealth": {
+    "commandOk": true,
+    "serviceRunning": true,
+    "runtimeRunning": true,
+    "listenerPresent": true,
+    "connectivityOk": true,
+    "adminCapable": true,
+    "rawPreview": "Service: systemd user (enabled)\nFile logs: /tmp/openclaw/openclaw-2026-06-30.log\nCommand: /usr/bin/node /home/stickai/.npm-global/lib/node_modules/openclaw/dist/index.js gateway --port 18789\nService file: ~/.config/systemd/user/openclaw-gateway.service\nService env: OPENCLAW_GATEWAY_PORT=18789\n\nConfig (cli): ~/.openclaw/openclaw.json\nConfig (service): ~/.openclaw/openclaw.json\n\nGateway: bind=lan (0.0.0.0), port=18789 (service args)\nProbe target: ws://127.0.0.1:18789\nDashboard: http://172.24.168.46:18789/\nProbe note: bind=lan listens on 0.0.0.0 (all interfaces); probing via 127.0.0.1.\n\nRuntime: running (pid 307081, state active, sub running, last exit 0, reason 0)\nConnectivity probe: ok\nCapability: admin-capable\n\nListening: *:18789\nTroubles: run openclaw status\nTroubleshooting: https://docs.openclaw.ai/troubleshooting\n\n"
+  },
+  "commandsListVisibility": {
+    "default": {
+      "name": "default",
+      "ok": true,
+      "parseOk": true,
+      "count": 61,
+      "ge2Present": true,
+      "ge2Count": 1,
+      "existingCommandsPreserved": true,
+      "fakeAbsent": true,
+      "ge2": [
+        {
+          "name": "ge2",
+          "nativeName": "ge2",
+          "textAliases": [
+            "/ge2"
+          ],
+          "description": "Run and inspect native GE2 durable command-surface operations.",
+          "source": "plugin",
+          "scope": "both",
+          "acceptsArgs": true
+        }
+      ]
+    },
+    "telegram_both": {
+      "name": "telegram_both",
+      "ok": true,
+      "parseOk": true,
+      "count": 61,
+      "ge2Present": true,
+      "ge2Count": 1,
+      "existingCommandsPreserved": true,
+      "fakeAbsent": true,
+      "ge2": [
+        {
+          "name": "ge2",
+          "nativeName": "ge2",
+          "textAliases": [
+            "/ge2"
+          ],
+          "description": "Run and inspect native GE2 durable command-surface operations.",
+          "source": "plugin",
+          "scope": "both",
+          "acceptsArgs": true
+        }
+      ]
+    },
+    "telegram_text": {
+      "name": "telegram_text",
+      "ok": true,
+      "parseOk": true,
+      "count": 61,
+      "ge2Present": true,
+      "ge2Count": 1,
+      "existingCommandsPreserved": true,
+      "fakeAbsent": true,
+      "ge2": [
+        {
+          "name": "ge2",
+          "nativeName": "ge2",
+          "textAliases": [
+            "/ge2"
+          ],
+          "description": "Run and inspect native GE2 durable command-surface operations.",
+          "source": "plugin",
+          "scope": "both",
+          "acceptsArgs": true
+        }
+      ]
+    },
+    "webchat_both": {
+      "name": "webchat_both",
+      "ok": true,
+      "parseOk": true,
+      "count": 56,
+      "ge2Present": false,
+      "ge2Count": 0,
+      "existingCommandsPreserved": false,
+      "fakeAbsent": true,
+      "ge2": []
+    },
+    "webchat_text": {
+      "name": "webchat_text",
+      "ok": true,
+      "parseOk": true,
+      "count": 61,
+      "ge2Present": true,
+      "ge2Count": 1,
+      "existingCommandsPreserved": true,
+      "fakeAbsent": true,
+      "ge2": [
+        {
+          "name": "ge2",
+          "textAliases": [
+            "/ge2"
+          ],
+          "description": "Run and inspect native GE2 durable command-surface operations.",
+          "source": "plugin",
+          "scope": "both",
+          "acceptsArgs": true
+        }
+      ]
+    }
+  },
+  "safety": {
+    "productionTouched": false,
+    "ge2RuntimeStateTouched": true,
+    "gatewayRestarted": false,
+    "rollbackPerformed": false,
+    "cronCloseoutApplyRetried": false,
+    "promoted": false,
+    "outboundBotSpoofing": false,
+    "realInboundGatewayPath": false
+  },
+  "nextStepIfPass": null
+}

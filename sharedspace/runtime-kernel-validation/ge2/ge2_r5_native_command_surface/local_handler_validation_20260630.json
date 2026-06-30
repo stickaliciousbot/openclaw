@@ -1,0 +1,39 @@
+{
+  "help": {
+    "body": "/ge2 help",
+    "matched": true,
+    "result": {
+      "text": "GE2 native commands:\n/ge2 run <task>\n/ge2 status\n/ge2 status <run_id>\n/ge2 artifacts <run_id>\n/ge2 cancel <run_id>\n/ge2 help"
+    }
+  },
+  "statusBefore": {
+    "body": "/ge2 status",
+    "matched": true,
+    "result": {
+      "text": "⚠️ GE2 RUN_NOT_FOUND: No GE2 runs found in ledger."
+    }
+  },
+  "run": {
+    "body": "/ge2 run r5-local-validation",
+    "matched": true,
+    "result": {
+      "text": "✅ GE2 run accepted.\nrun_id: ge2-20260630072413-c1e88e51\nstatus: accepted\ntask: r5-local-validation\nUse /ge2 status ge2-20260630072413-c1e88e51 for progress."
+    }
+  },
+  "runId": "ge2-20260630072413-c1e88e51",
+  "statusAfter": {
+    "body": "/ge2 status ge2-20260630072413-c1e88e51",
+    "matched": true,
+    "result": {
+      "text": "GE2 status:\nrun_id: ge2-20260630072413-c1e88e51\nstatus: completed\ntask: r5-local-validation\nmilestones: 7\nartifacts: 1\nerrors: 0\nupdated_at: 2026-06-30T07:24:13.989Z"
+    }
+  },
+  "artifacts": {
+    "body": "/ge2 artifacts ge2-20260630072413-c1e88e51",
+    "matched": true,
+    "result": {
+      "text": "GE2 artifacts for ge2-20260630072413-c1e88e51:\n- run-summary.json: bf07cd46c95908385c988ce8fc788ebc3ceddbb619fcedd7645c2b5e5030f4ce /home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630072413-c1e88e51/run-summary.json"
+    }
+  },
+  "stateIndexExists": true
+}

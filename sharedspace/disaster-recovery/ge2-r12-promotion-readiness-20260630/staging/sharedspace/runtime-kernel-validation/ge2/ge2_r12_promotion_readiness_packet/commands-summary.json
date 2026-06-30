@@ -1,0 +1,50 @@
+{
+  "telegram": {
+    "provider": "telegram",
+    "total": 61,
+    "ge2Count": 1,
+    "fakeCount": 0,
+    "preserved": {
+      "pair": true,
+      "dreaming": true,
+      "phone": true,
+      "voice": true
+    },
+    "ge2Entries": [
+      {
+        "name": "ge2",
+        "source": "plugin",
+        "scope": "both",
+        "textAliases": [
+          "/ge2"
+        ],
+        "description": "Run and inspect native GE2 durable command-surface operations.",
+        "acceptsArgs": true
+      }
+    ]
+  },
+  "webchat": {
+    "provider": "webchat",
+    "total": 61,
+    "ge2Count": 1,
+    "fakeCount": 0,
+    "preserved": {
+      "pair": true,
+      "dreaming": true,
+      "phone": true,
+      "voice": true
+    },
+    "ge2Entries": [
+      {
+        "name": "ge2",
+        "source": "plugin",
+        "scope": "both",
+        "textAliases": [
+          "/ge2"
+        ],
+        "description": "Run and inspect native GE2 durable command-surface operations.",
+        "acceptsArgs": true
+      }
+    ]
+  }
+}

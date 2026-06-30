@@ -1,0 +1,142 @@
+{
+  "generatedAt": "2026-06-30T08:55:43.533Z",
+  "initialClassification": "GE2_R7_POST_RESTART_HEALTH_HOLD_LIVE_GATES_NOT_RUN",
+  "finalClassification": "GE2_R7_COMMAND_REGISTRY_VISIBILITY_PASS_HELP_STATUS_PENDING",
+  "boundedRecheckResult": {
+    "label": "bounded_recheck",
+    "statusCommandOk": true,
+    "statusExit": 0,
+    "pid": "307081",
+    "serviceState": "running",
+    "runtimeState": "running",
+    "listenerState": "present",
+    "tcpListenerPresent": true,
+    "connectivityProbe": "ok",
+    "adminCapability": "admin-capable",
+    "pidChangedSinceRestartRequest": true,
+    "fatalLogScan": {
+      "logPath": "/tmp/openclaw/openclaw-2026-06-30.log",
+      "scannedTailLines": 400,
+      "fatalLikeCount": 0,
+      "fatalLikeLines": []
+    },
+    "rawStatusPath": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r7_source_snapshot_repair_plan/bounded_recheck_gateway_status.stdout.txt",
+    "pass": true
+  },
+  "pidBefore": "303370",
+  "pidAfterRecheck": "307081",
+  "loaderShaBeforeProcedure": "43bc33fa3c706ce16c3fc395da640ed6ee9041361938b84a8e8ecbd92685df6b",
+  "expectedPatchedSha": "43bc33fa3c706ce16c3fc395da640ed6ee9041361938b84a8e8ecbd92685df6b",
+  "rollbackPerformed": false,
+  "rollback": {
+    "performed": false
+  },
+  "liveGatesRun": true,
+  "commandsListVisibility": {
+    "default": {
+      "name": "default",
+      "ok": true,
+      "parseOk": true,
+      "count": 61,
+      "ge2Present": true,
+      "ge2Count": 1,
+      "existingCommandsPreserved": true,
+      "fakePresent": false,
+      "pluginNames": [
+        "pair",
+        "dreaming",
+        "phone",
+        "voice",
+        "ge2"
+      ],
+      "ge2": [
+        {
+          "name": "ge2",
+          "nativeName": "ge2",
+          "textAliases": [
+            "/ge2"
+          ],
+          "description": "Run and inspect native GE2 durable command-surface operations.",
+          "source": "plugin",
+          "scope": "both",
+          "acceptsArgs": true
+        }
+      ]
+    },
+    "telegram_both": {
+      "name": "telegram_both",
+      "ok": true,
+      "parseOk": true,
+      "count": 61,
+      "ge2Present": true,
+      "ge2Count": 1,
+      "existingCommandsPreserved": true,
+      "fakePresent": false,
+      "pluginNames": [
+        "pair",
+        "dreaming",
+        "phone",
+        "voice",
+        "ge2"
+      ],
+      "ge2": [
+        {
+          "name": "ge2",
+          "nativeName": "ge2",
+          "textAliases": [
+            "/ge2"
+          ],
+          "description": "Run and inspect native GE2 durable command-surface operations.",
+          "source": "plugin",
+          "scope": "both",
+          "acceptsArgs": true
+        }
+      ]
+    },
+    "telegram_text": {
+      "name": "telegram_text",
+      "ok": true,
+      "parseOk": true,
+      "count": 61,
+      "ge2Present": true,
+      "ge2Count": 1,
+      "existingCommandsPreserved": true,
+      "fakePresent": false,
+      "pluginNames": [
+        "pair",
+        "dreaming",
+        "phone",
+        "voice",
+        "ge2"
+      ],
+      "ge2": [
+        {
+          "name": "ge2",
+          "nativeName": "ge2",
+          "textAliases": [
+            "/ge2"
+          ],
+          "description": "Run and inspect native GE2 durable command-surface operations.",
+          "source": "plugin",
+          "scope": "both",
+          "acceptsArgs": true
+        }
+      ]
+    }
+  },
+  "liveGe2HelpResult": {
+    "run": false,
+    "reason": "bounded recovery stopped after visibility gate per operator close-loop; help/status not executed in this script"
+  },
+  "liveGe2StatusResult": {
+    "run": false,
+    "reason": "bounded recovery stopped after visibility gate per operator close-loop; help/status not executed in this script"
+  },
+  "constraintsHonored": {
+    "cronCloseoutApplyRetried": false,
+    "patchedAnotherFile": false,
+    "pluginManagerBridgePatched": false,
+    "liveCommandsListRunOnlyIfHealthClean": true,
+    "liveGe2HelpStatusRun": false
+  }
+}

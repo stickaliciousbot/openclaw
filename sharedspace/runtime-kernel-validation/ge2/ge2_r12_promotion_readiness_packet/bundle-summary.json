@@ -1,0 +1,7 @@
+{
+  "tarPath": "sharedspace/disaster-recovery/ge2-r12-promotion-readiness-20260630/ge2-r12-promotion-readiness-20260630.tar.gz",
+  "tarSha": "474408c1ad4c4850ed21ded2c2231fc1e1e668fc4a4995d29a594e1b1c915c2d",
+  "noSecrets": "PASS",
+  "manifest": "sharedspace/disaster-recovery/ge2-r12-promotion-readiness-20260630/staging/bundle-manifest.json",
+  "classification": "GE2_R12_PROMOTION_READINESS_PACKET_READY"
+}

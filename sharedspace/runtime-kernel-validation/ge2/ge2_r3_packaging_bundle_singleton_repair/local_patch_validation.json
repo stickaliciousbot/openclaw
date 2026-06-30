@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-06-30T06:08:04.217Z",
+  "imports": {
+    "types": "function",
+    "commandsList": "function",
+    "hookDefault": "function"
+  },
+  "processHasState": true,
+  "globalHasState": true,
+  "sameStateObject": true,
+  "bridgeTarget": "process[Symbol.for(openclaw.pluginCommandsState)]",
+  "reg": {
+    "ok": true
+  },
+  "beforeCount": 0,
+  "afterCount": 1,
+  "probeVisible": true,
+  "hashes": {
+    "types": "864d569218baa6a23bfaa48547947e503ea2343929e5f78171af4e031dad202f",
+    "hook": "d17e0f79d4e2ec5d131ad53e01fc4f1ada34cbeead3c3a90edeecbab87ad833a"
+  }
+}

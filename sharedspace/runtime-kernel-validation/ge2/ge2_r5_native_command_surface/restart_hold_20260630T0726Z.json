@@ -1,0 +1,37 @@
+{
+  "generatedAt": "2026-06-30T07:26:00Z",
+  "classification": "GE2_R5_HOLD_PATCH_APPLIED_LOCAL_PASS_AWAITING_GATEWAY_PID_TURNOVER",
+  "pass": false,
+  "rollbackPerformed": false,
+  "reason": "Patch installed and locally validated, but live Gateway PID remained 300576 after restart request, so live commands.list is still served by the old process image and does not expose /ge2.",
+  "gateway": {
+    "pidBeforeR5RestartRequest": "300576",
+    "pidAfterTurnoverCheck": "300576",
+    "health": "Connectivity probe OK; admin-capable",
+    "restartRequest": "gateway.restart emitted SIGUSR1 with reason GE2-R5 native command surface repair"
+  },
+  "installedPatch": {
+    "target": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/commands-D2qp4St4.js",
+    "manifest": "sharedspace/runtime-kernel-validation/ge2/ge2_r5_native_command_surface/install_manifest_20260630T0715Z.json",
+    "reverser": "sharedspace/runtime-kernel-validation/ge2/ge2_r5_native_command_surface/reverser_20260630T0715Z.mjs",
+    "afterSha256": "660af5de5094031703c6f62260cb118643043275999bb68ff53e806796e250eb",
+    "markers": {
+      "GE2_R5_NATIVE_COMMAND_SURFACE_START": true,
+      "GE2_R5_NATIVE_COMMAND_SURFACE_END": true,
+      "ensureNativeGe2CommandRegistered": true,
+      "Ge2Dispatcher": true
+    }
+  },
+  "localValidation": {
+    "importValidation": "sharedspace/runtime-kernel-validation/ge2/ge2_r5_native_command_surface/local_import_validation_20260630.json",
+    "handlerValidation": "sharedspace/runtime-kernel-validation/ge2/ge2_r5_native_command_surface/local_handler_validation_20260630.json",
+    "result": "Local /ge2 help/status/run/artifacts matched and dispatched through GE2 runtime; run completed with 7 milestones and 1 hashed artifact."
+  },
+  "liveValidation": {
+    "commandsListSummary": "sharedspace/runtime-kernel-validation/ge2/ge2_r5_native_command_surface/commands_list_r5_summary.json",
+    "default": { "count": 60, "ge2Present": false, "fakePresent": false, "pluginNames": ["pair", "dreaming", "phone", "voice"] },
+    "telegramBoth": { "count": 60, "ge2Present": false, "fakePresent": false, "pluginNames": ["pair", "dreaming", "phone", "voice"] },
+    "telegramText": { "count": 60, "ge2Present": false, "fakePresent": false, "pluginNames": ["pair", "dreaming", "phone", "voice"] }
+  },
+  "decision": "Hold for Gateway PID turnover. Do not claim PASS and do not retry cron closeout apply. No rollback because live Gateway remains healthy and old-process command surface is not degraded."
+}

@@ -1,0 +1,56 @@
+{
+  "generatedAt": "2026-06-30T06:00:12.400Z",
+  "status": "FILTERING_NOT_LOSS_POINT",
+  "evidence": {
+    "defaultPluginEntries": [
+      {
+        "name": "pair",
+        "nativeName": "pair",
+        "textAliases": [
+          "/pair"
+        ],
+        "description": "Generate setup codes and approve device pairing requests.",
+        "source": "plugin",
+        "scope": "both",
+        "acceptsArgs": true
+      },
+      {
+        "name": "dreaming",
+        "nativeName": "dreaming",
+        "textAliases": [
+          "/dreaming"
+        ],
+        "description": "Enable or disable memory dreaming.",
+        "source": "plugin",
+        "scope": "both",
+        "acceptsArgs": true
+      },
+      {
+        "name": "phone",
+        "nativeName": "phone",
+        "textAliases": [
+          "/phone"
+        ],
+        "description": "Arm/disarm high-risk phone node commands (camera/screen/writes).",
+        "source": "plugin",
+        "scope": "both",
+        "acceptsArgs": true
+      },
+      {
+        "name": "voice",
+        "nativeName": "voice",
+        "textAliases": [
+          "/voice"
+        ],
+        "description": "List/set Talk provider voices (affects iOS Talk playback).",
+        "source": "plugin",
+        "scope": "both",
+        "acceptsArgs": true
+      }
+    ],
+    "telegramBothGe2Present": false,
+    "telegramNativeGe2Present": false,
+    "fakePresent": false
+  },
+  "analysis": "commands.list appends every entry returned by listPluginCommands; scope/provider filtering only affects native naming/surface after registry read. Because /ge2 is absent from default/both/text/native surfaces and from raw pluginEntries, filtering/auth/scope is not the loss point."
+}

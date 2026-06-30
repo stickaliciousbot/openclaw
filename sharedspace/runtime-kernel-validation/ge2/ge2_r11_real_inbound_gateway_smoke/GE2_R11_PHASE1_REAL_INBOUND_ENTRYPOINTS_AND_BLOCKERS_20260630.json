@@ -1,0 +1,132 @@
+{
+  "generatedAt": "2026-06-30T09:53:27.490Z",
+  "gatewayStatusText": "Service: systemd user (enabled)\nFile logs: /tmp/openclaw/openclaw-2026-06-30.log\nCommand: /usr/bin/node /home/stickai/.npm-global/lib/node_modules/openclaw/dist/index.js gateway --port 18789\nService file: ~/.config/systemd/user/openclaw-gateway.service\nService env: OPENCLAW_GATEWAY_PORT=18789\n\nConfig (cli): ~/.openclaw/openclaw.json\nConfig (service): ~/.openclaw/openclaw.json\n\nGateway: bind=lan (0.0.0.0), port=18789 (service args)\nProbe target: ws://127.0.0.1:18789\nDashboard: http://172.24.168.46:18789/\nProbe note: bind=lan listens on 0.0.0.0 (all interfaces); probing via 127.0.0.1.\n\nRuntime: running (pid 307081, state active, sub running, last exit 0, reason 0)\nConnectivity probe: ok\nCapability: admin-capable\n\nListening: *:18789\nTroubles: run openclaw status\nTroubleshooting: https://docs.openclaw.ai/troubleshooting\n",
+  "commands": {
+    "telegram": {
+      "provider": "telegram",
+      "count": 61,
+      "ge2Count": 1,
+      "ge2": [
+        {
+          "name": "ge2",
+          "source": "plugin",
+          "scope": "both",
+          "textAliases": [
+            "/ge2"
+          ],
+          "acceptsArgs": true,
+          "description": "Run and inspect native GE2 durable command-surface operations."
+        }
+      ],
+      "fakeCount": 0,
+      "preserve": [
+        {
+          "name": "pair",
+          "present": true
+        },
+        {
+          "name": "dreaming",
+          "present": true
+        },
+        {
+          "name": "phone",
+          "present": true
+        },
+        {
+          "name": "voice",
+          "present": true
+        }
+      ]
+    },
+    "webchat": {
+      "provider": "webchat",
+      "count": 61,
+      "ge2Count": 1,
+      "ge2": [
+        {
+          "name": "ge2",
+          "source": "plugin",
+          "scope": "both",
+          "textAliases": [
+            "/ge2"
+          ],
+          "acceptsArgs": true,
+          "description": "Run and inspect native GE2 durable command-surface operations."
+        }
+      ],
+      "fakeCount": 0,
+      "preserve": [
+        {
+          "name": "pair",
+          "present": true
+        },
+        {
+          "name": "dreaming",
+          "present": true
+        },
+        {
+          "name": "phone",
+          "present": true
+        },
+        {
+          "name": "voice",
+          "present": true
+        }
+      ]
+    }
+  },
+  "routeFindings": {
+    "telegram": {
+      "installedDist": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/bot-Ds7bwqAK.js",
+      "nativeRuntime": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/bot-native-commands.runtime-OmS7iYqz.js",
+      "ingress": "Telegram Bot API update -> createTelegramBot/registerTelegramNativeCommands -> bot.handleUpdate in running Gateway",
+      "recognizer": "matchPluginCommand(commandBody)",
+      "executor": "executePluginCommand(...)",
+      "responseDelivery": "Telegram reply/send path via deliverReplies/recordSentMessage",
+      "sentLedger": "/home/stickai/.openclaw/agents/main/sessions/sessions.json.telegram-sent-messages.json",
+      "directSessionKey": "agent:main:telegram:direct:8495203551",
+      "p3Availability": "requires real operator-sent Telegram inbound /ge2 message; assistant must not spoof inbound or send outbound bot command as substitute"
+    },
+    "webuiGateway": {
+      "installedDist": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/chat-BUK7LXQw.js",
+      "serverChat": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/server-chat-BK0Ftt9y.js",
+      "commandHandlers": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/commands-handlers.runtime-DlESKC_s.js",
+      "ingress": "Gateway RPC chat.send -> dispatchInboundMessage/get-reply command routing in running Gateway",
+      "requiredParams": [
+        "sessionKey",
+        "message",
+        "idempotencyKey"
+      ],
+      "recognizer": "commands-handlers.runtime handlePluginCommand / matchPluginCommand(commandBodyNormalized)",
+      "executor": "executePluginCommand(...)",
+      "responseDelivery": "chat transcript + nodeSendToSession live chat event",
+      "transcriptPath": "session transcript under /home/stickai/.openclaw/agents/main/sessions/",
+      "p3Availability": "rendered browser WebUI unavailable on host; raw chat.send live RPC was accepted but /ge2 help returned authorization gate, not GE2 help"
+    }
+  },
+  "liveProbeResults": {
+    "browserStart": "failed: No supported browser found (Chrome/Brave/Edge/Chromium)",
+    "webuiGatewayChatSend": {
+      "sessionKey": "agent:main:main",
+      "commands": [
+        "/ge2 help"
+      ],
+      "result": "accepted by chat.send, transcript response was authorization gate: ⚠️ This command requires authorization.",
+      "modelFallthrough": "not observed; response provider/model gateway-injected with zero token usage",
+      "ge2NativeExecution": "not proven because auth gate blocked before GE2 help response"
+    },
+    "telegramSessionInternalChatSend": {
+      "sessionKey": "agent:main:telegram:direct:8495203551",
+      "command": "/ge2 help",
+      "result": "not counted as P3; internal chat.send against current direct session is not real external Telegram inbound and polluted active transcript; stopped route"
+    }
+  },
+  "productionBoundary": {
+    "productionPatch": false,
+    "gatewayRestarted": false,
+    "rollbackPerformed": false,
+    "cronApply": false,
+    "promotion": false
+  },
+  "classification": "GE2_R11_REAL_INBOUND_BLOCKED_P2_PASS_ONLY"
+}

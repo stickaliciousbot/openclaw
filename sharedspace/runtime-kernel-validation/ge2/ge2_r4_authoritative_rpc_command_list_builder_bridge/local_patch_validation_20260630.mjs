@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+import crypto from 'node:crypto';
+const dir='/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r4_authoritative_rpc_command_list_builder_bridge';
+const file='/home/stickai/.npm-global/lib/node_modules/openclaw/dist/server-methods-Dw6hzI_j.js';
+const text=fs.readFileSync(file,'utf8');
+const markers=['collectActiveRegistryPluginCommandEntries','resolveActiveRegistryCommandNativeName','activeRegistryCommandSupportsProvider','entries.push(...collectActiveRegistryPluginCommandEntries(params, entries))'];
+const imported=await import('file://'+file+'?ge2r4='+Date.now());
+const report={generatedAt:new Date().toISOString(), importOk:true, exportedKeys:Object.keys(imported).slice(0,20), markers:Object.fromEntries(markers.map(m=>[m,text.includes(m)])), sha256:crypto.createHash('sha256').update(text).digest('hex')};
+fs.writeFileSync(dir+'/local_patch_validation.json',JSON.stringify(report,null,2)+'\n');
+console.log(JSON.stringify(report,null,2));

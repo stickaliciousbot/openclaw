@@ -1,0 +1,36 @@
+{
+  "generatedAt": "2026-06-30T07:58:30.322Z",
+  "classification": "GE2_R7_SOURCE_SNAPSHOT_REPAIR_PLAN_NO_PRODUCTION_MUTATION",
+  "productionMutation": false,
+  "allExist": true,
+  "files": [
+    {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r7_source_snapshot_repair_plan/r7_source_snapshot_trace_report_20260630.json",
+      "sha256": "fcfc5eb7fe162524be95e170fd48b4affc63e161f9d54be65f0cb5633523392a"
+    },
+    {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r7_source_snapshot_repair_plan/GE2_R7_SOURCE_SNAPSHOT_REPAIR_PLAN.md",
+      "sha256": "3b95ceb37f7a11df68abd847ef0d5d0d96b22e59a3ee58db14746428e47d4066"
+    },
+    {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r7_source_snapshot_repair_plan/snapshots_20260630T0800Z/types-CdFhLeaX.js",
+      "source": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/types-CdFhLeaX.js",
+      "sha256": "864d569218baa6a23bfaa48547947e503ea2343929e5f78171af4e031dad202f"
+    },
+    {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r7_source_snapshot_repair_plan/snapshots_20260630T0800Z/loader-Bfm_uDYG.js",
+      "source": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/loader-Bfm_uDYG.js",
+      "sha256": "ff2d89b04d1d5f7fb727f586a78fe92e0b52ffbe43a484551475cf140b53feb0"
+    },
+    {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r7_source_snapshot_repair_plan/snapshots_20260630T0800Z/server-methods-Dw6hzI_j.js",
+      "source": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/server-methods-Dw6hzI_j.js",
+      "sha256": "638aa2dbf4cc7a9758b0d3f5679ec745e329e0f8f164408731a2107357993986"
+    },
+    {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r7_source_snapshot_repair_plan/snapshots_20260630T0800Z/commands-D2qp4St4.js",
+      "source": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/commands-D2qp4St4.js",
+      "sha256": "660af5de5094031703c6f62260cb118643043275999bb68ff53e806796e250eb"
+    }
+  ]
+}

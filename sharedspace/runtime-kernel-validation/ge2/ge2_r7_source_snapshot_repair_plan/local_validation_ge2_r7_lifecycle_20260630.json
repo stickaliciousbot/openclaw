@@ -1,0 +1,90 @@
+{
+  "generatedAt": "2026-06-30T08:11:01.023Z",
+  "classification": "GE2_R7_LOCAL_REGISTRY_VALIDATION_PASS_RESTART_READY",
+  "pass": true,
+  "gatewayRestartPerformed": false,
+  "productionPatchInstalled": true,
+  "loaderSha256": "43bc33fa3c706ce16c3fc395da640ed6ee9041361938b84a8e8ecbd92685df6b",
+  "normal": {
+    "pluginCommandsCount": 5,
+    "ge2PluginCommandCount": 1,
+    "ge2RegistryCommandCount": 1,
+    "existingCommandsPreserved": true,
+    "fakeAbsent": true,
+    "names": [
+      "dreaming",
+      "ge2",
+      "pair",
+      "phone",
+      "voice"
+    ]
+  },
+  "restored": {
+    "afterClearCount": 0,
+    "pluginCommandsCount": 5,
+    "ge2PluginCommandCount": 1,
+    "ge2RegistryCommandCount": 1,
+    "existingCommandsPreserved": true,
+    "fakeAbsent": true,
+    "names": [
+      "dreaming",
+      "ge2",
+      "pair",
+      "phone",
+      "voice"
+    ]
+  },
+  "matcher": {
+    "listPluginCommandsGe2Count": 1,
+    "listPluginCommandsExistingPreserved": true,
+    "listPluginCommandsFakeAbsent": true,
+    "matchGe2Help": true,
+    "matchGe2Status": true,
+    "matchFake": false
+  },
+  "dispatch": {
+    "help": {
+      "matched": true,
+      "nativeText": true,
+      "textPreview": "GE2 native commands:\n/ge2 run <task>\n/ge2 status\n/ge2 status <run_id>\n/ge2 artifacts <run_id>\n/ge2 cancel <run_id>\n/ge2 help"
+    },
+    "status": {
+      "matched": true,
+      "nativeText": true,
+      "textPreview": "GE2 status:\nrun_id: ge2-20260630072413-c1e88e51\nstatus: completed\ntask: r5-local-validation\nmilestones: 0\nartifacts: 0\nerrors: 0\nupdated_at: 2026-06-30T07:24:13.989Z"
+    },
+    "run": {
+      "matched": true,
+      "nativeText": true,
+      "runId": "ge2-20260630081100-ec5089ab",
+      "textPreview": "✅ GE2 run accepted.\nrun_id: ge2-20260630081100-ec5089ab\nstatus: accepted\ntask: r7-local-validation\nUse /ge2 status ge2-20260630081100-ec5089ab for progress."
+    },
+    "artifacts": {
+      "matched": true,
+      "nativeText": true,
+      "textPreview": "GE2 artifacts for ge2-20260630081100-ec5089ab: none recorded."
+    }
+  },
+  "checks": {
+    "markerStart": true,
+    "markerEnd": true,
+    "normalGe2ExactlyOnePlugin": true,
+    "normalGe2ExactlyOneRegistry": true,
+    "normalExistingPreserved": true,
+    "normalFakeAbsent": true,
+    "restoredGe2ExactlyOnePlugin": true,
+    "restoredGe2ExactlyOneRegistry": true,
+    "restoredExistingPreserved": true,
+    "restoredFakeAbsent": true,
+    "matcherGe2ExactlyOne": true,
+    "matcherExistingPreserved": true,
+    "matcherFakeAbsent": true,
+    "matcherHelp": true,
+    "matcherStatus": true,
+    "fakeDoesNotMatch": true,
+    "helpNative": true,
+    "statusNative": true,
+    "runNative": true,
+    "artifactsNative": true
+  }
+}

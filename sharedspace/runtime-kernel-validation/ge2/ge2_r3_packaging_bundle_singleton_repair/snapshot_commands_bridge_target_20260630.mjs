@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+const dir='/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r3_packaging_bundle_singleton_repair';
+const file='/home/stickai/.npm-global/lib/node_modules/openclaw/dist/commands-D2qp4St4.js';
+const sha=crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+const dest=path.join(dir,'preimage__home__stickai__.npm-global__lib__node_modules__openclaw__dist__commands-D2qp4St4.js');
+fs.copyFileSync(file,dest);
+const rec={generatedAt:new Date().toISOString(), reason:'GE2-R3 fallback bridge target snapshot before modifying commands lookup/listing path', file, sha256:sha, snapshotPath:dest};
+fs.writeFileSync(path.join(dir,'commands_bridge_target_snapshot.json'),JSON.stringify(rec,null,2)+'\n');
+console.log(JSON.stringify(rec,null,2));

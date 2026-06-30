@@ -1,0 +1,66 @@
+{
+  "classification": "GE2_NATIVE_COMMAND_SURFACE_PROMOTED_PUSH_BLOCKED_HANDOFF_PRESERVED",
+  "checkedAt": "2026-06-30T10:59:49.006Z",
+  "failures": [],
+  "healthGreen": true,
+  "commands": {
+    "telegram": {
+      "provider": "telegram",
+      "total": 61,
+      "ge2Count": 1,
+      "fakeCount": 0,
+      "preserved": {
+        "pair": true,
+        "dreaming": true,
+        "phone": true,
+        "voice": true
+      },
+      "ge2": [
+        {
+          "name": "ge2",
+          "source": "plugin",
+          "scope": "both",
+          "textAliases": [
+            "/ge2"
+          ]
+        }
+      ]
+    },
+    "webchat": {
+      "provider": "webchat",
+      "total": 61,
+      "ge2Count": 1,
+      "fakeCount": 0,
+      "preserved": {
+        "pair": true,
+        "dreaming": true,
+        "phone": true,
+        "voice": true
+      },
+      "ge2": [
+        {
+          "name": "ge2",
+          "source": "plugin",
+          "scope": "both",
+          "textAliases": [
+            "/ge2"
+          ]
+        }
+      ]
+    }
+  },
+  "r12DrBundle": "sharedspace/disaster-recovery/ge2-r12-promotion-readiness-20260630/ge2-r12-promotion-readiness-20260630.tar.gz",
+  "r12DrSha256": "474408c1ad4c4850ed21ded2c2231fc1e1e668fc4a4995d29a594e1b1c915c2d",
+  "r12DrShaMatches": true,
+  "noSecretsStatus": "PASS",
+  "r13Bundle": "sharedspace/disaster-recovery/ge2-r13-promotion-20260630/ge2-r13-promotion-20260630.tar.gz",
+  "r13BundleSha256": "b7509076f20dc5dc906a7343c92bb8d0bb5dee1d894242abbe2460b19c7a0f8c",
+  "r13BundleNoSecrets": "PASS",
+  "promotionRecord": "sharedspace/runtime-kernel-validation/ge2/ge2_r13_promotion/GE2_NATIVE_COMMAND_SURFACE_PROMOTED_20260630.md",
+  "promotionRecordExists": true,
+  "gitPushStatus": "blocked_not_attempted_due_preexisting_dirty_workspace",
+  "handoffPreserved": true,
+  "productionRuntimeTouched": false,
+  "gatewayRestarted": false,
+  "rollbackPerformed": false
+}

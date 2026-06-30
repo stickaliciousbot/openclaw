@@ -1,0 +1,12 @@
+import fs from 'node:fs';
+import crypto from 'node:crypto';
+const dir='/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r3_packaging_bundle_singleton_repair';
+const commandsPath='/home/stickai/.npm-global/lib/node_modules/openclaw/dist/commands-D2qp4St4.js';
+const typesPath='/home/stickai/.npm-global/lib/node_modules/openclaw/dist/types-CdFhLeaX.js';
+const commandsMod = await import('file://' + commandsPath + '?r3bridge=' + Date.now());
+const typesMod = await import('file://' + typesPath + '?r3bridge=' + Date.now());
+const reg=typesMod.p('ge2_r3_bridge_probe',{name:'ge2_r3_bridge_probe',description:'GE2-R3 bridge probe',acceptsArgs:false,handler:async()=>({text:'ok'})},{pluginName:'GE2 R3 bridge probe',pluginRoot:dir});
+const listed=commandsMod.r();
+const report={generatedAt:new Date().toISOString(), imports:{listPluginCommands:typeof commandsMod.r, matchPluginCommand:typeof commandsMod.i, registerPluginCommand:typeof typesMod.p}, reg, listedCount:listed.length, probeVisible:listed.some(c=>c.name==='ge2_r3_bridge_probe'), fakeVisible:listed.some(c=>String(c.name||'').includes('fake')), hashes:{commands:crypto.createHash('sha256').update(fs.readFileSync(commandsPath)).digest('hex'),types:crypto.createHash('sha256').update(fs.readFileSync(typesPath)).digest('hex')}};
+fs.writeFileSync(dir+'/local_fallback_bridge_validation.json',JSON.stringify(report,null,2)+'\n');
+console.log(JSON.stringify(report,null,2));

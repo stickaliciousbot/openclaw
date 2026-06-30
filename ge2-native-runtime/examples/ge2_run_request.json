@@ -1,0 +1,11 @@
+{
+  "type": "command",
+  "name": "ge2",
+  "command": "run",
+  "payload": "daily-maintenance",
+  "surface": "telegram",
+  "sessionKey": "agent:main:telegram:direct:8495203551",
+  "sessionId": "example-session-id",
+  "userId": "telegram:8495203551",
+  "messageId": "example-message-id"
+}

@@ -1,0 +1,1 @@
+openclaw doctor --non-interactive was started during GE2-R3 final verification and was SIGKILLed by the 240s command timeout after warning output. No doctor fix command was run. See turn transcript/process log for full console excerpt.

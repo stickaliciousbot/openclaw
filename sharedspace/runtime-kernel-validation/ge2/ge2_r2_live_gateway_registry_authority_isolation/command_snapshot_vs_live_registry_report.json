@@ -1,0 +1,57 @@
+{
+  "generatedAt": "2026-06-30T06:00:12.400Z",
+  "commandsListImplementation": "live function call: buildCommandsListResult invokes buildPluginCommandEntries and listPluginCommands at request time",
+  "staticSnapshot": false,
+  "startupSnapshot": false,
+  "liveMutableRegistry": true,
+  "caveat": "The live mutable registry used by RPC commands.list is not the same registry object observed by the hook registrar.",
+  "evidence": {
+    "traceSource": "live_commands_list_trace.md",
+    "pluginEntries": [
+      {
+        "name": "pair",
+        "nativeName": "pair",
+        "textAliases": [
+          "/pair"
+        ],
+        "description": "Generate setup codes and approve device pairing requests.",
+        "source": "plugin",
+        "scope": "both",
+        "acceptsArgs": true
+      },
+      {
+        "name": "dreaming",
+        "nativeName": "dreaming",
+        "textAliases": [
+          "/dreaming"
+        ],
+        "description": "Enable or disable memory dreaming.",
+        "source": "plugin",
+        "scope": "both",
+        "acceptsArgs": true
+      },
+      {
+        "name": "phone",
+        "nativeName": "phone",
+        "textAliases": [
+          "/phone"
+        ],
+        "description": "Arm/disarm high-risk phone node commands (camera/screen/writes).",
+        "source": "plugin",
+        "scope": "both",
+        "acceptsArgs": true
+      },
+      {
+        "name": "voice",
+        "nativeName": "voice",
+        "textAliases": [
+          "/voice"
+        ],
+        "description": "List/set Talk provider voices (affects iOS Talk playback).",
+        "source": "plugin",
+        "scope": "both",
+        "acceptsArgs": true
+      }
+    ]
+  }
+}

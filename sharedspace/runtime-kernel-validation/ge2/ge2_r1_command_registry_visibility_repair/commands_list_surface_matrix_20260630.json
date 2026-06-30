@@ -1,0 +1,218 @@
+[
+  {
+    "label": "default",
+    "params": {},
+    "count": 60,
+    "ge2Present": false,
+    "ge2": null,
+    "pluginEntries": [
+      {
+        "name": "pair",
+        "nativeName": "pair",
+        "textAliases": [
+          "/pair"
+        ],
+        "scope": "both"
+      },
+      {
+        "name": "dreaming",
+        "nativeName": "dreaming",
+        "textAliases": [
+          "/dreaming"
+        ],
+        "scope": "both"
+      },
+      {
+        "name": "phone",
+        "nativeName": "phone",
+        "textAliases": [
+          "/phone"
+        ],
+        "scope": "both"
+      },
+      {
+        "name": "voice",
+        "nativeName": "voice",
+        "textAliases": [
+          "/voice"
+        ],
+        "scope": "both"
+      }
+    ]
+  },
+  {
+    "label": "scope_text",
+    "params": {
+      "scope": "text"
+    },
+    "count": 60,
+    "ge2Present": false,
+    "ge2": null,
+    "pluginEntries": [
+      {
+        "name": "pair",
+        "nativeName": "pair",
+        "textAliases": [
+          "/pair"
+        ],
+        "scope": "both"
+      },
+      {
+        "name": "dreaming",
+        "nativeName": "dreaming",
+        "textAliases": [
+          "/dreaming"
+        ],
+        "scope": "both"
+      },
+      {
+        "name": "phone",
+        "nativeName": "phone",
+        "textAliases": [
+          "/phone"
+        ],
+        "scope": "both"
+      },
+      {
+        "name": "voice",
+        "nativeName": "voice",
+        "textAliases": [
+          "/voice"
+        ],
+        "scope": "both"
+      }
+    ]
+  },
+  {
+    "label": "scope_both_provider_telegram",
+    "params": {
+      "scope": "both",
+      "provider": "telegram"
+    },
+    "count": 60,
+    "ge2Present": false,
+    "ge2": null,
+    "pluginEntries": [
+      {
+        "name": "pair",
+        "nativeName": "pair",
+        "textAliases": [
+          "/pair"
+        ],
+        "scope": "both"
+      },
+      {
+        "name": "dreaming",
+        "nativeName": "dreaming",
+        "textAliases": [
+          "/dreaming"
+        ],
+        "scope": "both"
+      },
+      {
+        "name": "phone",
+        "nativeName": "phone",
+        "textAliases": [
+          "/phone"
+        ],
+        "scope": "both"
+      },
+      {
+        "name": "voice",
+        "nativeName": "voice",
+        "textAliases": [
+          "/voice"
+        ],
+        "scope": "both"
+      }
+    ]
+  },
+  {
+    "label": "scope_text_provider_telegram",
+    "params": {
+      "scope": "text",
+      "provider": "telegram"
+    },
+    "count": 60,
+    "ge2Present": false,
+    "ge2": null,
+    "pluginEntries": [
+      {
+        "name": "pair",
+        "nativeName": "pair",
+        "textAliases": [
+          "/pair"
+        ],
+        "scope": "both"
+      },
+      {
+        "name": "dreaming",
+        "nativeName": "dreaming",
+        "textAliases": [
+          "/dreaming"
+        ],
+        "scope": "both"
+      },
+      {
+        "name": "phone",
+        "nativeName": "phone",
+        "textAliases": [
+          "/phone"
+        ],
+        "scope": "both"
+      },
+      {
+        "name": "voice",
+        "nativeName": "voice",
+        "textAliases": [
+          "/voice"
+        ],
+        "scope": "both"
+      }
+    ]
+  },
+  {
+    "label": "scope_native_provider_telegram",
+    "params": {
+      "scope": "native",
+      "provider": "telegram"
+    },
+    "count": 58,
+    "ge2Present": false,
+    "ge2": null,
+    "pluginEntries": [
+      {
+        "name": "pair",
+        "nativeName": "pair",
+        "textAliases": [
+          "/pair"
+        ],
+        "scope": "both"
+      },
+      {
+        "name": "dreaming",
+        "nativeName": "dreaming",
+        "textAliases": [
+          "/dreaming"
+        ],
+        "scope": "both"
+      },
+      {
+        "name": "phone",
+        "nativeName": "phone",
+        "textAliases": [
+          "/phone"
+        ],
+        "scope": "both"
+      },
+      {
+        "name": "voice",
+        "nativeName": "voice",
+        "textAliases": [
+          "/voice"
+        ],
+        "scope": "both"
+      }
+    ]
+  }
+]

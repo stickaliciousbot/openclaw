@@ -1,0 +1,12 @@
+{
+  "count": 60,
+  "ge2Present": false,
+  "ge2": null,
+  "pluginNames": [
+    "pair",
+    "dreaming",
+    "phone",
+    "voice"
+  ],
+  "fakePresent": false
+}

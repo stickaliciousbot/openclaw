@@ -1,0 +1,1129 @@
+{
+  "generatedAt": "2026-06-30T09:09:26.064Z",
+  "classification": "GE2_R8_HELP_STATUS_NATIVE_EXECUTION_PASS_RUN_PENDING",
+  "pass": true,
+  "proofPathUsed": "Option A — installed-dist native handler harness",
+  "productionTouched": false,
+  "gatewayRestarted": false,
+  "rollbackPerformed": false,
+  "cronCloseoutApplyRetried": false,
+  "ge2RunExecuted": false,
+  "files": {
+    "commandsPath": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/commands-D2qp4St4.js",
+    "commandsSha256": "660af5de5094031703c6f62260cb118643043275999bb68ff53e806796e250eb",
+    "loaderPath": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/loader-Bfm_uDYG.js",
+    "loaderSha256": "43bc33fa3c706ce16c3fc395da640ed6ee9041361938b84a8e8ecbd92685df6b",
+    "botPath": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/bot-Ds7bwqAK.js",
+    "botSha256": "b49537ef2bae42289692436dea3834e5a5c075beecd6ff9b54052e7a74115538",
+    "botNativeRuntimePath": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/bot-native-commands.runtime-OmS7iYqz.js",
+    "botNativeRuntimeSha256": "ace9e34e2bcbf67709a7ae54d735dfade67b094068b3f65a8718195c212524df",
+    "serverMethodsPath": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/server-methods-Dw6hzI_j.js",
+    "serverMethodsSha256": "638aa2dbf4cc7a9758b0d3f5679ec745e329e0f8f164408731a2107357993986"
+  },
+  "traceTable": {
+    "telegramNativeCommandEntryFile": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/bot-Ds7bwqAK.js",
+    "telegramNativeMatcherFile": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/commands-D2qp4St4.js",
+    "telegramNativeHandlerFunction": "executePluginCommand() -> command.handler(ctx) in commands-D2qp4St4.js; Telegram adapter via bot-native-commands.runtime-OmS7iYqz.js",
+    "webuiNativeCommandEntryFile": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/commands-D2qp4St4.js; /home/stickai/.npm-global/lib/node_modules/openclaw/dist/commands-handlers.runtime-DlESKC_s.js",
+    "webuiNativeHandlerFunction": "candidate imports matchPluginCommand/executePluginCommand; exact WebUI adapter requires deeper P2 trace",
+    "sharedGe2DispatcherReached": "yes",
+    "nonModelHarnessAvailable": "yes",
+    "liveGatewayRpcAvailable": "commands.list only; no native execute RPC found",
+    "proposedProofPath": "Option A — installed-dist native handler harness using production commands-D2qp4St4.js matcher and executePluginCommand",
+    "productionMutationRequired": "no"
+  },
+  "telegramTrace": {
+    "entryFile": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/bot-Ds7bwqAK.js",
+    "nativeRuntimeFile": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/bot-native-commands.runtime-OmS7iYqz.js",
+    "matcherFile": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/commands-D2qp4St4.js",
+    "hits": [
+      {
+        "needle": "bot.command",
+        "lineNumber": 739,
+        "line": "bot.command(normalizedCommandName, async (ctx) => {"
+      },
+      {
+        "needle": "bot.command",
+        "lineNumber": 964,
+        "line": "for (const pluginCommand of pluginCatalog.commands) bot.command(pluginCommand.command, async (ctx) => {"
+      },
+      {
+        "needle": "nativeCommandRuntime.matchPluginCommand",
+        "lineNumber": 978,
+        "line": "const match = nativeCommandRuntime.matchPluginCommand(commandBody);"
+      },
+      {
+        "needle": "nativeCommandRuntime.executePluginCommand",
+        "lineNumber": 1047,
+        "line": "const result = normalizeTelegramNativeReplyPayload(await nativeCommandRuntime.executePluginCommand({"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 25,
+        "line": "import { m as resolveSendableOutboundReplyParts } from \"./reply-payload-Z16zBgUU.js\";"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 59,
+        "line": "import { t as createChannelReplyPipeline } from \"./channel-reply-pipeline-Bh4BIDtD.js\";"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 62,
+        "line": "import \"./reply-history-CMdV6akj.js\";"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 66,
+        "line": "import { d as parseExecApprovalCommandText } from \"./exec-approval-reply-CS3Ze0Uj.js\";"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 67,
+        "line": "import \"./approval-reply-runtime-718NAf1j.js\";"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 75,
+        "line": "import { t as dispatchReplyWithBufferedBlockDispatcher } from \"./reply-dispatch-runtime-BFR0nVse.js\";"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 76,
+        "line": "import \"./reply-chunking-BFyjN5aO.js\";"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 77,
+        "line": "import { a as runInboundReplyTurn } from \"./inbound-reply-dispatch-XLbVy5wA.js\";"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 147,
+        "line": "const externalReply = msg.external_reply;"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 148,
+        "line": "const replyTarget = msg.reply_to_message ?? externalReply;"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 149,
+        "line": "return Boolean(replyTarget && hasInboundMedia(replyTarget));"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 232,
+        "line": "logVerbose(`telegram: topic route override: topic=${params.resolvedThreadId ?? params.replyThreadId} agent=${topicAgentId} sessionKey=${route.sessionKey}`);"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 247,
+        "line": "const runtimeBindingConversationId = params.replyThreadId != null ? `${params.chatId}:topic:${params.replyThreadId}` : String(params.chatId);"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 604,
+        "line": "const registerTelegramNativeCommands = ({ bot, cfg, runtime, accountId, telegramCfg, allowFrom, groupAllowFrom, replyToMode, textLimit, useAccessGroups, nativeEnabled, nativeSkillsEnabled, nativeDisabledExplicit, resolveGroupPolicy, resolveTelegramGroupConfig,"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 684,
+        "line": "replyThreadId: threadSpec.id,"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 729,
+        "line": "replyToMode,"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 834,
+        "line": "const replyMarkup = buildInlineKeyboard(rows);"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 839,
+        "line": "...replyMarkup ? { reply_markup: replyMarkup } : {},"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 915,
+        "line": "const { onModelSelected, ...replyPipeline } = createChannelReplyPipeline({"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 925,
+        "line": "...replyPipeline,"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 937,
+        "line": "replies: [payload.replyToId ? payload : {"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 939,
+        "line": "replyToId: String(msg.message_id)"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 949,
+        "line": "runtime.error?.(danger(`telegram slash ${info.kind} reply failed: ${String(err)}`));"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 952,
+        "line": "replyOptions: {"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 1214,
+        "line": "logVerbose(`telegram pairing reply failed for chat ${chatId}: ${String(err)}`);"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 1218,
+        "line": "logVerbose(`telegram pairing reply failed for chat ${chatId}: ${String(err)}`);"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 1388,
+        "line": "const replyMedia = await resolveReplyMediaForMessage(last.ctx, last.msg);"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 1392,
+        "line": "}, replyMedia);"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 1407,
+        "line": "const replyMedia = await resolveReplyMediaForMessage(baseCtx, syntheticMessage);"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 1412,
+        "line": "}, replyMedia);"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 1448,
+        "line": "replyThreadId: topicThreadId,"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 1529,
+        "line": "const replyMedia = await resolveReplyMediaForMessage(primaryEntry.ctx, primaryEntry.msg);"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 1530,
+        "line": "await processMessage(primaryEntry.ctx, allMedia, storeAllowFrom, void 0, replyMedia);"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 1577,
+        "line": "const replyMessage = msg.reply_to_message;"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 1578,
+        "line": "if (!replyMessage || !hasInboundMedia(replyMessage)) return [];"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 1579,
+        "line": "const replyFileId = resolveInboundMediaFileId(replyMessage);"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 1580,
+        "line": "if (!replyFileId) return [];"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 1584,
+        "line": "message: replyMessage,"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 1586,
+        "line": "getFile: async () => await bot.api.getFile(replyFileId)"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 1601,
+        "line": "}, \"reply media fetch failed\");"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2006,
+        "line": "fn: () => bot.api.sendMessage(chatId, `⚠️ File too large. Maximum size is ${limitMb}MB.`, { reply_parameters: {"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2008,
+        "line": "allow_sending_without_reply: true"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2025,
+        "line": "fn: () => bot.api.sendMessage(chatId, \"⚠️ Failed to download media. Please try again.\", { reply_parameters: {"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2027,
+        "line": "allow_sending_without_reply: true"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2083,
+        "line": "const replyMarkup = { reply_markup: { inline_keyboard: [] } };"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2084,
+        "line": "if (typeof ctx.editMessageReplyMarkup === \"function\") return await ctx.editMessageReplyMarkup(replyMarkup);"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2085,
+        "line": "if (typeof bot.api.editMessageReplyMarkup === \"function\") return await bot.api.editMessageReplyMarkup(callbackMessage.chat.id, callbackMessage.message_id, replyMarkup);"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2088,
+        "line": "return await editCallbackMessage(messageText, replyMarkup);"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2091,
+        "line": "const replyMarkup = { reply_markup: buildInlineKeyboard(buttons) ?? { inline_keyboard: [] } };"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2092,
+        "line": "if (typeof ctx.editMessageReplyMarkup === \"function\") return await ctx.editMessageReplyMarkup(replyMarkup);"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2093,
+        "line": "return await bot.api.editMessageReplyMarkup(callbackMessage.chat.id, callbackMessage.message_id, replyMarkup);"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2099,
+        "line": "const replyToCallbackChat = async (text, params) => {"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2100,
+        "line": "if (typeof ctx.reply === \"function\") return await ctx.reply(text, params);"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2169,
+        "line": "await replyToCallbackChat(buildPluginBindingResolvedText(resolved));"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2193,
+        "line": "reply: async ({ text, buttons }) => {"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2194,
+        "line": "await replyToCallbackChat(text, buttons ? { reply_markup: buildInlineKeyboard(buttons) } : void 0);"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2197,
+        "line": "await editCallbackMessage(text, buttons ? { reply_markup: buildInlineKeyboard(buttons) } : void 0);"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2271,
+        "line": "await editCallbackMessage(result.text, keyboard ? { reply_markup: keyboard } : void 0);"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2309,
+        "line": "reply_markup: keyboard,"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2320,
+        "line": "await replyToCallbackChat(text, keyboard ? {"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2321,
+        "line": "reply_markup: keyboard,"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2711,
+        "line": "const { cfg, primaryCtx, msg, allMedia, isGroup, chatId, accountId, senderId, senderUsername, sessionKey, resolvedThreadId, replyThreadId, routeAgentId, effectiveGroupAllow, effectiveDmAllow, groupConfig, topicConfig, requireMention, options, groupHistories, h"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2770,
+        "line": "MessageThreadId: replyThreadId,"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2809,
+        "line": "const replyFromId = msg.reply_to_message?.from?.id;"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2810,
+        "line": "const replyToBotMessage = botId != null && replyFromId === botId;"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2811,
+        "line": "const isReplyToServiceMessage = replyToBotMessage && isTelegramForumServiceMessage(msg.reply_to_message);"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2812,
+        "line": "const implicitMentionKinds = implicitMentionKindWhen(\"reply_to_bot\", replyToBotMessage && !isReplyToServiceMessage);"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2911,
+        "line": "const { cfg, primaryCtx, msg, allMedia, replyMedia, isGroup, isForum, chatId, senderId, senderUsername, resolvedThreadId, dmThreadId, threadSpec, route, rawBody, bodyText, historyKey, historyLimit, groupHistories, groupConfig, topicConfig, stickerCacheHit, eff"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2912,
+        "line": "const replyTarget = describeReplyTarget(msg);"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2932,
+        "line": "const includeReplyTarget = replyTarget ? shouldIncludeGroupSupplementalContext({"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2934,
+        "line": "senderId: replyTarget.senderId,"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2935,
+        "line": "senderUsername: replyTarget.senderUsername"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2942,
+        "line": "const visibleReplyForwardedFrom = includeReplyTarget && replyTarget?.forwardedFrom ? shouldIncludeGroupSupplementalContext({"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2944,
+        "line": "senderId: replyTarget.forwardedFrom.fromId,"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2945,
+        "line": "senderUsername: replyTarget.forwardedFrom.fromUsername"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2946,
+        "line": "}) ? replyTarget.forwardedFrom : void 0 : void 0;"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2947,
+        "line": "const visibleReplyTarget = includeReplyTarget && replyTarget ? {"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2948,
+        "line": "...replyTarget,"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2952,
+        "line": "const replyForwardAnnotation = visibleReplyTarget?.forwardedFrom ? `[Forwarded from ${visibleReplyTarget.forwardedFrom.from}${visibleReplyTarget.forwardedFrom.date ? ` at ${(/* @__PURE__ */ new Date(visibleReplyTarget.forwardedFrom.date * 1e3)).toISOString()}`"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2955,
+        "line": "const forwardAnnotation = replyForwardAnnotation.trimEnd();"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2960,
+        "line": "const replySuffix = visibleReplyTarget ? visibleReplyTarget.kind === \"quote\" ? `\\n\\n[Quoting ${visibleReplyTarget.sender}${visibleReplyTarget.id ? ` id:${visibleReplyTarget.id}` : \"\"}]${buildReplySupplementalLines({ body: visibleReplyTarget.body ? `\"${visibleR"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 2980,
+        "line": "body: `${forwardPrefix}${bodyText}${replySuffix}`,"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 3016,
+        "line": "const contextMedia = [...stickerCacheHit ? [] : allMedia, ...replyMedia];"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 3042,
+        "line": "ReplyToIsExternal: visibleReplyTarget?.source === \"external_reply\" ? true : void 0,"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 3110,
+        "line": "logVerbose(`telegram reply-context: replyToId=${visibleReplyTarget.id} replyToSender=${visibleReplyTarget.sender} replyToBody=\"${preview}\"`);"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 3465,
+        "line": "const buildTelegramMessageContext = async ({ primaryCtx, allMedia, replyMedia = [], storeAllowFrom, options, bot, cfg, account, historyLimit, groupHistories, dmPolicy, allowFrom, groupAllowFrom, ackReactionScope, logger, resolveGroupActivation, resolveGroupReq"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 3486,
+        "line": "const replyThreadId = threadSpec.id;"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 3511,
+        "line": "const replyFtCreated = msg.reply_to_message?.forum_topic_created;"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 3512,
+        "line": "if (replyFtCreated?.name) {"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 3514,
+        "line": "name: replyFtCreated.name,"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 3515,
+        "line": "iconColor: replyFtCreated.icon_color,"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 3516,
+        "line": "iconCustomEmojiId: replyFtCreated.icon_custom_emoji_id"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 3518,
+        "line": "topicName = replyFtCreated.name;"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 3534,
+        "line": "replyThreadId,"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 3599,
+        "line": "fn: () => sendChatActionHandler.sendChatAction(chatId, \"typing\", buildTypingThreadParams(replyThreadId))"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 3606,
+        "line": "fn: () => sendChatActionHandler.sendChatAction(chatId, \"record_voice\", buildTypingThreadParams(replyThreadId))"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 3690,
+        "line": "replyThreadId,"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 3776,
+        "line": "replyMedia,"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 3815,
+        "line": "replyThreadId,"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4458,
+        "line": "const silentReplyDispatchLogger = createSubsystemLogger(\"telegram/silent-reply-dispatch\");"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4530,
+        "line": "const dispatchTelegramMessage = async ({ context, bot, cfg, runtime, replyToMode, streamMode, textLimit, telegramCfg, telegramDeps: injectedTelegramDeps, opts }) => {"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4562,
+        "line": "const replyFenceKey = resolveTelegramReplyFenceKey({"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4567,
+        "line": "let replyFenceGeneration;"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4569,
+        "line": "const isDispatchSuperseded = () => replyFenceGeneration !== void 0 && isTelegramReplyFenceSuperseded({"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4570,
+        "line": "key: replyFenceKey,"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4571,
+        "line": "generation: replyFenceGeneration"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4574,
+        "line": "if (replyFenceGeneration === void 0) return;"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4575,
+        "line": "endTelegramReplyFence(replyFenceKey);"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4576,
+        "line": "replyFenceGeneration = void 0;"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4599,
+        "line": "const replyQuoteText = ctxPayload.ReplyToIsQuote ? rawReplyQuoteText?.trim() ? rawReplyQuoteText : ctxPayload.ReplyToBody?.trim() || void 0 : void 0;"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4600,
+        "line": "const replyQuoteMessageId = replyQuoteText && !ctxPayload.ReplyToIsExternal ? resolveTelegramReplyId(ctxPayload.ReplyToId) : void 0;"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4601,
+        "line": "const replyQuoteByMessageId = {};"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4602,
+        "line": "if (replyToMode !== \"off\") {"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4603,
+        "line": "if (replyQuoteText && replyQuoteMessageId != null) addTelegramNativeQuoteCandidate(replyQuoteByMessageId, replyQuoteMessageId, {"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4604,
+        "line": "text: replyQuoteText,"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4608,
+        "line": "addTelegramNativeQuoteCandidate(replyQuoteByMessageId, ctxPayload.MessageSid ?? msg.message_id, buildTelegramNativeQuoteCandidate(getTelegramTextParts(msg)));"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4609,
+        "line": "if (!ctxPayload.ReplyToIsExternal && typeof ctxPayload.ReplyToQuoteSourceText === \"string\") addTelegramNativeQuoteCandidate(replyQuoteByMessageId, ctxPayload.ReplyToId, buildTelegramNativeQuoteCandidate({"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4614,
+        "line": "const canStreamAnswerDraft = previewStreamingEnabled && !(replyToMode !== \"off\" && replyQuoteText != null) && !accountBlockStreamingEnabled && !forceBlockStreamingForReasoning;"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4616,
+        "line": "const draftReplyToMessageId = replyToMode !== \"off\" && typeof msg.message_id === \"number\" ? replyQuoteMessageId ?? msg.message_id : void 0;"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4629,
+        "line": "replyToMessageId: draftReplyToMessageId,"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4805,
+        "line": "replyFenceGeneration = beginTelegramReplyFence({"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4806,
+        "line": "key: replyFenceKey,"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4809,
+        "line": "const implicitQuoteReplyTargetId = replyQuoteMessageId != null ? String(replyQuoteMessageId) : void 0;"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4811,
+        "line": "const replyQuotePosition = typeof ctxPayload.ReplyToQuotePosition === \"number\" ? ctxPayload.ReplyToQuotePosition : void 0;"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4812,
+        "line": "const replyQuoteEntities = Array.isArray(ctxPayload.ReplyToQuoteEntities) ? ctxPayload.ReplyToQuoteEntities : void 0;"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4836,
+        "line": "replyToMode,"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4842,
+        "line": "replyQuoteMessageId,"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4843,
+        "line": "replyQuoteText,"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4844,
+        "line": "replyQuotePosition,"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4845,
+        "line": "replyQuoteEntities,"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4846,
+        "line": "replyQuoteByMessageId"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4897,
+        "line": "const { replyToId: _replyToId, replyToCurrent: _replyToCurrent, replyToTag: _replyToTag, ...followUp } = applyTextToPayload(payload, text);"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4904,
+        "line": "if (!implicitQuoteReplyTargetId || !currentMessageIdForQuoteReply || payload.replyToId !== currentMessageIdForQuoteReply || payload.replyToTag || payload.replyToCurrent) return payload;"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4907,
+        "line": "replyToId: implicitQuoteReplyTargetId"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 4986,
+        "line": "const { onModelSelected, ...replyPipeline } = (telegramDeps.createChannelReplyPipeline ?? createChannelReplyPipeline)({"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 5029,
+        "line": "...replyPipeline,"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 5049,
+        "line": "const reply = resolveSendableOutboundReplyParts(payload);"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 5050,
+        "line": "reply.hasMedia;"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 5051,
+        "line": "if (info.kind === \"tool\" && isSourceVisibleStartAcknowledgementPayload(payload) && !reply.hasMedia && typeof payload.text === \"string\" && answerLane.stream) {"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 5057,
+        "line": "const buffered = reasoningStepState.takeBufferedFinalAnswer(replyFenceGeneration);"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 5074,
+        "line": "bufferedGeneration: replyFenceGeneration"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 5102,
+        "line": "if (reply.hasMedia) clearPendingCompactionReplayBoundaryOnVisibleBoundary(await sendPayload(typeof payload.text === \"string\" ? {"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 5117,
+        "line": "if (!(reply.hasMedia || reply.text.length > 0)) {"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 5151,
+        "line": "runtime.error?.(danger(`telegram ${info.kind} reply failed: ${String(err)}`));"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 5154,
+        "line": "replyOptions: {"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 5474,
+        "line": "const { bot, cfg, account, telegramCfg, historyLimit, groupHistories, dmPolicy, allowFrom, groupAllowFrom, ackReactionScope, logger, resolveGroupActivation, resolveGroupRequireMention, resolveTelegramGroupConfig, loadFreshConfig, sendChatActionHandler, runtime"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 5475,
+        "line": "return async (primaryCtx, allMedia, storeAllowFrom, options, replyMedia) => {"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 5482,
+        "line": "replyMedia,"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 5516,
+        "line": "replyToMode,"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 6022,
+        "line": "const replyToMode = opts.replyToMode ?? telegramCfg.replyToMode ?? \"off\";"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 6040,
+        "line": "const logger = getChildLogger({ module: \"telegram-auto-reply\" });"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 6128,
+        "line": "replyToMode,"
+      },
+      {
+        "needle": "reply",
+        "lineNumber": 6142,
+        "line": "replyToMode,"
+      },
+      {
+        "needle": "sendMessage",
+        "lineNumber": 509,
+        "line": "operation: \"sendMessage\","
+      },
+      {
+        "needle": "sendMessage",
+        "lineNumber": 510,
+        "line": "fn: () => bot.api.sendMessage(chatId, text, threadParams ?? {})"
+      },
+      {
+        "needle": "sendMessage",
+        "lineNumber": 697,
+        "line": "operation: \"sendMessage\","
+      },
+      {
+        "needle": "sendMessage",
+        "lineNumber": 699,
+        "line": "fn: () => bot.api.sendMessage(chatId, \"Configured ACP binding is unavailable right now. Please try again.\", buildTelegramThreadParams(threadSpec) ?? {})"
+      },
+      {
+        "needle": "sendMessage",
+        "lineNumber": 836,
+        "line": "operation: \"sendMessage\","
+      },
+      {
+        "needle": "sendMessage",
+        "lineNumber": 838,
+        "line": "fn: () => bot.api.sendMessage(chatId, title, {"
+      },
+      {
+        "needle": "sendMessage",
+        "lineNumber": 981,
+        "line": "operation: \"sendMessage\","
+      },
+      {
+        "needle": "sendMessage",
+        "lineNumber": 983,
+        "line": "fn: () => bot.api.sendMessage(chatId, \"Command not found.\", threadParams ?? {})"
+      },
+      {
+        "needle": "sendMessage",
+        "lineNumber": 1035,
+        "line": "operation: \"sendMessage\","
+      },
+      {
+        "needle": "sendMessage",
+        "lineNumber": 1037,
+        "line": "fn: () => bot.api.sendMessage(chatId, progressPlaceholder, buildTelegramThreadParams(threadSpec))"
+      },
+      {
+        "needle": "sendMessage",
+        "lineNumber": 1209,
+        "line": "operation: \"sendMessage\","
+      },
+      {
+        "needle": "sendMessage",
+        "lineNumber": 1210,
+        "line": "fn: () => bot.api.sendMessage(chatId, html, { parse_mode: \"HTML\" })"
+      },
+      {
+        "needle": "sendMessage",
+        "lineNumber": 1419,
+        "line": "bot.api.sendMessage(chatId, \"Something went wrong while processing your message. Please try again.\", threadId != null ? { message_thread_id: threadId } : void 0).catch((sendErr) => {"
+      },
+      {
+        "needle": "sendMessage",
+        "lineNumber": 2004,
+        "line": "operation: \"sendMessage\","
+      },
+      {
+        "needle": "sendMessage",
+        "lineNumber": 2006,
+        "line": "fn: () => bot.api.sendMessage(chatId, `⚠️ File too large. Maximum size is ${limitMb}MB.`, { reply_parameters: {"
+      },
+      {
+        "needle": "sendMessage",
+        "lineNumber": 2023,
+        "line": "operation: \"sendMessage\","
+      },
+      {
+        "needle": "sendMessage",
+        "lineNumber": 2025,
+        "line": "fn: () => bot.api.sendMessage(chatId, \"⚠️ Failed to download media. Please try again.\", { reply_parameters: {"
+      },
+      {
+        "needle": "sendMessage",
+        "lineNumber": 2101,
+        "line": "return await bot.api.sendMessage(callbackMessage.chat.id, text, params);"
+      },
+      {
+        "needle": "sendMessage",
+        "lineNumber": 5527,
+        "line": "await bot.api.sendMessage(context.chatId, \"Something went wrong while processing your request. Please try again.\", buildTelegramThreadParams(context.threadSpec));"
+      },
+      {
+        "needle": "matchPluginCommand",
+        "lineNumber": 6,
+        "line": "import { a as getPluginCommandSpecs, i as matchPluginCommand, n as executePluginCommand } from \"./commands-D2qp4St4.js\";"
+      },
+      {
+        "needle": "matchPluginCommand",
+        "lineNumber": 12,
+        "line": "export { ensureConfiguredBindingRouteReady, executePluginCommand, finalizeInboundContext, getAgentScopedMediaLocalRoots, getPluginCommandSpecs, matchPluginCommand, recordInboundSessionMetaSafe, resolveChunkMode, resolveThreadSessionKeys };"
+      },
+      {
+        "needle": "executePluginCommand",
+        "lineNumber": 6,
+        "line": "import { a as getPluginCommandSpecs, i as matchPluginCommand, n as executePluginCommand } from \"./commands-D2qp4St4.js\";"
+      },
+      {
+        "needle": "executePluginCommand",
+        "lineNumber": 12,
+        "line": "export { ensureConfiguredBindingRouteReady, executePluginCommand, finalizeInboundContext, getAgentScopedMediaLocalRoots, getPluginCommandSpecs, matchPluginCommand, recordInboundSessionMetaSafe, resolveChunkMode, resolveThreadSessionKeys };"
+      },
+      {
+        "needle": "function matchPluginCommand",
+        "lineNumber": 172,
+        "line": "function matchPluginCommand(commandBody, options = {}) {"
+      },
+      {
+        "needle": "async function executePluginCommand",
+        "lineNumber": 225,
+        "line": "async function executePluginCommand(params) {"
+      },
+      {
+        "needle": "command.handler(ctx)",
+        "lineNumber": 324,
+        "line": "const result = await command.handler(ctx);"
+      },
+      {
+        "needle": "continueAgent",
+        "lineNumber": 229,
+        "line": "return { continueAgent: true };"
+      }
+    ]
+  },
+  "webuiTrace": {
+    "candidateFiles": [
+      {
+        "file": "commands-D2qp4St4.js",
+        "path": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/commands-D2qp4St4.js",
+        "sha256": "660af5de5094031703c6f62260cb118643043275999bb68ff53e806796e250eb",
+        "present": [
+          "matchPluginCommand",
+          "executePluginCommand",
+          "continueAgent"
+        ]
+      },
+      {
+        "file": "commands-handlers.runtime-DlESKC_s.js",
+        "path": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/commands-handlers.runtime-DlESKC_s.js",
+        "sha256": "03a7edfa2151a3afcd87fe4db8da91e5ed32e269d10c939d04b591a4829c2e6b",
+        "present": [
+          "matchPluginCommand",
+          "executePluginCommand",
+          "continueAgent"
+        ]
+      }
+    ],
+    "conclusion": "candidate native matcher/handler imports found; inspect candidate files for WebUI adapter if P2 is required"
+  },
+  "harness": {
+    "registeredGe2Count": 1,
+    "listPluginCommandsGe2Count": 1,
+    "existingCommandsPreserved": true,
+    "fakeCommandAbsent": true,
+    "help": {
+      "matched": true,
+      "commandName": "ge2",
+      "pluginId": "ge2-native",
+      "continueAgent": false,
+      "textPreview": "GE2 native commands:\n/ge2 run <task>\n/ge2 status\n/ge2 status <run_id>\n/ge2 artifacts <run_id>\n/ge2 cancel <run_id>\n/ge2 help"
+    },
+    "status": {
+      "matched": true,
+      "commandName": "ge2",
+      "pluginId": "ge2-native",
+      "continueAgent": false,
+      "textPreview": "GE2 status:\nrun_id: ge2-20260630081100-ec5089ab\nstatus: validated\ntask: r7-local-validation\nmilestones: 0\nartifacts: 0\nerrors: 0\nupdated_at: 2026-06-30T08:11:01.015Z"
+    }
+  },
+  "modelChatFallthroughCheck": {
+    "helpNoFallthrough": true,
+    "statusNoFallthrough": true,
+    "evidence": "Directly invoked installed production executePluginCommand() with matched command object; result.continueAgent was false and native GE2 text returned."
+  },
+  "gatewayHealth": {
+    "commandOk": true,
+    "pid": "307081",
+    "serviceRunning": true,
+    "runtimeRunning": true,
+    "listenerPresent": true,
+    "connectivityOk": true,
+    "adminCapable": true,
+    "rawStatusPreview": "Service: systemd user (enabled)\nFile logs: /tmp/openclaw/openclaw-2026-06-30.log\nCommand: /usr/bin/node /home/stickai/.npm-global/lib/node_modules/openclaw/dist/index.js gateway --port 18789\nService file: ~/.config/systemd/user/openclaw-gateway.service\nService env: OPENCLAW_GATEWAY_PORT=18789\n\nConfig (cli): ~/.openclaw/openclaw.json\nConfig (service): ~/.openclaw/openclaw.json\n\nGateway: bind=lan (0.0.0.0), port=18789 (service args)\nProbe target: ws://127.0.0.1:18789\nDashboard: http://172.24.168.46:18789/\nProbe note: bind=lan listens on 0.0.0.0 (all interfaces); probing via 127.0.0.1.\n\nRuntime: running (pid 307081, state active, sub running, last exit 0, reason 0)\nConnectivity probe: ok\nCapability: admin-capable\n\nListening: *:18789\nTroubles: run openclaw status\nTroubleshooting: https://docs.openclaw.ai/troubleshooting\n\n"
+  },
+  "commandsListVisibility": {
+    "default": {
+      "name": "default",
+      "ok": true,
+      "parseOk": true,
+      "count": 61,
+      "ge2Present": true,
+      "ge2Count": 1,
+      "ge2": [
+        {
+          "name": "ge2",
+          "nativeName": "ge2",
+          "textAliases": [
+            "/ge2"
+          ],
+          "description": "Run and inspect native GE2 durable command-surface operations.",
+          "source": "plugin",
+          "scope": "both",
+          "acceptsArgs": true
+        }
+      ],
+      "existingCommandsPreserved": true,
+      "fakeAbsent": true,
+      "pluginNames": [
+        "pair",
+        "dreaming",
+        "phone",
+        "voice",
+        "ge2"
+      ]
+    },
+    "telegram_both": {
+      "name": "telegram_both",
+      "ok": true,
+      "parseOk": true,
+      "count": 61,
+      "ge2Present": true,
+      "ge2Count": 1,
+      "ge2": [
+        {
+          "name": "ge2",
+          "nativeName": "ge2",
+          "textAliases": [
+            "/ge2"
+          ],
+          "description": "Run and inspect native GE2 durable command-surface operations.",
+          "source": "plugin",
+          "scope": "both",
+          "acceptsArgs": true
+        }
+      ],
+      "existingCommandsPreserved": true,
+      "fakeAbsent": true,
+      "pluginNames": [
+        "pair",
+        "dreaming",
+        "phone",
+        "voice",
+        "ge2"
+      ]
+    },
+    "telegram_text": {
+      "name": "telegram_text",
+      "ok": true,
+      "parseOk": true,
+      "count": 61,
+      "ge2Present": true,
+      "ge2Count": 1,
+      "ge2": [
+        {
+          "name": "ge2",
+          "nativeName": "ge2",
+          "textAliases": [
+            "/ge2"
+          ],
+          "description": "Run and inspect native GE2 durable command-surface operations.",
+          "source": "plugin",
+          "scope": "both",
+          "acceptsArgs": true
+        }
+      ],
+      "existingCommandsPreserved": true,
+      "fakeAbsent": true,
+      "pluginNames": [
+        "pair",
+        "dreaming",
+        "phone",
+        "voice",
+        "ge2"
+      ]
+    }
+  },
+  "checks": {
+    "handlerHarnessAvailable": true,
+    "helpMatched": true,
+    "statusMatched": true,
+    "helpNative": true,
+    "statusNative": true,
+    "noHelpModelFallthrough": true,
+    "noStatusModelFallthrough": true,
+    "fakeAbsentHarness": true,
+    "ge2SpecExactlyOne": true,
+    "ge2RegisteredExactlyOne": true,
+    "existingPreservedHarness": true,
+    "gatewayHealthGreen": true,
+    "visibilityStillPass": true
+  }
+}

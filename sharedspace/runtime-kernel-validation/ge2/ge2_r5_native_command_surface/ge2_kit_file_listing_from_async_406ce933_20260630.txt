@@ -1,0 +1,12 @@
+Async approved command completed successfully (gateway id=406ce933-ae93-4393-8887-b6e5860c88e3, session=nimble-seaslug, code=0). Output confirmed GE2 native kit files exist:
+
+ge2-native-runtime/examples/channel_command_mapping.json
+ge2-native-runtime/examples/demo_run.mjs
+ge2-native-runtime/examples/ge2_run_request.json
+ge2-native-runtime/src/ge2_artifacts.mjs
+ge2-native-runtime/src/ge2_command_router.mjs
+ge2-native-runtime/src/ge2_dispatcher.mjs
+ge2-native-runtime/src/ge2_ledger.mjs
+ge2-native-runtime/src/ge2_milestones.mjs
+ge2-native-runtime/src/ge2_runtime.mjs
+ge2-native-runtime/src/ge2_snapshot.mjs

@@ -1,0 +1,20 @@
+{
+  "generatedAt": "2026-06-30T06:54:00Z",
+  "classification": "GE2_R4_HOLD_RESTART_DRAINING_ACTIVE_RUN_NO_PASS",
+  "summary": "GE2-R4 authoritative RPC command-list builder bridge patch was applied to server-methods-Dw6hzI_j.js and locally import-validated. Gateway restart was requested from PID 297423, but PID did not turn over within bounded wait while Gateway remained health/admin OK, consistent with active-run drain. Stop current turn to allow restart, then resume verification via restart sentinel.",
+  "patchedFile": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/server-methods-Dw6hzI_j.js",
+  "patchShape": "Generic buildPluginCommandEntries bridge: merge active plugin registry commands from loaded plugins when command name/description are valid, no hidden/internal/private/no-list flags are set, provider restrictions pass, and no existing plugin entry duplicates the command. No /ge2 hardcode.",
+  "currentPid": "297423",
+  "gatewayHealthDuringHold": "ok/admin-capable according to wait_for_gateway_pid_change output",
+  "pendingVerification": [
+    "confirm PID changes from 297423",
+    "openclaw gateway status health/admin OK",
+    "run live commands.list default, telegram/both, telegram/text",
+    "PASS only if live commands.list exposes /ge2",
+    "verify fake absent",
+    "verify pair/dreaming/phone/voice preserved",
+    "verify plugin manager still reports ge2-command loaded with commands:[ge2]",
+    "write GE2-R4 final artifacts/classification",
+    "do not retry cron closeout apply"
+  ]
+}

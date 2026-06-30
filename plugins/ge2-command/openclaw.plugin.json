@@ -1,0 +1,20 @@
+{
+  "id": "ge2-command",
+  "name": "ge2-command",
+  "version": "0.0.2",
+  "enabledByDefault": false,
+  "activation": {
+    "onStartup": true
+  },
+  "commandAliases": [
+    {
+      "name": "ge2",
+      "kind": "runtime-slash"
+    }
+  ],
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {}
+  }
+}

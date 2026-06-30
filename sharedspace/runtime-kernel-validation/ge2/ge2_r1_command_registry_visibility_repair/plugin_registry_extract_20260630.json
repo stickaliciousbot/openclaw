@@ -1,0 +1,126 @@
+{
+  "ge2": {
+    "id": "ge2-command",
+    "name": "ge2-command",
+    "version": "0.0.2",
+    "format": "openclaw",
+    "source": "/home/stickai/.openclaw/extensions/ge2-command/index.mjs",
+    "rootDir": "/home/stickai/.openclaw/extensions/ge2-command",
+    "origin": "global",
+    "enabled": true,
+    "compat": [],
+    "syntheticAuthRefs": [],
+    "status": "loaded",
+    "toolNames": [],
+    "hookNames": [],
+    "channelIds": [],
+    "cliBackendIds": [],
+    "providerIds": [],
+    "speechProviderIds": [],
+    "realtimeTranscriptionProviderIds": [],
+    "realtimeVoiceProviderIds": [],
+    "mediaUnderstandingProviderIds": [],
+    "imageGenerationProviderIds": [],
+    "videoGenerationProviderIds": [],
+    "musicGenerationProviderIds": [],
+    "webFetchProviderIds": [],
+    "webSearchProviderIds": [],
+    "migrationProviderIds": [],
+    "memoryEmbeddingProviderIds": [],
+    "agentHarnessIds": [],
+    "gatewayMethods": [],
+    "cliCommands": [],
+    "services": [],
+    "gatewayDiscoveryServiceIds": [],
+    "commands": [
+      "ge2"
+    ],
+    "httpRoutes": 0,
+    "hookCount": 0,
+    "configSchema": false,
+    "contracts": {},
+    "dependencyStatus": {
+      "hasDependencies": false,
+      "installed": true,
+      "requiredInstalled": true,
+      "optionalInstalled": true,
+      "missing": [],
+      "missingOptional": [],
+      "dependencies": [],
+      "optionalDependencies": []
+    }
+  },
+  "commandPlugins": [
+    {
+      "id": "browser",
+      "status": "loaded",
+      "source": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/extensions/browser/index.js",
+      "commands": [
+        "browser"
+      ],
+      "enabled": true,
+      "error": null
+    },
+    {
+      "id": "device-pair",
+      "status": "loaded",
+      "source": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/extensions/device-pair/index.js",
+      "commands": [
+        "pair"
+      ],
+      "enabled": true,
+      "error": null
+    },
+    {
+      "id": "memory-core",
+      "status": "loaded",
+      "source": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/extensions/memory-core/index.js",
+      "commands": [
+        "dreaming"
+      ],
+      "enabled": true,
+      "error": null
+    },
+    {
+      "id": "memory-wiki",
+      "status": "disabled",
+      "source": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/extensions/memory-wiki/index.js",
+      "commands": [
+        "wiki"
+      ],
+      "enabled": false,
+      "error": null
+    },
+    {
+      "id": "phone-control",
+      "status": "loaded",
+      "source": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/extensions/phone-control/index.js",
+      "commands": [
+        "phone"
+      ],
+      "enabled": true,
+      "error": null
+    },
+    {
+      "id": "talk-voice",
+      "status": "loaded",
+      "source": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/extensions/talk-voice/index.js",
+      "commands": [
+        "voice"
+      ],
+      "enabled": true,
+      "error": null
+    },
+    {
+      "id": "ge2-command",
+      "status": "loaded",
+      "source": "/home/stickai/.openclaw/extensions/ge2-command/index.mjs",
+      "commands": [
+        "ge2"
+      ],
+      "enabled": true,
+      "error": null
+    }
+  ],
+  "diagnostics": []
+}

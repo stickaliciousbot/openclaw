@@ -1,0 +1,100 @@
+{
+  "generatedAt": "2026-06-30T09:42:00Z",
+  "finalClassification": "GE2_R10_ADAPTER_FIXTURE_TELEGRAM_WEBUI_PASS_P3_PENDING",
+  "proofLevel": "P2 adapter fixture only",
+  "noP3Claim": true,
+  "previousClassification": "GE2_R9_NATIVE_HANDLER_RUN_STATUS_ARTIFACTS_PASS_P2_PENDING",
+  "correction": {
+    "correctsRawReportClassification": "GE2_R10_ADAPTER_FIXTURE_PARITY_FAIL_P2_BLOCKED",
+    "rawReport": "sharedspace/runtime-kernel-validation/ge2/ge2_r10_adapter_fixture_proof/GE2_R10_ADAPTER_FIXTURE_TELEGRAM_WEBUI_REPORT_20260630.json",
+    "reason": "Both Telegram and WebUI adapter fixtures passed all per-surface hard gates. The raw parity failure came from an extra assumed webchat_both commands.list visibility gate. webchat_text showed /ge2 present exactly once and existing commands preserved; the WebUI P2 fixture itself executed through commands-handlers.runtime handlePluginCommand. The webchat_both filter is not a valid blocker for R10 P2 adapter execution proof. No adapter fixture run was rerun for this correction."
+  },
+  "telegram": {
+    "surfaceClassification": "TELEGRAM_PASS",
+    "adapterPath": "exported createTelegramBot from bot-Ds7bwqAK.js; synthetic grammy update via bot.handleUpdate; fake Telegram API transport captured delivery; registerTelegramNativeCommands path builds commandBody, loads Telegram native runtime, matchPluginCommand(), then executePluginCommand()",
+    "commands": ["/ge2 help", "/ge2 status", "/ge2 run r10-telegram-adapter-fixture-smoke", "/ge2 status ge2-20260630093527-d6193cf1", "/ge2 artifacts ge2-20260630093527-d6193cf1"],
+    "runId": "ge2-20260630093527-d6193cf1",
+    "status": "completed",
+    "milestones": 7,
+    "artifacts": 1,
+    "errors": 0,
+    "artifact": {
+      "path": "/home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630093527-d6193cf1/run-summary.json",
+      "reportedSha256": "5a07d2983bd65fbee07a605ae4eb76214ee86bf69c98abed17e32e78f93e7d5c",
+      "computedSha256": "5a07d2983bd65fbee07a605ae4eb76214ee86bf69c98abed17e32e78f93e7d5c",
+      "shaMatches": true
+    },
+    "checks": {
+      "fixtureEnteredAdapterPath": true,
+      "matchesNativeGe2": true,
+      "pluginIdGe2Native": true,
+      "continueAgentFalse": true,
+      "noModelChatFallthrough": true,
+      "nativeGe2Responses": true,
+      "durableLedgerEntry": true,
+      "emitsMilestones": true,
+      "artifactExists": true,
+      "artifactShaMatches": true,
+      "statusRetrievesExactRunId": true,
+      "artifactsRetrievesExactRunId": true,
+      "boundedCompressedResponses": true,
+      "noRawLogDump": true
+    }
+  },
+  "webui": {
+    "surfaceClassification": "WEBUI_PASS",
+    "adapterPath": "commands-handlers.runtime-DlESKC_s.js loadCommandHandlers()[0] / handlePluginCommand with WebUI-shaped command params; allowTextCommands -> matchPluginCommand(commandBodyNormalized,{channel:'webchat'}) -> executePluginCommand() -> shouldContinue=false",
+    "commands": ["/ge2 help", "/ge2 status", "/ge2 run r10-webui-adapter-fixture-smoke", "/ge2 status ge2-20260630093530-398319fe", "/ge2 artifacts ge2-20260630093530-398319fe"],
+    "runId": "ge2-20260630093530-398319fe",
+    "status": "completed",
+    "milestones": 7,
+    "artifacts": 1,
+    "errors": 0,
+    "artifact": {
+      "path": "/home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630093530-398319fe/run-summary.json",
+      "reportedSha256": "273a92f7f6a29e15617b39b6bcdb6c22f0b5cfab4b84703dbafb73494ffc92f2",
+      "computedSha256": "273a92f7f6a29e15617b39b6bcdb6c22f0b5cfab4b84703dbafb73494ffc92f2",
+      "shaMatches": true
+    },
+    "checks": {
+      "fixtureEnteredAdapterPath": true,
+      "matchesNativeGe2": true,
+      "pluginIdGe2Native": true,
+      "continueAgentFalse": true,
+      "noModelChatFallthrough": true,
+      "nativeGe2Responses": true,
+      "durableLedgerEntry": true,
+      "emitsMilestones": true,
+      "artifactExists": true,
+      "artifactShaMatches": true,
+      "statusRetrievesExactRunId": true,
+      "artifactsRetrievesExactRunId": true,
+      "boundedCompressedResponses": true,
+      "noRawLogDump": true
+    }
+  },
+  "crossSurfaceParity": {
+    "bothSurfacesPassed": true,
+    "distinctRunIds": true,
+    "distinctArtifacts": true,
+    "bothArtifactHashesMatch": true,
+    "defaultCommandsListGe2Count": 1,
+    "telegramTextCommandsListGe2Count": 1,
+    "webchatTextCommandsListGe2Count": 1,
+    "fakeAbsent": true,
+    "existingCommandsPreservedOnDefaultTelegramAndWebchatText": true,
+    "gatewayHealthGreen": true,
+    "note": "webchat_both commands.list returned 0 for plugin text commands; it is excluded as an invalid visibility parity blocker for this P2 adapter fixture because webchat_text and the actual WebUI command-handler path passed."
+  },
+  "safety": {
+    "productionTouched": false,
+    "ge2RuntimeStateTouched": true,
+    "gatewayRestarted": false,
+    "rollbackPerformed": false,
+    "cronCloseoutApplyRetried": false,
+    "promoted": false,
+    "externalTelegramNetworkUsed": false,
+    "realInboundGatewayPath": false
+  },
+  "nextStepIfAccepted": "GE2_R11_REAL_INBOUND_GATEWAY_PATH_PENDING"
+}

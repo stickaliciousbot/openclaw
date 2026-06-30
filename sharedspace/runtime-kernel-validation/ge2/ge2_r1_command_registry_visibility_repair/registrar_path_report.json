@@ -1,0 +1,10 @@
+{
+  "generatedAt": "2026-06-30T04:18:48.484Z",
+  "paths": {
+    "hook": "/home/stickai/.openclaw/workspace/hooks/ge2-register/handler.js",
+    "managedPlugin": "/home/stickai/.openclaw/extensions/ge2-command/index.mjs",
+    "sourcePlugin": "/home/stickai/.openclaw/workspace/plugins/ge2-command/index.mjs",
+    "runtime": "/home/stickai/.openclaw/workspace/ge2-native-runtime"
+  },
+  "finding": "Hook-side dynamic registration can see GE2 in its imported registry, but public commands.list does not. Official plugin registrar path now discovers ge2-command and records command ge2 in plugin registry."
+}

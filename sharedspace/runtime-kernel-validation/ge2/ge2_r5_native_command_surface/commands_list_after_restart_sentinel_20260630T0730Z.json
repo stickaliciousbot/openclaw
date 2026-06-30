@@ -1,0 +1,50 @@
+{
+  "generatedAt": "2026-06-30T07:30:59.169Z",
+  "results": [
+    {
+      "name": "default",
+      "ok": true,
+      "status": 0,
+      "count": 60,
+      "ge2Present": false,
+      "ge2": null,
+      "fakePresent": false,
+      "pluginNames": [
+        "pair",
+        "dreaming",
+        "phone",
+        "voice"
+      ]
+    },
+    {
+      "name": "telegram_both",
+      "ok": true,
+      "status": 0,
+      "count": 60,
+      "ge2Present": false,
+      "ge2": null,
+      "fakePresent": false,
+      "pluginNames": [
+        "pair",
+        "dreaming",
+        "phone",
+        "voice"
+      ]
+    },
+    {
+      "name": "telegram_text",
+      "ok": true,
+      "status": 0,
+      "count": 60,
+      "ge2Present": false,
+      "ge2": null,
+      "fakePresent": false,
+      "pluginNames": [
+        "pair",
+        "dreaming",
+        "phone",
+        "voice"
+      ]
+    }
+  ]
+}

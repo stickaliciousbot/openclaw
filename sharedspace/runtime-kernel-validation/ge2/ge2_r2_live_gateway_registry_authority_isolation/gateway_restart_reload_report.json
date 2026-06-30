@@ -1,0 +1,6 @@
+{
+  "generatedAt": "2026-06-30T06:00:12.400Z",
+  "restartReloadRequiredDuringR2": false,
+  "currentPid": "285000",
+  "note": "R2 did not require or perform a restart/reload. It used existing post-R1 restarted Gateway PID and live RPC evidence. Prior R1 restart/reload evidence remains in R1 artifacts."
+}

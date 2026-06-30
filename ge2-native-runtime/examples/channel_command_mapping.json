@@ -1,0 +1,14 @@
+{
+  "telegram": {
+    "parsePrefixCommands": true,
+    "commands": {
+      "/ge2": "ge2"
+    }
+  },
+  "webui": {
+    "parseSlashCommands": true,
+    "commands": {
+      "/ge2": "ge2"
+    }
+  }
+}

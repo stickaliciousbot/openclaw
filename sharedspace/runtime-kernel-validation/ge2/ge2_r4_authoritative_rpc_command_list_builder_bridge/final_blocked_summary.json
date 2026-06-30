@@ -1,0 +1,274 @@
+{
+  "generatedAt": "2026-06-30T06:59:11.500Z",
+  "classification": "GE2_R4_BLOCKED_AUTHORITATIVE_BUILDER_BRIDGE_DID_NOT_EXPOSE_GE2",
+  "pass": false,
+  "passCriterion": "live Gateway RPC commands.list exposes /ge2",
+  "gateway": {
+    "previousPidBeforeRestart": "297423",
+    "finalPid": "300576",
+    "healthOk": true,
+    "adminCapable": true,
+    "statusExit": 0
+  },
+  "patch": {
+    "file": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/server-methods-Dw6hzI_j.js",
+    "sha256": "638aa2dbf4cc7a9758b0d3f5679ec745e329e0f8f164408731a2107357993986",
+    "markers": {
+      "collectActiveRegistryPluginCommandEntries": true,
+      "bridgeCall": true,
+      "hiddenFilters": true
+    },
+    "shape": "Generic buildPluginCommandEntries bridge from active plugin registry commands; loaded plugin only; valid name/description; hidden/internal/private/no-list filters; provider restriction; de-dupe; no /ge2 hardcode."
+  },
+  "commandSurfaces": {
+    "surfaceResults": [
+      {
+        "name": "default",
+        "ok": true,
+        "status": 0,
+        "count": 60,
+        "ge2Present": false,
+        "ge2Entries": [],
+        "fakePresent": false,
+        "pluginNames": [
+          "pair",
+          "dreaming",
+          "phone",
+          "voice"
+        ],
+        "pluginEntries": [
+          {
+            "name": "pair",
+            "nativeName": "pair",
+            "textAliases": [
+              "/pair"
+            ],
+            "description": "Generate setup codes and approve device pairing requests.",
+            "source": "plugin",
+            "scope": "both",
+            "acceptsArgs": true
+          },
+          {
+            "name": "dreaming",
+            "nativeName": "dreaming",
+            "textAliases": [
+              "/dreaming"
+            ],
+            "description": "Enable or disable memory dreaming.",
+            "source": "plugin",
+            "scope": "both",
+            "acceptsArgs": true
+          },
+          {
+            "name": "phone",
+            "nativeName": "phone",
+            "textAliases": [
+              "/phone"
+            ],
+            "description": "Arm/disarm high-risk phone node commands (camera/screen/writes).",
+            "source": "plugin",
+            "scope": "both",
+            "acceptsArgs": true
+          },
+          {
+            "name": "voice",
+            "nativeName": "voice",
+            "textAliases": [
+              "/voice"
+            ],
+            "description": "List/set Talk provider voices (affects iOS Talk playback).",
+            "source": "plugin",
+            "scope": "both",
+            "acceptsArgs": true
+          }
+        ]
+      },
+      {
+        "name": "telegram_both",
+        "ok": true,
+        "status": 0,
+        "count": 60,
+        "ge2Present": false,
+        "ge2Entries": [],
+        "fakePresent": false,
+        "pluginNames": [
+          "pair",
+          "dreaming",
+          "phone",
+          "voice"
+        ],
+        "pluginEntries": [
+          {
+            "name": "pair",
+            "nativeName": "pair",
+            "textAliases": [
+              "/pair"
+            ],
+            "description": "Generate setup codes and approve device pairing requests.",
+            "source": "plugin",
+            "scope": "both",
+            "acceptsArgs": true
+          },
+          {
+            "name": "dreaming",
+            "nativeName": "dreaming",
+            "textAliases": [
+              "/dreaming"
+            ],
+            "description": "Enable or disable memory dreaming.",
+            "source": "plugin",
+            "scope": "both",
+            "acceptsArgs": true
+          },
+          {
+            "name": "phone",
+            "nativeName": "phone",
+            "textAliases": [
+              "/phone"
+            ],
+            "description": "Arm/disarm high-risk phone node commands (camera/screen/writes).",
+            "source": "plugin",
+            "scope": "both",
+            "acceptsArgs": true
+          },
+          {
+            "name": "voice",
+            "nativeName": "voice",
+            "textAliases": [
+              "/voice"
+            ],
+            "description": "List/set Talk provider voices (affects iOS Talk playback).",
+            "source": "plugin",
+            "scope": "both",
+            "acceptsArgs": true
+          }
+        ]
+      },
+      {
+        "name": "telegram_text",
+        "ok": true,
+        "status": 0,
+        "count": 60,
+        "ge2Present": false,
+        "ge2Entries": [],
+        "fakePresent": false,
+        "pluginNames": [
+          "pair",
+          "dreaming",
+          "phone",
+          "voice"
+        ],
+        "pluginEntries": [
+          {
+            "name": "pair",
+            "nativeName": "pair",
+            "textAliases": [
+              "/pair"
+            ],
+            "description": "Generate setup codes and approve device pairing requests.",
+            "source": "plugin",
+            "scope": "both",
+            "acceptsArgs": true
+          },
+          {
+            "name": "dreaming",
+            "nativeName": "dreaming",
+            "textAliases": [
+              "/dreaming"
+            ],
+            "description": "Enable or disable memory dreaming.",
+            "source": "plugin",
+            "scope": "both",
+            "acceptsArgs": true
+          },
+          {
+            "name": "phone",
+            "nativeName": "phone",
+            "textAliases": [
+              "/phone"
+            ],
+            "description": "Arm/disarm high-risk phone node commands (camera/screen/writes).",
+            "source": "plugin",
+            "scope": "both",
+            "acceptsArgs": true
+          },
+          {
+            "name": "voice",
+            "nativeName": "voice",
+            "textAliases": [
+              "/voice"
+            ],
+            "description": "List/set Talk provider voices (affects iOS Talk playback).",
+            "source": "plugin",
+            "scope": "both",
+            "acceptsArgs": true
+          }
+        ]
+      }
+    ],
+    "allGe2Present": false,
+    "allFakeAbsent": true,
+    "allCorePluginNamesPreserved": true
+  },
+  "pluginManager": {
+    "ge2Loaded": true,
+    "ge2Commands": [
+      "ge2"
+    ],
+    "source": "/home/stickai/.openclaw/extensions/ge2-command/index.mjs",
+    "contradiction": "plugin manager reports ge2-command loaded with commands:[ge2], but live commands.list surfaces omit /ge2 even after server-methods builder bridge."
+  },
+  "negativeChecks": {
+    "fakeAbsent": true,
+    "unrelatedPluginCommandsPreserved": true
+  },
+  "executionSurface": {
+    "attempted": false,
+    "reason": "Not attempted as success evidence because commands.list hard gate failed and user-facing /ge2 invocation could have side effects."
+  },
+  "nextRecommendedScope": "R4 proves buildPluginCommandEntries bridge did not see active plugin registry commands in live RPC. Next diagnostic should instrument server-methods live builder to emit active registry command count/plugin ids to a private artifact/log, or identify an alternate commands.list implementation/bundle chunk actually serving the RPC. Do not continue with blind registry bridges.",
+  "noCronCloseoutApply": true,
+  "noPassClaim": true,
+  "files": {
+    "serverMethods": {
+      "path": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/server-methods-Dw6hzI_j.js",
+      "exists": true,
+      "sha256": "638aa2dbf4cc7a9758b0d3f5679ec745e329e0f8f164408731a2107357993986"
+    },
+    "commands": {
+      "path": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/commands-D2qp4St4.js",
+      "exists": true,
+      "sha256": "fad314e2005e0481f724afe5c0dbabb3888d6756bd0812324862ae9a96a10b5b"
+    },
+    "types": {
+      "path": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/types-CdFhLeaX.js",
+      "exists": true,
+      "sha256": "864d569218baa6a23bfaa48547947e503ea2343929e5f78171af4e031dad202f"
+    },
+    "preRepairSnapshot": {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r4_authoritative_rpc_command_list_builder_bridge/pre_repair_snapshot.json",
+      "exists": true,
+      "sha256": "c378f63cb38be311e681717742a6e7d31c66c49952e9127a194b31151c8ba20d"
+    },
+    "localPatchValidation": {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r4_authoritative_rpc_command_list_builder_bridge/local_patch_validation.json",
+      "exists": true,
+      "sha256": "37f46c4376883f25091a36bb5e5d59f1cc1a9675c817dfb47d6be49a4e0ab3e5"
+    },
+    "restartHold": {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r4_authoritative_rpc_command_list_builder_bridge/restart_hold_20260630T0654Z.json",
+      "exists": true,
+      "sha256": "e2599ba2b56497ea1b69d7c24892b54d77a2b45eb3877c5a1ed7a65d248b82de"
+    },
+    "commandParser": {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r4_authoritative_rpc_command_list_builder_bridge/parse_live_commands_after_restart_20260630.mjs",
+      "exists": true,
+      "sha256": "95afefcb94282bfdb9545e130ef1a45f9129a0294f5c14a8430ee1059a7d086f"
+    },
+    "commandSummary": {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r4_authoritative_rpc_command_list_builder_bridge/commands_list_after_restart_summary.json",
+      "exists": true,
+      "sha256": "fc97c54fa0a4f24c1f5edc283f3fead899d2af2788347f9494d77e528f23d4ea"
+    }
+  }
+}

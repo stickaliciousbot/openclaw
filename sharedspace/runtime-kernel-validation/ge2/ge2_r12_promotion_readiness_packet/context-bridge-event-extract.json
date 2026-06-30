@@ -1,0 +1,90 @@
+{
+  "agent_id": "main",
+  "channel": "operator",
+  "context_version": 150,
+  "dedupe_key": "dk-ge2-r11-real-inbound-telegram-webui-pass-20260630T1025Z",
+  "entity_id": "ge2-native-command-surface-r11",
+  "event_id": "evt-20260630T102500Z-ge2-r11-real-inbound-telegram-webui-pass",
+  "event_type": "ge2_r11_real_inbound_gateway_pass",
+  "memory_id": "memory/2026-06-30-ge2-r11-final-pass.md",
+  "payload": {
+    "final_classification": "GE2_R11_REAL_INBOUND_GATEWAY_TELEGRAM_WEBUI_PASS_PROMOTION_PENDING",
+    "proof_level": "P3",
+    "telegram": {
+      "status": "PASS",
+      "run_id": "ge2-20260630101117-1fa6ed4d",
+      "task": "r11-telegram-real-inbound-smoke",
+      "run_status": "completed",
+      "origin": {
+        "surface": "telegram",
+        "channel": "telegram",
+        "sessionKey": "agent:main:telegram:direct:8495203551",
+        "sessionId": "41e4b90c-b04c-4597-a774-774f72f245c8",
+        "accountId": "default",
+        "messageId": null,
+        "senderId": "8495203551"
+      },
+      "milestones": 7,
+      "artifacts": 1,
+      "errors": 0,
+      "artifact_path": "/home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630101117-1fa6ed4d/run-summary.json",
+      "artifact_sha256": "602031961d623f07130515a5ee7236021618909de6ec1e04268687d9205fda5e",
+      "local_artifact_sha256": "602031961d623f07130515a5ee7236021618909de6ec1e04268687d9205fda5e"
+    },
+    "webui": {
+      "status": "PASS",
+      "run_id": "ge2-20260630102318-ae4b5942",
+      "task": "r11-webui-real-inbound-smoke",
+      "run_status": "completed",
+      "origin": {
+        "surface": "webchat",
+        "channel": "webchat",
+        "sessionKey": "agent:main:telegram:direct:8495203551",
+        "sessionId": "41e4b90c-b04c-4597-a774-774f72f245c8",
+        "accountId": null,
+        "messageId": null,
+        "senderId": "openclaw-control-ui"
+      },
+      "milestones": 7,
+      "artifacts": 1,
+      "errors": 0,
+      "artifact_path": "/home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630102318-ae4b5942/run-summary.json",
+      "artifact_sha256": "fea53254aa478892b55405c9db686245ec24707fed003bd9ea3e2be125f2d584",
+      "local_artifact_sha256": "fea53254aa478892b55405c9db686245ec24707fed003bd9ea3e2be125f2d584"
+    },
+    "gateway_health_after_webui_proof": {
+      "runtime": "running pid 307081 active",
+      "connectivity": "ok",
+      "capability": "admin-capable",
+      "listening": "*:18789"
+    },
+    "boundaries": {
+      "production_patch": false,
+      "gateway_restart": false,
+      "rollback": false,
+      "cron_closeout_apply": false,
+      "promotion": false,
+      "model_chat_fallthrough_observed": false
+    },
+    "final_report_sha256": "f61b34e98afecab09e50a1999c552483d6f577e034935bbc52c27985eb7ba5ec",
+    "memory_final_sha256": "b8257a4035142eeac681742df5e78ebbc43d07e788875f0d676bfb29f5dc2212",
+    "next_state": "GE2_R12_PROMOTION_READINESS_PACKET_PENDING",
+    "user_requested_context_bridge_write_at": "2026-06-30T10:27:00Z",
+    "requester_surface": "openclaw-control-ui"
+  },
+  "reducer_version": 1,
+  "source_refs": [
+    "sharedspace/runtime-kernel-validation/ge2/ge2_r11_real_inbound_gateway_smoke/GE2_R11_REAL_INBOUND_GATEWAY_TELEGRAM_WEBUI_PASS_PROMOTION_PENDING_20260630.md",
+    "memory/2026-06-30-ge2-r11-final-pass.md",
+    "state/ge2-native/runs/ge2-20260630101117-1fa6ed4d.json",
+    "state/ge2-native/runs/ge2-20260630102318-ae4b5942.json",
+    "state/ge2-native/artifacts/ge2-20260630101117-1fa6ed4d/run-summary.json",
+    "state/ge2-native/artifacts/ge2-20260630102318-ae4b5942/run-summary.json",
+    "memory/2026-06-30-ge2-r11-telegram-p3-pass.md",
+    "memory/2026-06-30-ge2-r11-telegram-run-accepted-addendum.md",
+    "memory/2026-06-30-ge2-r11-telegram-p3-partial-addendum.md"
+  ],
+  "status": "PASS",
+  "summary": "GE2 R11 real inbound Gateway command proof passed on both Telegram direct chat and OpenClaw WebUI/Control UI; R12 promotion-readiness packet is next, with no production patch/restart/rollback/cron apply/promotion performed.",
+  "ts": "2026-06-30T10:25:00Z"
+}

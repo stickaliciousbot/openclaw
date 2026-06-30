@@ -1,0 +1,78 @@
+{
+  "generatedAt": "2026-06-30T06:00:12.400Z",
+  "exactLossPoint": "Hook registrar writes /ge2 into a registrar-local command registry visible to hook-side dynamic imports of types-CdFhLeaX.js/commands-D2qp4St4.js, but live Gateway RPC commands.list reads a different authoritative pluginCommands registry that lacks /ge2. The loss occurs at registry object/module-realm boundary before command-list filtering, not in auth/scope filtering.",
+  "lossClass": "different registry object / module-realm singleton split before command-list filtering",
+  "notLossPoint": [
+    "not loaded into hook registrar",
+    "not auth filtering",
+    "not provider/scope filtering",
+    "not static commands.list snapshot",
+    "not negative fake command exposure"
+  ],
+  "evidence": {
+    "hookShowsGe2": [
+      "{\"timestamp\":\"2026-06-30T03:13:47.182Z\",\"invoked\":true,\"type\":\"gateway\",\"action\":\"startup\",\"registration\":{\"ok\":true,\"alreadyRegistered\":true,\"registry\":{\"visible\":true,\"ge2\":{\"name\":\"ge2\",\"description\":\"Run GE2 native command operations (run/status/artifacts/cancel).\",\"pluginId\":\"ge2-native-command\",\"acceptsArgs\":true},\"pluginCommandCount\":5},\"phase\":\"post-startup-10000ms\"}}",
+      "{\"timestamp\":\"2026-06-30T03:49:17.136Z\",\"invoked\":true,\"type\":\"gateway\",\"action\":\"startup\",\"registration\":{\"ok\":true,\"alreadyRegistered\":false,\"registry\":{\"visible\":true,\"ge2\":{\"name\":\"ge2\",\"description\":\"Run GE2 native command operations (run/status/artifacts/cancel).\",\"pluginId\":\"ge2-native-command\",\"acceptsArgs\":true},\"pluginCommandCount\":5},\"phase\":\"startup-immediate\"}}",
+      "{\"timestamp\":\"2026-06-30T03:49:20.333Z\",\"invoked\":true,\"type\":\"gateway\",\"action\":\"startup\",\"registration\":{\"ok\":true,\"alreadyRegistered\":true,\"registry\":{\"visible\":true,\"ge2\":{\"name\":\"ge2\",\"description\":\"Run GE2 native command operations (run/status/artifacts/cancel).\",\"pluginId\":\"ge2-native-command\",\"acceptsArgs\":true},\"pluginCommandCount\":5},\"phase\":\"post-startup-3000ms\"}}",
+      "{\"timestamp\":\"2026-06-30T03:49:28.435Z\",\"invoked\":true,\"type\":\"gateway\",\"action\":\"startup\",\"registration\":{\"ok\":true,\"alreadyRegistered\":true,\"registry\":{\"visible\":true,\"ge2\":{\"name\":\"ge2\",\"description\":\"Run GE2 native command operations (run/status/artifacts/cancel).\",\"pluginId\":\"ge2-native-command\",\"acceptsArgs\":true},\"pluginCommandCount\":5},\"phase\":\"post-startup-10000ms\"}}",
+      "{\"timestamp\":\"2026-06-30T04:00:38.669Z\",\"invoked\":true,\"type\":\"gateway\",\"action\":\"startup\",\"registration\":{\"ok\":true,\"alreadyRegistered\":false,\"registry\":{\"visible\":true,\"ge2\":{\"name\":\"ge2\",\"description\":\"Run GE2 native command operations (run/status/artifacts/cancel).\",\"pluginId\":\"ge2-native-command\",\"acceptsArgs\":true},\"pluginCommandCount\":5},\"phase\":\"startup-immediate\"}}",
+      "{\"timestamp\":\"2026-06-30T04:00:48.849Z\",\"invoked\":true,\"type\":\"gateway\",\"action\":\"startup\",\"registration\":{\"ok\":true,\"alreadyRegistered\":true,\"registry\":{\"visible\":true,\"ge2\":{\"name\":\"ge2\",\"description\":\"Run GE2 native command operations (run/status/artifacts/cancel).\",\"pluginId\":\"ge2-native-command\",\"acceptsArgs\":true},\"pluginCommandCount\":5},\"phase\":\"post-startup-3000ms\"}}",
+      "{\"timestamp\":\"2026-06-30T04:00:48.849Z\",\"invoked\":true,\"type\":\"gateway\",\"action\":\"startup\",\"registration\":{\"ok\":true,\"alreadyRegistered\":true,\"registry\":{\"visible\":true,\"ge2\":{\"name\":\"ge2\",\"description\":\"Run GE2 native command operations (run/status/artifacts/cancel).\",\"pluginId\":\"ge2-native-command\",\"acceptsArgs\":true},\"pluginCommandCount\":5},\"phase\":\"post-startup-10000ms\"}}",
+      "{\"timestamp\":\"2026-06-30T04:16:29.080Z\",\"invoked\":true,\"type\":\"gateway\",\"action\":\"startup\",\"registration\":{\"ok\":true,\"alreadyRegistered\":false,\"registry\":{\"visible\":true,\"ge2\":{\"name\":\"ge2\",\"description\":\"Run GE2 native command operations (run/status/artifacts/cancel).\",\"pluginId\":\"ge2-native-command\",\"acceptsArgs\":true},\"pluginCommandCount\":5},\"phase\":\"startup-immediate\"}}",
+      "{\"timestamp\":\"2026-06-30T04:16:32.239Z\",\"invoked\":true,\"type\":\"gateway\",\"action\":\"startup\",\"registration\":{\"ok\":true,\"alreadyRegistered\":true,\"registry\":{\"visible\":true,\"ge2\":{\"name\":\"ge2\",\"description\":\"Run GE2 native command operations (run/status/artifacts/cancel).\",\"pluginId\":\"ge2-native-command\",\"acceptsArgs\":true},\"pluginCommandCount\":5},\"phase\":\"post-startup-3000ms\"}}",
+      "{\"timestamp\":\"2026-06-30T04:16:41.159Z\",\"invoked\":true,\"type\":\"gateway\",\"action\":\"startup\",\"registration\":{\"ok\":true,\"alreadyRegistered\":true,\"registry\":{\"visible\":true,\"ge2\":{\"name\":\"ge2\",\"description\":\"Run GE2 native command operations (run/status/artifacts/cancel).\",\"pluginId\":\"ge2-native-command\",\"acceptsArgs\":true},\"pluginCommandCount\":5},\"phase\":\"post-startup-10000ms\"}}"
+    ],
+    "liveRpc": {
+      "count": 60,
+      "ge2Present": false,
+      "ge2": null,
+      "pluginEntries": [
+        {
+          "name": "pair",
+          "nativeName": "pair",
+          "textAliases": [
+            "/pair"
+          ],
+          "description": "Generate setup codes and approve device pairing requests.",
+          "source": "plugin",
+          "scope": "both",
+          "acceptsArgs": true
+        },
+        {
+          "name": "dreaming",
+          "nativeName": "dreaming",
+          "textAliases": [
+            "/dreaming"
+          ],
+          "description": "Enable or disable memory dreaming.",
+          "source": "plugin",
+          "scope": "both",
+          "acceptsArgs": true
+        },
+        {
+          "name": "phone",
+          "nativeName": "phone",
+          "textAliases": [
+            "/phone"
+          ],
+          "description": "Arm/disarm high-risk phone node commands (camera/screen/writes).",
+          "source": "plugin",
+          "scope": "both",
+          "acceptsArgs": true
+        },
+        {
+          "name": "voice",
+          "nativeName": "voice",
+          "textAliases": [
+            "/voice"
+          ],
+          "description": "List/set Talk provider voices (affects iOS Talk playback).",
+          "source": "plugin",
+          "scope": "both",
+          "acceptsArgs": true
+        }
+      ],
+      "fakePresent": false
+    }
+  }
+}

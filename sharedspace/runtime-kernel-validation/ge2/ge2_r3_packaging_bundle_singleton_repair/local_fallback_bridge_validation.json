@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2026-06-30T06:24:58.677Z",
+  "imports": {
+    "listPluginCommands": "function",
+    "matchPluginCommand": "function",
+    "registerPluginCommand": "function"
+  },
+  "reg": {
+    "ok": true
+  },
+  "listedCount": 1,
+  "probeVisible": true,
+  "fakeVisible": false,
+  "hashes": {
+    "commands": "fad314e2005e0481f724afe5c0dbabb3888d6756bd0812324862ae9a96a10b5b",
+    "types": "864d569218baa6a23bfaa48547947e503ea2343929e5f78171af4e031dad202f"
+  }
+}

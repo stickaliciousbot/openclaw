@@ -1,0 +1,21 @@
+{
+  "generatedAt": "2026-06-30T07:55:30Z",
+  "classification": "GE2_R6_DIAGNOSIS_PASS_PATCHED_CHUNK_IMPORTED_BUT_REGISTRY_LIFECYCLE_EXCLUDES_GE2",
+  "allExist": true,
+  "files": [
+    "r6_diagnose_command_module_identity_20260630.mjs",
+    "r6_command_module_identity_report_20260630.json",
+    "GE2_R6_COMMAND_MODULE_IDENTITY_DIAGNOSIS.md",
+    "r6_refine_registry_lifecycle_trace_20260630.mjs",
+    "r6_refined_registry_lifecycle_trace_20260630.json",
+    "GE2_R6_REFINED_REGISTRY_LIFECYCLE_TRACE.md",
+    "final_diagnosis_summary.json",
+    "final_file_manifest_20260630.json",
+    "openclaw_version.stdout.txt",
+    "gateway_status.stdout.txt",
+    "commands_list_default.stdout.txt",
+    "commands_list_telegram_both.stdout.txt",
+    "commands_list_telegram_text.stdout.txt",
+    "plugins_list.stdout.txt"
+  ]
+}

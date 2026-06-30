@@ -1,0 +1,1290 @@
+{
+  "root": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist",
+  "fileCount": 3727,
+  "hits": [
+    {
+      "file": "abort-primitives-DzH2NybG.js",
+      "line": 2,
+      "needle": "normalizeCommandBody",
+      "excerpt": "import { a as normalizeLowercaseStringOrEmpty } from \"./string-coerce-Bje8XVt9.js\"; import { r as normalizeCommandBody } from \"./commands-registry-normalize-D2V03Px2.js\"; //#region src/auto-reply/reply/abort-primitives.ts const ABORT_TRIGGERS = new Set([ \"stop\", \"esc\", \"abort\", \"wait\", \"exit\", \"interrupt\", \"de"
+    },
+    {
+      "file": "abort-primitives-DzH2NybG.js",
+      "line": 61,
+      "needle": "normalizeCommandBody",
+      "excerpt": "_TRIGGERS.has(normalized); } function isAbortRequestText(text, options) { if (!text) return false; const normalized = normalizeCommandBody(text, options).trim(); if (!normalized) return false; const normalizedLower = normalizeLowercaseStringOrEmpty(normalized); return normalizedLower === \"/stop\" || normalizeAbortTriggerText(normalize"
+    },
+    {
+      "file": "agent-runner.runtime-DCmW0Rr8.js",
+      "line": 642,
+      "needle": "commandBody",
+      "excerpt": "rovider: params.provider, model: params.model }) || !params.payloads?.length) return; const trimmedCommand = params.commandBody.trim(); const isAckTurn = isLikelyExecutionAckPrompt(trimmedCommand); const allowSoftCap = !isAckTurn && trimmedCommand.length > 0 && trimmedCommand.length <= 120 && !/\\b(?:detail|detailed|depth|deep dive|e"
+    },
+    {
+      "file": "agent-runner.runtime-DCmW0Rr8.js",
+      "line": 975,
+      "needle": "commandBody",
+      "excerpt": "nFile, workspaceDir: params.followupRun.run.workspaceDir, config: runtimeConfig, prompt: params.commandBody, transcriptPrompt: params.transcriptCommandBody, inputProvenance: params.followupRun.run.inputProvenance, provider: cliExecutionProvider, model, thinkLevel: params.foll"
+    },
+    {
+      "file": "agent-runner.runtime-DCmW0Rr8.js",
+      "line": 1108,
+      "needle": "commandBody",
+      "excerpt": "HarnessId: agentRuntimeOverride } : {}, sandboxSessionKey: params.runtimePolicySessionKey, prompt: params.commandBody, transcriptPrompt: params.transcriptCommandBody, currentTurnContext: params.followupRun.currentTurnContext, extraSystemPrompt: params.followupRun.run.extraSystemPrompt, sourceReply"
+    },
+    {
+      "file": "agent-runner.runtime-DCmW0Rr8.js",
+      "line": 1514,
+      "needle": "commandBody",
+      "excerpt": "isError: true })]; } applyOpenAIGptChatReplyGuard({ provider: fallbackProvider, model: fallbackModel, commandBody: params.commandBody, isHeartbeat: params.isHeartbeat, payloads: runResult.payloads }); } return { kind: \"success\", runId, runResult, fallbackProvider, fallbackModel, fallbackAttempts,"
+    },
+    {
+      "file": "agent-runner.runtime-DCmW0Rr8.js",
+      "line": 1514,
+      "needle": "commandBody",
+      "excerpt": ")]; } applyOpenAIGptChatReplyGuard({ provider: fallbackProvider, model: fallbackModel, commandBody: params.commandBody, isHeartbeat: params.isHeartbeat, payloads: runResult.payloads }); } return { kind: \"success\", runId, runResult, fallbackProvider, fallbackModel, fallbackAttempts, didLogHeartbeatStrip"
+    },
+    {
+      "file": "agent-runner.runtime-DCmW0Rr8.js",
+      "line": 3509,
+      "needle": "commandBody",
+      "excerpt": "\\n\"); } function enqueueCommitmentExtractionForTurn(params) { if (params.isHeartbeat) return; const userText = params.commandBody.trim() || params.sessionCtx.BodyStripped?.trim() || params.sessionCtx.BodyForCommands?.trim() || params.sessionCtx.CommandBody?.trim() || params.sessionCtx.RawBody?.trim() || params.sessionCtx.Body?.trim() ||"
+    },
+    {
+      "file": "agent-runner.runtime-DCmW0Rr8.js",
+      "line": 3546,
+      "needle": "commandBody",
+      "excerpt": "estEntry; return latestEntry; } catch { return fallbackEntry; } } async function runReplyAgent(params) { const { commandBody, transcriptCommandBody, followupRun, queueKey, resolvedQueue, shouldSteer, shouldFollowup, isActive, isRunActive, isStreaming, opts, typing, sessionEntry, sessionStore, sessionKey, runtimePolicySessionKey, st"
+    },
+    {
+      "file": "agent-runner.runtime-DCmW0Rr8.js",
+      "line": 3770,
+      "needle": "commandBody",
+      "excerpt": "ring(activeSessionEntry.pendingCloseoutDeliveryText) : void 0; const runOutcome = await runAgentTurnWithFallback({ commandBody, transcriptCommandBody, followupRun, sessionCtx, replyThreading: replyThreadingOverride ?? sessionCtx.ReplyThreading, replyOperation, opts, typingSignals, blockReplyPipeline, blockS"
+    },
+    {
+      "file": "agent-runner.runtime-DCmW0Rr8.js",
+      "line": 3994,
+      "needle": "commandBody",
+      "excerpt": "gCron ? appendUnscheduledReminderNote(replyPayloads) : replyPayloads; enqueueCommitmentExtractionForTurn({ cfg, commandBody, isHeartbeat, followupRun, sessionCtx, sessionKey, replyToChannel, payloads: replyPayloads, runId }); await signalTypingIfNeeded(guardedReplyPayloads, typingSignals); if (isDiagnost"
+    },
+    {
+      "file": "bot-Ds7bwqAK.js",
+      "line": 41,
+      "needle": "maybeResolveTextAlias",
+      "excerpt": "ation-binding-CRoyKdkM.js\"; import { n as listChatCommands } from \"./commands-registry-list-Cmkm0No9.js\"; import { n as maybeResolveTextAlias, r as normalizeCommandBody } from \"./commands-registry-normalize-D2V03Px2.js\"; import { c as parseCommandArgs, i as formatCommandArgMenuTitle, n as buildCommandTextFromArgs, o as listNativeCommandSp"
+    },
+    {
+      "file": "bot-Ds7bwqAK.js",
+      "line": 5737,
+      "needle": "maybeResolveTextAlias",
+      "excerpt": "n //#region extensions/telegram/src/sequential-key.ts function resolveStatusCommandControlLane(params) { const alias = maybeResolveTextAlias(normalizeCommandBody(params.rawText?.trim() ?? \"\", params.botUsername ? { botUsername: params.botUsername } : void 0)); if (!alias) return false; const command = listChatCommands().find((entry) =>"
+    },
+    {
+      "file": "bot-Ds7bwqAK.js",
+      "line": 41,
+      "needle": "normalizeCommandBody",
+      "excerpt": "import { n as listChatCommands } from \"./commands-registry-list-Cmkm0No9.js\"; import { n as maybeResolveTextAlias, r as normalizeCommandBody } from \"./commands-registry-normalize-D2V03Px2.js\"; import { c as parseCommandArgs, i as formatCommandArgMenuTitle, n as buildCommandTextFromArgs, o as listNativeCommandSpecs, r as findCommandByNativ"
+    },
+    {
+      "file": "bot-Ds7bwqAK.js",
+      "line": 3010,
+      "needle": "normalizeCommandBody",
+      "excerpt": "lter, groupSystemPrompt } = resolveTelegramGroupPromptSettings({ groupConfig, topicConfig }); const commandBody = normalizeCommandBody(rawBody, { botUsername: normalizeOptionalLowercaseString(primaryCtx.me?.username) }); const inboundHistory = isGroup && historyKey && historyLimit > 0 ? (groupHistories.get(historyKey) ?? []).map((e"
+    },
+    {
+      "file": "bot-Ds7bwqAK.js",
+      "line": 5737,
+      "needle": "normalizeCommandBody",
+      "excerpt": "/telegram/src/sequential-key.ts function resolveStatusCommandControlLane(params) { const alias = maybeResolveTextAlias(normalizeCommandBody(params.rawText?.trim() ?? \"\", params.botUsername ? { botUsername: params.botUsername } : void 0)); if (!alias) return false; const command = listChatCommands().find((entry) => entry.textAliases.som"
+    },
+    {
+      "file": "bot-Ds7bwqAK.js",
+      "line": 42,
+      "needle": "findCommandByNativeName",
+      "excerpt": "c as parseCommandArgs, i as formatCommandArgMenuTitle, n as buildCommandTextFromArgs, o as listNativeCommandSpecs, r as findCommandByNativeName, s as listNativeCommandSpecsForConfig, u as resolveCommandArgMenu } from \"./commands-registry-fQjYfZzp.js\"; import { i as matchesMentionWithExplicit, n as buildMentionRegexes } from \"./mentions-BX"
+    },
+    {
+      "file": "bot-Ds7bwqAK.js",
+      "line": 775,
+      "needle": "findCommandByNativeName",
+      "excerpt": "ngTarget(chatId, threadSpec); const executionCfg = getRuntimeConfigSnapshot() ?? cfg; const commandDefinition = findCommandByNativeName(command.name, \"telegram\"); const rawText = ctx.match?.trim() ?? \"\"; const commandArgs = commandDefinition ? parseCommandArgs(commandDefinition, rawText) : rawText ? { raw: rawText } : void"
+    },
+    {
+      "file": "bot-Ds7bwqAK.js",
+      "line": 976,
+      "needle": "commandBody",
+      "excerpt": "esolveTelegramNativeCommandThreadContext({ msg, bot }); const rawText = ctx.match?.trim() ?? \"\"; const commandBody = `/${pluginCommand.command}${rawText ? ` ${rawText}` : \"\"}`; const nativeCommandRuntime = await loadTelegramNativeCommandRuntime(); const match = nativeCommandRuntime.matchPluginCommand(commandBody);"
+    },
+    {
+      "file": "bot-Ds7bwqAK.js",
+      "line": 978,
+      "needle": "commandBody",
+      "excerpt": "tiveCommandRuntime = await loadTelegramNativeCommandRuntime(); const match = nativeCommandRuntime.matchPluginCommand(commandBody); if (!match) { await withTelegramApiErrorLogging({ operation: \"sendMessage\", runtime, fn: () => bot.api.sendMessage(chatId, \"Command not found.\", threadParams ?? {}) }); return;"
+    },
+    {
+      "file": "bot-Ds7bwqAK.js",
+      "line": 1057,
+      "needle": "commandBody",
+      "excerpt": "ey: route.sessionKey, sessionId: sessionFileContext.sessionId, sessionFile: sessionFileContext.sessionFile, commandBody, config: runtimeCfg, from, to, accountId, messageThreadId: threadSpec.id })); if (shouldSuppressLocalTelegramExecApprovalPrompt({ cfg: runtimeCfg, accountId: route.accountId,"
+    },
+    {
+      "file": "bot-Ds7bwqAK.js",
+      "line": 3010,
+      "needle": "commandBody",
+      "excerpt": "onst { skillFilter, groupSystemPrompt } = resolveTelegramGroupPromptSettings({ groupConfig, topicConfig }); const commandBody = normalizeCommandBody(rawBody, { botUsername: normalizeOptionalLowercaseString(primaryCtx.me?.username) }); const inboundHistory = isGroup && historyKey && historyLimit > 0 ? (groupHistories.get(historyKey)"
+    },
+    {
+      "file": "bot-Ds7bwqAK.js",
+      "line": 3022,
+      "needle": "commandBody",
+      "excerpt": "({ Body: combinedBody, BodyForAgent: bodyText, InboundHistory: inboundHistory, RawBody: rawBody, CommandBody: commandBody, From: isGroup ? buildTelegramGroupFrom(chatId, resolvedThreadId) : `telegram:${chatId}`, To: `telegram:${chatId}`, SessionKey: route.sessionKey, AccountId: route.accountId, ChatType: isGroup ? \"gro"
+    },
+    {
+      "file": "bot-Ds7bwqAK.js",
+      "line": 978,
+      "needle": "matchPluginCommand",
+      "excerpt": ": \"\"}`; const nativeCommandRuntime = await loadTelegramNativeCommandRuntime(); const match = nativeCommandRuntime.matchPluginCommand(commandBody); if (!match) { await withTelegramApiErrorLogging({ operation: \"sendMessage\", runtime, fn: () => bot.api.sendMessage(chatId, \"Command not found.\", threadParams ?? {})"
+    },
+    {
+      "file": "bot-Ds7bwqAK.js",
+      "line": 1047,
+      "needle": "executePluginCommand",
+      "excerpt": "ey, threadId: threadSpec.id }); const result = normalizeTelegramNativeReplyPayload(await nativeCommandRuntime.executePluginCommand({ command: match.command, args: match.args, senderId, channel: \"telegram\", isAuthorizedSender: commandAuthorized, senderIsOwner, sessionKey: route.sessionKey, sessionI"
+    },
+    {
+      "file": "bot-native-commands.runtime-OmS7iYqz.js",
+      "line": 6,
+      "needle": "matchPluginCommand",
+      "excerpt": "ntext } from \"./inbound-context-CmqeYP5O.js\"; import \"./routing-D7yOwRjJ.js\"; import { a as getPluginCommandSpecs, i as matchPluginCommand, n as executePluginCommand } from \"./commands-D2qp4St4.js\"; import \"./reply-dispatch-runtime-BFR0nVse.js\"; import \"./media-runtime-MC6kl9G-.js\"; import { t as ensureConfiguredBindingRouteReady } from \""
+    },
+    {
+      "file": "bot-native-commands.runtime-OmS7iYqz.js",
+      "line": 12,
+      "needle": "matchPluginCommand",
+      "excerpt": "dBindingRouteReady, executePluginCommand, finalizeInboundContext, getAgentScopedMediaLocalRoots, getPluginCommandSpecs, matchPluginCommand, recordInboundSessionMetaSafe, resolveChunkMode, resolveThreadSessionKeys };"
+    },
+    {
+      "file": "bot-native-commands.runtime-OmS7iYqz.js",
+      "line": 6,
+      "needle": "executePluginCommand",
+      "excerpt": "ontext-CmqeYP5O.js\"; import \"./routing-D7yOwRjJ.js\"; import { a as getPluginCommandSpecs, i as matchPluginCommand, n as executePluginCommand } from \"./commands-D2qp4St4.js\"; import \"./reply-dispatch-runtime-BFR0nVse.js\"; import \"./media-runtime-MC6kl9G-.js\"; import { t as ensureConfiguredBindingRouteReady } from \"./binding-routing-C6pNNfo"
+    },
+    {
+      "file": "bot-native-commands.runtime-OmS7iYqz.js",
+      "line": 12,
+      "needle": "executePluginCommand",
+      "excerpt": "./conversation-runtime-DaWnKT7H.js\"; import \"./plugin-runtime-BWkZpYkK.js\"; export { ensureConfiguredBindingRouteReady, executePluginCommand, finalizeInboundContext, getAgentScopedMediaLocalRoots, getPluginCommandSpecs, matchPluginCommand, recordInboundSessionMetaSafe, resolveChunkMode, resolveThreadSessionKeys };"
+    },
+    {
+      "file": "btw-command-Cg8Z_jL8.js",
+      "line": 2,
+      "needle": "normalizeCommandBody",
+      "excerpt": "import { c as normalizeOptionalString } from \"./string-coerce-Bje8XVt9.js\"; import { r as normalizeCommandBody } from \"./commands-registry-normalize-D2V03Px2.js\"; import \"./commands-registry-fQjYfZzp.js\"; //#region src/auto-reply/reply/btw-command.ts const BTW_COMMAND_RE = /^\\/btw(?::|\\s|$)/i; function isBtwR"
+    },
+    {
+      "file": "btw-command-Cg8Z_jL8.js",
+      "line": 8,
+      "needle": "normalizeCommandBody",
+      "excerpt": "MAND_RE = /^\\/btw(?::|\\s|$)/i; function isBtwRequestText(text, options) { if (!text) return false; const normalized = normalizeCommandBody(text, options).trim(); return BTW_COMMAND_RE.test(normalized); } function extractBtwQuestion(text, options) { if (!text) return null; const match = normalizeCommandBody(text, options).trim().match"
+    },
+    {
+      "file": "btw-command-Cg8Z_jL8.js",
+      "line": 13,
+      "needle": "normalizeCommandBody",
+      "excerpt": "BTW_COMMAND_RE.test(normalized); } function extractBtwQuestion(text, options) { if (!text) return null; const match = normalizeCommandBody(text, options).trim().match(/^\\/btw(?:\\s+(.*))?$/i); if (!match) return null; return normalizeOptionalString(match[1]) ?? \"\"; } //#endregion export { isBtwRequestText as n, extractBtwQuestion as t"
+    },
+    {
+      "file": "channel.runtime-Bw71MLdR.js",
+      "line": 1939,
+      "needle": "commandBody",
+      "excerpt": "t\" ? `user:${senderId}` : `channel:${channelId}`; const mediaPayload = buildAgentMediaPayload(mediaList); const commandBody = rawText.trim(); const inboundHistory = historyKey && historyLimit > 0 ? (channelHistories.get(historyKey) ?? []).map((entry) => ({ sender: entry.sender, body: entry.body, timestamp: entry"
+    },
+    {
+      "file": "channel.runtime-Bw71MLdR.js",
+      "line": 1950,
+      "needle": "commandBody",
+      "excerpt": "mbinedBody, BodyForAgent: bodyText, InboundHistory: inboundHistory, RawBody: bodyText, CommandBody: commandBody, BodyForCommands: commandBody, From: kind === \"direct\" ? `mattermost:${senderId}` : kind === \"group\" ? `mattermost:group:${channelId}` : `mattermost:channel:${channelId}`, To: to, SessionK"
+    },
+    {
+      "file": "channel.runtime-Bw71MLdR.js",
+      "line": 1951,
+      "needle": "commandBody",
+      "excerpt": "Text, InboundHistory: inboundHistory, RawBody: bodyText, CommandBody: commandBody, BodyForCommands: commandBody, From: kind === \"direct\" ? `mattermost:${senderId}` : kind === \"group\" ? `mattermost:group:${channelId}` : `mattermost:channel:${channelId}`, To: to, SessionKey: sessionKey, ParentSessionK"
+    },
+    {
+      "file": "chat-BUK7LXQw.js",
+      "line": 1783,
+      "needle": "commandBody",
+      "excerpt": "tSendTranscriptMediaFields(await persistedImagesPromise) : {}; const trimmedMessage = parsedMessage.trim(); const commandBody = Boolean(p.thinking && trimmedMessage && !trimmedMessage.startsWith(\"/\")) ? `/think ${p.thinking} ${parsedMessage}` : parsedMessage; const messageForAgent = systemProvenanceReceipt ? [systemProvenanceRece"
+    },
+    {
+      "file": "chat-BUK7LXQw.js",
+      "line": 1789,
+      "needle": "commandBody",
+      "excerpt": "messageForAgent, BodyForAgent: injectTimestamp(messageForAgent, timestampOptsFromConfig(cfg)), BodyForCommands: commandBody, RawBody: parsedMessage, CommandBody: commandBody, InputProvenance: systemInputProvenance, SessionKey: sessionKey, Provider: INTERNAL_MESSAGE_CHANNEL, Surface: INTERNAL_MESSAGE_CHANNEL"
+    },
+    {
+      "file": "chat-BUK7LXQw.js",
+      "line": 1791,
+      "needle": "commandBody",
+      "excerpt": "ForAgent, timestampOptsFromConfig(cfg)), BodyForCommands: commandBody, RawBody: parsedMessage, CommandBody: commandBody, InputProvenance: systemInputProvenance, SessionKey: sessionKey, Provider: INTERNAL_MESSAGE_CHANNEL, Surface: INTERNAL_MESSAGE_CHANNEL, OriginatingChannel: originatingChannel, Originat"
+    },
+    {
+      "file": "command-detection-Bm3Hdtr5.js",
+      "line": 4,
+      "needle": "normalizeCommandBody",
+      "excerpt": "rt { n as listChatCommands, r as listChatCommandsForConfig } from \"./commands-registry-list-Cmkm0No9.js\"; import { r as normalizeCommandBody } from \"./commands-registry-normalize-D2V03Px2.js\"; import { r as isAbortTrigger } from \"./abort-primitives-DzH2NybG.js\"; //#region src/auto-reply/command-detection.ts function hasControlCommand(text"
+    },
+    {
+      "file": "command-detection-Bm3Hdtr5.js",
+      "line": 13,
+      "needle": "normalizeCommandBody",
+      "excerpt": "d) return false; const stripped = stripInboundMetadata(trimmed); if (!stripped) return false; const normalizedBody = normalizeCommandBody(stripped, options); if (!normalizedBody) return false; const lowered = normalizeLowercaseStringOrEmpty(normalizedBody); const commands = cfg ? listChatCommandsForConfig(cfg) : listChatCommands();"
+    },
+    {
+      "file": "command-detection-Bm3Hdtr5.js",
+      "line": 33,
+      "needle": "normalizeCommandBody",
+      "excerpt": "se; if (hasControlCommand(trimmed, cfg, options)) return true; return isAbortTrigger(normalizeOptionalLowercaseString(normalizeCommandBody(stripInboundMetadata(trimmed), options)) ?? \"\"); } /** * Coarse detection for inline directives/shortcuts (e.g. \"hey /status\") so channel monitors * can decide whether to compute CommandAuthorized fo"
+    },
+    {
+      "file": "command-status.runtime-BXvgHitp.js",
+      "line": 68,
+      "needle": "commandBody",
+      "excerpt": "er, isAuthorizedSender: params.isAuthorizedSender, senderId: params.senderId, rawBodyNormalized: \"/status\", commandBodyNormalized: \"/status\" }, sessionEntry: statusEntry, sessionKey: statusSessionKey, parentSessionKey: statusEntry?.parentSessionKey, sessionScope: statusCfg.session?.scope, storePath: statusLoaded.st"
+    },
+    {
+      "file": "commands-D2qp4St4.js",
+      "line": 89,
+      "needle": "commandBody",
+      "excerpt": "l through to * built-in handlers or the agent. Document this behavior to plugin authors. */ function matchPluginCommand(commandBody, options = {}) { const trimmed = commandBody.trim(); if (!trimmed.startsWith(\"/\")) return null; const spaceIndex = trimmed.indexOf(\" \"); const commandName = spaceIndex === -1 ? trimmed : trimmed.slice(0,"
+    },
+    {
+      "file": "commands-D2qp4St4.js",
+      "line": 90,
+      "needle": "commandBody",
+      "excerpt": "Document this behavior to plugin authors. */ function matchPluginCommand(commandBody, options = {}) { const trimmed = commandBody.trim(); if (!trimmed.startsWith(\"/\")) return null; const spaceIndex = trimmed.indexOf(\" \"); const commandName = spaceIndex === -1 ? trimmed : trimmed.slice(0, spaceIndex); const args = spaceIndex === -1 ?"
+    },
+    {
+      "file": "commands-D2qp4St4.js",
+      "line": 143,
+      "needle": "commandBody",
+      "excerpt": "zation. */ async function executePluginCommand(params) { const { command, args, senderId, channel, isAuthorizedSender, commandBody, config } = params; if (!pluginCommandSupportsChannel(command, channel)) { logVerbose(`Plugin command /${command.name} skipped on unsupported channel ${channel}`); return { continueAgent: true }; } if"
+    },
+    {
+      "file": "commands-D2qp4St4.js",
+      "line": 199,
+      "needle": "commandBody",
+      "excerpt": "ssionKey: params.sessionKey, sessionId: params.sessionId, sessionFile: params.sessionFile, args: sanitizedArgs, commandBody, config, from: params.from, to: params.to, accountId: effectiveAccountId, messageThreadId: params.messageThreadId, threadParentId: params.threadParentId, diagnosticsSessions: params.diagnosticsS"
+    },
+    {
+      "file": "commands-D2qp4St4.js",
+      "line": 89,
+      "needle": "matchPluginCommand",
+      "excerpt": "the message to fall through to * built-in handlers or the agent. Document this behavior to plugin authors. */ function matchPluginCommand(commandBody, options = {}) { const trimmed = commandBody.trim(); if (!trimmed.startsWith(\"/\")) return null; const spaceIndex = trimmed.indexOf(\" \"); const commandName = spaceIndex === -1 ? trimmed"
+    },
+    {
+      "file": "commands-D2qp4St4.js",
+      "line": 273,
+      "needle": "matchPluginCommand",
+      "excerpt": "mand); } const __testing = { resolveBindingConversationFromCommand }; //#endregion export { getPluginCommandSpecs as a, matchPluginCommand as i, executePluginCommand as n, listProviderPluginCommandSpecs as o, listPluginCommands as r, __testing as t };"
+    },
+    {
+      "file": "commands-D2qp4St4.js",
+      "line": 142,
+      "needle": "executePluginCommand",
+      "excerpt": "e ctx.args for their * specific use case. This function provides basic defense-in-depth sanitization. */ async function executePluginCommand(params) { const { command, args, senderId, channel, isAuthorizedSender, commandBody, config } = params; if (!pluginCommandSupportsChannel(command, channel)) { logVerbose(`Plugin command /${comman"
+    },
+    {
+      "file": "commands-D2qp4St4.js",
+      "line": 273,
+      "needle": "executePluginCommand",
+      "excerpt": "= { resolveBindingConversationFromCommand }; //#endregion export { getPluginCommandSpecs as a, matchPluginCommand as i, executePluginCommand as n, listProviderPluginCommandSpecs as o, listPluginCommands as r, __testing as t };"
+    },
+    {
+      "file": "commands-acp-C5fdhvh2.js",
+      "line": 54,
+      "needle": "commandBody",
+      "excerpt": "\"reset-options\" ]); const handleAcpCommand = async (params, _allowTextCommands) => { const normalized = params.command.commandBodyNormalized; if (!normalized.startsWith(\"/acp\")) return null; if (!params.command.isAuthorizedSender) { logVerbose(`Ignoring /acp from unauthorized sender: ${params.command.senderId || \"<unknown>\"}`); ret"
+    },
+    {
+      "file": "commands-context-BcZncsS_.js",
+      "line": 3,
+      "needle": "normalizeCommandBody",
+      "excerpt": "from \"./string-coerce-Bje8XVt9.js\"; import { a as normalizeAnyChannelId } from \"./registry-By_qtZ6R.js\"; import { r as normalizeCommandBody } from \"./commands-registry-normalize-D2V03Px2.js\"; import { o as stripMentions } from \"./mentions-BXXwlg-q.js\"; import { t as resolveCommandAuthorization } from \"./command-auth-BJFC-EWg.js\"; //#regi"
+    },
+    {
+      "file": "commands-context-BcZncsS_.js",
+      "line": 21,
+      "needle": "normalizeCommandBody",
+      "excerpt": "nnel) ?? (channel ? channel : void 0); const rawBodyNormalized = triggerBodyNormalized; const commandBodyNormalized = normalizeCommandBody(isGroup ? stripMentions(rawBodyNormalized, ctx, cfg, agentId) : rawBodyNormalized, { botUsername: ctx.BotUsername }); return { surface, channel, channelId: channelId ?? auth.providerId, owne"
+    },
+    {
+      "file": "commands-context-BcZncsS_.js",
+      "line": 21,
+      "needle": "commandBody",
+      "excerpt": "ormalizeAnyChannelId(channel) ?? (channel ? channel : void 0); const rawBodyNormalized = triggerBodyNormalized; const commandBodyNormalized = normalizeCommandBody(isGroup ? stripMentions(rawBodyNormalized, ctx, cfg, agentId) : rawBodyNormalized, { botUsername: ctx.BotUsername }); return { surface, channel, channelId: channelId ??"
+    },
+    {
+      "file": "commands-context-BcZncsS_.js",
+      "line": 32,
+      "needle": "commandBody",
+      "excerpt": "erIsOwner, isAuthorizedSender: auth.isAuthorizedSender, senderId: auth.senderId, abortKey, rawBodyNormalized, commandBodyNormalized, from, to }; } //#endregion export { buildCommandContext as t };"
+    },
+    {
+      "file": "commands-crestodian-jrWDFHcb.js",
+      "line": 6,
+      "needle": "commandBody",
+      "excerpt": "ianRescueMessage } = await import(\"./crestodian/rescue-message.js\"); if (extractCrestodianRescueMessage(params.command.commandBodyNormalized) === null) return null; if (!params.command.isAuthorizedSender) { logVerbose(`Ignoring /crestodian from unauthorized sender: ${params.command.senderId || \"<unknown>\"}`); return { shouldContinue"
+    },
+    {
+      "file": "commands-crestodian-jrWDFHcb.js",
+      "line": 16,
+      "needle": "commandBody",
+      "excerpt": "Continue: false, reply: { text: await runCrestodianRescueMessage({ cfg: params.cfg, command: params.command, commandBody: params.command.commandBodyNormalized, agentId: params.agentId, isGroup: params.isGroup }) ?? \"Crestodian did not find a rescue request.\" } }; }; //#endregion export { handleCrestodianCommand as t };"
+    },
+    {
+      "file": "commands-crestodian-jrWDFHcb.js",
+      "line": 16,
+      "needle": "commandBody",
+      "excerpt": "text: await runCrestodianRescueMessage({ cfg: params.cfg, command: params.command, commandBody: params.command.commandBodyNormalized, agentId: params.agentId, isGroup: params.isGroup }) ?? \"Crestodian did not find a rescue request.\" } }; }; //#endregion export { handleCrestodianCommand as t };"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 74,
+      "needle": "resolveTextCommand",
+      "excerpt": "{ r as resolveConversationBindingContextFromAcpCommand } from \"./conversation-binding-input-8r1tpaPi.js\"; import { i as resolveTextCommand, r as normalizeCommandBody } from \"./commands-registry-normalize-D2V03Px2.js\"; import \"./commands-registry-fQjYfZzp.js\"; import { o as stripMentions, s as stripStructuralPrefixes } from \"./mentions-BXX"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 2661,
+      "needle": "resolveTextCommand",
+      "excerpt": "y/reply/commands-dock.ts const DOCK_KEY_PREFIX = \"dock:\"; function resolveDockCommandTarget(params) { const resolved = resolveTextCommand(params.command.commandBodyNormalized, params.cfg); if (!resolved?.command.key.startsWith(DOCK_KEY_PREFIX)) return null; if (resolved.command.category !== \"docks\") return null; return normalizeLowerc"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 74,
+      "needle": "normalizeCommandBody",
+      "excerpt": "nBindingContextFromAcpCommand } from \"./conversation-binding-input-8r1tpaPi.js\"; import { i as resolveTextCommand, r as normalizeCommandBody } from \"./commands-registry-normalize-D2V03Px2.js\"; import \"./commands-registry-fQjYfZzp.js\"; import { o as stripMentions, s as stripStructuralPrefixes } from \"./mentions-BXXwlg-q.js\"; import { r as"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 3879,
+      "needle": "normalizeCommandBody",
+      "excerpt": "return { hasCommand: false }; const trimmed = raw.trim(); if (!trimmed) return { hasCommand: false }; const match = normalizeCommandBody(stripInboundMetadata(trimmed)).match(/^\\/send(?:\\s+([a-zA-Z]+))?\\s*$/i); if (!match) return { hasCommand: false }; const token = normalizeOptionalLowercaseString(match[1]); if (!token) return { ha"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 339,
+      "needle": "commandBody",
+      "excerpt": "ams, allowTextCommands) => { if (!allowTextCommands) return null; const parsed = parseAllowlistCommand(params.command.commandBodyNormalized); if (!parsed) return null; if (parsed.action === \"error\") return { shouldContinue: false, reply: { text: `⚠️ ${parsed.message}` } }; const unauthorized = rejectUnauthorizedCommand(params, \""
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 666,
+      "needle": "commandBody",
+      "excerpt": "mmand = async (params, allowTextCommands) => { if (!allowTextCommands) return null; const normalized = params.command.commandBodyNormalized; const parsed = parseApproveCommand(normalized); if (!parsed) return null; if (!parsed.ok) return { shouldContinue: false, reply: { text: parsed.error } }; const isPluginId = parsed.id.star"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 999,
+      "needle": "commandBody",
+      "excerpt": "xtCommands) => { if (!allowTextCommands) return null; const { command } = params; const bashSlashRequested = command.commandBodyNormalized === \"/bash\" || command.commandBodyNormalized.startsWith(\"/bash \"); const bashBangRequested = command.commandBodyNormalized.startsWith(\"!\"); if (!bashSlashRequested && !(bashBangRequested && comman"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 999,
+      "needle": "commandBody",
+      "excerpt": "urn null; const { command } = params; const bashSlashRequested = command.commandBodyNormalized === \"/bash\" || command.commandBodyNormalized.startsWith(\"/bash \"); const bashBangRequested = command.commandBodyNormalized.startsWith(\"!\"); if (!bashSlashRequested && !(bashBangRequested && command.isAuthorizedSender)) return null; const un"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 1000,
+      "needle": "commandBody",
+      "excerpt": "andBodyNormalized === \"/bash\" || command.commandBodyNormalized.startsWith(\"/bash \"); const bashBangRequested = command.commandBodyNormalized.startsWith(\"!\"); if (!bashSlashRequested && !(bashBangRequested && command.isAuthorizedSender)) return null; const unauthorized = rejectUnauthorizedCommand(params, \"/bash\"); if (unauthorized) ret"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 1408,
+      "needle": "commandBody",
+      "excerpt": "rams, allowTextCommands) => { if (!allowTextCommands) return null; const question = extractBtwQuestion(params.command.commandBodyNormalized); if (question === null) return null; const unauthorized = rejectUnauthorizedCommand(params, \"/btw\"); if (unauthorized) return unauthorized; if (!question) return { shouldContinue: false, re"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 1499,
+      "needle": "commandBody",
+      "excerpt": "real conversation messages yet\"; return text; } const handleCompactCommand = async (params) => { if (!(params.command.commandBodyNormalized === \"/compact\" || params.command.commandBodyNormalized.startsWith(\"/compact \"))) return null; if (!params.command.isAuthorizedSender) { logVerbose(`Ignoring /compact from unauthorized sender: ${p"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 1499,
+      "needle": "commandBody",
+      "excerpt": "handleCompactCommand = async (params) => { if (!(params.command.commandBodyNormalized === \"/compact\" || params.command.commandBodyNormalized.startsWith(\"/compact \"))) return null; if (!params.command.isAuthorizedSender) { logVerbose(`Ignoring /compact from unauthorized sender: ${params.command.senderId || \"<unknown>\"}`); return { sh"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 1744,
+      "needle": "commandBody",
+      "excerpt": "allowTextCommands) => { if (!allowTextCommands) return null; const configCommand = parseConfigCommand(params.command.commandBodyNormalized); if (!configCommand) return null; const unauthorized = rejectUnauthorizedCommand(params, \"/config\"); if (unauthorized) return unauthorized; const nonOwner = configCommand.action === \"show\" && i"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 1862,
+      "needle": "commandBody",
+      "excerpt": "s, allowTextCommands) => { if (!allowTextCommands) return null; const debugCommand = parseDebugCommand(params.command.commandBodyNormalized); if (!debugCommand) return null; const unauthorized = rejectUnauthorizedCommand(params, \"/debug\"); if (unauthorized) return unauthorized; const nonOwner = rejectNonOwnerCommand(params, \"/debug\""
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 1932,
+      "needle": "commandBody",
+      "excerpt": "{ return `${formatInt(chars)} chars (~${formatInt(estimateTokensFromChars(chars))} tok)`; } function parseContextArgs(commandBodyNormalized) { if (commandBodyNormalized === \"/context\") return \"\"; if (commandBodyNormalized.startsWith(\"/context \")) return commandBodyNormalized.slice(8).trim(); return \"\"; } function formatListTop(entrie"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 1933,
+      "needle": "commandBody",
+      "excerpt": "} chars (~${formatInt(estimateTokensFromChars(chars))} tok)`; } function parseContextArgs(commandBodyNormalized) { if (commandBodyNormalized === \"/context\") return \"\"; if (commandBodyNormalized.startsWith(\"/context \")) return commandBodyNormalized.slice(8).trim(); return \"\"; } function formatListTop(entries, cap) { const sorted = [..."
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 1934,
+      "needle": "commandBody",
+      "excerpt": "tok)`; } function parseContextArgs(commandBodyNormalized) { if (commandBodyNormalized === \"/context\") return \"\"; if (commandBodyNormalized.startsWith(\"/context \")) return commandBodyNormalized.slice(8).trim(); return \"\"; } function formatListTop(entries, cap) { const sorted = [...entries].toSorted((a, b) => b.value - a.value); const"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 1934,
+      "needle": "commandBody",
+      "excerpt": "zed) { if (commandBodyNormalized === \"/context\") return \"\"; if (commandBodyNormalized.startsWith(\"/context \")) return commandBodyNormalized.slice(8).trim(); return \"\"; } function formatListTop(entries, cap) { const sorted = [...entries].toSorted((a, b) => b.value - a.value); const top = sorted.slice(0, cap); const omitted = Math.max"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 1977,
+      "needle": "commandBody",
+      "excerpt": "params.sessionKey] ?? params.sessionEntry; const sub = normalizeLowercaseStringOrEmpty(parseContextArgs(params.command.commandBodyNormalized).split(/\\s+/).find(Boolean)); if (!sub || sub === \"help\") return { text: [ \"🧠 /context\", \"\", \"What counts as context (high-level), plus a breakdown mode.\", \"\", \"Try:\", \"- /context list"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 2128,
+      "needle": "commandBody",
+      "excerpt": "mmand = async (params, allowTextCommands) => { if (!allowTextCommands) return null; const normalized = params.command.commandBodyNormalized; if (normalized !== \"/context\" && !normalized.startsWith(\"/context \")) return null; if (!params.command.isAuthorizedSender) { logVerbose(`Ignoring /context from unauthorized sender: ${params.com"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 2312,
+      "needle": "commandBody",
+      "excerpt": "s, params, allowTextCommands) { if (!allowTextCommands) return null; const args = parseDiagnosticsArgs(params.command.commandBodyNormalized); if (args == null) return null; if (!params.command.isAuthorizedSender) { logVerbose(`Ignoring /diagnostics from unauthorized sender: ${params.command.senderId || \"<unknown>\"}`); return { sho"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 2388,
+      "needle": "commandBody",
+      "excerpt": "eply }) ? DIAGNOSTICS_PRIVATE_ROUTE_ACK : DIAGNOSTICS_PRIVATE_ROUTE_UNAVAILABLE } }; } function parseDiagnosticsArgs(commandBody) { const trimmed = commandBody.trim(); if (trimmed === DIAGNOSTICS_COMMAND) return \"\"; if (trimmed.startsWith(`${DIAGNOSTICS_COMMAND} `)) return trimmed.slice(13).trim(); if (trimmed.startsWith(`${DIAGNOS"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 2389,
+      "needle": "commandBody",
+      "excerpt": "ROUTE_ACK : DIAGNOSTICS_PRIVATE_ROUTE_UNAVAILABLE } }; } function parseDiagnosticsArgs(commandBody) { const trimmed = commandBody.trim(); if (trimmed === DIAGNOSTICS_COMMAND) return \"\"; if (trimmed.startsWith(`${DIAGNOSTICS_COMMAND} `)) return trimmed.slice(13).trim(); if (trimmed.startsWith(`${DIAGNOSTICS_COMMAND}:`)) return trimmed"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 2531,
+      "needle": "commandBody",
+      "excerpt": "gs, options = {}) { const targetSessionEntry = params.sessionStore?.[params.sessionKey] ?? params.sessionEntry; const commandBody = args ? `${CODEX_DIAGNOSTICS_COMMAND} ${args}` : CODEX_DIAGNOSTICS_COMMAND; const match = matchPluginCommand(commandBody); if (!match || match.command.pluginId !== \"codex\") return; return await executePlu"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 2532,
+      "needle": "commandBody",
+      "excerpt": "mandBody = args ? `${CODEX_DIAGNOSTICS_COMMAND} ${args}` : CODEX_DIAGNOSTICS_COMMAND; const match = matchPluginCommand(commandBody); if (!match || match.command.pluginId !== \"codex\") return; return await executePluginCommand({ command: match.command, args: match.args, senderId: params.command.senderId, channel: params.command.c"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 2546,
+      "needle": "commandBody",
+      "excerpt": "onKey: params.sessionKey, sessionId: targetSessionEntry?.sessionId, sessionFile: targetSessionEntry?.sessionFile, commandBody, config: params.cfg, from: params.command.from, to: params.command.to, accountId: params.ctx.AccountId ?? void 0, messageThreadId: typeof params.ctx.MessageThreadId === \"string\" || typeof params.ctx"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 2661,
+      "needle": "commandBody",
+      "excerpt": "K_KEY_PREFIX = \"dock:\"; function resolveDockCommandTarget(params) { const resolved = resolveTextCommand(params.command.commandBodyNormalized, params.cfg); if (!resolved?.command.key.startsWith(DOCK_KEY_PREFIX)) return null; if (resolved.command.category !== \"docks\") return null; return normalizeLowercaseStringOrEmpty(resolved.command."
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 2765,
+      "needle": "commandBody",
+      "excerpt": "ion escapeRegExp(value) { return value.replace(/[.*+?^${}()|[\\]\\\\]/g, \"\\\\$&\"); } function parseExportCommandOutputPath(commandBodyNormalized, aliases) { const normalized = commandBodyNormalized.trim(); if (aliases.some((alias) => normalized === `/${alias}`)) return {}; const aliasPattern = aliases.map(escapeRegExp).join(\"|\"); const o"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 2766,
+      "needle": "commandBody",
+      "excerpt": "^${}()|[\\]\\\\]/g, \"\\\\$&\"); } function parseExportCommandOutputPath(commandBodyNormalized, aliases) { const normalized = commandBodyNormalized.trim(); if (aliases.some((alias) => normalized === `/${alias}`)) return {}; const aliasPattern = aliases.map(escapeRegExp).join(\"|\"); const outputPath = normalized.replace(new RegExp(`^/(${aliasP"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 2910,
+      "needle": "commandBody",
+      "excerpt": ": null }; } async function buildExportSessionReply(params) { const args = parseExportCommandOutputPath(params.command.commandBodyNormalized, [\"export-session\", \"export\"]); if (args.error) return { text: args.error }; const sessionTarget = resolveExportCommandSessionTarget(params); if (isReplyPayload(sessionTarget)) return sessionTarg"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 2966,
+      "needle": "commandBody",
+      "excerpt": "ps = { ...defaultExportTrajectoryCommandDeps, ...deps }; const args = parseExportCommandOutputPath(params.command.commandBodyNormalized, [\"export-trajectory\", \"trajectory\"]); if (args.error) return { text: args.error }; let request; try { request = buildTrajectoryExportExecRequest(params, args.outputPath); } catch (error) {"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 3122,
+      "needle": "commandBody",
+      "excerpt": "handleWhoamiCommand = async (params, allowTextCommands) => { if (!allowTextCommands) return null; if (params.command.commandBodyNormalized !== \"/whoami\") return null; if (!params.command.isAuthorizedSender) { logVerbose(`Ignoring /whoami from unauthorized sender: ${params.command.senderId || \"<unknown>\"}`); return { shouldContinue"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 3148,
+      "needle": "commandBody",
+      "excerpt": "st handleHelpCommand = async (params, allowTextCommands) => { if (!allowTextCommands) return null; if (params.command.commandBodyNormalized !== \"/help\") return null; if (!params.command.isAuthorizedSender) { logVerbose(`Ignoring /help from unauthorized sender: ${params.command.senderId || \"<unknown>\"}`); return { shouldContinue: fa"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 3160,
+      "needle": "commandBody",
+      "excerpt": "eCommandsListCommand = async (params, allowTextCommands) => { if (!allowTextCommands) return null; if (params.command.commandBodyNormalized !== \"/commands\") return null; if (!params.command.isAuthorizedSender) { logVerbose(`Ignoring /commands from unauthorized sender: ${params.command.senderId || \"<unknown>\"}`); return { shouldCont"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 3198,
+      "needle": "commandBody",
+      "excerpt": "mmand = async (params, allowTextCommands) => { if (!allowTextCommands) return null; const normalized = params.command.commandBodyNormalized; let verbose = false; if (normalized === \"/tools\" || normalized === \"/tools compact\") verbose = false; else if (normalized === \"/tools verbose\") verbose = true; else if (normalized.startsWith(\"/"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 3263,
+      "needle": "commandBody",
+      "excerpt": "wTextCommands) => { if (!allowTextCommands) return null; if (!(params.directives.hasStatusDirective || params.command.commandBodyNormalized === \"/status\")) return null; if (!params.command.isAuthorizedSender) { logVerbose(`Ignoring /status from unauthorized sender: ${params.command.senderId || \"<unknown>\"}`); return { shouldContinu"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 3297,
+      "needle": "commandBody",
+      "excerpt": "mmand = async (params, allowTextCommands) => { if (!allowTextCommands) return null; const normalized = params.command.commandBodyNormalized; if (normalized !== \"/export-session\" && !normalized.startsWith(\"/export-session \") && normalized !== \"/export\" && !normalized.startsWith(\"/export \")) return null; if (!params.command.isAuthorized"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 3310,
+      "needle": "commandBody",
+      "excerpt": "mmand = async (params, allowTextCommands) => { if (!allowTextCommands) return null; const normalized = params.command.commandBodyNormalized; if (normalized !== \"/export-trajectory\" && !normalized.startsWith(\"/export-trajectory \") && normalized !== \"/trajectory\" && !normalized.startsWith(\"/trajectory \")) return null; const unauthorized"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 3353,
+      "needle": "commandBody",
+      "excerpt": "arams, allowTextCommands) => { if (!allowTextCommands) return null; const mcpCommand = parseMcpCommand(params.command.commandBodyNormalized); if (!mcpCommand) return null; const unauthorized = rejectUnauthorizedCommand(params, \"/mcp\"); if (unauthorized) return unauthorized; const nonOwner = mcpCommand.action === \"show\" && isInternal"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 3445,
+      "needle": "commandBody",
+      "excerpt": "ams.sessionKey] ?? params.sessionEntry; if (!allowTextCommands) return null; const match = matchPluginCommand(command.commandBodyNormalized, { channel: command.channel }); if (!match) return null; const result = await executePluginCommand({ command: match.command, args: match.args, senderId: command.senderId, channel: command."
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 3459,
+      "needle": "commandBody",
+      "excerpt": "onKey: params.sessionKey, sessionId: targetSessionEntry?.sessionId, sessionFile: targetSessionEntry?.sessionFile, commandBody: command.commandBodyNormalized, config: cfg, from: command.from, to: command.to, accountId: params.ctx.AccountId ?? void 0, messageThreadId: typeof params.ctx.MessageThreadId === \"string\" || typeof"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 3459,
+      "needle": "commandBody",
+      "excerpt": "Key, sessionId: targetSessionEntry?.sessionId, sessionFile: targetSessionEntry?.sessionFile, commandBody: command.commandBodyNormalized, config: cfg, from: command.from, to: command.to, accountId: params.ctx.AccountId ?? void 0, messageThreadId: typeof params.ctx.MessageThreadId === \"string\" || typeof params.ctx.MessageThr"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 3756,
+      "needle": "commandBody",
+      "excerpt": "llowTextCommands) => { if (!allowTextCommands) return null; const pluginsCommand = parsePluginsCommand(params.command.commandBodyNormalized); if (!pluginsCommand) return null; const unauthorized = rejectUnauthorizedCommand(params, \"/plugins\"); if (unauthorized) return unauthorized; const nonOwner = (pluginsCommand.action === \"list\""
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 3951,
+      "needle": "commandBody",
+      "excerpt": "st handleStopCommand = async (params, allowTextCommands) => { if (!allowTextCommands) return null; if (params.command.commandBodyNormalized !== \"/stop\") return null; const unauthorizedStop = rejectUnauthorizedCommand(params, \"/stop\"); if (unauthorizedStop) return unauthorizedStop; const abortTarget = resolveAbortTarget({ ctx: param"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 4094,
+      "needle": "commandBody",
+      "excerpt": "xtCommands) => { if (!allowTextCommands) return null; const activationCommand = parseActivationCommand(params.command.commandBodyNormalized); if (!activationCommand.hasCommand) return null; if (!params.isGroup) return { shouldContinue: false, reply: { text: \"⚙️ Group activation only applies to group chats.\" } }; if (!params.comm"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 4120,
+      "needle": "commandBody",
+      "excerpt": "xtCommands) => { if (!allowTextCommands) return null; const sendPolicyCommand = parseSendPolicyCommand(params.command.commandBodyNormalized); if (!sendPolicyCommand.hasCommand) return null; const unauthorizedResult = rejectUnauthorizedCommand(params, \"/send\"); if (unauthorizedResult) return unauthorizedResult; const nonOwnerResult ="
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 4142,
+      "needle": "commandBody",
+      "excerpt": "mmand = async (params, allowTextCommands) => { if (!allowTextCommands) return null; const normalized = params.command.commandBodyNormalized; if (normalized !== \"/usage\" && !normalized.startsWith(\"/usage \")) return null; if (!params.command.isAuthorizedSender) { logVerbose(`Ignoring /usage from unauthorized sender: ${params.command.s"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 4207,
+      "needle": "commandBody",
+      "excerpt": "mmand = async (params, allowTextCommands) => { if (!allowTextCommands) return null; const normalized = params.command.commandBodyNormalized; if (normalized !== \"/fast\" && !normalized.startsWith(\"/fast \")) return null; if (!params.command.isAuthorizedSender) { logVerbose(`Ignoring /fast from unauthorized sender: ${params.command.send"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 4249,
+      "needle": "commandBody",
+      "excerpt": "mmand = async (params, allowTextCommands) => { if (!allowTextCommands) return null; const normalized = params.command.commandBodyNormalized; if (!/^\\/session(?:\\s|$)/.test(normalized)) return null; if (!params.command.isAuthorizedSender) { logVerbose(`Ignoring /session from unauthorized sender: ${params.command.senderId || \"<unknown"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 4360,
+      "needle": "commandBody",
+      "excerpt": "handleRestartCommand = async (params, allowTextCommands) => { if (!allowTextCommands) return null; if (params.command.commandBodyNormalized !== \"/restart\") return null; if (!params.command.isAuthorizedSender) { logVerbose(`Ignoring /restart from unauthorized sender: ${params.command.senderId || \"<unknown>\"}`); return { shouldContin"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 4448,
+      "needle": "commandBody",
+      "excerpt": "params, allowTextCommands) => { if (!allowTextCommands) return null; const message = parseSteerMessage(params.command.commandBodyNormalized); if (message === null) return null; const unauthorized = rejectUnauthorizedCommand(params, \"/steer\"); if (unauthorized) return unauthorized; if (!message) return { shouldContinue: false, re"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 4532,
+      "needle": "commandBody",
+      "excerpt": "mmand = async (params, allowTextCommands) => { if (!allowTextCommands) return null; const normalized = params.command.commandBodyNormalized; const handledPrefix = resolveHandledPrefix(normalized); if (!handledPrefix) return null; if (!params.command.isAuthorizedSender) { logVerbose(`Ignoring ${handledPrefix} from unauthorized sende"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 4652,
+      "needle": "commandBody",
+      "excerpt": "mmand = async (params, allowTextCommands) => { if (!allowTextCommands) return null; const normalized = params.command.commandBodyNormalized; if (normalized !== \"/tasks\" && !normalized.startsWith(\"/tasks \")) return null; if (!params.command.isAuthorizedSender) { logVerbose(`Ignoring /tasks from unauthorized sender: ${params.command.s"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 4749,
+      "needle": "commandBody",
+      "excerpt": "c (params, allowTextCommands) => { if (!allowTextCommands) return null; const parsed = parseTtsCommand(params.command.commandBodyNormalized); if (!parsed) return null; if (!params.command.isAuthorizedSender) { logVerbose(`Ignoring TTS command from unauthorized sender: ${params.command.senderId || \"<unknown>\"}`); return { shouldCon"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 78,
+      "needle": "matchPluginCommand",
+      "excerpt": "xes } from \"./mentions-BXXwlg-q.js\"; import { r as resolveModelWithRegistry } from \"./model-COB7epHr.js\"; import { i as matchPluginCommand, n as executePluginCommand } from \"./commands-D2qp4St4.js\"; import { t as isApprovalNotFoundError } from \"./approval-errors-6s9UjOCm.js\"; import { i as setAbortMemory, r as isAbortTrigger } from \"./abo"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 2532,
+      "needle": "matchPluginCommand",
+      "excerpt": "onEntry; const commandBody = args ? `${CODEX_DIAGNOSTICS_COMMAND} ${args}` : CODEX_DIAGNOSTICS_COMMAND; const match = matchPluginCommand(commandBody); if (!match || match.command.pluginId !== \"codex\") return; return await executePluginCommand({ command: match.command, args: match.args, senderId: params.command.senderId, channe"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 3445,
+      "needle": "matchPluginCommand",
+      "excerpt": "= params.sessionStore?.[params.sessionKey] ?? params.sessionEntry; if (!allowTextCommands) return null; const match = matchPluginCommand(command.commandBodyNormalized, { channel: command.channel }); if (!match) return null; const result = await executePluginCommand({ command: match.command, args: match.args, senderId: command.se"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 78,
+      "needle": "executePluginCommand",
+      "excerpt": "Xwlg-q.js\"; import { r as resolveModelWithRegistry } from \"./model-COB7epHr.js\"; import { i as matchPluginCommand, n as executePluginCommand } from \"./commands-D2qp4St4.js\"; import { t as isApprovalNotFoundError } from \"./approval-errors-6s9UjOCm.js\"; import { i as setAbortMemory, r as isAbortTrigger } from \"./abort-primitives-DzH2NybG.js"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 2534,
+      "needle": "executePluginCommand",
+      "excerpt": "const match = matchPluginCommand(commandBody); if (!match || match.command.pluginId !== \"codex\") return; return await executePluginCommand({ command: match.command, args: match.args, senderId: params.command.senderId, channel: params.command.channel, channelId: params.command.channelId, isAuthorizedSender: params.command.isA"
+    },
+    {
+      "file": "commands-handlers.runtime-DlESKC_s.js",
+      "line": 3447,
+      "needle": "executePluginCommand",
+      "excerpt": "inCommand(command.commandBodyNormalized, { channel: command.channel }); if (!match) return null; const result = await executePluginCommand({ command: match.command, args: match.args, senderId: command.senderId, channel: command.channel, channelId: command.channelId, isAuthorizedSender: command.isAuthorizedSender, senderIsO"
+    },
+    {
+      "file": "commands-models-6nZJar_G.js",
+      "line": 201,
+      "needle": "commandBody",
+      "excerpt": "ams.byProvider.get(provider)?.size ?? 0 })); } async function resolveModelsCommandReply(params) { const body = params.commandBodyNormalized.trim(); if (!body.startsWith(\"/models\")) return null; const parsed = parseModelsArgs(body.replace(/^\\/models\\b/i, \"\").trim()); const { byProvider, providers, modelNames } = await buildModelsProvi"
+    },
+    {
+      "file": "commands-models-6nZJar_G.js",
+      "line": 309,
+      "needle": "commandBody",
+      "excerpt": "\") }; } const handleModelsCommand = async (params, allowTextCommands) => { if (!allowTextCommands) return null; const commandBodyNormalized = params.command.commandBodyNormalized.trim(); if (!commandBodyNormalized.startsWith(\"/models\")) return null; const parsed = parseModelsArgs(commandBodyNormalized.replace(/^\\/models\\b/i, \"\").trim("
+    },
+    {
+      "file": "commands-models-6nZJar_G.js",
+      "line": 309,
+      "needle": "commandBody",
+      "excerpt": "nc (params, allowTextCommands) => { if (!allowTextCommands) return null; const commandBodyNormalized = params.command.commandBodyNormalized.trim(); if (!commandBodyNormalized.startsWith(\"/models\")) return null; const parsed = parseModelsArgs(commandBodyNormalized.replace(/^\\/models\\b/i, \"\").trim()); const unauthorized = rejectUnautho"
+    },
+    {
+      "file": "commands-models-6nZJar_G.js",
+      "line": 310,
+      "needle": "commandBody",
+      "excerpt": "if (!allowTextCommands) return null; const commandBodyNormalized = params.command.commandBodyNormalized.trim(); if (!commandBodyNormalized.startsWith(\"/models\")) return null; const parsed = parseModelsArgs(commandBodyNormalized.replace(/^\\/models\\b/i, \"\").trim()); const unauthorized = rejectUnauthorizedCommand(params, \"/models\"); if"
+    },
+    {
+      "file": "commands-models-6nZJar_G.js",
+      "line": 311,
+      "needle": "commandBody",
+      "excerpt": "dBodyNormalized.trim(); if (!commandBodyNormalized.startsWith(\"/models\")) return null; const parsed = parseModelsArgs(commandBodyNormalized.replace(/^\\/models\\b/i, \"\").trim()); const unauthorized = rejectUnauthorizedCommand(params, \"/models\"); if (unauthorized) return unauthorized; if (parsed.action === \"add\") return { shouldContin"
+    },
+    {
+      "file": "commands-models-6nZJar_G.js",
+      "line": 327,
+      "needle": "commandBody",
+      "excerpt": "tore?.[params.sessionKey] ?? params.sessionEntry; const reply = await resolveModelsCommandReply({ cfg: params.cfg, commandBodyNormalized, surface: params.ctx.Surface, currentModel: params.model ? `${params.provider}/${params.model}` : void 0, agentId: modelsAgentId, agentDir: modelsAgentDir, workspaceDir: targetSessionEntry"
+    },
+    {
+      "file": "commands-registry-fQjYfZzp.js",
+      "line": 9,
+      "needle": "normalizeCommandBody",
+      "excerpt": "rt { n as listChatCommands, r as listChatCommandsForConfig } from \"./commands-registry-list-Cmkm0No9.js\"; import { r as normalizeCommandBody } from \"./commands-registry-normalize-D2V03Px2.js\"; import \"./commands-text-routing-DC8lBOae.js\"; //#region src/auto-reply/commands-registry.ts function resolveNativeName(command, provider, options)"
+    },
+    {
+      "file": "commands-registry-fQjYfZzp.js",
+      "line": 191,
+      "needle": "normalizeCommandBody",
+      "excerpt": "urn `Choose ${menu.arg.description || menu.arg.name} for /${commandLabel}.`; } function isCommandMessage(raw) { return normalizeCommandBody(raw).startsWith(\"/\"); } //#endregion export { isCommandMessage as a, parseCommandArgs as c, serializeCommandArgs as d, formatCommandArgMenuTitle as i, resolveCommandArgChoices as l, buildCommandTextF"
+    },
+    {
+      "file": "commands-registry-fQjYfZzp.js",
+      "line": 54,
+      "needle": "findCommandByNativeName",
+      "excerpt": "fg, params) { return listNativeSpecsFromCommands(listChatCommandsForConfig(cfg, params), params?.provider); } function findCommandByNativeName(name, provider, options) { const normalized = normalizeOptionalLowercaseString(name); if (!normalized) return; return getChatCommands().find((command) => command.scope !== \"text\" && [resolveNat"
+    },
+    {
+      "file": "commands-registry-fQjYfZzp.js",
+      "line": 194,
+      "needle": "findCommandByNativeName",
+      "excerpt": "matCommandArgMenuTitle as i, resolveCommandArgChoices as l, buildCommandTextFromArgs as n, listNativeCommandSpecs as o, findCommandByNativeName as r, listNativeCommandSpecsForConfig as s, buildCommandText as t, resolveCommandArgMenu as u };"
+    },
+    {
+      "file": "commands-registry-normalize-D2V03Px2.js",
+      "line": 91,
+      "needle": "resolveTextCommand",
+      "excerpt": "turn null; const tokenKey = `/${tokenMatch[1]}`; return getTextAliasMap().has(tokenKey) ? tokenKey : null; } function resolveTextCommand(raw, cfg) { const trimmed = normalizeCommandBody(raw).trim(); const alias = maybeResolveTextAlias(trimmed, cfg); if (!alias) return null; const spec = getTextAliasMap().get(alias); if (!spec) retu"
+    },
+    {
+      "file": "commands-registry-normalize-D2V03Px2.js",
+      "line": 106,
+      "needle": "resolveTextCommand",
+      "excerpt": "turn { command }; return { command, args: trimmed.slice(alias.length).trim() || void 0 }; } //#endregion export { resolveTextCommand as i, maybeResolveTextAlias as n, normalizeCommandBody as r, getCommandDetection as t };"
+    },
+    {
+      "file": "commands-registry-normalize-D2V03Px2.js",
+      "line": 79,
+      "needle": "maybeResolveTextAlias",
+      "excerpt": "`^(?:${patterns.join(\"|\")})$`, \"i\") : /$^/ }; cachedDetectionCommands = commands; return cachedDetection; } function maybeResolveTextAlias(raw, cfg) { const trimmed = normalizeCommandBody(raw).trim(); if (!trimmed.startsWith(\"/\")) return null; const detection = getCommandDetection(cfg); const normalized = normalizeLowercaseStringOr"
+    },
+    {
+      "file": "commands-registry-normalize-D2V03Px2.js",
+      "line": 93,
+      "needle": "maybeResolveTextAlias",
+      "excerpt": "Key : null; } function resolveTextCommand(raw, cfg) { const trimmed = normalizeCommandBody(raw).trim(); const alias = maybeResolveTextAlias(trimmed, cfg); if (!alias) return null; const spec = getTextAliasMap().get(alias); if (!spec) return null; const command = getChatCommands().find((entry) => entry.key === spec.key); if (!comman"
+    },
+    {
+      "file": "commands-registry-normalize-D2V03Px2.js",
+      "line": 106,
+      "needle": "maybeResolveTextAlias",
+      "excerpt": "{ command, args: trimmed.slice(alias.length).trim() || void 0 }; } //#endregion export { resolveTextCommand as i, maybeResolveTextAlias as n, normalizeCommandBody as r, getCommandDetection as t };"
+    },
+    {
+      "file": "commands-registry-normalize-D2V03Px2.js",
+      "line": 30,
+      "needle": "normalizeCommandBody",
+      "excerpt": ", acceptsArgs }); } } cachedTextAliasMap = map; cachedTextAliasCommands = commands; return map; } function normalizeCommandBody(raw, options) { const trimmed = raw.trim(); if (!trimmed.startsWith(\"/\")) return trimmed; const newline = trimmed.indexOf(\"\\n\"); const singleLine = newline === -1 ? trimmed : trimmed.slice(0, new"
+    },
+    {
+      "file": "commands-registry-normalize-D2V03Px2.js",
+      "line": 80,
+      "needle": "normalizeCommandBody",
+      "excerpt": "hedDetectionCommands = commands; return cachedDetection; } function maybeResolveTextAlias(raw, cfg) { const trimmed = normalizeCommandBody(raw).trim(); if (!trimmed.startsWith(\"/\")) return null; const detection = getCommandDetection(cfg); const normalized = normalizeLowercaseStringOrEmpty(trimmed); if (detection.exact.has(normalized"
+    },
+    {
+      "file": "commands-registry-normalize-D2V03Px2.js",
+      "line": 92,
+      "needle": "normalizeCommandBody",
+      "excerpt": "; return getTextAliasMap().has(tokenKey) ? tokenKey : null; } function resolveTextCommand(raw, cfg) { const trimmed = normalizeCommandBody(raw).trim(); const alias = maybeResolveTextAlias(trimmed, cfg); if (!alias) return null; const spec = getTextAliasMap().get(alias); if (!spec) return null; const command = getChatCommands().find"
+    },
+    {
+      "file": "commands-registry-normalize-D2V03Px2.js",
+      "line": 106,
+      "needle": "normalizeCommandBody",
+      "excerpt": "d.slice(alias.length).trim() || void 0 }; } //#endregion export { resolveTextCommand as i, maybeResolveTextAlias as n, normalizeCommandBody as r, getCommandDetection as t };"
+    },
+    {
+      "file": "commands-registry-normalize-D2V03Px2.js",
+      "line": 43,
+      "needle": "commandBody",
+      "excerpt": "tUsername); const mentionMatch = normalizedBotUsername ? normalized.match(/^\\/([^\\s@]+)@([^\\s]+)(.*)$/) : null; const commandBody = mentionMatch && normalizeLowercaseStringOrEmpty(mentionMatch[2]) === normalizedBotUsername ? `/${mentionMatch[1]}${mentionMatch[3] ?? \"\"}` : normalized; const lowered = normalizeLowercaseStringOrEmpty(comm"
+    },
+    {
+      "file": "commands-registry-normalize-D2V03Px2.js",
+      "line": 44,
+      "needle": "commandBody",
+      "excerpt": "Username ? `/${mentionMatch[1]}${mentionMatch[3] ?? \"\"}` : normalized; const lowered = normalizeLowercaseStringOrEmpty(commandBody); const textAliasMap = getTextAliasMap(); const exact = textAliasMap.get(lowered); if (exact) return exact.canonical; const tokenMatch = commandBody.match(/^\\/([^\\s]+)(?:\\s+([\\s\\S]+))?$/); if (!tokenMatc"
+    },
+    {
+      "file": "commands-registry-normalize-D2V03Px2.js",
+      "line": 48,
+      "needle": "commandBody",
+      "excerpt": "= getTextAliasMap(); const exact = textAliasMap.get(lowered); if (exact) return exact.canonical; const tokenMatch = commandBody.match(/^\\/([^\\s]+)(?:\\s+([\\s\\S]+))?$/); if (!tokenMatch) return commandBody; const [, token, rest] = tokenMatch; const tokenKey = `/${normalizeLowercaseStringOrEmpty(token)}`; const tokenSpec = textAliasM"
+    },
+    {
+      "file": "commands-registry-normalize-D2V03Px2.js",
+      "line": 49,
+      "needle": "commandBody",
+      "excerpt": "eturn exact.canonical; const tokenMatch = commandBody.match(/^\\/([^\\s]+)(?:\\s+([\\s\\S]+))?$/); if (!tokenMatch) return commandBody; const [, token, rest] = tokenMatch; const tokenKey = `/${normalizeLowercaseStringOrEmpty(token)}`; const tokenSpec = textAliasMap.get(tokenKey); if (!tokenSpec) return commandBody; if (rest && !tokenSpe"
+    },
+    {
+      "file": "commands-registry-normalize-D2V03Px2.js",
+      "line": 53,
+      "needle": "commandBody",
+      "excerpt": "= `/${normalizeLowercaseStringOrEmpty(token)}`; const tokenSpec = textAliasMap.get(tokenKey); if (!tokenSpec) return commandBody; if (rest && !tokenSpec.acceptsArgs) return commandBody; const normalizedRest = rest?.trimStart(); return normalizedRest ? `${tokenSpec.canonical} ${normalizedRest}` : tokenSpec.canonical; } function getCo"
+    },
+    {
+      "file": "commands-registry-normalize-D2V03Px2.js",
+      "line": 54,
+      "needle": "commandBody",
+      "excerpt": "okenSpec = textAliasMap.get(tokenKey); if (!tokenSpec) return commandBody; if (rest && !tokenSpec.acceptsArgs) return commandBody; const normalizedRest = rest?.trimStart(); return normalizedRest ? `${tokenSpec.canonical} ${normalizedRest}` : tokenSpec.canonical; } function getCommandDetection(_cfg) { const commands = getChatCommands("
+    },
+    {
+      "file": "commands-registry.runtime-DRbskVGo.js",
+      "line": 2,
+      "needle": "normalizeCommandBody",
+      "excerpt": "import { n as listChatCommands } from \"./commands-registry-list-Cmkm0No9.js\"; import { r as normalizeCommandBody } from \"./commands-registry-normalize-D2V03Px2.js\"; import \"./commands-registry-fQjYfZzp.js\"; export { listChatCommands, normalizeCommandBody };"
+    },
+    {
+      "file": "commands-registry.runtime-DRbskVGo.js",
+      "line": 4,
+      "needle": "normalizeCommandBody",
+      "excerpt": "from \"./commands-registry-normalize-D2V03Px2.js\"; import \"./commands-registry-fQjYfZzp.js\"; export { listChatCommands, normalizeCommandBody };"
+    },
+    {
+      "file": "commands-reset-mode-DDyo3GYM.js",
+      "line": 3,
+      "needle": "commandBody",
+      "excerpt": "rom \"./string-coerce-Bje8XVt9.js\"; //#region src/auto-reply/reply/commands-reset-mode.ts function parseSoftResetCommand(commandBodyNormalized) { const resetMatch = normalizeLowercaseStringOrEmpty(commandBodyNormalized).match(/^\\/reset(?:\\s|$)/); if (!resetMatch) return { matched: false }; const rest = commandBodyNormalized.slice(resetM"
+    },
+    {
+      "file": "commands-reset-mode-DDyo3GYM.js",
+      "line": 4,
+      "needle": "commandBody",
+      "excerpt": "set-mode.ts function parseSoftResetCommand(commandBodyNormalized) { const resetMatch = normalizeLowercaseStringOrEmpty(commandBodyNormalized).match(/^\\/reset(?:\\s|$)/); if (!resetMatch) return { matched: false }; const rest = commandBodyNormalized.slice(resetMatch[0].length).trimStart(); if (!rest) return { matched: false }; const re"
+    },
+    {
+      "file": "commands-reset-mode-DDyo3GYM.js",
+      "line": 6,
+      "needle": "commandBody",
+      "excerpt": "ingOrEmpty(commandBodyNormalized).match(/^\\/reset(?:\\s|$)/); if (!resetMatch) return { matched: false }; const rest = commandBodyNormalized.slice(resetMatch[0].length).trimStart(); if (!rest) return { matched: false }; const restLower = normalizeLowercaseStringOrEmpty(rest); const softMatch = restLower.match(/^soft(?:\\s|$)/); if (!s"
+    },
+    {
+      "file": "commands.runtime-D4HmIgeN.js",
+      "line": 35,
+      "needle": "commandBody",
+      "excerpt": "== true }); } async function maybeHandleResetCommand(params) { const softReset = parseSoftResetCommand(params.command.commandBodyNormalized); if (softReset.matched) { if (!isResetAuthorized(params)) { logVerbose(`Ignoring /reset soft from unauthorized sender: ${params.command.senderId || \"<unknown>\"}`); return { shouldContinue:"
+    },
+    {
+      "file": "commands.runtime-D4HmIgeN.js",
+      "line": 90,
+      "needle": "commandBody",
+      "excerpt": "Triggered = true; params.command.softResetTail = softReset.tail; return null; } const resetMatch = params.command.commandBodyNormalized.match(/^\\/(new|reset)(?:\\s|$)/); if (!resetMatch) return null; if (!isResetAuthorized(params)) { logVerbose(`Ignoring /reset from unauthorized sender: ${params.command.senderId || \"<unknown>\"}`)"
+    },
+    {
+      "file": "commands.runtime-D4HmIgeN.js",
+      "line": 97,
+      "needle": "commandBody",
+      "excerpt": "inue: false }; } const commandAction = resetMatch[1] === \"reset\" ? \"reset\" : \"new\"; const resetTail = params.command.commandBodyNormalized.slice(resetMatch[0].length).trimStart(); const boundAcpSessionKey = resolveBoundAcpThreadSessionKey(params); const boundAcpKey = boundAcpSessionKey && isAcpSessionKey(boundAcpSessionKey) ? boundAc"
+    },
+    {
+      "file": "direct-dm-B91HSeg0.js",
+      "line": 25,
+      "needle": "commandBody",
+      "excerpt": "{ Body: body, BodyForAgent: params.bodyForAgent ?? params.rawBody, RawBody: params.rawBody, CommandBody: params.commandBody ?? params.rawBody, From: params.senderAddress, To: params.recipientAddress, SessionKey: route.sessionKey, AccountId: route.accountId ?? params.accountId, ChatType: \"direct\", ConversationLabel: par"
+    },
+    {
+      "file": "directive-handling.impl-DOQZ2YaE.js",
+      "line": 318,
+      "needle": "commandBody",
+      "excerpt": "og: params.allowedModelCatalog }); if (wantsLegacyList) return await resolveModelsCommandReply({ cfg: params.cfg, commandBodyNormalized: \"/models\", surface: params.surface, currentModel: `${params.provider}/${params.model}`, agentId: params.activeAgentId, agentDir: params.agentDir, workspaceDir: params.workspaceDir, sess"
+    },
+    {
+      "file": "dispatch-acp-command-bypass-Cjac7kc9.js",
+      "line": 2,
+      "needle": "maybeResolveTextAlias",
+      "excerpt": "import { t as isCommandEnabled } from \"./commands-registry-list-Cmkm0No9.js\"; import { n as maybeResolveTextAlias } from \"./commands-registry-normalize-D2V03Px2.js\"; import { n as shouldHandleTextCommands } from \"./commands-text-routing-DC8lBOae.js\"; //#region src/auto-reply/reply/dispatch-acp-command-bypass.ts"
+    },
+    {
+      "file": "dispatch-acp-command-bypass-Cjac7kc9.js",
+      "line": 38,
+      "needle": "maybeResolveTextAlias",
+      "excerpt": "surface: ctx.Surface ?? ctx.Provider ?? \"\", commandSource: ctx.CommandSource }); if (!normalized.startsWith(\"/\") && maybeResolveTextAlias(candidate, cfg) != null) return allowTextCommands; if (isResetCommandCandidate(normalized)) return true; if (isAcpCommandCandidate(normalized)) return true; if (isLocalCommandCandidate(normalized"
+    },
+    {
+      "file": "get-reply-mWqE54DA.js",
+      "line": 68,
+      "needle": "normalizeCommandBody",
+      "excerpt": "tBootstrap, t as resolveRunTypingPolicy, u as isSystemEventProvider } from \"./typing-policy-DcFSIpC7.js\"; import { r as normalizeCommandBody } from \"./commands-registry-normalize-D2V03Px2.js\"; import { n as shouldHandleTextCommands } from \"./commands-text-routing-DC8lBOae.js\"; import \"./commands-registry-fQjYfZzp.js\"; import { t as parseS"
+    },
+    {
+      "file": "get-reply-mWqE54DA.js",
+      "line": 2901,
+      "needle": "normalizeCommandBody",
+      "excerpt": "nst resetAuthorized = isResetAuthorizedForContext({ ctx, cfg, commandAuthorized }); const normalizedResetBody = normalizeCommandBody(isGroup ? stripMentions(triggerBodyNormalized, ctx, cfg, agentId) : triggerBodyNormalized, { botUsername: ctx.BotUsername }); const softReset = parseSoftResetCommand(normalizedResetBody); const tri"
+    },
+    {
+      "file": "get-reply-mWqE54DA.js",
+      "line": 1278,
+      "needle": "commandBody",
+      "excerpt": "ated\", \"exec\", \"model\", \"status\", \"queue\" ]); return builtinSlashCommands; } function resolveSlashCommandName(commandBodyNormalized) { const trimmed = commandBodyNormalized.trim(); if (!trimmed.startsWith(\"/\")) return null; const name = normalizeOptionalLowercaseString(trimmed.match(/^\\/([^\\s:]+)(?::|\\s|$)/)?.[1]) ?? \"\"; ret"
+    },
+    {
+      "file": "get-reply-mWqE54DA.js",
+      "line": 1279,
+      "needle": "commandBody",
+      "excerpt": "\"queue\" ]); return builtinSlashCommands; } function resolveSlashCommandName(commandBodyNormalized) { const trimmed = commandBodyNormalized.trim(); if (!trimmed.startsWith(\"/\")) return null; const name = normalizeOptionalLowercaseString(trimmed.match(/^\\/([^\\s:]+)(?::|\\s|$)/)?.[1]) ?? \"\"; return name ? name : null; } function expandB"
+    },
+    {
+      "file": "get-reply-mWqE54DA.js",
+      "line": 1318,
+      "needle": "commandBody",
+      "excerpt": "s = initialDirectives; let cleanedBody = initialCleanedBody; const slashCommandName = resolveSlashCommandName(command.commandBodyNormalized); const shouldLoadSkillCommands = allowTextCommands && slashCommandName !== null && (slashCommandName === \"skill\" || !getBuiltinSlashCommands().has(slashCommandName)); const skillCommands = should"
+    },
+    {
+      "file": "get-reply-mWqE54DA.js",
+      "line": 1328,
+      "needle": "commandBody",
+      "excerpt": "essionEntry; const skillInvocation = allowTextCommands && skillCommands.length > 0 ? resolveSkillCommandInvocation({ commandBodyNormalized: command.commandBodyNormalized, skillCommands }) : null; if (skillInvocation) { if (!command.isAuthorizedSender) { logVerbose(`Ignoring /${skillInvocation.command.name} from unauthorized se"
+    },
+    {
+      "file": "get-reply-mWqE54DA.js",
+      "line": 1328,
+      "needle": "commandBody",
+      "excerpt": "tion = allowTextCommands && skillCommands.length > 0 ? resolveSkillCommandInvocation({ commandBodyNormalized: command.commandBodyNormalized, skillCommands }) : null; if (skillInvocation) { if (!command.isAuthorizedSender) { logVerbose(`Ignoring /${skillInvocation.command.name} from unauthorized sender: ${command.senderId || \"<u"
+    },
+    {
+      "file": "get-reply-mWqE54DA.js",
+      "line": 1522,
+      "needle": "commandBody",
+      "excerpt": "ineCommand) { const inlineResult = await runCommands({ ...command, rawBodyNormalized: inlineCommand.command, commandBodyNormalized: inlineCommand.command }); if (inlineResult.reply) { if (!inlineCommand.cleaned) { typing.cleanup(); return { kind: \"reply\", reply: inlineResult.reply }; } await s"
+    },
+    {
+      "file": "get-reply-mWqE54DA.js",
+      "line": 1546,
+      "needle": "commandBody",
+      "excerpt": "ommand.abortKey) ?? false; if (!(inlineCommand !== null || directiveAck !== void 0 || inlineStatusRequested || command.commandBodyNormalized.trim().startsWith(\"/\"))) return { kind: \"continue\", directives, abortedLastRun }; const remainingBodyAfterInlineStatus = (() => { const stripped = stripStructuralPrefixes(cleanedBody); i"
+    },
+    {
+      "file": "get-reply-mWqE54DA.js",
+      "line": 2169,
+      "needle": "commandBody",
+      "excerpt": ".RawBody ?? ctx.Body ?? \"\").trim(); const baseBodyTrimmedRaw = baseBody.trim(); const normalizedCommandBody = command.commandBodyNormalized.trim(); const softResetTriggered = command.softResetTriggered === true; const softResetTail = command.softResetTail?.trim() ?? \"\"; const effectiveResetTriggered = resetTriggered || softResetTrigg"
+    },
+    {
+      "file": "get-reply-mWqE54DA.js",
+      "line": 2540,
+      "needle": "commandBody",
+      "excerpt": "!== \"deny\" ? { ...sessionCtx.ReplyThreading, implicitCurrentMessage: \"deny\" } : void 0; return runReplyAgent({ commandBody: prefixedCommandBody, transcriptCommandBody, followupRun, queueKey, resolvedQueue, shouldSteer, shouldFollowup, isActive, isRunActive: () => { const latestSessionState = resolvePreparedSess"
+    },
+    {
+      "file": "get-reply-mWqE54DA.js",
+      "line": 3814,
+      "needle": "commandBody",
+      "excerpt": "if (!resetTriggered || !command.isAuthorizedSender || command.resetHookTriggered) return; const resetMatch = command.commandBodyNormalized.match(/^\\/(new|reset)(?:\\s|$)/); if (!resetMatch) return; const { emitResetCommandHooks } = await loadCommandsCoreRuntime(); await emitResetCommandHooks({ action: resetMatch[1] === \"reset\""
+    },
+    {
+      "file": "isolated-agent-BvtpxMlR.js",
+      "line": 385,
+      "needle": "commandBody",
+      "excerpt": "liveryPlan.mode }) }; } function appendCronDeliveryInstruction(params) { if (!params.deliveryRequested) return params.commandBody; if (params.messageToolEnabled) { const targetHint = params.resolvedDeliveryOk ? \"for the current chat\" : \"with an explicit target\"; return `${params.commandBody}\\n\\nUse the message tool if you need to n"
+    },
+    {
+      "file": "isolated-agent-BvtpxMlR.js",
+      "line": 388,
+      "needle": "commandBody",
+      "excerpt": "const targetHint = params.resolvedDeliveryOk ? \"for the current chat\" : \"with an explicit target\"; return `${params.commandBody}\\n\\nUse the message tool if you need to notify the user directly ${targetHint}. If you do not send directly, your final plain-text reply will be delivered automatically.`.trim(); } return `${params.commandB"
+    },
+    {
+      "file": "isolated-agent-BvtpxMlR.js",
+      "line": 390,
+      "needle": "commandBody",
+      "excerpt": "If you do not send directly, your final plain-text reply will be delivered automatically.`.trim(); } return `${params.commandBody}\\n\\nReturn your response as plain text; it will be delivered automatically. If the task explicitly calls for messaging a specific external recipient, note who/where it should go instead of sending it yourself"
+    },
+    {
+      "file": "isolated-agent-BvtpxMlR.js",
+      "line": 544,
+      "needle": "commandBody",
+      "excerpt": "l?.allowUnsafeExternalContent === true; const shouldWrapExternal = isExternalHook && !allowUnsafeExternalContent; let commandBody; if (isExternalHook) { const { detectSuspiciousPatterns } = await loadCronExternalContentRuntime(); const suspiciousPatterns = detectSuspiciousPatterns(input.message); if (suspiciousPatterns.length > 0"
+    },
+    {
+      "file": "isolated-agent-BvtpxMlR.js",
+      "line": 553,
+      "needle": "commandBody",
+      "excerpt": "ronExternalContentRuntime(); const hookType = mapHookExternalContentSource(hookExternalContentSource ?? \"webhook\"); commandBody = `${buildSafeExternalPrompt({ content: input.message, source: hookType, jobName: input.job.name, jobId: input.job.id, timestamp: formattedTime })}\\n\\n${timeLine}`.trim(); } else commandBody"
+    },
+    {
+      "file": "isolated-agent-BvtpxMlR.js",
+      "line": 560,
+      "needle": "commandBody",
+      "excerpt": ", jobName: input.job.name, jobId: input.job.id, timestamp: formattedTime })}\\n\\n${timeLine}`.trim(); } else commandBody = `${base}\\n${timeLine}`.trim(); commandBody = appendCronDeliveryInstruction({ commandBody, deliveryRequested, messageToolEnabled: canPromptForMessageTool({ disableMessageTool: toolPolicy.disableMes"
+    },
+    {
+      "file": "isolated-agent-BvtpxMlR.js",
+      "line": 561,
+      "needle": "commandBody",
+      "excerpt": "job.id, timestamp: formattedTime })}\\n\\n${timeLine}`.trim(); } else commandBody = `${base}\\n${timeLine}`.trim(); commandBody = appendCronDeliveryInstruction({ commandBody, deliveryRequested, messageToolEnabled: canPromptForMessageTool({ disableMessageTool: toolPolicy.disableMessageTool, toolsAllow: agentPayload?.toolsAl"
+    },
+    {
+      "file": "isolated-agent-BvtpxMlR.js",
+      "line": 562,
+      "needle": "commandBody",
+      "excerpt": "imeLine}`.trim(); } else commandBody = `${base}\\n${timeLine}`.trim(); commandBody = appendCronDeliveryInstruction({ commandBody, deliveryRequested, messageToolEnabled: canPromptForMessageTool({ disableMessageTool: toolPolicy.disableMessageTool, toolsAllow: agentPayload?.toolsAllow }), resolvedDeliveryOk: resolvedDelivery"
+    },
+    {
+      "file": "isolated-agent-BvtpxMlR.js",
+      "line": 626,
+      "needle": "commandBody",
+      "excerpt": "aults, agentId, agentCfg, agentDir, agentSessionKey, runSessionId, runSessionKey, workspaceDir, commandBody, cronSession, persistSessionEntry, withRunSession, agentPayload, deliveryPlan, resolvedDelivery, deliveryRequested, suppressExecNotifyOnExit: deliveryPlan.mode === \"none\", toolPolic"
+    },
+    {
+      "file": "isolated-agent-BvtpxMlR.js",
+      "line": 857,
+      "needle": "commandBody",
+      "excerpt": "Cfg?.verboseDefault, liveSelection: prepared.context.liveSelection, cronSession: prepared.context.cronSession, commandBody: prepared.context.commandBody, persistSessionEntry: prepared.context.persistSessionEntry, abortSignal, onExecutionStarted: notifyExecutionStarted, abortReason, isAborted, thinkLevel: prepare"
+    },
+    {
+      "file": "isolated-agent-BvtpxMlR.js",
+      "line": 857,
+      "needle": "commandBody",
+      "excerpt": "lection: prepared.context.liveSelection, cronSession: prepared.context.cronSession, commandBody: prepared.context.commandBody, persistSessionEntry: prepared.context.persistSessionEntry, abortSignal, onExecutionStarted: notifyExecutionStarted, abortReason, isAborted, thinkLevel: prepared.context.thinkLevel, timeo"
+    },
+    {
+      "file": "kernel-Wa5SRqbB.js",
+      "line": 64,
+      "needle": "commandBody",
+      "excerpt": "Body, InboundHistory: params.message.inboundHistory, RawBody: params.message.rawBody, CommandBody: params.message.commandBody ?? params.message.rawBody, BodyForCommands: params.message.commandBody ?? params.message.rawBody, From: params.from, To: params.reply.to, SessionKey: params.route.dispatchSessionKey ?? params.route.ro"
+    },
+    {
+      "file": "kernel-Wa5SRqbB.js",
+      "line": 65,
+      "needle": "commandBody",
+      "excerpt": "message.rawBody, CommandBody: params.message.commandBody ?? params.message.rawBody, BodyForCommands: params.message.commandBody ?? params.message.rawBody, From: params.from, To: params.reply.to, SessionKey: params.route.dispatchSessionKey ?? params.route.routeSessionKey, AccountId: params.route.accountId ?? params.accountId,"
+    },
+    {
+      "file": "monitor-KD8Hhx00.js",
+      "line": 376,
+      "needle": "commandBody",
+      "excerpt": ", BodyForAgent: entry.bodyText, InboundHistory: inboundHistory, RawBody: entry.bodyText, CommandBody: entry.commandBody, BodyForCommands: entry.commandBody, From: entry.isGroup ? `group:${entry.groupId ?? \"unknown\"}` : `signal:${entry.senderRecipient}`, To: signalTo, SessionKey: route.sessionKey, AccountId: rout"
+    },
+    {
+      "file": "monitor-KD8Hhx00.js",
+      "line": 377,
+      "needle": "commandBody",
+      "excerpt": "nboundHistory: inboundHistory, RawBody: entry.bodyText, CommandBody: entry.commandBody, BodyForCommands: entry.commandBody, From: entry.isGroup ? `group:${entry.groupId ?? \"unknown\"}` : `signal:${entry.senderRecipient}`, To: signalTo, SessionKey: route.sessionKey, AccountId: route.accountId, ChatType: entry.isGroup"
+    },
+    {
+      "file": "monitor-KD8Hhx00.js",
+      "line": 886,
+      "needle": "commandBody",
+      "excerpt": "enderName, senderDisplay, senderRecipient, senderPeerId, groupId, groupName, isGroup, bodyText, commandBody: messageText, timestamp: envelope.timestamp ?? void 0, messageId, mediaPath, mediaType, mediaPaths: mediaPaths.length > 0 ? mediaPaths : void 0, mediaTypes: mediaTypes.length > 0 ? mediaType"
+    },
+    {
+      "file": "monitor-gM5XntMc.js",
+      "line": 2465,
+      "needle": "commandBody",
+      "excerpt": "iaSizeLimitExceeded }); if (!bodyText) { await commitInboundEventIfClaimed(); return; } const commandBodyText = hasControlCommandInMessage ? commandCheckText : bodyText; const senderName = await getSenderName(); if (_configuredBinding) { const { ensureConfiguredAcpBindingReady } = await loadAcpBindin"
+    },
+    {
+      "file": "monitor-gM5XntMc.js",
+      "line": 2506,
+      "needle": "commandBody",
+      "excerpt": "ectMention, commandAuthorized, inboundHistory: preparedTrigger?.history, senderName, bodyText, commandBodyText, media, locationPayload, messageId: _messageId, triggerSnapshot: preparedTrigger, threadRootId: _threadRootId, thread, effectiveAllowFrom, effectiveGroupAllowFrom,"
+    },
+    {
+      "file": "monitor-gM5XntMc.js",
+      "line": 2530,
+      "needle": "commandBody",
+      "excerpt": "eMention, wasMentioned, shouldBypassMention, canDetectMention, commandAuthorized, inboundHistory, senderName, bodyText, commandBodyText, media, locationPayload, messageId: _messageId, triggerSnapshot, threadRootId: _threadRootId, thread, effectiveGroupAllowFrom, effectiveRoomUsers } = resolvedIngressResult; const replyToEventId = resol"
+    },
+    {
+      "file": "monitor-gM5XntMc.js",
+      "line": 2609,
+      "needle": "commandBody",
+      "excerpt": "const ctxPayload = core.channel.reply.finalizeInboundContext({ Body: body, RawBody: bodyText, CommandBody: commandBodyText, BodyForAgent: bodyText, BodyForCommands: commandBodyText, InboundHistory: inboundHistory && inboundHistory.length > 0 ? inboundHistory : void 0, From: isDirectMessage ? `matrix:${senderId"
+    },
+    {
+      "file": "monitor-gM5XntMc.js",
+      "line": 2611,
+      "needle": "commandBody",
+      "excerpt": "Body: body, RawBody: bodyText, CommandBody: commandBodyText, BodyForAgent: bodyText, BodyForCommands: commandBodyText, InboundHistory: inboundHistory && inboundHistory.length > 0 ? inboundHistory : void 0, From: isDirectMessage ? `matrix:${senderId}` : `matrix:channel:${roomId}`, To: `room:${roomId}`, Ses"
+    },
+    {
+      "file": "openclaw-tools-DS1i7kuo.js",
+      "line": 2126,
+      "needle": "case \"status\"",
+      "excerpt": "ams.timeoutMs === \"number\" && Number.isFinite(params.timeoutMs) ? params.timeoutMs : 6e4 }; switch (action) { case \"status\": return jsonResult(await callGateway(\"cron.status\", gatewayOpts, {})); case \"list\": return jsonResult(await callGateway(\"cron.list\", gatewayOpts, { includeDisabled: Boolean(params.includeDisabled) }));"
+    },
+    {
+      "file": "openclaw-tools-DS1i7kuo.js",
+      "line": 5753,
+      "needle": "case \"status\"",
+      "excerpt": "ction\", { required: true }); const gatewayOpts = readGatewayCallOptions(params); try { switch (action) { case \"status\": return jsonResult(await callGatewayTool(\"node.list\", gatewayOpts, {})); case \"describe\": return jsonResult(await callGatewayTool(\"node.describe\", gatewayOpts, { nodeId: await resolveNodeId(gatewayOpts"
+    },
+    {
+      "file": "plugin-service-By-P2gYX.js",
+      "line": 669,
+      "needle": "case \"status\"",
+      "excerpt": "doctor\", profile })); return jsonResult(await browserToolDeps.browserDoctor(baseUrl, { profile })); case \"status\": if (proxyRequest) return jsonResult(await proxyRequest({ method: \"GET\", path: \"/\", profile, timeoutMs: toolTimeoutMs })); return jsonResult(await browserToolDeps.brow"
+    },
+    {
+      "file": "prepare-BoOuKoAt.js",
+      "line": 1138,
+      "needle": "commandBody",
+      "excerpt": "sender: entry.sender, body: entry.body, timestamp: entry.timestamp })) : dmHistoryContext.inboundHistory; const commandBody = textForCommandDetection.trim(); const ctxPayload = finalizeInboundContext({ Body: combinedBody, BodyForAgent: rawBody, InboundHistory: inboundHistory, RawBody: rawBody, CommandBody: commandBody,"
+    },
+    {
+      "file": "prepare-BoOuKoAt.js",
+      "line": 1144,
+      "needle": "commandBody",
+      "excerpt": "t({ Body: combinedBody, BodyForAgent: rawBody, InboundHistory: inboundHistory, RawBody: rawBody, CommandBody: commandBody, BodyForCommands: commandBody, From: slackFrom, To: slackTo, SessionKey: sessionKey, AccountId: route.accountId, ChatType: chatType, ConversationLabel: envelopeFrom, GroupSubject: isRoomish ?"
+    },
+    {
+      "file": "prepare-BoOuKoAt.js",
+      "line": 1145,
+      "needle": "commandBody",
+      "excerpt": "ForAgent: rawBody, InboundHistory: inboundHistory, RawBody: rawBody, CommandBody: commandBody, BodyForCommands: commandBody, From: slackFrom, To: slackTo, SessionKey: sessionKey, AccountId: route.accountId, ChatType: chatType, ConversationLabel: envelopeFrom, GroupSubject: isRoomish ? roomLabel : void 0, GroupSpace"
+    },
+    {
+      "file": "provider-B3IW1Esk.js",
+      "line": 2599,
+      "needle": "findCommandByNativeName",
+      "excerpt": "`/${command.name}`, async ({ command: cmd, ack, respond, body }) => { const commandDefinition = slashCommandsRuntime.findCommandByNativeName(command.name, \"slack\"); const rawText = cmd.text?.trim() ?? \"\"; const commandArgs = commandDefinition ? slashCommandsRuntime.parseCommandArgs(commandDefinition, rawText) : rawText ? { raw: r"
+    },
+    {
+      "file": "provider-B3IW1Esk.js",
+      "line": 2699,
+      "needle": "findCommandByNativeName",
+      "excerpt": "nu is for another user.\", response_type: \"ephemeral\" }); return; } const { buildCommandTextFromArgs, findCommandByNativeName } = await loadSlashCommandsRuntime(); const commandDefinition = findCommandByNativeName(parsed.command, \"slack\"); const commandArgs = { values: { [parsed.arg]: parsed.value } }; const pro"
+    },
+    {
+      "file": "provider-B3IW1Esk.js",
+      "line": 2700,
+      "needle": "findCommandByNativeName",
+      "excerpt": "{ buildCommandTextFromArgs, findCommandByNativeName } = await loadSlashCommandsRuntime(); const commandDefinition = findCommandByNativeName(parsed.command, \"slack\"); const commandArgs = { values: { [parsed.arg]: parsed.value } }; const prompt = commandDefinition ? buildCommandTextFromArgs(commandDefinition, commandArgs) : `/${pa"
+    },
+    {
+      "file": "run-executor.runtime-CikL41DJ.js",
+      "line": 232,
+      "needle": "commandBody",
+      "excerpt": "const MAX_MODEL_SWITCH_RETRIES = 2; let modelSwitchRetries = 0; while (true) try { await executor.runPrompt(params.commandBody); break; } catch (err) { if (!(err instanceof LiveSessionModelSwitchError)) throw err; modelSwitchRetries += 1; if (modelSwitchRetries > MAX_MODEL_SWITCH_RETRIES) { logWarn(`[cron:${params.job.id}"
+    },
+    {
+      "file": "skill-commands-base-C-3321nu.js",
+      "line": 35,
+      "needle": "commandBody",
+      "excerpt": "Lookup(entry.skillName) === normalized; }); } function resolveSkillCommandInvocation(params) { const trimmed = params.commandBodyNormalized.trim(); if (!trimmed.startsWith(\"/\")) return null; const match = trimmed.match(/^\\/([^\\s]+)(?:\\s+([\\s\\S]+))?$/); if (!match) return null; const commandName = normalizeOptionalLowercaseString(mat"
+    },
+    {
+      "file": "slash-commands.runtime-C-lvLED1.js",
+      "line": 1,
+      "needle": "findCommandByNativeName",
+      "excerpt": "import { c as parseCommandArgs$1, n as buildCommandTextFromArgs$1, r as findCommandByNativeName$1, s as listNativeCommandSpecsForConfig$1, u as resolveCommandArgMenu$1 } from \"./commands-registry-fQjYfZzp.js\"; import \"./command-auth-DogfuLYl.js\"; //#region extensions/slack/src/monitor/slash-"
+    },
+    {
+      "file": "slash-commands.runtime-C-lvLED1.js",
+      "line": 7,
+      "needle": "findCommandByNativeName",
+      "excerpt": "ommands.runtime.ts function buildCommandTextFromArgs(...args) { return buildCommandTextFromArgs$1(...args); } function findCommandByNativeName(...args) { return findCommandByNativeName$1(...args); } function listNativeCommandSpecsForConfig(...args) { return listNativeCommandSpecsForConfig$1(...args); } function parseCommandArgs(...args"
+    },
+    {
+      "file": "slash-commands.runtime-C-lvLED1.js",
+      "line": 8,
+      "needle": "findCommandByNativeName",
+      "excerpt": "tFromArgs(...args) { return buildCommandTextFromArgs$1(...args); } function findCommandByNativeName(...args) { return findCommandByNativeName$1(...args); } function listNativeCommandSpecsForConfig(...args) { return listNativeCommandSpecsForConfig$1(...args); } function parseCommandArgs(...args) { return parseCommandArgs$1(...args); }"
+    },
+    {
+      "file": "slash-commands.runtime-C-lvLED1.js",
+      "line": 20,
+      "needle": "findCommandByNativeName",
+      "excerpt": "veCommandArgMenu(...args) { return resolveCommandArgMenu$1(...args); } //#endregion export { buildCommandTextFromArgs, findCommandByNativeName, listNativeCommandSpecsForConfig, parseCommandArgs, resolveCommandArgMenu };"
+    },
+    {
+      "file": "testing-CHukJyCD.js",
+      "line": 221,
+      "needle": "commandBody",
+      "excerpt": "ct-close\" }); } //#endregion //#region src/auto-reply/reply/commands.test-harness.ts function buildCommandTestParams$1(commandBody, cfg, ctxOverrides, options) { const ctx = { Body: commandBody, CommandBody: commandBody, CommandSource: \"text\", CommandAuthorized: true, Provider: \"whatsapp\", Surface: \"whatsapp\", ...ctxOverri"
+    },
+    {
+      "file": "testing-CHukJyCD.js",
+      "line": 223,
+      "needle": "commandBody",
+      "excerpt": "nds.test-harness.ts function buildCommandTestParams$1(commandBody, cfg, ctxOverrides, options) { const ctx = { Body: commandBody, CommandBody: commandBody, CommandSource: \"text\", CommandAuthorized: true, Provider: \"whatsapp\", Surface: \"whatsapp\", ...ctxOverrides }; return { ctx, cfg, command: buildCommandContext({"
+    },
+    {
+      "file": "testing-CHukJyCD.js",
+      "line": 224,
+      "needle": "commandBody",
+      "excerpt": "buildCommandTestParams$1(commandBody, cfg, ctxOverrides, options) { const ctx = { Body: commandBody, CommandBody: commandBody, CommandSource: \"text\", CommandAuthorized: true, Provider: \"whatsapp\", Surface: \"whatsapp\", ...ctxOverrides }; return { ctx, cfg, command: buildCommandContext({ ctx, cfg, isGroup: f"
+    },
+    {
+      "file": "testing-CHukJyCD.js",
+      "line": 238,
+      "needle": "commandBody",
+      "excerpt": "; return { ctx, cfg, command: buildCommandContext({ ctx, cfg, isGroup: false, triggerBodyNormalized: commandBody.trim(), commandAuthorized: true }), directives: parseInlineDirectives(commandBody), elevated: { enabled: true, allowed: true, failures: [] }, sessionKey: \"agent:main:main\", workspaceDi"
+    },
+    {
+      "file": "testing-CHukJyCD.js",
+      "line": 241,
+      "needle": "commandBody",
+      "excerpt": "lse, triggerBodyNormalized: commandBody.trim(), commandAuthorized: true }), directives: parseInlineDirectives(commandBody), elevated: { enabled: true, allowed: true, failures: [] }, sessionKey: \"agent:main:main\", workspaceDir: options?.workspaceDir ?? \"/tmp\", defaultGroupActivation: () => \"mention\", resolved"
+    },
+    {
+      "file": "testing-CHukJyCD.js",
+      "line": 261,
+      "needle": "commandBody",
+      "excerpt": "false }; } //#endregion //#region src/auto-reply/reply/commands-spawn.test-harness.ts function buildCommandTestParams(commandBody, cfg, ctxOverrides) { return buildCommandTestParams$1(commandBody, cfg, ctxOverrides); } //#endregion export { expectedAugmentedOpenaiCodexCatalogEntriesWithGpt55 as a, expectCodexMissingAuthHint as i, runAc"
+    },
+    {
+      "file": "testing-CHukJyCD.js",
+      "line": 262,
+      "needle": "commandBody",
+      "excerpt": "pawn.test-harness.ts function buildCommandTestParams(commandBody, cfg, ctxOverrides) { return buildCommandTestParams$1(commandBody, cfg, ctxOverrides); } //#endregion export { expectedAugmentedOpenaiCodexCatalogEntriesWithGpt55 as a, expectCodexMissingAuthHint as i, runAcpRuntimeAdapterContract as n, expectedOpenaiPluginCodexCatalogEntri"
+    },
+    {
+      "file": "typing-policy-DcFSIpC7.js",
+      "line": 11,
+      "needle": "normalizeCommandBody",
+      "excerpt": "ype } from \"./chat-type-BH6NSSss.js\"; import { n as resolveSessionKey } from \"./session-key-joOo4wb5.js\"; import { r as normalizeCommandBody } from \"./commands-registry-normalize-D2V03Px2.js\"; import \"./commands-registry-fQjYfZzp.js\"; import { t as parseSoftResetCommand } from \"./commands-reset-mode-DDyo3GYM.js\"; import { o as stripMentio"
+    },
+    {
+      "file": "typing-policy-DcFSIpC7.js",
+      "line": 106,
+      "needle": "normalizeCommandBody",
+      "excerpt": "derId: from, abortKey: sessionKey ?? from ?? to, rawBodyNormalized: triggerBodyNormalized, commandBodyNormalized: normalizeCommandBody(isGroup ? stripMentions(triggerBodyNormalized, ctx, cfg, agentId) : triggerBodyNormalized, { botUsername: ctx.BotUsername }), from, to }; } function shouldHandleFastReplyTextCommands(params) {"
+    },
+    {
+      "file": "typing-policy-DcFSIpC7.js",
+      "line": 128,
+      "needle": "normalizeCommandBody",
+      "excerpt": "ChatType); const isGroup = normalizedChatType != null && normalizedChatType !== \"direct\"; const normalizedResetBody = normalizeCommandBody(isGroup ? stripMentions(triggerBodyNormalized, ctx, cfg, agentId) : triggerBodyNormalized, { botUsername: ctx.BotUsername }); const softReset = parseSoftResetCommand(normalizedResetBody); const res"
+    },
+    {
+      "file": "typing-policy-DcFSIpC7.js",
+      "line": 106,
+      "needle": "commandBody",
+      "excerpt": "ommandAuthorized, senderId: from, abortKey: sessionKey ?? from ?? to, rawBodyNormalized: triggerBodyNormalized, commandBodyNormalized: normalizeCommandBody(isGroup ? stripMentions(triggerBodyNormalized, ctx, cfg, agentId) : triggerBodyNormalized, { botUsername: ctx.BotUsername }), from, to }; } function shouldHandleFastReplyT"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "generatedAt": "2026-06-30T07:32:00Z",
+  "classification": "GE2_R5_BLOCKED_PATCH_NOT_LOADED_OR_ALTERNATE_COMMAND_CHUNK",
+  "pass": false,
+  "rollbackPerformed": false,
+  "cronCloseoutApplyRetried": false,
+  "reason": "Gateway PID turned over and health/admin passed, but live Gateway RPC commands.list still omitted /ge2 on default, telegram/both, and telegram/text surfaces. The installed one-file R5 patch remains locally validated, so the live process is either not loading the patched commands-D2qp4St4.js command chunk or commands.list/command matching is served by an alternate chunk/path.",
+  "gateway": {
+    "pidBeforeR5RestartRequest": "300576",
+    "pidAfterRestartSentinel": "303370",
+    "healthOk": true,
+    "adminCapable": true,
+    "statusArtifact": "sharedspace/runtime-kernel-validation/ge2/ge2_r5_native_command_surface/gateway_status_after_restart_sentinel_20260630T0730Z.txt"
+  },
+  "installedPatch": {
+    "target": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/commands-D2qp4St4.js",
+    "manifest": "sharedspace/runtime-kernel-validation/ge2/ge2_r5_native_command_surface/install_manifest_20260630T0715Z.json",
+    "reverser": "sharedspace/runtime-kernel-validation/ge2/ge2_r5_native_command_surface/reverser_20260630T0715Z.mjs",
+    "afterSha256": "660af5de5094031703c6f62260cb118643043275999bb68ff53e806796e250eb",
+    "markers": {
+      "GE2_R5_NATIVE_COMMAND_SURFACE_START": true,
+      "GE2_R5_NATIVE_COMMAND_SURFACE_END": true,
+      "ensureNativeGe2CommandRegistered": true,
+      "Ge2Dispatcher": true,
+      "noPlaceholderSuccess": true
+    }
+  },
+  "localValidationBeforeRestart": {
+    "importValidation": "sharedspace/runtime-kernel-validation/ge2/ge2_r5_native_command_surface/local_import_validation_20260630.json",
+    "handlerValidation": "sharedspace/runtime-kernel-validation/ge2/ge2_r5_native_command_surface/local_handler_validation_20260630.json",
+    "summary": "Local import/match and handler validation passed: /ge2 help/status/run/artifacts dispatched through GE2 runtime; run ge2-20260630072413-c1e88e51 completed with 7 milestones, 1 artifact, 0 errors."
+  },
+  "liveCommandListAfterRestart": {
+    "artifact": "sharedspace/runtime-kernel-validation/ge2/ge2_r5_native_command_surface/commands_list_after_restart_sentinel_20260630T0730Z.json",
+    "results": [
+      { "name": "default", "count": 60, "ge2Present": false, "fakePresent": false, "pluginNames": ["pair", "dreaming", "phone", "voice"] },
+      { "name": "telegram_both", "count": 60, "ge2Present": false, "fakePresent": false, "pluginNames": ["pair", "dreaming", "phone", "voice"] },
+      { "name": "telegram_text", "count": 60, "ge2Present": false, "fakePresent": false, "pluginNames": ["pair", "dreaming", "phone", "voice"] }
+    ],
+    "allGe2Present": false,
+    "allFakeAbsent": true,
+    "corePluginCommandsPreserved": true
+  },
+  "directGe2Smoke": {
+    "attempted": false,
+    "reason": "Skipped because live commands.list hard gate failed. Sending or simulating a live /ge2 command while it is not visible would be ambiguous and could fall through to model/chat handling instead of proving native dispatch."
+  },
+  "nextDiagnostic": "Prove loaded command module identity in live Gateway process. Specifically verify whether the live process imported /home/stickai/.npm-global/lib/node_modules/openclaw/dist/commands-D2qp4St4.js SHA 660af5de5094031703c6f62260cb118643043275999bb68ff53e806796e250eb. If not, locate the alternate command chunk/path serving commands.list and command matching; patch only that target with snapshot/reverser. Do not return to plugin-manager bridges.",
+  "finalDecision": "BLOCKED. Do not claim GE2 live PASS. Do not retry cron closeout apply. No rollback because Gateway remains healthy and unrelated command surface is preserved."
+}

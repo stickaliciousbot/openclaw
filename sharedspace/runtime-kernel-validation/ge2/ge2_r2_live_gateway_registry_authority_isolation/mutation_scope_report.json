@@ -1,0 +1,15 @@
+{
+  "generatedAt": "2026-06-30T06:00:12.400Z",
+  "status": "PASS_DIAGNOSTIC_ONLY",
+  "mutations": [
+    "created GE2-R2 artifact directory files only"
+  ],
+  "forbiddenMutationChecks": {
+    "routeModelProviderCacheChanged": false,
+    "artifactMemoryPromoted": false,
+    "runtimeAuthorityExpanded": false,
+    "hiddenInternalCommandsExposed": false,
+    "ge2HardcodedIntoCommandsList": false,
+    "ge2R3Started": false
+  }
+}

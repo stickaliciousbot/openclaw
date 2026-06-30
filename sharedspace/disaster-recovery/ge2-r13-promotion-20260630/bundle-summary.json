@@ -1,0 +1,10 @@
+{
+  "classification": "GE2_NATIVE_COMMAND_SURFACE_PROMOTED",
+  "tarPath": "sharedspace/disaster-recovery/ge2-r13-promotion-20260630/ge2-r13-promotion-20260630.tar.gz",
+  "sha256": "b7509076f20dc5dc906a7343c92bb8d0bb5dee1d894242abbe2460b19c7a0f8c",
+  "noSecretsScan": "PASS",
+  "copiedCount": 31,
+  "missing": [],
+  "gitCommitStatus": "not_committed_due_preexisting_dirty_workspace",
+  "sourceCommit": "7c5d3cb687a7454ec9f09a5d66347ee6c7085361"
+}

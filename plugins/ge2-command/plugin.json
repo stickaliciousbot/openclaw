@@ -1,0 +1,6 @@
+{
+  "id": "ge2-command",
+  "name": "ge2-command",
+  "version": "0.0.1",
+  "main": "index.mjs"
+}

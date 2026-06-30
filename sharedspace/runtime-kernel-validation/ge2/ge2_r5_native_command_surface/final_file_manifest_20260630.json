@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-06-30T07:32:30Z",
+  "classification": "GE2_R5_BLOCKED_PATCH_NOT_LOADED_OR_ALTERNATE_COMMAND_CHUNK",
+  "allExist": true,
+  "manifest": [
+    { "name": "notebook", "path": "sharedspace/runtime-kernel-validation/ge2/GE2_DIAGNOSE_AND_REPAIR_NOTEBOOK_20260630.md", "exists": true },
+    { "name": "install_script", "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r5_native_command_surface/install_ge2_native_surface_20260630.mjs", "exists": true },
+    { "name": "install_manifest", "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r5_native_command_surface/install_manifest_20260630T0715Z.json", "exists": true },
+    { "name": "reverser", "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r5_native_command_surface/reverser_20260630T0715Z.mjs", "exists": true },
+    { "name": "local_import_validation", "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r5_native_command_surface/local_import_validation_20260630.json", "exists": true },
+    { "name": "local_handler_validation", "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r5_native_command_surface/local_handler_validation_20260630.json", "exists": true },
+    { "name": "gateway_status_after_restart_sentinel", "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r5_native_command_surface/gateway_status_after_restart_sentinel_20260630T0730Z.txt", "exists": true },
+    { "name": "commands_list_after_restart_sentinel", "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r5_native_command_surface/commands_list_after_restart_sentinel_20260630T0730Z.json", "exists": true },
+    { "name": "final_blocked_summary", "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r5_native_command_surface/final_blocked_summary.json", "exists": true },
+    { "name": "final_blocked_markdown", "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r5_native_command_surface/GE2_R5_FINAL_BLOCKED.md", "exists": true }
+  ]
+}

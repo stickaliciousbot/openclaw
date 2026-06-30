@@ -1,0 +1,428 @@
+{
+  "generatedAt": "2026-06-30T09:17:53.190Z",
+  "finalClassification": "GE2_R9_PLACEHOLDER_SUCCESS_FAIL",
+  "proofLevel": "P1 only",
+  "noP2P3Claim": true,
+  "taskName": "r9-native-handler-smoke",
+  "commandResults": {
+    "run": {
+      "body": "/ge2 run r9-native-handler-smoke",
+      "matched": true,
+      "commandName": "ge2",
+      "pluginId": "ge2-native",
+      "continueAgent": false,
+      "text": "✅ GE2 run accepted.\nrun_id: ge2-20260630091740-0c4c95a3\nstatus: accepted\ntask: r9-native-handler-smoke\nUse /ge2 status ge2-20260630091740-0c4c95a3 for progress.",
+      "responseSummary": {
+        "bytes": 162,
+        "chars": 160,
+        "preview": "✅ GE2 run accepted.\nrun_id: ge2-20260630091740-0c4c95a3\nstatus: accepted\ntask: r9-native-handler-smoke\nUse /ge2 status ge2-20260630091740-0c4c95a3 for progress.",
+        "boundedUnder4k": true
+      }
+    },
+    "status": {
+      "body": "/ge2 status ge2-20260630091740-0c4c95a3",
+      "matched": true,
+      "commandName": "ge2",
+      "pluginId": "ge2-native",
+      "continueAgent": false,
+      "text": "GE2 status:\nrun_id: ge2-20260630091740-0c4c95a3\nstatus: completed\ntask: r9-native-handler-smoke\nmilestones: 7\nartifacts: 1\nerrors: 0\nupdated_at: 2026-06-30T09:17:41.163Z",
+      "responseSummary": {
+        "bytes": 169,
+        "chars": 169,
+        "preview": "GE2 status:\nrun_id: ge2-20260630091740-0c4c95a3\nstatus: completed\ntask: r9-native-handler-smoke\nmilestones: 7\nartifacts: 1\nerrors: 0\nupdated_at: 2026-06-30T09:17:41.163Z",
+        "boundedUnder4k": true
+      }
+    },
+    "artifacts": {
+      "body": "/ge2 artifacts ge2-20260630091740-0c4c95a3",
+      "matched": true,
+      "commandName": "ge2",
+      "pluginId": "ge2-native",
+      "continueAgent": false,
+      "text": "GE2 artifacts for ge2-20260630091740-0c4c95a3:\n- run-summary.json: 55c0352bb2f5242096f64410700b572000c80cd815357830c13133959766b19d /home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630091740-0c4c95a3/run-summary.json",
+      "responseSummary": {
+        "bytes": 237,
+        "chars": 237,
+        "preview": "GE2 artifacts for ge2-20260630091740-0c4c95a3:\n- run-summary.json: 55c0352bb2f5242096f64410700b572000c80cd815357830c13133959766b19d /home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630091740-0c4c95a3/run-summary.json",
+        "boundedUnder4k": true
+      }
+    }
+  },
+  "runId": "ge2-20260630091740-0c4c95a3",
+  "statusPolls": [
+    {
+      "index": 0,
+      "status": "artifact_written",
+      "milestones": 5,
+      "artifacts": 0,
+      "errors": 0
+    },
+    {
+      "index": 1,
+      "status": "completed",
+      "milestones": 7,
+      "artifacts": 1,
+      "errors": 0
+    }
+  ],
+  "ledgerPath": "/home/stickai/.openclaw/workspace/state/ge2-native/runs/ge2-20260630091740-0c4c95a3.json",
+  "ledgerProof": {
+    "stateDir": "/home/stickai/.openclaw/workspace/state/ge2-native",
+    "runsIndexPath": "/home/stickai/.openclaw/workspace/state/ge2-native/runs.index.json",
+    "runsJsonlPath": "/home/stickai/.openclaw/workspace/state/ge2-native/runs.jsonl",
+    "milestonesPath": "/home/stickai/.openclaw/workspace/state/ge2-native/milestones.jsonl",
+    "artifactsJsonlPath": "/home/stickai/.openclaw/workspace/state/ge2-native/artifacts.jsonl",
+    "runPath": "/home/stickai/.openclaw/workspace/state/ge2-native/runs/ge2-20260630091740-0c4c95a3.json",
+    "ledgerFileExists": true,
+    "runIdRecordedInRunFile": true,
+    "runIdRecordedInIndex": true,
+    "runIdRecordedInRunsJsonl": true,
+    "originSessionMetadataPresent": true,
+    "milestoneHistoryPresent": true,
+    "artifactInventoryPresent": true,
+    "beforeCounts": {
+      "runsJsonl": 21,
+      "milestonesJsonl": 9,
+      "artifactsJsonl": 1
+    },
+    "afterCounts": {
+      "runsJsonl": 37,
+      "milestonesJsonl": 16,
+      "artifactsJsonl": 2
+    }
+  },
+  "artifactPaths": [
+    "/home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630091740-0c4c95a3/run-summary.json"
+  ],
+  "artifactSha256s": [
+    {
+      "path": "/home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630091740-0c4c95a3/run-summary.json",
+      "reportedSha256": "55c0352bb2f5242096f64410700b572000c80cd815357830c13133959766b19d",
+      "computedSha256": "55c0352bb2f5242096f64410700b572000c80cd815357830c13133959766b19d",
+      "shaMatches": true
+    }
+  ],
+  "milestoneCount": 7,
+  "milestones": [
+    {
+      "milestone": "accepted",
+      "detail": "Run accepted by dispatcher",
+      "metadata": null,
+      "at": "2026-06-30T09:17:40.905Z"
+    },
+    {
+      "milestone": "validated",
+      "detail": "Command validated and queued for execution",
+      "metadata": null,
+      "at": "2026-06-30T09:17:40.925Z"
+    },
+    {
+      "milestone": "running",
+      "detail": "Runtime execution started",
+      "metadata": null,
+      "at": "2026-06-30T09:17:40.947Z"
+    },
+    {
+      "milestone": "milestone_emitted",
+      "detail": "Planning and validation complete",
+      "metadata": null,
+      "at": "2026-06-30T09:17:41.090Z"
+    },
+    {
+      "milestone": "artifact_written",
+      "detail": "/home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630091740-0c4c95a3/run-summary.json",
+      "metadata": {
+        "sha256": "55c0352bb2f5242096f64410700b572000c80cd815357830c13133959766b19d"
+      },
+      "at": "2026-06-30T09:17:41.111Z"
+    },
+    {
+      "milestone": "verification_passed",
+      "detail": "Artifact hash generated",
+      "metadata": {
+        "sha256": "55c0352bb2f5242096f64410700b572000c80cd815357830c13133959766b19d"
+      },
+      "at": "2026-06-30T09:17:41.127Z"
+    },
+    {
+      "milestone": "completed",
+      "detail": "Run completed successfully",
+      "metadata": null,
+      "at": "2026-06-30T09:17:41.152Z"
+    }
+  ],
+  "finalRun": {
+    "run_id": "ge2-20260630091740-0c4c95a3",
+    "status": "completed",
+    "task": "r9-native-handler-smoke",
+    "origin": {
+      "surface": "telegram",
+      "channel": "telegram",
+      "sessionKey": "r9-native-handler-harness",
+      "sessionId": "r9-native-handler-harness",
+      "accountId": "r9-local",
+      "messageId": null,
+      "senderId": "8495203551"
+    },
+    "requestId": "5e2c3e6d-da55-4085-8681-cdaf2c131a83",
+    "started_at": "2026-06-30T09:17:40.890Z",
+    "updated_at": "2026-06-30T09:17:41.163Z",
+    "milestones": [
+      {
+        "milestone": "accepted",
+        "detail": "Run accepted by dispatcher",
+        "metadata": null,
+        "at": "2026-06-30T09:17:40.905Z"
+      },
+      {
+        "milestone": "validated",
+        "detail": "Command validated and queued for execution",
+        "metadata": null,
+        "at": "2026-06-30T09:17:40.925Z"
+      },
+      {
+        "milestone": "running",
+        "detail": "Runtime execution started",
+        "metadata": null,
+        "at": "2026-06-30T09:17:40.947Z"
+      },
+      {
+        "milestone": "milestone_emitted",
+        "detail": "Planning and validation complete",
+        "metadata": null,
+        "at": "2026-06-30T09:17:41.090Z"
+      },
+      {
+        "milestone": "artifact_written",
+        "detail": "/home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630091740-0c4c95a3/run-summary.json",
+        "metadata": {
+          "sha256": "55c0352bb2f5242096f64410700b572000c80cd815357830c13133959766b19d"
+        },
+        "at": "2026-06-30T09:17:41.111Z"
+      },
+      {
+        "milestone": "verification_passed",
+        "detail": "Artifact hash generated",
+        "metadata": {
+          "sha256": "55c0352bb2f5242096f64410700b572000c80cd815357830c13133959766b19d"
+        },
+        "at": "2026-06-30T09:17:41.127Z"
+      },
+      {
+        "milestone": "completed",
+        "detail": "Run completed successfully",
+        "metadata": null,
+        "at": "2026-06-30T09:17:41.152Z"
+      }
+    ],
+    "artifacts": [
+      {
+        "kind": "run-summary",
+        "run_id": "ge2-20260630091740-0c4c95a3",
+        "name": "run-summary.json",
+        "path": "/home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630091740-0c4c95a3/run-summary.json",
+        "sha256": "55c0352bb2f5242096f64410700b572000c80cd815357830c13133959766b19d",
+        "size": 539,
+        "contentType": "application/json",
+        "created_at": "2026-06-30T09:17:41.111Z"
+      }
+    ],
+    "errors": [],
+    "cancel_requested": false
+  },
+  "terminalFiles": [
+    {
+      "path": "/home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630091740-0c4c95a3/status.json",
+      "exists": false,
+      "sha256": null
+    },
+    {
+      "path": "/home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630091740-0c4c95a3/summary.json",
+      "exists": false,
+      "sha256": null
+    },
+    {
+      "path": "/home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630091740-0c4c95a3/evidence_manifest.json",
+      "exists": false,
+      "sha256": null
+    }
+  ],
+  "statusResult": "GE2 status:\nrun_id: ge2-20260630091740-0c4c95a3\nstatus: completed\ntask: r9-native-handler-smoke\nmilestones: 7\nartifacts: 1\nerrors: 0\nupdated_at: 2026-06-30T09:17:41.163Z",
+  "artifactsResult": "GE2 artifacts for ge2-20260630091740-0c4c95a3:\n- run-summary.json: 55c0352bb2f5242096f64410700b572000c80cd815357830c13133959766b19d /home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630091740-0c4c95a3/run-summary.json",
+  "compressionSummary": {
+    "runResponse": {
+      "bytes": 162,
+      "chars": 160,
+      "preview": "✅ GE2 run accepted.\nrun_id: ge2-20260630091740-0c4c95a3\nstatus: accepted\ntask: r9-native-handler-smoke\nUse /ge2 status ge2-20260630091740-0c4c95a3 for progress.",
+      "boundedUnder4k": true
+    },
+    "statusResponse": {
+      "bytes": 169,
+      "chars": 169,
+      "preview": "GE2 status:\nrun_id: ge2-20260630091740-0c4c95a3\nstatus: completed\ntask: r9-native-handler-smoke\nmilestones: 7\nartifacts: 1\nerrors: 0\nupdated_at: 2026-06-30T09:17:41.163Z",
+      "boundedUnder4k": true
+    },
+    "artifactsResponse": {
+      "bytes": 237,
+      "chars": 237,
+      "preview": "GE2 artifacts for ge2-20260630091740-0c4c95a3:\n- run-summary.json: 55c0352bb2f5242096f64410700b572000c80cd815357830c13133959766b19d /home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630091740-0c4c95a3/run-summary.json",
+      "boundedUnder4k": true
+    },
+    "allVisibleResponsesBounded": true,
+    "fullPayloadStoredInLedgerOrArtifact": true,
+    "responseIncludesArtifactRefsHashes": false,
+    "noMassiveRawLogsInResponse": true
+  },
+  "modelChatFallthroughCheck": {
+    "run": true,
+    "status": true,
+    "artifacts": true,
+    "evidence": "Installed-dist executePluginCommand returned continueAgent:false and native GE2 text for all three commands."
+  },
+  "fakeCommandAbsent": true,
+  "duplicateGe2Count": {
+    "registered": 1,
+    "listPluginCommands": 1,
+    "live": {
+      "default": 1,
+      "telegram_both": 1,
+      "telegram_text": 1
+    }
+  },
+  "existingCommandsPreserved": true,
+  "gatewayHealth": {
+    "commandOk": true,
+    "serviceRunning": true,
+    "runtimeRunning": true,
+    "listenerPresent": true,
+    "connectivityOk": true,
+    "adminCapable": true,
+    "rawPreview": "Service: systemd user (enabled)\nFile logs: /tmp/openclaw/openclaw-2026-06-30.log\nCommand: /usr/bin/node /home/stickai/.npm-global/lib/node_modules/openclaw/dist/index.js gateway --port 18789\nService file: ~/.config/systemd/user/openclaw-gateway.service\nService env: OPENCLAW_GATEWAY_PORT=18789\n\nConfig (cli): ~/.openclaw/openclaw.json\nConfig (service): ~/.openclaw/openclaw.json\n\nGateway: bind=lan (0.0.0.0), port=18789 (service args)\nProbe target: ws://127.0.0.1:18789\nDashboard: http://172.24.168.46:18789/\nProbe note: bind=lan listens on 0.0.0.0 (all interfaces); probing via 127.0.0.1.\n\nRuntime: running (pid 307081, state active, sub running, last exit 0, reason 0)\nConnectivity probe: ok\nCapability: admin-capable\n\nListening: *:18789\nTroubles: run openclaw status\nTroubleshooting: https://docs.openclaw.ai/troubleshooting\n\n"
+  },
+  "commandsListVisibility": {
+    "default": {
+      "name": "default",
+      "ok": true,
+      "parseOk": true,
+      "count": 61,
+      "ge2Present": true,
+      "ge2Count": 1,
+      "existingCommandsPreserved": true,
+      "fakeAbsent": true,
+      "pluginNames": [
+        "pair",
+        "dreaming",
+        "phone",
+        "voice",
+        "ge2"
+      ],
+      "ge2": [
+        {
+          "name": "ge2",
+          "nativeName": "ge2",
+          "textAliases": [
+            "/ge2"
+          ],
+          "description": "Run and inspect native GE2 durable command-surface operations.",
+          "source": "plugin",
+          "scope": "both",
+          "acceptsArgs": true
+        }
+      ]
+    },
+    "telegram_both": {
+      "name": "telegram_both",
+      "ok": true,
+      "parseOk": true,
+      "count": 61,
+      "ge2Present": true,
+      "ge2Count": 1,
+      "existingCommandsPreserved": true,
+      "fakeAbsent": true,
+      "pluginNames": [
+        "pair",
+        "dreaming",
+        "phone",
+        "voice",
+        "ge2"
+      ],
+      "ge2": [
+        {
+          "name": "ge2",
+          "nativeName": "ge2",
+          "textAliases": [
+            "/ge2"
+          ],
+          "description": "Run and inspect native GE2 durable command-surface operations.",
+          "source": "plugin",
+          "scope": "both",
+          "acceptsArgs": true
+        }
+      ]
+    },
+    "telegram_text": {
+      "name": "telegram_text",
+      "ok": true,
+      "parseOk": true,
+      "count": 61,
+      "ge2Present": true,
+      "ge2Count": 1,
+      "existingCommandsPreserved": true,
+      "fakeAbsent": true,
+      "pluginNames": [
+        "pair",
+        "dreaming",
+        "phone",
+        "voice",
+        "ge2"
+      ],
+      "ge2": [
+        {
+          "name": "ge2",
+          "nativeName": "ge2",
+          "textAliases": [
+            "/ge2"
+          ],
+          "description": "Run and inspect native GE2 durable command-surface operations.",
+          "source": "plugin",
+          "scope": "both",
+          "acceptsArgs": true
+        }
+      ]
+    }
+  },
+  "productionTouched": false,
+  "ge2RuntimeStateTouched": true,
+  "gatewayRestarted": false,
+  "rollbackPerformed": false,
+  "cronCloseoutApplyRetried": false,
+  "promoted": false,
+  "nextStepIfPass": null,
+  "checks": {
+    "proofLevelP1": true,
+    "noP2P3Claim": true,
+    "runMatchedNative": true,
+    "runNoModelFallthrough": true,
+    "runReturnedRunId": true,
+    "ledgerExists": true,
+    "durableRunRecordCreated": true,
+    "statusTransitionsExpected": true,
+    "milestoneEventsEmitted": true,
+    "artifactWritten": true,
+    "artifactShaComputed": true,
+    "artifactFilesExist": true,
+    "artifactHashesMatch": true,
+    "terminalStatusSuccessful": true,
+    "noPlaceholderSuccess": true,
+    "runResponseBounded": true,
+    "statusRetrievesExactRun": true,
+    "artifactsRetrievesExactRun": true,
+    "compressionGate": false,
+    "fakeCommandAbsent": true,
+    "duplicateGe2CountOne": true,
+    "existingCommandsPreserved": true,
+    "gatewayHealthGreen": true,
+    "liveVisibilityStillPass": true,
+    "terminalRequiredFileCheckSafe": true
+  }
+}

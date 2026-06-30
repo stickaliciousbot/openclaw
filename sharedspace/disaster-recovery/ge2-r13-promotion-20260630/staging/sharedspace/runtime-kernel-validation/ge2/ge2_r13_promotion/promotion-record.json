@@ -1,0 +1,93 @@
+{
+  "classification": "GE2_NATIVE_COMMAND_SURFACE_PROMOTED",
+  "promotedAt": "2026-06-30T10:41:39.294Z",
+  "r12Classification": "GE2_R12_PROMOTION_READINESS_PACKET_READY",
+  "r11Classification": "GE2_R11_REAL_INBOUND_GATEWAY_TELEGRAM_WEBUI_PASS_PROMOTION_PENDING",
+  "r12Packet": "sharedspace/runtime-kernel-validation/ge2/ge2_r12_promotion_readiness_packet/GE2_R12_PROMOTION_READINESS_PACKET_READY_20260630.md",
+  "r12PacketSha256": "75a1c66a6533a595ca48494174dbd6b86f4f0080697f47e14507f96440481890",
+  "evidenceManifest": "sharedspace/runtime-kernel-validation/ge2/ge2_r12_promotion_readiness_packet/r12_evidence.json",
+  "evidenceManifestSha256": "c698893ca84e65d5648b950c33746bbef32a5208e1c3509b8f3096b2892cc8f9",
+  "restoreChecklist": "sharedspace/runtime-kernel-validation/ge2/ge2_r12_promotion_readiness_packet/restore-checklist.md",
+  "restoreChecklistSha256": "d635181d1e9ed04a710ca1fb4911328141da2fd1a6ecfa2004a631cde8dafbc5",
+  "drBundle": "sharedspace/disaster-recovery/ge2-r12-promotion-readiness-20260630/ge2-r12-promotion-readiness-20260630.tar.gz",
+  "drBundleSha256": "474408c1ad4c4850ed21ded2c2231fc1e1e668fc4a4995d29a594e1b1c915c2d",
+  "noSecretsScan": "sharedspace/runtime-kernel-validation/ge2/ge2_r12_promotion_readiness_packet/NO_SECRETS_SCAN.json",
+  "noSecretsStatus": "PASS",
+  "proofSummary": {
+    "P1": "PASS installed-dist matcher/handler harness",
+    "P2": "PASS Telegram/WebUI adapter fixture paths",
+    "P3Telegram": "PASS real inbound Telegram",
+    "P3WebUI": "PASS real inbound WebUI",
+    "commands": [
+      "/ge2 help",
+      "/ge2 status",
+      "/ge2 run <task>",
+      "/ge2 status <run_id>",
+      "/ge2 artifacts <run_id>"
+    ],
+    "ledgerArtifactHash": "PASS",
+    "modelChatFallthrough": "not observed"
+  },
+  "productionHealth": {
+    "version": "OpenClaw 2026.5.7 (9338825)",
+    "gatewayStatusSummary": "running, connectivity ok, admin-capable, listening *:18789",
+    "commands": {
+      "telegram": {
+        "provider": "telegram",
+        "total": 61,
+        "ge2Count": 1,
+        "fakeCount": 0,
+        "preserved": {
+          "pair": true,
+          "dreaming": true,
+          "phone": true,
+          "voice": true
+        },
+        "ge2Entries": [
+          {
+            "name": "ge2",
+            "source": "plugin",
+            "scope": "both",
+            "textAliases": [
+              "/ge2"
+            ]
+          }
+        ]
+      },
+      "webchat": {
+        "provider": "webchat",
+        "total": 61,
+        "ge2Count": 1,
+        "fakeCount": 0,
+        "preserved": {
+          "pair": true,
+          "dreaming": true,
+          "phone": true,
+          "voice": true
+        },
+        "ge2Entries": [
+          {
+            "name": "ge2",
+            "source": "plugin",
+            "scope": "both",
+            "textAliases": [
+              "/ge2"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "boundaries": {
+    "runtimeCodeChanged": false,
+    "configChanged": false,
+    "servicePathSystemdChanged": false,
+    "gatewayRestarted": false,
+    "rollbackPerformed": false,
+    "cronCloseoutApply": false,
+    "routeCacheArtifactMemoryRuntimeAuthorityMutation": false
+  },
+  "promotionMeaning": "Current GE2 native command surface state is promoted/durable as proven production command surface. This does not authorize cron closeout apply by itself.",
+  "promotionRecordPath": "sharedspace/runtime-kernel-validation/ge2/ge2_r13_promotion/GE2_NATIVE_COMMAND_SURFACE_PROMOTED_20260630.md",
+  "promotionRecordSha256": "483f2cab01bc6b113fd0a6972d4fcfb5f0fa81f9af50053bc09258e058dfde5d"
+}

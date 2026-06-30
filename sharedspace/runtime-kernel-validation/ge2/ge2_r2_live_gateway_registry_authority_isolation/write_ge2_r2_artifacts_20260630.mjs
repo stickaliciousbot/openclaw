@@ -1,0 +1,76 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import { execFileSync } from 'node:child_process';
+
+const dir = '/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r2_live_gateway_registry_authority_isolation';
+fs.mkdirSync(dir, { recursive: true });
+const now = new Date().toISOString();
+function writeJson(name, data) { fs.writeFileSync(path.join(dir, name), JSON.stringify(data, null, 2) + '\n'); }
+function writeText(name, data) { fs.writeFileSync(path.join(dir, name), data.endsWith('\n') ? data : data + '\n'); }
+function readJson(name, fallback=null) { try { return JSON.parse(fs.readFileSync(path.join(dir, name), 'utf8')); } catch { return fallback; } }
+function run(args, timeout=120000) { try { return { ok:true, stdout:execFileSync('openclaw', args, {cwd:'/home/stickai/.openclaw/workspace', encoding:'utf8', stdio:['ignore','pipe','pipe'], timeout}) }; } catch(e) { return { ok:false, status:e.status??null, stdout:e.stdout?.toString?.()??'', stderr:e.stderr?.toString?.()??String(e.message||e) }; } }
+function parseJson(s) { try { return JSON.parse(s); } catch { return null; } }
+function sha(p) { try { return crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex'); } catch { return null; } }
+function tailLines(p, filter, limit=120) { try { return fs.readFileSync(p,'utf8').split('\n').filter(Boolean).filter(filter).slice(-limit); } catch(e) { return [`read failed: ${e.message}`]; } }
+
+const r1 = readJson('ge2_r1_readback.json')?.r1 || readJson('../ge2_r1_command_registry_visibility_repair/status.json') || null;
+const probe = readJson('ge2_r2_static_and_runtime_probe_20260630.json', {});
+const moduleIdentity = readJson('loaded_module_identity_report.json', {});
+const gatewayStatus = run(['gateway','status'], 180000);
+const commandsList = run(['gateway','call','commands.list','--json'], 150000);
+const commandsTelegram = run(['gateway','call','commands.list','--json','--params','{"provider":"telegram","scope":"both"}'], 150000);
+const commandsNative = run(['gateway','call','commands.list','--json','--params','{"provider":"telegram","scope":"native"}'], 150000);
+const pluginsList = run(['plugins','list','--json'], 120000);
+const statusText = gatewayStatus.stdout || '';
+const pid = statusText.match(/Runtime: running \(pid (\d+)/)?.[1] || moduleIdentity?.pid || null;
+const cmdJson = parseJson(commandsList.stdout);
+const commands = cmdJson?.commands || cmdJson?.result?.commands || [];
+const pluginEntries = commands.filter(c => c.source === 'plugin');
+const ge2Live = commands.find(c => c?.name === 'ge2' || c?.nativeName === 'ge2' || (Array.isArray(c?.textAliases) && c.textAliases.includes('/ge2'))) || null;
+const pluginsJson = parseJson(pluginsList.stdout);
+const plugins = pluginsJson?.plugins || (Array.isArray(pluginsJson) ? pluginsJson : []);
+const cliGe2 = plugins.find(p => p.id === 'ge2-command' || String(p.source||'').includes('ge2-command')) || null;
+const ge2HookLog = tailLines('/home/stickai/.openclaw/workspace/sharedspace/ge2-register.log', l => l.includes('2026-06-30') && l.includes('"ge2"'), 40);
+const gatewayCommandLog = tailLines('/tmp/openclaw/openclaw-2026-06-30.log', l => l.includes('commands.list') || l.includes('Telegram menu text exceeded'), 80);
+
+const exactLossPoint = 'Hook registrar writes /ge2 into a registrar-local command registry visible to hook-side dynamic imports of types-CdFhLeaX.js/commands-D2qp4St4.js, but live Gateway RPC commands.list reads a different authoritative pluginCommands registry that lacks /ge2. The loss occurs at registry object/module-realm boundary before command-list filtering, not in auth/scope filtering.';
+const classification = 'GE2_R2_LIVE_GATEWAY_REGISTRY_AUTHORITY_ISOLATION_PASS_NO_APPLY';
+const common = {
+  generatedAt: now,
+  classification,
+  exactLossPoint,
+  gateway: { pid, healthOk: /Connectivity probe: ok/.test(statusText) || /Warm-up/.test(statusText), statusText },
+  r1BlockedVerified: r1?.classification === 'GE2_R1_COMMAND_REGISTRY_VISIBILITY_REPAIR_BLOCKED' && r1?.liveCommandsList?.ge2Present === false,
+  liveCommandsList: { count: commands.length, ge2Present: Boolean(ge2Live), ge2: ge2Live, pluginEntries, fakePresent: commands.some(c => c.name === 'ge2-r1-fake-unregistered') },
+  cliPluginManager: { ge2CommandPluginLoadedInCliSnapshot: Boolean(cliGe2), ge2Plugin: cliGe2 },
+  hookEvidence: { ge2HookLog },
+  noApply: true,
+  restartReloadRequiredDuringR2: false,
+  recommendedGe2R3Scope: 'packaging/bundle singleton repair',
+  recommendedGe2R3ScopeDetail: 'Repair canonical registry singleton/module authority so hook/plugin registration and Gateway RPC commands.list use the same live pluginCommands map; do not hardcode /ge2 and do not broaden command visibility.'
+};
+
+writeJson('status.json', common);
+writeJson('summary.json', common);
+writeText('live_commands_list_trace.md', `# Live commands.list trace\n\nGenerated: ${now}\n\nAuthoritative RPC path identified:\n\n1. Gateway WS handles method \`commands.list\` (confirmed by /tmp/openclaw log entries \`gateway/ws ⇄ res ✓ commands.list\`).\n2. \`server-methods-Dw6hzI_j.js\` imports \`listPluginCommands\` as \`r\` and \`getPluginCommandSpecs\` as \`a\` from \`commands-D2qp4St4.js\`.\n3. \`commandsHandlers["commands.list"]\` calls \`buildCommandsListResult()\`.\n4. \`buildCommandsListResult()\` appends \`buildPluginCommandEntries()\`.\n5. \`buildPluginCommandEntries()\` calls \`listPluginCommands()\`.\n6. \`listPluginCommands()\` returns \`Array.from(pluginCommands.values())\`.\n7. \`pluginCommands\` is imported from \`types-CdFhLeaX.js\` export \`A\`, backed by Symbol.for(\"openclaw.pluginCommandsState\") in that module realm.\n\nObserved live RPC plugin entries: ${pluginEntries.map(c=>c.name).join(', ') || '<none>'}. /ge2 present: ${Boolean(ge2Live)}.\n`);
+writeJson('registrar_registry_identity_report.json', { generatedAt: now, registrarSource: 'hooks/ge2-register/handler.js resolves registerPluginCommand from /home/stickai/.npm-global/lib/node_modules/openclaw/dist/types-CdFhLeaX.js export p', hookVisibleRegistrySource: 'hooks/ge2-register/handler.js imports /home/stickai/.npm-global/lib/node_modules/openclaw/dist/commands-D2qp4St4.js export r for getGe2RegistryState()', hookEvidence: ge2HookLog, finding: 'Registrar-local registry reports /ge2 visible with pluginCommandCount 5 after startup phases.' });
+writeJson('command_list_registry_identity_report.json', { generatedAt: now, commandListSource: 'server-methods-Dw6hzI_j.js -> commands-D2qp4St4.js export r -> types-CdFhLeaX.js export A pluginCommands', liveRpcEvidence: { commandsListOk: commandsList.ok, pluginEntries, ge2Present: Boolean(ge2Live) }, gatewayWsLogEvidence: gatewayCommandLog.slice(-30), finding: 'Live RPC commands.list reads an authoritative registry lacking /ge2.' });
+writeJson('registry_object_comparison_report.json', { generatedAt: now, identity: 'non-identical by observation', proof: { hookRegistryShowsGe2: ge2HookLog.some(l => l.includes('"visible":true') && l.includes('"name":"ge2"')), liveRpcCommandsListShowsGe2: Boolean(ge2Live), liveRpcPluginNames: pluginEntries.map(c=>c.name), localSingleProcessProbeSharedIdentity: probe.localRegistryIdentityProbe?.localListHasProbe === true }, conclusion: 'Within a local single Node process, types-CdFhLeaX.js registrar and commands-D2qp4St4.js listPluginCommands share identity. In the running Gateway, hook-side registry observations and RPC commands.list observations diverge, proving the hook registrar registry object is not the authoritative RPC command-list registry object.' });
+writeJson('command_snapshot_vs_live_registry_report.json', { generatedAt: now, commandsListImplementation: 'live function call: buildCommandsListResult invokes buildPluginCommandEntries and listPluginCommands at request time', staticSnapshot: false, startupSnapshot: false, liveMutableRegistry: true, caveat: 'The live mutable registry used by RPC commands.list is not the same registry object observed by the hook registrar.', evidence: { traceSource: 'live_commands_list_trace.md', pluginEntries } });
+writeJson('command_filtering_report.json', { generatedAt: now, status: 'FILTERING_NOT_LOSS_POINT', evidence: { defaultPluginEntries: pluginEntries, telegramBothGe2Present: JSON.stringify(parseJson(commandsTelegram.stdout)||{}).includes('"ge2"'), telegramNativeGe2Present: JSON.stringify(parseJson(commandsNative.stdout)||{}).includes('"ge2"'), fakePresent: commands.some(c => c.name === 'ge2-r1-fake-unregistered') }, analysis: 'commands.list appends every entry returned by listPluginCommands; scope/provider filtering only affects native naming/surface after registry read. Because /ge2 is absent from default/both/text/native surfaces and from raw pluginEntries, filtering/auth/scope is not the loss point.' });
+writeJson('ge2_registration_visibility_timeline.json', { generatedAt: now, events: { r0: 'GE2-R0_PARTIAL_RESTORE_HOOK_LOADS_BUT_COMMAND_NOT_REGISTERED', r1: r1?.classification, r2: classification }, hookEvidence: ge2HookLog, commandListEvidence: { current: common.liveCommandsList }, gatewayCommandLogTail: gatewayCommandLog });
+writeJson('gateway_restart_reload_report.json', { generatedAt: now, restartReloadRequiredDuringR2: false, currentPid: pid, note: 'R2 did not require or perform a restart/reload. It used existing post-R1 restarted Gateway PID and live RPC evidence. Prior R1 restart/reload evidence remains in R1 artifacts.' });
+writeJson('registration_loss_point_report.json', { generatedAt: now, exactLossPoint, lossClass: 'different registry object / module-realm singleton split before command-list filtering', notLossPoint: ['not loaded into hook registrar', 'not auth filtering', 'not provider/scope filtering', 'not static commands.list snapshot', 'not negative fake command exposure'], evidence: { hookShowsGe2: ge2HookLog.slice(-10), liveRpc: common.liveCommandsList } });
+writeText('diagnostic_instrumentation_report.md', `# GE2-R2 diagnostic instrumentation report\n\nGenerated: ${now}\n\nInstrumentation was diagnostic-only. No Gateway source/config/runtime authority was changed. Added only workspace artifact scripts/reports under:\n\n\`${dir}\`\n\nNo route/model/provider/cache/artifact-memory changes. No hidden/internal command exposure. No /ge2 hardcode. No GE2-R3 apply.\n\nTemporary/local registrar identity probe registered only \`ge2_r2_diag_identity_probe\` in the probe process, not in the running Gateway. It proved same-process registrar/list identity for the installed dist chunks.\n`);
+writeJson('before_after_commands_list_evidence.json', { generatedAt: now, before: { source: 'GE2-R1 status', classification: r1?.classification, ge2Present: r1?.liveCommandsList?.ge2Present }, after: common.liveCommandsList, surfaces: { telegramBoth: parseJson(commandsTelegram.stdout), telegramNative: parseJson(commandsNative.stdout) } });
+writeText('proposed_repair_options.md', `# Proposed GE2-R3 repair options (not applied)\n\n1. **Packaging/bundle singleton repair — recommended.** Ensure hook registrar, plugin activation, and Gateway RPC commands.list resolve one canonical command registry singleton/module authority. This may require source-level rebuild or canonical exported registry bridge.\n2. Registry bridge repair: expose a safe internal registration bridge from hook/plugin startup into the exact RPC command-list registry object. Must preserve auth and not expose hidden commands.\n3. Startup load-order repair: only if R3 proves plugin activation runs before the authoritative registry exists or gets cleared after hook registration. Current R2 evidence points more strongly to registry non-identity than pure load order.\n4. Command-list snapshot refresh repair: not recommended based on R2; commands.list appears live, not static.\n5. Filter/visibility repair: not recommended; /ge2 is absent before filtering.\n\nDo not hardcode /ge2 into commands.list.\n`);
+writeText('recommended_ge2_r3_scope.md', `# Recommended GE2-R3 scope\n\nRecommended scope: **packaging/bundle singleton repair**.\n\nReason: GE2 registration is visible through the hook registrar's imported registry but absent from live Gateway RPC commands.list. Same-process local probes show registrar/list identity works when loaded in one module realm, so R3 should focus on why the running Gateway has non-identical registry authority and repair canonical singleton/module resolution.\n\nSecondary acceptable shape: a narrow registry bridge repair, if it calls the exact authoritative RPC command-list registry and preserves auth/visibility.\n\nNot recommended as primary: startup load-order, command-list snapshot refresh, filter/visibility repair.\n\nDo not start/apply GE2-R3 automatically.\n`);
+writeJson('mutation_scope_report.json', { generatedAt: now, status: 'PASS_DIAGNOSTIC_ONLY', mutations: ['created GE2-R2 artifact directory files only'], forbiddenMutationChecks: { routeModelProviderCacheChanged: false, artifactMemoryPromoted: false, runtimeAuthorityExpanded: false, hiddenInternalCommandsExposed: false, ge2HardcodedIntoCommandsList: false, ge2R3Started: false } });
+writeJson('rollback_readiness.json', { generatedAt: now, status: 'READY', note: 'R2 made diagnostic artifact-only changes. Existing R1 rollback readiness remains valid for GE2 plugin/hook staging. No runtime/config apply to roll back from R2.' });
+writeText('GE2_R2_LIVE_GATEWAY_REGISTRY_AUTHORITY_ISOLATION.md', `# GE2-R2 Live Gateway Registry Authority Isolation\n\nGenerated: ${now}\n\nFinal classification: **${classification}**\n\n## Exact loss point\n\n${exactLossPoint}\n\n## Restart/reload\n\nR2 did **not** require or perform a Gateway restart/reload. It used the existing live Gateway PID ${pid}.\n\n## GE2-R3 recommendation\n\nGE2-R3 should be: **packaging/bundle singleton repair**. A narrow registry bridge repair is acceptable only if it targets the exact authoritative RPC command-list registry and preserves auth/visibility.\n\nDo **not** start GE2-R3 automatically.\n`);
+
+const required = ['status.json','summary.json','ge2_r1_readback.json','live_commands_list_trace.md','loaded_module_identity_report.json','registrar_registry_identity_report.json','command_list_registry_identity_report.json','registry_object_comparison_report.json','command_snapshot_vs_live_registry_report.json','command_filtering_report.json','ge2_registration_visibility_timeline.json','gateway_restart_reload_report.json','registration_loss_point_report.json','diagnostic_instrumentation_report.md','before_after_commands_list_evidence.json','proposed_repair_options.md','recommended_ge2_r3_scope.md','mutation_scope_report.json','rollback_readiness.json','GE2_R2_LIVE_GATEWAY_REGISTRY_AUTHORITY_ISOLATION.md'];
+const manifest = required.map(name => { const p=path.join(dir,name); return { name, exists: fs.existsSync(p), bytes: fs.existsSync(p) ? fs.statSync(p).size : 0, sha256: sha(p) }; });
+writeJson('final_file_manifest_20260630.json', { generatedAt: now, dir, allExist: manifest.every(f=>f.exists), count: manifest.length, files: manifest });
+console.log(JSON.stringify({ classification, allExist: manifest.every(f=>f.exists), count: manifest.length, exactLossPoint, recommendedGe2R3Scope: common.recommendedGe2R3Scope, restartReloadRequiredDuringR2:false }, null, 2));

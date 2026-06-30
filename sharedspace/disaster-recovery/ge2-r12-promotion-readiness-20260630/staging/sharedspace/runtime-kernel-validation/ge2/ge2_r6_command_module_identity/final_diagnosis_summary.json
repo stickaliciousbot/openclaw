@@ -1,0 +1,50 @@
+{
+  "generatedAt": "2026-06-30T07:55:00Z",
+  "classification": "GE2_R6_DIAGNOSIS_PASS_PATCHED_CHUNK_IMPORTED_BUT_REGISTRY_LIFECYCLE_EXCLUDES_GE2",
+  "mutation": false,
+  "rollbackPerformed": false,
+  "liveGe2SmokeAttempted": false,
+  "cronCloseoutApplyRetried": false,
+  "productionPatchApplied": false,
+  "productionState": {
+    "openclawVersion": "OpenClaw 2026.5.7 (9338825)",
+    "gatewayPid": "303370",
+    "gatewayHealthOk": true,
+    "adminCapable": true,
+    "commandsList": {
+      "default": { "count": 60, "ge2Present": false, "fakePresent": false, "pluginNames": ["pair", "dreaming", "phone", "voice"] },
+      "telegram_both": { "count": 60, "ge2Present": false, "fakePresent": false, "pluginNames": ["pair", "dreaming", "phone", "voice"] },
+      "telegram_text": { "count": 60, "ge2Present": false, "fakePresent": false, "pluginNames": ["pair", "dreaming", "phone", "voice"] }
+    },
+    "ge2PluginManagerState": { "status": "loaded", "commands": ["ge2"], "source": "/home/stickai/.openclaw/extensions/ge2-command/index.mjs" }
+  },
+  "patchedChunk": {
+    "path": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/commands-D2qp4St4.js",
+    "sha256": "660af5de5094031703c6f62260cb118643043275999bb68ff53e806796e250eb",
+    "r5MarkerPresent": true,
+    "localValidationPassedPreviously": true
+  },
+  "actualServingPath": {
+    "commandsListRpcFile": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/server-methods-Dw6hzI_j.js",
+    "commandsListSymbols": ["commandsHandlers[commands.list]", "buildCommandsListResult", "buildPluginCommandEntries"],
+    "importsPatchedCommandChunk": true,
+    "telegramNativeRuntimeFile": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/bot-native-commands.runtime-OmS7iYqz.js",
+    "telegramNativeRuntimeImportsPatchedCommandChunk": true,
+    "telegramBotDispatchPath": "bot-Ds7bwqAK.js registers bot.command(pluginCatalog.commands), then calls nativeCommandRuntime.matchPluginCommand(commandBody) and executePluginCommand(...)"
+  },
+  "rootCauseClass": "R5 registered /ge2 via top-level pluginCommands.set in commands-D2qp4St4.js. The real command paths import that chunk, but live command output still omits /ge2 after PID turnover, which means the ad-hoc top-level registration is cleared/rebuilt or excluded by plugin loader registry activation/native command catalog snapshot. The patch target is not another random command chunk; it is the registry lifecycle path that builds registry.commands/pluginCommands/pluginCatalog.commands.",
+  "nextConfirmedPatchTargetClass": "Plugin loader / registry activation / bundled plugin ownership path that creates durable command records like pair,dreaming,phone,voice, after exact call order is proven and snapshot/reverser is prepared.",
+  "hardStopsHonored": [
+    "No rollback",
+    "No live /ge2 smoke",
+    "No cron closeout apply",
+    "No plugin-manager bridge patch",
+    "No production mutation after R6 diagnosis"
+  ],
+  "artifacts": {
+    "primaryReport": "sharedspace/runtime-kernel-validation/ge2/ge2_r6_command_module_identity/r6_command_module_identity_report_20260630.json",
+    "primaryMarkdown": "sharedspace/runtime-kernel-validation/ge2/ge2_r6_command_module_identity/GE2_R6_COMMAND_MODULE_IDENTITY_DIAGNOSIS.md",
+    "refinedReport": "sharedspace/runtime-kernel-validation/ge2/ge2_r6_command_module_identity/r6_refined_registry_lifecycle_trace_20260630.json",
+    "refinedMarkdown": "sharedspace/runtime-kernel-validation/ge2/ge2_r6_command_module_identity/GE2_R6_REFINED_REGISTRY_LIFECYCLE_TRACE.md"
+  }
+}

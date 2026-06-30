@@ -1,0 +1,407 @@
+{
+  "generatedAt": "2026-06-30T10:31:11.646Z",
+  "classification": "GE2_R12_PROMOTION_READINESS_PACKET_READY",
+  "inputClassification": "GE2_R11_REAL_INBOUND_GATEWAY_TELEGRAM_WEBUI_PASS_PROMOTION_PENDING",
+  "noPromotionPerformed": true,
+  "version": "OpenClaw 2026.5.7 (9338825)",
+  "gatewayStatus": "Service: systemd user (enabled)\nFile logs: /tmp/openclaw/openclaw-2026-06-30.log\nCommand: /usr/bin/node /home/stickai/.npm-global/lib/node_modules/openclaw/dist/index.js gateway --port 18789\nService file: ~/.config/systemd/user/openclaw-gateway.service\nService env: OPENCLAW_GATEWAY_PORT=18789\n\nConfig (cli): ~/.openclaw/openclaw.json\nConfig (service): ~/.openclaw/openclaw.json\n\nGateway: bind=lan (0.0.0.0), port=18789 (service args)\nProbe target: ws://127.0.0.1:18789\nDashboard: http://172.24.168.46:18789/\nProbe note: bind=lan listens on 0.0.0.0 (all interfaces); probing via 127.0.0.1.\n\nRuntime: running (pid 307081, state active, sub running, last exit 0, reason 0)\nConnectivity probe: ok\nCapability: admin-capable\n\nListening: *:18789\nTroubles: run openclaw status\nTroubleshooting: https://docs.openclaw.ai/troubleshooting\n",
+  "commands": {
+    "telegram": {
+      "provider": "telegram",
+      "total": 61,
+      "ge2Count": 1,
+      "fakeCount": 0,
+      "preserved": {
+        "pair": true,
+        "dreaming": true,
+        "phone": true,
+        "voice": true
+      },
+      "ge2Entries": [
+        {
+          "name": "ge2",
+          "source": "plugin",
+          "scope": "both",
+          "textAliases": [
+            "/ge2"
+          ],
+          "description": "Run and inspect native GE2 durable command-surface operations.",
+          "acceptsArgs": true
+        }
+      ]
+    },
+    "webchat": {
+      "provider": "webchat",
+      "total": 61,
+      "ge2Count": 1,
+      "fakeCount": 0,
+      "preserved": {
+        "pair": true,
+        "dreaming": true,
+        "phone": true,
+        "voice": true
+      },
+      "ge2Entries": [
+        {
+          "name": "ge2",
+          "source": "plugin",
+          "scope": "both",
+          "textAliases": [
+            "/ge2"
+          ],
+          "description": "Run and inspect native GE2 durable command-surface operations.",
+          "acceptsArgs": true
+        }
+      ]
+    }
+  },
+  "contextBridge": {
+    "eventId": "evt-20260630T102500Z-ge2-r11-real-inbound-telegram-webui-pass",
+    "contextVersion": 150,
+    "status": "PASS",
+    "parsedEvents": 89,
+    "finalReportSha256": "f61b34e98afecab09e50a1999c552483d6f577e034935bbc52c27985eb7ba5ec"
+  },
+  "proofLadder": {
+    "P1": "PASS installed-dist matcher/handler harness",
+    "P2": "PASS Telegram/WebUI adapter fixture paths",
+    "P3Telegram": "PASS real inbound Gateway Telegram path",
+    "P3WebUI": "PASS real inbound OpenClaw WebUI path"
+  },
+  "runs": {
+    "telegram": {
+      "run_id": "ge2-20260630101117-1fa6ed4d",
+      "status": "completed",
+      "task": "r11-telegram-real-inbound-smoke",
+      "origin": {
+        "surface": "telegram",
+        "channel": "telegram",
+        "sessionKey": "agent:main:telegram:direct:8495203551",
+        "sessionId": "41e4b90c-b04c-4597-a774-774f72f245c8",
+        "accountId": "default",
+        "messageId": null,
+        "senderId": "8495203551"
+      },
+      "requestId": "5945d4dd-6880-4dcd-a6f5-9ec5dcd6b827",
+      "started_at": "2026-06-30T10:11:17.535Z",
+      "updated_at": "2026-06-30T10:11:17.966Z",
+      "milestones": [
+        {
+          "milestone": "accepted",
+          "detail": "Run accepted by dispatcher",
+          "metadata": null,
+          "at": "2026-06-30T10:11:17.584Z"
+        },
+        {
+          "milestone": "validated",
+          "detail": "Command validated and queued for execution",
+          "metadata": null,
+          "at": "2026-06-30T10:11:17.642Z"
+        },
+        {
+          "milestone": "running",
+          "detail": "Runtime execution started",
+          "metadata": null,
+          "at": "2026-06-30T10:11:17.742Z"
+        },
+        {
+          "milestone": "milestone_emitted",
+          "detail": "Planning and validation complete",
+          "metadata": null,
+          "at": "2026-06-30T10:11:17.892Z"
+        },
+        {
+          "milestone": "artifact_written",
+          "detail": "/home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630101117-1fa6ed4d/run-summary.json",
+          "metadata": {
+            "sha256": "602031961d623f07130515a5ee7236021618909de6ec1e04268687d9205fda5e"
+          },
+          "at": "2026-06-30T10:11:17.918Z"
+        },
+        {
+          "milestone": "verification_passed",
+          "detail": "Artifact hash generated",
+          "metadata": {
+            "sha256": "602031961d623f07130515a5ee7236021618909de6ec1e04268687d9205fda5e"
+          },
+          "at": "2026-06-30T10:11:17.935Z"
+        },
+        {
+          "milestone": "completed",
+          "detail": "Run completed successfully",
+          "metadata": null,
+          "at": "2026-06-30T10:11:17.957Z"
+        }
+      ],
+      "artifacts": [
+        {
+          "kind": "run-summary",
+          "run_id": "ge2-20260630101117-1fa6ed4d",
+          "name": "run-summary.json",
+          "path": "/home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630101117-1fa6ed4d/run-summary.json",
+          "sha256": "602031961d623f07130515a5ee7236021618909de6ec1e04268687d9205fda5e",
+          "size": 569,
+          "contentType": "application/json",
+          "created_at": "2026-06-30T10:11:17.918Z"
+        }
+      ],
+      "errors": [],
+      "cancel_requested": false
+    },
+    "webui": {
+      "run_id": "ge2-20260630102318-ae4b5942",
+      "status": "completed",
+      "task": "r11-webui-real-inbound-smoke",
+      "origin": {
+        "surface": "webchat",
+        "channel": "webchat",
+        "sessionKey": "agent:main:telegram:direct:8495203551",
+        "sessionId": "41e4b90c-b04c-4597-a774-774f72f245c8",
+        "accountId": null,
+        "messageId": null,
+        "senderId": "openclaw-control-ui"
+      },
+      "requestId": "28041a98-b473-43e5-afbc-c503101f4bcb",
+      "started_at": "2026-06-30T10:23:18.419Z",
+      "updated_at": "2026-06-30T10:23:19.718Z",
+      "milestones": [
+        {
+          "milestone": "accepted",
+          "detail": "Run accepted by dispatcher",
+          "metadata": null,
+          "at": "2026-06-30T10:23:18.426Z"
+        },
+        {
+          "milestone": "validated",
+          "detail": "Command validated and queued for execution",
+          "metadata": null,
+          "at": "2026-06-30T10:23:18.440Z"
+        },
+        {
+          "milestone": "running",
+          "detail": "Runtime execution started",
+          "metadata": null,
+          "at": "2026-06-30T10:23:18.495Z"
+        },
+        {
+          "milestone": "milestone_emitted",
+          "detail": "Planning and validation complete",
+          "metadata": null,
+          "at": "2026-06-30T10:23:18.865Z"
+        },
+        {
+          "milestone": "artifact_written",
+          "detail": "/home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630102318-ae4b5942/run-summary.json",
+          "metadata": {
+            "sha256": "fea53254aa478892b55405c9db686245ec24707fed003bd9ea3e2be125f2d584"
+          },
+          "at": "2026-06-30T10:23:19.030Z"
+        },
+        {
+          "milestone": "verification_passed",
+          "detail": "Artifact hash generated",
+          "metadata": {
+            "sha256": "fea53254aa478892b55405c9db686245ec24707fed003bd9ea3e2be125f2d584"
+          },
+          "at": "2026-06-30T10:23:19.151Z"
+        },
+        {
+          "milestone": "completed",
+          "detail": "Run completed successfully",
+          "metadata": null,
+          "at": "2026-06-30T10:23:19.702Z"
+        }
+      ],
+      "artifacts": [
+        {
+          "kind": "run-summary",
+          "run_id": "ge2-20260630102318-ae4b5942",
+          "name": "run-summary.json",
+          "path": "/home/stickai/.openclaw/workspace/state/ge2-native/artifacts/ge2-20260630102318-ae4b5942/run-summary.json",
+          "sha256": "fea53254aa478892b55405c9db686245ec24707fed003bd9ea3e2be125f2d584",
+          "size": 568,
+          "contentType": "application/json",
+          "created_at": "2026-06-30T10:23:19.030Z"
+        }
+      ],
+      "errors": [],
+      "cancel_requested": false
+    }
+  },
+  "artifactInventory": [
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r5_native_command_surface/GE2_R5_FINAL_BLOCKED.md",
+      "sha256": "51955b3c5b6378accceaacc1d3fc73169cae96b864ac4703347d2fe7f3c13f0a",
+      "bytes": 2014
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r5_native_command_surface/final_blocked_summary.json",
+      "sha256": "8597d24ba69ecd87b0ba98771771bb000aebf3c135c933068f3826837e3a7339",
+      "bytes": 3802
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r5_native_command_surface/install_manifest_20260630T0715Z.json",
+      "sha256": "71e66485ab65d426cf72fa2cafc798a70fb32db7c714487ea5d350c420d22272",
+      "bytes": 957
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r6_command_module_identity/R6_REQUESTED_DECISION_TABLE_AND_CLOSEOUT.md",
+      "sha256": "de660e9ec9a356c43924f83bd332904f310dc17751330c6f02b5f0a21c04b64b",
+      "bytes": 3894
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r6_command_module_identity/R6_REQUESTED_DECISION_TABLE_AND_CLOSEOUT.json",
+      "sha256": "17f393cc87fdf7341ce5133fdeff22a0c343371c75123cb22b9326348a1bd4f4",
+      "bytes": 2104
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r6_command_module_identity/final_diagnosis_summary.json",
+      "sha256": "9df1202a49eb8d6eb5c0bfce9977cf23937653451104822a3f605b875ad41986",
+      "bytes": 3548
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r7_source_snapshot_repair_plan/r7_loader_lifecycle_exact_target_and_repair_plan.md",
+      "sha256": "20f3de3636baa8b5eb3b6fe1b576e6490af38bf434f4b49a911fe2d3cadb9220",
+      "bytes": 10903
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r7_source_snapshot_repair_plan/r7_closeout_manifest_20260630.json",
+      "sha256": "c9207204d2adec2646237ed2e47939198646fcaa84330ead627e067077a42402",
+      "bytes": 3661
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r7_source_snapshot_repair_plan/r7_source_snapshot_manifest_20260630.json",
+      "sha256": "1a42b9c56b65625b43d1fd39736ad2e22a266b60ddadf8065e97d3452d6aa0d4",
+      "bytes": 2199
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r7_source_snapshot_repair_plan/install_manifest_ge2_r7_lifecycle_20260630T0812Z.json",
+      "sha256": "eb4c7f48e03a35ebb2940f33afcb734e56c7a69972ccb8118c7a9da3df37a1d0",
+      "bytes": 1203
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r7_source_snapshot_repair_plan/reverser_ge2_r7_lifecycle_20260630T0812Z.mjs",
+      "sha256": "9a2f8d6ffb469879be73c46bc7a3d440f18aa2088a1a50fbc32c956d087ed8a0",
+      "bytes": 516
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r7_source_snapshot_repair_plan/GE2_R7_BOUNDED_RECOVERY_CLOSE_LOOP_20260630.md",
+      "sha256": "2ec85f0ed8c3b96b91ed93c03a6d12d6e82fd48ab193a8364dfe3ea59bb693c7",
+      "bytes": 2548
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r8_native_execution_route_discovery/GE2_R8_NATIVE_EXECUTION_ROUTE_DISCOVERY_REPORT_20260630.json",
+      "sha256": "7708aed306af7fa48953f7b5b6871d1e5d09f7fab6cec6abc4a61017a4209e51",
+      "bytes": 39382
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r8_native_execution_route_discovery/GE2_R8_NATIVE_EXECUTION_ROUTE_DISCOVERY_REPORT_20260630.md",
+      "sha256": "5d5b7e8484d219de47374f5d1db160e542ff500a73c4958a7c909b9d03dea941",
+      "bytes": 2224
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r9_native_run_lifecycle_proof/GE2_R9_NATIVE_HANDLER_RUN_STATUS_ARTIFACTS_CORRECTED_REPORT_20260630.json",
+      "sha256": "25809640394cf73b5730ebf72783564cf1014bc9195b49a703cfdf871dbdac5d",
+      "bytes": 3321
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r9_native_run_lifecycle_proof/GE2_R9_NATIVE_HANDLER_RUN_STATUS_ARTIFACTS_CORRECTED_REPORT_20260630.md",
+      "sha256": "b9e2187ed88773fb38b73dcc61bbcb3c49627beeabeb44ba4b50683e754fbed1",
+      "bytes": 4947
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r10_adapter_fixture_proof/GE2_R10_FINAL_OWNER_REQUIRED_REPORT_20260630.md",
+      "sha256": "42a5834cbd917250dd7b23ae4a0f4efb6379b4ac7b7a086b45d47a5c6b167180",
+      "bytes": 8235
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r10_adapter_fixture_proof/GE2_R10_ADAPTER_FIXTURE_TELEGRAM_WEBUI_CORRECTED_REPORT_20260630.json",
+      "sha256": "50c953a84406998c298b95d0269978b7183efd4daf869acd3e9b9fe7199b6ffd",
+      "bytes": 5108
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r10_adapter_fixture_proof/GE2_R10_ADAPTER_FIXTURE_TELEGRAM_WEBUI_CORRECTED_REPORT_20260630.md",
+      "sha256": "b1d06f54b24202a9fd678749aec41cd3657665991932a3cd3c68076420e66132",
+      "bytes": 4775
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r11_real_inbound_gateway_smoke/GE2_R11_PHASE1_REAL_INBOUND_ENTRYPOINTS_AND_BLOCKERS_20260630.json",
+      "sha256": "ac21ae5f87d21741c8fd79acde914704c0ba48fa95d088a8479fe5427d8322d9",
+      "bytes": 5560
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r11_real_inbound_gateway_smoke/GE2_R11_PHASE1_REAL_INBOUND_ENTRYPOINTS_AND_BLOCKERS_20260630.md",
+      "sha256": "827d13c3be8e64556fb30ee7e9c8fc55c74c32b3e183d2eb613d08c63867a173",
+      "bytes": 2401
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r11_real_inbound_gateway_smoke/GE2_R11_REAL_INBOUND_GATEWAY_TELEGRAM_WEBUI_PASS_PROMOTION_PENDING_20260630.md",
+      "sha256": "f61b34e98afecab09e50a1999c552483d6f577e034935bbc52c27985eb7ba5ec",
+      "bytes": 4085
+    },
+    {
+      "path": "memory/2026-06-30-ge2-r8-result.md",
+      "sha256": "a775dcefa82fae053480546d34d41fc2f3ca9d1b176d471a4e0b3b1a226ea258",
+      "bytes": 1944
+    },
+    {
+      "path": "memory/2026-06-30-ge2-r9-result.md",
+      "sha256": "61a9111e17564557f8f3c216d889142ccc23d114e3bfe256e25987747ae504d7",
+      "bytes": 2397
+    },
+    {
+      "path": "memory/2026-06-30-ge2-r10-result.md",
+      "sha256": "167a831699e5c802c20cf94b6cf25237300b0054f4bc968693af8d61b2cb2c9b",
+      "bytes": 3739
+    },
+    {
+      "path": "memory/2026-06-30-ge2-r11-final-pass.md",
+      "sha256": "b8257a4035142eeac681742df5e78ebbc43d07e788875f0d676bfb29f5dc2212",
+      "bytes": 2613
+    },
+    {
+      "path": "memory/2026-06-30-ge2-r11-telegram-p3-pass.md",
+      "sha256": "89072d80130d2876bd35c0bd4b3f2a14b4b2057cb735b5329988f931fc1951bb",
+      "bytes": 2946
+    },
+    {
+      "path": "sharedspace/context-bridge/events.jsonl",
+      "sha256": "ba230521e511d227054f084ddd27ea3483d34605e88095024f219a82111349f4",
+      "bytes": 97296
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r12_promotion_readiness_packet/sanitized/r7_source_snapshot_trace_report_20260630.REDACTED.json",
+      "sha256": "6aa4eef97be54d8878c5aed7d3eae31f6e4cc837ba1fcc5b7b07ec3adb6b72d2",
+      "bytes": 82324,
+      "sanitizedFrom": "sharedspace/runtime-kernel-validation/ge2/ge2_r7_source_snapshot_repair_plan/r7_source_snapshot_trace_report_20260630.json",
+      "redactions": 5
+    }
+  ],
+  "missingArtifacts": [],
+  "r7": {
+    "target": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/loader-Bfm_uDYG.js",
+    "beforeSha256": "ff2d89b04d1d5f7fb727f586a78fe92e0b52ffbe43a484551475cf140b53feb0",
+    "afterSha256": "43bc33fa3c706ce16c3fc395da640ed6ee9041361938b84a8e8ecbd92685df6b",
+    "installManifest": "sharedspace/runtime-kernel-validation/ge2/ge2_r7_source_snapshot_repair_plan/install_manifest_ge2_r7_lifecycle_20260630T0812Z.json",
+    "reverser": "sharedspace/runtime-kernel-validation/ge2/ge2_r7_source_snapshot_repair_plan/reverser_ge2_r7_lifecycle_20260630T0812Z.mjs"
+  },
+  "boundaries": {
+    "productionPatch": false,
+    "gatewayRestart": false,
+    "rollback": false,
+    "cronCloseoutApply": false,
+    "promotion": false,
+    "configServicePathSystemdMutation": false,
+    "routeCacheArtifactMemoryRuntimeAuthorityMutation": false,
+    "additionalLiveSmoke": false
+  },
+  "nextState": "OWNER_APPROVAL_REQUIRED_BEFORE_PROMOTION_OR_CRON_CLOSEOUT_RETRY",
+  "redactions": [
+    {
+      "raw": "sharedspace/runtime-kernel-validation/ge2/ge2_r7_source_snapshot_repair_plan/r7_source_snapshot_trace_report_20260630.json",
+      "redacted": "sharedspace/runtime-kernel-validation/ge2/ge2_r12_promotion_readiness_packet/sanitized/r7_source_snapshot_trace_report_20260630.REDACTED.json",
+      "redactions": 5,
+      "reason": "secret-like patterns excluded from DR bundle"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "classification": "GE2_NATIVE_COMMAND_SURFACE_PROMOTED",
+  "eventId": "evt-20260630T103800Z-ge2-native-command-surface-promoted",
+  "contextVersion": 151,
+  "parsedEvents": 90,
+  "promotionRecordPath": "sharedspace/runtime-kernel-validation/ge2/ge2_r13_promotion/GE2_NATIVE_COMMAND_SURFACE_PROMOTED_20260630.md",
+  "promotionRecordSha256": "483f2cab01bc6b113fd0a6972d4fcfb5f0fa81f9af50053bc09258e058dfde5d",
+  "promotionJsonPath": "sharedspace/runtime-kernel-validation/ge2/ge2_r13_promotion/promotion-record.json",
+  "drBundleSha256": "474408c1ad4c4850ed21ded2c2231fc1e1e668fc4a4995d29a594e1b1c915c2d",
+  "packetSha": "75a1c66a6533a595ca48494174dbd6b86f4f0080697f47e14507f96440481890",
+  "evidenceSha": "c698893ca84e65d5648b950c33746bbef32a5208e1c3509b8f3096b2892cc8f9",
+  "noSecretsStatus": "PASS",
+  "boundaries": {
+    "runtimeCodeChanged": false,
+    "configChanged": false,
+    "servicePathSystemdChanged": false,
+    "gatewayRestarted": false,
+    "rollbackPerformed": false,
+    "cronCloseoutApply": false,
+    "routeCacheArtifactMemoryRuntimeAuthorityMutation": false
+  }
+}

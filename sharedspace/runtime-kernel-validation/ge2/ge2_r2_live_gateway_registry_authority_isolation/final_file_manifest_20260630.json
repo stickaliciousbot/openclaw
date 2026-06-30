@@ -1,0 +1,128 @@
+{
+  "generatedAt": "2026-06-30T06:00:12.400Z",
+  "dir": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r2_live_gateway_registry_authority_isolation",
+  "allExist": true,
+  "count": 20,
+  "files": [
+    {
+      "name": "status.json",
+      "exists": true,
+      "bytes": 11735,
+      "sha256": "749d48cd720fe97534885517d0d181cf4d70859d4f043052029e7c0f64f40c1b"
+    },
+    {
+      "name": "summary.json",
+      "exists": true,
+      "bytes": 11735,
+      "sha256": "749d48cd720fe97534885517d0d181cf4d70859d4f043052029e7c0f64f40c1b"
+    },
+    {
+      "name": "ge2_r1_readback.json",
+      "exists": true,
+      "bytes": 2743,
+      "sha256": "a74e78ad1370819bf4b7b23b258ff7a01db5e34b7fa246bd1dddba356334b62e"
+    },
+    {
+      "name": "live_commands_list_trace.md",
+      "exists": true,
+      "bytes": 869,
+      "sha256": "4a73c8dfa15a7b80565610128c113961cb763a049b9e60e886756e7b474c6523"
+    },
+    {
+      "name": "loaded_module_identity_report.json",
+      "exists": true,
+      "bytes": 2473,
+      "sha256": "c1b9aa5415f17b53e66739d8bbf0b5cd3b6d168447e35df75248398e617d2ef9"
+    },
+    {
+      "name": "registrar_registry_identity_report.json",
+      "exists": true,
+      "bytes": 7437,
+      "sha256": "b482845bde834f3569dfce748307e413564b57856daad92223055f7ead39cbfd"
+    },
+    {
+      "name": "command_list_registry_identity_report.json",
+      "exists": true,
+      "bytes": 37526,
+      "sha256": "f3ee39455d7f8911ded0e02a3b329e0050216655272776313d6e1b737df8ecf9"
+    },
+    {
+      "name": "registry_object_comparison_report.json",
+      "exists": true,
+      "bytes": 679,
+      "sha256": "2b19e04ce65ed2ecf610a6c6041ad905ca058123156d5b6d0a548534d9d69951"
+    },
+    {
+      "name": "command_snapshot_vs_live_registry_report.json",
+      "exists": true,
+      "bytes": 1679,
+      "sha256": "4eb56cb04c326008c076edb8f7472052cbb52582e69c2d971b30ec01a73f4317"
+    },
+    {
+      "name": "command_filtering_report.json",
+      "exists": true,
+      "bytes": 1707,
+      "sha256": "6a5b26e96d97708ecc78cb73adeaca57e5136a02651d7a6b07598b28be1e7f32"
+    },
+    {
+      "name": "ge2_registration_visibility_timeline.json",
+      "exists": true,
+      "bytes": 72632,
+      "sha256": "56330285c15d02ab3945d7148c04bcb9050611e0319b54dc2dfc946aa741301a"
+    },
+    {
+      "name": "gateway_restart_reload_report.json",
+      "exists": true,
+      "bytes": 305,
+      "sha256": "51d22e11590ec744fe3fe8d2923b0a78e9ed37042cd472472356428a9532c5d3"
+    },
+    {
+      "name": "registration_loss_point_report.json",
+      "exists": true,
+      "bytes": 6534,
+      "sha256": "ee12249f45ef17e8dfc1c380e32ec48d7d68f47a341a6b30ec18354c792af498"
+    },
+    {
+      "name": "diagnostic_instrumentation_report.md",
+      "exists": true,
+      "bytes": 698,
+      "sha256": "efd0336ca34ff4c90aa57418a23c3196fdd3524ba83b2b8326ef88a8f90fbc7b"
+    },
+    {
+      "name": "before_after_commands_list_evidence.json",
+      "exists": true,
+      "bytes": 73854,
+      "sha256": "043a305e22982e4a8b0b272bc411d64cade2ba47cd02b220939c1dacbc90d01a"
+    },
+    {
+      "name": "proposed_repair_options.md",
+      "exists": true,
+      "bytes": 989,
+      "sha256": "38ac81219dc1eca801745a24e1899bcdd711b5648a7fceaa566f6b5f2054ed8f"
+    },
+    {
+      "name": "recommended_ge2_r3_scope.md",
+      "exists": true,
+      "bytes": 748,
+      "sha256": "796bb2555611ce056f47deb60373176ba07bbc0f90227a91c3bd53c8c19cb07e"
+    },
+    {
+      "name": "mutation_scope_report.json",
+      "exists": true,
+      "bytes": 427,
+      "sha256": "ad64233781ece0ae370c14878cd436f9264409bbcc2584271922a735e26ba561"
+    },
+    {
+      "name": "rollback_readiness.json",
+      "exists": true,
+      "bytes": 244,
+      "sha256": "bff2005d25f47656c918f557ba500d1c0827bd5665ffab0b0330f6adc6297d7f"
+    },
+    {
+      "name": "GE2_R2_LIVE_GATEWAY_REGISTRY_AUTHORITY_ISOLATION.md",
+      "exists": true,
+      "bytes": 968,
+      "sha256": "e651590c9764c459cd5e28b1f5233a66e8634bab13fcfa302ecb6d906050ad48"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "ge2-command",
+  "version": "0.0.2",
+  "type": "module",
+  "private": true,
+  "openclaw": {
+    "extensions": ["./index.mjs"]
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "generatedAt": "2026-06-30T08:08:00Z",
+  "classification": "GE2_R7_SOURCE_SNAPSHOT_REPAIR_PLAN_TARGET_PROVEN_NO_PRODUCTION_MUTATION",
+  "productionMutationPerformed": false,
+  "gatewayRestartPerformed": false,
+  "liveGe2SmokePerformed": false,
+  "cronCloseoutApplyPerformed": false,
+  "r6CarryForwardClassification": "GE2_R6_COMMAND_REGISTRY_CACHE_IDENTIFIED_NO_MUTATION",
+  "safePatchTargetIdentified": true,
+  "safePatchTarget": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/loader-Bfm_uDYG.js",
+  "supportingTargetIfNeeded": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/commands-D2qp4St4.js",
+  "doNotPatch": [
+    "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/server-methods-Dw6hzI_j.js",
+    "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/types-CdFhLeaX.js"
+  ],
+  "snapshots": {
+    "directory": "sharedspace/runtime-kernel-validation/ge2/ge2_r7_source_snapshot_repair_plan/snapshots_20260630T0800Z",
+    "manifest": "sharedspace/runtime-kernel-validation/ge2/ge2_r7_source_snapshot_repair_plan/r7_source_snapshot_manifest_20260630.json"
+  },
+  "artifacts": [
+    "sharedspace/runtime-kernel-validation/ge2/ge2_r7_source_snapshot_repair_plan/r7_source_snapshot_trace_report_20260630.json",
+    "sharedspace/runtime-kernel-validation/ge2/ge2_r7_source_snapshot_repair_plan/GE2_R7_SOURCE_SNAPSHOT_REPAIR_PLAN.md",
+    "sharedspace/runtime-kernel-validation/ge2/ge2_r7_source_snapshot_repair_plan/r7_loader_lifecycle_exact_target_and_repair_plan.md",
+    "sharedspace/runtime-kernel-validation/ge2/ge2_r7_source_snapshot_repair_plan/reverser_restore_r7_snapshots_20260630.mjs",
+    "sharedspace/runtime-kernel-validation/ge2/ge2_r7_source_snapshot_repair_plan/r7_closeout_manifest_20260630.json"
+  ],
+  "targetSelection": [
+    {
+      "candidateFile": "types-CdFhLeaX.js",
+      "role": "registry storage/API",
+      "needsPatch": false,
+      "why": "Lower-level shared storage; patching it would broaden registry semantics globally."
+    },
+    {
+      "candidateFile": "loader-Bfm_uDYG.js",
+      "role": "lifecycle clear/restore/register/cache/activate",
+      "needsPatch": true,
+      "why": "Proven lifecycle target; clears R5 top-level registration and owns durable registry.commands/pluginCommands population."
+    },
+    {
+      "candidateFile": "server-methods-Dw6hzI_j.js",
+      "role": "commands.list handler",
+      "needsPatch": false,
+      "why": "Already reads listPluginCommands and active registry.commands; hardcoding here would bypass registry."
+    },
+    {
+      "candidateFile": "commands-D2qp4St4.js",
+      "role": "slash matcher/native handler",
+      "needsPatch": false,
+      "why": "Existing R5 handler works locally and live imports it; only use as supporting target if loader needs an exported factory."
+    }
+  ],
+  "futurePatchShape": {
+    "primary": "Add idempotent GE2 lifecycle seed in loader-Bfm_uDYG.js after cached restore and before activation, and after normal plugin registration before cache/activation.",
+    "mustNot": [
+      "hardcode /ge2 in server-methods commands.list",
+      "duplicate /ge2 descriptors on every list call",
+      "bypass registry with display-only shim",
+      "patch plugin-manager bridge"
+    ]
+  },
+  "futureApplyGates": [
+    "snapshot target file(s)",
+    "write manifest",
+    "write reverser",
+    "patch only actual serving lifecycle path",
+    "restart Gateway once",
+    "health/admin gate",
+    "commands.list default/telegram both/telegram text shows /ge2",
+    "pair,dreaming,phone,voice preserved",
+    "fake absent",
+    "only then run live /ge2 help and /ge2 status smoke",
+    "rollback on any hard trigger"
+  ]
+}

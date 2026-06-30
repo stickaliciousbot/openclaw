@@ -1,0 +1,29 @@
+{
+  "generatedAt": "2026-06-30T07:58:00Z",
+  "finalClassification": "GE2_R6_COMMAND_REGISTRY_CACHE_IDENTIFIED_NO_MUTATION",
+  "productionTouched": false,
+  "traceTable": {
+    "liveGatewayPid": "303370",
+    "ge2VisibleInCommandsList": "no",
+    "patchedFileExists": "yes",
+    "patchedFileShaMatchesExpected": "yes",
+    "liveProcessImportsPatchedFile": "yes",
+    "actualCommandsListHandlerFile": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/server-methods-Dw6hzI_j.js",
+    "actualCommandRegistrySourceFile": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/types-CdFhLeaX.js plus loader lifecycle in /home/stickai/.npm-global/lib/node_modules/openclaw/dist/loader-Bfm_uDYG.js",
+    "actualSlashCommandMatcherFile": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/commands-D2qp4St4.js via bot-native-commands.runtime-OmS7iYqz.js and bot-Ds7bwqAK.js",
+    "registryCachedAtStartup": "yes",
+    "alternateCommandChunkFound": "no",
+    "safePatchTargetIdentified": "not as a single final file yet; target class is loader/registry lifecycle",
+    "productionMutationPerformed": "no"
+  },
+  "decisionBranch": "C",
+  "requiredR6Output": {
+    "diagnosisArtifactPath": "sharedspace/runtime-kernel-validation/ge2/ge2_r6_command_module_identity/final_diagnosis_summary.json",
+    "traceTablePath": "sharedspace/runtime-kernel-validation/ge2/ge2_r6_command_module_identity/R6_REQUESTED_DECISION_TABLE_AND_CLOSEOUT.md",
+    "liveServingFilePath": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/server-methods-Dw6hzI_j.js",
+    "patchTargetRecommendation": "R7 should target loader/registry lifecycle after exact file/function is proven; no arbitrary command chunk or plugin-manager bridge patch.",
+    "rollbackRecommendation": "No rollback from R6. For R7, snapshot target files, write manifest/reverser, and rollback on health failure, command disappearance, fake appearance, /ge2 absence after confirmed patch, or command matching degradation.",
+    "finalClassification": "GE2_R6_COMMAND_REGISTRY_CACHE_IDENTIFIED_NO_MUTATION",
+    "productionTouched": false
+  }
+}

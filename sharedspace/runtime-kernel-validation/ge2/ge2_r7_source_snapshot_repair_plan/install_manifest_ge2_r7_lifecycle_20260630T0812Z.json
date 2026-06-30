@@ -1,0 +1,26 @@
+{
+  "generatedAt": "2026-06-30T08:09:39.152Z",
+  "classification": "GE2_R7_LIFECYCLE_PATCH_INSTALLED_LOCAL_VALIDATION_PENDING",
+  "productionMutationPerformed": true,
+  "target": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/loader-Bfm_uDYG.js",
+  "snapshotPath": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r7_source_snapshot_repair_plan/install_snapshots_20260630T0812Z/loader-Bfm_uDYG.js",
+  "reverserPath": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r7_source_snapshot_repair_plan/reverser_ge2_r7_lifecycle_20260630T0812Z.mjs",
+  "beforeSha256": "ff2d89b04d1d5f7fb727f586a78fe92e0b52ffbe43a484551475cf140b53feb0",
+  "afterSha256": "43bc33fa3c706ce16c3fc395da640ed6ee9041361938b84a8e8ecbd92685df6b",
+  "markers": {
+    "start": true,
+    "end": true,
+    "helper": true,
+    "registeredMessage": true,
+    "idempotentMessage": true
+  },
+  "touchedFiles": [
+    "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/loader-Bfm_uDYG.js"
+  ],
+  "hardStops": {
+    "gatewayRestartPerformed": false,
+    "liveGe2SmokePerformed": false,
+    "cronCloseoutApplyPerformed": false,
+    "rollbackPerformed": false
+  }
+}

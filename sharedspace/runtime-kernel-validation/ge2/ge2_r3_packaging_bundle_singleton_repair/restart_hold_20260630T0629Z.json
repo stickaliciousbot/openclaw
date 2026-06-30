@@ -1,0 +1,15 @@
+{
+  "generatedAt": "2026-06-30T06:29:00Z",
+  "classification": "GE2_R3_HOLD_SECOND_RESTART_DRAINING_ACTIVE_RUN_NO_PASS",
+  "summary": "GE2-R3 first process-singleton patch loaded but live commands.list still omitted /ge2. Fallback active-plugin-registry bridge patch was applied to commands-D2qp4St4.js and locally validated. Second graceful Gateway restart was requested from PID 295400 but did not turn over within bounded wait while Gateway remained health/admin OK; likely held by active-run drain. Stop this turn to allow restart, then resume via restart sentinel.",
+  "currentPid": "295400",
+  "pendingVerification": [
+    "confirm PID changes from 295400",
+    "openclaw gateway status health/admin OK",
+    "run parse_live_commands_after_restart_20260630.mjs",
+    "PASS only if live commands.list exposes /ge2",
+    "verify fake absent and unrelated plugin commands not removed",
+    "write final GE2-R3 artifacts/classification",
+    "do not start GE2-R4"
+  ]
+}

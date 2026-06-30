@@ -1,0 +1,187 @@
+{
+  "createdAt": "2026-06-30T10:34:52.266Z",
+  "classification": "GE2_R12_PROMOTION_READINESS_PACKET_READY",
+  "noPromotionPerformed": true,
+  "files": [
+    {
+      "path": "memory/2026-06-30-ge2-r10-result.md",
+      "bytes": 3739,
+      "sha256": "167a831699e5c802c20cf94b6cf25237300b0054f4bc968693af8d61b2cb2c9b"
+    },
+    {
+      "path": "memory/2026-06-30-ge2-r11-final-pass.md",
+      "bytes": 2613,
+      "sha256": "b8257a4035142eeac681742df5e78ebbc43d07e788875f0d676bfb29f5dc2212"
+    },
+    {
+      "path": "memory/2026-06-30-ge2-r11-telegram-p3-pass.md",
+      "bytes": 2946,
+      "sha256": "89072d80130d2876bd35c0bd4b3f2a14b4b2057cb735b5329988f931fc1951bb"
+    },
+    {
+      "path": "memory/2026-06-30-ge2-r8-result.md",
+      "bytes": 1944,
+      "sha256": "a775dcefa82fae053480546d34d41fc2f3ca9d1b176d471a4e0b3b1a226ea258"
+    },
+    {
+      "path": "memory/2026-06-30-ge2-r9-result.md",
+      "bytes": 2397,
+      "sha256": "61a9111e17564557f8f3c216d889142ccc23d114e3bfe256e25987747ae504d7"
+    },
+    {
+      "path": "NO_SECRETS_SCAN.json",
+      "bytes": 173,
+      "sha256": "b16f34f558880647bca318673b9d9cbe1fd38467a79acbbd643674cb9edf00fd"
+    },
+    {
+      "path": "sharedspace/context-bridge/events.jsonl",
+      "bytes": 97296,
+      "sha256": "ba230521e511d227054f084ddd27ea3483d34605e88095024f219a82111349f4"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r10_adapter_fixture_proof/GE2_R10_ADAPTER_FIXTURE_TELEGRAM_WEBUI_CORRECTED_REPORT_20260630.json",
+      "bytes": 5108,
+      "sha256": "50c953a84406998c298b95d0269978b7183efd4daf869acd3e9b9fe7199b6ffd"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r10_adapter_fixture_proof/GE2_R10_ADAPTER_FIXTURE_TELEGRAM_WEBUI_CORRECTED_REPORT_20260630.md",
+      "bytes": 4775,
+      "sha256": "b1d06f54b24202a9fd678749aec41cd3657665991932a3cd3c68076420e66132"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r10_adapter_fixture_proof/GE2_R10_FINAL_OWNER_REQUIRED_REPORT_20260630.md",
+      "bytes": 8235,
+      "sha256": "42a5834cbd917250dd7b23ae4a0f4efb6379b4ac7b7a086b45d47a5c6b167180"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r11_real_inbound_gateway_smoke/GE2_R11_PHASE1_REAL_INBOUND_ENTRYPOINTS_AND_BLOCKERS_20260630.json",
+      "bytes": 5560,
+      "sha256": "ac21ae5f87d21741c8fd79acde914704c0ba48fa95d088a8479fe5427d8322d9"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r11_real_inbound_gateway_smoke/GE2_R11_PHASE1_REAL_INBOUND_ENTRYPOINTS_AND_BLOCKERS_20260630.md",
+      "bytes": 2401,
+      "sha256": "827d13c3be8e64556fb30ee7e9c8fc55c74c32b3e183d2eb613d08c63867a173"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r11_real_inbound_gateway_smoke/GE2_R11_REAL_INBOUND_GATEWAY_TELEGRAM_WEBUI_PASS_PROMOTION_PENDING_20260630.md",
+      "bytes": 4085,
+      "sha256": "f61b34e98afecab09e50a1999c552483d6f577e034935bbc52c27985eb7ba5ec"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r12_promotion_readiness_packet/commands-summary.json",
+      "bytes": 1008,
+      "sha256": "61d149854f522dd5efe8f43f33868156080c86ac3d4ed08e05fc31da067fc85b"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r12_promotion_readiness_packet/context-bridge-event-extract.json",
+      "bytes": 4073,
+      "sha256": "4dc3509afc547f322c39450ea44f1fb67b3bd9654b30617647808b62abd10a9e"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r12_promotion_readiness_packet/gateway-status.txt",
+      "bytes": 828,
+      "sha256": "a7d51d46b49634d7a0ee38d1e13806ba6ef5aac65ade80819cff5208b64a229f"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r12_promotion_readiness_packet/GE2_R12_PROMOTION_READINESS_PACKET_READY_20260630.md",
+      "bytes": 7145,
+      "sha256": "75a1c66a6533a595ca48494174dbd6b86f4f0080697f47e14507f96440481890"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r12_promotion_readiness_packet/r12_evidence.json",
+      "bytes": 17012,
+      "sha256": "c698893ca84e65d5648b950c33746bbef32a5208e1c3509b8f3096b2892cc8f9"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r12_promotion_readiness_packet/restore-checklist.md",
+      "bytes": 1013,
+      "sha256": "d635181d1e9ed04a710ca1fb4911328141da2fd1a6ecfa2004a631cde8dafbc5"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r12_promotion_readiness_packet/sanitized/r7_source_snapshot_trace_report_20260630.REDACTED.json",
+      "bytes": 82324,
+      "sha256": "6aa4eef97be54d8878c5aed7d3eae31f6e4cc837ba1fcc5b7b07ec3adb6b72d2"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r5_native_command_surface/final_blocked_summary.json",
+      "bytes": 3802,
+      "sha256": "8597d24ba69ecd87b0ba98771771bb000aebf3c135c933068f3826837e3a7339"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r5_native_command_surface/GE2_R5_FINAL_BLOCKED.md",
+      "bytes": 2014,
+      "sha256": "51955b3c5b6378accceaacc1d3fc73169cae96b864ac4703347d2fe7f3c13f0a"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r5_native_command_surface/install_manifest_20260630T0715Z.json",
+      "bytes": 957,
+      "sha256": "71e66485ab65d426cf72fa2cafc798a70fb32db7c714487ea5d350c420d22272"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r6_command_module_identity/final_diagnosis_summary.json",
+      "bytes": 3548,
+      "sha256": "9df1202a49eb8d6eb5c0bfce9977cf23937653451104822a3f605b875ad41986"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r6_command_module_identity/R6_REQUESTED_DECISION_TABLE_AND_CLOSEOUT.json",
+      "bytes": 2104,
+      "sha256": "17f393cc87fdf7341ce5133fdeff22a0c343371c75123cb22b9326348a1bd4f4"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r6_command_module_identity/R6_REQUESTED_DECISION_TABLE_AND_CLOSEOUT.md",
+      "bytes": 3894,
+      "sha256": "de660e9ec9a356c43924f83bd332904f310dc17751330c6f02b5f0a21c04b64b"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r7_source_snapshot_repair_plan/GE2_R7_BOUNDED_RECOVERY_CLOSE_LOOP_20260630.md",
+      "bytes": 2548,
+      "sha256": "2ec85f0ed8c3b96b91ed93c03a6d12d6e82fd48ab193a8364dfe3ea59bb693c7"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r7_source_snapshot_repair_plan/install_manifest_ge2_r7_lifecycle_20260630T0812Z.json",
+      "bytes": 1203,
+      "sha256": "eb4c7f48e03a35ebb2940f33afcb734e56c7a69972ccb8118c7a9da3df37a1d0"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r7_source_snapshot_repair_plan/r7_closeout_manifest_20260630.json",
+      "bytes": 3661,
+      "sha256": "c9207204d2adec2646237ed2e47939198646fcaa84330ead627e067077a42402"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r7_source_snapshot_repair_plan/r7_loader_lifecycle_exact_target_and_repair_plan.md",
+      "bytes": 10903,
+      "sha256": "20f3de3636baa8b5eb3b6fe1b576e6490af38bf434f4b49a911fe2d3cadb9220"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r7_source_snapshot_repair_plan/r7_source_snapshot_manifest_20260630.json",
+      "bytes": 2199,
+      "sha256": "1a42b9c56b65625b43d1fd39736ad2e22a266b60ddadf8065e97d3452d6aa0d4"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r7_source_snapshot_repair_plan/reverser_ge2_r7_lifecycle_20260630T0812Z.mjs",
+      "bytes": 516,
+      "sha256": "9a2f8d6ffb469879be73c46bc7a3d440f18aa2088a1a50fbc32c956d087ed8a0"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r8_native_execution_route_discovery/GE2_R8_NATIVE_EXECUTION_ROUTE_DISCOVERY_REPORT_20260630.json",
+      "bytes": 39382,
+      "sha256": "7708aed306af7fa48953f7b5b6871d1e5d09f7fab6cec6abc4a61017a4209e51"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r8_native_execution_route_discovery/GE2_R8_NATIVE_EXECUTION_ROUTE_DISCOVERY_REPORT_20260630.md",
+      "bytes": 2224,
+      "sha256": "5d5b7e8484d219de47374f5d1db160e542ff500a73c4958a7c909b9d03dea941"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r9_native_run_lifecycle_proof/GE2_R9_NATIVE_HANDLER_RUN_STATUS_ARTIFACTS_CORRECTED_REPORT_20260630.json",
+      "bytes": 3321,
+      "sha256": "25809640394cf73b5730ebf72783564cf1014bc9195b49a703cfdf871dbdac5d"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/ge2/ge2_r9_native_run_lifecycle_proof/GE2_R9_NATIVE_HANDLER_RUN_STATUS_ARTIFACTS_CORRECTED_REPORT_20260630.md",
+      "bytes": 4947,
+      "sha256": "b9e2187ed88773fb38b73dcc61bbcb3c49627beeabeb44ba4b50683e754fbed1"
+    }
+  ]
+}

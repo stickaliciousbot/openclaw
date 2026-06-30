@@ -1,0 +1,34 @@
+{
+  "target": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/commands-D2qp4St4.js",
+  "sha256": "660af5de5094031703c6f62260cb118643043275999bb68ff53e806796e250eb",
+  "exports": [
+    "a",
+    "i",
+    "n",
+    "o",
+    "r",
+    "t"
+  ],
+  "commandCount": 1,
+  "ge2Present": true,
+  "ge2": {
+    "name": "ge2",
+    "description": "Run and inspect native GE2 durable command-surface operations.",
+    "pluginId": "ge2-native",
+    "acceptsArgs": true
+  },
+  "matchPresent": true,
+  "matchCommand": {
+    "name": "ge2",
+    "description": "Run and inspect native GE2 durable command-surface operations.",
+    "acceptsArgs": true,
+    "requireAuth": true,
+    "pluginId": "ge2-native",
+    "pluginName": "GE2 Native Command Surface"
+  },
+  "matchArgs": "status",
+  "markers": {
+    "start": true,
+    "end": true
+  }
+}

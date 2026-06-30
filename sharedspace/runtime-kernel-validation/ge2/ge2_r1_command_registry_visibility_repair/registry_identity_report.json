@@ -1,0 +1,7 @@
+{
+  "generatedAt": "2026-06-30T04:18:48.484Z",
+  "localRegistryIdentityTest": null,
+  "pluginRegistryHasGe2": true,
+  "commandsListHasGe2": false,
+  "conclusion": "GE2 exists in plugin registry metadata but not the live Gateway commands.list registry used by the public command surface."
+}

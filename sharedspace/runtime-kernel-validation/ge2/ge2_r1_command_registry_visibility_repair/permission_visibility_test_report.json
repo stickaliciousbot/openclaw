@@ -1,0 +1,5 @@
+{
+  "generatedAt": "2026-06-30T04:18:48.484Z",
+  "status": "NOT_RUN_BLOCKED",
+  "reason": "Skipped live command execution/auth probe because commands.list acceptance gate failed; do not test command execution as success when command is not visible."
+}

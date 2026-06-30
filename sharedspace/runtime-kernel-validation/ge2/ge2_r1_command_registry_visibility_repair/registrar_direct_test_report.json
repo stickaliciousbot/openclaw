@@ -1,0 +1,5 @@
+{
+  "generatedAt": "2026-06-30T04:18:48.484Z",
+  "status": "PASS",
+  "evidence": "ge2_managed_extension_import_check_20260630.mjs registered one command named ge2 with handler function."
+}

@@ -1,0 +1,167 @@
+{
+  "generatedAt": "2026-06-30T07:51:34.694Z",
+  "classification": "GE2_R6_REFINED_COMMAND_PATH_IMPORTED_PATCHED_CHUNK_BUT_REGISTRY_LIFECYCLE_EXCLUDES_GE2",
+  "mutation": false,
+  "correction": "The earlier preliminary note that commands.list did not point to the patched chunk was too broad because it selected an agents CLI string candidate. The actual Gateway RPC server-methods chunk does import the patched commands-D2qp4St4.js.",
+  "actualCommandsListPath": {
+    "file": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/server-methods-Dw6hzI_j.js",
+    "sha256": "638aa2dbf4cc7a9758b0d3f5679ec745e329e0f8f164408731a2107357993986",
+    "symbols": {
+      "commandsList": {
+        "line": 2778,
+        "excerpt": "\t\tprovider,\n\t\tnameSurface,\n\t\tcfg: params.cfg\n\t}));\n\treturn { commands: commands.slice(0, 500) };\n}\nconst commandsHandlers = { \"commands.list\": ({ params, respond, context }) => {\n\tif (!validateCommandsListParams(params)) {\n\t\trespond(false, void 0, errorShape(ErrorCodes.INVALID_REQUEST, `invalid commands.list params: ${formatValidationErrors(validateCommandsListParams.errors)}`));\n\t\treturn;\n\t}\n\tconst resolved = resolveAgentIdOrRespondError$1(params.agentId, respond, context.getRuntimeConfig());\n\tif (!resolved) return;"
+      },
+      "buildCommandsListResult": {
+        "line": 2755,
+        "excerpt": "\t\t});\n\t}\n\tentries.push(...collectActiveRegistryPluginCommandEntries(params, entries));\n\tif (params.nameSurface === \"native\") return entries.filter((entry) => entry.nativeName);\n\treturn entries;\n}\nfunction buildCommandsListResult(params) {\n\tconst includeArgs = params.includeArgs !== false;\n\tconst scopeFilter = params.scope ?? \"both\";\n\tconst nameSurface = scopeFilter === \"text\" ? \"text\" : \"native\";\n\tconst provider = normalizeOptionalLowercaseString(params.provider);\n\tconst skillCommands = listSkillCommandsForAgents({\n\t\tcfg: params.cfg,"
+      },
+      "buildPluginCommandEntries": {
+        "line": 2735,
+        "excerpt": "\t\t\tscope: \"both\",\n\t\t\tacceptsArgs: command.acceptsArgs ?? false\n\t\t});\n\t}\n\treturn bridged;\n}\nfunction buildPluginCommandEntries(params) {\n\tconst pluginTextSpecs = listPluginCommands();\n\tconst pluginNativeSpecs = getPluginCommandSpecs(params.provider, { config: params.cfg });\n\tconst entries = [];\n\tfor (const [index, textSpec] of pluginTextSpecs.entries()) {\n\t\tconst nativeName = pluginNativeSpecs[index]?.name;\n\t\tentries.push({"
+      },
+      "listPluginCommandsImport": {
+        "line": 133,
+        "excerpt": "import \"./commands-registry-fQjYfZzp.js\";\nimport { t as getTotalPendingReplies } from \"./dispatcher-registry-CZOB1oVV.js\";\nimport { d as getSessionCompactionCheckpoint, f as listSessionCompactionCheckpoints, u as forkCompactionCheckpointTranscriptAsync } from \"./model-context-tokens-Bt7rlSw_.js\";\nimport { n as getActiveMemorySearchManager } from \"./memory-runtime-DbWTvsWK.js\";\nimport { n as compactEmbeddedPiSession } from \"./pi-embedded-DHxAJJqQ.js\";\nimport { t as resolvePreferredSessionKeyForSessionIdMatches } from \"./session-id-resolution-BhPp-pLH.js\";\nimport { a as getPluginCommandSpecs, r as listPluginCommands } from \"./commands-D2qp4St4.js\";\nimport { t as getChannelActivity } from \"./channel-activity-66yolI0h.js\";\nimport { t as WizardCancelledError } from \"./prompts-B7yMqFIm.js\";\nimport { n as summarizeToolDescriptionText } from \"./tool-description-summary-TyTJ-8tJ.js\";\nimport { t as resolveEffectiveToolInventory } from \"./tools-effective-inventory-ByFVl5CN.js\";\nimport { i as resolveBareSessionResetPromptState, n as shouldApplyStartupContext, r as resolveBareResetBootstrapFileAccess, t as buildSessionStartupContextPrelude } from \"./startup-context-DIUXzBSA.js\";\nimport { t as movePathToTrash } from \"./browser-trash-BEmiDZiT.js\";"
+      }
+    },
+    "imports": [
+      "./commands.flags-B7qbzmZ1.js",
+      "./registry-BkuUNjzB.js",
+      "./active-runtime-registry-RYnmqAOZ.js",
+      "./task-registry.maintenance-yvu2cBa8.js",
+      "./subagent-registry-read-DmbLaX44.js",
+      "./provider-registry-DaN01LSd.js",
+      "./commands-registry-list-Cmkm0No9.js",
+      "./dispatcher-registry-CZOB1oVV.js",
+      "./commands-D2qp4St4.js",
+      "./skill-commands-FzZv-NAq.js"
+    ],
+    "importsPatchedChunk": true
+  },
+  "patchedCommandChunk": {
+    "file": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/commands-D2qp4St4.js",
+    "sha256": "660af5de5094031703c6f62260cb118643043275999bb68ff53e806796e250eb",
+    "expectedSha256": "660af5de5094031703c6f62260cb118643043275999bb68ff53e806796e250eb",
+    "markers": {
+      "r5": true,
+      "ensureRegistration": true,
+      "matchPluginCommand": true,
+      "listEffectivePluginCommands": true
+    },
+    "topLevelRegistration": {
+      "line": 131,
+      "excerpt": "\t\tpluginId: \"ge2-native\",\n\t\tpluginName: \"GE2 Native Command Surface\",\n\t\townership: \"reserved\",\n\t\thandler: handleNativeGe2Command\n\t});\n}\nensureNativeGe2CommandRegistered();\n// GE2_R5_NATIVE_COMMAND_SURFACE_END\nfunction normalizePluginCommandKey(name) {\n\treturn `/${normalizeLowercaseStringOrEmpty(name).replace(/^\\/+/, \"\")}`;\n}\nfunction listActiveRegistryPluginCommands() {\n\tconst registry = getActivePluginRegistry?.();"
+    },
+    "listEffectivePluginCommands": {
+      "line": 150,
+      "excerpt": "\t\t\tpluginId: command.pluginId ?? entry.pluginId,\n\t\t\tpluginName: command.pluginName ?? entry.pluginName,\n\t\t\tpluginRoot: command.pluginRoot ?? entry.rootDir\n\t\t};\n\t}).filter(Boolean);\n}\nfunction listEffectivePluginCommands() {\n\tconst registered = Array.from(pluginCommands.values());\n\tconst seen = new Set();\n\tfor (const command of registered) for (const key of listPluginInvocationKeys(command)) seen.add(key);\n\tfor (const entry of pluginCommands.keys()) seen.add(normalizePluginCommandKey(entry));\n\tconst bridged = [];\n\tfor (const command of listActiveRegistryPluginCommands()) {"
+    },
+    "listPluginCommands": {
+      "line": 343,
+      "excerpt": "\t}\n}\n/**\n* List all registered plugin commands.\n* Used for /help and /commands output.\n*/\nfunction listPluginCommands() {\n\treturn listEffectivePluginCommands().map((cmd) => ({\n\t\tname: cmd.name,\n\t\tdescription: cmd.description,\n\t\tpluginId: cmd.pluginId,\n\t\tacceptsArgs: cmd.acceptsArgs ?? false\n\t}));"
+    },
+    "matchPluginCommand": {
+      "line": 172,
+      "excerpt": "* Returns the command definition and parsed args if matched.\n*\n* Note: If a command has `acceptsArgs: false` and the user provides arguments,\n* the command will not match. This allows the message to fall through to\n* built-in handlers or the agent. Document this behavior to plugin authors.\n*/\nfunction matchPluginCommand(commandBody, options = {}) {\n\tconst trimmed = commandBody.trim();\n\tif (!trimmed.startsWith(\"/\")) return null;\n\tconst spaceIndex = trimmed.indexOf(\" \");\n\tconst commandName = spaceIndex === -1 ? trimmed : trimmed.slice(0, spaceIndex);\n\tconst args = spaceIndex === -1 ? void 0 : trimmed.slice(spaceIndex + 1).trim();\n\tconst key = normalizeLowercaseStringOrEmpty(commandName);"
+    }
+  },
+  "registryStateAndReset": {
+    "typesFile": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/types-CdFhLeaX.js",
+    "typesSha256": "864d569218baa6a23bfaa48547947e503ea2343929e5f78171af4e031dad202f",
+    "pluginCommandsState": {
+      "line": 7,
+      "excerpt": "import { a as normalizeLowercaseStringOrEmpty, s as normalizeOptionalLowercaseString } from \"./string-coerce-Bje8XVt9.js\";\nimport { n as resolveGlobalSingleton } from \"./global-singleton-DZyLAEQq.js\";\nimport { r as logVerbose } from \"./globals-CZuktVBk.js\";\nimport { s as isOperatorScope } from \"./operator-scopes-D9nPeeKf.js\";\nimport { n as resolveGlobalDedupeCache } from \"./dedupe-BPv3m0hA.js\";\n//#region src/plugins/command-registry-state.ts\nconst PLUGIN_COMMAND_STATE_KEY = Symbol.for(\"openclaw.pluginCommandsState\");\nconst createPluginCommandState = () => ({\n\tpluginCommands: /* @__PURE__ */ new Map(),\n\tregistryLocked: false,\n\tbridgeTarget: \"process[Symbol.for(openclaw.pluginCommandsState)]\"\n});\nconst getState$1 = () => {"
+    },
+    "clearPluginCommands": {
+      "line": 42,
+      "excerpt": "function isPluginCommandRegistryLocked() {\n\treturn getState$1().registryLocked;\n}\nfunction setPluginCommandRegistryLocked(locked) {\n\tgetState$1().registryLocked = locked;\n}\nfunction clearPluginCommands() {\n\tpluginCommands.clear();\n}\nfunction clearPluginCommandsForPlugin(pluginId) {\n\tfor (const [key, cmd] of pluginCommands.entries()) if (cmd.pluginId === pluginId) pluginCommands.delete(key);\n}\nfunction isTrustedReservedCommandOwner(command) {"
+    },
+    "restorePluginCommands": {
+      "line": 65,
+      "excerpt": "\t\tif (!trimmed || seen.has(trimmed)) continue;\n\t\tseen.add(trimmed);\n\t\tlines.push(trimmed);\n\t}\n\treturn lines;\n}\nfunction restorePluginCommands(commands) {\n\tpluginCommands.clear();\n\tfor (const command of commands) {\n\t\tconst name = normalizeOptionalLowercaseString(command.name);\n\t\tif (!name) continue;\n\t\tpluginCommands.set(`/${name}`, command);\n\t}"
+    },
+    "loaderFile": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/loader-Bfm_uDYG.js",
+    "loaderSha256": "ff2d89b04d1d5f7fb727f586a78fe92e0b52ffbe43a484551475cf140b53feb0",
+    "loaderImportsClearRestore": {
+      "line": 30,
+      "excerpt": "import { i as hasExplicitPluginIdScope, o as normalizePluginIdScope, r as createPluginIdScopeSet, s as serializePluginIdScope } from \"./package-state-probes-AnoN2cCB.js\";\nimport { t as unwrapDefaultModuleExport } from \"./module-export-d8gdH2Hj.js\";\nimport { t as buildPluginApi } from \"./api-builder-ngUrqxn2.js\";\nimport { G as resolveMemoryDreamingConfig, K as resolveMemoryDreamingPluginConfig, _ as DEFAULT_MEMORY_DREAMING_PLUGIN_ID } from \"./dreaming-oOlVey8D.js\";\nimport { a as restoreDetachedTaskLifecycleRuntimeRegistration, i as registerDetachedTaskLifecycleRuntime, n as getDetachedTaskLifecycleRuntimeRegistration, t as clearDetachedTaskLifecycleRuntimeRegistration } from \"./detached-task-[REDACTED_SECRET_LIKE_VALUE].js\";\nimport { n as inspectBundleMcpRuntimeSupport } from \"./bundle-mcp-DPPOalPH.js\";\nimport { A as pluginCommands, E as clearPluginCommandsForPlugin, T as clearPluginCommands, _ as clearPluginInteractiveHandlersForPlugin, a as isConversationHookName, g as clearPluginInteractiveHandlers, h as validatePluginCommandDefinition, j as restorePluginCommands, k as listRegisteredPluginCommands, l as stripPromptMutationFieldsFromLegacyHookResult, o as isPluginHookName, p as registerPluginCommand, s as isPromptInjectionHookName, u as isReservedCommandName, v as listPluginInteractiveHandlers, x as restorePluginInteractiveHandlers, y as registerPluginInteractiveHandler } from \"./types-CdFhLeaX.js\";\nimport { i as initializeGlobalHookRunner, t as getGlobalHookRunner } from \"./hook-runner-global-CCAcWVdN.js\";\nimport { a as resolveSetupChannelRegistration, i as resolveBundledRuntimeChannelRegistration, n as loadBundledRuntimeChannelPlugin, o as shouldLoadChannelPluginInSetupRuntime, r as mergeSetupRuntimeChannelPlugin, t as channelPluginIdBelongsToManifest } from \"./loader-channel-setup-CHB0cfUp.js\";\nimport { a as listRegisteredMemoryEmbeddingProviders, o as registerMemoryEmbeddingProvider, r as getRegisteredMemoryEmbeddingProvider, s as restoreRegisteredMemoryEmbeddingProviders, t as clearMemoryEmbeddingProviders } from \"./memory-embedding-providers-3vy8Xe8H.js\";\nimport { S as restoreMemoryPluginState, _ as registerMemoryPromptSectionForPlugin, b as registerMemoryRuntimeForPlugin, d as listMemoryPromptSupplements, f as registerMemoryCapability, h as registerMemoryFlushPlanResolverForPlugin, i as getMemoryCapabilityRegistration, p as registerMemoryCorpusSupplement, r as clearMemoryPluginState, u as listMemoryCorpusSupplements, v as registerMemoryPromptSupplement } from \"./memory-state-DKt50i_K.js\";\nimport { i as withProfile } from \"./plugin-load-profile-CX9TjsiD.js\";\nimport { A as buildPluginAgentTurnPrepareContext, E as getPluginSessionSchedulerJobGeneration, M as isPluginJsonValue, O as registerPluginSessionSchedulerJob, P as createEmptyPluginRegistry, S as isPluginRegistryRetired, T as getPluginRunContext, a as getActivePluginRegistry, j as normalizePluginHostHookId, k as setPluginRunContext, l as getActivePluginRuntimeSubagentMode, o as getActivePluginRegistryKey, p as recordImportedPluginId, w as clearPluginRunContext, x as setActivePluginRegistry } from \"./runtime-DIK27keN.js\";"
+    },
+    "registerCommand": {
+      "line": 2224,
+      "excerpt": "\t\t\tpluginName: record.name,\n\t\t\tservice,\n\t\t\tsource: record.source,\n\t\t\trootDir: record.rootDir\n\t\t});\n\t};\n\tconst registerCommand = (record, command) => {\n\t\tconst name = command.name.trim();\n\t\tif (!name) {\n\t\t\tpushDiagnostic({\n\t\t\t\tlevel: \"error\",\n\t\t\t\tpluginId: record.id,\n\t\t\t\tsource: record.source,"
+    },
+    "clearHits": [
+      {
+        "needle": "clearPluginCommands();",
+        "hit": {
+          "line": 3264,
+          "excerpt": "\tpluginLoaderCacheState.clear();\n\tfullWorkspacePluginLoaderCacheState.clear();\n\tclearActivatedPluginRuntimeState();\n}\nfunction clearActivatedPluginRuntimeState() {\n\tclearAgentHarnesses();\n\tclearPluginCommands();\n\tclearCompactionProviders();\n\tclearDetachedTaskLifecycleRuntimeRegistration();\n\tclearPluginInteractiveHandlers();\n\tclearMemoryEmbeddingProviders();\n\tclearMemoryPluginState();\n}"
+        }
+      },
+      {
+        "needle": "clearPluginCommandsForPlugin",
+        "hit": {
+          "line": 30,
+          "excerpt": "import { i as hasExplicitPluginIdScope, o as normalizePluginIdScope, r as createPluginIdScopeSet, s as serializePluginIdScope } from \"./package-state-probes-AnoN2cCB.js\";\nimport { t as unwrapDefaultModuleExport } from \"./module-export-d8gdH2Hj.js\";\nimport { t as buildPluginApi } from \"./api-builder-ngUrqxn2.js\";\nimport { G as resolveMemoryDreamingConfig, K as resolveMemoryDreamingPluginConfig, _ as DEFAULT_MEMORY_DREAMING_PLUGIN_ID } from \"./dreaming-oOlVey8D.js\";\nimport { a as restoreDetachedTaskLifecycleRuntimeRegistration, i as registerDetachedTaskLifecycleRuntime, n as getDetachedTaskLifecycleRuntimeRegistration, t as clearDetachedTaskLifecycleRuntimeRegistration } from \"./detached-task-[REDACTED_SECRET_LIKE_VALUE].js\";\nimport { n as inspectBundleMcpRuntimeSupport } from \"./bundle-mcp-DPPOalPH.js\";\nimport { A as pluginCommands, E as clearPluginCommandsForPlugin, T as clearPluginCommands, _ as clearPluginInteractiveHandlersForPlugin, a as isConversationHookName, g as clearPluginInteractiveHandlers, h as validatePluginCommandDefinition, j as restorePluginCommands, k as listRegisteredPluginCommands, l as stripPromptMutationFieldsFromLegacyHookResult, o as isPluginHookName, p as registerPluginCommand, s as isPromptInjectionHookName, u as isReservedCommandName, v as listPluginInteractiveHandlers, x as restorePluginInteractiveHandlers, y as registerPluginInteractiveHandler } from \"./types-CdFhLeaX.js\";\nimport { i as initializeGlobalHookRunner, t as getGlobalHookRunner } from \"./hook-runner-global-CCAcWVdN.js\";\nimport { a as resolveSetupChannelRegistration, i as resolveBundledRuntimeChannelRegistration, n as loadBundledRuntimeChannelPlugin, o as shouldLoadChannelPluginInSetupRuntime, r as mergeSetupRuntimeChannelPlugin, t as channelPluginIdBelongsToManifest } from \"./loader-channel-setup-CHB0cfUp.js\";\nimport { a as listRegisteredMemoryEmbeddingProviders, o as registerMemoryEmbeddingProvider, r as getRegisteredMemoryEmbeddingProvider, s as restoreRegisteredMemoryEmbeddingProviders, t as clearMemoryEmbeddingProviders } from \"./memory-embedding-providers-3vy8Xe8H.js\";\nimport { S as restoreMemoryPluginState, _ as registerMemoryPromptSectionForPlugin, b as registerMemoryRuntimeForPlugin, d as listMemoryPromptSupplements, f as registerMemoryCapability, h as registerMemoryFlushPlanResolverForPlugin, i as getMemoryCapabilityRegistration, p as registerMemoryCorpusSupplement, r as clearMemoryPluginState, u as listMemoryCorpusSupplements, v as registerMemoryPromptSupplement } from \"./memory-state-DKt50i_K.js\";\nimport { i as withProfile } from \"./plugin-load-profile-CX9TjsiD.js\";\nimport { A as buildPluginAgentTurnPrepareContext, E as getPluginSessionSchedulerJobGeneration, M as isPluginJsonValue, O as registerPluginSessionSchedulerJob, P as createEmptyPluginRegistry, S as isPluginRegistryRetired, T as getPluginRunContext, a as getActivePluginRegistry, j as normalizePluginHostHookId, k as setPluginRunContext, l as getActivePluginRuntimeSubagentMode, o as getActivePluginRegistryKey, p as recordImportedPluginId, w as clearPluginRunContext, x as setActivePluginRegistry } from \"./runtime-DIK27keN.js\";"
+        }
+      },
+      {
+        "needle": "restorePluginCommands(",
+        "hit": {
+          "line": 3968,
+          "excerpt": "\t\t\truntimeSubagentMode,\n\t\t\toptions\n\t\t});\n\t\tif (cached) {\n\t\t\tif (shouldActivate) {\n\t\t\t\trestoreRegisteredAgentHarnesses(cached.state.agentHarnesses);\n\t\t\t\trestorePluginCommands(cached.state.commands ?? []);\n\t\t\t\trestoreRegisteredCompactionProviders(cached.state.compactionProviders);\n\t\t\t\trestoreDetachedTaskLifecycleRuntimeRegistration(cached.state.detachedTaskRuntimeRegistration);\n\t\t\t\trestorePluginInteractiveHandlers(cached.state.interactiveHandlers ?? []);\n\t\t\t\trestoreRegisteredMemoryEmbeddingProviders(cached.state.memoryEmbeddingProviders);\n\t\t\t\trestoreMemoryPluginState({\n\t\t\t\t\tcapability: cached.state.memoryCapability,"
+        }
+      }
+    ]
+  },
+  "telegramCommandPath": {
+    "botFile": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/bot-Ds7bwqAK.js",
+    "botSha256": "b49537ef2bae42289692436dea3834e5a5c075beecd6ff9b54052e7a74115538",
+    "pluginCatalogCommandsLoop": {
+      "line": 964,
+      "excerpt": "\t\t\t\tif (!deliveryState.delivered && deliveryState.skippedNonSilent > 0) await deliverReplies({\n\t\t\t\t\treplies: [{ text: EMPTY_RESPONSE_FALLBACK$1 }],\n\t\t\t\t\t...deliveryBaseOptions\n\t\t\t\t});\n\t\t\t});\n\t\t}\n\t\tfor (const pluginCommand of pluginCatalog.commands) bot.command(pluginCommand.command, async (ctx) => {\n\t\t\tconst msg = ctx.message;\n\t\t\tif (!msg) return;\n\t\t\tif (shouldSkipUpdate(ctx)) return;\n\t\t\tconst chatId = msg.chat.id;\n\t\t\tconst runtimeCfg = loadFreshRuntimeConfig();\n\t\t\tconst runtimeTelegramCfg = resolveFreshTelegramConfig(runtimeCfg);"
+    },
+    "loadNativeRuntime": {
+      "line": 305,
+      "excerpt": "let telegramNativeCommandDeliveryRuntimePromise;\nasync function loadTelegramNativeCommandDeliveryRuntime() {\n\ttelegramNativeCommandDeliveryRuntimePromise ??= import(\"./bot-native-commands.delivery.runtime.js\");\n\treturn await telegramNativeCommandDeliveryRuntimePromise;\n}\nlet telegramNativeCommandRuntimePromise;\nasync function loadTelegramNativeCommandRuntime() {\n\ttelegramNativeCommandRuntimePromise ??= import(\"./bot-native-commands.runtime.js\");\n\treturn await telegramNativeCommandRuntimePromise;\n}\nfunction resolveTelegramProgressPlaceholder(command) {\n\tconst text = command.nativeProgressMessages?.telegram?.trim() ?? command.nativeProgressMessages?.default?.trim();\n\treturn text ? text : null;"
+    },
+    "matchAndExecute": {
+      "line": 978,
+      "excerpt": "\t\t\t\tmsg,\n\t\t\t\tbot\n\t\t\t});\n\t\t\tconst rawText = ctx.match?.trim() ?? \"\";\n\t\t\tconst commandBody = `/${pluginCommand.command}${rawText ? ` ${rawText}` : \"\"}`;\n\t\t\tconst nativeCommandRuntime = await loadTelegramNativeCommandRuntime();\n\t\t\tconst match = nativeCommandRuntime.matchPluginCommand(commandBody);\n\t\t\tif (!match) {\n\t\t\t\tawait withTelegramApiErrorLogging({\n\t\t\t\t\toperation: \"sendMessage\",\n\t\t\t\t\truntime,\n\t\t\t\t\tfn: () => bot.api.sendMessage(chatId, \"Command not found.\", threadParams ?? {})\n\t\t\t\t});"
+    },
+    "nativeRuntimeFile": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/bot-native-commands.runtime-OmS7iYqz.js",
+    "nativeRuntimeSha256": "ace9e34e2bcbf67709a7ae54d735dfade67b094068b3f65a8718195c212524df",
+    "nativeRuntimeImports": [
+      "./commands-D2qp4St4.js"
+    ],
+    "nativeRuntimeExports": {
+      "line": 12,
+      "excerpt": "import { a as getPluginCommandSpecs, i as matchPluginCommand, n as executePluginCommand } from \"./commands-D2qp4St4.js\";\nimport \"./reply-dispatch-runtime-BFR0nVse.js\";\nimport \"./media-runtime-MC6kl9G-.js\";\nimport { t as ensureConfiguredBindingRouteReady } from \"./binding-routing-C6pNNfob.js\";\nimport { t as recordInboundSessionMetaSafe } from \"./conversation-runtime-DaWnKT7H.js\";\nimport \"./plugin-runtime-BWkZpYkK.js\";\nexport { ensureConfiguredBindingRouteReady, executePluginCommand, finalizeInboundContext, getAgentScopedMediaLocalRoots, getPluginCommandSpecs, matchPluginCommand, recordInboundSessionMetaSafe, resolveChunkMode, resolveThreadSessionKeys };\n"
+    }
+  },
+  "commandsHandlersTextPath": {
+    "handlersFile": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/commands-handlers.runtime-DlESKC_s.js",
+    "handlersSha256": "03a7edfa2151a3afcd87fe4db8da91e5ed32e269d10c939d04b591a4829c2e6b",
+    "imports": [
+      "./commands.flags-B7qbzmZ1.js",
+      "./commands-registry-normalize-D2V03Px2.js",
+      "./commands-D2qp4St4.js",
+      "./commands-crestodian-jrWDFHcb.js",
+      "./commands-acp-C5fdhvh2.js",
+      "./skill-commands-FzZv-NAq.js",
+      "./commands-models-6nZJar_G.js",
+      "./commands-system-prompt-DCndq-pZ.js",
+      "./commands-status-C45lHfhS.js"
+    ],
+    "resolveTextCommand": {
+      "line": 74,
+      "excerpt": "import { t as formatDurationCompact } from \"./format-duration-CxKGu7mn.js\";\nimport \"./sandbox-C50_R29R.js\";\nimport { t as buildSystemPromptReport } from \"./system-prompt-report-AN-U6kSC.js\";\nimport { n as estimateTokensFromChars } from \"./cjk-chars-Ch8loTvz.js\";\nimport { n as getSpeechProvider, r as listSpeechProviders, t as canonicalizeSpeechProviderId } from \"./provider-registry-DaN01LSd.js\";\nimport { r as resolveConversationBindingContextFromAcpCommand } from \"./conversation-binding-input-8r1tpaPi.js\";\nimport { i as resolveTextCommand, r as normalizeCommandBody } from \"./commands-registry-normalize-D2V03Px2.js\";\nimport \"./commands-registry-fQjYfZzp.js\";\nimport { o as stripMentions, s as stripStructuralPrefixes } from \"./mentions-BXXwlg-q.js\";\nimport { r as resolveModelWithRegistry } from \"./model-COB7epHr.js\";\nimport { i as matchPluginCommand, n as executePluginCommand } from \"./commands-D2qp4St4.js\";\nimport { t as isApprovalNotFoundError } from \"./approval-errors-6s9UjOCm.js\";\nimport { i as setAbortMemory, r as isAbortTrigger } from \"./abort-primitives-DzH2NybG.js\";"
+    },
+    "matchPluginCommand": {
+      "line": 78,
+      "excerpt": "import { n as getSpeechProvider, r as listSpeechProviders, t as canonicalizeSpeechProviderId } from \"./provider-registry-DaN01LSd.js\";\nimport { r as resolveConversationBindingContextFromAcpCommand } from \"./conversation-binding-input-8r1tpaPi.js\";\nimport { i as resolveTextCommand, r as normalizeCommandBody } from \"./commands-registry-normalize-D2V03Px2.js\";\nimport \"./commands-registry-fQjYfZzp.js\";\nimport { o as stripMentions, s as stripStructuralPrefixes } from \"./mentions-BXXwlg-q.js\";\nimport { r as resolveModelWithRegistry } from \"./model-COB7epHr.js\";\nimport { i as matchPluginCommand, n as executePluginCommand } from \"./commands-D2qp4St4.js\";\nimport { t as isApprovalNotFoundError } from \"./approval-errors-6s9UjOCm.js\";\nimport { i as setAbortMemory, r as isAbortTrigger } from \"./abort-primitives-DzH2NybG.js\";\nimport { n as formatTimeAgo } from \"./format-relative-DlQv9pwJ.js\";\nimport { n as setChannelConversationBindingMaxAgeBySessionKey, t as setChannelConversationBindingIdleTimeoutBySessionKey } from \"./conversation-bindings-7-2YCmlf.js\";\nimport { a as readChannelAllowFromStore, l as removeChannelAllowFromStoreEntry, t as addChannelAllowFromStoreEntry } from \"./pairing-store-Bd6Hl3nK.js\";\nimport { t as handleCrestodianCommand } from \"./commands-crestodian-jrWDFHcb.js\";"
+    }
+  },
+  "conclusion": "The actual Gateway RPC commands.list path imports the patched command chunk, and Telegram native command runtime also imports the patched command chunk for matching/execution. Because live commands.list still omits /ge2 after PID turnover, the R5 top-level pluginCommands.set(/ge2) is not durable through plugin registry lifecycle: it is likely cleared/rebuilt by loader registry activation, or Telegram native command catalog is snapshotted before that ad-hoc registration. The next confirmed patch target should be the plugin loader/registry activation path that builds registry.commands and pluginCommands, not another arbitrary command file and not plugin-manager bridges.",
+  "nextNoMutationTarget": "Design R7 as a snapshot-first patch to register ge2 through the same loader/registerCommand lifecycle or bundled plugin ownership path that produces pair/dreaming/phone/voice, after proving exact call order. No patch in R6."
+}

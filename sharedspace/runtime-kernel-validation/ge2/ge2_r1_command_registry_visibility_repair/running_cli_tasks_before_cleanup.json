@@ -1,0 +1,43 @@
+{
+  "count": 2,
+  "runtime": "cli",
+  "status": "running",
+  "tasks": [
+    {
+      "taskId": "9d49642f-5b2d-4a11-b167-d430dbf91569",
+      "runtime": "cli",
+      "sourceId": "exec-approval-followup:2e027a7b-8251-43a4-9ce3-46caebbf19ce",
+      "requesterSessionKey": "agent:main:telegram:direct:8495203551",
+      "ownerKey": "agent:main:telegram:direct:8495203551",
+      "scopeKind": "session",
+      "childSessionKey": "agent:main:telegram:direct:8495203551",
+      "agentId": "main",
+      "runId": "exec-approval-followup:2e027a7b-8251-43a4-9ce3-46caebbf19ce",
+      "task": "[Tue 2026-06-30 13:01 GMT+10] An async command the user already approved has completed.\nDo not run the command again.\nIf the task requires more steps, continue from this result before replying to the user.\nOnly ask the user for help if you are actually blocked.\n\nExact completion details:\nExec finished (gateway id=2e027a7b-8251-43a4-9ce3-46caebbf19ce, session=quick-valley, code 0)\n/home/stickai/.npm-global/lib/node_modules/openclaw/dist/loader-Bfm_uDYG.js:2905: registerCommand: (command) => registerCommand(record, command),\n\nContinue the task if needed, then reply to the user in a helpful way.\nIf it succeeded, share the relevant output.\nIf it failed, explain what went wrong.",
+      "status": "running",
+      "deliveryStatus": "not_applicable",
+      "notifyPolicy": "silent",
+      "createdAt": 1782788480036,
+      "startedAt": 1782788480036,
+      "lastEventAt": 1782788480036
+    },
+    {
+      "taskId": "7bfe8003-0a68-4aa5-957d-ae569d1e42fd",
+      "runtime": "cli",
+      "sourceId": "exec-approval-followup:1545d512-06ab-4076-b4eb-f50178a1788f",
+      "requesterSessionKey": "agent:main:telegram:direct:8495203551",
+      "ownerKey": "agent:main:telegram:direct:8495203551",
+      "scopeKind": "session",
+      "childSessionKey": "agent:main:telegram:direct:8495203551",
+      "agentId": "main",
+      "runId": "exec-approval-followup:1545d512-06ab-4076-b4eb-f50178a1788f",
+      "task": "[Tue 2026-06-30 13:00 GMT+10] An async command the user already approved has completed.\nDo not run the command again.\nIf the task requires more steps, continue from this result before replying to the user.\nOnly ask the user for help if you are actually blocked.\n\nExact completion details:\nExec finished (gateway id=1545d512-06ab-4076-b4eb-f50178a1788f, session=warm-shoal, code 0)\n/home/stickai/.npm-global/lib/node_modules/openclaw -> /home/stickai/.npm-global/lib/node_modules/openclaw /home/stickai/.npm-global/lib/node_modules/openclaw/dist -> /home/stickai/.npm-global/lib/node_modules/openclaw/dist /home/stickai/.npm-global/lib/node_modules/openclaw/dist/types-CdFhLeaX.js -> /home/stickai/.npm-global/lib/node_modules/openclaw/dist/types-CdFhLeaX.js\n\nContinue the task if needed, then reply to the user in a helpful way.\nIf it succeeded, share the relevant output.\nIf it failed, explain what went wrong.",
+      "status": "running",
+      "deliveryStatus": "not_applicable",
+      "notifyPolicy": "silent",
+      "createdAt": 1782788412505,
+      "startedAt": 1782788412505,
+      "lastEventAt": 1782788412505
+    }
+  ]
+}

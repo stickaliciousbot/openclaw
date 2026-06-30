@@ -1,0 +1,141 @@
+{
+  "generatedAt": "2026-06-30T06:00:12.400Z",
+  "classification": "GE2_R2_LIVE_GATEWAY_REGISTRY_AUTHORITY_ISOLATION_PASS_NO_APPLY",
+  "exactLossPoint": "Hook registrar writes /ge2 into a registrar-local command registry visible to hook-side dynamic imports of types-CdFhLeaX.js/commands-D2qp4St4.js, but live Gateway RPC commands.list reads a different authoritative pluginCommands registry that lacks /ge2. The loss occurs at registry object/module-realm boundary before command-list filtering, not in auth/scope filtering.",
+  "gateway": {
+    "pid": "285000",
+    "healthOk": true,
+    "statusText": "Service: systemd user (enabled)\nFile logs: /tmp/openclaw/openclaw-2026-06-30.log\nCommand: /usr/bin/node /home/stickai/.npm-global/lib/node_modules/openclaw/dist/index.js gateway --port 18789\nService file: ~/.config/systemd/user/openclaw-gateway.service\nService env: OPENCLAW_GATEWAY_PORT=18789\n\nConfig (cli): ~/.openclaw/openclaw.json\nConfig (service): ~/.openclaw/openclaw.json\n\nGateway: bind=lan (0.0.0.0), port=18789 (service args)\nProbe target: ws://127.0.0.1:18789\nDashboard: http://172.24.168.46:18789/\nProbe note: bind=lan listens on 0.0.0.0 (all interfaces); probing via 127.0.0.1.\n\nRuntime: running (pid 285000, state active, sub running, last exit 0, reason 0)\nConnectivity probe: ok\nCapability: admin-capable\n\nListening: *:18789\nTroubles: run openclaw status\nTroubleshooting: https://docs.openclaw.ai/troubleshooting\n"
+  },
+  "r1BlockedVerified": true,
+  "liveCommandsList": {
+    "count": 60,
+    "ge2Present": false,
+    "ge2": null,
+    "pluginEntries": [
+      {
+        "name": "pair",
+        "nativeName": "pair",
+        "textAliases": [
+          "/pair"
+        ],
+        "description": "Generate setup codes and approve device pairing requests.",
+        "source": "plugin",
+        "scope": "both",
+        "acceptsArgs": true
+      },
+      {
+        "name": "dreaming",
+        "nativeName": "dreaming",
+        "textAliases": [
+          "/dreaming"
+        ],
+        "description": "Enable or disable memory dreaming.",
+        "source": "plugin",
+        "scope": "both",
+        "acceptsArgs": true
+      },
+      {
+        "name": "phone",
+        "nativeName": "phone",
+        "textAliases": [
+          "/phone"
+        ],
+        "description": "Arm/disarm high-risk phone node commands (camera/screen/writes).",
+        "source": "plugin",
+        "scope": "both",
+        "acceptsArgs": true
+      },
+      {
+        "name": "voice",
+        "nativeName": "voice",
+        "textAliases": [
+          "/voice"
+        ],
+        "description": "List/set Talk provider voices (affects iOS Talk playback).",
+        "source": "plugin",
+        "scope": "both",
+        "acceptsArgs": true
+      }
+    ],
+    "fakePresent": false
+  },
+  "cliPluginManager": {
+    "ge2CommandPluginLoadedInCliSnapshot": true,
+    "ge2Plugin": {
+      "id": "ge2-command",
+      "name": "ge2-command",
+      "version": "0.0.2",
+      "format": "openclaw",
+      "source": "/home/stickai/.openclaw/extensions/ge2-command/index.mjs",
+      "rootDir": "/home/stickai/.openclaw/extensions/ge2-command",
+      "origin": "global",
+      "enabled": true,
+      "compat": [],
+      "syntheticAuthRefs": [],
+      "status": "loaded",
+      "toolNames": [],
+      "hookNames": [],
+      "channelIds": [],
+      "cliBackendIds": [],
+      "providerIds": [],
+      "speechProviderIds": [],
+      "realtimeTranscriptionProviderIds": [],
+      "realtimeVoiceProviderIds": [],
+      "mediaUnderstandingProviderIds": [],
+      "imageGenerationProviderIds": [],
+      "videoGenerationProviderIds": [],
+      "musicGenerationProviderIds": [],
+      "webFetchProviderIds": [],
+      "webSearchProviderIds": [],
+      "migrationProviderIds": [],
+      "memoryEmbeddingProviderIds": [],
+      "agentHarnessIds": [],
+      "gatewayMethods": [],
+      "cliCommands": [],
+      "services": [],
+      "gatewayDiscoveryServiceIds": [],
+      "commands": [
+        "ge2"
+      ],
+      "httpRoutes": 0,
+      "hookCount": 0,
+      "configSchema": false,
+      "contracts": {},
+      "dependencyStatus": {
+        "hasDependencies": false,
+        "installed": true,
+        "requiredInstalled": true,
+        "optionalInstalled": true,
+        "missing": [],
+        "missingOptional": [],
+        "dependencies": [],
+        "optionalDependencies": []
+      }
+    }
+  },
+  "hookEvidence": {
+    "ge2HookLog": [
+      "{\"timestamp\":\"2026-06-30T02:46:06.724Z\",\"invoked\":true,\"type\":\"gateway\",\"action\":\"selftest\",\"registration\":{\"ok\":true,\"alreadyRegistered\":false,\"registry\":{\"visible\":true,\"ge2\":{\"name\":\"ge2\",\"description\":\"Run GE2 native command operations (run/status/artifacts/cancel).\",\"pluginId\":\"ge2-native-command\",\"acceptsArgs\":true},\"pluginCommandCount\":1},\"phase\":\"startup-immediate\"}}",
+      "{\"timestamp\":\"2026-06-30T02:56:44.185Z\",\"invoked\":true,\"type\":\"gateway\",\"action\":\"startup\",\"registration\":{\"ok\":true,\"alreadyRegistered\":false,\"registry\":{\"visible\":true,\"ge2\":{\"name\":\"ge2\",\"description\":\"Run GE2 native command operations (run/status/artifacts/cancel).\",\"pluginId\":\"ge2-native-command\",\"acceptsArgs\":true},\"pluginCommandCount\":5},\"phase\":\"startup-immediate\"}}",
+      "{\"timestamp\":\"2026-06-30T02:56:55.791Z\",\"invoked\":true,\"type\":\"gateway\",\"action\":\"startup\",\"registration\":{\"ok\":true,\"alreadyRegistered\":true,\"registry\":{\"visible\":true,\"ge2\":{\"name\":\"ge2\",\"description\":\"Run GE2 native command operations (run/status/artifacts/cancel).\",\"pluginId\":\"ge2-native-command\",\"acceptsArgs\":true},\"pluginCommandCount\":5},\"phase\":\"post-startup-3000ms\"}}",
+      "{\"timestamp\":\"2026-06-30T02:56:55.797Z\",\"invoked\":true,\"type\":\"gateway\",\"action\":\"startup\",\"registration\":{\"ok\":true,\"alreadyRegistered\":true,\"registry\":{\"visible\":true,\"ge2\":{\"name\":\"ge2\",\"description\":\"Run GE2 native command operations (run/status/artifacts/cancel).\",\"pluginId\":\"ge2-native-command\",\"acceptsArgs\":true},\"pluginCommandCount\":5},\"phase\":\"post-startup-10000ms\"}}",
+      "{\"timestamp\":\"2026-06-30T03:13:36.682Z\",\"invoked\":true,\"type\":\"gateway\",\"action\":\"startup\",\"registration\":{\"ok\":true,\"alreadyRegistered\":false,\"registry\":{\"visible\":true,\"ge2\":{\"name\":\"ge2\",\"description\":\"Run GE2 native command operations (run/status/artifacts/cancel).\",\"pluginId\":\"ge2-native-command\",\"acceptsArgs\":true},\"pluginCommandCount\":5},\"phase\":\"startup-immediate\"}}",
+      "{\"timestamp\":\"2026-06-30T03:13:47.181Z\",\"invoked\":true,\"type\":\"gateway\",\"action\":\"startup\",\"registration\":{\"ok\":true,\"alreadyRegistered\":true,\"registry\":{\"visible\":true,\"ge2\":{\"name\":\"ge2\",\"description\":\"Run GE2 native command operations (run/status/artifacts/cancel).\",\"pluginId\":\"ge2-native-command\",\"acceptsArgs\":true},\"pluginCommandCount\":5},\"phase\":\"post-startup-3000ms\"}}",
+      "{\"timestamp\":\"2026-06-30T03:13:47.182Z\",\"invoked\":true,\"type\":\"gateway\",\"action\":\"startup\",\"registration\":{\"ok\":true,\"alreadyRegistered\":true,\"registry\":{\"visible\":true,\"ge2\":{\"name\":\"ge2\",\"description\":\"Run GE2 native command operations (run/status/artifacts/cancel).\",\"pluginId\":\"ge2-native-command\",\"acceptsArgs\":true},\"pluginCommandCount\":5},\"phase\":\"post-startup-10000ms\"}}",
+      "{\"timestamp\":\"2026-06-30T03:49:17.136Z\",\"invoked\":true,\"type\":\"gateway\",\"action\":\"startup\",\"registration\":{\"ok\":true,\"alreadyRegistered\":false,\"registry\":{\"visible\":true,\"ge2\":{\"name\":\"ge2\",\"description\":\"Run GE2 native command operations (run/status/artifacts/cancel).\",\"pluginId\":\"ge2-native-command\",\"acceptsArgs\":true},\"pluginCommandCount\":5},\"phase\":\"startup-immediate\"}}",
+      "{\"timestamp\":\"2026-06-30T03:49:20.333Z\",\"invoked\":true,\"type\":\"gateway\",\"action\":\"startup\",\"registration\":{\"ok\":true,\"alreadyRegistered\":true,\"registry\":{\"visible\":true,\"ge2\":{\"name\":\"ge2\",\"description\":\"Run GE2 native command operations (run/status/artifacts/cancel).\",\"pluginId\":\"ge2-native-command\",\"acceptsArgs\":true},\"pluginCommandCount\":5},\"phase\":\"post-startup-3000ms\"}}",
+      "{\"timestamp\":\"2026-06-30T03:49:28.435Z\",\"invoked\":true,\"type\":\"gateway\",\"action\":\"startup\",\"registration\":{\"ok\":true,\"alreadyRegistered\":true,\"registry\":{\"visible\":true,\"ge2\":{\"name\":\"ge2\",\"description\":\"Run GE2 native command operations (run/status/artifacts/cancel).\",\"pluginId\":\"ge2-native-command\",\"acceptsArgs\":true},\"pluginCommandCount\":5},\"phase\":\"post-startup-10000ms\"}}",
+      "{\"timestamp\":\"2026-06-30T04:00:38.669Z\",\"invoked\":true,\"type\":\"gateway\",\"action\":\"startup\",\"registration\":{\"ok\":true,\"alreadyRegistered\":false,\"registry\":{\"visible\":true,\"ge2\":{\"name\":\"ge2\",\"description\":\"Run GE2 native command operations (run/status/artifacts/cancel).\",\"pluginId\":\"ge2-native-command\",\"acceptsArgs\":true},\"pluginCommandCount\":5},\"phase\":\"startup-immediate\"}}",
+      "{\"timestamp\":\"2026-06-30T04:00:48.849Z\",\"invoked\":true,\"type\":\"gateway\",\"action\":\"startup\",\"registration\":{\"ok\":true,\"alreadyRegistered\":true,\"registry\":{\"visible\":true,\"ge2\":{\"name\":\"ge2\",\"description\":\"Run GE2 native command operations (run/status/artifacts/cancel).\",\"pluginId\":\"ge2-native-command\",\"acceptsArgs\":true},\"pluginCommandCount\":5},\"phase\":\"post-startup-3000ms\"}}",
+      "{\"timestamp\":\"2026-06-30T04:00:48.849Z\",\"invoked\":true,\"type\":\"gateway\",\"action\":\"startup\",\"registration\":{\"ok\":true,\"alreadyRegistered\":true,\"registry\":{\"visible\":true,\"ge2\":{\"name\":\"ge2\",\"description\":\"Run GE2 native command operations (run/status/artifacts/cancel).\",\"pluginId\":\"ge2-native-command\",\"acceptsArgs\":true},\"pluginCommandCount\":5},\"phase\":\"post-startup-10000ms\"}}",
+      "{\"timestamp\":\"2026-06-30T04:16:29.080Z\",\"invoked\":true,\"type\":\"gateway\",\"action\":\"startup\",\"registration\":{\"ok\":true,\"alreadyRegistered\":false,\"registry\":{\"visible\":true,\"ge2\":{\"name\":\"ge2\",\"description\":\"Run GE2 native command operations (run/status/artifacts/cancel).\",\"pluginId\":\"ge2-native-command\",\"acceptsArgs\":true},\"pluginCommandCount\":5},\"phase\":\"startup-immediate\"}}",
+      "{\"timestamp\":\"2026-06-30T04:16:32.239Z\",\"invoked\":true,\"type\":\"gateway\",\"action\":\"startup\",\"registration\":{\"ok\":true,\"alreadyRegistered\":true,\"registry\":{\"visible\":true,\"ge2\":{\"name\":\"ge2\",\"description\":\"Run GE2 native command operations (run/status/artifacts/cancel).\",\"pluginId\":\"ge2-native-command\",\"acceptsArgs\":true},\"pluginCommandCount\":5},\"phase\":\"post-startup-3000ms\"}}",
+      "{\"timestamp\":\"2026-06-30T04:16:41.159Z\",\"invoked\":true,\"type\":\"gateway\",\"action\":\"startup\",\"registration\":{\"ok\":true,\"alreadyRegistered\":true,\"registry\":{\"visible\":true,\"ge2\":{\"name\":\"ge2\",\"description\":\"Run GE2 native command operations (run/status/artifacts/cancel).\",\"pluginId\":\"ge2-native-command\",\"acceptsArgs\":true},\"pluginCommandCount\":5},\"phase\":\"post-startup-10000ms\"}}"
+    ]
+  },
+  "noApply": true,
+  "restartReloadRequiredDuringR2": false,
+  "recommendedGe2R3Scope": "packaging/bundle singleton repair",
+  "recommendedGe2R3ScopeDetail": "Repair canonical registry singleton/module authority so hook/plugin registration and Gateway RPC commands.list use the same live pluginCommands map; do not hardcode /ge2 and do not broaden command visibility."
+}

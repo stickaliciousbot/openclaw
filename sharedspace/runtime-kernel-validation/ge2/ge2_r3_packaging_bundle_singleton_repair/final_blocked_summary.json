@@ -1,0 +1,275 @@
+{
+  "generatedAt": "2026-06-30T06:39:52.431Z",
+  "classification": "GE2_R3_BLOCKED_LIVE_COMMANDS_LIST_OMITS_GE2_AFTER_SINGLETON_AND_EFFECTIVE_REGISTRY_BRIDGE",
+  "pass": false,
+  "passCriterion": "live Gateway RPC commands.list exposes /ge2",
+  "gateway": {
+    "previousPidBeforeSecondRestart": "295400",
+    "finalPid": "297423",
+    "healthOk": true,
+    "adminCapable": true,
+    "statusExit": 0
+  },
+  "commandSurfaces": {
+    "summaryFile": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r3_packaging_bundle_singleton_repair/commands_list_after_restart_summary.json",
+    "surfaceResults": [
+      {
+        "name": "default",
+        "ok": true,
+        "status": 0,
+        "count": 60,
+        "ge2Present": false,
+        "fakePresent": false,
+        "pluginNames": [
+          "pair",
+          "dreaming",
+          "phone",
+          "voice"
+        ],
+        "pluginEntries": [
+          {
+            "name": "pair",
+            "nativeName": "pair",
+            "textAliases": [
+              "/pair"
+            ],
+            "description": "Generate setup codes and approve device pairing requests.",
+            "source": "plugin",
+            "scope": "both",
+            "acceptsArgs": true
+          },
+          {
+            "name": "dreaming",
+            "nativeName": "dreaming",
+            "textAliases": [
+              "/dreaming"
+            ],
+            "description": "Enable or disable memory dreaming.",
+            "source": "plugin",
+            "scope": "both",
+            "acceptsArgs": true
+          },
+          {
+            "name": "phone",
+            "nativeName": "phone",
+            "textAliases": [
+              "/phone"
+            ],
+            "description": "Arm/disarm high-risk phone node commands (camera/screen/writes).",
+            "source": "plugin",
+            "scope": "both",
+            "acceptsArgs": true
+          },
+          {
+            "name": "voice",
+            "nativeName": "voice",
+            "textAliases": [
+              "/voice"
+            ],
+            "description": "List/set Talk provider voices (affects iOS Talk playback).",
+            "source": "plugin",
+            "scope": "both",
+            "acceptsArgs": true
+          }
+        ]
+      },
+      {
+        "name": "telegram_both",
+        "ok": true,
+        "status": 0,
+        "count": 60,
+        "ge2Present": false,
+        "fakePresent": false,
+        "pluginNames": [
+          "pair",
+          "dreaming",
+          "phone",
+          "voice"
+        ],
+        "pluginEntries": [
+          {
+            "name": "pair",
+            "nativeName": "pair",
+            "textAliases": [
+              "/pair"
+            ],
+            "description": "Generate setup codes and approve device pairing requests.",
+            "source": "plugin",
+            "scope": "both",
+            "acceptsArgs": true
+          },
+          {
+            "name": "dreaming",
+            "nativeName": "dreaming",
+            "textAliases": [
+              "/dreaming"
+            ],
+            "description": "Enable or disable memory dreaming.",
+            "source": "plugin",
+            "scope": "both",
+            "acceptsArgs": true
+          },
+          {
+            "name": "phone",
+            "nativeName": "phone",
+            "textAliases": [
+              "/phone"
+            ],
+            "description": "Arm/disarm high-risk phone node commands (camera/screen/writes).",
+            "source": "plugin",
+            "scope": "both",
+            "acceptsArgs": true
+          },
+          {
+            "name": "voice",
+            "nativeName": "voice",
+            "textAliases": [
+              "/voice"
+            ],
+            "description": "List/set Talk provider voices (affects iOS Talk playback).",
+            "source": "plugin",
+            "scope": "both",
+            "acceptsArgs": true
+          }
+        ]
+      },
+      {
+        "name": "telegram_text",
+        "ok": true,
+        "status": 0,
+        "count": 60,
+        "ge2Present": false,
+        "fakePresent": false,
+        "pluginNames": [
+          "pair",
+          "dreaming",
+          "phone",
+          "voice"
+        ],
+        "pluginEntries": [
+          {
+            "name": "pair",
+            "nativeName": "pair",
+            "textAliases": [
+              "/pair"
+            ],
+            "description": "Generate setup codes and approve device pairing requests.",
+            "source": "plugin",
+            "scope": "both",
+            "acceptsArgs": true
+          },
+          {
+            "name": "dreaming",
+            "nativeName": "dreaming",
+            "textAliases": [
+              "/dreaming"
+            ],
+            "description": "Enable or disable memory dreaming.",
+            "source": "plugin",
+            "scope": "both",
+            "acceptsArgs": true
+          },
+          {
+            "name": "phone",
+            "nativeName": "phone",
+            "textAliases": [
+              "/phone"
+            ],
+            "description": "Arm/disarm high-risk phone node commands (camera/screen/writes).",
+            "source": "plugin",
+            "scope": "both",
+            "acceptsArgs": true
+          },
+          {
+            "name": "voice",
+            "nativeName": "voice",
+            "textAliases": [
+              "/voice"
+            ],
+            "description": "List/set Talk provider voices (affects iOS Talk playback).",
+            "source": "plugin",
+            "scope": "both",
+            "acceptsArgs": true
+          }
+        ]
+      }
+    ],
+    "allGe2Present": false,
+    "allFakeAbsent": true,
+    "allCorePluginNamesPreserved": true,
+    "ge2InPluginNames": false
+  },
+  "pluginManager": {
+    "ge2Loaded": true,
+    "ge2Commands": [
+      "ge2"
+    ],
+    "source": "/home/stickai/.openclaw/extensions/ge2-command/index.mjs",
+    "contradiction": "plugin manager reports ge2-command loaded with commands:[ge2], but live commands.list surfaces omit /ge2"
+  },
+  "executionSurface": {
+    "attempted": false,
+    "reason": "Not attempted as success evidence because R3 public visibility hard gate failed; invoking /ge2 through a user-facing channel would risk external side effects and could not override commands.list omission."
+  },
+  "negativeChecks": {
+    "fakeAbsent": true,
+    "unrelatedPluginCommandsPreserved": true,
+    "unrelatedPluginNamesExpected": [
+      "pair",
+      "dreaming",
+      "phone",
+      "voice"
+    ]
+  },
+  "doctor": {
+    "command": "openclaw doctor --non-interactive",
+    "result": "timeout_SIGKILL_after_warnings_no_fix_applied",
+    "timeoutSeconds": 240,
+    "evidenceFile": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r3_packaging_bundle_singleton_repair/doctor_noninteractive_timeout_excerpt.txt"
+  },
+  "files": {
+    "types": {
+      "path": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/types-CdFhLeaX.js",
+      "exists": true,
+      "sha256": "864d569218baa6a23bfaa48547947e503ea2343929e5f78171af4e031dad202f"
+    },
+    "commands": {
+      "path": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/commands-D2qp4St4.js",
+      "exists": true,
+      "sha256": "fad314e2005e0481f724afe5c0dbabb3888d6756bd0812324862ae9a96a10b5b"
+    },
+    "hook": {
+      "path": "/home/stickai/.openclaw/workspace/hooks/ge2-register/handler.js",
+      "exists": true,
+      "sha256": "d17e0f79d4e2ec5d131ad53e01fc4f1ada34cbeead3c3a90edeecbab87ad833a"
+    },
+    "commandsParser": {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r3_packaging_bundle_singleton_repair/parse_live_commands_after_restart_20260630.mjs",
+      "exists": true,
+      "sha256": "2850333f7a91f69de97ce182a354f3e4bc2e0fafcd2f7149001d1f7c09330e86"
+    },
+    "preRepairSnapshot": {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r3_packaging_bundle_singleton_repair/pre_repair_snapshot.json",
+      "exists": true,
+      "sha256": "05b07b63dc2ff99a4430374644bf623b59cd10b2c04556c2e89291c44e1f87fa"
+    },
+    "commandsBridgeSnapshot": {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r3_packaging_bundle_singleton_repair/commands_bridge_target_snapshot.json",
+      "exists": true,
+      "sha256": "7b987e83687d65e352b7813ac7bcc169230a2e83148433f131deb9b5e19209f6"
+    },
+    "localFallbackValidation": {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r3_packaging_bundle_singleton_repair/local_fallback_bridge_validation.json",
+      "exists": true,
+      "sha256": "beca79e066075528e9580a4edb599fb24ab11144900faac1ba4418688e836081"
+    },
+    "restartHold": {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r3_packaging_bundle_singleton_repair/restart_hold_20260630T0629Z.json",
+      "exists": true,
+      "sha256": "81ec21d1543307bc173b1557a839ddb5ca6382f6b9e88de2928faec74cddbb03"
+    }
+  },
+  "nextRecommendedScope": "GE2-R3 remains blocked. Next diagnostic should prove why getActivePluginRegistry().commands is not visible to commands-D2qp4St4.js in live RPC, or move the narrow bridge to the authoritative server-methods command-list construction after extracting active registry entries there. Do not start GE2-R4 automatically.",
+  "noR4Started": true,
+  "cronCloseoutRetry": false
+}

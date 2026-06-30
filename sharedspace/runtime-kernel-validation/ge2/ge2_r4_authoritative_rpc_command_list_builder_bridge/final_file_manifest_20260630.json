@@ -1,0 +1,79 @@
+{
+  "generatedAt": "2026-06-30T06:59:11.507Z",
+  "allExist": true,
+  "count": 12,
+  "manifest": [
+    {
+      "name": "serverMethods",
+      "path": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/server-methods-Dw6hzI_j.js",
+      "exists": true,
+      "sha256": "638aa2dbf4cc7a9758b0d3f5679ec745e329e0f8f164408731a2107357993986"
+    },
+    {
+      "name": "commands",
+      "path": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/commands-D2qp4St4.js",
+      "exists": true,
+      "sha256": "fad314e2005e0481f724afe5c0dbabb3888d6756bd0812324862ae9a96a10b5b"
+    },
+    {
+      "name": "types",
+      "path": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/types-CdFhLeaX.js",
+      "exists": true,
+      "sha256": "864d569218baa6a23bfaa48547947e503ea2343929e5f78171af4e031dad202f"
+    },
+    {
+      "name": "preRepairSnapshot",
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r4_authoritative_rpc_command_list_builder_bridge/pre_repair_snapshot.json",
+      "exists": true,
+      "sha256": "c378f63cb38be311e681717742a6e7d31c66c49952e9127a194b31151c8ba20d"
+    },
+    {
+      "name": "localPatchValidation",
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r4_authoritative_rpc_command_list_builder_bridge/local_patch_validation.json",
+      "exists": true,
+      "sha256": "37f46c4376883f25091a36bb5e5d59f1cc1a9675c817dfb47d6be49a4e0ab3e5"
+    },
+    {
+      "name": "restartHold",
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r4_authoritative_rpc_command_list_builder_bridge/restart_hold_20260630T0654Z.json",
+      "exists": true,
+      "sha256": "e2599ba2b56497ea1b69d7c24892b54d77a2b45eb3877c5a1ed7a65d248b82de"
+    },
+    {
+      "name": "commandParser",
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r4_authoritative_rpc_command_list_builder_bridge/parse_live_commands_after_restart_20260630.mjs",
+      "exists": true,
+      "sha256": "95afefcb94282bfdb9545e130ef1a45f9129a0294f5c14a8430ee1059a7d086f"
+    },
+    {
+      "name": "commandSummary",
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r4_authoritative_rpc_command_list_builder_bridge/commands_list_after_restart_summary.json",
+      "exists": true,
+      "sha256": "fc97c54fa0a4f24c1f5edc283f3fead899d2af2788347f9494d77e528f23d4ea"
+    },
+    {
+      "name": "final_blocked_summary",
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r4_authoritative_rpc_command_list_builder_bridge/final_blocked_summary.json",
+      "exists": true,
+      "sha256": "6c2bee44f5dafe40c8cab7e28eb98711c20c11a84ca8f09e4cf4017290cb073a"
+    },
+    {
+      "name": "final_markdown",
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r4_authoritative_rpc_command_list_builder_bridge/GE2_R4_FINAL_BLOCKED.md",
+      "exists": true,
+      "sha256": "f67ba7c005b69618504ea64068140ea5ce625f5f6c92284ba6ef9df9f416dfa0"
+    },
+    {
+      "name": "gateway_status_final",
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r4_authoritative_rpc_command_list_builder_bridge/gateway_status_final.txt",
+      "exists": true,
+      "sha256": "03d19df13146b022d371345d0bbf47b7f5913a97c094890739da0f077953877a"
+    },
+    {
+      "name": "plugins_list_final",
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/ge2/ge2_r4_authoritative_rpc_command_list_builder_bridge/plugins_list_final.json",
+      "exists": true,
+      "sha256": "7eed8d8fdf6907745e39caa3d2433c801be7d9cf160bcdcb122c9ee78c4ec331"
+    }
+  ]
+}
