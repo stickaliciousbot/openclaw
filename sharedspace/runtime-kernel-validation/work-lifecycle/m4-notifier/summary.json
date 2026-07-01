@@ -1,0 +1,53 @@
+{
+  "schema": "work_lifecycle.m4.summary.v1",
+  "runId": "work_20260701T075200Z_lifecycle_ledger_m4",
+  "status": "PASS_WITH_PUSH_PENDING_HOLD_BEFORE_M5",
+  "classification": "WORK_LIFECYCLE_M4_NOTIFIER_LOCAL_PASS_PUSH_PENDING",
+  "completedAt": "2026-07-01T07:58:00Z",
+  "artifacts": [
+    "src/work-lifecycle/work-notification-template.ts",
+    "src/work-lifecycle/work-notification-outbox.ts",
+    "src/work-lifecycle/work-notifier.ts",
+    "src/work-lifecycle/work-notifier.test.mjs",
+    "state/work-lifecycle/runs/work_20260701T075200Z_lifecycle_ledger_m4.json",
+    "state/work-lifecycle/events/work_20260701T075200Z_lifecycle_ledger_m4.jsonl",
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m4-notifier/gate-results.json"
+  ],
+  "validation": {
+    "initial": {
+      "id": "ea3f4c2c-d169-471e-9177-7db809ef79fa",
+      "status": "FAIL_REPAIRED",
+      "output": ["tests 7", "pass 7", "fail 0", "M4_REDACTION_SCAN_FAIL [('src/work-lifecycle/work-notifier.test.mjs', 'raw-telegram-chat-id')]"],
+      "failure": "Repo-bound test fixture contained raw Telegram-shaped id while testing redaction."
+    },
+    "afterRepair": {
+      "id": "bdd3e44b-7012-4117-9035-9591e3620642",
+      "status": "PASS",
+      "output": ["tests 7", "pass 7", "fail 0", "M4_REDACTION_SCAN_PASS", "M4_FOCUSED_VALIDATION_PASS_AFTER_REPAIR"]
+    }
+  },
+  "gates": {
+    "M4_G1_PASS_NOTIFICATION": "PASS",
+    "M4_G2_FAIL_NOTIFICATION": "PASS",
+    "M4_G3_HOLD_NOTIFICATION": "PASS",
+    "M4_G4_ABORT_NOTIFICATION": "PASS",
+    "M4_G5_PAYLOAD_FIELDS": "PASS",
+    "M4_G6_REDACTION": "PASS_AFTER_REPAIR",
+    "M4_REDACTION_SCAN": "PASS",
+    "OWNER_GITHUB_PUSH_BEFORE_NEXT_MILESTONE": "PENDING"
+  },
+  "failedGates": [],
+  "blockersBeforeM5": ["GitHub selective stage/commit/push required before starting M5."],
+  "boundaryReadback": {
+    "runtimeBehaviorChanged": false,
+    "gatewayConfigChanged": false,
+    "gatewayRestarted": false,
+    "routesChanged": false,
+    "providerAuthChanged": false,
+    "ge2Mutated": false,
+    "vectorGraphMemoryMutated": false,
+    "vnextMeshMutated": false,
+    "runtimeHookImported": false,
+    "telegramSent": false
+  }
+}

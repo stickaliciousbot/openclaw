@@ -1,0 +1,70 @@
+{
+  "schema_version": "work_lifecycle.v1",
+  "run_id": "work_20260701T075200Z_lifecycle_ledger_m4",
+  "parent_run_id": "work_20260701T074100Z_lifecycle_ledger_m3",
+  "user_turn_id": "telegram:turn:sha256-redacted",
+  "surface": "telegram_direct",
+  "chat_id": "telegram:direct:sha256-redacted",
+  "actor": "stickbot",
+  "title": "OpenClaw Stickbot Work Lifecycle Ledger M4 terminal notifier sidecar",
+  "requested_by": "operator",
+  "status": "HOLD",
+  "started_at": "2026-07-01T07:52:00Z",
+  "updated_at": "2026-07-01T07:58:00Z",
+  "ended_at": null,
+  "safety_boundary": {
+    "mode": "repo_patch",
+    "allowed_mutations": ["working_tree", "docs", "local_artifacts", "state_sidecar_samples", "focused_tests", "fixture_repair"],
+    "forbidden_mutations": ["production_gateway_config", "gateway_restart", "service_restart", "provider_auth", "secrets", "route_change", "fallback_change", "memory_promotion", "ge2_mutation", "vnext_mesh_mutation", "vector_graph_memory_mutation", "runtime_hook_import", "telegram_send"],
+    "requires_operator_approval": ["production_apply", "service_restart", "network_exposure_change", "runtime_hook_import"],
+    "rollback_required": false,
+    "secrets_redaction_required": true
+  },
+  "ack": {
+    "required": true,
+    "delivered": true,
+    "delivered_at": "2026-07-01T07:52:00Z",
+    "notification_id": "telegram-visible-m4-running-20260701T075200Z"
+  },
+  "milestones": [
+    {
+      "milestone_id": "M4",
+      "name": "Implement sidecar terminal notification templates/outbox/notifier",
+      "status": "PASS",
+      "required": true,
+      "started_at": "2026-07-01T07:52:00Z",
+      "ended_at": "2026-07-01T07:58:00Z",
+      "hard_gates": [
+        { "name": "M4_G1_pass_notification", "status": "PASS" },
+        { "name": "M4_G2_fail_notification", "status": "PASS" },
+        { "name": "M4_G3_hold_notification", "status": "PASS" },
+        { "name": "M4_G4_abort_notification", "status": "PASS" },
+        { "name": "M4_G5_payload_fields", "status": "PASS" },
+        { "name": "M4_G6_redaction", "status": "PASS" }
+      ],
+      "artifacts": [
+        "src/work-lifecycle/work-notification-template.ts",
+        "src/work-lifecycle/work-notification-outbox.ts",
+        "src/work-lifecycle/work-notifier.ts",
+        "src/work-lifecycle/work-notifier.test.mjs",
+        "sharedspace/runtime-kernel-validation/work-lifecycle/m4-notifier/summary.json",
+        "sharedspace/runtime-kernel-validation/work-lifecycle/m4-notifier/gate-results.json"
+      ],
+      "notification": {
+        "required": true,
+        "delivered": true,
+        "delivered_at": "2026-07-01T07:58:00Z",
+        "notification_id": "telegram-visible-m4-pass-hold-20260701T075800Z"
+      }
+    }
+  ],
+  "failure": null,
+  "hold": {
+    "code": "GITHUB_PUSH_REQUIRED_BEFORE_M5",
+    "reason": "Stick requires code/docs pushed to GitHub after each milestone PASS before starting the next milestone.",
+    "needed_from_operator": "Selective staging/commit/push must complete before M5 starts.",
+    "blocker_artifacts": ["sharedspace/runtime-kernel-validation/work-lifecycle/m4-notifier/summary.json"]
+  },
+  "abort": null,
+  "superseded_by": null
+}
