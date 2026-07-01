@@ -1,0 +1,55 @@
+{
+  "schema": "work_lifecycle.m1.summary.v1",
+  "runId": "work_20260701T053200Z_lifecycle_ledger_m1",
+  "status": "PASS_WITH_PUSH_PENDING_HOLD_BEFORE_M2",
+  "classification": "WORK_LIFECYCLE_M1_STORE_REPLAY_LOCK_LOCAL_PASS_PUSH_PENDING",
+  "completedAt": "2026-07-01T05:41:00Z",
+  "artifacts": [
+    "src/work-lifecycle/work-ledger-store.ts",
+    "src/work-lifecycle/work-ledger-replay.ts",
+    "src/work-lifecycle/work-ledger-lock.ts",
+    "src/work-lifecycle/work-ledger-store.test.mjs",
+    "src/work-lifecycle/work-ledger-replay.test.mjs",
+    "src/work-lifecycle/work-ledger-lock.test.mjs",
+    "state/work-lifecycle/runs/work_20260701T053200Z_lifecycle_ledger_m1.json",
+    "state/work-lifecycle/events/work_20260701T053200Z_lifecycle_ledger_m1.jsonl",
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m1-store/gate-results.json"
+  ],
+  "validation": {
+    "initial": {
+      "id": "cc27e1c5-4bfa-4f72-a771-6b4cdd1e75aa",
+      "status": "FAIL_REPAIRED",
+      "output": ["tests 10", "pass 9", "fail 1"],
+      "failure": "work-ledger-store.test.mjs atomicWriteJson failure-path test exposed unwrapped parent-directory creation error"
+    },
+    "afterRepair": {
+      "id": "93350b61-17ca-43e7-a14b-42189e4fb645",
+      "status": "PASS",
+      "output": ["tests 10", "pass 10", "fail 0", "M1_REDACTION_SCAN_PASS", "M1_FOCUSED_VALIDATION_PASS_AFTER_REPAIR"]
+    }
+  },
+  "gates": {
+    "M1_G1_ATOMIC_WRITE_TEST": "PASS_AFTER_REPAIR",
+    "M1_G2_EVENT_REPLAY_TEST": "PASS",
+    "M1_G3_CORRUPT_PARTIAL_QUARANTINE": "PASS",
+    "M1_G4_LOCK_SERIALIZATION": "PASS",
+    "M1_G5_SCHEMA_VALIDATION_BASELINE": "PASS_BASELINE",
+    "M1_REDACTION_SCAN": "PASS",
+    "OWNER_GITHUB_PUSH_BEFORE_NEXT_MILESTONE": "PENDING"
+  },
+  "failedGates": [],
+  "blockersBeforeM2": [
+    "GitHub selective stage/commit/push required before starting M2."
+  ],
+  "boundaryReadback": {
+    "runtimeBehaviorChanged": false,
+    "gatewayConfigChanged": false,
+    "gatewayRestarted": false,
+    "routesChanged": false,
+    "providerAuthChanged": false,
+    "ge2Mutated": false,
+    "vectorGraphMemoryMutated": false,
+    "vnextMeshMutated": false,
+    "runtimeHookImported": false
+  }
+}

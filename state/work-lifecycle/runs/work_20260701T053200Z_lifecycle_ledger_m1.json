@@ -1,0 +1,74 @@
+{
+  "schema_version": "work_lifecycle.v1",
+  "run_id": "work_20260701T053200Z_lifecycle_ledger_m1",
+  "parent_run_id": "work_20260701T043800Z_lifecycle_ledger_m0",
+  "user_turn_id": "telegram:turn:sha256-redacted",
+  "surface": "telegram_direct",
+  "chat_id": "telegram:direct:sha256-redacted",
+  "actor": "stickbot",
+  "title": "OpenClaw Stickbot Work Lifecycle Ledger M1 durable store/replay sidecar",
+  "requested_by": "operator",
+  "status": "HOLD",
+  "started_at": "2026-07-01T05:32:00Z",
+  "updated_at": "2026-07-01T05:41:00Z",
+  "ended_at": null,
+  "safety_boundary": {
+    "mode": "repo_patch",
+    "allowed_mutations": ["working_tree", "docs", "local_artifacts", "state_sidecar_samples", "focused_tests", "bug_repair"],
+    "forbidden_mutations": ["production_gateway_config", "gateway_restart", "service_restart", "provider_auth", "secrets", "route_change", "fallback_change", "memory_promotion", "ge2_mutation", "vnext_mesh_mutation", "vector_graph_memory_mutation", "runtime_hook_import"],
+    "requires_operator_approval": ["production_apply", "service_restart", "network_exposure_change"],
+    "rollback_required": false,
+    "secrets_redaction_required": true
+  },
+  "ack": {
+    "required": true,
+    "delivered": true,
+    "delivered_at": "2026-07-01T05:32:00Z",
+    "notification_id": "telegram-visible-m1-running-20260701T053200Z"
+  },
+  "milestones": [
+    {
+      "milestone_id": "M1",
+      "name": "Implement durable ledger store, replay, and lock sidecar",
+      "status": "PASS",
+      "required": true,
+      "started_at": "2026-07-01T05:32:00Z",
+      "ended_at": "2026-07-01T05:41:00Z",
+      "hard_gates": [
+        { "name": "M1_G1_atomic_write_test", "status": "PASS", "reason": "Passed after atomicWriteJson mkdir try/catch repair." },
+        { "name": "M1_G2_event_replay_test", "status": "PASS" },
+        { "name": "M1_G3_corrupt_partial_quarantine", "status": "PASS" },
+        { "name": "M1_G4_lock_serialization", "status": "PASS" },
+        { "name": "M1_G5_schema_validation_baseline", "status": "PASS" },
+        { "name": "M1_redaction_scan", "status": "PASS" }
+      ],
+      "artifacts": [
+        "src/work-lifecycle/work-ledger-store.ts",
+        "src/work-lifecycle/work-ledger-replay.ts",
+        "src/work-lifecycle/work-ledger-lock.ts",
+        "src/work-lifecycle/work-ledger-store.test.mjs",
+        "src/work-lifecycle/work-ledger-replay.test.mjs",
+        "src/work-lifecycle/work-ledger-lock.test.mjs",
+        "sharedspace/runtime-kernel-validation/work-lifecycle/m1-store/summary.json",
+        "sharedspace/runtime-kernel-validation/work-lifecycle/m1-store/gate-results.json"
+      ],
+      "notification": {
+        "required": true,
+        "delivered": true,
+        "delivered_at": "2026-07-01T05:41:00Z",
+        "notification_id": "telegram-visible-m1-pass-hold-20260701T054100Z"
+      }
+    }
+  ],
+  "failure": null,
+  "hold": {
+    "code": "GITHUB_PUSH_REQUIRED_BEFORE_M2",
+    "reason": "Stick requires code/docs pushed to GitHub after each milestone PASS before starting the next milestone.",
+    "needed_from_operator": "Selective staging/commit/push must complete before M2 starts.",
+    "blocker_artifacts": [
+      "sharedspace/runtime-kernel-validation/work-lifecycle/m1-store/summary.json"
+    ]
+  },
+  "abort": null,
+  "superseded_by": null
+}
