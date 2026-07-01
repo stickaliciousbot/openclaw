@@ -1,0 +1,76 @@
+{
+  "schema": "work_lifecycle.m0.summary.v1",
+  "runId": "work_20260701T043800Z_lifecycle_ledger_m0",
+  "status": "PASS_WITH_PUSH_PENDING_HOLD_BEFORE_M1",
+  "classification": "WORK_LIFECYCLE_M0_CONTRACT_LOCAL_PASS_REDACTION_REPAIRED_PUSH_PENDING",
+  "completedAt": "2026-07-01T04:48:00Z",
+  "artifacts": [
+    "docs/work-lifecycle-ledger.md",
+    "src/work-lifecycle/work-lifecycle.types.ts",
+    "src/work-lifecycle/work-lifecycle.schema.ts",
+    "sharedspace/runtime-kernel-validation/work-lifecycle-ledger/OPENCLAW_STICKBOT_WORK_LIFECYCLE_LEDGER_DESIGN_NOTEBOOK.md",
+    "sharedspace/runtime-kernel-validation/work-lifecycle-ledger/intake-chunk-2-banana-20260701.md",
+    "state/work-lifecycle/runs/work_20260701T043800Z_lifecycle_ledger_m0.json",
+    "state/work-lifecycle/events/work_20260701T043800Z_lifecycle_ledger_m0.jsonl",
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m0-contract/gate-results.json"
+  ],
+  "gates": {
+    "M0_G1": "PASS",
+    "M0_G2": "PASS",
+    "M0_G3": "PASS",
+    "M0_G4": "PASS",
+    "M0_G5": "PASS_WITH_SCOPE_NOTE",
+    "M0_G6_REDACTION_READBACK": "PASS_AFTER_REPAIR",
+    "OWNER_GITHUB_PUSH_BEFORE_NEXT_MILESTONE": "PENDING"
+  },
+  "failedGates": [],
+  "blockersBeforeM1": [
+    "GitHub selective stage/commit/push required before starting M1."
+  ],
+  "boundaryReadback": {
+    "runtimeBehaviorChanged": false,
+    "gatewayConfigChanged": false,
+    "gatewayRestarted": false,
+    "routesChanged": false,
+    "providerAuthChanged": false,
+    "ge2Mutated": false,
+    "vectorGraphMemoryMutated": false,
+    "vnextMeshMutated": false,
+    "memoryPromotionPerformed": false,
+    "rawChatIdInSidecarState": false,
+    "rawUserTurnIdInSidecarState": false
+  },
+  "repairs": [
+    {
+      "id": "M0_REPAIR_001",
+      "status": "PASS",
+      "summary": "Initial sidecar run record stored raw Telegram chat id and Telegram-shaped user turn id; repaired to redacted markers before closeout and recorded append-only event."
+    }
+  ],
+  "validationHistory": [
+    {
+      "id": "b90cdbd2-2a11-475e-b605-990767248166",
+      "status": "PASS",
+      "output": ["JSON_PARSE_PASS", "RAW_ID_SCAN_PASS", "GIT_DIFF_CHECK_PASS"],
+      "note": "Approved validation completed after initial chat-id redaction. A later user_turn_id redaction tightened current tree further."
+    },
+    {
+      "id": "bd6b8fb8-e14c-4298-9bb6-327fbb50934f",
+      "status": "PASS",
+      "output": ["JSON_PARSE_PASS", "REDACTION_SCAN_PASS", "GIT_DIFF_CHECK_PASS", "exact status showed expected M0 files unstaged/untracked"],
+      "note": "Focused validation covered the stricter current redaction state. This command did not stage, commit, or push."
+    },
+    {
+      "id": "6e0f4eea-e432-4b0d-af6a-136321edb730",
+      "status": "FAIL_REPAIRED",
+      "output": ["REDACTION_SCAN_FAIL [('MEMORY.md', 'raw-telegram-chat-id')]"],
+      "note": "Selective preservation aborted before staging/commit/push because older MEMORY.md Telegram recovery pattern contained raw direct-chat id. Repaired to agent:main:telegram:direct:sha256-redacted before retry."
+    },
+    {
+      "id": "preservation-retry-state-ignore-20260701T0515Z",
+      "status": "FAIL_REPAIRED",
+      "output": ["JSON_PARSE_PASS", "REDACTION_SCAN_PASS", "GIT_DIFF_CHECK_PASS", "git add failed because state/ is ignored"],
+      "note": "No commit/push occurred. Next retry must use normal git add for non-ignored files and git add -f only for the two intentional M0 state evidence files."
+    }
+  ]
+}

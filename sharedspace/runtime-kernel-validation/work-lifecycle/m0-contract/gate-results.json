@@ -1,0 +1,77 @@
+{
+  "schema": "work_lifecycle.m0.gates.v1",
+  "runId": "work_20260701T043800Z_lifecycle_ledger_m0",
+  "classification": "WORK_LIFECYCLE_M0_CONTRACT_LOCAL_PASS_REDACTION_REPAIRED_PUSH_PENDING",
+  "gates": [
+    {
+      "id": "M0_G1",
+      "name": "Contract names all required run states",
+      "status": "PASS",
+      "evidence": [
+        "docs/work-lifecycle-ledger.md#4",
+        "src/work-lifecycle/work-lifecycle.types.ts"
+      ]
+    },
+    {
+      "id": "M0_G2",
+      "name": "Contract defines transition graph",
+      "status": "PASS",
+      "evidence": [
+        "docs/work-lifecycle-ledger.md#5",
+        "src/work-lifecycle/work-lifecycle.types.ts"
+      ]
+    },
+    {
+      "id": "M0_G3",
+      "name": "Contract defines notification templates",
+      "status": "PASS",
+      "evidence": [
+        "docs/work-lifecycle-ledger.md#9"
+      ]
+    },
+    {
+      "id": "M0_G4",
+      "name": "Contract defines safety boundary object",
+      "status": "PASS",
+      "evidence": [
+        "docs/work-lifecycle-ledger.md#8",
+        "src/work-lifecycle/work-lifecycle.types.ts",
+        "src/work-lifecycle/work-lifecycle.schema.ts"
+      ]
+    },
+    {
+      "id": "M0_G5",
+      "name": "No runtime behavior changed yet",
+      "status": "PASS_WITH_SCOPE_NOTE",
+      "evidence": [
+        "Only docs, non-imported src/work-lifecycle contract/schema files, sidecar state, and validation artifacts were written.",
+        "No Gateway config, route, provider auth, GE2, vector graph memory, vNext Mesh, TaskFlow, cron, or production runtime authority mutation was performed."
+      ]
+    },
+    {
+      "id": "M0_G6_REDACTION_READBACK",
+      "name": "Sidecar state does not retain raw chat id",
+      "status": "PASS_AFTER_REPAIR",
+      "evidence": [
+        "state/work-lifecycle/runs/work_20260701T043800Z_lifecycle_ledger_m0.json uses chat_id=telegram:direct:sha256-redacted and user_turn_id=telegram:turn:sha256-redacted",
+        "state/work-lifecycle/events/work_20260701T043800Z_lifecycle_ledger_m0.jsonl records evt_20260701T045300Z_redaction_repair"
+      ]
+    },
+    {
+      "id": "OWNER_GITHUB_PUSH_BEFORE_NEXT_MILESTONE",
+      "name": "Push code/docs to GitHub before starting next milestone",
+      "status": "PENDING",
+      "evidence": [
+        "Required by Stick before M1 starts."
+      ]
+    }
+  ],
+  "failedGates": [],
+  "pendingGates": ["OWNER_GITHUB_PUSH_BEFORE_NEXT_MILESTONE"],
+  "safetyBoundary": {
+    "mode": "repo_patch",
+    "allowedMutations": ["working_tree", "docs", "local_artifacts", "state_sidecar_samples", "memory_daily", "lessons_learned", "redaction_repair"],
+    "forbiddenMutations": ["production_gateway_config", "gateway_restart", "service_restart", "provider_auth", "secrets", "route_change", "fallback_change", "memory_promotion", "ge2_mutation", "vnext_mesh_mutation", "vector_graph_memory_mutation"],
+    "held": true
+  }
+}
