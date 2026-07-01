@@ -8,10 +8,10 @@
   "actor": "stickbot",
   "title": "OpenClaw Stickbot Work Lifecycle Ledger M4 terminal notifier sidecar",
   "requested_by": "operator",
-  "status": "HOLD",
+  "status": "PASS",
   "started_at": "2026-07-01T07:52:00Z",
-  "updated_at": "2026-07-01T07:58:00Z",
-  "ended_at": null,
+  "updated_at": "2026-07-01T08:03:00Z",
+  "ended_at": "2026-07-01T08:03:00Z",
   "safety_boundary": {
     "mode": "repo_patch",
     "allowed_mutations": ["working_tree", "docs", "local_artifacts", "state_sidecar_samples", "focused_tests", "fixture_repair"],
@@ -59,12 +59,7 @@
     }
   ],
   "failure": null,
-  "hold": {
-    "code": "GITHUB_PUSH_REQUIRED_BEFORE_M5",
-    "reason": "Stick requires code/docs pushed to GitHub after each milestone PASS before starting the next milestone.",
-    "needed_from_operator": "Selective staging/commit/push must complete before M5 starts.",
-    "blocker_artifacts": ["sharedspace/runtime-kernel-validation/work-lifecycle/m4-notifier/summary.json"]
-  },
+  "hold": null,
   "abort": null,
   "superseded_by": null
 }
