@@ -1,0 +1,25 @@
+{
+  "name": "@stickbot/openclaw-work-lifecycle-production-canary",
+  "version": "0.0.0-m11e-prep",
+  "private": true,
+  "type": "module",
+  "description": "M11E prepared OpenClaw before_agent_reply production-canary hook package; inert unless explicitly loaded by reviewed config.",
+  "openclaw": {
+    "extensions": [
+      "./index.mjs"
+    ],
+    "compat": {
+      "pluginApi": ">=2026.5.7",
+      "minGatewayVersion": "2026.5.7"
+    },
+    "build": {
+      "openclawVersion": "2026.5.7",
+      "pluginSdkVersion": "2026.5.7"
+    }
+  },
+  "scripts": {
+    "validate": "node ./validate-package.mjs",
+    "smoke": "node ./post-apply-smoke.mjs",
+    "closeout": "node ./closeout-delivery-validation.mjs"
+  }
+}

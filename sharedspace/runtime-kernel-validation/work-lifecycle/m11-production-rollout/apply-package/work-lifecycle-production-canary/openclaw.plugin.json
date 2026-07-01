@@ -1,0 +1,24 @@
+{
+  "id": "work-lifecycle-production-canary",
+  "name": "Work Lifecycle Production Canary",
+  "description": "Registers a bounded before_agent_reply production-canary observer for the Work Lifecycle Ledger. It never promotes production, never sends messages directly, and returns handled:false unless a future approved version changes the contract.",
+  "version": "0.0.0-m11e-prep",
+  "activation": {
+    "onStartup": true
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "enabled": { "type": "boolean" },
+      "mode": { "enum": ["production_canary"] },
+      "canaryOwner": { "const": "stickbot" },
+      "canaryMarker": { "type": "string" },
+      "productionPromotion": { "const": false },
+      "allowRuntimeSend": { "const": false },
+      "allowSyntheticReply": { "const": false },
+      "enforcement": { "enum": ["observe_only_no_short_circuit"] },
+      "evidenceRoot": { "type": "string" }
+    }
+  }
+}
