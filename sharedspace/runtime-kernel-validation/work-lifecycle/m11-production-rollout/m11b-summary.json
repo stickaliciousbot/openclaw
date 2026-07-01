@@ -1,0 +1,54 @@
+{
+  "schema": "work_lifecycle.m11b.summary.v1",
+  "runId": "work_20260701T122100Z_lifecycle_ledger_m11b",
+  "status": "PASS_LOCAL_VALIDATED",
+  "closeoutStatus": "PASS_LOCAL_VALIDATED",
+  "preservationStatus": "HOLD_BEFORE_SELECTIVE_COMMIT_PUSH",
+  "recommendation": "BOUNDED_HOOK_READY",
+  "validation": {
+    "command": "node --experimental-strip-types --test src/work-lifecycle/work-runtime-canary-hook.test.mjs",
+    "status": "PASS",
+    "marker": "M11B_SCHEMA_OR_HOOK_SCAFFOLD_VALIDATION_PASS"
+  },
+  "redaction": "M11B_REDACTION_SCAN_PASS",
+  "boundary": "M11B_BOUNDARY_CHECK_FILES_SCOPED",
+  "gates": {
+    "M11B_SCHEMA_OR_HOOK_SCAFFOLD_VALIDATION_PASS": "PASS",
+    "M11B_DISABLED_BY_DEFAULT_PASS": "PASS",
+    "M11B_NO_LIVE_ENFORCEMENT_WITHOUT_FLAG_PASS": "PASS",
+    "M11B_REDACTION_SCAN_PASS": "PASS",
+    "M11B_BOUNDARY_CHECK_FILES_SCOPED": "PASS"
+  },
+  "failedGates": [],
+  "boundaryReadback": {
+    "productionApply": false,
+    "productionPromotion": false,
+    "productionMutation": false,
+    "liveGatewayBehaviorChanged": false,
+    "configMutation": false,
+    "routeProviderAuthMemoryMutation": false,
+    "serviceRestart": false,
+    "telegramSendFromCodeRuntime": false,
+    "providerMessageApiCall": false,
+    "cliRegistrationChange": false,
+    "m12Started": false,
+    "proposedConfigPath": "hooks.internal.entries.work-lifecycle-production-canary",
+    "disabledByDefault": true,
+    "explicitEnablementRequired": true,
+    "defaultDecision": {
+      "action": "NOOP",
+      "enforcementActive": false,
+      "allowed": true,
+      "reason": "WORK_LIFECYCLE_INTERNAL_HOOK_DISABLED_BY_DEFAULT",
+      "mutation": false,
+      "externalSend": false,
+      "productionPromotion": false
+    }
+  },
+  "closeoutFooter": {
+    "closeout": "PASS_LOCAL_VALIDATED",
+    "overallLifecycleState": "HOLD_BEFORE_SELECTIVE_COMMIT_PUSH"
+  },
+  "m11ApplyApproval": "NOT_READY",
+  "m12Status": "NOT_STARTED"
+}

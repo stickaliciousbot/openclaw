@@ -1,0 +1,105 @@
+{
+  "schema": "work_lifecycle.m11b.gate_results.v1",
+  "runId": "work_20260701T122100Z_lifecycle_ledger_m11b",
+  "status": "PASS_LOCAL_VALIDATED",
+  "closeoutStatus": "PASS_LOCAL_VALIDATED",
+  "gates": {
+    "M11B_SCHEMA_OR_HOOK_SCAFFOLD_VALIDATION_PASS": "PASS",
+    "M11B_DISABLED_BY_DEFAULT_PASS": "PASS",
+    "M11B_NO_LIVE_ENFORCEMENT_WITHOUT_FLAG_PASS": "PASS",
+    "M11B_REDACTION_SCAN_PASS": "PASS",
+    "M11B_BOUNDARY_CHECK_FILES_SCOPED": "PASS"
+  },
+  "failedGates": [],
+  "disabledByDefaultProof": {
+    "action": "NOOP",
+    "enforcementActive": false,
+    "allowed": true,
+    "reason": "WORK_LIFECYCLE_INTERNAL_HOOK_DISABLED_BY_DEFAULT",
+    "mutation": false,
+    "externalSend": false,
+    "productionPromotion": false
+  },
+  "noLiveEnforcementProof": {
+    "hooks": {
+      "internal": {
+        "enabled": false,
+        "entries": {
+          "work-lifecycle-production-canary": {
+            "enabled": true,
+            "mode": "enforce_canary"
+          }
+        }
+      }
+    }
+  },
+  "boundedHookProof": {
+    "readiness": {
+      "enabled": true,
+      "ready": true,
+      "mode": "bounded_enforce_canary",
+      "reason": "WORK_LIFECYCLE_INTERNAL_HOOK_CONFIG_READY"
+    },
+    "outOfScope": {
+      "action": "NOOP",
+      "enforcementActive": false,
+      "allowed": true,
+      "reason": "EVENT_OUTSIDE_WORK_LIFECYCLE_PRODUCTION_CANARY_SCOPE",
+      "mutation": false,
+      "externalSend": false,
+      "productionPromotion": false
+    },
+    "missingCloseout": {
+      "action": "HOLD",
+      "enforcementActive": true,
+      "allowed": false,
+      "reason": "MISSING_REQUIRED_CLOSEOUT",
+      "mutation": false,
+      "externalSend": false,
+      "productionPromotion": false
+    },
+    "validCloseout": {
+      "action": "ALLOW",
+      "enforcementActive": true,
+      "allowed": true,
+      "reason": "WORK_LIFECYCLE_CANARY_GATES_SATISFIED",
+      "mutation": false,
+      "externalSend": false,
+      "productionPromotion": false
+    },
+    "assumedDelivery": {
+      "action": "HOLD",
+      "enforcementActive": true,
+      "allowed": false,
+      "reason": "TERMINAL_DELIVERY_STATE_NOT_DURABLE",
+      "mutation": false,
+      "externalSend": false,
+      "productionPromotion": false
+    }
+  },
+  "boundaryReadback": {
+    "productionApply": false,
+    "productionPromotion": false,
+    "productionMutation": false,
+    "liveGatewayBehaviorChanged": false,
+    "configMutation": false,
+    "routeProviderAuthMemoryMutation": false,
+    "serviceRestart": false,
+    "telegramSendFromCodeRuntime": false,
+    "providerMessageApiCall": false,
+    "cliRegistrationChange": false,
+    "m12Started": false,
+    "proposedConfigPath": "hooks.internal.entries.work-lifecycle-production-canary",
+    "disabledByDefault": true,
+    "explicitEnablementRequired": true,
+    "defaultDecision": {
+      "action": "NOOP",
+      "enforcementActive": false,
+      "allowed": true,
+      "reason": "WORK_LIFECYCLE_INTERNAL_HOOK_DISABLED_BY_DEFAULT",
+      "mutation": false,
+      "externalSend": false,
+      "productionPromotion": false
+    }
+  }
+}

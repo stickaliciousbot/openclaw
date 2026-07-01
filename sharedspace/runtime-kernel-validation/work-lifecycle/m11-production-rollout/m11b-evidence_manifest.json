@@ -1,0 +1,52 @@
+{
+  "schema": "work_lifecycle.m11b.evidence_manifest.v1",
+  "runId": "work_20260701T122100Z_lifecycle_ledger_m11b",
+  "status": "PASS_LOCAL_VALIDATED",
+  "recommendation": "BOUNDED_HOOK_READY",
+  "artifacts": {
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout/M11B_SCHEMA_HOOK_READINESS.md": {
+      "sha256": "5758a48c54c8106411baca2abd25dc21080cb881c79b7eb94c2bfe33afb380e2"
+    },
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout/m11b-status.json": {
+      "sha256": "d226bb9b9cb08e5a108a528984fa7fcc6b9808f8195e18da917790e468ccccb9"
+    },
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout/m11b-summary.json": {
+      "sha256": "188a101d287d3c39ace18e130ecef2ea62709207d66f9ebbfe6360a55b3d5da2"
+    },
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout/m11b-gate-results.json": {
+      "sha256": "55dcfdc66979b97f0d4613f3fa974dacbab1b4586ae18a64c559c5925323ca98"
+    },
+    "state/work-lifecycle/runs/work_20260701T122100Z_lifecycle_ledger_m11b.json": {
+      "sha256": "96de65e7e1f2dd8619926e63ccd2992536159bf2f9de868fba82a7b04b4dfa9d"
+    },
+    "state/work-lifecycle/events/work_20260701T122100Z_lifecycle_ledger_m11b.jsonl": {
+      "sha256": "6b61bbe07c8365559bafeac6fb3d49d2d0f238b7709ec92824d441522ab2e2b7"
+    }
+  },
+  "generatedAt": "2026-07-01T12:21:30Z",
+  "boundaryReadback": {
+    "productionApply": false,
+    "productionPromotion": false,
+    "productionMutation": false,
+    "liveGatewayBehaviorChanged": false,
+    "configMutation": false,
+    "routeProviderAuthMemoryMutation": false,
+    "serviceRestart": false,
+    "telegramSendFromCodeRuntime": false,
+    "providerMessageApiCall": false,
+    "cliRegistrationChange": false,
+    "m12Started": false,
+    "proposedConfigPath": "hooks.internal.entries.work-lifecycle-production-canary",
+    "disabledByDefault": true,
+    "explicitEnablementRequired": true,
+    "defaultDecision": {
+      "action": "NOOP",
+      "enforcementActive": false,
+      "allowed": true,
+      "reason": "WORK_LIFECYCLE_INTERNAL_HOOK_DISABLED_BY_DEFAULT",
+      "mutation": false,
+      "externalSend": false,
+      "productionPromotion": false
+    }
+  }
+}
