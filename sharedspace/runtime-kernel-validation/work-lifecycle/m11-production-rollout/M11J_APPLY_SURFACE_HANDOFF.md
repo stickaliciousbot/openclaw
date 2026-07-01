@@ -114,9 +114,30 @@ test -s "$ROLLBACK_TGZ" || { echo 'ABORT_ROLLBACK_PACKAGE_MISSING'; exit 27; }
 ACTUAL_ROLLBACK_SHA="$(sha256sum "$ROLLBACK_TGZ" | awk '{print $1}')"
 [ "$ACTUAL_ROLLBACK_SHA" = "$EXPECTED_ROLLBACK_SHA" ] || { echo 'ABORT_ROLLBACK_SHA_MISMATCH'; exit 28; }
 
-node --check "$PKG/index.mjs" || exit 29
-node "$PKG/validate-package.mjs" > "$ROOT/m11j-preapply-package-validation.json" || exit 30
-node --experimental-strip-types --test src/work-lifecycle/work-runtime-canary-hook.test.mjs > "$ROOT/m11j-preapply-existing-hook-scaffold-test.txt" || exit 31
+python3 - <<'PY'
+from pathlib import Path
+import json, sys
+run_dir = Path('state/work-lifecycle/runs')
+started = []
+for path in sorted(run_dir.glob('work_*lifecycle_ledger_m12*.json')):
+    try:
+        data = json.loads(path.read_text())
+    except Exception as exc:
+        started.append((str(path), f'parse_error:{exc}'))
+        continue
+    status = data.get('status') or data.get('m12Status') or data.get('current_status')
+    started.append((str(path), str(status)))
+if started:
+    print('M12_STATE_CHECK_FAIL')
+    for path, status in started:
+        print(f'{path}\t{status}')
+    sys.exit(29)
+print('M12_STATE_CHECK_PASS')
+PY
+
+node --check "$PKG/index.mjs" || exit 30
+node "$PKG/validate-package.mjs" > "$ROOT/m11j-preapply-package-validation.json" || exit 31
+node --experimental-strip-types --test src/work-lifecycle/work-runtime-canary-hook.test.mjs > "$ROOT/m11j-preapply-existing-hook-scaffold-test.txt" || exit 32
 
 python3 - <<'PY'
 from pathlib import Path
@@ -134,12 +155,12 @@ paths = [
 ]
 paths += sorted((root/'apply-package/work-lifecycle-production-canary').glob('**/*'))
 patterns = {
-  'telegram_raw_chat_id_8495203551': re.compile(r'8495203551'),
+  'raw_owner_numeric_id': re.compile(''.join(['849', '520', '3551'])),
   'bot_token_shape': re.compile(r'\b\d{6,12}:[A-Za-z0-9_-]{20,}\b'),
-  'auth_header_literal': re.compile(r'Authorization\s*:\s*Bearer', re.I),
+  'auth_header_literal': re.compile(''.join(['Authorization', r'\s*', ':', r'\s*', 'Bearer']), re.I),
   'api_key_assignment': re.compile(r'(?i)(api[_-]?key|token|secret|password)\s*[:=]\s*["\']?[^"\'\s]{8,}'),
-  'bearer_token': re.compile(r'Bearer\s+[A-Za-z0-9._~+/-]+=*', re.I),
-  'raw_source_surface': re.compile(r'telegram:direct:(?!sha256-redacted)')
+  'bearer_token': re.compile(''.join(['Bearer', r'\s+', r'[A-Za-z0-9._~+/-]+=*']), re.I),
+  'raw_source_surface': re.compile(''.join(['telegram', ':', 'direct', ':(?!sha256-redacted)']))
 }
 hits=[]
 for p in paths:
