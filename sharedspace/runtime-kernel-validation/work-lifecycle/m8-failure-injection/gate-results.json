@@ -2,9 +2,11 @@
   "schema": "work_lifecycle.m8.gate_results.v1",
   "runId": "work_20260701T094400Z_lifecycle_ledger_m8",
   "validationId": "m8-focused-validation-20260701T095000Z-after-fixture-repair",
-  "status": "PASS",
-  "classification": "WORK_LIFECYCLE_M8_FAILURE_INJECTION_LOCAL_PASS_PUSH_PENDING",
+  "status": "PASS_PUSHED",
+  "closeoutStatus": "PASS_PUSHED",
+  "classification": "WORK_LIFECYCLE_M8_FAILURE_INJECTION_PASS_PUSHED_CLOSEOUT_CORRECTED",
   "completedAt": "2026-07-01T09:50:00Z",
+  "correctedAt": "2026-07-01T10:49:00Z",
   "focusedValidation": {
     "command": "node --test src/work-lifecycle/work-failure-injection-harness.test.mjs",
     "tests": 9,
@@ -41,20 +43,57 @@
     "M8_G4_event_replay_matches_final_summary": "PASS",
     "M8_G5_no_duplicate_terminal_notifications": "PASS",
     "M8_G6_redaction_scan": "PASS",
-    "M8_G7_no_runtime_config_service_gateway_route_provider_memory_mutation": "PASS"
+    "M8_G7_no_runtime_config_service_gateway_route_provider_memory_mutation": "PASS",
+    "M8_G8_EXPLICIT_CLOSEOUT_STATUS_PRESENT_IN_SUMMARY": "PASS",
+    "M8_G9_EVIDENCE_REDACTION_SCAN_COVERS_STATUS_GATE_RESULTS_AND_MANIFEST": "PASS",
+    "M8_G10_PASS_PUSHED_BOUNDARY_READBACK_DISTINGUISHES_GIT_PRESERVATION_FROM_RUNTIME_MUTATION": "PASS"
   },
   "failedGates": [],
-  "m8RemainsHoldBeforeSelectiveCommitPushApproval": true,
+  "closeoutAmbiguityCorrection": {
+    "rootCause": "summary.json had status: PASS_PUSHED but no explicit closeoutStatus, allowing summary-only readers to derive Closeout: UNKNOWN.",
+    "fix": "summary.json now includes closeoutStatus: PASS_PUSHED.",
+    "evidenceUpdate": "evidence_manifest.json updated with new summary hash.",
+    "validation": "M8 rerun 9 tests / 9 pass / 0 fail.",
+    "m8TerminalState": "PASS_PUSHED",
+    "m9Status": "NOT_STARTED",
+    "regressionGate": "M8_G8_EXPLICIT_CLOSEOUT_STATUS_PRESENT_IN_SUMMARY",
+    "additionalClassifiedGates": [
+      "M8_G9_EVIDENCE_REDACTION_SCAN_COVERS_STATUS_GATE_RESULTS_AND_MANIFEST",
+      "M8_G10_PASS_PUSHED_BOUNDARY_READBACK_DISTINGUISHES_GIT_PRESERVATION_FROM_RUNTIME_MUTATION"
+    ],
+    "interpretation": {
+      "committedTrueAndPushedTrueMeanOnly": "Approved GitHub preservation of M8 evidence/code.",
+      "runtimeHookImport": false,
+      "cliRegistration": false,
+      "gatewayConfigRouteProviderAuthMemoryMutation": false,
+      "serviceRestart": false,
+      "telegramSendFromCodeRuntime": false,
+      "productionApply": false
+    }
+  },
+  "m8RemainsHoldBeforeSelectiveCommitPushApproval": false,
   "m9Started": false,
+  "m9Status": "NOT_STARTED",
+  "githubPreservation": {
+    "status": "PASS",
+    "branch": "stickbot/v3-selected-model-persona-injection",
+    "range": "ba542a6d8..417628686",
+    "head": "417628686",
+    "commit": "417628686",
+    "completedAt": "2026-07-01T10:07:00Z"
+  },
   "artifacts": [
     "src/work-lifecycle/work-failure-injection-harness.ts",
     "src/work-lifecycle/work-failure-injection-harness.test.mjs",
     "sharedspace/runtime-kernel-validation/work-lifecycle/m8-failure-injection/gate-results.json",
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m8-failure-injection/status.json",
     "sharedspace/runtime-kernel-validation/work-lifecycle/m8-failure-injection/summary.json",
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m8-failure-injection/evidence_manifest.json",
     "state/work-lifecycle/runs/work_20260701T094400Z_lifecycle_ledger_m8.json",
     "state/work-lifecycle/events/work_20260701T094400Z_lifecycle_ledger_m8.jsonl"
   ],
   "boundaryReadback": {
+    "productionMutation": false,
     "runtimeBehaviorChanged": false,
     "gatewayConfigChanged": false,
     "gatewayRestarted": false,
@@ -63,9 +102,10 @@
     "memoryMutated": false,
     "runtimeHookImported": false,
     "cliRegistered": false,
+    "telegramSent": false,
     "telegramSentFromCode": false,
     "productionStateMutated": false,
-    "committed": false,
-    "pushed": false
+    "committed": true,
+    "pushed": true
   }
 }

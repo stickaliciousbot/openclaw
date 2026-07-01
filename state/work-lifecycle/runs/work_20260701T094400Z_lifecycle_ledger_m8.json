@@ -3,11 +3,12 @@
   "run_id": "work_20260701T094400Z_lifecycle_ledger_m8",
   "work_id": "work_lifecycle_ledger",
   "title": "Work Lifecycle Ledger M8 failure injection harness",
-  "status": "HOLD",
+  "status": "PASS",
   "current_milestone": "M8",
   "started_at": "2026-07-01T09:44:00Z",
-  "updated_at": "2026-07-01T09:50:00Z",
-  "owner_visible_status": "M8 local PASS; HOLD before commit/push pending explicit approval. M9 not started.",
+  "updated_at": "2026-07-01T10:07:00Z",
+  "ended_at": "2026-07-01T10:07:00Z",
+  "owner_visible_status": "M8 PASS_PUSHED at 417628686 on stickbot/v3-selected-model-persona-injection. M9 not started.",
   "source": {
     "surface": "telegram:direct:sha256-redacted",
     "turn_id": "telegram:turn:sha256-redacted"
@@ -18,23 +19,15 @@
       "title": "Failure Injection Harness",
       "status": "PASS",
       "started_at": "2026-07-01T09:44:00Z",
-      "ended_at": "2026-07-01T09:50:00Z",
+      "ended_at": "2026-07-01T10:07:00Z",
       "required": true,
       "terminal_notification": {
         "required": true,
-        "status": "pending_owner_visible_closeout"
+        "status": "owner_visible_closeout_delivered"
       }
     }
   ],
-  "hold": {
-    "code": "GITHUB_PRESERVATION_APPROVAL_REQUIRED",
-    "reason": "M8 focused validation passed locally; explicit approval required before commit/push, and M9 must not start until preservation is pushed.",
-    "needed_from_operator": "Approve selective M8 preservation commit/push when ready.",
-    "blocker_artifacts": [
-      "sharedspace/runtime-kernel-validation/work-lifecycle/m8-failure-injection/gate-results.json",
-      "sharedspace/runtime-kernel-validation/work-lifecycle/m8-failure-injection/summary.json"
-    ]
-  },
+  "hold": null,
   "safety_boundary": {
     "allowed": [
       "local test fixtures",
@@ -62,8 +55,8 @@
     "cli_registered": false,
     "telegram_sent_from_code": false,
     "production_state_mutated": false,
-    "committed": false,
-    "pushed": false
+    "committed": true,
+    "pushed": true
   },
   "required_failure_cases": [
     "tool/runtime exception marks current milestone FAIL and creates terminal notification outbox entry",
@@ -89,9 +82,21 @@
     "status": "PASS",
     "tests": 9,
     "pass": 9,
-    "fail": 0
+    "fail": 0,
+    "delayed_scan": [
+      "M8_REDACTION_SCAN_PASS",
+      "M8_BOUNDARY_CHECK_FILES_SCOPED"
+    ]
   },
+  "github_preservation": {
+    "status": "PASS",
+    "branch": "stickbot/v3-selected-model-persona-injection",
+    "head": "417628686",
+    "range": "ba542a6d8..417628686",
+    "completed_at": "2026-07-01T10:07:00Z"
+  },
+  "m9_started": false,
   "notes": [
-    "Sidecar-only M8 local PASS after fixture repair. No commit, push, runtime hook import, Gateway/config/service mutation, memory mutation, or Telegram send from code/runtime."
+    "M8 PASS_PUSHED after selective Git preservation. No runtime hook import, CLI registration, Gateway/config/service mutation, memory mutation, Telegram send from code/runtime, production apply, or M9 start."
   ]
 }

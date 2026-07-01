@@ -1,6 +1,6 @@
 # OpenClaw Stickbot Work Lifecycle Ledger — Design / Implementation / Troubleshooting Notebook
 
-Status: M0 contract local PASS; HOLD before M1 pending selective GitHub preservation.
+Status: M8 PASS_PUSHED closeout corrected; M9 NOT_STARTED pending explicit approval for observe-only canary.
 Created: 2026-07-01 AEST
 Owner context: Stick / Stickbot
 
@@ -203,3 +203,70 @@ Lesson:
 ## Current hold before M1
 
 M0 is locally complete but M1 must not start until selective GitHub preservation is done or Stick explicitly defers the GitHub-before-next-milestone rule.
+
+## M8 — Failure Injection Harness terminal closeout correction
+
+Status: `PASS_PUSHED`
+Closeout: `PASS_PUSHED`
+Corrected: 2026-07-01T10:49:00Z
+
+Required M8 ledger readback after PM8 PASS_PUSHED acknowledgement:
+
+- M8: `PASS_PUSHED`
+- Closeout: `PASS_PUSHED`
+- Pushed head: `417628686`
+- Branch: `stickbot/v3-selected-model-persona-injection`
+- Range: `ba542a6d8..417628686`
+- Validation: `9 tests / 9 pass / 0 fail`
+- Redaction: `M8_REDACTION_SCAN_PASS`
+- Boundary: `M8_BOUNDARY_CHECK_FILES_SCOPED`
+- Evidence: `status.json`, `summary.json`, `evidence_manifest.json`
+
+Safety boundary held:
+
+- Production mutation: none.
+- Runtime hook import: none.
+- CLI registration change: none.
+- Gateway/config/route/provider/auth/memory mutation: none.
+- Service restart: none.
+- Telegram send: none.
+
+Correction details:
+
+- `sharedspace/runtime-kernel-validation/work-lifecycle/m8-failure-injection/status.json` already reflected `PASS_PUSHED` / `PASS_PUSHED`.
+- Corrected stale `sharedspace/runtime-kernel-validation/work-lifecycle/m8-failure-injection/gate-results.json` fields that still described the pre-push HOLD state.
+- Added required `sharedspace/runtime-kernel-validation/work-lifecycle/m8-failure-injection/evidence_manifest.json` with hashes for M8 evidence files.
+- Added append-only event `evt_20260701T104900Z_m8_terminal_closeout_correction` to `state/work-lifecycle/events/work_20260701T094400Z_lifecycle_ledger_m8.jsonl`.
+- Did not create a new push, because the required final pushed head remains `417628686`.
+
+### M8 closeout ambiguity correction
+
+Recorded after PM8 PASS_PUSHED acknowledgement:
+
+- Root cause: `summary.json` had `status: PASS_PUSHED` but no explicit `closeoutStatus`, allowing summary-only readers to derive `Closeout: UNKNOWN`.
+- Fix: `summary.json` now includes `closeoutStatus: PASS_PUSHED`.
+- Evidence update: `evidence_manifest.json` updated with the new `summary.json` hash.
+- Validation: M8 rerun `9 tests / 9 pass / 0 fail`.
+- M8 terminal state remains `PASS_PUSHED`.
+- M9 remains `NOT_STARTED`.
+- Regression gate recorded: `M8_G8_EXPLICIT_CLOSEOUT_STATUS_PRESENT_IN_SUMMARY`.
+- Extra test deltas classified as:
+  - `M8_G9_EVIDENCE_REDACTION_SCAN_COVERS_STATUS_GATE_RESULTS_AND_MANIFEST`
+  - `M8_G10_PASS_PUSHED_BOUNDARY_READBACK_DISTINGUISHES_GIT_PRESERVATION_FROM_RUNTIME_MUTATION`
+- Required interpretation for G10: `committed=true` / `pushed=true` may only refer to approved GitHub preservation of M8 evidence/code; runtime hook import, CLI registration, Gateway/config/route/provider/auth/memory mutation, service restart, Telegram send from code/runtime, and production apply remain false.
+
+## M9 — Observe-Only Canary preparation
+
+Status: `NOT_STARTED`
+
+M9 observe-only canary is prepared conceptually but must not execute until Stick gives explicit approval after M8 corrected closeout is written and delivered.
+
+Prepared guardrails:
+
+- Observe-only only; no production mutation.
+- No runtime hook import.
+- No CLI registration change.
+- No Gateway/config/route/provider/auth/memory mutation.
+- No service restart.
+- No Telegram send from code/runtime.
+- Must preserve M8 terminal closeout as `PASS_PUSHED` before any M9 transition.

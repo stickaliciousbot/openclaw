@@ -1,10 +1,12 @@
 {
   "schema": "work_lifecycle.m8.summary.v1",
   "runId": "work_20260701T094400Z_lifecycle_ledger_m8",
-  "status": "LOCAL_PASS_PUSH_PENDING",
-  "classification": "WORK_LIFECYCLE_M8_FAILURE_INJECTION_LOCAL_PASS_PUSH_PENDING",
+  "status": "PASS_PUSHED",
+  "closeoutStatus": "PASS_PUSHED",
+  "classification": "WORK_LIFECYCLE_M8_FAILURE_INJECTION_PASS_PUSHED",
   "startedAt": "2026-07-01T09:44:00Z",
   "completedAt": "2026-07-01T09:50:00Z",
+  "pushedAt": "2026-07-01T10:07:00Z",
   "requiredFailureCases": 8,
   "validation": {
     "id": "m8-focused-validation-20260701T095000Z-after-fixture-repair",
@@ -32,12 +34,35 @@
     "M8_G4_event_replay_matches_final_summary": "PASS",
     "M8_G5_no_duplicate_terminal_notifications": "PASS",
     "M8_G6_redaction_scan": "PASS",
-    "M8_G7_no_runtime_config_service_gateway_route_provider_memory_mutation": "PASS"
+    "M8_G7_no_runtime_config_service_gateway_route_provider_memory_mutation": "PASS",
+    "M8_G8_EXPLICIT_CLOSEOUT_STATUS_PRESENT_IN_SUMMARY": "PASS",
+    "M8_G9_EVIDENCE_REDACTION_SCAN_COVERS_STATUS_GATE_RESULTS_AND_MANIFEST": "PASS",
+    "M8_G10_PASS_PUSHED_BOUNDARY_READBACK_DISTINGUISHES_GIT_PRESERVATION_FROM_RUNTIME_MUTATION": "PASS"
   },
   "failedGates": [],
-  "blockers": [
-    "Explicit approval required before commit/push. M9 must not start until M8 preservation is pushed."
-  ],
+  "blockers": [],
+  "closeoutAmbiguityCorrection": {
+    "rootCause": "summary.json had status: PASS_PUSHED but no explicit closeoutStatus, allowing summary-only readers to derive Closeout: UNKNOWN.",
+    "fix": "summary.json now includes closeoutStatus: PASS_PUSHED.",
+    "evidenceUpdate": "evidence_manifest.json updated with new summary hash.",
+    "validation": "M8 rerun 9 tests / 9 pass / 0 fail.",
+    "m8TerminalState": "PASS_PUSHED",
+    "m9Status": "NOT_STARTED",
+    "regressionGate": "M8_G8_EXPLICIT_CLOSEOUT_STATUS_PRESENT_IN_SUMMARY",
+    "additionalClassifiedGates": [
+      "M8_G9_EVIDENCE_REDACTION_SCAN_COVERS_STATUS_GATE_RESULTS_AND_MANIFEST",
+      "M8_G10_PASS_PUSHED_BOUNDARY_READBACK_DISTINGUISHES_GIT_PRESERVATION_FROM_RUNTIME_MUTATION"
+    ],
+    "interpretation": {
+      "committedTrueAndPushedTrueMeanOnly": "Approved GitHub preservation of M8 evidence/code.",
+      "runtimeHookImport": false,
+      "cliRegistration": false,
+      "gatewayConfigRouteProviderAuthMemoryMutation": false,
+      "serviceRestart": false,
+      "telegramSendFromCodeRuntime": false,
+      "productionApply": false
+    }
+  },
   "artifacts": [
     "src/work-lifecycle/work-failure-injection-harness.ts",
     "src/work-lifecycle/work-failure-injection-harness.test.mjs",
@@ -46,6 +71,16 @@
     "state/work-lifecycle/runs/work_20260701T094400Z_lifecycle_ledger_m8.json",
     "state/work-lifecycle/events/work_20260701T094400Z_lifecycle_ledger_m8.jsonl"
   ],
+  "githubPreservation": {
+    "status": "PASS",
+    "branch": "stickbot/v3-selected-model-persona-injection",
+    "remote": "https://github.com/stickaliciousbot/webworkspace.git",
+    "range": "ba542a6d8..417628686",
+    "head": "417628686",
+    "commit": "417628686",
+    "completedAt": "2026-07-01T10:07:00Z",
+    "note": "Selective preservation staged only M8 failure-injection files plus two intentional ignored M8 state evidence files, printed staged list, committed, and pushed to the current branch."
+  },
   "m9Started": false,
   "boundaryReadback": {
     "runtimeBehaviorChanged": false,
@@ -58,7 +93,7 @@
     "cliRegistered": false,
     "telegramSentFromCode": false,
     "productionStateMutated": false,
-    "committed": false,
-    "pushed": false
+    "committed": true,
+    "pushed": true
   }
 }

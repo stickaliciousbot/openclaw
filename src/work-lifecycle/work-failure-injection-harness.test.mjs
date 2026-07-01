@@ -268,7 +268,11 @@ test('M8_G6/M8_G7 focused artifacts stay redacted and sidecar-only', async () =>
     'src/work-lifecycle/work-failure-injection-harness.test.mjs',
     'state/work-lifecycle/runs/work_20260701T094400Z_lifecycle_ledger_m8.json',
     'state/work-lifecycle/events/work_20260701T094400Z_lifecycle_ledger_m8.jsonl',
-    'sharedspace/runtime-kernel-validation/work-lifecycle/m8-failure-injection/summary.json'
+    // M8_G9: evidence redaction scan covers status, gate results, and manifest.
+    'sharedspace/runtime-kernel-validation/work-lifecycle/m8-failure-injection/status.json',
+    'sharedspace/runtime-kernel-validation/work-lifecycle/m8-failure-injection/summary.json',
+    'sharedspace/runtime-kernel-validation/work-lifecycle/m8-failure-injection/gate-results.json',
+    'sharedspace/runtime-kernel-validation/work-lifecycle/m8-failure-injection/evidence_manifest.json'
   ];
   const ownerIdPattern = new RegExp(['849', '520', '3551'].join(''));
   const rawPrivatePatterns = [
@@ -299,6 +303,7 @@ test('M8_G6/M8_G7 focused artifacts stay redacted and sidecar-only', async () =>
   assert.equal(summary.boundaryReadback.cliRegistered, false);
   assert.equal(summary.boundaryReadback.telegramSentFromCode, false);
   assert.equal(summary.boundaryReadback.productionStateMutated, false);
-  assert.equal(summary.boundaryReadback.committed, false);
-  assert.equal(summary.boundaryReadback.pushed, false);
+  // M8_G10: PASS_PUSHED git preservation is distinct from runtime/production mutation.
+  assert.equal(summary.boundaryReadback.committed, true);
+  assert.equal(summary.boundaryReadback.pushed, true);
 });

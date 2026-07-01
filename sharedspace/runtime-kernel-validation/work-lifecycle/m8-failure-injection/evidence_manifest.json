@@ -1,0 +1,67 @@
+{
+  "schema": "work_lifecycle.m8.evidence_manifest.v1",
+  "runId": "work_20260701T094400Z_lifecycle_ledger_m8",
+  "milestone": "M8",
+  "status": "PASS_PUSHED",
+  "closeoutStatus": "PASS_PUSHED",
+  "classification": "WORK_LIFECYCLE_M8_FAILURE_INJECTION_PASS_PUSHED_CLOSEOUT_CORRECTED",
+  "correctedAt": "2026-07-01T10:49:00Z",
+  "branch": "stickbot/v3-selected-model-persona-injection",
+  "pushedHead": "417628686",
+  "range": "ba542a6d8..417628686",
+  "validation": {
+    "status": "PASS",
+    "tests": 9,
+    "pass": 9,
+    "fail": 0
+  },
+  "redaction": "M8_REDACTION_SCAN_PASS",
+  "boundary": "M8_BOUNDARY_CHECK_FILES_SCOPED",
+  "evidence": [
+    {
+      "path": "sharedspace/runtime-kernel-validation/work-lifecycle/m8-failure-injection/status.json",
+      "required": true,
+      "sha256": "71b303b67f49da3cb4db550d10381f1b7d72a005cb9e59c38b02a6d86f70ccea"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/work-lifecycle/m8-failure-injection/summary.json",
+      "required": true,
+      "sha256": "aa3cfc44e52eae8995f3b211d21881fa9552283a1ca90d524a759ba80cd9be0b"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/work-lifecycle/m8-failure-injection/evidence_manifest.json",
+      "required": true,
+      "sha256": "SELF_HASH_EXCLUDED"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/work-lifecycle/m8-failure-injection/gate-results.json",
+      "required": false,
+      "sha256": "e60aa392df4296cfc744c91f835585dc8caaa571980f74c2296668ea51d97e69"
+    },
+    {
+      "path": "state/work-lifecycle/runs/work_20260701T094400Z_lifecycle_ledger_m8.json",
+      "required": false,
+      "sha256": "a44dc33cd0269230a126428fe971d3c49e764993246fa0dfb01d400f03930247"
+    },
+    {
+      "path": "state/work-lifecycle/events/work_20260701T094400Z_lifecycle_ledger_m8.jsonl",
+      "required": false,
+      "sha256": "2b632dc2c45bae1873a56461a9e57ac91ca4b2a0a35496bc288443caf946e0f5"
+    }
+  ],
+  "safetyBoundaryReadback": {
+    "productionMutation": false,
+    "runtimeHookImport": false,
+    "cliRegistrationChange": false,
+    "gatewayConfigRouteProviderAuthMemoryMutation": false,
+    "serviceRestart": false,
+    "telegramSend": false,
+    "m9Started": false
+  },
+  "m9Status": "NOT_STARTED",
+  "m9Preparation": {
+    "status": "PREPARED_NOT_EXECUTED",
+    "requiresExplicitApprovalBeforeExecution": true,
+    "observeOnlyCanaryStarted": false
+  }
+}
