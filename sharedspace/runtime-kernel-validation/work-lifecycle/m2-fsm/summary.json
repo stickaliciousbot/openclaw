@@ -1,0 +1,61 @@
+{
+  "schema": "work_lifecycle.m2.summary.v1",
+  "runId": "work_20260701T055200Z_lifecycle_ledger_m2",
+  "status": "PASS_WITH_PUSH_PENDING_HOLD_BEFORE_M3",
+  "classification": "WORK_LIFECYCLE_M2_FSM_AGGREGATE_LOCAL_PASS_PUSH_PENDING",
+  "completedAt": "2026-07-01T07:34:00Z",
+  "artifacts": [
+    "src/work-lifecycle/work-fsm.ts",
+    "src/work-lifecycle/work-status-aggregate.ts",
+    "src/work-lifecycle/work-fsm.test.mjs",
+    "src/work-lifecycle/work-status-aggregate.test.mjs",
+    "state/work-lifecycle/runs/work_20260701T055200Z_lifecycle_ledger_m2.json",
+    "state/work-lifecycle/events/work_20260701T055200Z_lifecycle_ledger_m2.jsonl",
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m2-fsm/gate-results.json"
+  ],
+  "validation": {
+    "timeouts": [
+      {
+        "id": "c7e05feb-874c-4482-9b9e-9955840d63d6",
+        "status": "DENIED_APPROVAL_TIMEOUT_BEFORE_EXECUTION"
+      },
+      {
+        "id": "3b0e1d44-d0ab-4ed4-b7f9-59a1bd1c4b92",
+        "status": "DENIED_APPROVAL_TIMEOUT_BEFORE_EXECUTION"
+      }
+    ],
+    "initial": {
+      "id": "90b6efbc-37e0-4086-8abc-a1ff44b02f92",
+      "status": "FAIL_REPAIRED",
+      "output": ["tests 9", "pass 8", "fail 1"],
+      "failure": "Aggregate precedence returned RUNNING for all-required-PASS milestones while run status remained RUNNING."
+    },
+    "afterRepair": {
+      "id": "fa4ba2a4-a7bc-4c03-a51b-02673200e0df",
+      "status": "PASS",
+      "output": ["tests 9", "pass 9", "fail 0", "M2_REDACTION_SCAN_PASS", "M2_FOCUSED_VALIDATION_PASS_AFTER_REPAIR"]
+    }
+  },
+  "gates": {
+    "M2_G1_INVALID_TRANSITIONS_REJECTED": "PASS",
+    "M2_G2_TERMINAL_STATES_IMMUTABLE": "PASS",
+    "M2_G3_FAILED_REQUIRED_DERIVES_FAIL": "PASS",
+    "M2_G4_HOLD_DERIVES_HOLD": "PASS",
+    "M2_G5_SUPERSEDED_LINKS_REPLACEMENT": "PASS",
+    "M2_REDACTION_SCAN": "PASS",
+    "OWNER_GITHUB_PUSH_BEFORE_NEXT_MILESTONE": "PENDING"
+  },
+  "failedGates": [],
+  "blockersBeforeM3": ["GitHub selective stage/commit/push required before starting M3."],
+  "boundaryReadback": {
+    "runtimeBehaviorChanged": false,
+    "gatewayConfigChanged": false,
+    "gatewayRestarted": false,
+    "routesChanged": false,
+    "providerAuthChanged": false,
+    "ge2Mutated": false,
+    "vectorGraphMemoryMutated": false,
+    "vnextMeshMutated": false,
+    "runtimeHookImported": false
+  }
+}

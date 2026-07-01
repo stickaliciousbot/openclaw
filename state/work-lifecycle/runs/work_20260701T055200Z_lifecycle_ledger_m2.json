@@ -1,0 +1,70 @@
+{
+  "schema_version": "work_lifecycle.v1",
+  "run_id": "work_20260701T055200Z_lifecycle_ledger_m2",
+  "parent_run_id": "work_20260701T053200Z_lifecycle_ledger_m1",
+  "user_turn_id": "telegram:turn:sha256-redacted",
+  "surface": "telegram_direct",
+  "chat_id": "telegram:direct:sha256-redacted",
+  "actor": "stickbot",
+  "title": "OpenClaw Stickbot Work Lifecycle Ledger M2 FSM and status aggregation",
+  "requested_by": "operator",
+  "status": "HOLD",
+  "started_at": "2026-07-01T05:52:00Z",
+  "updated_at": "2026-07-01T07:34:00Z",
+  "ended_at": null,
+  "safety_boundary": {
+    "mode": "repo_patch",
+    "allowed_mutations": ["working_tree", "docs", "local_artifacts", "state_sidecar_samples", "focused_tests", "bug_repair"],
+    "forbidden_mutations": ["production_gateway_config", "gateway_restart", "service_restart", "provider_auth", "secrets", "route_change", "fallback_change", "memory_promotion", "ge2_mutation", "vnext_mesh_mutation", "vector_graph_memory_mutation", "runtime_hook_import"],
+    "requires_operator_approval": ["production_apply", "service_restart", "network_exposure_change"],
+    "rollback_required": false,
+    "secrets_redaction_required": true
+  },
+  "ack": {
+    "required": true,
+    "delivered": true,
+    "delivered_at": "2026-07-01T05:52:00Z",
+    "notification_id": "telegram-visible-m2-running-20260701T055200Z"
+  },
+  "milestones": [
+    {
+      "milestone_id": "M2",
+      "name": "Implement FSM transition enforcement and aggregate status derivation",
+      "status": "PASS",
+      "required": true,
+      "started_at": "2026-07-01T05:52:00Z",
+      "ended_at": "2026-07-01T07:34:00Z",
+      "hard_gates": [
+        { "name": "M2_G1_invalid_transitions_rejected", "status": "PASS" },
+        { "name": "M2_G2_terminal_states_immutable", "status": "PASS" },
+        { "name": "M2_G3_failed_required_derives_fail", "status": "PASS" },
+        { "name": "M2_G4_hold_derives_hold_unless_superseded_or_aborted", "status": "PASS" },
+        { "name": "M2_G5_superseded_links_replacement", "status": "PASS" },
+        { "name": "M2_redaction_scan", "status": "PASS" }
+      ],
+      "artifacts": [
+        "src/work-lifecycle/work-fsm.ts",
+        "src/work-lifecycle/work-status-aggregate.ts",
+        "src/work-lifecycle/work-fsm.test.mjs",
+        "src/work-lifecycle/work-status-aggregate.test.mjs",
+        "sharedspace/runtime-kernel-validation/work-lifecycle/m2-fsm/summary.json",
+        "sharedspace/runtime-kernel-validation/work-lifecycle/m2-fsm/gate-results.json"
+      ],
+      "notification": {
+        "required": true,
+        "delivered": true,
+        "delivered_at": "2026-07-01T07:34:00Z",
+        "notification_id": "telegram-visible-m2-pass-hold-20260701T073400Z"
+      }
+    }
+  ],
+  "failure": null,
+  "hold": {
+    "code": "GITHUB_PUSH_REQUIRED_BEFORE_M3",
+    "reason": "Stick requires code/docs pushed to GitHub after each milestone PASS before starting the next milestone.",
+    "needed_from_operator": "Selective staging/commit/push must complete before M3 starts.",
+    "blocker_artifacts": ["sharedspace/runtime-kernel-validation/work-lifecycle/m2-fsm/summary.json"]
+  },
+  "abort": null,
+  "superseded_by": null
+}

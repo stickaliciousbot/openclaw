@@ -1,0 +1,64 @@
+{
+  "schema": "work_lifecycle.m2.gates.v1",
+  "runId": "work_20260701T055200Z_lifecycle_ledger_m2",
+  "classification": "WORK_LIFECYCLE_M2_FSM_AGGREGATE_LOCAL_PASS_PUSH_PENDING",
+  "completedAt": "2026-07-01T07:34:00Z",
+  "gates": [
+    {
+      "id": "M2_G1",
+      "name": "Invalid transitions rejected",
+      "status": "PASS",
+      "evidence": ["work-fsm.test.mjs rejects PENDING -> PASS and ACK_PENDING -> PASS"]
+    },
+    {
+      "id": "M2_G2",
+      "name": "Terminal states immutable",
+      "status": "PASS",
+      "evidence": ["work-fsm.test.mjs rejects PASS -> RUNNING and FAIL -> HOLD"]
+    },
+    {
+      "id": "M2_G3",
+      "name": "RUNNING + failed required milestone derives FAIL",
+      "status": "PASS",
+      "evidence": ["work-status-aggregate.test.mjs derives FAIL with decisive milestone M2"]
+    },
+    {
+      "id": "M2_G4",
+      "name": "HOLD milestone derives HOLD unless superseded or aborted",
+      "status": "PASS",
+      "evidence": ["work-status-aggregate.test.mjs verifies HOLD, ABORT precedence, and SUPERSEDED precedence"]
+    },
+    {
+      "id": "M2_G5",
+      "name": "SUPERSEDED links to replacement run",
+      "status": "PASS",
+      "evidence": ["work-fsm.test.mjs requires supersededBy", "work-status-aggregate.test.mjs preserves replacement run id"]
+    },
+    {
+      "id": "M2_FOCUSED_VALIDATION",
+      "name": "Focused M2 tests/checks pass",
+      "status": "PASS_AFTER_REPAIR",
+      "evidence": ["tests 9", "pass 9", "fail 0", "M2_REDACTION_SCAN_PASS", "M2_FOCUSED_VALIDATION_PASS_AFTER_REPAIR"]
+    },
+    {
+      "id": "OWNER_GITHUB_PUSH_BEFORE_NEXT_MILESTONE",
+      "name": "Push code/docs to GitHub before starting next milestone",
+      "status": "PENDING",
+      "evidence": ["Required by Stick before M3 starts."]
+    }
+  ],
+  "failedGates": [],
+  "pendingGates": ["OWNER_GITHUB_PUSH_BEFORE_NEXT_MILESTONE"],
+  "safetyBoundary": {
+    "mode": "repo_patch",
+    "runtimeBehaviorChanged": false,
+    "gatewayConfigChanged": false,
+    "gatewayRestarted": false,
+    "routesChanged": false,
+    "providerAuthChanged": false,
+    "ge2Mutated": false,
+    "vectorGraphMemoryMutated": false,
+    "vnextMeshMutated": false,
+    "runtimeHookImported": false
+  }
+}
