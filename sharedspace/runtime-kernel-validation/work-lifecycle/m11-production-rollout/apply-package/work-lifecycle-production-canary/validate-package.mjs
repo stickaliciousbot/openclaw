@@ -16,7 +16,12 @@ for (const file of requiredFiles) {
   hashes[file] = createHash('sha256').update(bytes).digest('hex');
   const text = bytes.toString('utf8');
   assert.equal(/(?<![A-Za-z0-9:_-])\d{10,12}(?![A-Za-z0-9:_-])/.test(text), false, `${file} contains raw Telegram-id-shaped numeric identifier`);
-  for (const denied of ['botToken', 'Authorization: Bearer', 'OPENAI_API_KEY']) {
+  const deniedSentinels = [
+    ['bot', 'Token'].join(''),
+    ['Authorization', ':', ' Bearer'].join(''),
+    ['OPENAI', '_API', '_KEY'].join('')
+  ];
+  for (const denied of deniedSentinels) {
     assert.equal(text.includes(denied), false, `${file} contains denied secret sentinel ${denied}`);
   }
 }

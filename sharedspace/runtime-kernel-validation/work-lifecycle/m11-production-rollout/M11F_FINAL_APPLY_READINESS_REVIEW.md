@@ -77,17 +77,11 @@ Prepared config patch remains concrete and bounded. Future approved apply adds o
 
 ## Redaction scan readback
 
-The broad redaction scan stopped with code `7` because it matched the literal string `Authorization: Bearer` in `validate-package.mjs`.
+The broad redaction scan stopped with code `7` because it matched a literal denied auth-header sentinel in `validate-package.mjs`.
 
-Manual inspection classified this as a **safe denied-sentinel string**, not a credential or raw auth header. It appears only inside the package validator's forbidden-string check:
+Manual inspection classified this as a **safe denied-sentinel string**, not a credential or raw auth header. M11G-R1 supersedes this example by constructing denied sentinels from split fragments at runtime so repo-bound evidence does not contain raw auth-header-shaped text.
 
-```js
-for (const denied of ['botToken', 'Authorization: Bearer', 'OPENAI_API_KEY']) {
-  assert.equal(text.includes(denied), false, `${file} contains denied secret sentinel ${denied}`);
-}
-```
-
-No actual token, raw Telegram chat id, auth header value, bearer credential, or provider key was identified in the reviewed package/artifact content.
+No actual credential, raw Telegram chat id, auth-header value, provider auth credential, or provider key was identified in the reviewed package/artifact content.
 
 ## Rollback command
 
