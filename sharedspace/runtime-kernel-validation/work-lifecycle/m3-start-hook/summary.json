@@ -1,0 +1,44 @@
+{
+  "schema": "work_lifecycle.m3.summary.v1",
+  "runId": "work_20260701T074100Z_lifecycle_ledger_m3",
+  "status": "PASS_WITH_PUSH_PENDING_HOLD_BEFORE_M4",
+  "classification": "WORK_LIFECYCLE_M3_START_HOOK_LOCAL_PASS_PUSH_PENDING",
+  "completedAt": "2026-07-01T07:46:00Z",
+  "artifacts": [
+    "src/work-lifecycle/work-context.ts",
+    "src/work-lifecycle/work-classifier.ts",
+    "src/work-lifecycle/work-start-hook.ts",
+    "src/work-lifecycle/work-start-hook.test.mjs",
+    "state/work-lifecycle/runs/work_20260701T074100Z_lifecycle_ledger_m3.json",
+    "state/work-lifecycle/events/work_20260701T074100Z_lifecycle_ledger_m3.jsonl",
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m3-start-hook/gate-results.json"
+  ],
+  "validation": {
+    "id": "8845597e-0dcd-4d93-b758-3c0cf93c39fd",
+    "status": "PASS",
+    "output": ["tests 6", "pass 6", "fail 0", "M3_REDACTION_SCAN_PASS", "M3_FOCUSED_VALIDATION_PASS"]
+  },
+  "gates": {
+    "M3_G1_TOOLFUL_TURN_CREATES_ACK_PENDING": "PASS",
+    "M3_G2_ACK_BEFORE_SIDE_EFFECT": "PASS",
+    "M3_G3_ACK_TEMPLATE_VALID": "PASS",
+    "M3_G4_ACK_DEDUPED": "PASS_BASELINE",
+    "M3_G5_ACK_QUEUED_IF_NOT_DELIVERED": "PASS",
+    "M3_REDACTION_SCAN": "PASS",
+    "OWNER_GITHUB_PUSH_BEFORE_NEXT_MILESTONE": "PENDING"
+  },
+  "failedGates": [],
+  "blockersBeforeM4": ["GitHub selective stage/commit/push required before starting M4."],
+  "boundaryReadback": {
+    "runtimeBehaviorChanged": false,
+    "gatewayConfigChanged": false,
+    "gatewayRestarted": false,
+    "routesChanged": false,
+    "providerAuthChanged": false,
+    "ge2Mutated": false,
+    "vectorGraphMemoryMutated": false,
+    "vnextMeshMutated": false,
+    "runtimeHookImported": false,
+    "telegramSent": false
+  }
+}
