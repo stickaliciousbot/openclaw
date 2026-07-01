@@ -1,8 +1,8 @@
 {
   "schema": "work_lifecycle.m1.summary.v1",
   "runId": "work_20260701T053200Z_lifecycle_ledger_m1",
-  "status": "PASS_WITH_PUSH_PENDING_HOLD_BEFORE_M2",
-  "classification": "WORK_LIFECYCLE_M1_STORE_REPLAY_LOCK_LOCAL_PASS_PUSH_PENDING",
+  "status": "PASS_PUSHED",
+  "classification": "WORK_LIFECYCLE_M1_STORE_REPLAY_LOCK_PUSHED_GITHUB_PRESERVED",
   "completedAt": "2026-07-01T05:41:00Z",
   "artifacts": [
     "src/work-lifecycle/work-ledger-store.ts",
@@ -35,12 +35,19 @@
     "M1_G4_LOCK_SERIALIZATION": "PASS",
     "M1_G5_SCHEMA_VALIDATION_BASELINE": "PASS_BASELINE",
     "M1_REDACTION_SCAN": "PASS",
-    "OWNER_GITHUB_PUSH_BEFORE_NEXT_MILESTONE": "PENDING"
+    "OWNER_GITHUB_PUSH_BEFORE_NEXT_MILESTONE": "PASS"
   },
   "failedGates": [],
-  "blockersBeforeM2": [
-    "GitHub selective stage/commit/push required before starting M2."
-  ],
+  "blockersBeforeM2": [],
+  "githubPreservation": {
+    "status": "PASS",
+    "branch": "stickbot/v3-selected-model-persona-injection",
+    "remote": "https://github.com/stickaliciousbot/webworkspace.git",
+    "range": "8a0974c08..0e4d8222e",
+    "head": "0e4d8222e",
+    "completedAt": "2026-07-01T05:47:00Z",
+    "note": "Selective preservation command validated focused M1 tests, JSON/redaction/diff, staged only selected M1 artifacts, force-added only two intentional ignored state evidence files, committed, and pushed."
+  },
   "boundaryReadback": {
     "runtimeBehaviorChanged": false,
     "gatewayConfigChanged": false,
