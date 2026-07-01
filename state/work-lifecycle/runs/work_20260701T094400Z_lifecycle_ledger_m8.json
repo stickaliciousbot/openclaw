@@ -1,0 +1,97 @@
+{
+  "schema": "work_lifecycle.run.v1",
+  "run_id": "work_20260701T094400Z_lifecycle_ledger_m8",
+  "work_id": "work_lifecycle_ledger",
+  "title": "Work Lifecycle Ledger M8 failure injection harness",
+  "status": "HOLD",
+  "current_milestone": "M8",
+  "started_at": "2026-07-01T09:44:00Z",
+  "updated_at": "2026-07-01T09:50:00Z",
+  "owner_visible_status": "M8 local PASS; HOLD before commit/push pending explicit approval. M9 not started.",
+  "source": {
+    "surface": "telegram:direct:sha256-redacted",
+    "turn_id": "telegram:turn:sha256-redacted"
+  },
+  "milestones": [
+    {
+      "id": "M8",
+      "title": "Failure Injection Harness",
+      "status": "PASS",
+      "started_at": "2026-07-01T09:44:00Z",
+      "ended_at": "2026-07-01T09:50:00Z",
+      "required": true,
+      "terminal_notification": {
+        "required": true,
+        "status": "pending_owner_visible_closeout"
+      }
+    }
+  ],
+  "hold": {
+    "code": "GITHUB_PRESERVATION_APPROVAL_REQUIRED",
+    "reason": "M8 focused validation passed locally; explicit approval required before commit/push, and M9 must not start until preservation is pushed.",
+    "needed_from_operator": "Approve selective M8 preservation commit/push when ready.",
+    "blocker_artifacts": [
+      "sharedspace/runtime-kernel-validation/work-lifecycle/m8-failure-injection/gate-results.json",
+      "sharedspace/runtime-kernel-validation/work-lifecycle/m8-failure-injection/summary.json"
+    ]
+  },
+  "safety_boundary": {
+    "allowed": [
+      "local test fixtures",
+      "lifecycle test harness",
+      "synthetic ledger/outbox/temp state",
+      "validation artifacts"
+    ],
+    "forbidden": [
+      "runtime hook import",
+      "CLI registration changes",
+      "Gateway/config/route/provider/auth/memory changes",
+      "service restart",
+      "Telegram send from code/runtime",
+      "production mutation",
+      "commit without explicit approval",
+      "push without explicit approval"
+    ],
+    "runtime_behavior_changed": false,
+    "gateway_config_changed": false,
+    "gateway_restarted": false,
+    "routes_changed": false,
+    "provider_auth_changed": false,
+    "memory_mutated": false,
+    "runtime_hook_imported": false,
+    "cli_registered": false,
+    "telegram_sent_from_code": false,
+    "production_state_mutated": false,
+    "committed": false,
+    "pushed": false
+  },
+  "required_failure_cases": [
+    "tool/runtime exception marks current milestone FAIL and creates terminal notification outbox entry",
+    "stale RUNNING milestone is detected and transitions to HOLD or ABORT",
+    "notification transport failure persists outbox and records delivery failure",
+    "duplicate retry does not create duplicate terminal notification",
+    "invalid transition attempt is rejected and recorded",
+    "partial/corrupt write is quarantined or ignored without poisoning current state",
+    "user abort marks run ABORT with closeout",
+    "superseded run links to replacement run and prevents stale continuation"
+  ],
+  "gates": {
+    "M8_G1_every_injected_failure_produces_terminal_state": "PASS",
+    "M8_G2_fail_hold_abort_not_suppressed": "PASS",
+    "M8_G3_notification_outbox_survives_replay_restart_simulation": "PASS",
+    "M8_G4_event_replay_matches_final_summary": "PASS",
+    "M8_G5_no_duplicate_terminal_notifications": "PASS",
+    "M8_G6_redaction_scan": "PASS",
+    "M8_G7_no_runtime_config_service_gateway_route_provider_memory_mutation": "PASS"
+  },
+  "validation": {
+    "id": "m8-focused-validation-20260701T095000Z-after-fixture-repair",
+    "status": "PASS",
+    "tests": 9,
+    "pass": 9,
+    "fail": 0
+  },
+  "notes": [
+    "Sidecar-only M8 local PASS after fixture repair. No commit, push, runtime hook import, Gateway/config/service mutation, memory mutation, or Telegram send from code/runtime."
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "schema": "work_lifecycle.m8.summary.v1",
+  "runId": "work_20260701T094400Z_lifecycle_ledger_m8",
+  "status": "LOCAL_PASS_PUSH_PENDING",
+  "classification": "WORK_LIFECYCLE_M8_FAILURE_INJECTION_LOCAL_PASS_PUSH_PENDING",
+  "startedAt": "2026-07-01T09:44:00Z",
+  "completedAt": "2026-07-01T09:50:00Z",
+  "requiredFailureCases": 8,
+  "validation": {
+    "id": "m8-focused-validation-20260701T095000Z-after-fixture-repair",
+    "status": "PASS",
+    "output": [
+      "tests 9",
+      "pass 9",
+      "fail 0",
+      "M8_FOCUSED_VALIDATION_PASS_AFTER_FIXTURE_REPAIR"
+    ]
+  },
+  "delayedScanEvidence": {
+    "status": "PASS",
+    "completedAt": "2026-07-01T09:54:00Z",
+    "output": [
+      "M8_REDACTION_SCAN_PASS",
+      "M8_BOUNDARY_CHECK_FILES_SCOPED"
+    ],
+    "rerun": false
+  },
+  "gates": {
+    "M8_G1_every_injected_failure_produces_terminal_state": "PASS",
+    "M8_G2_fail_hold_abort_not_suppressed": "PASS",
+    "M8_G3_notification_outbox_survives_replay_restart_simulation": "PASS",
+    "M8_G4_event_replay_matches_final_summary": "PASS",
+    "M8_G5_no_duplicate_terminal_notifications": "PASS",
+    "M8_G6_redaction_scan": "PASS",
+    "M8_G7_no_runtime_config_service_gateway_route_provider_memory_mutation": "PASS"
+  },
+  "failedGates": [],
+  "blockers": [
+    "Explicit approval required before commit/push. M9 must not start until M8 preservation is pushed."
+  ],
+  "artifacts": [
+    "src/work-lifecycle/work-failure-injection-harness.ts",
+    "src/work-lifecycle/work-failure-injection-harness.test.mjs",
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m8-failure-injection/gate-results.json",
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m8-failure-injection/summary.json",
+    "state/work-lifecycle/runs/work_20260701T094400Z_lifecycle_ledger_m8.json",
+    "state/work-lifecycle/events/work_20260701T094400Z_lifecycle_ledger_m8.jsonl"
+  ],
+  "m9Started": false,
+  "boundaryReadback": {
+    "runtimeBehaviorChanged": false,
+    "gatewayConfigChanged": false,
+    "gatewayRestarted": false,
+    "routesChanged": false,
+    "providerAuthChanged": false,
+    "memoryMutated": false,
+    "runtimeHookImported": false,
+    "cliRegistered": false,
+    "telegramSentFromCode": false,
+    "productionStateMutated": false,
+    "committed": false,
+    "pushed": false
+  }
+}

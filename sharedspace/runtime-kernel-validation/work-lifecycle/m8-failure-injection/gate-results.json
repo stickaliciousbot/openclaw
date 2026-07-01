@@ -1,0 +1,71 @@
+{
+  "schema": "work_lifecycle.m8.gate_results.v1",
+  "runId": "work_20260701T094400Z_lifecycle_ledger_m8",
+  "validationId": "m8-focused-validation-20260701T095000Z-after-fixture-repair",
+  "status": "PASS",
+  "classification": "WORK_LIFECYCLE_M8_FAILURE_INJECTION_LOCAL_PASS_PUSH_PENDING",
+  "completedAt": "2026-07-01T09:50:00Z",
+  "focusedValidation": {
+    "command": "node --test src/work-lifecycle/work-failure-injection-harness.test.mjs",
+    "tests": 9,
+    "pass": 9,
+    "fail": 0,
+    "initialFailure": {
+      "status": "REPAIRED",
+      "summary": "M8_G6/G7 redaction/boundary test initially failed because the test fixture contained the raw owner id literal it was designed to detect. Repaired by constructing the detection pattern from split components so repo-bound code does not store the raw identifier. No runtime/config/service mutation."
+    }
+  },
+  "delayedScanEvidence": {
+    "status": "PASS",
+    "completedAt": "2026-07-01T09:54:00Z",
+    "output": [
+      "M8_REDACTION_SCAN_PASS",
+      "M8_BOUNDARY_CHECK_FILES_SCOPED"
+    ],
+    "rerun": false
+  },
+  "requiredFailureCases": {
+    "tool_runtime_exception_marks_fail_and_queues_terminal_notification": "PASS",
+    "stale_running_detected_and_transitions_hold_or_abort": "PASS",
+    "notification_transport_failure_persists_outbox_and_records_delivery_failure": "PASS",
+    "duplicate_retry_no_duplicate_terminal_notification": "PASS",
+    "invalid_transition_rejected_and_recorded": "PASS",
+    "partial_corrupt_write_quarantined_or_ignored_without_poisoning_current_state": "PASS",
+    "user_abort_marks_run_abort_with_closeout": "PASS",
+    "superseded_run_links_replacement_and_prevents_stale_continuation": "PASS"
+  },
+  "gates": {
+    "M8_G1_every_injected_failure_produces_terminal_state": "PASS",
+    "M8_G2_fail_hold_abort_not_suppressed": "PASS",
+    "M8_G3_notification_outbox_survives_replay_restart_simulation": "PASS",
+    "M8_G4_event_replay_matches_final_summary": "PASS",
+    "M8_G5_no_duplicate_terminal_notifications": "PASS",
+    "M8_G6_redaction_scan": "PASS",
+    "M8_G7_no_runtime_config_service_gateway_route_provider_memory_mutation": "PASS"
+  },
+  "failedGates": [],
+  "m8RemainsHoldBeforeSelectiveCommitPushApproval": true,
+  "m9Started": false,
+  "artifacts": [
+    "src/work-lifecycle/work-failure-injection-harness.ts",
+    "src/work-lifecycle/work-failure-injection-harness.test.mjs",
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m8-failure-injection/gate-results.json",
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m8-failure-injection/summary.json",
+    "state/work-lifecycle/runs/work_20260701T094400Z_lifecycle_ledger_m8.json",
+    "state/work-lifecycle/events/work_20260701T094400Z_lifecycle_ledger_m8.jsonl"
+  ],
+  "boundaryReadback": {
+    "runtimeBehaviorChanged": false,
+    "gatewayConfigChanged": false,
+    "gatewayRestarted": false,
+    "routesChanged": false,
+    "providerAuthChanged": false,
+    "memoryMutated": false,
+    "runtimeHookImported": false,
+    "cliRegistered": false,
+    "telegramSentFromCode": false,
+    "productionStateMutated": false,
+    "committed": false,
+    "pushed": false
+  }
+}
