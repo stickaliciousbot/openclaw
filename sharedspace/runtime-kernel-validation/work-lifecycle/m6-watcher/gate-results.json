@@ -1,0 +1,72 @@
+{
+  "schema": "work_lifecycle.m6.gates.v1",
+  "runId": "work_20260701T082500Z_lifecycle_ledger_m6",
+  "classification": "WORK_LIFECYCLE_M6_HEARTBEAT_WATCHER_LOCAL_PASS_PUSH_PENDING",
+  "completedAt": "2026-07-01T08:30:00Z",
+  "gates": [
+    {
+      "id": "M6_G1",
+      "name": "Long job writes heartbeat",
+      "status": "PASS",
+      "evidence": ["work-closeout-watcher.test.mjs writes and reads heartbeat sidecar"]
+    },
+    {
+      "id": "M6_G2",
+      "name": "Watcher detects stale ACK_PENDING",
+      "status": "PASS",
+      "evidence": ["evaluateStaleness returns STALE_ACK_PENDING"]
+    },
+    {
+      "id": "M6_G3",
+      "name": "Watcher detects stale RUNNING and marks HOLD/ABORT",
+      "status": "PASS",
+      "evidence": ["watchRunCloseout marks stale RUNNING run HOLD and persists summary"]
+    },
+    {
+      "id": "M6_G4",
+      "name": "Watcher emits notification independently of model",
+      "status": "PASS",
+      "evidence": ["watchRunCloseout queues HOLD terminal notification and appends WATCHER_ALERT event"]
+    },
+    {
+      "id": "M6_G5",
+      "name": "Restart-style scan preserves active run and emits closeout",
+      "status": "PASS",
+      "evidence": ["watchAllActiveRuns scans persisted run state and emits HOLD closeout"]
+    },
+    {
+      "id": "M6_TERMINAL_NOTICE_MISSING",
+      "name": "Terminal milestone missing notice is detected",
+      "status": "PASS",
+      "evidence": ["evaluateStaleness returns TERMINAL_NOTICE_MISSING"]
+    },
+    {
+      "id": "M6_FOCUSED_VALIDATION",
+      "name": "Focused M6 tests/checks pass",
+      "status": "PASS",
+      "evidence": ["tests 6", "pass 6", "fail 0", "M6_REDACTION_SCAN_PASS", "M6_FOCUSED_VALIDATION_PASS"]
+    },
+    {
+      "id": "OWNER_GITHUB_PUSH_BEFORE_NEXT_MILESTONE",
+      "name": "Push code/docs to GitHub before starting next milestone",
+      "status": "PENDING",
+      "evidence": ["Required by Stick before M7 starts."]
+    }
+  ],
+  "failedGates": [],
+  "pendingGates": ["OWNER_GITHUB_PUSH_BEFORE_NEXT_MILESTONE"],
+  "safetyBoundary": {
+    "mode": "repo_patch",
+    "runtimeBehaviorChanged": false,
+    "gatewayConfigChanged": false,
+    "gatewayRestarted": false,
+    "routesChanged": false,
+    "providerAuthChanged": false,
+    "ge2Mutated": false,
+    "vectorGraphMemoryMutated": false,
+    "vnextMeshMutated": false,
+    "runtimeHookImported": false,
+    "cronInstalled": false,
+    "telegramSent": false
+  }
+}
