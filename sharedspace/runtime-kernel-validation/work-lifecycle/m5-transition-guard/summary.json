@@ -1,0 +1,41 @@
+{
+  "schema": "work_lifecycle.m5.summary.v1",
+  "runId": "work_20260701T080600Z_lifecycle_ledger_m5",
+  "status": "PASS_WITH_PUSH_PENDING_HOLD_BEFORE_M6",
+  "classification": "WORK_LIFECYCLE_M5_TRANSITION_GUARD_LOCAL_PASS_PUSH_PENDING",
+  "completedAt": "2026-07-01T08:09:00Z",
+  "artifacts": [
+    "src/work-lifecycle/work-transition-guard.ts",
+    "src/work-lifecycle/work-transition-guard.test.mjs",
+    "state/work-lifecycle/runs/work_20260701T080600Z_lifecycle_ledger_m5.json",
+    "state/work-lifecycle/events/work_20260701T080600Z_lifecycle_ledger_m5.jsonl",
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m5-transition-guard/gate-results.json"
+  ],
+  "validation": {
+    "id": "e6c472d2-0867-48d9-b1c2-e5513d3b3f8c",
+    "status": "PASS",
+    "output": ["tests 5", "pass 5", "fail 0", "M5_REDACTION_SCAN_PASS", "M5_FOCUSED_VALIDATION_PASS"]
+  },
+  "gates": {
+    "M5_G1_PRIOR_RUNNING_BLOCKS_NEXT": "PASS",
+    "M5_G2_PRIOR_NOTICE_REQUIRED": "PASS",
+    "M5_G3_GUARD_FAILURE_MARKS_HOLD": "PASS",
+    "M5_G4_GUARD_FAILURE_EMITS_HOLD_NOTIFICATION": "PASS",
+    "M5_REDACTION_SCAN": "PASS",
+    "OWNER_GITHUB_PUSH_BEFORE_NEXT_MILESTONE": "PENDING"
+  },
+  "failedGates": [],
+  "blockersBeforeM6": ["GitHub selective stage/commit/push required before starting M6."],
+  "boundaryReadback": {
+    "runtimeBehaviorChanged": false,
+    "gatewayConfigChanged": false,
+    "gatewayRestarted": false,
+    "routesChanged": false,
+    "providerAuthChanged": false,
+    "ge2Mutated": false,
+    "vectorGraphMemoryMutated": false,
+    "vnextMeshMutated": false,
+    "runtimeHookImported": false,
+    "telegramSent": false
+  }
+}
