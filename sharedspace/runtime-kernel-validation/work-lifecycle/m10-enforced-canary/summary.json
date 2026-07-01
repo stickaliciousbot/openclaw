@@ -1,0 +1,73 @@
+{
+  "schema": "work_lifecycle.m10.summary.v1",
+  "runId": "work_20260701T114900Z_lifecycle_ledger_m10",
+  "status": "PASS_LOCAL_VALIDATED",
+  "closeoutStatus": "PASS_LOCAL_VALIDATED",
+  "preservationStatus": "HOLD_BEFORE_SELECTIVE_COMMIT_PUSH",
+  "classification": "WORK_LIFECYCLE_M10_ENFORCED_CANARY_PASS_LOCAL_VALIDATED",
+  "validation": {
+    "command": "node --experimental-strip-types --test src/work-lifecycle/work-enforced-canary.test.mjs",
+    "status": "PASS",
+    "marker": "M10_ENFORCED_CANARY_VALIDATION_PASS"
+  },
+  "redaction": "M10_REDACTION_SCAN_PASS",
+  "boundary": "M10_BOUNDARY_CHECK_FILES_SCOPED",
+  "enforcement": {
+    "unsafeContinuationBlockedWhenCloseoutMissing": true,
+    "closeoutCannotBeSilentlySkipped": true,
+    "notificationDeliveryDurableStateOnly": true,
+    "productionPromotion": false,
+    "configDiff": "none"
+  },
+  "notificationBehavior": {
+    "required": true,
+    "representedAsDurableState": true,
+    "deliveryState": "simulated_not_sent",
+    "queued": true,
+    "simulated": true,
+    "failed": false,
+    "delivered": false,
+    "assumed": false,
+    "externalSend": false
+  },
+  "gates": {
+    "M10_ENFORCED_CANARY_VALIDATION_PASS": "PASS",
+    "M10_REDACTION_SCAN_PASS": "PASS",
+    "M10_BOUNDARY_CHECK_FILES_SCOPED": "PASS",
+    "M10_UNSAFE_CONTINUATION_BLOCKED_WHEN_CLOSEOUT_MISSING": "PASS",
+    "M10_CLOSEOUT_CANNOT_BE_SILENTLY_SKIPPED": "PASS",
+    "M10_NOTIFICATION_DELIVERY_DURABLE_STATE_NOT_ASSUMED": "PASS"
+  },
+  "failedGates": [],
+  "boundaryReadback": {
+    "productionPromotion": false,
+    "productionMutation": false,
+    "runtimeHookImport": false,
+    "runtimeHookImportScope": "none",
+    "cliRegistrationChange": false,
+    "gatewayConfigRouteProviderAuthMemoryMutation": false,
+    "serviceRestart": false,
+    "telegramSend": false,
+    "providerMessageApiCall": false,
+    "productionApply": false,
+    "optionalWorkLifecycleFlagWritten": false,
+    "configDiff": "none",
+    "m8TerminalState": "PASS_PUSHED",
+    "m9TerminalState": "PASS_PUSHED",
+    "m10EnforcedCanary": true,
+    "m11Started": false
+  },
+  "artifacts": [
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m10-enforced-canary/status.json",
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m10-enforced-canary/summary.json",
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m10-enforced-canary/gate-results.json",
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m10-enforced-canary/evidence_manifest.json",
+    "state/work-lifecycle/runs/work_20260701T114900Z_lifecycle_ledger_m10.json",
+    "state/work-lifecycle/events/work_20260701T114900Z_lifecycle_ledger_m10.jsonl"
+  ],
+  "closeoutFooter": {
+    "closeout": "PASS_LOCAL_VALIDATED",
+    "overallLifecycleState": "HOLD_BEFORE_SELECTIVE_COMMIT_PUSH"
+  },
+  "m11Status": "NOT_STARTED"
+}

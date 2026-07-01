@@ -1,0 +1,52 @@
+{
+  "schema": "work_lifecycle.m10.evidence_manifest.v1",
+  "runId": "work_20260701T114900Z_lifecycle_ledger_m10",
+  "status": "PASS_LOCAL_VALIDATED",
+  "closeoutStatus": "PASS_LOCAL_VALIDATED",
+  "preservationStatus": "HOLD_BEFORE_SELECTIVE_COMMIT_PUSH",
+  "evidence": [
+    {
+      "path": "sharedspace/runtime-kernel-validation/work-lifecycle/m10-enforced-canary/status.json",
+      "sha256": "f5112e9defe579e86c92bcfee3b520b07f5b7d1e587f4b8c6dc2ec122d8a30c3"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/work-lifecycle/m10-enforced-canary/summary.json",
+      "sha256": "445740d171285c0a86193985d7c2901563c9dad354784e58172c9859f5c03ad0"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/work-lifecycle/m10-enforced-canary/gate-results.json",
+      "sha256": "328c06d9a40d4d77f97a8d9bb93ed72a0f5f29da18f333db1a8b6e8dcde1c1c8"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/work-lifecycle/m10-enforced-canary/evidence_manifest.json",
+      "sha256": "SELF_HASH_EXCLUDED"
+    },
+    {
+      "path": "state/work-lifecycle/runs/work_20260701T114900Z_lifecycle_ledger_m10.json",
+      "sha256": "344262735382786e4347716662a55851b11c00d52314bae47b51ae5f503d6978"
+    },
+    {
+      "path": "state/work-lifecycle/events/work_20260701T114900Z_lifecycle_ledger_m10.jsonl",
+      "sha256": "3077a25998ebdfefb11c3b0f4726cbfc28a10bd0ed4a1d8f926448ff496a8b52"
+    }
+  ],
+  "boundaryReadback": {
+    "productionPromotion": false,
+    "productionMutation": false,
+    "runtimeHookImport": false,
+    "runtimeHookImportScope": "none",
+    "cliRegistrationChange": false,
+    "gatewayConfigRouteProviderAuthMemoryMutation": false,
+    "serviceRestart": false,
+    "telegramSend": false,
+    "providerMessageApiCall": false,
+    "productionApply": false,
+    "optionalWorkLifecycleFlagWritten": false,
+    "configDiff": "none",
+    "m8TerminalState": "PASS_PUSHED",
+    "m9TerminalState": "PASS_PUSHED",
+    "m10EnforcedCanary": true,
+    "m11Started": false
+  },
+  "m11Status": "NOT_STARTED"
+}
