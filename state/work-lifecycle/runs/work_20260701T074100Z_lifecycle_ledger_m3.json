@@ -8,10 +8,10 @@
   "actor": "stickbot",
   "title": "OpenClaw Stickbot Work Lifecycle Ledger M3 start acknowledgement sidecar hook",
   "requested_by": "operator",
-  "status": "HOLD",
+  "status": "PASS",
   "started_at": "2026-07-01T07:41:00Z",
-  "updated_at": "2026-07-01T07:46:00Z",
-  "ended_at": null,
+  "updated_at": "2026-07-01T07:50:00Z",
+  "ended_at": "2026-07-01T07:50:00Z",
   "safety_boundary": {
     "mode": "repo_patch",
     "allowed_mutations": ["working_tree", "docs", "local_artifacts", "state_sidecar_samples", "focused_tests"],
@@ -59,12 +59,7 @@
     }
   ],
   "failure": null,
-  "hold": {
-    "code": "GITHUB_PUSH_REQUIRED_BEFORE_M4",
-    "reason": "Stick requires code/docs pushed to GitHub after each milestone PASS before starting the next milestone.",
-    "needed_from_operator": "Selective staging/commit/push must complete before M4 starts.",
-    "blocker_artifacts": ["sharedspace/runtime-kernel-validation/work-lifecycle/m3-start-hook/summary.json"]
-  },
+  "hold": null,
   "abort": null,
   "superseded_by": null
 }
