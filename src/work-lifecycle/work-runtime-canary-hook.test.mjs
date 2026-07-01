@@ -284,7 +284,7 @@ test('M11B disabled-by-default schema/hook scaffold is inert until explicit inte
   await writeJson(SUMMARY_PATH, summary);
   await writeJson(GATE_RESULTS_PATH, gateResults);
 
-  const evidencePaths = [STATUS_PATH, SUMMARY_PATH, GATE_RESULTS_PATH, RUN_PATH, EVENT_PATH];
+  const evidencePaths = [READINESS_PATH, STATUS_PATH, SUMMARY_PATH, GATE_RESULTS_PATH, RUN_PATH, EVENT_PATH];
   await assertNoRawSecretSentinels(evidencePaths);
 
   const manifest = {
