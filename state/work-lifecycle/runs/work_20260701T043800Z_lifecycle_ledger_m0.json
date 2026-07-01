@@ -8,10 +8,10 @@
   "actor": "stickbot",
   "title": "OpenClaw Stickbot Work Lifecycle Ledger M0 contract",
   "requested_by": "operator",
-  "status": "HOLD",
+  "status": "PASS",
   "started_at": "2026-07-01T04:38:00Z",
-  "updated_at": "2026-07-01T04:48:00Z",
-  "ended_at": null,
+  "updated_at": "2026-07-01T05:27:00Z",
+  "ended_at": "2026-07-01T05:27:00Z",
   "safety_boundary": {
     "mode": "repo_patch",
     "allowed_mutations": ["working_tree", "docs", "local_artifacts", "state_sidecar_samples", "memory_daily", "lessons_learned", "redaction_repair"],
@@ -82,14 +82,7 @@
     }
   ],
   "failure": null,
-  "hold": {
-    "code": "GITHUB_PUSH_REQUIRED_BEFORE_M1",
-    "reason": "Stick requires code/docs pushed to GitHub after each milestone PASS before starting the next milestone.",
-    "needed_from_operator": "Selective staging/commit/push needs to be performed or explicitly deferred before M1 starts.",
-    "blocker_artifacts": [
-      "sharedspace/runtime-kernel-validation/work-lifecycle/m0-contract/summary.json"
-    ]
-  },
+  "hold": null,
   "abort": null,
   "superseded_by": null
 }
