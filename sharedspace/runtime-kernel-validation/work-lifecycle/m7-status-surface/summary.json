@@ -1,0 +1,43 @@
+{
+  "schema": "work_lifecycle.m7.summary.v1",
+  "runId": "work_20260701T083800Z_lifecycle_ledger_m7",
+  "status": "PASS_WITH_PUSH_PENDING_HOLD_BEFORE_M8",
+  "classification": "WORK_LIFECYCLE_M7_STATUS_SURFACE_LOCAL_PASS_PUSH_PENDING",
+  "completedAt": "2026-07-01T08:42:00Z",
+  "artifacts": [
+    "src/work-lifecycle/work-status-surface.ts",
+    "src/work-lifecycle/work-status-surface.test.mjs",
+    "scripts/work-lifecycle-status.mjs",
+    "state/work-lifecycle/runs/work_20260701T083800Z_lifecycle_ledger_m7.json",
+    "state/work-lifecycle/events/work_20260701T083800Z_lifecycle_ledger_m7.jsonl",
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m7-status-surface/gate-results.json"
+  ],
+  "validation": {
+    "id": "33829bba-5478-4401-a5c1-0df18d5809aa",
+    "status": "PASS",
+    "output": ["tests 4", "pass 4", "fail 0", "M7_REDACTION_SCAN_PASS", "M7_FOCUSED_VALIDATION_PASS"]
+  },
+  "gates": {
+    "M7_G1_ACTIVE_RUNS_VISIBLE": "PASS",
+    "M7_G2_FAILED_DELIVERY_VISIBLE": "PASS",
+    "M7_G3_REPLAY_VALIDATES_EVENT_LOG": "PASS",
+    "M7_G4_NO_SECRETS": "PASS",
+    "M7_REDACTION_SCAN": "PASS",
+    "OWNER_GITHUB_PUSH_BEFORE_NEXT_MILESTONE": "PENDING"
+  },
+  "failedGates": [],
+  "blockersBeforeM8": ["GitHub selective stage/commit/push required before starting M8."],
+  "boundaryReadback": {
+    "runtimeBehaviorChanged": false,
+    "gatewayConfigChanged": false,
+    "gatewayRestarted": false,
+    "routesChanged": false,
+    "providerAuthChanged": false,
+    "ge2Mutated": false,
+    "vectorGraphMemoryMutated": false,
+    "vnextMeshMutated": false,
+    "runtimeHookImported": false,
+    "cliRegistered": false,
+    "telegramSent": false
+  }
+}
