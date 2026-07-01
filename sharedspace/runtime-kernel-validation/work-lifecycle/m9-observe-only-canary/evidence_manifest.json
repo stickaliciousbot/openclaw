@@ -1,0 +1,46 @@
+{
+  "schema": "work_lifecycle.m9.evidence_manifest.v1",
+  "runId": "work_20260701T112600Z_lifecycle_ledger_m9",
+  "status": "PASS_LOCAL_VALIDATED",
+  "closeoutStatus": "PASS_LOCAL_VALIDATED",
+  "preservationStatus": "HOLD_BEFORE_SELECTIVE_COMMIT_PUSH",
+  "evidence": [
+    {
+      "path": "sharedspace/runtime-kernel-validation/work-lifecycle/m9-observe-only-canary/status.json",
+      "sha256": "a090d1156eebe6feaccccc5c86815366417aef9ac46b4118e402196df64c9ec3"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/work-lifecycle/m9-observe-only-canary/summary.json",
+      "sha256": "6788abe20cee16574816af051a1ed73a27a76ddbc2aeeb1213a3cba59d86713d"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/work-lifecycle/m9-observe-only-canary/gate-results.json",
+      "sha256": "f9873e6077a98d21fdb873065ee245f158d048653f0f555bf4f844cbeac69188"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/work-lifecycle/m9-observe-only-canary/evidence_manifest.json",
+      "sha256": "SELF_HASH_EXCLUDED"
+    },
+    {
+      "path": "state/work-lifecycle/runs/work_20260701T112600Z_lifecycle_ledger_m9.json",
+      "sha256": "1a9c1860f40f583c459597200c55e1fc932ff26181a6cd4bec0fc1b1e2cc2b87"
+    },
+    {
+      "path": "state/work-lifecycle/events/work_20260701T112600Z_lifecycle_ledger_m9.jsonl",
+      "sha256": "157b709b3672236ecbe98448da2ba504bb69ec7cf5861020c2a6008bcb2e16fd"
+    }
+  ],
+  "boundaryReadback": {
+    "productionMutation": false,
+    "runtimeHookImport": false,
+    "cliRegistrationChange": false,
+    "gatewayConfigRouteProviderAuthMemoryMutation": false,
+    "serviceRestart": false,
+    "telegramSend": false,
+    "productionApply": false,
+    "m8TerminalState": "PASS_PUSHED",
+    "m9ObserveOnly": true,
+    "m10Started": false
+  },
+  "m10Status": "NOT_STARTED"
+}

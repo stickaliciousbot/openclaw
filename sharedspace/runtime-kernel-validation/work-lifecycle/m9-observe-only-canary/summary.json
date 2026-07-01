@@ -1,0 +1,58 @@
+{
+  "schema": "work_lifecycle.m9.summary.v1",
+  "runId": "work_20260701T112600Z_lifecycle_ledger_m9",
+  "status": "PASS_LOCAL_VALIDATED",
+  "closeoutStatus": "PASS_LOCAL_VALIDATED",
+  "preservationStatus": "HOLD_BEFORE_SELECTIVE_COMMIT_PUSH",
+  "classification": "WORK_LIFECYCLE_M9_OBSERVE_ONLY_CANARY_PASS_LOCAL_VALIDATED",
+  "validation": {
+    "command": "node --experimental-strip-types --test src/work-lifecycle/work-observe-only-canary.test.mjs",
+    "status": "PASS",
+    "marker": "M9_OBSERVE_ONLY_CANARY_VALIDATION_PASS"
+  },
+  "redaction": "M9_REDACTION_SCAN_PASS",
+  "boundary": "M9_BOUNDARY_CHECK_FILES_SCOPED",
+  "ackTerminalCloseout": {
+    "ackRecorded": true,
+    "terminalRecorded": true,
+    "deliveryAssumed": false,
+    "externalDeliverySent": false
+  },
+  "watcherReadback": {
+    "observed": true,
+    "source": "sidecar_files_only",
+    "runtimeHookImport": false,
+    "cliRegistrationChange": false
+  },
+  "gates": {
+    "M9_OBSERVE_ONLY_CANARY_VALIDATION_PASS": "PASS",
+    "M9_REDACTION_SCAN_PASS": "PASS",
+    "M9_BOUNDARY_CHECK_FILES_SCOPED": "PASS"
+  },
+  "failedGates": [],
+  "boundaryReadback": {
+    "productionMutation": false,
+    "runtimeHookImport": false,
+    "cliRegistrationChange": false,
+    "gatewayConfigRouteProviderAuthMemoryMutation": false,
+    "serviceRestart": false,
+    "telegramSend": false,
+    "productionApply": false,
+    "m8TerminalState": "PASS_PUSHED",
+    "m9ObserveOnly": true,
+    "m10Started": false
+  },
+  "artifacts": [
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m9-observe-only-canary/status.json",
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m9-observe-only-canary/summary.json",
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m9-observe-only-canary/gate-results.json",
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m9-observe-only-canary/evidence_manifest.json",
+    "state/work-lifecycle/runs/work_20260701T112600Z_lifecycle_ledger_m9.json",
+    "state/work-lifecycle/events/work_20260701T112600Z_lifecycle_ledger_m9.jsonl"
+  ],
+  "closeoutFooter": {
+    "closeout": "PASS_LOCAL_VALIDATED",
+    "overallLifecycleState": "HOLD_BEFORE_SELECTIVE_COMMIT_PUSH"
+  },
+  "m10Status": "NOT_STARTED"
+}

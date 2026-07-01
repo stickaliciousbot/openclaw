@@ -1,0 +1,37 @@
+{
+  "schema": "work_lifecycle.m9.status.v1",
+  "runId": "work_20260701T112600Z_lifecycle_ledger_m9",
+  "milestone": "M9",
+  "status": "PASS_LOCAL_VALIDATED",
+  "closeoutStatus": "PASS_LOCAL_VALIDATED",
+  "preservationStatus": "HOLD_BEFORE_SELECTIVE_COMMIT_PUSH",
+  "classification": "WORK_LIFECYCLE_M9_OBSERVE_ONLY_CANARY_PASS_LOCAL_VALIDATED",
+  "gates": {
+    "M9_OBSERVE_ONLY_CANARY_VALIDATION_PASS": "PASS",
+    "M9_REDACTION_SCAN_PASS": "PASS",
+    "M9_BOUNDARY_CHECK_FILES_SCOPED": "PASS"
+  },
+  "boundaryReadback": {
+    "productionMutation": false,
+    "runtimeHookImport": false,
+    "cliRegistrationChange": false,
+    "gatewayConfigRouteProviderAuthMemoryMutation": false,
+    "serviceRestart": false,
+    "telegramSend": false,
+    "productionApply": false,
+    "m8TerminalState": "PASS_PUSHED",
+    "m9ObserveOnly": true,
+    "m10Started": false
+  },
+  "m8TerminalState": "PASS_PUSHED",
+  "m9ObserveOnly": true,
+  "m10Status": "NOT_STARTED",
+  "evidence": {
+    "status": "sharedspace/runtime-kernel-validation/work-lifecycle/m9-observe-only-canary/status.json",
+    "summary": "sharedspace/runtime-kernel-validation/work-lifecycle/m9-observe-only-canary/summary.json",
+    "gateResults": "sharedspace/runtime-kernel-validation/work-lifecycle/m9-observe-only-canary/gate-results.json",
+    "evidenceManifest": "sharedspace/runtime-kernel-validation/work-lifecycle/m9-observe-only-canary/evidence_manifest.json",
+    "run": "state/work-lifecycle/runs/work_20260701T112600Z_lifecycle_ledger_m9.json",
+    "events": "state/work-lifecycle/events/work_20260701T112600Z_lifecycle_ledger_m9.jsonl"
+  }
+}

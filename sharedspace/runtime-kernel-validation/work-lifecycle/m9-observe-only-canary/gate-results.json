@@ -1,0 +1,38 @@
+{
+  "schema": "work_lifecycle.m9.gate_results.v1",
+  "runId": "work_20260701T112600Z_lifecycle_ledger_m9",
+  "status": "PASS_LOCAL_VALIDATED",
+  "closeoutStatus": "PASS_LOCAL_VALIDATED",
+  "gates": {
+    "M9_OBSERVE_ONLY_CANARY_VALIDATION_PASS": "PASS",
+    "M9_REDACTION_SCAN_PASS": "PASS",
+    "M9_BOUNDARY_CHECK_FILES_SCOPED": "PASS"
+  },
+  "failedGates": [],
+  "requiredReadback": {
+    "productionMutation": false,
+    "runtimeHookImport": false,
+    "cliRegistrationChange": false,
+    "gatewayConfigRouteProviderAuthMemoryMutation": false,
+    "serviceRestart": false,
+    "telegramSend": false,
+    "productionApply": false,
+    "m8TerminalState": "PASS_PUSHED",
+    "m9ObserveOnly": true,
+    "m10Started": false
+  },
+  "ackTerminalCloseout": {
+    "ackRecorded": true,
+    "terminalRecorded": true,
+    "deliveryAssumed": false,
+    "externalDeliverySent": false
+  },
+  "watcherReadback": {
+    "observed": true,
+    "source": "sidecar_files_only",
+    "runtimeHookImport": false,
+    "cliRegistrationChange": false
+  },
+  "preservationStatus": "HOLD_BEFORE_SELECTIVE_COMMIT_PUSH",
+  "m10Status": "NOT_STARTED"
+}
