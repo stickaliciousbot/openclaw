@@ -8,10 +8,10 @@
   "actor": "stickbot",
   "title": "OpenClaw Stickbot Work Lifecycle Ledger M5 no-next-milestone guard",
   "requested_by": "operator",
-  "status": "HOLD",
+  "status": "PASS",
   "started_at": "2026-07-01T08:06:00Z",
-  "updated_at": "2026-07-01T08:09:00Z",
-  "ended_at": null,
+  "updated_at": "2026-07-01T08:21:00Z",
+  "ended_at": "2026-07-01T08:21:00Z",
   "safety_boundary": {
     "mode": "repo_patch",
     "allowed_mutations": ["working_tree", "docs", "local_artifacts", "state_sidecar_samples", "focused_tests"],
@@ -56,12 +56,7 @@
     }
   ],
   "failure": null,
-  "hold": {
-    "code": "GITHUB_PUSH_REQUIRED_BEFORE_M6",
-    "reason": "Stick requires code/docs pushed to GitHub after each milestone PASS before starting the next milestone.",
-    "needed_from_operator": "Selective staging/commit/push must complete before M6 starts.",
-    "blocker_artifacts": ["sharedspace/runtime-kernel-validation/work-lifecycle/m5-transition-guard/summary.json"]
-  },
+  "hold": null,
   "abort": null,
   "superseded_by": null
 }
