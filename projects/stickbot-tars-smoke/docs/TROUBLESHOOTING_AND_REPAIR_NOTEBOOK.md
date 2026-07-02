@@ -425,4 +425,34 @@ Smoke result:
 - Probe: `pcm_s16le`, 16000 Hz, mono.
 - Network blocked/unavailable, secret dirs hidden, no cloud STT, no browser Web Speech API, no OpenClaw mutation.
 
-Real STT engine acquisition/install, M7B, M8, live provider/Gateway smoke, Android, persistent service install, and host-PC Tailscale proxy/user-testing exposure are not started and require separate approval.
+## M7B whisper.cpp local STT notes
+
+M7B completed as `STICKBOT_TARS_M7B_WHISPERCPP_LOCAL_STT_FIXTURE_PASS`.
+
+Preflight:
+
+- `cmake` missing, so avoided build/apt mutation and used pinned release binary.
+- whisper.cpp tag: `v1.9.1`, commit `f049fff95a089aa9969deb009cdd4892b3e74916`.
+
+Acquisition:
+
+- Release asset SHA256 matched expected GitHub API digest: `f3bf3b4369a99b54665b0f19b88483b30de27f25963b0414235dea03198515c5`.
+- Selected binary: `whisper-cli`, SHA256 `427dfb509f2c04d0f01c101978b5666102c6f7e3abf2a236452db5939f5b533a`.
+- Model: `ggml-base.en.bin`, SHA256 `a03779c86df3323075f5e796cb2ce5029f00ec8869eee3fdfb897afe36c6d002`, bytes `147964211`.
+
+Repairs:
+
+- R1 failed safely because the harness selected deprecated `main`; `/api/stt` fail-closed with `STT_EXIT_NONZERO`. Repair: select `whisper-cli` and block `main`.
+- R2 proved local transcription worked but failed normalization gate because `STT_NORMALIZE_AUDIO=1` parsed false. Repair: use `STT_NORMALIZE_AUDIO=true` and assert `normalizedLocal:true`.
+- R3 passed: HTTP 200, `sttMode:cli`, `normalizedLocal:true`, transcript chars `42`, transcript SHA256 only preserved, raw transcript trace-only under `/tmp`, no durable raw transcript.
+
+Boundary:
+
+- No network required during transcription.
+- Network blocked/unavailable in sandbox.
+- Secret dirs hidden.
+- No cloud STT.
+- No browser Web Speech API.
+- No OpenClaw/Gateway/NOA mutation.
+
+M7C small.en usable demo, M8, live provider/Gateway smoke, Android, persistent service install, and host-PC Tailscale proxy/user-testing exposure are not started and require separate approval.

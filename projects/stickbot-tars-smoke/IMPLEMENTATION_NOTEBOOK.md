@@ -332,4 +332,17 @@ M7A outcome:
 - Boundary preserved: network blocked/unavailable during sandbox smoke, secret dirs hidden, no cloud STT, no browser Web Speech API, no OpenClaw mutation.
 - Evidence: `docs/m7-local-stt/m7a-audio-normalization/M7A_LOCAL_AUDIO_NORMALIZATION_PROVENANCE_PASS.md` and `docs/m7-local-stt/m7a-audio-normalization/evidence_manifest.json`.
 
-M7B is not started. Next target remains `STICKBOT_TARS_M7B_WHISPERCPP_LOCAL_STT_FIXTURE_PASS`.
+M7B outcome:
+
+- Final classification: `STICKBOT_TARS_M7B_WHISPERCPP_LOCAL_STT_FIXTURE_PASS`.
+- Preflight `540f891f` / `swift-slug`: branch/head clean at `67d1155dddba50c26e691eb329ea9949432dbf26`; `cmake` missing; `make/gcc/g++/curl/python3` present; M7A FFmpeg present; no whisper tools/models existed.
+- Acquisition/static validation `73997222` / `grand-pine`: `npm run check` passed `39/39`; whisper.cpp `v1.9.1` Ubuntu x64 release asset hash matched expected GitHub API digest `f3bf3b4369a99b54665b0f19b88483b30de27f25963b0414235dea03198515c5`; `ggml-base.en.bin` model acquired.
+- Selected binary: `/home/stickai/stickbot-voice/tools/whisper.cpp/v1.9.1-ubuntu-x64/extract/whisper-bin-ubuntu-x64/whisper-cli`, SHA256 `427dfb509f2c04d0f01c101978b5666102c6f7e3abf2a236452db5939f5b533a`.
+- Model: `/home/stickai/stickbot-voice/stt_models/whisper.cpp/ggml-base.en.bin`, SHA256 `a03779c86df3323075f5e796cb2ce5029f00ec8869eee3fdfb897afe36c6d002`, bytes `147964211`.
+- R1 failed safely because deprecated `main` was selected and exited nonzero; repaired by using `whisper-cli` and blocking `main` in the smoke script.
+- R2 proved local transcription worked, but normalization was not applied because `STT_NORMALIZE_AUDIO=1` parsed false; repaired to `STT_NORMALIZE_AUDIO=true` and added a hard assertion that `normalizedLocal` is true.
+- R3 smoke `aecf89d6` / `nova-bison` passed with marker `STICKBOT_TARS_M7B_WHISPERCPP_LOCAL_STT_SMOKE_PASS_R3`: `/api/stt` HTTP 200, `sttMode:cli`, `normalizedLocal:true`, transcript chars `42`, transcript SHA256 `3e1f84be507525854b4acd7d9074dd1c7c55478130609fab0d509f97b6420075`, normalized WAV SHA256 `2cdd6e22cbf67805f03d275881955edfa7cd8deada3b818e7fff827010fab4ad`, probe `pcm_s16le` 16000 Hz mono.
+- Boundary preserved: network blocked/unavailable during transcription, secret dirs hidden, no cloud STT, no browser Web Speech API, no OpenClaw/Gateway/NOA mutation, no raw transcript committed; raw transcript existed only under `/tmp` trace.
+- Evidence: `docs/m7-local-stt/m7b-whispercpp-local-stt/M7B_WHISPERCPP_LOCAL_STT_FIXTURE_PASS.md` and `docs/m7-local-stt/m7b-whispercpp-local-stt/evidence_manifest.json`.
+
+Next possible target: `M7C_SMALL_EN_USABLE_DEMO_NOT_STARTED_REQUIRES_SEPARATE_APPROVAL`.

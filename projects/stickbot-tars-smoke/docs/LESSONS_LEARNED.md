@@ -125,3 +125,16 @@ M7A proved that local audio normalization should be separated from real STT. The
 Runtime privilege lesson: apt install from Telegram may fail even after approval because sudo needs a TTY/password and elevated exec may be disabled for that provider. Do not mutate OpenClaw/Gateway to work around this. Use an approved user-space WSL-native fallback when suitable.
 
 M7A fallback result: John Van Sickle static FFmpeg `7.0.2-static` was acquired under `/home/stickai/stickbot-voice/tools/ffmpeg-static`, with tarball SHA256 `abda8d77ce8309141f83ab8edf0596834087c52467f6badf376a6a2a4c87cf67`, FFmpeg SHA256 `e7e7fb30477f717e6f55f9180a70386c62677ef8a4d4d1a5d948f4098aa3eb99`, FFprobe SHA256 `4f231a1960d83e403d08f7971e271707bec278a9ae18e21b8b5b03186668450d`. License posture is GPLv3 private/dev validation only, not future distributable default. Sandboxed normalization converted fixture WebM/Opus into mono 16 kHz PCM WAV SHA256 `38e3b264d99a035f168d6913520d2541a943c6a931e3f896882daf756b66fb7f`, preserving no-network/secret-hidden/no-cloud/no-WebSpeech/no-OpenClaw-mutation boundaries.
+
+## M7B: whisper.cpp local STT real fixture
+
+M7B proved the primary STT substrate decision: pinned whisper.cpp release binary + `ggml-base.en.bin` can transcribe locally through `/api/stt` with FFmpeg normalization and no network during transcription.
+
+Lessons:
+
+- Prefer `whisper-cli`; deprecated `main` exits nonzero in `v1.9.1` and should be blocked by smoke gates.
+- Boolean env flags in this project only accept literal `true`; `1` is false. Smoke scripts must use `STT_NORMALIZE_AUDIO=true` and assert `normalizedLocal:true`.
+- Raw transcripts are privacy-sensitive runtime traces; preserve length/hash only in durable docs/memory.
+- Missing `cmake` does not block the first proof if an official pinned release binary with digest is available.
+
+M7B result: whisper.cpp `v1.9.1` release asset SHA256 `f3bf3b4369a99b54665b0f19b88483b30de27f25963b0414235dea03198515c5`, `whisper-cli` SHA256 `427dfb509f2c04d0f01c101978b5666102c6f7e3abf2a236452db5939f5b533a`, `ggml-base.en.bin` SHA256 `a03779c86df3323075f5e796cb2ce5029f00ec8869eee3fdfb897afe36c6d002`; R3 `/api/stt` HTTP 200 with `normalizedLocal:true`, transcript chars `42`, transcript SHA256 `3e1f84be507525854b4acd7d9074dd1c7c55478130609fab0d509f97b6420075`, no cloud/WebSpeech/OpenClaw mutation.
