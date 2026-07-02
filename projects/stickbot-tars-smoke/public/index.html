@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stickbot TARS Smoke</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 760px; margin: 32px auto; padding: 0 16px; background:#0b0f12; color:#e5f4ec; }
+    textarea { width:100%; min-height:100px; background:#101820; color:#e5f4ec; border:1px solid #2b5440; border-radius:8px; padding:10px; }
+    button { margin:8px 8px 8px 0; padding:10px 14px; border-radius:8px; border:0; background:#22a06b; color:white; font-weight:700; }
+    button.secondary { background:#335; }
+    .turn { border:1px solid #254; border-radius:10px; padding:12px; margin:12px 0; background:#101820; }
+    .muted { color:#9bb; font-size: 0.9em; }
+    audio { width:100%; margin-top:8px; }
+  </style>
+</head>
+<body>
+  <h1>🛰️ Stickbot TARS Smoke</h1>
+  <p class="muted">Local-first smoke. Text works now; mic records locally and waits for a local STT backend. No browser Web Speech API.</p>
+  <textarea id="text" placeholder="Type to Stickbot..."></textarea><br />
+  <label><input id="voice" type="checkbox" checked /> generate TARS voice</label><br />
+  <button id="send">Send text</button>
+  <button id="mic" class="secondary">Hold / stop mic capture</button>
+  <div id="log"></div>
+  <script src="/app.js"></script>
+</body>
+</html>

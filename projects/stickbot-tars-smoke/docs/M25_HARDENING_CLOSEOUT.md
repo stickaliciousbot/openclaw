@@ -1,0 +1,132 @@
+# Stickbot-TARS M2.5 Hardening Closeout
+
+Generated: 2026-07-02 17:18 AEST / 2026-07-02T07:18:00Z
+
+## Final classification
+
+`STICKBOT_TARS_M25_HARDENING_CLOSEOUT_PASS_READY_FOR_M3`
+
+This means M2.5 hardening gates are repaired and validation passed. It does **not** start M3.
+
+## Branch and baseline
+
+- Branch: `feature/stickbot-tars-m25-hardening-repair`
+- HEAD before repair: `143fa869ac1969dc0766eaa0bcb9a7be9da45e79`
+- Previous classification: `STICKBOT_TARS_M25_HARDENING_CLOSEOUT_BLOCKED_FAIL_CLOSED`
+- Refined audit classification: `STICKBOT_TARS_REFINED_REPO_AUDIT_READONLY_COMPLETE_READY_FOR_REPAIR_PLAN`
+
+## Files changed/added for repair
+
+Source / runtime:
+
+- `projects/stickbot-tars-smoke/server.js`
+- `projects/stickbot-tars-smoke/package.json`
+- `projects/stickbot-tars-smoke/.gitignore`
+- `projects/stickbot-tars-smoke/public/app.js`
+- `projects/stickbot-tars-smoke/src/config.js`
+- `projects/stickbot-tars-smoke/safety/network-policy.js`
+- `projects/stickbot-tars-smoke/safety/audio-path-policy.js`
+- `projects/stickbot-tars-smoke/safety/limits.js`
+- `projects/stickbot-tars-smoke/safety/origin-policy.js`
+- `projects/stickbot-tars-smoke/safety/csrf.js`
+
+Tests:
+
+- `projects/stickbot-tars-smoke/test/config-failclosed.test.mjs`
+- `projects/stickbot-tars-smoke/test/audio-path-policy.test.mjs`
+- `projects/stickbot-tars-smoke/test/origin-csrf.test.mjs`
+- `projects/stickbot-tars-smoke/test/limits.test.mjs`
+
+Closeout / evidence:
+
+- `projects/stickbot-tars-smoke/docs/M25_HARDENING_CLOSEOUT.md`
+- `projects/stickbot-tars-smoke/docs/M25_REPAIR_PLAN.md`
+- `projects/stickbot-tars-smoke/docs/REPO_AUDIT_READ_ONLY_CLOSEOUT.md`
+- `projects/stickbot-tars-smoke/state/status.json`
+
+Staged file list intended for commit is the exact list above. Memory/context bridge files are explicitly excluded from staging.
+
+## Blocker gates fixed
+
+- `configFailClosedImplemented`: PASS
+- `unsafeLanRefusesStartup`: PASS
+- `uuidOnlyAudioRoute`: PASS
+- `separateAudioLimitExists`: PASS
+- `originHostCsrfChecksExist`: PASS
+
+## Implementation notes
+
+- Config now defaults to `HOST=127.0.0.1`, `PORT=18788`, `VOICE_DEMO_ALLOW_LAN=false`.
+- Startup fail-closed classifications:
+  - `BLOCKED_UNSAFE_CONFIG`
+  - `BLOCKED_RESERVED_PORT`
+  - `BLOCKED_NON_LOOPBACK_HOST`
+  - `BLOCKED_NON_LOOPBACK_XTTS`
+- Port `8787` is refused for Stickbot-TARS because it belongs to NOA.
+- Non-loopback host and non-loopback XTTS URL require explicit opt-in.
+- `/audio/:file` serves only app-local output files matching `<uuid>.wav`.
+- Traversal, encoded traversal, absolute paths, nested paths, non-UUID names, and alternate extensions are rejected.
+- JSON/text and audio upload byte limits are separate.
+- Audio duration limit is explicit in config; binary duration inspection remains deferred.
+- POST routes reject unexpected `Origin`; no wildcard CORS was added.
+- Browser UI obtains `/api/session` CSRF nonce and sends `x-csrf-token`.
+- Local CLI/no-Origin allowance is documented in code, but mutating routes still require CSRF.
+
+## Validation results
+
+Initial validation command `06d39321-467a-4e86-8e27-c689357464f8`:
+
+- `npm run check`: PASS
+- `node --test test/*.test.mjs`: PASS, 19/19 tests passing
+- Unsafe config startup tests began and blocker tests passed
+- Local echo smoke on `127.0.0.1:18789`: environmental FAIL because that port was already answered by a different service (`{"ok":true,"status":"live"}`) and `/api/session` returned 404
+- Classification of this failure: port collision / not TARS service, not a hardening gate failure
+
+Remaining validation command `141151db-26a6-4652-8009-f779dd20c1ed`:
+
+- Local echo smoke rerun on guarded high loopback port `127.0.0.1:19888`: PASS
+- Health response verified as TARS:
+  - `openclawMode: "echo"`
+  - `host: "127.0.0.1"`
+  - `port: 19888`
+- CSRF/session flow: PASS
+- `/api/chat` echo smoke with `voice:false`: PASS
+- `git diff --check -- projects/stickbot-tars-smoke`: PASS
+- No `/mnt/c` references in runtime repair files: PASS
+- Production sentinel stat-only readback: PASS
+
+## Production/runtime readback
+
+Read-only stat results from validation:
+
+- `/home/stickai/.openclaw/openclaw.json`
+  - exists: true
+  - mode: `600`
+  - bytes: `27481`
+  - mtime: `2026-07-02 11:20:40.560128383 +1000`
+- `/home/stickai/.openclaw/restart-sentinel.json`
+  - exists: false
+
+No OpenClaw production routing/config/default/fallback/Gateway/service/provider/systemd mutation was performed.
+
+## Generated / ignored artifacts not committed
+
+Do not commit:
+
+- `projects/stickbot-tars-smoke/data/audio/**`
+- `projects/stickbot-tars-smoke/data/traces/**`
+- `projects/stickbot-tars-smoke/models/**`
+- `projects/stickbot-tars-smoke/xtts_models/**`
+- `projects/stickbot-tars-smoke/.venv/**`
+- `projects/stickbot-tars-smoke/venv/**`
+- `projects/stickbot-tars-smoke/node_modules/**`
+- `projects/stickbot-tars-smoke/cache/**`
+- Memory/context bridge events generated by smoke validation unless separately approved
+
+Note: the approved local echo smoke exercises the current server logging path, which writes daily/context bridge records. Those are deliberately excluded from staging for this repair commit.
+
+## M3 stop condition
+
+M2.5 is now ready-for-M3 by hardening gates, but M3 itself remains not started.
+
+Do not download models, load XTTS, wire STT, touch Android, or mutate OpenClaw/NOA/Gateway unless separately approved.

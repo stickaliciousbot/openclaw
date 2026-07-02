@@ -1,0 +1,57 @@
+# Stickbot-TARS local runtime artifacts
+# Voice/audio is sensitive: do not commit captured mic audio, generated TTS, traces, temp conversions, models, or local envs.
+
+# Node/runtime
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-store/
+.cache/
+cache/
+.env
+.env.*
+!.env.example
+
+# Local app data
+data/audio/**
+data/captured/**
+data/generated/**
+data/tmp/**
+data/traces/**
+*.jsonl
+
+# Audio artifacts
+*.wav
+*.webm
+*.ogg
+*.opus
+*.mp3
+*.flac
+
+# Model artifacts / unsafe binary weights
+models/**
+xtts_models/**
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+*.onnx
+
+# Python/XTTS runtime
+.venv/**
+venv/**
+__pycache__/
+*.pyc
+pip-wheel-metadata/
+
+# Local manifests may include machine-local paths or license notes; commit only reviewed redacted manifests under docs/.
+manifest.local.json
+provenance.local.json
+sha256.local.txt
+
+# OS/editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
