@@ -1,0 +1,14 @@
+{
+  "nodeStatus": 200,
+  "id": "a917618e-0919-4321-94cf-d618b2b6492f",
+  "savedLocal": true,
+  "normalizedLocal": true,
+  "sttMode": "cli",
+  "transcriptChars": 45,
+  "transcriptSha256": "44b7adbb95a5d4d7129029ad17b4b2cc1bc3429e1b9057f3ad3640ef234a2fac",
+  "boundaries": {
+    "browserWebSpeechApi": false,
+    "cloudSpeechApi": false
+  },
+  "rawTranscriptPolicy": "trace_only_not_committed"
+}

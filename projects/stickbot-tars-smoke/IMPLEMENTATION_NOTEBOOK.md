@@ -345,4 +345,14 @@ M7B outcome:
 - Boundary preserved: network blocked/unavailable during transcription, secret dirs hidden, no cloud STT, no browser Web Speech API, no OpenClaw/Gateway/NOA mutation, no raw transcript committed; raw transcript existed only under `/tmp` trace.
 - Evidence: `docs/m7-local-stt/m7b-whispercpp-local-stt/M7B_WHISPERCPP_LOCAL_STT_FIXTURE_PASS.md` and `docs/m7-local-stt/m7b-whispercpp-local-stt/evidence_manifest.json`.
 
-Next possible target: `M7C_SMALL_EN_USABLE_DEMO_NOT_STARTED_REQUIRES_SEPARATE_APPROVAL`.
+M7C outcome:
+
+- Final classification: `STICKBOT_TARS_M7C_SMALL_EN_USABLE_DEMO_PASS`.
+- Approval/run `655d2910` / `tide-mist` created M7C smoke harness, updated `package.json`, ran static checks (`39/39 PASS`), downloaded `ggml-small.en.bin`, and passed the local small.en STT smoke.
+- Model: `/home/stickai/stickbot-voice/stt_models/whisper.cpp/ggml-small.en.bin`, SHA256 `c6138d6d58ecc8322097e0f987c32f1be8bb0a18532a3f88f734d1bbf9c41e5d`, bytes `487614201`, excluded from git.
+- Reused M7B `whisper-cli` SHA256 `427dfb509f2c04d0f01c101978b5666102c6f7e3abf2a236452db5939f5b533a`.
+- Smoke passed: `/api/stt` HTTP 200, `sttMode:cli`, `normalizedLocal:true`, transcript chars `45`, transcript SHA256 `44b7adbb95a5d4d7129029ad17b4b2cc1bc3429e1b9057f3ad3640ef234a2fac`, normalized audio SHA256 `2cdd6e22cbf67805f03d275881955edfa7cd8deada3b818e7fff827010fab4ad`, probe `pcm_s16le` 16000 Hz mono.
+- Boundary preserved: network blocked/unavailable during transcription, secret dirs hidden, no cloud STT, no browser Web Speech API, no OpenClaw/Gateway/NOA mutation, no raw transcript committed; raw transcript existed only under `/tmp` trace.
+- Evidence: `docs/m7-local-stt/m7c-small-en-usable-demo/M7C_SMALL_EN_USABLE_DEMO_PASS.md` and `docs/m7-local-stt/m7c-small-en-usable-demo/evidence_manifest.json`.
+
+Next possible target: `M7D_REAL_MIC_LOCAL_DEMO_NOT_STARTED_REQUIRES_SEPARATE_APPROVAL`.

@@ -455,4 +455,33 @@ Boundary:
 - No browser Web Speech API.
 - No OpenClaw/Gateway/NOA mutation.
 
-M7C small.en usable demo, M8, live provider/Gateway smoke, Android, persistent service install, and host-PC Tailscale proxy/user-testing exposure are not started and require separate approval.
+## M7C small.en usable demo notes
+
+M7C completed as `STICKBOT_TARS_M7C_SMALL_EN_USABLE_DEMO_PASS`.
+
+Run:
+
+- `655d2910-b2b9-42e5-834a-d05c23e9a508` / `tide-mist`.
+- Static checks: `39/39 PASS`.
+- Marker: `STICKBOT_TARS_M7C_SMALL_EN_USABLE_DEMO_SMOKE_PASS`.
+
+Model:
+
+- `ggml-small.en.bin`.
+- SHA256: `c6138d6d58ecc8322097e0f987c32f1be8bb0a18532a3f88f734d1bbf9c41e5d`.
+- Bytes: `487614201`.
+- Path: `/home/stickai/stickbot-voice/stt_models/whisper.cpp/ggml-small.en.bin`.
+- Excluded from git.
+
+Smoke:
+
+- `/api/stt`: HTTP 200.
+- `sttMode:cli`.
+- `normalizedLocal:true`.
+- Transcript chars: `45`.
+- Transcript SHA256 only: `44b7adbb95a5d4d7129029ad17b4b2cc1bc3429e1b9057f3ad3640ef234a2fac`.
+- Raw transcript trace-only under `/tmp`.
+- No network required during transcription; network blocked/unavailable in sandbox.
+- No cloud STT, no browser Web Speech API, no OpenClaw/Gateway/NOA mutation.
+
+M7D real mic local demo, M8, live provider/Gateway smoke, Android, persistent service install, and host-PC Tailscale proxy/user-testing exposure are not started and require separate approval.

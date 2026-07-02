@@ -1,6 +1,6 @@
 {
   "schema": "stickbot.tars.milestone.status.v1",
-  "generatedUtc": "2026-07-02T12:05:00Z",
+  "generatedUtc": "2026-07-02T12:22:00Z",
   "branch": "feature/stickbot-tars-m25-hardening-repair",
   "headBeforeM25Repair": "143fa869ac1969dc0766eaa0bcb9a7be9da45e79",
   "m25RepairCommit": "5c29204016bebd11da4ffa6dc20bb99aba9676a4",
@@ -448,7 +448,52 @@
     "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7b-whispercpp-local-stt/M7B_WHISPERCPP_LOCAL_STT_FIXTURE_PASS.md",
     "evidenceManifest": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7b-whispercpp-local-stt/evidence_manifest.json",
     "implementationPlan": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7b-whispercpp-local-stt/M7B_WHISPERCPP_IMPLEMENTATION_PLAN.md",
-    "nextMilestone": "M7C_SMALL_EN_USABLE_DEMO_NOT_STARTED_REQUIRES_SEPARATE_APPROVAL"
+    "nextMilestone": "M7C_SMALL_EN_USABLE_DEMO_APPROVED_AND_COMPLETED"
+  },
+  "m7c": {
+    "finalClassification": "STICKBOT_TARS_M7C_SMALL_EN_USABLE_DEMO_PASS",
+    "approvalId": "655d2910-b2b9-42e5-834a-d05c23e9a508",
+    "session": "tide-mist",
+    "marker": "STICKBOT_TARS_M7C_SMALL_EN_USABLE_DEMO_SMOKE_PASS",
+    "staticValidation": {
+      "testsPassed": 39,
+      "testsFailed": 0
+    },
+    "source": {
+      "engine": "whisper.cpp",
+      "tag": "v1.9.1",
+      "binaryPath": "/home/stickai/stickbot-voice/tools/whisper.cpp/v1.9.1-ubuntu-x64/extract/whisper-bin-ubuntu-x64/whisper-cli",
+      "binarySha256": "427dfb509f2c04d0f01c101978b5666102c6f7e3abf2a236452db5939f5b533a"
+    },
+    "model": {
+      "name": "ggml-small.en.bin",
+      "path": "/home/stickai/stickbot-voice/stt_models/whisper.cpp/ggml-small.en.bin",
+      "sha256": "c6138d6d58ecc8322097e0f987c32f1be8bb0a18532a3f88f734d1bbf9c41e5d",
+      "bytes": 487614201,
+      "commitPolicy": "excluded_from_git"
+    },
+    "smoke": {
+      "result": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7c-small-en-usable-demo/result.json",
+      "classification": "STICKBOT_TARS_M7C_SMALL_EN_USABLE_DEMO_PASS",
+      "nodeStatus": 200,
+      "sttMode": "cli",
+      "normalizedLocal": true,
+      "fixtureInputSha256": "9a1f332a74f2625c4f18e246b738eee29aede9c89362b5a407e6033b7135fc84",
+      "normalizedAudioSha256": "2cdd6e22cbf67805f03d275881955edfa7cd8deada3b818e7fff827010fab4ad",
+      "transcriptChars": 45,
+      "transcriptSha256": "44b7adbb95a5d4d7129029ad17b4b2cc1bc3429e1b9057f3ad3640ef234a2fac",
+      "rawTranscriptPolicy": "trace_only_not_committed",
+      "networkRequiredDuringTranscription": false,
+      "networkBlockedOrUnavailable": true,
+      "secretDirsHidden": true,
+      "cloudSpeechApiCalled": false,
+      "browserWebSpeechApi": false,
+      "openClawMutation": false
+    },
+    "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7c-small-en-usable-demo/M7C_SMALL_EN_USABLE_DEMO_PASS.md",
+    "evidenceManifest": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7c-small-en-usable-demo/evidence_manifest.json",
+    "implementationPlan": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7c-small-en-usable-demo/M7C_SMALL_EN_USABLE_DEMO_IMPLEMENTATION_PLAN.md",
+    "nextMilestone": "M7D_REAL_MIC_LOCAL_DEMO_NOT_STARTED_REQUIRES_SEPARATE_APPROVAL"
   },
   "boundaries": {
     "m3Started": true,
@@ -465,6 +510,8 @@
     "m7aCompleted": true,
     "m7bStarted": true,
     "m7bCompleted": true,
+    "m7cStarted": true,
+    "m7cCompleted": true,
     "modelDownloaded": true,
     "modelLoaded": true,
     "xttsStarted": true,
@@ -474,6 +521,7 @@
     "realSttEngineAvailable": true,
     "whisperCppAvailable": true,
     "whisperCppModelAvailable": true,
+    "whisperCppSmallModelAvailable": true,
     "rawTranscriptDurable": false,
     "ffmpegAvailable": true,
     "ffmpegStaticFallback": true,
@@ -522,5 +570,5 @@
     "projects/stickbot-tars-smoke/node_modules/**",
     "projects/stickbot-tars-smoke/cache/**"
   ],
-  "nextMilestone": "M7C_SMALL_EN_USABLE_DEMO_NOT_STARTED_REQUIRES_SEPARATE_APPROVAL"
+  "nextMilestone": "M7D_REAL_MIC_LOCAL_DEMO_NOT_STARTED_REQUIRES_SEPARATE_APPROVAL"
 }

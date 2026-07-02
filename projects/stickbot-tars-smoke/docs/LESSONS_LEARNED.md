@@ -138,3 +138,9 @@ Lessons:
 - Missing `cmake` does not block the first proof if an official pinned release binary with digest is available.
 
 M7B result: whisper.cpp `v1.9.1` release asset SHA256 `f3bf3b4369a99b54665b0f19b88483b30de27f25963b0414235dea03198515c5`, `whisper-cli` SHA256 `427dfb509f2c04d0f01c101978b5666102c6f7e3abf2a236452db5939f5b533a`, `ggml-base.en.bin` SHA256 `a03779c86df3323075f5e796cb2ce5029f00ec8869eee3fdfb897afe36c6d002`; R3 `/api/stt` HTTP 200 with `normalizedLocal:true`, transcript chars `42`, transcript SHA256 `3e1f84be507525854b4acd7d9074dd1c7c55478130609fab0d509f97b6420075`, no cloud/WebSpeech/OpenClaw mutation.
+
+## M7C: small.en usable local demo
+
+M7C upgraded only the model, not the STT authority boundary. Reusing the same M7A/M7B harness with `ggml-small.en.bin` proved a more usable local demo path while preserving the same local-only constraints.
+
+M7C result: `ggml-small.en.bin` SHA256 `c6138d6d58ecc8322097e0f987c32f1be8bb0a18532a3f88f734d1bbf9c41e5d`, bytes `487614201`; `/api/stt` HTTP 200, `normalizedLocal:true`, transcript chars `45`, transcript SHA256 `44b7adbb95a5d4d7129029ad17b4b2cc1bc3429e1b9057f3ad3640ef234a2fac`, no network required during transcription, network blocked/unavailable in sandbox, secret dirs hidden, no cloud/WebSpeech/OpenClaw mutation. Raw transcript remains trace-only and must not be copied into durable docs/memory.

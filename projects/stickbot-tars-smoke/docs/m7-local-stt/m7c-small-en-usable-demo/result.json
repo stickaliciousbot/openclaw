@@ -1,0 +1,27 @@
+{
+  "classification": "STICKBOT_TARS_M7C_SMALL_EN_USABLE_DEMO_PASS",
+  "whisperBin": "/home/stickai/stickbot-voice/tools/whisper.cpp/v1.9.1-ubuntu-x64/extract/whisper-bin-ubuntu-x64/whisper-cli",
+  "whisperModel": "/home/stickai/stickbot-voice/stt_models/whisper.cpp/ggml-small.en.bin",
+  "whisperBinSha256": "427dfb509f2c04d0f01c101978b5666102c6f7e3abf2a236452db5939f5b533a",
+  "whisperModelSha256": "c6138d6d58ecc8322097e0f987c32f1be8bb0a18532a3f88f734d1bbf9c41e5d",
+  "fixtureInputSha256": "9a1f332a74f2625c4f18e246b738eee29aede9c89362b5a407e6033b7135fc84",
+  "normalizedAudioSha256": "2cdd6e22cbf67805f03d275881955edfa7cd8deada3b818e7fff827010fab4ad",
+  "normalizedProbe": {
+    "codec_name": "pcm_s16le",
+    "sample_rate": "16000",
+    "channels": 1
+  },
+  "nodeStatus": 200,
+  "sttMode": "cli",
+  "normalizedLocal": true,
+  "transcriptChars": 45,
+  "transcriptSha256": "44b7adbb95a5d4d7129029ad17b4b2cc1bc3429e1b9057f3ad3640ef234a2fac",
+  "rawTranscriptPolicy": "trace_only_not_committed",
+  "networkRequiredDuringTranscription": false,
+  "networkBlockedOrUnavailable": true,
+  "secretDirsHidden": true,
+  "cloudSpeechApiCalled": false,
+  "browserWebSpeechApi": false,
+  "openClawMutation": false,
+  "finishedAt": "2026-07-02T12:19:27Z"
+}
