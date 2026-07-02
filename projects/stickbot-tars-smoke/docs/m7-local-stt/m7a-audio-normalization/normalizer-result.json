@@ -1,0 +1,8 @@
+{
+  "inputPath": "/tmp/tars-m7a-boundary/logs/fixture-input.webm",
+  "outputPath": "/tmp/tars-m7a-boundary/logs/fixture-normalized.wav",
+  "format": "wav",
+  "channels": 1,
+  "sampleRate": 16000,
+  "bytes": 32078
+}

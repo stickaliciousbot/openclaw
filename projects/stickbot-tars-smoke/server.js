@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { loadConfig } from './src/config.js';
 import { askOpenClaw } from './src/openclaw-adapter.js';
 import { transcribeAudio } from './src/stt-adapter.js';
+import { normalizeAudio } from './src/audio-normalizer.js';
 import { resolveAudioOutputPath, audioUrlForFile } from './safety/audio-path-policy.js';
 import { readJsonBody, readAudioUploadBody, assertTextWithinLimit } from './safety/limits.js';
 import { assertPostOriginAllowed } from './safety/origin-policy.js';
@@ -16,6 +17,7 @@ const config = loadConfig();
 const csrfStore = createSessionStore();
 const AUDIO_INPUT_DIR = path.join(__dirname, 'data', 'audio', 'input');
 const AUDIO_OUTPUT_DIR = path.join(__dirname, 'data', 'audio', 'output');
+const AUDIO_NORMALIZED_DIR = path.join(__dirname, 'data', 'audio', 'normalized');
 
 function json(res, status, obj, extraHeaders = {}) {
   const body = JSON.stringify(obj, null, 2);
@@ -170,10 +172,19 @@ const server = http.createServer(async (req, res) => {
           error: 'Local STT engine not configured yet. Audio captured locally only; no cloud speech API used.'
         });
       }
-      const transcript = await transcribeAudio(out, config);
+      let sttInput = out;
+      let normalized = null;
+      if (config.audioNormalize) {
+        await mkdir(AUDIO_NORMALIZED_DIR, { recursive: true });
+        normalized = path.join(AUDIO_NORMALIZED_DIR, `${id}-normalized.wav`);
+        await normalizeAudio(out, normalized, config);
+        sttInput = normalized;
+      }
+      const transcript = await transcribeAudio(sttInput, config);
       return json(res, 200, {
         id,
         savedLocal: true,
+        normalizedLocal: Boolean(normalized),
         sttMode: config.sttMode,
         transcript,
         maxAudioDurationSeconds: config.maxAudioDurationSeconds,

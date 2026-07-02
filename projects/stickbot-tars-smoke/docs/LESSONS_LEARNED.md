@@ -117,3 +117,11 @@ Durable STT rules:
 - `STT_MODE=cli` must use `spawn(file,args,{shell:false})`, require `{file}`, bound stdout/stderr, timeout/kill, and fail closed.
 
 M7 fixture result: Node `/api/stt` returned HTTP 200 with transcript `M7 fixture transcript`, captured local audio SHA256 `2976da01e205a110c9fa41d47659e238a5c6d3c3f3137582f2949853faa201dd`, and preserved no-network/secret-hidden boundaries. Real STT remains blocked on local engine/model/ffmpeg acquisition.
+
+## M7A: FFmpeg normalization as its own gate
+
+M7A proved that local audio normalization should be separated from real STT. The normalizer contract now uses a fixed FFmpeg command, WSL-native path checks, `/mnt/c` rejection, `shell:false`, stderr/stdout bounds, timeout/kill, and fail-closed non-zero handling.
+
+Runtime privilege lesson: apt install from Telegram may fail even after approval because sudo needs a TTY/password and elevated exec may be disabled for that provider. Do not mutate OpenClaw/Gateway to work around this. Use an approved user-space WSL-native fallback when suitable.
+
+M7A fallback result: John Van Sickle static FFmpeg `7.0.2-static` was acquired under `/home/stickai/stickbot-voice/tools/ffmpeg-static`, with tarball SHA256 `abda8d77ce8309141f83ab8edf0596834087c52467f6badf376a6a2a4c87cf67`, FFmpeg SHA256 `e7e7fb30477f717e6f55f9180a70386c62677ef8a4d4d1a5d948f4098aa3eb99`, FFprobe SHA256 `4f231a1960d83e403d08f7971e271707bec278a9ae18e21b8b5b03186668450d`. License posture is GPLv3 private/dev validation only, not future distributable default. Sandboxed normalization converted fixture WebM/Opus into mono 16 kHz PCM WAV SHA256 `38e3b264d99a035f168d6913520d2541a943c6a931e3f896882daf756b66fb7f`, preserving no-network/secret-hidden/no-cloud/no-WebSpeech/no-OpenClaw-mutation boundaries.

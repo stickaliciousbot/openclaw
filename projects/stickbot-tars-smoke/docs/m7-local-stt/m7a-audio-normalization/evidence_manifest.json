@@ -1,0 +1,82 @@
+{
+  "schema": "stickbot.tars.m7a.evidence_manifest.v1",
+  "generatedUtc": "2026-07-02T10:50:00Z",
+  "classification": "STICKBOT_TARS_M7A_LOCAL_AUDIO_NORMALIZATION_PROVENANCE_PASS",
+  "source": {
+    "kind": "static-binary-fallback",
+    "provider": "John Van Sickle FFmpeg Static Builds",
+    "releaseUrl": "https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz",
+    "md5Url": "https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz.md5",
+    "licensePosture": "GPLv3 static build; private/dev validation only, not future distributable default",
+    "downloadPath": "/home/stickai/stickbot-voice/tools/ffmpeg-static/downloads/ffmpeg-release-amd64-static.tar.xz",
+    "downloadSha256": "abda8d77ce8309141f83ab8edf0596834087c52467f6badf376a6a2a4c87cf67",
+    "upstreamMd5": "7fa72b652e19bf84c9461e332ea1cdf3",
+    "md5Check": "PASS",
+    "hashReadback": {
+      "id": "e99266d2-a96c-4d0b-ab5f-a0e1f5ee82b5",
+      "session": "briny-crustacean",
+      "marker": "STICKBOT_TARS_M7A_STATIC_DOWNLOAD_HASH_READBACK_PASS"
+    }
+  },
+  "binaries": {
+    "ffmpeg": {
+      "path": "/home/stickai/stickbot-voice/tools/ffmpeg-static/johnvansickle-ffmpeg-release-amd64-static/extract/ffmpeg",
+      "sha256": "e7e7fb30477f717e6f55f9180a70386c62677ef8a4d4d1a5d948f4098aa3eb99",
+      "versionPath": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7a-audio-normalization/ffmpeg-version.txt"
+    },
+    "ffprobe": {
+      "path": "/home/stickai/stickbot-voice/tools/ffmpeg-static/johnvansickle-ffmpeg-release-amd64-static/extract/ffprobe",
+      "sha256": "4f231a1960d83e403d08f7971e271707bec278a9ae18e21b8b5b03186668450d",
+      "versionPath": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7a-audio-normalization/ffprobe-version.txt"
+    }
+  },
+  "staticValidation": {
+    "session": "faint-basil",
+    "testsPassed": 39,
+    "testsFailed": 0,
+    "note": "same command later stopped at sudo TTY requirement before install; tests were PASS"
+  },
+  "smoke": {
+    "id": "02aed404-7c9e-417b-b309-13de64bde293",
+    "session": "glow-valley",
+    "marker": "STICKBOT_TARS_M7A_STATIC_FFMPEG_ACQUIRE_AND_NORMALIZE_PASS",
+    "resultPath": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7a-audio-normalization/result.json",
+    "inputSha256": "b2504afa2c2ab1c7fd7291c75343c3161322948b7cddda0f7605a751453aedd5",
+    "normalizedSha256": "38e3b264d99a035f168d6913520d2541a943c6a931e3f896882daf756b66fb7f",
+    "normalizedBytes": 32078,
+    "normalizedProbe": {
+      "codec_name": "pcm_s16le",
+      "sample_rate": "16000",
+      "channels": 1
+    }
+  },
+  "implementation": {
+    "normalizer": "projects/stickbot-tars-smoke/src/audio-normalizer.js",
+    "tests": "projects/stickbot-tars-smoke/test/audio-normalizer.test.mjs",
+    "smokeScript": "projects/stickbot-tars-smoke/scripts/m7a-sandboxed-ffmpeg-normalization-smoke.sh"
+  },
+  "boundary": {
+    "wslNativePaths": true,
+    "mntCBlocked": true,
+    "networkBlockedOrUnavailableDuringSmoke": true,
+    "secretDirsHidden": true,
+    "cloudSpeechApiCalled": false,
+    "browserWebSpeechApi": false,
+    "openClawMutation": false,
+    "gatewayMutation": false,
+    "gatewayRestart": false,
+    "noaTouched": false,
+    "androidTouched": false,
+    "lanOrTailscaleExposed": false
+  },
+  "commitPolicy": {
+    "ffmpegBinaryCommitted": false,
+    "ffprobeBinaryCommitted": false,
+    "downloadTarballCommitted": false,
+    "audioCommitted": false,
+    "modelsCommitted": false,
+    "onlyHashesAndMetadataCommitted": true
+  },
+  "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7a-audio-normalization/M7A_LOCAL_AUDIO_NORMALIZATION_PROVENANCE_PASS.md",
+  "nextTarget": "STICKBOT_TARS_M7B_WHISPERCPP_LOCAL_STT_FIXTURE_PASS"
+}

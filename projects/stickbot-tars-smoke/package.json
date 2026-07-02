@@ -9,7 +9,8 @@
     "m5:smoke": "bash scripts/m5-sandboxed-node-voice-smoke.sh",
     "m6:smoke": "bash scripts/m6-sandboxed-openclaw-adapter-smoke.sh",
     "m7:smoke": "bash scripts/m7-sandboxed-stt-fixture-smoke.sh",
-    "check": "node --check server.js && node --check src/config.js && node --check src/openclaw-adapter.js && node --check src/stt-adapter.js && node --check safety/network-policy.js && node --check safety/audio-path-policy.js && node --check safety/limits.js && node --check safety/origin-policy.js && node --check safety/csrf.js && node --check public/app.js && node --test test/*.test.mjs && bash -n scripts/m5-sandboxed-node-voice-smoke.sh && bash -n scripts/m6-sandboxed-openclaw-adapter-smoke.sh && bash -n scripts/m7-sandboxed-stt-fixture-smoke.sh && python3 -m py_compile scripts/xtts-local-server.py",
+    "m7a:smoke": "bash scripts/m7a-sandboxed-ffmpeg-normalization-smoke.sh",
+    "check": "node --check server.js && node --check src/config.js && node --check src/openclaw-adapter.js && node --check src/stt-adapter.js && node --check src/audio-normalizer.js && node --check safety/network-policy.js && node --check safety/audio-path-policy.js && node --check safety/limits.js && node --check safety/origin-policy.js && node --check safety/csrf.js && node --check public/app.js && node --test test/*.test.mjs && bash -n scripts/m5-sandboxed-node-voice-smoke.sh && bash -n scripts/m6-sandboxed-openclaw-adapter-smoke.sh && bash -n scripts/m7-sandboxed-stt-fixture-smoke.sh && bash -n scripts/m7a-sandboxed-ffmpeg-normalization-smoke.sh && python3 -m py_compile scripts/xtts-local-server.py",
     "test": "node --test test/*.test.mjs"
   },
   "engines": {

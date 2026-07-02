@@ -388,4 +388,41 @@ Result:
 
 `STICKBOT_TARS_M7_LOCAL_STT_FIXTURE_CONTRACT_PASS_REAL_ENGINE_BLOCKED_READY_FOR_STT_ENGINE_ACQUISITION`
 
-Real STT engine acquisition/install, M8, live provider/Gateway smoke, Android, persistent service install, and host-PC Tailscale proxy/user-testing exposure are not started and require separate approval.
+## M7A local audio normalization notes
+
+### Apt install blocked by runtime privilege shape
+
+After repairing the normalizer test harness, `npm run check` passed `39/39` in session `faint-basil`, but the same command stopped at FFmpeg apt install because Telegram exec had no TTY/elevated sudo authority:
+
+- `sudo: a terminal is required to read the password`
+- elevated exec unavailable from Telegram runtime.
+
+Resolution: use WSL-native user-space static FFmpeg fallback, not OpenClaw/Gateway mutation.
+
+### Static FFmpeg fallback passed
+
+Command/session:
+
+- `02aed404-7c9e-417b-b309-13de64bde293` / `glow-valley`
+
+Source:
+
+- John Van Sickle `ffmpeg-release-amd64-static.tar.xz`.
+- GPLv3 static build; private/dev validation only, not future distributable default.
+
+Hashes:
+
+- Download tarball SHA256: `abda8d77ce8309141f83ab8edf0596834087c52467f6badf376a6a2a4c87cf67`.
+- Upstream MD5: `7fa72b652e19bf84c9461e332ea1cdf3`, checked OK.
+- FFmpeg SHA256: `e7e7fb30477f717e6f55f9180a70386c62677ef8a4d4d1a5d948f4098aa3eb99`.
+- FFprobe SHA256: `4f231a1960d83e403d08f7971e271707bec278a9ae18e21b8b5b03186668450d`.
+
+Smoke result:
+
+- Marker: `STICKBOT_TARS_M7A_STATIC_FFMPEG_ACQUIRE_AND_NORMALIZE_PASS`.
+- Classification: `STICKBOT_TARS_M7A_LOCAL_AUDIO_NORMALIZATION_PROVENANCE_PASS`.
+- Normalized fixture WAV SHA256: `38e3b264d99a035f168d6913520d2541a943c6a931e3f896882daf756b66fb7f`.
+- Probe: `pcm_s16le`, 16000 Hz, mono.
+- Network blocked/unavailable, secret dirs hidden, no cloud STT, no browser Web Speech API, no OpenClaw mutation.
+
+Real STT engine acquisition/install, M7B, M8, live provider/Gateway smoke, Android, persistent service install, and host-PC Tailscale proxy/user-testing exposure are not started and require separate approval.

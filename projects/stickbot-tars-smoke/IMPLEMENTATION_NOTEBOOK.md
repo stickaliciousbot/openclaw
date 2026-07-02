@@ -299,4 +299,37 @@ Closeout artifacts:
 
 Next required milestone for real transcription:
 
-Approved local STT engine acquisition/provenance/install, including ffmpeg or equivalent audio normalization, local model hashes, and offline/local validation. M8 is not started.
+## M7A/M7B — local STT engine path
+
+Stick approved the stack direction on 2026-07-02:
+
+- M7A target: `STICKBOT_TARS_M7A_LOCAL_AUDIO_NORMALIZATION_PROVENANCE_PASS`.
+- M7B target: `STICKBOT_TARS_M7B_WHISPERCPP_LOCAL_STT_FIXTURE_PASS`.
+- Primary engine: `whisper.cpp`.
+- Smoke model: `ggml-base.en.bin`.
+- Usable local demo model: `ggml-small.en.bin`.
+- Normalizer: WSL-local `ffmpeg` with version/hash/provenance recorded.
+- Optional later: `faster-whisper` if CUDA is healthy; `sherpa-onnx` for Android/native; Ollama only for transcript cleanup/intent routing, not primary STT.
+- Community Ollama Whisper models rejected as core substrate for now due weaker provenance and less standard audio-ingestion contract.
+
+Hard boundary: no OpenClaw mutation, no Gateway/NOA mutation/restart, no cloud STT, no browser Web Speech API, no Android/LAN/Tailscale exposure, no persistent service install, no `/mnt/c` model/audio/runtime paths, no audio/model/cache/venv artifacts committed.
+
+Plan artifact: `docs/m7-local-stt/M7A_M7B_LOCAL_STT_ENGINE_PLAN.md`.
+
+M7A outcome:
+
+- Final classification: `STICKBOT_TARS_M7A_LOCAL_AUDIO_NORMALIZATION_PROVENANCE_PASS`.
+- Preflight `4e509d14` / `nova-ocean`: no ffmpeg/ffprobe and no apt ffmpeg package found.
+- First bundle `fb637f42` stopped before install because one new normalizer test failed; failure was a test-harness ordering bug, not normalizer behavior.
+- Repaired test harness; session `faint-basil` then showed `39/39` tests PASS before stopping at sudo TTY/elevated restriction.
+- Elevated apt unavailable from Telegram runtime, so approved fallback used: John Van Sickle static FFmpeg release amd64 under `/home/stickai/stickbot-voice/tools/ffmpeg-static/...`.
+- Static source posture: GPLv3 static build, acceptable for private/dev validation only, not future distributable default.
+- Download tarball SHA256: `abda8d77ce8309141f83ab8edf0596834087c52467f6badf376a6a2a4c87cf67`; upstream MD5 `7fa72b652e19bf84c9461e332ea1cdf3` checked OK.
+- FFmpeg SHA256: `e7e7fb30477f717e6f55f9180a70386c62677ef8a4d4d1a5d948f4098aa3eb99`.
+- FFprobe SHA256: `4f231a1960d83e403d08f7971e271707bec278a9ae18e21b8b5b03186668450d`.
+- M7A smoke `02aed404` / `glow-valley` passed with marker `STICKBOT_TARS_M7A_STATIC_FFMPEG_ACQUIRE_AND_NORMALIZE_PASS`.
+- Normalized fixture WAV: SHA256 `38e3b264d99a035f168d6913520d2541a943c6a931e3f896882daf756b66fb7f`, 32078 bytes, `pcm_s16le`, 16000 Hz, 1 channel.
+- Boundary preserved: network blocked/unavailable during sandbox smoke, secret dirs hidden, no cloud STT, no browser Web Speech API, no OpenClaw mutation.
+- Evidence: `docs/m7-local-stt/m7a-audio-normalization/M7A_LOCAL_AUDIO_NORMALIZATION_PROVENANCE_PASS.md` and `docs/m7-local-stt/m7a-audio-normalization/evidence_manifest.json`.
+
+M7B is not started. Next target remains `STICKBOT_TARS_M7B_WHISPERCPP_LOCAL_STT_FIXTURE_PASS`.

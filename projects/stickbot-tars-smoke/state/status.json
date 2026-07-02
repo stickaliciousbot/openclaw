@@ -1,6 +1,6 @@
 {
   "schema": "stickbot.tars.milestone.status.v1",
-  "generatedUtc": "2026-07-02T10:22:00Z",
+  "generatedUtc": "2026-07-02T10:50:00Z",
   "branch": "feature/stickbot-tars-m25-hardening-repair",
   "headBeforeM25Repair": "143fa869ac1969dc0766eaa0bcb9a7be9da45e79",
   "m25RepairCommit": "5c29204016bebd11da4ffa6dc20bb99aba9676a4",
@@ -320,7 +320,69 @@
     "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/M7_LOCAL_STT_FIXTURE_CONTRACT_PASS.md",
     "evidenceManifest": "projects/stickbot-tars-smoke/docs/m7-local-stt/evidence_manifest.json",
     "implementationPlan": "projects/stickbot-tars-smoke/docs/m7-local-stt/M7_LOCAL_STT_IMPLEMENTATION_PLAN.md",
-    "nextMilestone": "STT_ENGINE_ACQUISITION_NOT_STARTED_REQUIRES_SEPARATE_APPROVAL"
+    "nextMilestone": "M7A_LOCAL_AUDIO_NORMALIZATION_APPROVED_AND_COMPLETED"
+  },
+  "m7a": {
+    "finalClassification": "STICKBOT_TARS_M7A_LOCAL_AUDIO_NORMALIZATION_PROVENANCE_PASS",
+    "preflight": {
+      "approvalId": "4e509d14-9671-4514-8882-d97a02c9a3a6",
+      "session": "nova-ocean",
+      "marker": "STICKBOT_TARS_M7A_FFMPEG_PREFLIGHT_COMPLETE",
+      "ffmpegAvailableBeforeAcquisition": false,
+      "ffprobeAvailableBeforeAcquisition": false,
+      "aptPackageInstalledBeforeAcquisition": false
+    },
+    "staticValidation": {
+      "session": "faint-basil",
+      "testsPassed": 39,
+      "testsFailed": 0,
+      "note": "first bundle stopped at sudo TTY requirement after tests passed; no apt install performed"
+    },
+    "source": {
+      "kind": "static-binary-fallback",
+      "provider": "John Van Sickle FFmpeg Static Builds",
+      "releaseUrl": "https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz",
+      "licensePosture": "GPLv3 static build; private/dev validation only, not future distributable default",
+      "downloadPath": "/home/stickai/stickbot-voice/tools/ffmpeg-static/downloads/ffmpeg-release-amd64-static.tar.xz",
+      "downloadSha256": "abda8d77ce8309141f83ab8edf0596834087c52467f6badf376a6a2a4c87cf67",
+      "upstreamMd5": "7fa72b652e19bf84c9461e332ea1cdf3",
+      "md5Check": "PASS"
+    },
+    "binaries": {
+      "ffmpeg": {
+        "path": "/home/stickai/stickbot-voice/tools/ffmpeg-static/johnvansickle-ffmpeg-release-amd64-static/extract/ffmpeg",
+        "sha256": "e7e7fb30477f717e6f55f9180a70386c62677ef8a4d4d1a5d948f4098aa3eb99",
+        "version": "7.0.2-static"
+      },
+      "ffprobe": {
+        "path": "/home/stickai/stickbot-voice/tools/ffmpeg-static/johnvansickle-ffmpeg-release-amd64-static/extract/ffprobe",
+        "sha256": "4f231a1960d83e403d08f7971e271707bec278a9ae18e21b8b5b03186668450d",
+        "version": "7.0.2-static"
+      }
+    },
+    "smoke": {
+      "approvalId": "02aed404-7c9e-417b-b309-13de64bde293",
+      "session": "glow-valley",
+      "marker": "STICKBOT_TARS_M7A_STATIC_FFMPEG_ACQUIRE_AND_NORMALIZE_PASS",
+      "result": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7a-audio-normalization/result.json",
+      "classification": "STICKBOT_TARS_M7A_LOCAL_AUDIO_NORMALIZATION_PROVENANCE_PASS",
+      "inputSha256": "b2504afa2c2ab1c7fd7291c75343c3161322948b7cddda0f7605a751453aedd5",
+      "normalizedSha256": "38e3b264d99a035f168d6913520d2541a943c6a931e3f896882daf756b66fb7f",
+      "normalizedBytes": 32078,
+      "normalizedProbe": {
+        "codec_name": "pcm_s16le",
+        "sample_rate": "16000",
+        "channels": 1
+      },
+      "networkBlockedOrUnavailable": true,
+      "secretDirsHidden": true,
+      "cloudSpeechApiCalled": false,
+      "browserWebSpeechApi": false,
+      "openClawMutation": false
+    },
+    "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7a-audio-normalization/M7A_LOCAL_AUDIO_NORMALIZATION_PROVENANCE_PASS.md",
+    "evidenceManifest": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7a-audio-normalization/evidence_manifest.json",
+    "nextMilestone": "M7B_WHISPERCPP_LOCAL_STT_FIXTURE_NOT_STARTED_REQUIRES_SEPARATE_APPROVAL"
   },
   "boundaries": {
     "m3Started": true,
@@ -333,6 +395,8 @@
     "m6Completed": true,
     "m7Started": true,
     "m7Completed": true,
+    "m7aStarted": true,
+    "m7aCompleted": true,
     "modelDownloaded": true,
     "modelLoaded": true,
     "xttsStarted": true,
@@ -340,7 +404,9 @@
     "sttTouched": true,
     "sttFixtureOnly": true,
     "realSttEngineAvailable": false,
-    "ffmpegAvailable": false,
+    "ffmpegAvailable": true,
+    "ffmpegStaticFallback": true,
+    "audioNormalizationAvailable": true,
     "cloudSpeechApiCalled": false,
     "browserWebSpeechApi": false,
     "androidTouched": false,
@@ -385,5 +451,5 @@
     "projects/stickbot-tars-smoke/node_modules/**",
     "projects/stickbot-tars-smoke/cache/**"
   ],
-  "nextMilestone": "STT_ENGINE_ACQUISITION_NOT_STARTED_REQUIRES_SEPARATE_APPROVAL"
+  "nextMilestone": "M7B_WHISPERCPP_LOCAL_STT_FIXTURE_NOT_STARTED_REQUIRES_SEPARATE_APPROVAL"
 }
