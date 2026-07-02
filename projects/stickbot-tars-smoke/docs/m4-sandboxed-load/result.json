@@ -1,0 +1,15 @@
+{
+  "classification": "STICKBOT_TARS_M4_SANDBOXED_XTTS_LOCAL_LOAD_PASS",
+  "modelLoaded": true,
+  "wavGenerated": true,
+  "networkExpectedBlocked": true,
+  "startedAt": "2026-07-02T08:24:37Z",
+  "torchVersion": "2.8.0+cpu",
+  "transformersVersion": "4.57.6",
+  "torchaudioVersion": "2.8.0+cpu",
+  "cudaAvailable": false,
+  "outputPath": "/tmp/tars-m4-boundary/output/m4-first-generation.wav",
+  "outputBytes": 95788,
+  "sampleRate": 24000,
+  "finishedAt": "2026-07-02T08:30:46Z"
+}

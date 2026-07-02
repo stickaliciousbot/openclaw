@@ -1,9 +1,10 @@
 {
   "schema": "stickbot.tars.milestone.status.v1",
-  "generatedUtc": "2026-07-02T07:45:00Z",
+  "generatedUtc": "2026-07-02T08:33:30Z",
   "branch": "feature/stickbot-tars-m25-hardening-repair",
   "headBeforeM25Repair": "143fa869ac1969dc0766eaa0bcb9a7be9da45e79",
   "m25RepairCommit": "5c29204016bebd11da4ffa6dc20bb99aba9676a4",
+  "m3Commit": "0fa3b732e70d403a4b0597c225a41d2f6043e452",
   "m25": {
     "previousClassification": "STICKBOT_TARS_M25_HARDENING_CLOSEOUT_BLOCKED_FAIL_CLOSED",
     "refinedAuditClassification": "STICKBOT_TARS_REFINED_REPO_AUDIT_READONLY_COMPLETE_READY_FOR_REPAIR_PLAN",
@@ -88,17 +89,66 @@
       "noModelLoad": true
     }
   },
+  "m4": {
+    "finalClassification": "STICKBOT_TARS_M4_SANDBOXED_XTTS_LOCAL_LOAD_PASS_READY_FOR_M5_PLANNING_ONLY",
+    "approvalId": "76573901-c5d3-490a-b475-cdc8c86c6ba2",
+    "session": "good-lobster",
+    "exitCode": 0,
+    "result": "projects/stickbot-tars-smoke/docs/m4-sandboxed-load/result.json",
+    "closeout": "projects/stickbot-tars-smoke/docs/m4-sandboxed-load/M4_SANDBOXED_XTTS_LOCAL_LOAD_PASS.md",
+    "evidenceManifest": "projects/stickbot-tars-smoke/docs/m4-sandboxed-load/evidence_manifest.json",
+    "modelLoaded": true,
+    "wavGenerated": true,
+    "startedAt": "2026-07-02T08:24:37Z",
+    "finishedAt": "2026-07-02T08:30:46Z",
+    "runtime": {
+      "venv": "/home/stickai/stickbot-voice/venv-coqui",
+      "coquiTtsVersion": "0.27.5",
+      "torchVersion": "2.8.0+cpu",
+      "torchaudioVersion": "2.8.0+cpu",
+      "transformersVersion": "4.57.6",
+      "cudaAvailable": false
+    },
+    "generatedAudio": {
+      "hostPath": "/home/stickai/stickbot-voice/output/m4-first-generation.wav",
+      "sandboxPath": "/tmp/tars-m4-boundary/output/m4-first-generation.wav",
+      "bytes": 95788,
+      "sampleRate": 24000,
+      "sha256": "9a1f332a74f2625c4f18e246b738eee29aede9c89362b5a407e6033b7135fc84",
+      "fileType": "RIFF WAVE audio, Microsoft PCM, 16 bit, mono 24000 Hz",
+      "commitPolicy": "excluded_from_git"
+    },
+    "boundary": {
+      "mechanism": "unshare -Urnm",
+      "networkBlockedOrUnavailable": true,
+      "modelReadOnly": true,
+      "speakerReadOnly": true,
+      "outputWritable": true,
+      "hiddenSecretDirs": [
+        "/home/stickai/.openclaw",
+        "/home/stickai/.ssh",
+        "/home/stickai/.codex",
+        "/home/stickai/.config"
+      ]
+    },
+    "serverStarted": false,
+    "lanExposed": false,
+    "port8787Touched": false,
+    "nextMilestone": "M5_NOT_STARTED_REQUIRES_SEPARATE_APPROVAL"
+  },
   "boundaries": {
     "m3Started": true,
     "m3Completed": true,
-    "m4Started": false,
+    "m4Started": true,
+    "m4Completed": true,
     "modelDownloaded": true,
-    "modelLoaded": false,
+    "modelLoaded": true,
     "xttsStarted": false,
     "sttTouched": false,
     "androidTouched": false,
     "openClawProductionMutation": false,
     "gatewayRestart": false,
+    "gatewayConfigMutation": false,
     "noaTouched": false
   },
   "productionReadback": {
@@ -121,6 +171,7 @@
     "/home/stickai/stickbot-voice/xtts_models/tars/speakers_xtts.pth",
     "/home/stickai/stickbot-voice/xtts_models/tars/reference.wav",
     "/home/stickai/stickbot-voice/speakers/reference.wav",
+    "/home/stickai/stickbot-voice/output/m4-first-generation.wav",
     "memory/context-bridge-events/*stickbot-tars*.json",
     "memory/2026-07-02.md",
     "projects/stickbot-tars-smoke/data/audio/**",
@@ -132,5 +183,5 @@
     "projects/stickbot-tars-smoke/node_modules/**",
     "projects/stickbot-tars-smoke/cache/**"
   ],
-  "nextMilestone": "M4_SANDBOXED_XTTS_LOCAL_LOAD_NOT_STARTED"
+  "nextMilestone": "M5_NOT_STARTED_REQUIRES_SEPARATE_APPROVAL"
 }
