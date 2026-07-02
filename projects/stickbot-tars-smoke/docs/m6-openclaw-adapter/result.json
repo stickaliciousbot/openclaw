@@ -1,0 +1,21 @@
+{
+  "classification": "STICKBOT_TARS_M6_OPENCLAW_ADAPTER_FIXTURE_VOICE_PASS",
+  "adapterMode": "infer",
+  "adapterSurface": "openclaw infer model run --prompt {prompt} --json",
+  "liveProviderCalled": false,
+  "gatewayCalled": false,
+  "fixtureOpenClawCli": true,
+  "xttsServerReady": true,
+  "nodeOpenClawVoicePass": true,
+  "networkBlockedOrUnavailable": true,
+  "secretDirsHidden": true,
+  "modelReadOnly": true,
+  "speakerReadOnly": true,
+  "host": "127.0.0.1",
+  "nodePort": 18788,
+  "xttsPort": 18020,
+  "audioSha256": "fc7da588940bbe2238dcc91b9dc5156d36cbcaafcc49bbf606ebbdc3427ce5d0",
+  "audioStat": "bytes=111148 path=/tmp/tars-m6-boundary/app/data/audio/output/f640fa4b-115d-4063-9ea8-511d998d1592.wav",
+  "audioFileType": "/tmp/tars-m6-boundary/app/data/audio/output/f640fa4b-115d-4063-9ea8-511d998d1592.wav: RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, mono 24000 Hz",
+  "finishedAt": "2026-07-02T10:01:25Z"
+}

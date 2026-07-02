@@ -1,10 +1,10 @@
 import http from 'node:http';
-import { spawn } from 'node:child_process';
 import { mkdir, readFile, writeFile, appendFile } from 'node:fs/promises';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { loadConfig } from './src/config.js';
+import { askOpenClaw } from './src/openclaw-adapter.js';
 import { resolveAudioOutputPath, audioUrlForFile } from './safety/audio-path-policy.js';
 import { readJsonBody, readAudioUploadBody, assertTextWithinLimit } from './safety/limits.js';
 import { assertPostOriginAllowed } from './safety/origin-policy.js';
@@ -78,25 +78,6 @@ async function logTurn({ id, userText, assistantText, audioPath, source }) {
   return { dailyWritten: true, eventWritten: true };
 }
 
-async function askOpenClaw(prompt) {
-  if (config.openclawMode !== 'cli') {
-    return `Echo smoke response: ${prompt}`;
-  }
-  const args = JSON.parse(config.openclawArgsJson).map((a) => (a === '{prompt}' ? prompt : a));
-  return await new Promise((resolve, reject) => {
-    const child = spawn(config.openclawBin, args, { cwd: config.workspace, stdio: ['ignore', 'pipe', 'pipe'] });
-    let out = '';
-    let err = '';
-    child.stdout.on('data', (d) => { out += d.toString(); });
-    child.stderr.on('data', (d) => { err += d.toString(); });
-    child.on('error', reject);
-    child.on('close', (code) => {
-      if (code === 0) resolve((out || '').trim());
-      else reject(new Error(`OpenClaw CLI exited ${code}: ${err || out}`));
-    });
-  });
-}
-
 async function synthesize(text, id) {
   const r = await fetch(`${config.xttsUrl.replace(/\/$/, '')}/tts_to_audio/`, {
     method: 'POST',
@@ -161,7 +142,7 @@ const server = http.createServer(async (req, res) => {
       const { text, voice = true } = await readJsonBody(req, config.maxJsonBodyBytes);
       assertTextWithinLimit(text, config.maxTextChars);
       const id = crypto.randomUUID();
-      const assistantText = await askOpenClaw(text);
+      const assistantText = await askOpenClaw(text, config);
       let audio = null;
       if (voice) {
         try { audio = await synthesize(assistantText, id); }

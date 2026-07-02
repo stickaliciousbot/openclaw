@@ -1,6 +1,6 @@
 {
   "schema": "stickbot.tars.milestone.status.v1",
-  "generatedUtc": "2026-07-02T09:39:00Z",
+  "generatedUtc": "2026-07-02T10:03:00Z",
   "branch": "feature/stickbot-tars-m25-hardening-repair",
   "headBeforeM25Repair": "143fa869ac1969dc0766eaa0bcb9a7be9da45e79",
   "m25RepairCommit": "5c29204016bebd11da4ffa6dc20bb99aba9676a4",
@@ -206,7 +206,66 @@
       "secretDirsHidden": true,
       "nodeWorkspace": "/tmp/tars-m5-boundary/workspace"
     },
-    "nextMilestone": "M6_NOT_STARTED_REQUIRES_SEPARATE_APPROVAL",
+    "nextMilestone": "M6_OPENCLAW_ADAPTER_APPROVED_AND_COMPLETED",
+    "futureLanTailscaleUserTesting": "NOT_STARTED_REQUIRES_SEPARATE_APPROVAL"
+  },
+  "m6": {
+    "finalClassification": "STICKBOT_TARS_M6_OPENCLAW_ADAPTER_FIXTURE_VOICE_PASS_READY_FOR_M7_PLANNING_ONLY",
+    "approvalId": "9932f947-07b8-4d46-b5ef-46dddbf90485",
+    "session": "fresh-daisy",
+    "exitCode": 0,
+    "result": "projects/stickbot-tars-smoke/docs/m6-openclaw-adapter/result.json",
+    "nodeOpenClawVoiceSmoke": "projects/stickbot-tars-smoke/docs/m6-openclaw-adapter/node-openclaw-voice-smoke.json",
+    "xttsReady": "projects/stickbot-tars-smoke/docs/m6-openclaw-adapter/xtts-ready.json",
+    "closeout": "projects/stickbot-tars-smoke/docs/m6-openclaw-adapter/M6_OPENCLAW_ADAPTER_FIXTURE_VOICE_PASS.md",
+    "evidenceManifest": "projects/stickbot-tars-smoke/docs/m6-openclaw-adapter/evidence_manifest.json",
+    "implementationPlan": "projects/stickbot-tars-smoke/docs/m6-openclaw-adapter/M6_OPENCLAW_ADAPTER_IMPLEMENTATION_PLAN.md",
+    "staticValidation": {
+      "approvalId": "718a054e-a122-44e9-8dd9-624e65fc79d3",
+      "session": "glow-ocean",
+      "marker": "STICKBOT_TARS_M6_STATIC_CHECK_PASS",
+      "testsPassed": 27,
+      "testsFailed": 0
+    },
+    "adapter": {
+      "mode": "infer",
+      "surface": "openclaw infer model run --prompt {prompt} --json",
+      "fixtureOpenClawCli": true,
+      "liveProviderCalled": false,
+      "gatewayCalled": false,
+      "spawnShell": false,
+      "promptPlaceholderRequired": true,
+      "stdoutStderrBounded": true,
+      "timeoutMsConfigured": true
+    },
+    "nodeTurn": {
+      "status": 200,
+      "turnId": "f640fa4b-115d-4063-9ea8-511d998d1592",
+      "text": "OpenClaw adapter fixture response: M6 OpenClaw adapter fixture voice smoke",
+      "audioUrl": "/audio/f640fa4b-115d-4063-9ea8-511d998d1592.wav",
+      "audioError": null,
+      "dailyWritten": true,
+      "eventWritten": true
+    },
+    "generatedAudio": {
+      "sandboxPath": "/tmp/tars-m6-boundary/app/data/audio/output/f640fa4b-115d-4063-9ea8-511d998d1592.wav",
+      "bytes": 111148,
+      "sampleRate": 24000,
+      "sha256": "fc7da588940bbe2238dcc91b9dc5156d36cbcaafcc49bbf606ebbdc3427ce5d0",
+      "fileType": "RIFF WAVE audio, Microsoft PCM, 16 bit, mono 24000 Hz",
+      "commitPolicy": "excluded_from_git"
+    },
+    "boundary": {
+      "mechanism": "unshare -Urnm",
+      "loopbackEnabledInsideNamespace": true,
+      "networkBlockedOrUnavailable": true,
+      "modelReadOnly": true,
+      "speakerReadOnly": true,
+      "secretDirsHidden": true,
+      "nodeWorkspace": "/tmp/tars-m6-boundary/workspace"
+    },
+    "nextMilestone": "M7_NOT_STARTED_REQUIRES_SEPARATE_APPROVAL",
+    "liveProviderGatewaySmoke": "NOT_STARTED_REQUIRES_SEPARATE_APPROVAL",
     "futureLanTailscaleUserTesting": "NOT_STARTED_REQUIRES_SEPARATE_APPROVAL"
   },
   "boundaries": {
@@ -216,6 +275,8 @@
     "m4Completed": true,
     "m5Started": true,
     "m5Completed": true,
+    "m6Started": true,
+    "m6Completed": true,
     "modelDownloaded": true,
     "modelLoaded": true,
     "xttsStarted": true,
@@ -227,7 +288,9 @@
     "gatewayConfigMutation": false,
     "noaTouched": false,
     "lanOrTailscaleExposed": false,
-    "providerApiCalled": false
+    "providerApiCalled": false,
+    "gatewayCalled": false,
+    "liveOpenClawProviderCalled": false
   },
   "productionReadback": {
     "openclawJson": {
@@ -261,5 +324,5 @@
     "projects/stickbot-tars-smoke/node_modules/**",
     "projects/stickbot-tars-smoke/cache/**"
   ],
-  "nextMilestone": "M6_NOT_STARTED_REQUIRES_SEPARATE_APPROVAL"
+  "nextMilestone": "M7_NOT_STARTED_REQUIRES_SEPARATE_APPROVAL"
 }

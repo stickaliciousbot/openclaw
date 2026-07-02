@@ -1,6 +1,6 @@
 # Stickbot-TARS Troubleshooting and Repair Notebook
 
-Last updated: 2026-07-02 18:18 AEST / 2026-07-02T08:18:00Z
+Last updated: 2026-07-02 20:03 AEST / 2026-07-02T10:03:00Z
 
 ## Purpose
 
@@ -251,23 +251,12 @@ Repair:
 Validation:
 
 - R4 sandboxed first-load/generation command `76573901` passed inside the same `unshare -Urnm` boundary.
-- Result fields:
-  - `classification`: `STICKBOT_TARS_M4_SANDBOXED_XTTS_LOCAL_LOAD_PASS`
-  - `modelLoaded`: `true`
-  - `wavGenerated`: `true`
-  - `torchVersion`: `2.8.0+cpu`
-  - `transformersVersion`: `4.57.6`
-  - `torchaudioVersion`: `2.8.0+cpu`
-  - `cudaAvailable`: `false`
-  - `outputBytes`: `95788`
-  - `sampleRate`: `24000`
+- Result fields: `modelLoaded:true`, `wavGenerated:true`, `torchVersion:2.8.0+cpu`, `transformersVersion:4.57.6`, `torchaudioVersion:2.8.0+cpu`, `cudaAvailable:false`, `outputBytes:95788`, `sampleRate:24000`.
 - Boundary remained intact: network blocked, secret dirs hidden, model/speaker read-only, output writable.
 
 ## Current M4 classification
 
 `STICKBOT_TARS_M4_SANDBOXED_XTTS_LOCAL_LOAD_PASS_READY_FOR_M5_PLANNING_ONLY`
-
-M5/integration/serverization was later approved by Stick for local-only serverization.
 
 ## M5 local serverization notes
 
@@ -293,16 +282,14 @@ Command/session:
 Result:
 
 - Boundary setup succeeded: model/speaker mounted read-only, secret dirs hidden, external network probe blocked/unavailable.
-- XTTS server process stayed alive and eventually logged:
-  - `STICKBOT_TARS_M5_XTTS_SERVER_MODEL_LOADED`
-  - `STICKBOT_TARS_M5_XTTS_SERVER_LISTENING`
-- Readiness polling still timed out because `curl http://127.0.0.1:18020/ready` could not connect.
-- Root cause: the private `unshare -n` network namespace did not have loopback (`lo`) brought up, so local loopback services were unreachable even though external network remained isolated.
-- Secondary bug: cleanup trap referenced unset `node_pid` when Node had not started, masking the intended `XTTS_READY_TIMEOUT` exit.
+- XTTS server process stayed alive and eventually logged `STICKBOT_TARS_M5_XTTS_SERVER_MODEL_LOADED` and `STICKBOT_TARS_M5_XTTS_SERVER_LISTENING`.
+- Readiness polling timed out because `curl http://127.0.0.1:18020/ready` could not connect.
+- Root cause: private `unshare -n` network namespace did not have loopback (`lo`) brought up.
+- Secondary bug: cleanup trap referenced unset `node_pid` when Node had not started.
 
 Repair:
 
-- Updated `scripts/m5-sandboxed-node-voice-smoke.sh` to bring loopback up inside the private namespace using `ip link set lo up` or `ifconfig lo up`.
+- Updated `scripts/m5-sandboxed-node-voice-smoke.sh` to bring loopback up using `ip link set lo up` or `ifconfig lo up`.
 - Initialized `xtts_pid` and `node_pid` and made cleanup tolerate processes that never started.
 
 R2 validation:
@@ -318,4 +305,40 @@ R2 validation:
 
 `STICKBOT_TARS_M5_LOCAL_SERVERIZATION_NODE_VOICE_PASS_READY_FOR_M6_PLANNING_ONLY`
 
-M6/OpenClaw adapter, STT, Android, persistent service install, and host-PC Tailscale proxy/user-testing exposure are not started and require separate approval.
+## M6 OpenClaw adapter notes
+
+### Static validation passed
+
+Command/session:
+
+- `718a054e` / `glow-ocean`
+
+Result:
+
+- Existing + adapter tests: 27/27 PASS.
+- Marker: `STICKBOT_TARS_M6_STATIC_CHECK_PASS`.
+- Adapter tests covered echo no-spawn behavior, default `infer` and `agent` command shapes, required `{prompt}` placeholder, JSON text extraction, shell-metacharacter prompt passed as argv with `shell:false`, non-zero exit fail-closed behavior, and stdout limit fail-closed behavior.
+
+### M6 sandboxed OpenClaw adapter fixture smoke passed
+
+Command/session:
+
+- `9932f947` / `fresh-daisy`
+
+Result:
+
+- Classification: `STICKBOT_TARS_M6_OPENCLAW_ADAPTER_FIXTURE_VOICE_PASS`.
+- Adapter mode: `infer`.
+- Adapter surface: `openclaw infer model run --prompt {prompt} --json`.
+- Fixture OpenClaw CLI used: true.
+- Live provider called: false.
+- Gateway called: false.
+- Node `/api/chat`: HTTP 200, text `OpenClaw adapter fixture response: M6 OpenClaw adapter fixture voice smoke`, audio URL `/audio/f640fa4b-115d-4063-9ea8-511d998d1592.wav`, `audioError:null`.
+- Generated WAV SHA256 `fc7da588940bbe2238dcc91b9dc5156d36cbcaafcc49bbf606ebbdc3427ce5d0`, bytes `111148`, mono 24 kHz PCM WAV.
+- Boundary remained intact: loopback enabled, external network blocked/unavailable, model/speaker read-only, secret dirs hidden, Node workspace sandboxed.
+
+## Current M6 classification
+
+`STICKBOT_TARS_M6_OPENCLAW_ADAPTER_FIXTURE_VOICE_PASS_READY_FOR_M7_PLANNING_ONLY`
+
+M7/STT, live provider/Gateway smoke, Android, persistent service install, and host-PC Tailscale proxy/user-testing exposure are not started and require separate approval.

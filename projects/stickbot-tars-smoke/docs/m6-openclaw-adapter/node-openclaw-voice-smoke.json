@@ -1,0 +1,13 @@
+{
+  "nodeStatus": 200,
+  "body": {
+    "id": "f640fa4b-115d-4063-9ea8-511d998d1592",
+    "text": "OpenClaw adapter fixture response: M6 OpenClaw adapter fixture voice smoke",
+    "audioUrl": "/audio/f640fa4b-115d-4063-9ea8-511d998d1592.wav",
+    "audioError": null,
+    "logs": {
+      "dailyWritten": true,
+      "eventWritten": true
+    }
+  }
+}

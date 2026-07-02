@@ -85,3 +85,20 @@ Do not blur this into M5. Treat it as a separate LAN/Tailscale milestone:
 - no wildcard CORS;
 - XTTS kept loopback/private behind Node unless separately approved;
 - phone and laptop browser validation before user testing.
+
+## M6: adapter fixture before live provider/Gateway smoke
+
+M6 proved the Node OpenClaw adapter path with a fixture CLI inside the sandbox before any live provider/Gateway call. This was the right safety sequence because the TARS `.pth` was loaded in the same boundary.
+
+Durable adapter rules:
+
+- Discover actual CLI shape from local docs/help before coding.
+- Default raw inference shape is `openclaw infer model run --prompt {prompt} --json`.
+- Full agent/session shape is `openclaw agent --message {prompt} --json` and should be explicit opt-in.
+- Use `spawn(file,args,{shell:false})`, never shell interpolation.
+- Require `{prompt}` placeholder to avoid ambiguous prompt concatenation.
+- Bound stdout/stderr and enforce timeout/kill.
+- Parse JSON and fail closed if no text is extractable.
+- First adapter smoke can use a fixture CLI to prove process/JSON/prompt/voice wiring without provider or Gateway side effects.
+
+M6 fixture result: Node `/api/chat` returned OpenClaw adapter fixture text and generated WAV SHA256 `fc7da588940bbe2238dcc91b9dc5156d36cbcaafcc49bbf606ebbdc3427ce5d0` inside the no-network, secret-hidden, read-only-model boundary. Live provider/Gateway smoke remains a separate approval gate.

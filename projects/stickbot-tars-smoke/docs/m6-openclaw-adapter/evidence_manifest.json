@@ -1,0 +1,93 @@
+{
+  "schema": "stickbot.tars.m6.evidence_manifest.v1",
+  "generatedUtc": "2026-07-02T10:03:00Z",
+  "classification": "STICKBOT_TARS_M6_OPENCLAW_ADAPTER_FIXTURE_VOICE_PASS_READY_FOR_M7_PLANNING_ONLY",
+  "approval": {
+    "id": "9932f947-07b8-4d46-b5ef-46dddbf90485",
+    "shortId": "9932f947",
+    "session": "fresh-daisy",
+    "exitCode": 0
+  },
+  "staticValidation": {
+    "id": "718a054e-a122-44e9-8dd9-624e65fc79d3",
+    "session": "glow-ocean",
+    "marker": "STICKBOT_TARS_M6_STATIC_CHECK_PASS",
+    "tests": { "passed": 27, "failed": 0 }
+  },
+  "result": {
+    "path": "projects/stickbot-tars-smoke/docs/m6-openclaw-adapter/result.json",
+    "classification": "STICKBOT_TARS_M6_OPENCLAW_ADAPTER_FIXTURE_VOICE_PASS",
+    "adapterMode": "infer",
+    "adapterSurface": "openclaw infer model run --prompt {prompt} --json",
+    "liveProviderCalled": false,
+    "gatewayCalled": false,
+    "fixtureOpenClawCli": true,
+    "xttsServerReady": true,
+    "nodeOpenClawVoicePass": true,
+    "networkBlockedOrUnavailable": true,
+    "secretDirsHidden": true,
+    "modelReadOnly": true,
+    "speakerReadOnly": true,
+    "finishedAt": "2026-07-02T10:01:25Z"
+  },
+  "nodeOpenClawVoiceSmoke": {
+    "path": "projects/stickbot-tars-smoke/docs/m6-openclaw-adapter/node-openclaw-voice-smoke.json",
+    "nodeStatus": 200,
+    "turnId": "f640fa4b-115d-4063-9ea8-511d998d1592",
+    "text": "OpenClaw adapter fixture response: M6 OpenClaw adapter fixture voice smoke",
+    "audioUrl": "/audio/f640fa4b-115d-4063-9ea8-511d998d1592.wav",
+    "audioError": null,
+    "dailyWritten": true,
+    "eventWritten": true
+  },
+  "xttsReady": {
+    "path": "projects/stickbot-tars-smoke/docs/m6-openclaw-adapter/xtts-ready.json",
+    "ok": true,
+    "classification": "STICKBOT_TARS_M5_XTTS_SERVER_READY",
+    "modelLoaded": true,
+    "modelLoadedAt": "2026-07-02T10:01:03Z"
+  },
+  "generatedAudio": {
+    "sha256Path": "projects/stickbot-tars-smoke/docs/m6-openclaw-adapter/generated-audio.sha256",
+    "statPath": "projects/stickbot-tars-smoke/docs/m6-openclaw-adapter/generated-audio.stat",
+    "fileTypePath": "projects/stickbot-tars-smoke/docs/m6-openclaw-adapter/generated-audio.file",
+    "sha256": "fc7da588940bbe2238dcc91b9dc5156d36cbcaafcc49bbf606ebbdc3427ce5d0",
+    "bytes": 111148,
+    "fileType": "RIFF WAVE audio, Microsoft PCM, 16 bit, mono 24000 Hz",
+    "commitPolicy": "excluded_from_git"
+  },
+  "boundary": {
+    "mechanism": "unshare -Urnm",
+    "loopbackEnabledInsideNamespace": true,
+    "networkProbe": "NETWORK_BLOCKED_OR_UNAVAILABLE",
+    "modelMount": "read_only_bind_mount",
+    "speakerMount": "read_only_bind_mount",
+    "nodeWorkspace": "/tmp/tars-m6-boundary/workspace",
+    "hiddenSecretDirs": [
+      "/home/stickai/.openclaw",
+      "/home/stickai/.ssh",
+      "/home/stickai/.codex",
+      "/home/stickai/.config"
+    ]
+  },
+  "nonMutations": {
+    "liveProviderCalled": false,
+    "gatewayCalled": false,
+    "openClawProductionMutation": false,
+    "gatewayConfigMutation": false,
+    "gatewayRestart": false,
+    "noaTouched": false,
+    "sttTouched": false,
+    "androidTouched": false,
+    "persistentServiceInstalled": false,
+    "lanOrTailscaleExposed": false,
+    "port8787Touched": false
+  },
+  "closeout": "projects/stickbot-tars-smoke/docs/m6-openclaw-adapter/M6_OPENCLAW_ADAPTER_FIXTURE_VOICE_PASS.md",
+  "implementationPlan": "projects/stickbot-tars-smoke/docs/m6-openclaw-adapter/M6_OPENCLAW_ADAPTER_IMPLEMENTATION_PLAN.md",
+  "nextMilestone": {
+    "m7": "NOT_STARTED_REQUIRES_SEPARATE_APPROVAL",
+    "liveProviderGatewaySmoke": "NOT_STARTED_REQUIRES_SEPARATE_APPROVAL",
+    "lanTailscaleUserTesting": "NOT_STARTED_REQUIRES_SEPARATE_APPROVAL"
+  }
+}

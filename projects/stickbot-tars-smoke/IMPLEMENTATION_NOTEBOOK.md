@@ -182,3 +182,62 @@ Closeout artifacts:
 Future user-testing LAN requirement:
 
 Stick clarified that before user testing, the app must be reachable from phone and laptop browsers, similar to prior local demo/Douglas Bagmaker expectations. This is not part of M5 local-loopback PASS. Later preferred path is host-PC proxy over the host PC's Tailscale connection/IP: the app does not need to run on a Tailscale-native host and can remain local/WSL-bound. Add a later approved LAN/Tailscale milestone with explicit `VOICE_DEMO_ALLOW_LAN=true` only if needed, safe non-8787 port, restrictive host proxy/firewall evidence, Origin/Host allowlist, CSRF retained, no wildcard CORS, XTTS kept loopback behind Node, and phone+laptop browser validation before user testing.
+
+## M6 — OpenClaw adapter
+
+Status: `STICKBOT_TARS_M6_OPENCLAW_ADAPTER_FIXTURE_VOICE_PASS_READY_FOR_M7_PLANNING_ONLY`
+
+Approval:
+
+- Stick approved M6 on 2026-07-02.
+
+Scope:
+
+- Safe Node OpenClaw adapter only.
+- Default raw inference surface: `openclaw infer model run --prompt {prompt} --json`.
+- Explicit agent mode supported for later: `openclaw agent --message {prompt} --json`.
+- M6 smoke uses a fixture OpenClaw CLI inside the sandbox to prove adapter/process/JSON/voice wiring without live provider/Gateway calls while the TARS model is loaded.
+
+Implementation files:
+
+- `src/openclaw-adapter.js`
+- `test/openclaw-adapter.test.mjs`
+- `scripts/m6-sandboxed-openclaw-adapter-smoke.sh`
+- `docs/m6-openclaw-adapter/M6_OPENCLAW_ADAPTER_IMPLEMENTATION_PLAN.md`
+- updates to `server.js`, `src/config.js`, and `package.json`.
+
+Static validation:
+
+- Command/session `718a054e` / `glow-ocean` passed.
+- Tests: 27/27 PASS.
+- Marker: `STICKBOT_TARS_M6_STATIC_CHECK_PASS`.
+
+M6 PASS validation:
+
+- Command/session `9932f947` / `fresh-daisy` passed.
+- Marker: `STICKBOT_TARS_M6_SANDBOXED_OPENCLAW_ADAPTER_SMOKE_COMMAND_PASS`.
+- Result classification: `STICKBOT_TARS_M6_OPENCLAW_ADAPTER_FIXTURE_VOICE_PASS`.
+- Adapter mode: `infer`.
+- Adapter surface: `openclaw infer model run --prompt {prompt} --json`.
+- Fixture OpenClaw CLI used: true.
+- Live provider called: false.
+- Gateway called: false.
+- Node `/api/chat`: HTTP 200; text `OpenClaw adapter fixture response: M6 OpenClaw adapter fixture voice smoke`; audio URL `/audio/f640fa4b-115d-4063-9ea8-511d998d1592.wav`; no audio error.
+- Generated WAV SHA256: `fc7da588940bbe2238dcc91b9dc5156d36cbcaafcc49bbf606ebbdc3427ce5d0`.
+- Generated WAV bytes: `111148`, mono 24 kHz PCM WAV.
+- Boundary remained intact: network blocked/unavailable, secret dirs hidden, model/speaker read-only, loopback only, Node workspace sandboxed under `/tmp/tars-m6-boundary/workspace`.
+
+Closeout artifacts:
+
+- `docs/m6-openclaw-adapter/M6_OPENCLAW_ADAPTER_FIXTURE_VOICE_PASS.md`
+- `docs/m6-openclaw-adapter/evidence_manifest.json`
+- `docs/m6-openclaw-adapter/result.json`
+- `docs/m6-openclaw-adapter/node-openclaw-voice-smoke.json`
+- `docs/m6-openclaw-adapter/xtts-ready.json`
+- `docs/m6-openclaw-adapter/generated-audio.sha256`
+- `docs/m6-openclaw-adapter/generated-audio.stat`
+- `docs/m6-openclaw-adapter/generated-audio.file`
+
+Next action:
+
+Run final validation and preserve M6 code/evidence with a guarded commit/push. M7, live provider/Gateway smoke, STT, Android, persistent service install, and Tailscale/user-testing exposure are not started and require separate approval.
