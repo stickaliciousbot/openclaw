@@ -1,43 +1,105 @@
 {
-  "schema": "stickbot.tars.m25.status.v1",
-  "generatedUtc": "2026-07-02T07:18:00Z",
+  "schema": "stickbot.tars.milestone.status.v1",
+  "generatedUtc": "2026-07-02T07:45:00Z",
   "branch": "feature/stickbot-tars-m25-hardening-repair",
-  "headBeforeRepair": "143fa869ac1969dc0766eaa0bcb9a7be9da45e79",
-  "previousClassification": "STICKBOT_TARS_M25_HARDENING_CLOSEOUT_BLOCKED_FAIL_CLOSED",
-  "refinedAuditClassification": "STICKBOT_TARS_REFINED_REPO_AUDIT_READONLY_COMPLETE_READY_FOR_REPAIR_PLAN",
-  "finalClassification": "STICKBOT_TARS_M25_HARDENING_CLOSEOUT_PASS_READY_FOR_M3",
-  "m3Started": false,
-  "modelDownloaded": false,
-  "xttsLoaded": false,
-  "sttTouched": false,
-  "androidTouched": false,
-  "openClawProductionMutation": false,
-  "noaTouched": false,
-  "blockerGates": {
-    "configFailClosedImplemented": true,
-    "unsafeLanRefusesStartup": true,
-    "uuidOnlyAudioRoute": true,
-    "separateAudioLimitExists": true,
-    "originHostCsrfChecksExist": true
+  "headBeforeM25Repair": "143fa869ac1969dc0766eaa0bcb9a7be9da45e79",
+  "m25RepairCommit": "5c29204016bebd11da4ffa6dc20bb99aba9676a4",
+  "m25": {
+    "previousClassification": "STICKBOT_TARS_M25_HARDENING_CLOSEOUT_BLOCKED_FAIL_CLOSED",
+    "refinedAuditClassification": "STICKBOT_TARS_REFINED_REPO_AUDIT_READONLY_COMPLETE_READY_FOR_REPAIR_PLAN",
+    "finalClassification": "STICKBOT_TARS_M25_HARDENING_CLOSEOUT_PASS_READY_FOR_M3",
+    "blockerGates": {
+      "configFailClosedImplemented": true,
+      "unsafeLanRefusesStartup": true,
+      "uuidOnlyAudioRoute": true,
+      "separateAudioLimitExists": true,
+      "originHostCsrfChecksExist": true
+    },
+    "validation": {
+      "npmRunCheck": "PASS",
+      "blockerTests": {
+        "status": "PASS",
+        "passed": 19,
+        "failed": 0
+      },
+      "unsafeStartupTests": "PASS",
+      "localEchoSmoke": {
+        "status": "PASS",
+        "port": 19888,
+        "host": "127.0.0.1",
+        "mode": "echo",
+        "note": "Earlier smoke attempt on 18789 hit a different service and failed with 404; guarded rerun on 19888 verified TARS health shape and passed."
+      },
+      "gitDiffCheck": "PASS",
+      "noMntCInRuntimeRepairFiles": "PASS",
+      "productionSentinelReadback": "PASS"
+    }
   },
-  "validation": {
-    "npmRunCheck": "PASS",
-    "blockerTests": {
-      "status": "PASS",
-      "passed": 19,
-      "failed": 0
+  "m3": {
+    "finalClassification": "STICKBOT_TARS_M3_MODEL_ACQUIRED_HASHED_PROVENANCE_RECORDED_NO_LOAD_PASS",
+    "modelName": "Pyrater/TARS",
+    "source": "Hugging Face",
+    "sourceUrl": "https://huggingface.co/Pyrater/TARS",
+    "revision": "7a1517d76eb0db89828b1c812682fa75125e5de7",
+    "downloadedAt": "2026-07-02T07:41:45.596Z",
+    "manifest": "projects/stickbot-tars-smoke/docs/m3-model-provenance/tars-model-provenance-manifest.json",
+    "sha256List": "projects/stickbot-tars-smoke/docs/m3-model-provenance/sha256sum.txt",
+    "closeout": "projects/stickbot-tars-smoke/docs/m3-model-provenance/M3_MODEL_ACQUIRED_HASHED_PROVENANCE_RECORDED_NO_LOAD.md",
+    "runtimeRoot": "/home/stickai/stickbot-voice",
+    "modelRoot": "/home/stickai/stickbot-voice/xtts_models/tars",
+    "speakerRoot": "/home/stickai/stickbot-voice/speakers",
+    "outputRoot": "/home/stickai/stickbot-voice/output",
+    "pathPolicy": {
+      "wslNative": true,
+      "notUnderMntC": true,
+      "noHybridWindowsWslPath": true
     },
-    "unsafeStartupTests": "PASS",
-    "localEchoSmoke": {
-      "status": "PASS",
-      "port": 19888,
-      "host": "127.0.0.1",
-      "mode": "echo",
-      "note": "Earlier smoke attempt on 18789 hit a different service and failed with 404; guarded rerun on 19888 verified TARS health shape and passed."
+    "files": {
+      "config.json": {
+        "sha256": "7187e9fb84193c2780769227ba07eeb1b74b474a52cd5f9d537964a566a8dc90",
+        "bytes": 4355
+      },
+      "vocab.json": {
+        "sha256": "df6f3454c184d2d01c5461ac82087da2eacff6aaafc9fdf65b8264550d5cb779",
+        "bytes": 335171
+      },
+      "model.pth": {
+        "sha256": "fbcbdae803777b0dea5c02b6309786b8dc06fde0120de8df4159151a11b51688",
+        "bytes": 1863948438
+      },
+      "speakers_xtts.pth": {
+        "sha256": "f0f6137c19a4eab0cbbe4c99b5babacf68b1746e50da90807708c10e645b943b",
+        "bytes": 7754818
+      },
+      "reference.wav": {
+        "sha256": "b2935696d607156e251852efb6d977507c997ee215762e401c71b587253f6cfb",
+        "bytes": 986156
+      }
     },
-    "gitDiffCheck": "PASS",
-    "noMntCInRuntimeRepairFiles": "PASS",
-    "productionSentinelReadback": "PASS"
+    "license": {
+      "name": "MIT",
+      "commercialUseAllowedByDeclaredLicense": true,
+      "privateDemoOnlyUntilVoiceRightsReview": true
+    },
+    "expectedSizeGate": {
+      "allExpectedFilesPresent": true,
+      "modelPthBytesAtLeastOneGb": true,
+      "referenceWavNonEmpty": true,
+      "noModelLoad": true
+    }
+  },
+  "boundaries": {
+    "m3Started": true,
+    "m3Completed": true,
+    "m4Started": false,
+    "modelDownloaded": true,
+    "modelLoaded": false,
+    "xttsStarted": false,
+    "sttTouched": false,
+    "androidTouched": false,
+    "openClawProductionMutation": false,
+    "gatewayRestart": false,
+    "noaTouched": false
   },
   "productionReadback": {
     "openclawJson": {
@@ -52,27 +114,13 @@
       "exists": false
     }
   },
-  "changedOrAddedFiles": [
-    "projects/stickbot-tars-smoke/server.js",
-    "projects/stickbot-tars-smoke/package.json",
-    "projects/stickbot-tars-smoke/.gitignore",
-    "projects/stickbot-tars-smoke/public/app.js",
-    "projects/stickbot-tars-smoke/src/config.js",
-    "projects/stickbot-tars-smoke/safety/network-policy.js",
-    "projects/stickbot-tars-smoke/safety/audio-path-policy.js",
-    "projects/stickbot-tars-smoke/safety/limits.js",
-    "projects/stickbot-tars-smoke/safety/origin-policy.js",
-    "projects/stickbot-tars-smoke/safety/csrf.js",
-    "projects/stickbot-tars-smoke/test/config-failclosed.test.mjs",
-    "projects/stickbot-tars-smoke/test/audio-path-policy.test.mjs",
-    "projects/stickbot-tars-smoke/test/origin-csrf.test.mjs",
-    "projects/stickbot-tars-smoke/test/limits.test.mjs",
-    "projects/stickbot-tars-smoke/docs/M25_HARDENING_CLOSEOUT.md",
-    "projects/stickbot-tars-smoke/docs/M25_REPAIR_PLAN.md",
-    "projects/stickbot-tars-smoke/docs/REPO_AUDIT_READ_ONLY_CLOSEOUT.md",
-    "projects/stickbot-tars-smoke/state/status.json"
-  ],
   "excludedFromCommit": [
+    "/home/stickai/stickbot-voice/xtts_models/tars/config.json",
+    "/home/stickai/stickbot-voice/xtts_models/tars/vocab.json",
+    "/home/stickai/stickbot-voice/xtts_models/tars/model.pth",
+    "/home/stickai/stickbot-voice/xtts_models/tars/speakers_xtts.pth",
+    "/home/stickai/stickbot-voice/xtts_models/tars/reference.wav",
+    "/home/stickai/stickbot-voice/speakers/reference.wav",
     "memory/context-bridge-events/*stickbot-tars*.json",
     "memory/2026-07-02.md",
     "projects/stickbot-tars-smoke/data/audio/**",
@@ -84,5 +132,5 @@
     "projects/stickbot-tars-smoke/node_modules/**",
     "projects/stickbot-tars-smoke/cache/**"
   ],
-  "stagingRule": "Stage only explicit TARS project files needed for this repair; do not stage memory/context bridge files or unrelated workspace files."
+  "nextMilestone": "M4_SANDBOXED_XTTS_LOCAL_LOAD_NOT_STARTED"
 }

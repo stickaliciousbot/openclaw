@@ -1,0 +1,6 @@
+7187e9fb84193c2780769227ba07eeb1b74b474a52cd5f9d537964a566a8dc90  /home/stickai/stickbot-voice/xtts_models/tars/config.json
+df6f3454c184d2d01c5461ac82087da2eacff6aaafc9fdf65b8264550d5cb779  /home/stickai/stickbot-voice/xtts_models/tars/vocab.json
+fbcbdae803777b0dea5c02b6309786b8dc06fde0120de8df4159151a11b51688  /home/stickai/stickbot-voice/xtts_models/tars/model.pth
+f0f6137c19a4eab0cbbe4c99b5babacf68b1746e50da90807708c10e645b943b  /home/stickai/stickbot-voice/xtts_models/tars/speakers_xtts.pth
+b2935696d607156e251852efb6d977507c997ee215762e401c71b587253f6cfb  /home/stickai/stickbot-voice/xtts_models/tars/reference.wav
+b2935696d607156e251852efb6d977507c997ee215762e401c71b587253f6cfb  /home/stickai/stickbot-voice/speakers/reference.wav

@@ -1,0 +1,77 @@
+{
+  "schema": "stickbot.tars.model_provenance.v1",
+  "classification": "STICKBOT_TARS_M3_MODEL_ACQUIRED_HASHED_PROVENANCE_RECORDED_NO_LOAD_PASS",
+  "modelName": "Pyrater/TARS",
+  "source": "Hugging Face",
+  "sourceUrl": "https://huggingface.co/Pyrater/TARS",
+  "revision": "7a1517d76eb0db89828b1c812682fa75125e5de7",
+  "downloadedAt": "2026-07-02T07:41:45.596Z",
+  "runtimeRoot": "/home/stickai/stickbot-voice",
+  "modelRoot": "/home/stickai/stickbot-voice/xtts_models/tars",
+  "speakerRoot": "/home/stickai/stickbot-voice/speakers",
+  "outputRoot": "/home/stickai/stickbot-voice/output",
+  "pathPolicy": {
+    "wslNative": true,
+    "notUnderMntC": true,
+    "noHybridWindowsWslPath": true
+  },
+  "files": {
+    "config.json": {
+      "sha256": "7187e9fb84193c2780769227ba07eeb1b74b474a52cd5f9d537964a566a8dc90",
+      "bytes": 4355,
+      "path": "/home/stickai/stickbot-voice/xtts_models/tars/config.json"
+    },
+    "vocab.json": {
+      "sha256": "df6f3454c184d2d01c5461ac82087da2eacff6aaafc9fdf65b8264550d5cb779",
+      "bytes": 335171,
+      "path": "/home/stickai/stickbot-voice/xtts_models/tars/vocab.json"
+    },
+    "model.pth": {
+      "sha256": "fbcbdae803777b0dea5c02b6309786b8dc06fde0120de8df4159151a11b51688",
+      "bytes": 1863948438,
+      "path": "/home/stickai/stickbot-voice/xtts_models/tars/model.pth"
+    },
+    "speakers_xtts.pth": {
+      "sha256": "f0f6137c19a4eab0cbbe4c99b5babacf68b1746e50da90807708c10e645b943b",
+      "bytes": 7754818,
+      "path": "/home/stickai/stickbot-voice/xtts_models/tars/speakers_xtts.pth"
+    },
+    "reference.wav": {
+      "sha256": "b2935696d607156e251852efb6d977507c997ee215762e401c71b587253f6cfb",
+      "bytes": 986156,
+      "path": "/home/stickai/stickbot-voice/xtts_models/tars/reference.wav"
+    }
+  },
+  "runtimeCopies": {
+    "speakers/reference.wav": {
+      "sha256": "b2935696d607156e251852efb6d977507c997ee215762e401c71b587253f6cfb",
+      "bytes": 986156,
+      "path": "/home/stickai/stickbot-voice/speakers/reference.wav"
+    }
+  },
+  "expectedSizeGate": {
+    "allExpectedFilesPresent": true,
+    "modelPthBytesAtLeastOneGb": true,
+    "referenceWavNonEmpty": true,
+    "noModelLoad": true
+  },
+  "license": {
+    "name": "MIT",
+    "source": "Hugging Face model card metadata and README front matter",
+    "commercialUseAllowedByDeclaredLicense": true,
+    "notes": "Voice is trained from Interstellar TARS samples; private demo only unless separate voice/branding rights review clears broader use."
+  },
+  "voiceUse": {
+    "publicProductSafe": false,
+    "requiresBrandingRemoval": true,
+    "requiresVoiceRightsReview": true,
+    "privateDemoOnly": true
+  },
+  "boundaries": {
+    "modelLoaded": false,
+    "xttsStarted": false,
+    "openClawProductionMutation": false,
+    "gatewayRestart": false,
+    "noM3BeyondProvenanceHash": true
+  }
+}
