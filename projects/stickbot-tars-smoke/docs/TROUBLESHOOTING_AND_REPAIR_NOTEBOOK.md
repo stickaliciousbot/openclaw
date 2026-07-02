@@ -267,4 +267,55 @@ Validation:
 
 `STICKBOT_TARS_M4_SANDBOXED_XTTS_LOCAL_LOAD_PASS_READY_FOR_M5_PLANNING_ONLY`
 
-M5/integration/serverization is not started and requires separate approval.
+M5/integration/serverization was later approved by Stick for local-only serverization.
+
+## M5 local serverization notes
+
+### Static validation passed
+
+Command/session:
+
+- `0e9bda9a` / `calm-ocean`
+
+Result:
+
+- Existing blocker tests: 19/19 PASS.
+- New M5 shell launcher syntax check: PASS via `bash -n`.
+- New M5 Python XTTS local server compile check: PASS via `python3 -m py_compile`.
+- Marker: `STICKBOT_TARS_M5_STATIC_CHECK_PASS`.
+
+### M5 sandbox smoke R1 failed safely: loopback down in private netns
+
+Command/session:
+
+- `b01b48c0` / `dawn-ember`
+
+Result:
+
+- Boundary setup succeeded: model/speaker mounted read-only, secret dirs hidden, external network probe blocked/unavailable.
+- XTTS server process stayed alive and eventually logged:
+  - `STICKBOT_TARS_M5_XTTS_SERVER_MODEL_LOADED`
+  - `STICKBOT_TARS_M5_XTTS_SERVER_LISTENING`
+- Readiness polling still timed out because `curl http://127.0.0.1:18020/ready` could not connect.
+- Root cause: the private `unshare -n` network namespace did not have loopback (`lo`) brought up, so local loopback services were unreachable even though external network remained isolated.
+- Secondary bug: cleanup trap referenced unset `node_pid` when Node had not started, masking the intended `XTTS_READY_TIMEOUT` exit.
+
+Repair:
+
+- Updated `scripts/m5-sandboxed-node-voice-smoke.sh` to bring loopback up inside the private namespace using `ip link set lo up` or `ifconfig lo up`.
+- Initialized `xtts_pid` and `node_pid` and made cleanup tolerate processes that never started.
+
+R2 validation:
+
+- Static recheck command/session `f9412916` / `sharp-crest` passed: existing tests 19/19, marker `STICKBOT_TARS_M5_R2_STATIC_CHECK_PASS`.
+- Sandbox smoke R2 command/session `655a4a74` / `vivid-cove` passed.
+- XTTS `/ready`: `ok:true`, classification `STICKBOT_TARS_M5_XTTS_SERVER_READY`, model loaded at `2026-07-02T09:36:59Z`.
+- Node `/api/chat`: HTTP 200, returned `audioUrl` `/audio/41712ff0-d842-4e12-9228-5fe33536f2a2.wav`, `audioError:null`, and logged daily/event records inside the sandbox workspace.
+- Generated WAV SHA256 `1daf103c5e9de8dbeef2a373638b843ff8e01429b415c6ae279853c9908712ec`, bytes `142380`, mono 24 kHz PCM WAV.
+- Boundary remained intact: loopback enabled inside namespace, external network blocked/unavailable, model/speaker read-only, secret dirs hidden, Node workspace sandboxed.
+
+## Current M5 classification
+
+`STICKBOT_TARS_M5_LOCAL_SERVERIZATION_NODE_VOICE_PASS_READY_FOR_M6_PLANNING_ONLY`
+
+M6/OpenClaw adapter, STT, Android, persistent service install, and host-PC Tailscale proxy/user-testing exposure are not started and require separate approval.

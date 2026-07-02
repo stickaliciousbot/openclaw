@@ -1,0 +1,105 @@
+{
+  "schema": "stickbot.tars.m5.evidence_manifest.v1",
+  "generatedUtc": "2026-07-02T09:39:00Z",
+  "classification": "STICKBOT_TARS_M5_LOCAL_SERVERIZATION_NODE_VOICE_PASS_READY_FOR_M6_PLANNING_ONLY",
+  "approval": {
+    "id": "655a4a74-5e73-4c3c-94ab-2b36b3ebda8c",
+    "shortId": "655a4a74",
+    "session": "vivid-cove",
+    "exitCode": 0
+  },
+  "staticValidation": [
+    {
+      "id": "0e9bda9a-504b-4dd2-b007-bd2393770ed4",
+      "session": "calm-ocean",
+      "marker": "STICKBOT_TARS_M5_STATIC_CHECK_PASS",
+      "tests": { "passed": 19, "failed": 0 }
+    },
+    {
+      "id": "f9412916-6e17-4bbc-b5b4-0f07c7053fec",
+      "session": "sharp-crest",
+      "marker": "STICKBOT_TARS_M5_R2_STATIC_CHECK_PASS",
+      "tests": { "passed": 19, "failed": 0 }
+    }
+  ],
+  "r1FailureRepair": {
+    "id": "b01b48c0-9d38-4334-92f6-95d337437cfd",
+    "session": "dawn-ember",
+    "classification": "STICKBOT_TARS_M5_R1_SAFE_FAILURE_LOOPBACK_DOWN",
+    "rootCause": "private unshare network namespace had loopback down, so XTTS server listened but /ready could not connect",
+    "repair": "bring lo up inside namespace and make cleanup tolerate unset process ids"
+  },
+  "result": {
+    "path": "projects/stickbot-tars-smoke/docs/m5-local-serverization/result.json",
+    "classification": "STICKBOT_TARS_M5_LOCAL_SERVERIZATION_NODE_VOICE_PASS",
+    "xttsServerReady": true,
+    "nodeEchoVoicePass": true,
+    "networkBlockedOrUnavailable": true,
+    "secretDirsHidden": true,
+    "modelReadOnly": true,
+    "speakerReadOnly": true,
+    "openclawMode": "echo",
+    "host": "127.0.0.1",
+    "nodePort": 18788,
+    "xttsPort": 18020,
+    "finishedAt": "2026-07-02T09:37:25Z"
+  },
+  "nodeVoiceSmoke": {
+    "path": "projects/stickbot-tars-smoke/docs/m5-local-serverization/node-voice-smoke.json",
+    "nodeStatus": 200,
+    "turnId": "41712ff0-d842-4e12-9228-5fe33536f2a2",
+    "text": "Echo smoke response: M5 local voice echo smoke",
+    "audioUrl": "/audio/41712ff0-d842-4e12-9228-5fe33536f2a2.wav",
+    "audioError": null,
+    "dailyWritten": true,
+    "eventWritten": true
+  },
+  "xttsReady": {
+    "path": "projects/stickbot-tars-smoke/docs/m5-local-serverization/xtts-ready.json",
+    "ok": true,
+    "classification": "STICKBOT_TARS_M5_XTTS_SERVER_READY",
+    "modelLoaded": true,
+    "modelLoadedAt": "2026-07-02T09:36:59Z"
+  },
+  "generatedAudio": {
+    "sha256Path": "projects/stickbot-tars-smoke/docs/m5-local-serverization/generated-audio.sha256",
+    "statPath": "projects/stickbot-tars-smoke/docs/m5-local-serverization/generated-audio.stat",
+    "fileTypePath": "projects/stickbot-tars-smoke/docs/m5-local-serverization/generated-audio.file",
+    "sha256": "1daf103c5e9de8dbeef2a373638b843ff8e01429b415c6ae279853c9908712ec",
+    "bytes": 142380,
+    "fileType": "RIFF WAVE audio, Microsoft PCM, 16 bit, mono 24000 Hz",
+    "commitPolicy": "excluded_from_git"
+  },
+  "boundary": {
+    "mechanism": "unshare -Urnm",
+    "loopbackEnabledInsideNamespace": true,
+    "networkProbe": "NETWORK_BLOCKED_OR_UNAVAILABLE",
+    "modelMount": "read_only_bind_mount",
+    "speakerMount": "read_only_bind_mount",
+    "nodeWorkspace": "/tmp/tars-m5-boundary/workspace",
+    "hiddenSecretDirs": [
+      "/home/stickai/.openclaw",
+      "/home/stickai/.ssh",
+      "/home/stickai/.codex",
+      "/home/stickai/.config"
+    ]
+  },
+  "nonMutations": {
+    "openClawProductionMutation": false,
+    "gatewayConfigMutation": false,
+    "gatewayRestart": false,
+    "noaTouched": false,
+    "sttTouched": false,
+    "androidTouched": false,
+    "persistentServiceInstalled": false,
+    "lanOrTailscaleExposed": false,
+    "port8787Touched": false,
+    "providerApiCalled": false
+  },
+  "closeout": "projects/stickbot-tars-smoke/docs/m5-local-serverization/M5_LOCAL_SERVERIZATION_NODE_VOICE_PASS.md",
+  "implementationPlan": "projects/stickbot-tars-smoke/docs/m5-local-serverization/M5_LOCAL_SERVERIZATION_IMPLEMENTATION_PLAN.md",
+  "nextMilestone": {
+    "m6": "NOT_STARTED_REQUIRES_SEPARATE_APPROVAL",
+    "lanTailscaleUserTesting": "NOT_STARTED_REQUIRES_SEPARATE_APPROVAL"
+  }
+}

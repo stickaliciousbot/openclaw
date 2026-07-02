@@ -1,0 +1,13 @@
+{
+  "nodeStatus": 200,
+  "body": {
+    "id": "41712ff0-d842-4e12-9228-5fe33536f2a2",
+    "text": "Echo smoke response: M5 local voice echo smoke",
+    "audioUrl": "/audio/41712ff0-d842-4e12-9228-5fe33536f2a2.wav",
+    "audioError": null,
+    "logs": {
+      "dailyWritten": true,
+      "eventWritten": true
+    }
+  }
+}

@@ -84,4 +84,6 @@ Durable rule: for Coqui/XTTS, pin a known-compatible set instead of accepting la
 
 M4 passed after Torch/Torchaudio `2.8.0+cpu` repair. R4 sandboxed first-load/generation loaded the local TARS XTTS model and generated a 95,788-byte, 24 kHz WAV inside the accepted no-network, secret-hidden, read-only-model boundary. Generated WAV SHA256: `9a1f332a74f2625c4f18e246b738eee29aede9c89362b5a407e6033b7135fc84`. Classification: `STICKBOT_TARS_M4_SANDBOXED_XTTS_LOCAL_LOAD_PASS_READY_FOR_M5_PLANNING_ONLY`.
 
-Do not start M5/integration/serverization without separate owner approval and a fresh threat model.
+M5 was later approved and passed as local-only serverization / Node echo voice integration. R1 failed safely because loopback was down inside the private `unshare -n` namespace; repair was to bring `lo` up inside the namespace and make cleanup tolerate unset PIDs. R2 passed: local XTTS `/ready`, Node `/api/chat` HTTP 200, audio URL returned, generated WAV SHA256 `1daf103c5e9de8dbeef2a373638b843ff8e01429b415c6ae279853c9908712ec`, no Gateway/OpenClaw/NOA/STT/Android/LAN mutation. Classification: `STICKBOT_TARS_M5_LOCAL_SERVERIZATION_NODE_VOICE_PASS_READY_FOR_M6_PLANNING_ONLY`.
+
+Do not start M6/OpenClaw adapter, STT, Android, persistent service install, or host-PC Tailscale proxy/user-testing exposure without separate owner approval and a fresh threat model.

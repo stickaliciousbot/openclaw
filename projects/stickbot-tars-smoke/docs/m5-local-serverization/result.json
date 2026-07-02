@@ -1,0 +1,17 @@
+{
+  "classification": "STICKBOT_TARS_M5_LOCAL_SERVERIZATION_NODE_VOICE_PASS",
+  "xttsServerReady": true,
+  "nodeEchoVoicePass": true,
+  "networkBlockedOrUnavailable": true,
+  "secretDirsHidden": true,
+  "modelReadOnly": true,
+  "speakerReadOnly": true,
+  "openclawMode": "echo",
+  "host": "127.0.0.1",
+  "nodePort": 18788,
+  "xttsPort": 18020,
+  "audioSha256": "1daf103c5e9de8dbeef2a373638b843ff8e01429b415c6ae279853c9908712ec",
+  "audioStat": "bytes=142380 path=/tmp/tars-m5-boundary/app/data/audio/output/41712ff0-d842-4e12-9228-5fe33536f2a2.wav",
+  "audioFileType": "/tmp/tars-m5-boundary/app/data/audio/output/41712ff0-d842-4e12-9228-5fe33536f2a2.wav: RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, mono 24000 Hz",
+  "finishedAt": "2026-07-02T09:37:25Z"
+}

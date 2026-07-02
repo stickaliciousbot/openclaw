@@ -6,7 +6,8 @@
   "description": "Local-only Stickbot/TARS voice smoke: browser text+mic UI, OpenClaw bridge, XTTS voice, memory/context logging.",
   "scripts": {
     "start": "node server.js",
-    "check": "node --check server.js && node --check src/config.js && node --check safety/network-policy.js && node --check safety/audio-path-policy.js && node --check safety/limits.js && node --check safety/origin-policy.js && node --check safety/csrf.js && node --check public/app.js && node --test test/*.test.mjs",
+    "m5:smoke": "bash scripts/m5-sandboxed-node-voice-smoke.sh",
+    "check": "node --check server.js && node --check src/config.js && node --check safety/network-policy.js && node --check safety/audio-path-policy.js && node --check safety/limits.js && node --check safety/origin-policy.js && node --check safety/csrf.js && node --check public/app.js && node --test test/*.test.mjs && bash -n scripts/m5-sandboxed-node-voice-smoke.sh && python3 -m py_compile scripts/xtts-local-server.py",
     "test": "node --test test/*.test.mjs"
   },
   "engines": {
