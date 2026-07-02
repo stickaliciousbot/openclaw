@@ -1,0 +1,16 @@
+{
+  "classification": "STICKBOT_TARS_M7_LOCAL_STT_FIXTURE_CONTRACT_PASS_REAL_ENGINE_BLOCKED",
+  "sttMode": "fixture",
+  "fixtureTranscript": "M7 fixture transcript",
+  "realSttEngineAvailable": false,
+  "ffmpegAvailable": false,
+  "cloudSpeechApiCalled": false,
+  "browserWebSpeechApi": false,
+  "nodeSttStatus": 200,
+  "networkBlockedOrUnavailable": true,
+  "secretDirsHidden": true,
+  "capturedAudioSha256": "2976da01e205a110c9fa41d47659e238a5c6d3c3f3137582f2949853faa201dd",
+  "capturedAudioStat": "bytes=3244 path=/tmp/tars-m7-boundary/app/data/audio/input/2812d254-740c-455c-a65f-cdf88521a57d-input.bin",
+  "capturedAudioFileType": "/tmp/tars-m7-boundary/app/data/audio/input/2812d254-740c-455c-a65f-cdf88521a57d-input.bin: RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, mono 16000 Hz",
+  "finishedAt": "2026-07-02T10:20:39Z"
+}

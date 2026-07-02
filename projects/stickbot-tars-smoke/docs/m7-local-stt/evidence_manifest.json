@@ -1,0 +1,78 @@
+{
+  "schema": "stickbot.tars.m7.evidence_manifest.v1",
+  "generatedUtc": "2026-07-02T10:22:00Z",
+  "classification": "STICKBOT_TARS_M7_LOCAL_STT_FIXTURE_CONTRACT_PASS_REAL_ENGINE_BLOCKED_READY_FOR_STT_ENGINE_ACQUISITION",
+  "discovery": {
+    "id": "21ac704a-c2b9-4a12-af9e-2a7af8cf9303",
+    "session": "young-crustacean",
+    "marker": "STICKBOT_TARS_M7_LOCAL_STT_DISCOVERY_COMPLETE",
+    "ffmpegAvailable": false,
+    "ffprobeAvailable": false,
+    "whisperCliAvailable": false,
+    "whisperCppAvailable": false,
+    "fasterWhisperAvailable": false,
+    "localSttModelsFound": false,
+    "classification": "REAL_STT_ENGINE_BLOCKED_MISSING_LOCAL_ENGINE_MODEL_AND_FFMPEG"
+  },
+  "staticValidation": {
+    "id": "0e287a97-bbd6-4e0a-b107-f7abd8313b8a",
+    "session": "salty-atlas",
+    "marker": "STICKBOT_TARS_M7_STATIC_CHECK_PASS",
+    "tests": { "passed": 34, "failed": 0 }
+  },
+  "fixtureSmoke": {
+    "id": "3291be75-7ba2-4869-87bb-92b91d978264",
+    "session": "quick-reef",
+    "marker": "STICKBOT_TARS_M7_SANDBOXED_STT_FIXTURE_SMOKE_COMMAND_PASS",
+    "resultPath": "projects/stickbot-tars-smoke/docs/m7-local-stt/result.json",
+    "nodeResponsePath": "projects/stickbot-tars-smoke/docs/m7-local-stt/stt-fixture-smoke.json",
+    "classification": "STICKBOT_TARS_M7_LOCAL_STT_FIXTURE_CONTRACT_PASS_REAL_ENGINE_BLOCKED",
+    "sttMode": "fixture",
+    "transcript": "M7 fixture transcript",
+    "nodeStatus": 200,
+    "cloudSpeechApiCalled": false,
+    "browserWebSpeechApi": false,
+    "realSttEngineAvailable": false
+  },
+  "capturedAudio": {
+    "sha256Path": "projects/stickbot-tars-smoke/docs/m7-local-stt/captured-audio.sha256",
+    "statPath": "projects/stickbot-tars-smoke/docs/m7-local-stt/captured-audio.stat",
+    "fileTypePath": "projects/stickbot-tars-smoke/docs/m7-local-stt/captured-audio.file",
+    "sha256": "2976da01e205a110c9fa41d47659e238a5c6d3c3f3137582f2949853faa201dd",
+    "bytes": 3244,
+    "fileType": "RIFF WAVE audio, Microsoft PCM, 16 bit, mono 16000 Hz",
+    "commitPolicy": "excluded_from_git"
+  },
+  "boundary": {
+    "mechanism": "unshare -Urnm",
+    "loopbackEnabledInsideNamespace": true,
+    "networkProbe": "NETWORK_BLOCKED_OR_UNAVAILABLE",
+    "nodeWorkspace": "/tmp/tars-m7-boundary/workspace",
+    "hiddenSecretDirs": [
+      "/home/stickai/.openclaw",
+      "/home/stickai/.ssh",
+      "/home/stickai/.codex",
+      "/home/stickai/.config"
+    ]
+  },
+  "nonMutations": {
+    "cloudSpeechApiCalled": false,
+    "browserWebSpeechApi": false,
+    "openAiWhisperApiCalled": false,
+    "modelDownloaded": false,
+    "packageInstalled": false,
+    "ffmpegInstalled": false,
+    "gatewayConfigMutation": false,
+    "gatewayRestart": false,
+    "noaTouched": false,
+    "androidTouched": false,
+    "persistentServiceInstalled": false,
+    "lanOrTailscaleExposed": false
+  },
+  "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/M7_LOCAL_STT_FIXTURE_CONTRACT_PASS.md",
+  "implementationPlan": "projects/stickbot-tars-smoke/docs/m7-local-stt/M7_LOCAL_STT_IMPLEMENTATION_PLAN.md",
+  "nextMilestone": {
+    "sttEngineAcquisition": "NOT_STARTED_REQUIRES_SEPARATE_APPROVAL",
+    "m8": "NOT_STARTED_REQUIRES_SEPARATE_APPROVAL"
+  }
+}

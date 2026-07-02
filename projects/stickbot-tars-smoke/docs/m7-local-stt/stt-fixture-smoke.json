@@ -1,0 +1,14 @@
+{
+  "nodeStatus": 200,
+  "body": {
+    "id": "2812d254-740c-455c-a65f-cdf88521a57d",
+    "savedLocal": true,
+    "sttMode": "fixture",
+    "transcript": "M7 fixture transcript",
+    "maxAudioDurationSeconds": 60,
+    "boundaries": {
+      "browserWebSpeechApi": false,
+      "cloudSpeechApi": false
+    }
+  }
+}

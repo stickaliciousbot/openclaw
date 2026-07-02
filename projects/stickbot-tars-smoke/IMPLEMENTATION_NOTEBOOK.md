@@ -238,6 +238,65 @@ Closeout artifacts:
 - `docs/m6-openclaw-adapter/generated-audio.stat`
 - `docs/m6-openclaw-adapter/generated-audio.file`
 
-Next action:
+M6 preservation:
 
-Run final validation and preserve M6 code/evidence with a guarded commit/push. M7, live provider/Gateway smoke, STT, Android, persistent service install, and Tailscale/user-testing exposure are not started and require separate approval.
+- Commit `d1297b5ca81c7f952eb07a99fe92e1d2b7b37511` pushed and remote head verified.
+- Marker: `STICKBOT_TARS_M6_EVIDENCE_PUSH_PASS`.
+
+## M7 — local STT adapter contract
+
+Status: `STICKBOT_TARS_M7_LOCAL_STT_FIXTURE_CONTRACT_PASS_REAL_ENGINE_BLOCKED_READY_FOR_STT_ENGINE_ACQUISITION`
+
+Approval:
+
+- Stick approved M7 on 2026-07-02.
+
+Discovery:
+
+- Command/session `21ac704a` / `young-crustacean` completed.
+- `ffmpeg`, `ffprobe`, `whisper-cli`, `whisper-cpp`, `whisper`, `whisperx`, `faster-whisper`: missing.
+- System Python packages `faster_whisper`, `whisper`, `torch`, `torchaudio`, `soundfile`: missing.
+- No local STT model dirs found under `/home/stickai/stickbot-voice/stt_models`, `~/.cache/whisper`, or `~/.cache/huggingface`.
+
+Decision:
+
+- Real local transcription is blocked until a local STT engine/model is acquired in a separate approved milestone.
+- Safe M7 progress path is STT adapter contract + fixture `/api/stt` integration only; no cloud STT, no model download, no installs.
+
+Implementation files:
+
+- `src/stt-adapter.js`
+- `test/stt-adapter.test.mjs`
+- `scripts/m7-sandboxed-stt-fixture-smoke.sh`
+- `docs/m7-local-stt/M7_LOCAL_STT_IMPLEMENTATION_PLAN.md`
+- updates to `server.js`, `src/config.js`, `public/app.js`, and `package.json`.
+
+Static validation:
+
+- Command/session `0e287a97` / `salty-atlas` passed.
+- Tests: 34/34 PASS.
+- Marker: `STICKBOT_TARS_M7_STATIC_CHECK_PASS`.
+
+M7 fixture smoke validation:
+
+- Command/session `3291be75` / `quick-reef` passed.
+- Marker: `STICKBOT_TARS_M7_SANDBOXED_STT_FIXTURE_SMOKE_COMMAND_PASS`.
+- Result classification: `STICKBOT_TARS_M7_LOCAL_STT_FIXTURE_CONTRACT_PASS_REAL_ENGINE_BLOCKED`.
+- `/api/stt`: HTTP 200; `sttMode:fixture`; transcript `M7 fixture transcript`; `cloudSpeechApi:false`; `browserWebSpeechApi:false`.
+- Captured audio SHA256: `2976da01e205a110c9fa41d47659e238a5c6d3c3f3137582f2949853faa201dd`.
+- Captured audio bytes: `3244`, mono 16 kHz PCM WAV.
+- Boundary remained intact: network blocked/unavailable, secret dirs hidden, sandbox workspace.
+
+Closeout artifacts:
+
+- `docs/m7-local-stt/M7_LOCAL_STT_FIXTURE_CONTRACT_PASS.md`
+- `docs/m7-local-stt/evidence_manifest.json`
+- `docs/m7-local-stt/result.json`
+- `docs/m7-local-stt/stt-fixture-smoke.json`
+- `docs/m7-local-stt/captured-audio.sha256`
+- `docs/m7-local-stt/captured-audio.stat`
+- `docs/m7-local-stt/captured-audio.file`
+
+Next required milestone for real transcription:
+
+Approved local STT engine acquisition/provenance/install, including ffmpeg or equivalent audio normalization, local model hashes, and offline/local validation. M8 is not started.

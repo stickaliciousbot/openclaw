@@ -5,6 +5,7 @@ import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { loadConfig } from './src/config.js';
 import { askOpenClaw } from './src/openclaw-adapter.js';
+import { transcribeAudio } from './src/stt-adapter.js';
 import { resolveAudioOutputPath, audioUrlForFile } from './safety/audio-path-policy.js';
 import { readJsonBody, readAudioUploadBody, assertTextWithinLimit } from './safety/limits.js';
 import { assertPostOriginAllowed } from './safety/origin-policy.js';
@@ -160,11 +161,26 @@ const server = http.createServer(async (req, res) => {
       const out = path.join(AUDIO_INPUT_DIR, `${id}-input.${ext}`);
       const buf = await readAudioUploadBody(req, config.maxAudioUploadBytes);
       await writeFile(out, buf);
-      return json(res, 501, {
+      if (config.sttMode === 'capture') {
+        return json(res, 501, {
+          id,
+          savedLocal: true,
+          sttMode: config.sttMode,
+          maxAudioDurationSeconds: config.maxAudioDurationSeconds,
+          error: 'Local STT engine not configured yet. Audio captured locally only; no cloud speech API used.'
+        });
+      }
+      const transcript = await transcribeAudio(out, config);
+      return json(res, 200, {
         id,
         savedLocal: true,
+        sttMode: config.sttMode,
+        transcript,
         maxAudioDurationSeconds: config.maxAudioDurationSeconds,
-        error: 'Local STT not wired yet. Next step: whisper.cpp/faster-whisper endpoint; no cloud speech API used.'
+        boundaries: {
+          browserWebSpeechApi: false,
+          cloudSpeechApi: false
+        }
       });
     }
     return json(res, 404, { error: 'not found' });

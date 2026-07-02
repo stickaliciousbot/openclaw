@@ -102,3 +102,18 @@ Durable adapter rules:
 - First adapter smoke can use a fixture CLI to prove process/JSON/prompt/voice wiring without provider or Gateway side effects.
 
 M6 fixture result: Node `/api/chat` returned OpenClaw adapter fixture text and generated WAV SHA256 `fc7da588940bbe2238dcc91b9dc5156d36cbcaafcc49bbf606ebbdc3427ce5d0` inside the no-network, secret-hidden, read-only-model boundary. Live provider/Gateway smoke remains a separate approval gate.
+
+## M7: STT contract before engine acquisition
+
+M7 discovery found no local STT stack: no `ffmpeg`/`ffprobe`, no whisper/faster-whisper binaries/packages, and no local STT model directories. The correct response was not to install/download or call cloud STT inside the milestone; it was to implement the `/api/stt` adapter contract and fixture mode first.
+
+Durable STT rules:
+
+- Browser Web Speech API remains forbidden.
+- Cloud STT APIs remain forbidden unless separately approved.
+- Real transcription requires a later local engine/model acquisition milestone with provenance/hashes/offline validation.
+- `STT_MODE=capture` should remain default when no engine is configured.
+- `STT_MODE=fixture` is valid for UI/server contract testing only.
+- `STT_MODE=cli` must use `spawn(file,args,{shell:false})`, require `{file}`, bound stdout/stderr, timeout/kill, and fail closed.
+
+M7 fixture result: Node `/api/stt` returned HTTP 200 with transcript `M7 fixture transcript`, captured local audio SHA256 `2976da01e205a110c9fa41d47659e238a5c6d3c3f3137582f2949853faa201dd`, and preserved no-network/secret-hidden boundaries. Real STT remains blocked on local engine/model/ffmpeg acquisition.

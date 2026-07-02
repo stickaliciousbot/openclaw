@@ -1,6 +1,6 @@
 {
   "schema": "stickbot.tars.milestone.status.v1",
-  "generatedUtc": "2026-07-02T10:03:00Z",
+  "generatedUtc": "2026-07-02T10:22:00Z",
   "branch": "feature/stickbot-tars-m25-hardening-repair",
   "headBeforeM25Repair": "143fa869ac1969dc0766eaa0bcb9a7be9da45e79",
   "m25RepairCommit": "5c29204016bebd11da4ffa6dc20bb99aba9676a4",
@@ -264,9 +264,63 @@
       "secretDirsHidden": true,
       "nodeWorkspace": "/tmp/tars-m6-boundary/workspace"
     },
-    "nextMilestone": "M7_NOT_STARTED_REQUIRES_SEPARATE_APPROVAL",
+    "nextMilestone": "M7_LOCAL_STT_FIXTURE_CONTRACT_APPROVED_AND_COMPLETED",
     "liveProviderGatewaySmoke": "NOT_STARTED_REQUIRES_SEPARATE_APPROVAL",
     "futureLanTailscaleUserTesting": "NOT_STARTED_REQUIRES_SEPARATE_APPROVAL"
+  },
+  "m7": {
+    "finalClassification": "STICKBOT_TARS_M7_LOCAL_STT_FIXTURE_CONTRACT_PASS_REAL_ENGINE_BLOCKED_READY_FOR_STT_ENGINE_ACQUISITION",
+    "discovery": {
+      "approvalId": "21ac704a-c2b9-4a12-af9e-2a7af8cf9303",
+      "session": "young-crustacean",
+      "marker": "STICKBOT_TARS_M7_LOCAL_STT_DISCOVERY_COMPLETE",
+      "ffmpegAvailable": false,
+      "ffprobeAvailable": false,
+      "whisperCliAvailable": false,
+      "whisperCppAvailable": false,
+      "fasterWhisperAvailable": false,
+      "localSttModelsFound": false,
+      "classification": "REAL_STT_ENGINE_BLOCKED_MISSING_LOCAL_ENGINE_MODEL_AND_FFMPEG"
+    },
+    "staticValidation": {
+      "approvalId": "0e287a97-bbd6-4e0a-b107-f7abd8313b8a",
+      "session": "salty-atlas",
+      "marker": "STICKBOT_TARS_M7_STATIC_CHECK_PASS",
+      "testsPassed": 34,
+      "testsFailed": 0
+    },
+    "fixtureSmoke": {
+      "approvalId": "3291be75-7ba2-4869-87bb-92b91d978264",
+      "session": "quick-reef",
+      "marker": "STICKBOT_TARS_M7_SANDBOXED_STT_FIXTURE_SMOKE_COMMAND_PASS",
+      "result": "projects/stickbot-tars-smoke/docs/m7-local-stt/result.json",
+      "nodeResponse": "projects/stickbot-tars-smoke/docs/m7-local-stt/stt-fixture-smoke.json",
+      "classification": "STICKBOT_TARS_M7_LOCAL_STT_FIXTURE_CONTRACT_PASS_REAL_ENGINE_BLOCKED",
+      "sttMode": "fixture",
+      "transcript": "M7 fixture transcript",
+      "nodeStatus": 200,
+      "cloudSpeechApiCalled": false,
+      "browserWebSpeechApi": false
+    },
+    "capturedAudio": {
+      "sandboxPath": "/tmp/tars-m7-boundary/app/data/audio/input/2812d254-740c-455c-a65f-cdf88521a57d-input.bin",
+      "bytes": 3244,
+      "sampleRate": 16000,
+      "sha256": "2976da01e205a110c9fa41d47659e238a5c6d3c3f3137582f2949853faa201dd",
+      "fileType": "RIFF WAVE audio, Microsoft PCM, 16 bit, mono 16000 Hz",
+      "commitPolicy": "excluded_from_git"
+    },
+    "boundary": {
+      "mechanism": "unshare -Urnm",
+      "loopbackEnabledInsideNamespace": true,
+      "networkBlockedOrUnavailable": true,
+      "secretDirsHidden": true,
+      "nodeWorkspace": "/tmp/tars-m7-boundary/workspace"
+    },
+    "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/M7_LOCAL_STT_FIXTURE_CONTRACT_PASS.md",
+    "evidenceManifest": "projects/stickbot-tars-smoke/docs/m7-local-stt/evidence_manifest.json",
+    "implementationPlan": "projects/stickbot-tars-smoke/docs/m7-local-stt/M7_LOCAL_STT_IMPLEMENTATION_PLAN.md",
+    "nextMilestone": "STT_ENGINE_ACQUISITION_NOT_STARTED_REQUIRES_SEPARATE_APPROVAL"
   },
   "boundaries": {
     "m3Started": true,
@@ -277,11 +331,18 @@
     "m5Completed": true,
     "m6Started": true,
     "m6Completed": true,
+    "m7Started": true,
+    "m7Completed": true,
     "modelDownloaded": true,
     "modelLoaded": true,
     "xttsStarted": true,
     "xttsPersistentServiceInstalled": false,
-    "sttTouched": false,
+    "sttTouched": true,
+    "sttFixtureOnly": true,
+    "realSttEngineAvailable": false,
+    "ffmpegAvailable": false,
+    "cloudSpeechApiCalled": false,
+    "browserWebSpeechApi": false,
     "androidTouched": false,
     "openClawProductionMutation": false,
     "gatewayRestart": false,
@@ -324,5 +385,5 @@
     "projects/stickbot-tars-smoke/node_modules/**",
     "projects/stickbot-tars-smoke/cache/**"
   ],
-  "nextMilestone": "M7_NOT_STARTED_REQUIRES_SEPARATE_APPROVAL"
+  "nextMilestone": "STT_ENGINE_ACQUISITION_NOT_STARTED_REQUIRES_SEPARATE_APPROVAL"
 }

@@ -341,4 +341,51 @@ Result:
 
 `STICKBOT_TARS_M6_OPENCLAW_ADAPTER_FIXTURE_VOICE_PASS_READY_FOR_M7_PLANNING_ONLY`
 
-M7/STT, live provider/Gateway smoke, Android, persistent service install, and host-PC Tailscale proxy/user-testing exposure are not started and require separate approval.
+## M7 local STT notes
+
+### Real STT engine discovery blocked
+
+Command/session:
+
+- `21ac704a` / `young-crustacean`
+
+Finding:
+
+- `ffmpeg` / `ffprobe` missing.
+- `whisper-cli`, `whisper-cpp`, `whisper`, `whisperx`, `faster-whisper` missing.
+- System Python packages missing: `faster_whisper`, `whisper`, `torch`, `torchaudio`, `soundfile`.
+- No local STT model dirs found under `/home/stickai/stickbot-voice/stt_models`, `~/.cache/whisper`, or `~/.cache/huggingface`.
+
+Decision:
+
+- Do not attempt real transcription in M7.
+- Do not install/download models or call cloud STT.
+- Implement fixture STT contract and leave real engine acquisition as separate approved milestone.
+
+### M7 fixture contract passed
+
+Static command/session:
+
+- `0e287a97` / `salty-atlas`
+- Tests: 34/34 PASS.
+- Marker: `STICKBOT_TARS_M7_STATIC_CHECK_PASS`.
+
+Smoke command/session:
+
+- `3291be75` / `quick-reef`
+
+Result:
+
+- Classification: `STICKBOT_TARS_M7_LOCAL_STT_FIXTURE_CONTRACT_PASS_REAL_ENGINE_BLOCKED`.
+- `/api/stt`: HTTP 200.
+- Transcript: `M7 fixture transcript`.
+- `cloudSpeechApi:false`.
+- `browserWebSpeechApi:false`.
+- Captured audio SHA256 `2976da01e205a110c9fa41d47659e238a5c6d3c3f3137582f2949853faa201dd`, bytes `3244`, mono 16 kHz PCM WAV.
+- Boundary remained intact: private namespace, loopback enabled, external network blocked/unavailable, secret dirs hidden.
+
+## Current M7 classification
+
+`STICKBOT_TARS_M7_LOCAL_STT_FIXTURE_CONTRACT_PASS_REAL_ENGINE_BLOCKED_READY_FOR_STT_ENGINE_ACQUISITION`
+
+Real STT engine acquisition/install, M8, live provider/Gateway smoke, Android, persistent service install, and host-PC Tailscale proxy/user-testing exposure are not started and require separate approval.

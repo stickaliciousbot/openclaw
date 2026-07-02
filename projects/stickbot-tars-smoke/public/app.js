@@ -68,7 +68,12 @@ document.getElementById('mic').onclick = async () => {
       body: blob
     });
     const j = await r.json();
-    add(`<b>Mic capture:</b> saved locally<br><span class="muted">${escapeHtml(j.error || JSON.stringify(j))}</span>`);
+    if (j.transcript) {
+      text.value = j.transcript;
+      add(`<b>Mic transcript:</b> ${escapeHtml(j.transcript)}<br><span class="muted">Saved locally; click Send to ask Stickbot.</span>`);
+    } else {
+      add(`<b>Mic capture:</b> saved locally<br><span class="muted">${escapeHtml(j.error || JSON.stringify(j))}</span>`);
+    }
   };
   rec.start();
   add('<b>Mic:</b> recording... click again to stop');
