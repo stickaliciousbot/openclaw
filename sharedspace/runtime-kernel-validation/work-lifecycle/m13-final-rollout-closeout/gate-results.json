@@ -1,0 +1,95 @@
+{
+  "status": "PASS_FINAL_ROLLOUT_CLOSEOUT_READY",
+  "gates": {
+    "M13_M11_PASS_APPLIED_CANARY_EVIDENCE_PRESENT": true,
+    "M13_M12_PASS_OBSERVATION_EVIDENCE_PRESENT": true,
+    "M13_CANARY_STILL_OBSERVE_ONLY_PASS": true,
+    "M13_HANDLER_FALSE_PASS": true,
+    "M13_NO_RUNTIME_SEND_PASS": true,
+    "M13_NO_PROVIDER_MESSAGE_CALL_PASS": true,
+    "M13_NO_SYNTHETIC_REPLY_PASS": true,
+    "M13_NO_PRODUCTION_PROMOTION_PASS": true,
+    "M13_NO_UNEXPECTED_CONFIG_DRIFT_PASS": true,
+    "M13_BOUNDARY_CHECK_PASS": true
+  },
+  "failedGates": [],
+  "hardBoundaryCrossed": false,
+  "rollbackRequired": false,
+  "configDrift": false,
+  "observations": {
+    "liveConfigSubset": {
+      "plugins": {
+        "load": {
+          "paths": [
+            "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout/apply-package/work-lifecycle-production-canary"
+          ]
+        },
+        "entries": {
+          "work-lifecycle-production-canary": {
+            "enabled": true,
+            "hooks": {
+              "timeouts": {
+                "before_agent_reply": 1000
+              }
+            },
+            "config": {
+              "enabled": true,
+              "mode": "production_canary",
+              "canaryOwner": "stickbot",
+              "canaryMarker": "WORK_LIFECYCLE_M11_CANARY_SMOKE",
+              "productionPromotion": false,
+              "allowRuntimeSend": false,
+              "allowSyntheticReply": false,
+              "enforcement": "observe_only_no_short_circuit",
+              "evidenceRoot": "sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout"
+            }
+          }
+        }
+      }
+    },
+    "expectedConfigSubset": {
+      "plugins": {
+        "load": {
+          "paths": [
+            "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout/apply-package/work-lifecycle-production-canary"
+          ]
+        },
+        "entries": {
+          "work-lifecycle-production-canary": {
+            "enabled": true,
+            "hooks": {
+              "timeouts": {
+                "before_agent_reply": 1000
+              }
+            },
+            "config": {
+              "enabled": true,
+              "mode": "production_canary",
+              "canaryOwner": "stickbot",
+              "canaryMarker": "WORK_LIFECYCLE_M11_CANARY_SMOKE",
+              "productionPromotion": false,
+              "allowRuntimeSend": false,
+              "allowSyntheticReply": false,
+              "enforcement": "observe_only_no_short_circuit",
+              "evidenceRoot": "sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout"
+            }
+          }
+        }
+      }
+    },
+    "liveConfigSubsetHash": "9f03e06b8e4a23b1582608facf1761fc26d85a52856e9bdab27ea5a70d159e2a",
+    "expectedConfigSubsetHash": "9f03e06b8e4a23b1582608facf1761fc26d85a52856e9bdab27ea5a70d159e2a",
+    "sourceBoundary": {
+      "suspiciousSourceMatches": []
+    },
+    "nextTrackDirs": []
+  },
+  "closeoutStatus": "PASS_FINAL_ROLLOUT_CLOSEOUT_READY",
+  "overallLifecycleState": "READY_FOR_M13_PRESERVATION",
+  "noProductionMutationOccurred": true,
+  "footerGates": {
+    "closeoutStatusExplicit": true,
+    "overallLifecycleStateReady": true,
+    "noProductionMutationOccurred": true
+  }
+}

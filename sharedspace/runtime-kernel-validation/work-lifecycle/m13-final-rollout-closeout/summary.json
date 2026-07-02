@@ -1,0 +1,55 @@
+{
+  "status": "PASS_FINAL_ROLLOUT_CLOSEOUT_READY",
+  "summary": "M11 applied canary and M12 observation are preserved; live canary remains observe-only, non-authoritative, and non-disruptive. Ready for owner review; no promotion performed.",
+  "liveConfigReadback": {
+    "pluginLoadedPathConfigured": true,
+    "pluginEntryEnabled": true,
+    "enforcement": "observe_only_no_short_circuit",
+    "allowRuntimeSend": false,
+    "allowSyntheticReply": false,
+    "productionPromotion": false,
+    "liveConfigSubsetHash": "9f03e06b8e4a23b1582608facf1761fc26d85a52856e9bdab27ea5a70d159e2a",
+    "expectedConfigSubsetHash": "9f03e06b8e4a23b1582608facf1761fc26d85a52856e9bdab27ea5a70d159e2a"
+  },
+  "behaviorReadback": {
+    "smoke": {
+      "ok": true,
+      "marker": "M11E_POST_APPLY_LOCAL_SYNTHETIC_SMOKE_PASS",
+      "pluginId": "work-lifecycle-production-canary",
+      "hook": "before_agent_reply",
+      "handled": false,
+      "sendsMessages": false,
+      "productionPromotion": false
+    },
+    "closeout": {
+      "ok": true,
+      "marker": "M11E_CLOSEOUT_DELIVERY_VALIDATION_PASS",
+      "closeoutStatus": "PASS_APPLY_PACKAGE_READY",
+      "userVisibleCloseoutRecorded": true,
+      "runtimeSend": false,
+      "messageApiCall": false
+    },
+    "suspiciousSourceMatches": [],
+    "nextTrackDirs": []
+  },
+  "rolloutStatus": {
+    "m11": "PASS_APPLIED_CANARY",
+    "m11p": "PASS_PUSHED",
+    "m12": "PASS_APPLIED_CANARY_OBSERVATION",
+    "m12Preservation": "PASS_PUSHED",
+    "m13": "PASS_FINAL_ROLLOUT_CLOSEOUT_READY",
+    "promotion": "NOT_PERFORMED",
+    "nextTrack": "NOT_STARTED",
+    "closeout": "PASS_FINAL_ROLLOUT_CLOSEOUT_READY",
+    "overallLifecycleState": "READY_FOR_M13_PRESERVATION"
+  },
+  "closeoutStatus": "PASS_FINAL_ROLLOUT_CLOSEOUT_READY",
+  "overallLifecycleState": "READY_FOR_M13_PRESERVATION",
+  "noProductionMutationOccurred": true,
+  "footer": {
+    "closeout": "PASS_FINAL_ROLLOUT_CLOSEOUT_READY",
+    "overallLifecycleState": "READY_FOR_M13_PRESERVATION",
+    "noProductionMutationOccurred": "No production mutation occurred"
+  },
+  "unknownSourceFinding": "UNKNOWN was not present in M13 status.json, summary.json, evidence_manifest.json, gate-results.json, or M13_FINAL_ROLLOUT_CLOSEOUT.md before correction; likely source was closeout aggregation/final response footer fallback caused by missing explicit closeoutStatus."
+}

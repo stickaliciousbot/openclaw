@@ -1,0 +1,73 @@
+{
+  "status": "PASS_FINAL_ROLLOUT_CLOSEOUT_READY",
+  "generatedAtUtc": "2026-07-02T02:12:32.938Z",
+  "evidenceFiles": [
+    {
+      "path": "sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout/M11P_PASS_APPLIED_CANARY_CLOSEOUT.md",
+      "sha256": "f2cb27eb1f629c716f62e0cb39c744f8b160d055e8ab88ff3c4dcdd0706bf0bd"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/work-lifecycle/m12-applied-canary-observation/status.json",
+      "sha256": "5d0d6f738546ca5eec67b5853289469be1222593c337595ff59955df4c953440"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/work-lifecycle/m12-applied-canary-observation/summary.json",
+      "sha256": "a7f0de1d7015b5785221546d847f5c6f93caeb5ece1fd5bf9f82619552ae2212"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/work-lifecycle/m12-applied-canary-observation/gate-results.json",
+      "sha256": "442a92ea769202c847323e466689ec159eb1760aa2c42f7557b529948509c547"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/work-lifecycle/m12-applied-canary-observation/evidence_manifest.json",
+      "sha256": "a51eecc62e695665fd74f88ac69820e2e9bfb223e7c67ae30fb539c74f846342"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/work-lifecycle/m12-applied-canary-observation/M12_APPLIED_CANARY_OBSERVATION.md",
+      "sha256": "ca031218273eb3103fdce2f8ab865ce00d55e0dbf2bb8a8fce43037863c5ca35"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout/apply-package/work-lifecycle-production-canary/index.mjs",
+      "sha256": "f878f1b31bf6a478bd13006eef531e18062d9c5a7464dc8d9120626b02da1e74"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout/apply-package/work-lifecycle-production-canary/post-apply-smoke.mjs",
+      "sha256": "359104c6b664ecabd90313b65dcc7c9f305cf462ce52e2440b97012c4e57ba11"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout/apply-package/work-lifecycle-production-canary/closeout-delivery-validation.mjs",
+      "sha256": "8311e4ffade19cf91342c9948b1f45dd23d968dd635958bd5af78680bd1ddde5"
+    }
+  ],
+  "generatedArtifacts": [
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m13-final-rollout-closeout/M13_FINAL_ROLLOUT_CLOSEOUT.md",
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m13-final-rollout-closeout/status.json",
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m13-final-rollout-closeout/summary.json",
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m13-final-rollout-closeout/gate-results.json",
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m13-final-rollout-closeout/evidence_manifest.json"
+  ],
+  "closeoutStatus": "PASS_FINAL_ROLLOUT_CLOSEOUT_READY",
+  "overallLifecycleState": "READY_FOR_M13_PRESERVATION",
+  "noProductionMutationOccurred": true,
+  "correctedAtUtc": "2026-07-02T02:19:29.575Z",
+  "unknownSourceFinding": "UNKNOWN was not present in M13 status.json, summary.json, evidence_manifest.json, gate-results.json, or M13_FINAL_ROLLOUT_CLOSEOUT.md before correction; likely source was closeout aggregation/final response footer fallback caused by missing explicit closeoutStatus.",
+  "correctedGeneratedArtifactHashes": [
+    {
+      "path": "sharedspace/runtime-kernel-validation/work-lifecycle/m13-final-rollout-closeout/M13_FINAL_ROLLOUT_CLOSEOUT.md",
+      "sha256": "268c0143aabc92925e01b64f193e3d08d52eb5a71bec6acd259174a7704433e4"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/work-lifecycle/m13-final-rollout-closeout/status.json",
+      "sha256": "27e9409313aa37e8bcf493862bd5f758dfeb4e65a09e066632c95dc4dcbb3b84"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/work-lifecycle/m13-final-rollout-closeout/summary.json",
+      "sha256": "cb0945f0c1cc3b117471d19113e5ac3e10e254c4934fd4c11e42b9d34a6b8776"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/work-lifecycle/m13-final-rollout-closeout/gate-results.json",
+      "sha256": "66ae28ea36e98bbcb95d2a03183f63061e768f34d76b53a8e9fea865d6787985"
+    }
+  ],
+  "evidenceManifestHashNote": "Self-hash omitted to avoid recursive hash instability; compute externally after file is written."
+}

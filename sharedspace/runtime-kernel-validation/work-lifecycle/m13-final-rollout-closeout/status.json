@@ -1,0 +1,35 @@
+{
+  "status": "PASS_FINAL_ROLLOUT_CLOSEOUT_READY",
+  "timestampUtc": "2026-07-02T02:12:32.938Z",
+  "milestone": "M13",
+  "objective": "final Work Lifecycle rollout closeout and promotion-readiness review",
+  "prerequisites": {
+    "m11": "PASS_APPLIED_CANARY",
+    "m11p": "PASS_PUSHED",
+    "m12": "PASS_APPLIED_CANARY_OBSERVATION",
+    "m12Preservation": "PASS_PUSHED",
+    "currentHead": "e0de234682dfd7c7f340e60c44110be57b299c1c"
+  },
+  "failedGates": [],
+  "gates": {
+    "M13_M11_PASS_APPLIED_CANARY_EVIDENCE_PRESENT": true,
+    "M13_M12_PASS_OBSERVATION_EVIDENCE_PRESENT": true,
+    "M13_CANARY_STILL_OBSERVE_ONLY_PASS": true,
+    "M13_HANDLER_FALSE_PASS": true,
+    "M13_NO_RUNTIME_SEND_PASS": true,
+    "M13_NO_PROVIDER_MESSAGE_CALL_PASS": true,
+    "M13_NO_SYNTHETIC_REPLY_PASS": true,
+    "M13_NO_PRODUCTION_PROMOTION_PASS": true,
+    "M13_NO_UNEXPECTED_CONFIG_DRIFT_PASS": true,
+    "M13_BOUNDARY_CHECK_PASS": true
+  },
+  "nextTrack": "NOT_STARTED",
+  "closeoutStatus": "PASS_FINAL_ROLLOUT_CLOSEOUT_READY",
+  "overallLifecycleState": "READY_FOR_M13_PRESERVATION",
+  "noProductionMutationOccurred": true,
+  "correction": {
+    "timestampUtc": "2026-07-02T02:19:29.575Z",
+    "reason": "Add explicit closeoutStatus and footer fields so closeout aggregation cannot fall back to UNKNOWN.",
+    "unknownSourceFinding": "UNKNOWN was not present in M13 status.json, summary.json, evidence_manifest.json, gate-results.json, or M13_FINAL_ROLLOUT_CLOSEOUT.md before correction; likely source was closeout aggregation/final response footer fallback caused by missing explicit closeoutStatus."
+  }
+}
