@@ -1,0 +1,29 @@
+{
+  "status": "PASS_APPLIED_CANARY_OBSERVATION",
+  "generatedAtUtc": "2026-07-02T01:52:22.579Z",
+  "evidenceFiles": [
+    {
+      "path": "sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout/M11P_PASS_APPLIED_CANARY_CLOSEOUT.md",
+      "sha256": "f2cb27eb1f629c716f62e0cb39c744f8b160d055e8ab88ff3c4dcdd0706bf0bd"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout/apply-package/work-lifecycle-production-canary/index.mjs",
+      "sha256": "f878f1b31bf6a478bd13006eef531e18062d9c5a7464dc8d9120626b02da1e74"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout/apply-package/work-lifecycle-production-canary/post-apply-smoke.mjs",
+      "sha256": "359104c6b664ecabd90313b65dcc7c9f305cf462ce52e2440b97012c4e57ba11"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout/apply-package/work-lifecycle-production-canary/closeout-delivery-validation.mjs",
+      "sha256": "8311e4ffade19cf91342c9948b1f45dd23d968dd635958bd5af78680bd1ddde5"
+    }
+  ],
+  "generatedArtifacts": [
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m12-applied-canary-observation/status.json",
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m12-applied-canary-observation/summary.json",
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m12-applied-canary-observation/gate-results.json",
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m12-applied-canary-observation/evidence_manifest.json",
+    "sharedspace/runtime-kernel-validation/work-lifecycle/m12-applied-canary-observation/M12_APPLIED_CANARY_OBSERVATION.md"
+  ]
+}

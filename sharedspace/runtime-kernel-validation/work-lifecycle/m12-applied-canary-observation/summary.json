@@ -1,0 +1,39 @@
+{
+  "status": "PASS_APPLIED_CANARY_OBSERVATION",
+  "summary": "Applied production canary remains loaded, observe-only, non-authoritative, and non-disruptive.",
+  "smoke": {
+    "ok": true,
+    "marker": "M11E_POST_APPLY_LOCAL_SYNTHETIC_SMOKE_PASS",
+    "pluginId": "work-lifecycle-production-canary",
+    "hook": "before_agent_reply",
+    "handled": false,
+    "sendsMessages": false,
+    "productionPromotion": false
+  },
+  "closeoutDeliveryValidation": {
+    "ok": true,
+    "marker": "M11E_CLOSEOUT_DELIVERY_VALIDATION_PASS",
+    "closeoutStatus": "PASS_APPLY_PACKAGE_READY",
+    "userVisibleCloseoutRecorded": true,
+    "runtimeSend": false,
+    "messageApiCall": false
+  },
+  "liveConfigReadback": {
+    "pluginLoadedPathConfigured": true,
+    "pluginEntryEnabled": true,
+    "enforcement": "observe_only_no_short_circuit",
+    "allowRuntimeSend": false,
+    "allowSyntheticReply": false,
+    "productionPromotion": false
+  },
+  "boundaryObservation": {
+    "handled": false,
+    "runtimeSend": false,
+    "messageApiCall": false,
+    "providerCall": false,
+    "syntheticReply": false,
+    "productionPromotion": false,
+    "m13Started": false,
+    "suspiciousSourceMatches": []
+  }
+}

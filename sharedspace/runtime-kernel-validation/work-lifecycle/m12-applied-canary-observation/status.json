@@ -1,0 +1,25 @@
+{
+  "status": "PASS_APPLIED_CANARY_OBSERVATION",
+  "timestampUtc": "2026-07-02T01:52:22.579Z",
+  "milestone": "M12",
+  "objective": "applied production-canary observation",
+  "preservedHeadPrerequisite": "4035bb60833ed4d559c54a0a1f9db5a647d47fa9",
+  "m11": "PASS_APPLIED_CANARY",
+  "m11pPreservation": "PASS_PUSHED",
+  "m13": "NOT_STARTED",
+  "failedChecks": [],
+  "checks": {
+    "m11PassEvidencePresent": true,
+    "pluginLoadedPathConfigured": true,
+    "pluginEntryEnabled": true,
+    "enforcement": true,
+    "handlerHandledFalse": true,
+    "allowRuntimeSend": true,
+    "allowSyntheticReply": true,
+    "productionPromotion": true,
+    "runtimeSend": true,
+    "messageApiCall": true,
+    "providerCall": true,
+    "m13NotStarted": true
+  }
+}
