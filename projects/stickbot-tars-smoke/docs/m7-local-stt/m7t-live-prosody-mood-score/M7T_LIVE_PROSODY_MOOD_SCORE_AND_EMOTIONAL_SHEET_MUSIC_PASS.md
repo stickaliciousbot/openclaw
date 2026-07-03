@@ -159,7 +159,26 @@ Live project health boundary checked before server reload:
 
 ## HTTP/live-server note
 
-A temporary loopback HTTP server reload was intentionally not completed because background/process-inspection commands were approval-gated. No approval stack was created and the existing LAN demo server was not disturbed. The direct kernel payload smoke validates the exact voice-plan cue metadata path used by `/api/chat`; browser UI wiring is covered by syntax check and code inspection.
+A late-approved temporary loopback HTTP smoke completed after initial closeout. It proved the temporary server could start and answer health on `127.0.0.1:19891`, but the `/api/chat` smoke request used `voice:false`, so the response correctly returned `voicePlan: null` and the smoke assertion failed with `missing liveProsodyCueLayer`.
+
+This is classified as a smoke-harness input error, not a TARS server or cue-layer failure. The existing LAN server on `0.0.0.0:19890` was not restarted or disturbed. The direct kernel payload smoke remains the authoritative M7T metadata proof because it validates the exact `buildTarsProsodyPlan()` cue layer exposed by voice turns.
+
+HTTP smoke readback:
+
+```json
+{
+  "health": {
+    "ok": true,
+    "protocol": "http",
+    "openclawMode": "echo",
+    "host": "127.0.0.1",
+    "port": 19891
+  },
+  "chatVoiceClassification": "VOICE_FALSE_TEXT_ONLY_PASS",
+  "voicePlan": null,
+  "failureReason": "smoke request used voice:false, so cue metadata was not requested"
+}
+```
 
 ## Result
 

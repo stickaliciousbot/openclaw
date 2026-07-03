@@ -1543,7 +1543,25 @@
       ],
       "directKernelPayloadSmoke": "PASS",
       "directKernelPayloadSmokeArtifact": "projects/stickbot-tars-smoke/artifacts/m7t-live-prosody/direct-kernel-payload-smoke.json",
-      "httpLoopbackReloadSmoke": "NOT_RUN_APPROVAL_GATED_BACKGROUND_SERVER_AVOIDED"
+      "httpLoopbackReloadSmoke": "FAIL_SMOKE_HARNESS_REQUEST_USED_VOICE_FALSE",
+      "httpLoopbackReloadSmokeLateCompletion": {
+        "commandId": "02da2737-1ad7-4551-8594-06b90c4c1589",
+        "completedAfterInitialCloseout": true,
+        "exitCode": 1,
+        "health": {
+          "ok": true,
+          "protocol": "http",
+          "openclawMode": "echo",
+          "host": "127.0.0.1",
+          "port": 19891
+        },
+        "chatVoiceClassification": "VOICE_FALSE_TEXT_ONLY_PASS",
+        "voicePlan": null,
+        "failureReason": "smoke request used voice:false, so /api/chat correctly returned no voicePlan/cue layer",
+        "serviceFailure": false,
+        "cueLayerFailure": false,
+        "supersededBy": "directKernelPayloadSmoke"
+      }
     },
     "boundaries": {
       "localOnly": true,
