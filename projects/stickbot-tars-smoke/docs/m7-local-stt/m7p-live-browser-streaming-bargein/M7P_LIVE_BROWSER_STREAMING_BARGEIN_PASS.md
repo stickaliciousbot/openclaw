@@ -97,6 +97,24 @@ No changes to:
 
 Raw mic transcript durable storage remained false.
 
+## R2 follow-up — final WAV fallback barge-in stop
+
+After the initial pass, Stick tested the non-streaming/final WAV playback path and found:
+
+> Once it played, I tried the model capture again when it wasn't streaming, and it kept playing the wav, not live, but the mic didn't break it.
+
+Root cause: M7O mic-start stop logic tracked the streaming chunk `Audio()` object, but the final fallback WAV was an inline `<audio>` element and was not registered as active playback when manually played.
+
+Fix:
+
+- Added a browser playback registry for all generated audio elements.
+- Registered inline final WAV `<audio>` elements by `turnId`.
+- `stopActivePlayback()` now stops either the registered active playback object or any currently-playing `<audio>` element found by fallback scan.
+- Streaming chunk audio still removes its source on stop; final WAV pauses/resets without removing its source so the user can replay/save it.
+- Updated cache buster to `m7p-final-wav-bargein-stop`.
+
+This upgrades M7P from streaming-path-only interruption proof to streaming + fallback WAV interruption coverage.
+
 ## Remaining work
 
 Next recommended milestones:

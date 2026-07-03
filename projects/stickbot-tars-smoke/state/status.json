@@ -1111,6 +1111,11 @@
       "micTranscript": "[BLANK_AUDIO]"
     },
     "uiFix": "Changed raw transcript durable storage wording from error-like status to privacy guard wording in public/app.js",
+    "r2FinalWavBargeInFix": {
+      "finding": "Manual playback of the final WAV fallback was not stopped by mic-start because only the streaming chunk Audio object was tracked as active playback.",
+      "fix": "Registered inline final WAV audio elements by turnId and made stopActivePlayback pause/reset any registered or currently-playing audio element while preserving final WAV replay/save ability.",
+      "cacheBuster": "m7p-final-wav-bargein-stop"
+    },
     "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7p-live-browser-streaming-bargein/M7P_LIVE_BROWSER_STREAMING_BARGEIN_PASS.md",
     "boundaries": {
       "canonicalTextAuthoritative": true,

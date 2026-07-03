@@ -147,16 +147,49 @@ function chunkAudioUrlFromFrame(frame) {
   return name ? `/audio/${encodeURIComponent(name)}` : null;
 }
 
-function stopActivePlayback(reason = 'stopped') {
-  if (!activePlayback) return false;
-  activePlayback.cancelled = true;
-  if (activePlayback.audio) {
-    activePlayback.audio.pause();
-    activePlayback.audio.removeAttribute('src');
-    activePlayback.audio.load();
+function stopAudioElement(audio, { removeSource = false } = {}) {
+  if (!audio) return;
+  audio.pause();
+  if (removeSource) {
+    audio.removeAttribute('src');
+    audio.load();
+    return;
   }
-  const stopped = activePlayback;
-  activePlayback = null;
+  try { audio.currentTime = 0; }
+  catch (_) { /* Some browsers reject currentTime before metadata; pause is enough. */ }
+}
+
+function registerPlaybackAudio(audio, turnId, { removeSourceOnStop = false } = {}) {
+  if (!audio) return;
+  const markActive = () => {
+    if (activePlayback?.audio && activePlayback.audio !== audio) {
+      activePlayback.cancelled = true;
+      stopAudioElement(activePlayback.audio, { removeSource: Boolean(activePlayback.removeSourceOnStop) });
+    }
+    activePlayback = { turnId, cancelled: false, audio, removeSourceOnStop };
+  };
+  audio.addEventListener('play', markActive);
+  audio.addEventListener('ended', () => {
+    if (activePlayback?.audio === audio) activePlayback = null;
+  });
+  audio.addEventListener('pause', () => {
+    if (activePlayback?.audio === audio && !activePlayback.cancelled) activePlayback = null;
+  });
+  if (!audio.paused && !audio.ended) markActive();
+}
+
+function stopActivePlayback(reason = 'stopped') {
+  let stopped = activePlayback;
+  if (activePlayback) {
+    activePlayback.cancelled = true;
+    stopAudioElement(activePlayback.audio, { removeSource: Boolean(activePlayback.removeSourceOnStop) });
+    activePlayback = null;
+  } else {
+    const playingAudio = Array.from(document.querySelectorAll('audio')).filter((audio) => !audio.paused && !audio.ended);
+    playingAudio.forEach((audio) => stopAudioElement(audio));
+    if (playingAudio.length) stopped = { turnId: playingAudio[0].dataset.turnId || null, audio: playingAudio[0], fallbackScan: true };
+  }
+  if (!stopped) return false;
   add(`<b>Playback:</b> stopped<br><span class="muted">${escapeHtml(reason)}</span>`);
   return stopped;
 }
@@ -188,10 +221,12 @@ async function playRealtimeFrames(j, container) {
   const frames = manifest?.frames || [];
   const audioFrames = frames.filter((frame) => frame.type === 'audio_chunk_ready' && chunkAudioUrlFromFrame(frame));
   if (!audioFrames.length) return false;
-  const playback = { turnId: j.id, cancelled: false, audio: new Audio() };
+  const playback = { turnId: j.id, cancelled: false, audio: new Audio(), removeSourceOnStop: true };
   activePlayback = playback;
   playback.audio.controls = true;
   playback.audio.autoplay = false;
+  playback.audio.dataset.turnId = j.id || '';
+  registerPlaybackAudio(playback.audio, j.id, { removeSourceOnStop: true });
   container.appendChild(playback.audio);
   add(`<b>Streaming:</b> ${escapeHtml(audioFrames.length)} chunk frames queued<br><span class="muted">M7M local frame playback smoke; final WAV remains available as fallback.</span>`);
   for (const frame of audioFrames) {
@@ -488,7 +523,8 @@ document.getElementById('send').onclick = async () => {
   const voicePlan = j.voicePlan?.delivery
     ? `<br><span class="muted">Voice score: mood ${escapeHtml(j.voicePlan.delivery.moodLabel || j.voicePlan.delivery.moodId || 'n/a')}, base temp ${escapeHtml(j.voicePlan.delivery.baseXttsParams?.temperature ?? 'n/a')}, effective temp ${escapeHtml(j.voicePlan.delivery.xttsParams?.temperature ?? 'n/a')}, top_p ${escapeHtml(j.voicePlan.delivery.xttsParams?.topP ?? 'n/a')}, XTTS speed ${escapeHtml(j.voicePlan.delivery.xttsParams?.speed ?? 'n/a')}, chunk ${escapeHtml(j.voicePlan.delivery.maxCharsPerChunk || 'n/a')}</span>${selectedScoreChunk ? `<br><span class="muted">Selected chunk: ${escapeHtml(selectedScoreChunk.chunkId || 'c001')} role ${escapeHtml(selectedScoreChunk.phraseRole || 'n/a')}; Δ ${escapeHtml(JSON.stringify(selectedScoreChunk.deltas || {}))}; effective ${escapeHtml(JSON.stringify(selectedScoreChunk.effectiveXtts || selectedScoreChunk.xttsParams || {}))}</span>` : ''}${hasStreamingFrames ? `<br><span class="muted">Streaming frames: ${escapeHtml(realtimeFrames.length)} / target ${escapeHtml(j.voicePlan.audioPerformance?.realtime?.target || 'streaming_full_duplex_mesh')}</span>` : ''}`
     : '';
-  const turn = add(`<b>Stickbot:</b> ${escapeHtml(j.text || j.error)}${j.audioUrl ? `<audio controls ${hasStreamingFrames ? '' : 'autoplay'} src="${j.audioUrl}"></audio>${voiceSaveHtml(j)}` : ''}${j.audioError ? `<br><span class="muted">Voice: ${escapeHtml(j.audioError)}</span>` : ''}${voicePlan}`);
+  const turn = add(`<b>Stickbot:</b> ${escapeHtml(j.text || j.error)}${j.audioUrl ? `<audio controls data-turn-id="${escapeHtml(j.id || '')}" ${hasStreamingFrames ? '' : 'autoplay'} src="${j.audioUrl}"></audio>${voiceSaveHtml(j)}` : ''}${j.audioError ? `<br><span class="muted">Voice: ${escapeHtml(j.audioError)}</span>` : ''}${voicePlan}`);
+  turn.querySelectorAll('audio[src]').forEach((audio) => registerPlaybackAudio(audio, j.id, { removeSourceOnStop: false }));
   if (hasStreamingFrames) playRealtimeFrames(j, turn).catch((e) => add(`<b>Streaming:</b> failed<br><span class="muted">${escapeHtml(e.message)}</span>`));
 };
 
