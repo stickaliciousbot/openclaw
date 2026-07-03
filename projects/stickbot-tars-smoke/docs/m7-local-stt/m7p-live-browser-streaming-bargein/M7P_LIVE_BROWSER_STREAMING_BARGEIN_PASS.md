@@ -115,6 +115,21 @@ Fix:
 
 This upgrades M7P from streaming-path-only interruption proof to streaming + fallback WAV interruption coverage.
 
+## R3 follow-up — mic lifecycle after streaming barge-in confirmed
+
+Stick retested live streaming barge-in and confirmed:
+
+> after the audio cut out, the mic allowed me to keep recording. no break. no error.
+
+This proves the intended streaming barge-in lifecycle:
+
+- live streaming audio cuts out immediately when mic capture starts,
+- microphone capture continues after playback interruption,
+- no mic lifecycle break or browser error was observed,
+- `raw transcript durable storage: false` is understood as a privacy state/guardrail, not an error.
+
+Streaming-path M7P is therefore confirmed end-to-end: audible streaming playback -> mic-start barge-in -> playback stop -> mic remains recording.
+
 ## Remaining work
 
 Next recommended milestones:

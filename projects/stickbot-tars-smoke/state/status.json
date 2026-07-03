@@ -1105,6 +1105,9 @@
       "tarsAudible": true,
       "streamingFramesQueued": 4,
       "micStartStoppedPlayback": true,
+      "micContinuedRecordingAfterStreamingBargeIn": true,
+      "micLifecycleBreakObserved": false,
+      "browserMicErrorObserved": false,
       "bargeInSmokeState": "listening",
       "finalSttDuplexState": "thinking",
       "rawTranscriptDurableStorage": false,
@@ -1115,6 +1118,10 @@
       "finding": "Manual playback of the final WAV fallback was not stopped by mic-start because only the streaming chunk Audio object was tracked as active playback.",
       "fix": "Registered inline final WAV audio elements by turnId and made stopActivePlayback pause/reset any registered or currently-playing audio element while preserving final WAV replay/save ability.",
       "cacheBuster": "m7p-final-wav-bargein-stop"
+    },
+    "r3StreamingMicLifecycleConfirmation": {
+      "finding": "After live streaming playback cut out on mic-start, the mic continued recording with no break and no browser error.",
+      "streamingBargeInEndToEnd": true
     },
     "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7p-live-browser-streaming-bargein/M7P_LIVE_BROWSER_STREAMING_BARGEIN_PASS.md",
     "boundaries": {
