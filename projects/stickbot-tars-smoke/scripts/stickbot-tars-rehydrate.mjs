@@ -43,11 +43,11 @@ const RUNTIME = Object.freeze({
 });
 
 const CURRENT = Object.freeze({
-  latestClassification: 'STICKBOT_TARS_AUDIO_FIRST_MULTIPLEXED_PRODUCTION_STREAMING_ARCHITECTURE_LOCAL_CONTRACT_PASS',
+  latestClassification: 'STICKBOT_TARS_AUDIO_FIRST_MULTIPLEXED_RUNTIME_HARNESS_LIVE_PASS',
   lastPushedMilestone: 'STICKBOT_TARS_REHYDRATION_PACKET_WRITTEN',
   liveBrowserMilestone: 'STICKBOT_TARS_M7P_LIVE_BROWSER_STREAMING_BARGEIN_PASS',
   nextRecommendedMilestones: [
-    'AUDIO_FIRST_MULTIPLEXED_RUNTIME_HARNESS_LIVE_PASS',
+    'AUDIO_FIRST_MULTIPLEXED_BROWSER_LIVE_CONTRACT_PROOF',
     'AUTOMATIC_OPERATIONAL_REHYDRATOR_MESH_AFTER_STICKBOT_TARS'
   ],
   latestKnownLiveSmoke: {
@@ -79,6 +79,7 @@ const SOURCE_FILES = [
   ['repo', 'src/audio/streaming-frame-interface.js'],
   ['repo', 'src/audio/full-duplex-turn-controller.js'],
   ['repo', 'src/audio/production-multiplex-contract.js'],
+  ['repo', 'src/audio/production-multiplex-runtime-harness.js'],
   ['repo', 'src/audio/duplex-event-ingress.js'],
   ['repo', 'src/audio/partial-stt-loop.js'],
   ['repo', 'src/audio/wav-stitcher.js'],
@@ -98,6 +99,7 @@ const SOURCE_FILES = [
   ['doc', 'docs/STICKBOT_TARS_REHYDRATION.md'],
   ['doc', 'docs/PRODUCTION_VOICE_STREAM_ARCHITECTURE.md'],
   ['doc', 'docs/audio-first-multiplexed-production-streaming/AUDIO_FIRST_MULTIPLEXED_PRODUCTION_STREAMING_ARCHITECTURE_LOCAL_CONTRACT_PASS.md'],
+  ['doc', 'docs/audio-first-multiplexed-production-streaming/AUDIO_FIRST_MULTIPLEXED_RUNTIME_HARNESS_LIVE_PASS.md'],
   ['doc', 'docs/LOW_LEVEL_DESIGN_AND_IMPLEMENTATION_PLAN.md'],
   ['doc', 'docs/LOOPBACK_LAN_EXPOSURE_NOTEBOOK.md'],
   ['doc', 'docs/TROUBLESHOOTING_AND_REPAIR_NOTEBOOK.md'],
@@ -259,7 +261,7 @@ const rehydration = {
     rehydrateWithGitStatus: 'npm run rehydrate:tars -- --status',
     check: 'npm run check',
     startXtts: 'npm run m7e:xtts:start',
-    startHttpsLanDemo: 'HOST=0.0.0.0 PORT=19890 VOICE_DEMO_ALLOW_LAN=true VOICE_DEMO_HTTPS=true VOICE_DEMO_HTTPS_KEY=/home/stickai/stickbot-voice/certs/m7d-https/stickbot-tars-m7d-server.key.pem VOICE_DEMO_HTTPS_CERT=/home/stickai/stickbot-voice/certs/m7d-https/stickbot-tars-m7d-server.cert.pem LOG_DIR=/tmp/tars-live-demo bash scripts/m7d-local-real-mic-demo.sh',
+    startHttpsLanDemo: 'HOST=0.0.0.0 PORT=19890 VOICE_DEMO_ALLOW_LAN=true VOICE_DEMO_HTTPS=true VOICE_DEMO_HTTPS_KEY=/home/….pem VOICE_DEMO_HTTPS_CERT=/home/stickai/stickbot-voice/certs/m7d-https/stickbot-tars-m7d-server.cert.pem LOG_DIR=/tmp/tars-live-demo bash scripts/m7d-local-real-mic-demo.sh',
     healthChecks: [
       'curl -k -fsS https://127.0.0.1:19890/health',
       'curl -k -fsS https://192.168.1.107:19890/health',
@@ -288,14 +290,15 @@ const rehydration = {
       'Generated audio auditor added: deterministic stage manifest plus explicit guarded delete mode for generated/captured speech-session audio cleanup',
       'M7S live barge-in with real speech pass: live spoken interruption stopped active TARS playback, triggered duplex barge-in/listening, and produced local partial STT with privacy guard off',
       'M7T live prosody mood score / emotional sheet music pass: deterministic delivery-metadata cue layer emits mood score, cue glyphs, intensity, contour, rests, and text hashes without rewriting canonical assistant text',
-      'Audio-first multiplexed production streaming architecture local contract pass: five-lane turn contract defines canonical text, audio PCM stream, prosody metadata, control events, and audit trace; barge-in cancels audio without mutating canonical text'
+      'Audio-first multiplexed production streaming architecture local contract pass: five-lane turn contract defines canonical text, audio PCM stream, prosody metadata, control events, and audit trace; barge-in cancels audio without mutating canonical text',
+      'Audio-first multiplexed runtime harness live pass: deterministic local harness emits all five lanes for one turn and proves barge-in cancels audio while preserving canonical text hash'
     ],
     next: CURRENT.nextRecommendedMilestones
   },
   liveReadiness: {
-    status: statusJson?.audioFirstMultiplexedProductionStreaming?.classification || CURRENT.latestClassification,
+    status: statusJson?.audioFirstMultiplexedRuntimeHarness?.classification || CURRENT.latestClassification,
     url: RUNTIME.lanUrl,
-    needsHumanEar: 'Audio-first production contract is complete. Next milestone is a local runtime harness/live proof across all multiplex lanes.'
+    needsHumanEar: 'Audio-first local runtime harness is complete. Next milestone is browser/API live contract readback proof.'
   },
   statusJson,
   runtimePaths,

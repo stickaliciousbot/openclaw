@@ -125,4 +125,16 @@ Hard invariants:
 }
 ```
 
-The next implementation milestone should wire this contract into a runtime harness that emits a complete local turn across all lanes and proves barge-in cancels audio while preserving the canonical text lane.
+The runtime harness milestone now lives at:
+
+```text
+src/audio/production-multiplex-runtime-harness.js
+```
+
+It reached:
+
+```text
+STICKBOT_TARS_AUDIO_FIRST_MULTIPLEXED_RUNTIME_HARNESS_LIVE_PASS
+```
+
+The harness emits a complete local turn across all lanes and proves barge-in cancels audio while preserving the canonical text lane. Next proof should expose/read back this contract through the local browser/API harness without mutating OpenClaw/Gateway routing.

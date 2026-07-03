@@ -1,6 +1,6 @@
 # Stickbot-TARS Implementation Notebook
 
-Last updated: 2026-07-03 22:15 AEST / 2026-07-03T12:15:00Z
+Last updated: 2026-07-03 22:25 AEST / 2026-07-03T12:25:00Z
 
 ## Standing documentation rule
 
@@ -25,6 +25,31 @@ Do not treat a milestone as closed until the notebook/repair/lesson trail is acc
 - Browser/Android must not call providers directly or use browser Web Speech API.
 
 ## Milestone ledger
+
+### Audio-first multiplexed runtime harness — local live pass
+
+Status: `STICKBOT_TARS_AUDIO_FIRST_MULTIPLEXED_RUNTIME_HARNESS_LIVE_PASS`
+
+Summary:
+
+- Added `src/audio/production-multiplex-runtime-harness.js`.
+- Harness builds a canonical prosody plan, deterministic local audio frame artifacts, realtime frame manifest, five-lane production multiplex contract, and lifecycle events.
+- Public summary exposes hashes/counts/lane metadata only, not raw assistant text.
+- Simulated barge-in cancels `audio_pcm_stream`, returns control to local listening, records audit interruption marker, and preserves the canonical text hash.
+- Harness fails closed on secret-like assistant text before audio rendering.
+
+Validation:
+
+- `node --check src/audio/production-multiplex-runtime-harness.js` passed.
+- `node --test test/tars-dsp-stream-duplex.test.mjs` passed `14/14`, including runtime harness and secret-text fail-closed tests.
+
+Artifacts:
+
+- `docs/audio-first-multiplexed-production-streaming/AUDIO_FIRST_MULTIPLEXED_RUNTIME_HARNESS_LIVE_PASS.md`
+
+Next:
+
+- `AUDIO_FIRST_MULTIPLEXED_BROWSER_LIVE_CONTRACT_PROOF`
 
 ### Audio-first multiplexed production streaming architecture — local contract
 

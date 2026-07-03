@@ -9,6 +9,7 @@ import { buildVoiceBodyMasteringFilterGraph, deriveVoiceBodyMasteringProfile, ma
 import { buildLowLatencyTransportPlan, buildRealtimeFrameManifest, iterateRealtimeFrames } from '../src/audio/streaming-frame-interface.js';
 import { createFullDuplexTurnController, publicFullDuplexControllerSummary, reduceFullDuplexEvent, runFullDuplexScenario } from '../src/audio/full-duplex-turn-controller.js';
 import { buildProductionMultiplexTurnContract, publicProductionMultiplexTurnContract, reduceProductionMultiplexEvent } from '../src/audio/production-multiplex-contract.js';
+import { publicProductionMultiplexRuntimeHarnessSummary, runProductionMultiplexRuntimeHarness } from '../src/audio/production-multiplex-runtime-harness.js';
 import { conductChunkedXtts } from '../src/audio/xtts-chunk-conductor.js';
 import { loadTarsProsodyProfile } from '../src/voice/tars-prosody-profile.js';
 import { sanitizeTarsTuning } from '../src/voice/tars-prosody-tuning.js';
@@ -231,6 +232,58 @@ test('STICKBOT_TARS_AUDIO_FIRST_HASH_MISMATCH_FAILS_CLOSED_PASS', () => {
     canonicalTextSha256: score.canonicalTextSha256,
     liveProsodyCueLayer: cueLayer
   }), /canonical hash does not match/);
+});
+
+test('STICKBOT_TARS_AUDIO_FIRST_MULTIPLEXED_RUNTIME_HARNESS_LIVE_PASS', async () => {
+  const root = await tmpRoot();
+  const result = await runProductionMultiplexRuntimeHarness({
+    turnId: 'turn-prod-runtime',
+    text: 'PASS. Stream the audio lane now. STOP cleanly if I interrupt.',
+    outputDir: path.join(root, 'runtime'),
+    maxChars: 36,
+    synthesizeChunk: async ({ chunkId }) => ({
+      buffer: Buffer.from(`runtime-audio-frame-${chunkId}`),
+      audioSha256: '9'.repeat(64),
+      durationMs: 333,
+      synthesis: { provider: 'fake_local_runtime_harness' }
+    }),
+    stitcher: async ({ sequence, outPath }) => {
+      await writeFile(outPath, Buffer.from(`runtime-final-replay-${sequence.length}`));
+      return {
+        file: outPath,
+        renderer: 'fake_runtime_harness_stitcher',
+        entries: sequence.map((entry) => entry.file),
+        replayFallbackOnly: true
+      };
+    }
+  });
+  const pub = publicProductionMultiplexRuntimeHarnessSummary(result);
+  assert.equal(pub.classification, 'STICKBOT_TARS_AUDIO_FIRST_MULTIPLEXED_RUNTIME_HARNESS_LIVE_PASS');
+  assert.equal(pub.contract.classification, 'STICKBOT_TARS_AUDIO_FIRST_MULTIPLEXED_PRODUCTION_STREAMING_ARCHITECTURE_READY');
+  assert.deepEqual(pub.contract.channelOrder, ['canonical_text', 'audio_pcm_stream', 'prosody_metadata', 'control_events', 'audit_trace']);
+  assert.equal(pub.evidence.laneCount, 5);
+  assert.ok(pub.evidence.audioFrameCount >= 2, JSON.stringify(pub.evidence));
+  assert.equal(pub.evidence.bargeInEventCount, 1);
+  assert.equal(pub.evidence.canonicalTextPreservedAfterBargeIn, true);
+  assert.equal(pub.evidence.finalWavIsReplayFallbackOnly, true);
+  const bargeIn = pub.lifecycleEvents.find((event) => event.type === 'barge_in');
+  assert.ok(bargeIn.effects.some((effect) => effect.lane === 'audio_pcm_stream' && effect.action === 'cancel_active_audio_frames' && effect.preserveCanonicalText === true));
+  assert.ok(bargeIn.effects.some((effect) => effect.lane === 'audit_trace' && effect.rawTranscriptStored === false));
+  const textLane = pub.contract.lanes.find((lane) => lane.channel === 'canonical_text');
+  const audioLane = pub.contract.lanes.find((lane) => lane.channel === 'audio_pcm_stream');
+  assert.equal(textLane.canonicalTextSha256, pub.canonicalTextSha256);
+  assert.ok(audioLane.frames.every((frame) => frame.canonicalTextSha256 === pub.canonicalTextSha256));
+  assert.equal(pub.boundaries.cloudSpeechApiAllowed, false);
+  assert.equal(pub.boundaries.openClawRoutingMutationAllowed, false);
+});
+
+test('STICKBOT_TARS_AUDIO_FIRST_RUNTIME_HARNESS_SECRET_TEXT_FAILS_CLOSED_PASS', async () => {
+  const root = await tmpRoot();
+  await assert.rejects(() => runProductionMultiplexRuntimeHarness({
+    turnId: 'turn-prod-runtime-secret',
+    text: 'The token is sk-secretsecretsecretsecret and must not be spoken.',
+    outputDir: path.join(root, 'runtime')
+  }), /secret-like assistant text/);
 });
 
 test('STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_CONTRACT_PASS', () => {

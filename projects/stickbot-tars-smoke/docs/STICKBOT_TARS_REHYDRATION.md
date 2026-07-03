@@ -40,7 +40,7 @@ npm run rehydrate:tars -- --json --stdout-only
 - Project thesis, current live status, Git branch/remote, and local runtime roots.
 - LAN/loopback URLs, XTTS URL, HTTPS certificate location, local model/reference/STT/FFmpeg paths.
 - Guardrails: no Gateway/OpenClaw/NOA routing mutation, no cloud STT, no browser Web Speech API, no raw mic transcript durable storage, no `/mnt/c` runtime/model/audio paths, no generated audio commits.
-- Proven milestone chain from M3 through M7T, M5.6, and the audio-first multiplexed production streaming contract.
+- Proven milestone chain from M3 through M7T, M5.6, audio-first multiplexed production contract, and audio-first runtime harness.
 - Resume commands for checks, XTTS, HTTPS LAN demo, and health probes.
 - Curated source inventory with SHA256 hashes, line counts, and headings, including the live prosody cue layer.
 - Runtime path inventory for model/reference/whisper/ffmpeg/certs without storing secrets.
@@ -63,8 +63,8 @@ For subjective audio quality changes, ask Stick to A/B the LAN browser output. T
 
 ## Current next milestone
 
-After `STICKBOT_TARS_AUDIO_FIRST_MULTIPLEXED_PRODUCTION_STREAMING_ARCHITECTURE_LOCAL_CONTRACT_PASS`, the next recommended milestone is:
+After `STICKBOT_TARS_AUDIO_FIRST_MULTIPLEXED_RUNTIME_HARNESS_LIVE_PASS`, the next recommended milestone is:
 
 ```text
-AUDIO_FIRST_MULTIPLEXED_RUNTIME_HARNESS_LIVE_PASS
+AUDIO_FIRST_MULTIPLEXED_BROWSER_LIVE_CONTRACT_PROOF
 ```

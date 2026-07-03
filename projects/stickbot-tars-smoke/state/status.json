@@ -1,6 +1,6 @@
 {
   "schema": "stickbot.tars.milestone.status.v1",
-  "generatedUtc": "2026-07-03T12:15:00Z",
+  "generatedUtc": "2026-07-03T12:25:00Z",
   "branch": "feature/stickbot-tars-m25-hardening-repair",
   "headBeforeM25Repair": "143fa869ac1969dc0766eaa0bcb9a7be9da45e79",
   "m25RepairCommit": "5c29204016bebd11da4ffa6dc20bb99aba9676a4",
@@ -1450,7 +1450,7 @@
     },
     "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7r-low-latency-streaming-transport/M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_PASS.md"
   },
-  "nextMilestone": "AUDIO_FIRST_MULTIPLEXED_RUNTIME_HARNESS_LIVE_PASS",
+  "nextMilestone": "AUDIO_FIRST_MULTIPLEXED_BROWSER_LIVE_CONTRACT_PROOF",
   "m7s": {
     "classification": "STICKBOT_TARS_M7S_LIVE_BARGE_IN_WITH_REAL_SPEECH_PASS",
     "implemented": true,
@@ -1631,5 +1631,51 @@
       "port8787Allowed": false
     },
     "nextMilestone": "AUDIO_FIRST_MULTIPLEXED_RUNTIME_HARNESS_LIVE_PASS"
+  },
+  "audioFirstMultiplexedRuntimeHarness": {
+    "classification": "STICKBOT_TARS_AUDIO_FIRST_MULTIPLEXED_RUNTIME_HARNESS_LIVE_PASS",
+    "implemented": true,
+    "localLivePass": true,
+    "summary": "Deterministic local runtime harness emits canonical text, audio PCM stream, prosody metadata, control events, and audit trace lanes for one turn; simulated barge-in cancels audio while preserving canonical text.",
+    "implementation": {
+      "harnessModule": "projects/stickbot-tars-smoke/src/audio/production-multiplex-runtime-harness.js",
+      "contractModule": "projects/stickbot-tars-smoke/src/audio/production-multiplex-contract.js",
+      "testFile": "projects/stickbot-tars-smoke/test/tars-dsp-stream-duplex.test.mjs",
+      "closeout": "projects/stickbot-tars-smoke/docs/audio-first-multiplexed-production-streaming/AUDIO_FIRST_MULTIPLEXED_RUNTIME_HARNESS_LIVE_PASS.md"
+    },
+    "evidence": {
+      "lanes": [
+        "canonical_text",
+        "audio_pcm_stream",
+        "prosody_metadata",
+        "control_events",
+        "audit_trace"
+      ],
+      "bargeInCancelsAudio": true,
+      "canonicalTextPreservedAfterBargeIn": true,
+      "publicSummaryRawTextExposed": false,
+      "secretLikeTextFailsClosed": true
+    },
+    "validation": {
+      "focusedStreamDuplexTests": "PASS_14_OF_14",
+      "newTests": [
+        "STICKBOT_TARS_AUDIO_FIRST_MULTIPLEXED_RUNTIME_HARNESS_LIVE_PASS",
+        "STICKBOT_TARS_AUDIO_FIRST_RUNTIME_HARNESS_SECRET_TEXT_FAILS_CLOSED_PASS"
+      ],
+      "npmRunCheck": "PASS_92_OF_92"
+    },
+    "boundaries": {
+      "localOnly": true,
+      "audioFirst": true,
+      "canonicalTextAuthoritative": true,
+      "textRewriteAllowed": false,
+      "rawTranscriptDurableStorage": false,
+      "cloudSpeechApiAllowed": false,
+      "browserWebSpeechApiAllowed": false,
+      "gatewayMutationAllowed": false,
+      "openClawRoutingMutationAllowed": false,
+      "port8787Touched": false
+    },
+    "nextMilestone": "AUDIO_FIRST_MULTIPLEXED_BROWSER_LIVE_CONTRACT_PROOF"
   }
 }
