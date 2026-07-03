@@ -43,11 +43,10 @@ const RUNTIME = Object.freeze({
 });
 
 const CURRENT = Object.freeze({
-  latestClassification: 'STICKBOT_TARS_M7S_LIVE_BARGE_IN_WITH_REAL_SPEECH_PASS',
+  latestClassification: 'STICKBOT_TARS_M7T_LIVE_PROSODY_MOOD_SCORE_AND_EMOTIONAL_SHEET_MUSIC_PASS',
   lastPushedMilestone: 'STICKBOT_TARS_REHYDRATION_PACKET_WRITTEN',
   liveBrowserMilestone: 'STICKBOT_TARS_M7P_LIVE_BROWSER_STREAMING_BARGEIN_PASS',
   nextRecommendedMilestones: [
-    'LIVE_PROSODY_MOOD_SCORE_AND_EMOTIONAL_SHEET_MUSIC',
     'AUDIO_FIRST_MULTIPLEXED_PRODUCTION_STREAMING_ARCHITECTURE'
   ],
   latestKnownLiveSmoke: {
@@ -83,6 +82,7 @@ const SOURCE_FILES = [
   ['repo', 'src/audio/wav-stitcher.js'],
   ['repo', 'src/audio/xtts-chunk-conductor.js'],
   ['repo', 'src/prosody/prosody-score-engine.js'],
+  ['repo', 'src/prosody/live-prosody-cue-layer.js'],
   ['repo', 'src/voice/tars-prosody-kernel.js'],
   ['repo', 'src/voice/tars-prosody-matrix.js'],
   ['repo', 'public/app.js'],
@@ -112,6 +112,7 @@ const SOURCE_FILES = [
   ['doc', 'docs/m7-local-stt/m7q-true-partial-local-stt-loop/M7Q_TRUE_PARTIAL_LOCAL_STT_LOOP_LIVE_PASS.md'],
   ['doc', 'docs/m7-local-stt/m7r-low-latency-streaming-transport/M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_PASS.md'],
   ['doc', 'docs/m7-local-stt/m7s-live-barge-in-real-speech/M7S_LIVE_BARGE_IN_WITH_REAL_SPEECH_PASS.md'],
+  ['doc', 'docs/m7-local-stt/m7t-live-prosody-mood-score/M7T_LIVE_PROSODY_MOOD_SCORE_AND_EMOTIONAL_SHEET_MUSIC_PASS.md'],
   ['memory', '../../memory/2026-07-03.md'],
   ['memory', '../../memory/lessons-learned-stickbot-tars-live-dashboard-refresh-2026-07-03.md'],
   ['memory', '../../memory/lessons-learned-stickbot-tars-m7r-live-transport-repair-2026-07-03.md']
@@ -282,14 +283,15 @@ const rehydration = {
       'M7Q true partial local STT loop live pass: browser mic partials seq 0-5, final transcript, local whisper slices, privacy guard off',
       'M7R low-latency streaming transport live pass: partial STT, reconstruction, Send, audio generation, barge-in, and strict telemetry readback confirmed',
       'Generated audio auditor added: deterministic stage manifest plus explicit guarded delete mode for generated/captured speech-session audio cleanup',
-      'M7S live barge-in with real speech pass: live spoken interruption stopped active TARS playback, triggered duplex barge-in/listening, and produced local partial STT with privacy guard off'
+      'M7S live barge-in with real speech pass: live spoken interruption stopped active TARS playback, triggered duplex barge-in/listening, and produced local partial STT with privacy guard off',
+      'M7T live prosody mood score / emotional sheet music pass: deterministic delivery-metadata cue layer emits mood score, cue glyphs, intensity, contour, rests, and text hashes without rewriting canonical assistant text'
     ],
     next: CURRENT.nextRecommendedMilestones
   },
   liveReadiness: {
-    status: statusJson?.m7r?.classification || 'SEE_STATUS_JSON',
+    status: statusJson?.m7t?.classification || CURRENT.latestClassification,
     url: RUNTIME.lanUrl,
-    needsHumanEar: 'M7S live barge-in with real speech is complete. Next milestone is live prosody mood score / emotional sheet music.'
+    needsHumanEar: 'M7T deterministic cue layer is complete. Next milestone is audio-first multiplexed production streaming architecture.'
   },
   statusJson,
   runtimePaths,

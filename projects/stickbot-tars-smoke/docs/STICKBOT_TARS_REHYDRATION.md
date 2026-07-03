@@ -40,9 +40,9 @@ npm run rehydrate:tars -- --json --stdout-only
 - Project thesis, current live status, Git branch/remote, and local runtime roots.
 - LAN/loopback URLs, XTTS URL, HTTPS certificate location, local model/reference/STT/FFmpeg paths.
 - Guardrails: no Gateway/OpenClaw/NOA routing mutation, no cloud STT, no browser Web Speech API, no raw mic transcript durable storage, no `/mnt/c` runtime/model/audio paths, no generated audio commits.
-- Proven milestone chain from M3 through M7P and M5.6.
+- Proven milestone chain from M3 through M7T and M5.6.
 - Resume commands for checks, XTTS, HTTPS LAN demo, and health probes.
-- Curated source inventory with SHA256 hashes, line counts, and headings.
+- Curated source inventory with SHA256 hashes, line counts, and headings, including the live prosody cue layer.
 - Runtime path inventory for model/reference/whisper/ffmpeg/certs without storing secrets.
 - Local generated-artifact pointers only; generated audio is not committed.
 
@@ -60,3 +60,11 @@ curl -fsS http://127.0.0.1:8020/ready
 ```
 
 For subjective audio quality changes, ask Stick to A/B the LAN browser output. The script can prove structure and artifacts; Stick's ear is still the final voice-body gate.
+
+## Current next milestone
+
+After `STICKBOT_TARS_M7T_LIVE_PROSODY_MOOD_SCORE_AND_EMOTIONAL_SHEET_MUSIC_PASS`, the next recommended milestone is:
+
+```text
+AUDIO_FIRST_MULTIPLEXED_PRODUCTION_STREAMING_ARCHITECTURE
+```

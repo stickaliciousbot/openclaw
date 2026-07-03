@@ -1,6 +1,6 @@
 # Stickbot-TARS Implementation Notebook
 
-Last updated: 2026-07-02 18:18 AEST / 2026-07-02T08:18:00Z
+Last updated: 2026-07-03 21:15 AEST / 2026-07-03T11:15:00Z
 
 ## Standing documentation rule
 
@@ -25,6 +25,34 @@ Do not treat a milestone as closed until the notebook/repair/lesson trail is acc
 - Browser/Android must not call providers directly or use browser Web Speech API.
 
 ## Milestone ledger
+
+### M7T — live prosody mood score and emotional sheet music
+
+Status: `STICKBOT_TARS_M7T_LIVE_PROSODY_MOOD_SCORE_AND_EMOTIONAL_SHEET_MUSIC_PASS`
+
+Summary:
+
+- Added deterministic live prosody cue layer in `src/prosody/live-prosody-cue-layer.js`.
+- The cue layer derives mood score, dominant cue, cue sequence, per-chunk cue glyphs, dynamic marks, contour, tempo, emotional color, intensity, rest glyphs, pause duration, and text hashes from the existing canonical prosody score.
+- Integrated public cue metadata into `buildTarsProsodyPlan()` and the browser UI live voice line.
+- Preserved canonical text boundaries: canonical text hash unchanged, `textRewriteAllowed: false`, public cue layer exposes `textSha256` only and no raw chunk text.
+- Updated rehydrator/status/closeout docs so future sessions know M7T is current and next milestone is `AUDIO_FIRST_MULTIPLEXED_PRODUCTION_STREAMING_ARCHITECTURE`.
+
+Validation:
+
+- Focused syntax and prosody tests: `9/9 PASS`.
+- Full `npm run check`: `PASS`.
+- Live health/capability boundary remained local: HTTPS `19890`, STT mode `cli`, XTTS loopback ready, browser Web Speech API false, cloud speech API false.
+
+Artifacts:
+
+- `docs/m7-local-stt/m7t-live-prosody-mood-score/M7T_LIVE_PROSODY_MOOD_SCORE_AND_EMOTIONAL_SHEET_MUSIC_PASS.md`
+- `src/prosody/live-prosody-cue-layer.js`
+- `state/status.json` (`m7t`)
+
+Next:
+
+- `AUDIO_FIRST_MULTIPLEXED_PRODUCTION_STREAMING_ARCHITECTURE`
 
 ### M2.5 — hardening repair
 

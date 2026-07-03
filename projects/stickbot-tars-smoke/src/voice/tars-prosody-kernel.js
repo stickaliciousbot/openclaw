@@ -5,6 +5,7 @@ import { chunkTarsSentences, reconstructChunks } from './tars-sentence-chunker.j
 import { deriveDeliveryFromTuning, sanitizeTarsTuning } from './tars-prosody-tuning.js';
 import { deriveMoodMatrixSelection } from './tars-prosody-matrix.js';
 import { buildProsodyScore, publicProsodyScoreSummary } from '../prosody/prosody-score-engine.js';
+import { buildLiveProsodyCueLayer, publicLiveProsodyCueLayer } from '../prosody/live-prosody-cue-layer.js';
 
 const SECRET_PATTERNS = [
   /\bBearer\s+[A-Za-z0-9._~+/=-]{16,}\b/i,
@@ -118,6 +119,7 @@ export function buildTarsProsodyPlan(text, { profile = loadTarsProsodyProfile(),
     activeMatrix: activeSheetMatrix,
     matrixState
   });
+  const liveProsodyCueLayer = buildLiveProsodyCueLayer(prosodyScore);
   const prosodySheet = prosodyScore.chunks.map((entry, index) => ({
     ...(legacySheet[index] || {}),
     chunkIndex: entry.chunkIndex,
@@ -157,6 +159,8 @@ export function buildTarsProsodyPlan(text, { profile = loadTarsProsodyProfile(),
     salienceSummary: summarizeSalience(salience),
     delivery: scoredDelivery,
     prosodySheet,
+    liveProsodyCueLayer: publicLiveProsodyCueLayer(liveProsodyCueLayer),
+    liveProsodyCueLayerRaw: liveProsodyCueLayer,
     prosodyScore: publicProsodyScoreSummary(prosodyScore),
     prosodyScoreRaw: prosodyScore,
     tuning: activeTuning ? {
@@ -186,6 +190,7 @@ export function publicProsodyPlanSummary(plan) {
     salienceSummary: plan.salienceSummary,
     delivery: plan.delivery,
     prosodySheet: plan.prosodySheet,
+    liveProsodyCueLayer: plan.liveProsodyCueLayer,
     prosodyScore: plan.prosodyScore,
     tuning: plan.tuning
   };

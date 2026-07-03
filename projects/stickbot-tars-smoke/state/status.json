@@ -1,6 +1,6 @@
 {
   "schema": "stickbot.tars.milestone.status.v1",
-  "generatedUtc": "2026-07-02T12:22:00Z",
+  "generatedUtc": "2026-07-03T11:15:00Z",
   "branch": "feature/stickbot-tars-m25-hardening-repair",
   "headBeforeM25Repair": "143fa869ac1969dc0766eaa0bcb9a7be9da45e79",
   "m25RepairCommit": "5c29204016bebd11da4ffa6dc20bb99aba9676a4",
@@ -1450,7 +1450,7 @@
     },
     "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7r-low-latency-streaming-transport/M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_PASS.md"
   },
-  "nextMilestone": "LIVE_PROSODY_MOOD_SCORE_AND_EMOTIONAL_SHEET_MUSIC",
+  "nextMilestone": "AUDIO_FIRST_MULTIPLEXED_PRODUCTION_STREAMING_ARCHITECTURE",
   "m7s": {
     "classification": "STICKBOT_TARS_M7S_LIVE_BARGE_IN_WITH_REAL_SPEECH_PASS",
     "implemented": true,
@@ -1493,5 +1493,71 @@
       "port8787Touched": false
     },
     "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7s-live-barge-in-real-speech/M7S_LIVE_BARGE_IN_WITH_REAL_SPEECH_PASS.md"
+  },
+  "m7t": {
+    "classification": "STICKBOT_TARS_M7T_LIVE_PROSODY_MOOD_SCORE_AND_EMOTIONAL_SHEET_MUSIC_PASS",
+    "implemented": true,
+    "localPass": true,
+    "summary": "Deterministic live prosody cue layer derives mood score, cue glyphs, dynamic marks, contour, tempo, rests, intensity, and per-chunk text hashes from the canonical prosody score without rewriting assistant text.",
+    "implementation": {
+      "cueLayer": "projects/stickbot-tars-smoke/src/prosody/live-prosody-cue-layer.js",
+      "kernelIntegration": "projects/stickbot-tars-smoke/src/voice/tars-prosody-kernel.js",
+      "browserUi": "projects/stickbot-tars-smoke/public/app.js",
+      "testFile": "projects/stickbot-tars-smoke/test/tars-prosody-score-engine.test.mjs"
+    },
+    "evidence": {
+      "classificationReady": "STICKBOT_TARS_LIVE_PROSODY_MOOD_SCORE_AND_EMOTIONAL_SHEET_MUSIC_READY",
+      "moodScoreFields": [
+        "moodId",
+        "moodLabel",
+        "expressionToken",
+        "averageIntensity",
+        "dominantCue",
+        "cueSequence",
+        "chunkCount"
+      ],
+      "emotionalSheetMusicFields": [
+        "textSha256",
+        "phraseRole",
+        "cueGlyph",
+        "restGlyph",
+        "dynamic",
+        "contour",
+        "tempo",
+        "emotionalColor",
+        "intensity",
+        "pauseAfterMs",
+        "sheetToken"
+      ],
+      "publicTraceUsesHashes": true,
+      "rawChunkTextInPublicCueLayer": false,
+      "cueSequence": "✅mf/𝄾 🔎mp/𝄾 ⚠️f/·",
+      "averageIntensity": 0.79
+    },
+    "validation": {
+      "focusedProsodyTests": "PASS_9_OF_9",
+      "npmRunCheck": "PASS",
+      "newTests": [
+        "STICKBOT_TARS_LIVE_PROSODY_MOOD_SCORE_AND_EMOTIONAL_SHEET_MUSIC_PASS",
+        "STICKBOT_TARS_LIVE_PROSODY_PLAN_SURFACES_CUE_LAYER_PASS"
+      ],
+      "directKernelPayloadSmoke": "PASS",
+      "directKernelPayloadSmokeArtifact": "projects/stickbot-tars-smoke/artifacts/m7t-live-prosody/direct-kernel-payload-smoke.json",
+      "httpLoopbackReloadSmoke": "NOT_RUN_APPROVAL_GATED_BACKGROUND_SERVER_AVOIDED"
+    },
+    "boundaries": {
+      "localOnly": true,
+      "canonicalTextAuthoritative": true,
+      "canonicalTextUnchanged": true,
+      "textRewriteAllowed": false,
+      "deliveryMetadataOnly": true,
+      "rawTranscriptDurableStorage": false,
+      "browserWebSpeechApi": false,
+      "cloudSpeechApi": false,
+      "openClawProductionMutation": false,
+      "gatewayConfigMutation": false,
+      "port8787Touched": false
+    },
+    "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7t-live-prosody-mood-score/M7T_LIVE_PROSODY_MOOD_SCORE_AND_EMOTIONAL_SHEET_MUSIC_PASS.md"
   }
 }

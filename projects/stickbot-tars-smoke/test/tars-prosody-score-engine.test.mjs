@@ -5,6 +5,7 @@ import { buildProsodyScore } from '../src/prosody/prosody-score-engine.js';
 import { loadTarsProsodyProfile } from '../src/voice/tars-prosody-profile.js';
 import { sanitizeTarsTuning } from '../src/voice/tars-prosody-tuning.js';
 import { importProsodyMatrixJson } from '../src/voice/tars-prosody-matrix.js';
+import { buildLiveProsodyCueLayer, publicLiveProsodyCueLayer } from '../src/prosody/live-prosody-cue-layer.js';
 
 const profile = loadTarsProsodyProfile();
 
@@ -62,6 +63,34 @@ test('STICKBOT_TARS_M55_UI_DATA_MODEL_BASE_EFFECTIVE_DELTA_SEPARATED_PASS', () =
   assert.ok(plan.prosodyScore.chunks[0].effectiveXtts);
   assert.equal(plan.prosodyScore.chunks[0].text, undefined, 'public score summary must not expose raw chunk text');
   assert.equal(plan.prosodyScore.chunks[0].textSha256.length, 64);
+});
+
+test('STICKBOT_TARS_LIVE_PROSODY_MOOD_SCORE_AND_EMOTIONAL_SHEET_MUSIC_PASS', () => {
+  const text = 'PASS. Proceed with the validation gate. STOP if the protected fixture is touched.';
+  const score = buildProsodyScore(text, { profile, tuning: sanitizeTarsTuning({ moodId: 'mission_brief' }), maxChars: 42 });
+  const layer = buildLiveProsodyCueLayer(score);
+  const pub = publicLiveProsodyCueLayer(layer);
+  assert.equal(layer.classification, 'STICKBOT_TARS_LIVE_PROSODY_MOOD_SCORE_AND_EMOTIONAL_SHEET_MUSIC_READY');
+  assert.equal(layer.canonicalTextSha256, score.canonicalTextSha256);
+  assert.equal(layer.canonicalTextUnchanged, true);
+  assert.equal(layer.textRewriteAllowed, false);
+  assert.equal(layer.boundaries.exposesRawText, false);
+  assert.equal(layer.boundaries.deliveryMetadataOnly, true);
+  assert.equal(pub.emotionalSheetMusic.length, score.chunks.length);
+  assert.ok(pub.moodScore.cueSequence.includes('/'), JSON.stringify(pub.moodScore));
+  assert.ok(pub.emotionalSheetMusic.some((cue) => cue.phraseRole === 'warning'), JSON.stringify(pub.emotionalSheetMusic));
+  assert.ok(pub.emotionalSheetMusic.every((cue) => cue.text === undefined), 'public cue layer must not expose raw chunk text');
+  assert.ok(pub.emotionalSheetMusic.every((cue) => cue.textSha256?.length === 64), JSON.stringify(pub.emotionalSheetMusic));
+});
+
+test('STICKBOT_TARS_LIVE_PROSODY_PLAN_SURFACES_CUE_LAYER_PASS', () => {
+  const plan = buildTarsProsodyPlan('HOLD. I need evidence before we continue.', { tuning: sanitizeTarsTuning({ moodId: 'mission_brief' }), maxChars: 48 });
+  assert.equal(plan.liveProsodyCueLayer.classification, 'STICKBOT_TARS_LIVE_PROSODY_MOOD_SCORE_AND_EMOTIONAL_SHEET_MUSIC_READY');
+  assert.equal(plan.liveProsodyCueLayer.canonicalTextSha256, plan.canonicalTextSha256);
+  assert.equal(plan.liveProsodyCueLayer.textRewriteAllowed, false);
+  assert.equal(plan.liveProsodyCueLayer.boundaries.deliveryMetadataOnly, true);
+  assert.ok(plan.liveProsodyCueLayer.moodScore.averageIntensity > 0, JSON.stringify(plan.liveProsodyCueLayer.moodScore));
+  assert.equal(plan.chunks.map((chunk) => chunk.text).join(''), 'HOLD. I need evidence before we continue.');
 });
 
 test('STICKBOT_TARS_M55_TARS_AND_CASE_SAME_TEXT_RESOLVE_DIFFERENTLY_PASS', () => {
