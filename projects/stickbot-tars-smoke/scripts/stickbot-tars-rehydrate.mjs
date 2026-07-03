@@ -70,6 +70,7 @@ const SOURCE_FILES = [
   ['repo', 'package.json'],
   ['repo', 'server.js'],
   ['repo', 'scripts/stickbot-tars-rehydrate.mjs'],
+  ['repo', 'scripts/generated-audio-auditor.mjs'],
   ['repo', 'src/config.js'],
   ['repo', 'src/stt-adapter.js'],
   ['repo', 'src/audio-normalizer.js'],
@@ -279,7 +280,8 @@ const rehydration = {
       'M7P live browser streaming + barge-in pass',
       'M5.6 voice body/mastering postprocess pass with R2 tail-trim fix, R3 tail guard, and R4 terminal tail/drain live PASS',
       'M7Q true partial local STT loop live pass: browser mic partials seq 0-5, final transcript, local whisper slices, privacy guard off',
-      'M7R low-latency streaming transport live pass: partial STT, reconstruction, Send, audio generation, barge-in, and strict telemetry readback confirmed'
+      'M7R low-latency streaming transport live pass: partial STT, reconstruction, Send, audio generation, barge-in, and strict telemetry readback confirmed',
+      'Generated audio auditor added: deterministic stage manifest plus explicit guarded delete mode for generated/captured speech-session audio cleanup'
     ],
     next: CURRENT.nextRecommendedMilestones
   },

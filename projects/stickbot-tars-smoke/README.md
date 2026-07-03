@@ -383,6 +383,49 @@ Latest known full gate after M7R:
 85/85 PASS
 ```
 
+### Generated audio auditor
+
+Audit/stage generated and captured speech-session audio artifacts without deleting anything:
+
+```bash
+npm run audit:generated-audio
+```
+
+The auditor writes deterministic manifests to:
+
+```text
+artifacts/generated-audio-audits/latest.md
+artifacts/generated-audio-audits/latest.json
+artifacts/generated-audio-audits/<timestamp>/stage-manifest.md
+artifacts/generated-audio-audits/<timestamp>/stage-manifest.json
+```
+
+Delete mode is intentionally gated and must be requested explicitly:
+
+```bash
+npm run audit:generated-audio -- --delete --manifest artifacts/generated-audio-audits/latest.json --confirm-delete
+```
+
+Safety gates:
+
+- default mode never deletes files,
+- delete mode requires a prior PASS manifest and `--confirm-delete`,
+- every file is rechecked by path, size, mtime, SHA256, allowlisted root, and open-process state before unlink,
+- git-tracked files are blocked,
+- app dependency references in `server.js`, `package.json`, `public/`, `src/`, and `safety/` are blocked,
+- protected runtime roots such as speaker reference, models, tools, certs, source, tests, and app code are never scan roots,
+- docs/evidence references do not make generated audio a live app dependency.
+
+Current no-delete audit gate after M7R/README closeout:
+
+```text
+STICKBOT_TARS_GENERATED_AUDIO_AUDIT_STAGE_PASS
+files scanned: 483
+staged for deletion: 483
+blocked/protected: 0
+staged bytes: 68170794
+```
+
 ### Start XTTS loopback
 
 ```bash
