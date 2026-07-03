@@ -9,6 +9,7 @@ import { askOpenClaw } from './src/openclaw-adapter.js';
 import { transcribeAudio } from './src/stt-adapter.js';
 import { normalizeAudio } from './src/audio-normalizer.js';
 import { polishChunkArtifacts } from './src/audio/dsp-polish-stage.js';
+import { masterVoiceBodyArtifacts } from './src/audio/voice-body-mastering-stage.js';
 import { buildFinalSttControllerSummary, buildPartialSttControllerSummary, runSanitizedDuplexScenario } from './src/audio/duplex-event-ingress.js';
 import { conductChunkedXtts, publicChunkConductorSummary } from './src/audio/xtts-chunk-conductor.js';
 import { resolveAudioOutputPath, audioUrlForFile } from './safety/audio-path-policy.js';
@@ -140,6 +141,8 @@ async function synthesize(text, id) {
     stitchWorkDir: path.join(AUDIO_OUTPUT_DIR, `${id}-stitch`),
     dspProcessor: polishChunkArtifacts,
     dspOutputDir: AUDIO_OUTPUT_DIR,
+    masteringProcessor: masterVoiceBodyArtifacts,
+    masteringOutputDir: AUDIO_OUTPUT_DIR,
     timeoutMs: config.audioNormalizeTimeoutMs,
     synthesizeChunk: async ({ text: chunkText, effectiveXtts }) => ({
       buffer: await requestXttsAudio({ text: chunkText, xttsParams: effectiveXtts }),

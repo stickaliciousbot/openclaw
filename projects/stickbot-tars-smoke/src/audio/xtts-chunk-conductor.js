@@ -3,6 +3,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { buildAudioPerformancePipeline, publicAudioPerformanceSummary } from './audio-performance-pipeline.js';
 import { publicDspStageSummary } from './dsp-polish-stage.js';
+import { publicVoiceBodyMasteringSummary } from './voice-body-mastering-stage.js';
 import { buildRealtimeFrameManifest, publicRealtimeFrameManifest } from './streaming-frame-interface.js';
 import { stitchWavSequence } from './wav-stitcher.js';
 
@@ -132,6 +133,8 @@ export async function conductChunkedXtts({
   stitchWorkDir = null,
   dspProcessor = null,
   dspOutputDir = null,
+  masteringProcessor = null,
+  masteringOutputDir = null,
   sampleRate = 24000,
   channels = 1,
   timeoutMs = 60000
@@ -155,31 +158,54 @@ export async function conductChunkedXtts({
       artifacts: chunkArtifacts,
       boundaries: { localOnly: true, textRewriteAllowed: false, voiceIdentityRewriteAllowed: false }
     };
-  const renderArtifacts = dspStage.artifacts || chunkArtifacts;
+  const dspArtifacts = dspStage.artifacts || chunkArtifacts;
+  const masteringStage = masteringProcessor
+    ? await masteringProcessor({
+      chunkArtifacts: dspArtifacts,
+      ffmpegBin,
+      outputDir: masteringOutputDir || path.join(outputDir, `${turnId}-master`),
+      voicePersona: score?.voicePersona || 'TARS',
+      timeoutMs
+    })
+    : {
+      schema: 'stickbot.tars.voice-body-mastering-stage.v1',
+      enabled: false,
+      interfaceReserved: true,
+      frameSchema: 'stickbot.tars.voice-body-mastering-frame.v1',
+      classification: 'STICKBOT_TARS_M56_VOICE_BODY_RESERVED_NOT_APPLIED',
+      frames: [],
+      artifacts: dspArtifacts,
+      boundaries: { localOnly: true, textRewriteAllowed: false, voiceIdentityRewriteAllowed: false }
+    };
+  const renderArtifacts = masteringStage.artifacts || dspArtifacts;
+  const outputSampleRate = masteringStage.enabled ? (masteringStage.format?.sampleRate || 48000) : sampleRate;
+  const outputChannels = masteringStage.enabled ? (masteringStage.format?.channels || 1) : channels;
   const sequence = renderArtifacts.map((artifact) => ({ file: artifact.file, pauseAfterMs: artifact.pauseAfterMs }));
   const stitch = await stitcher({
     ffmpegBin,
     sequence,
     outPath: finalOutPath,
     workDir: stitchWorkDir || path.join(outputDir, `${turnId}-stitch`),
-    sampleRate,
-    channels,
+    sampleRate: outputSampleRate,
+    channels: outputChannels,
     timeoutMs
   });
   const finalBytesSha = stitch.audioSha256 || sha256Buffer(await readFile(stitch.file));
   const output = {
     file: stitch.file,
-    renderer: stitch.renderer,
+    renderer: masteringStage.enabled ? `${stitch.renderer}+voice_body_mastering` : stitch.renderer,
     audioSha256: finalBytesSha,
-    entries: stitch.entries?.map((entry) => path.basename(entry)) || []
+    entries: stitch.entries?.map((entry) => path.basename(entry)) || [],
+    format: masteringStage.enabled ? masteringStage.format : { codec: 'pcm_s16le', sampleRate, channels, bitRate: sampleRate * channels * 16 }
   };
-  const realtime = buildRealtimeFrameManifest({ turnId, score, chunkArtifacts: renderArtifacts, dspStage, output });
+  const realtime = buildRealtimeFrameManifest({ turnId, score, chunkArtifacts: renderArtifacts, dspStage, masteringStage, output });
   const pipeline = buildAudioPerformancePipeline({
     turnId,
     prosodyScore: score,
     output,
     chunkArtifacts: renderArtifacts,
     dsp: publicDspStageSummary(dspStage),
+    mastering: publicVoiceBodyMasteringSummary(masteringStage),
     realtime: publicRealtimeFrameManifest(realtime)
   });
   return {
@@ -190,6 +216,7 @@ export async function conductChunkedXtts({
     chunkArtifacts: renderArtifacts,
     originalChunkArtifacts: chunkArtifacts,
     dspStage,
+    masteringStage,
     realtime,
     publicChunkArtifacts: renderArtifacts.map(publicChunkArtifact),
     pipeline,
@@ -210,6 +237,7 @@ export function publicChunkConductorSummary(result = {}) {
     } : null,
     chunkArtifacts: result.publicChunkArtifacts || (result.chunkArtifacts || []).map(publicChunkArtifact),
     dspStage: result.dspStage ? publicDspStageSummary(result.dspStage) : null,
+    masteringStage: result.masteringStage ? publicVoiceBodyMasteringSummary(result.masteringStage) : null,
     realtime: result.realtime ? publicRealtimeFrameManifest(result.realtime) : null,
     pipeline: result.publicPipeline || publicAudioPerformanceSummary(result.pipeline || {}),
     boundaries: result.boundaries

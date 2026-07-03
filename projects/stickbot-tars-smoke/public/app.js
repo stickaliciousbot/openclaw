@@ -143,7 +143,7 @@ function sleep(ms) {
 }
 
 function chunkAudioUrlFromFrame(frame) {
-  const name = frame?.payload?.dsp?.outputFileBasename || frame?.payload?.fileBasename;
+  const name = frame?.payload?.mastering?.outputFileBasename || frame?.payload?.dsp?.outputFileBasename || frame?.payload?.fileBasename;
   return name ? `/audio/${encodeURIComponent(name)}` : null;
 }
 

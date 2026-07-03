@@ -19,7 +19,7 @@ function frame({ turnId, seq, type, payload = {}, timing = {}, boundaries = {} }
   };
 }
 
-export function buildRealtimeFrameManifest({ turnId, score = {}, chunkArtifacts = [], dspStage = null, output = null } = {}) {
+export function buildRealtimeFrameManifest({ turnId, score = {}, chunkArtifacts = [], dspStage = null, masteringStage = null, output = null } = {}) {
   let seq = 0;
   const frames = [];
   frames.push(frame({
@@ -36,6 +36,7 @@ export function buildRealtimeFrameManifest({ turnId, score = {}, chunkArtifacts 
 
   for (const artifact of chunkArtifacts) {
     const dspFrame = (dspStage?.frames || []).find((candidate) => candidate.chunkId === artifact.chunkId) || null;
+    const masteringFrame = (masteringStage?.frames || []).find((candidate) => candidate.chunkId === artifact.chunkId) || null;
     frames.push(frame({
       turnId,
       seq: seq++,
@@ -53,6 +54,12 @@ export function buildRealtimeFrameManifest({ turnId, score = {}, chunkArtifacts 
           classification: dspFrame.classification,
           outputFileBasename: dspFrame.outputFileBasename,
           profile: dspFrame.profile
+        } : null,
+        mastering: masteringFrame ? {
+          schema: masteringFrame.schema,
+          classification: masteringFrame.classification,
+          outputFileBasename: masteringFrame.outputFileBasename,
+          profile: masteringFrame.profile
         } : null
       },
       timing: {

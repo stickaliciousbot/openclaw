@@ -1147,5 +1147,83 @@
     },
     "currentLimitation": "M7P verified live browser playback and mic-start interruption. It did not verify non-blank spoken interruption recognition or true low-latency streaming while synthesis is still running."
   },
-  "nextMilestone": "M7Q_TRUE_PARTIAL_LOCAL_STT_LOOP_THEN_M7R_LOW_LATENCY_STREAMING_TRANSPORT"
+  "m56": {
+    "classification": "STICKBOT_TARS_M56_VOICE_BODY_POSTPROCESS_PASS",
+    "scope": "local_voice_body_mastering_postprocess_for_browser_playback",
+    "implementedModules": [
+      "src/audio/voice-body-mastering-stage.js"
+    ],
+    "integration": {
+      "placement": "after M7J DSP and before M7K realtime frame manifest plus final stitch",
+      "streamingPlayback": "audio_chunk_ready frames include mastering.outputFileBasename and browser prefers mastered chunk files",
+      "finalPlayback": "final stitched WAV is rendered from mastered chunks",
+      "rawPreservation": "raw XTTS chunk artifacts and DSP intermediates remain on disk under local output dir"
+    },
+    "format": {
+      "internalExpected": {
+        "codec": "pcm_s16le",
+        "sampleRate": 24000,
+        "channels": 1,
+        "bitRate": 384000
+      },
+      "masteredPlayback": {
+        "codec": "pcm_s16le",
+        "sampleRate": 48000,
+        "channels": 1,
+        "bitRate": 768000,
+        "stereoWideningApplied": false
+      }
+    },
+    "filterFamily": [
+      "silence_trim",
+      "highpass_60hz",
+      "low_mid_body_eq_170hz",
+      "upper_body_eq_320hz",
+      "presence_restraint_3200hz",
+      "compression",
+      "loudness_normalization"
+    ],
+    "validation": {
+      "npmRunCheck": "PASS",
+      "nodeTestsPassed": 82,
+      "nodeTestsFailed": 0,
+      "newGates": [
+        "STICKBOT_TARS_M56_VOICE_BODY_PROFILE_AND_FILTER_PASS",
+        "STICKBOT_TARS_M56_VOICE_BODY_STAGE_PRESERVES_RAW_AND_MASTERS_PASS"
+      ],
+      "liveSmoke": {
+        "lanHealthOk": true,
+        "cacheBuster": "m56-voice-body-mastering",
+        "masteringEnabled": true,
+        "outputFormat": {
+          "codec": "pcm_s16le",
+          "sampleRate": 48000,
+          "channels": 1,
+          "bitRate": 768000
+        },
+        "frameCount": 3,
+        "masteredFrames": 3,
+        "firstMaster": "f470fbd4-4015-4368-aab3-53d25d0701f1-chunk-001.dsp.master.wav"
+      }
+    },
+    "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m56-voice-body-mastering/M56_VOICE_BODY_POSTPROCESS_PASS.md",
+    "boundaries": {
+      "canonicalTextAuthoritative": true,
+      "textRewriteAllowed": false,
+      "voiceIdentityRewriteAllowed": false,
+      "localOnly": true,
+      "rawTranscriptDurableStorage": false,
+      "openClawProductionMutation": false,
+      "gatewayConfigMutation": false,
+      "gatewayRestart": false,
+      "noaTouched": false,
+      "port8787Touched": false,
+      "cloudSpeechApiCalled": false,
+      "browserWebSpeechApi": false,
+      "generatedAudioCommitted": false,
+      "stereoWideningApplied": false
+    },
+    "currentLimitation": "M5.6 adds deterministic local mastering and automated gates. Live A/B subjective quality still needs Stick's ear to tune body versus mud."
+  },
+  "nextMilestone": "M56_LIVE_AB_TEST_THEN_M7Q_TRUE_PARTIAL_LOCAL_STT_LOOP"
 }

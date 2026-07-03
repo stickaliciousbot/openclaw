@@ -7,6 +7,7 @@ export function buildAudioPerformancePipeline({
   output = null,
   chunkArtifacts = [],
   dsp = null,
+  mastering = null,
   realtime = null,
   boundaries = {}
 } = {}) {
@@ -47,11 +48,18 @@ export function buildAudioPerformancePipeline({
         plannedFrameSchema: 'stickbot.tars.audio-dsp-frame.v1',
         plannedCapabilities: ['loudness_normalize', 'clip_guard', 'compression', 'rate_pitch_polish']
       },
+      mastering: mastering || {
+        enabled: false,
+        interfaceReserved: true,
+        plannedFrameSchema: 'stickbot.tars.voice-body-mastering-frame.v1',
+        plannedCapabilities: ['trim_silence', 'highpass', 'voice_body_eq', 'presence_control', 'compression', 'loudness_normalize', 'mono_48k_browser_playback']
+      },
       render: {
         enabled: Boolean(output),
         renderer: output?.renderer || 'local_wav_stitcher',
         audioSha256: output?.audioSha256 || null,
-        relativeUrl: output?.url || null
+        relativeUrl: output?.url || null,
+        format: output?.format || null
       },
       realtime: realtime || {
         enabled: false,

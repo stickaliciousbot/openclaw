@@ -9,8 +9,8 @@ export class AudioPathPolicyError extends Error {
   }
 }
 
-export const UUID_WAV_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}\.wav$/i;
-export const UUID_CHUNK_WAV_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}-chunk-\d{3}(?:\.dsp)?\.wav$/i;
+export const UUID_WAV_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}(?:\.master)?\.wav$/i;
+export const UUID_CHUNK_WAV_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}-chunk-\d{3}(?:\.dsp)?(?:\.master)?\.wav$/i;
 
 export function normalizeAudioFileParam(raw) {
   if (typeof raw !== 'string' || raw.length === 0) throw new AudioPathPolicyError('missing audio file');
@@ -23,7 +23,7 @@ export function normalizeAudioFileParam(raw) {
   if (decoded !== raw && /[/\\]/.test(decoded)) throw new AudioPathPolicyError('encoded traversal is not allowed');
   if (/[/\\]/.test(raw) || /[/\\]/.test(decoded)) throw new AudioPathPolicyError('nested audio paths are not allowed');
   if (decoded.includes('..') || path.isAbsolute(decoded)) throw new AudioPathPolicyError('audio traversal is not allowed');
-  if (!UUID_WAV_RE.test(decoded) && !UUID_CHUNK_WAV_RE.test(decoded)) throw new AudioPathPolicyError('audio file must be a UUID .wav or generated UUID chunk .wav');
+  if (!UUID_WAV_RE.test(decoded) && !UUID_CHUNK_WAV_RE.test(decoded)) throw new AudioPathPolicyError('audio file must be a UUID .wav/master.wav or generated UUID chunk .wav/.master.wav');
   return decoded;
 }
 
