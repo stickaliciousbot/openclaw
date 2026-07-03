@@ -529,7 +529,7 @@ Validation:
 
 ## M7R — low-latency streaming transport / live repair trail
 
-Status: `STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_FUNCTIONAL_PASS_TELEMETRY_READBACK_PENDING`
+Status: `STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_PASS`
 
 Commit: `0b1366791`
 
@@ -570,12 +570,15 @@ Live repair findings captured during M7R browser test:
    - Repair: do not stack repeated browser sends; run a bounded backend voice smoke. If backend smoke passes, instruct Stick to open a fresh/hard-refreshed tab rather than waiting on the stale request. If it fails, restart XTTS/Node cleanly.
    - Validation: bounded backend voice smoke completed in ~20 seconds, produced final WAV, and returned `STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_READY`.
 
-Live functional confirmation:
+Live PASS confirmation:
 
 - Stick confirmed: “partial STT works, reconstruction works, send works, audio generation works, barge in works.”
-- Treat this as `STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_FUNCTIONAL_PASS_TELEMETRY_READBACK_PENDING`.
+- Stick provided strict telemetry readback/screenshots:
+  - `Streaming telemetry: first play 267ms; max gap 255ms; played 2/2`
+  - `STICKBOT_TARS_M7R_LOW_LATENCY_CLIENT_TELEMETRY; local-only, no transcript/audio cloud path.`
+  - `Streaming transport: 2 chunk frames preloaded`
+- Final classification: `STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_PASS`.
 
-Required follow-up before strict M7R live timing PASS:
+Follow-up hardening remains recommended:
 
-- Capture browser readback/screenshot of `Streaming transport` and `Streaming telemetry` with first-play and max-gap values.
 - If Send hangs again, patch UI/backend timeout/fail-fast recovery instead of accepting indefinite `Sending...`.

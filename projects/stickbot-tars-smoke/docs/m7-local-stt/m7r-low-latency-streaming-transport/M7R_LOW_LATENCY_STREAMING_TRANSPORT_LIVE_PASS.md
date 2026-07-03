@@ -1,7 +1,7 @@
-# M7R — Low-Latency Streaming Transport LIVE FUNCTIONAL PASS
+# M7R — Low-Latency Streaming Transport LIVE PASS
 
 Date: 2026-07-03
-Classification: `STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_FUNCTIONAL_PASS_TELEMETRY_READBACK_PENDING`
+Classification: `STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_PASS`
 
 ## Scope
 
@@ -87,15 +87,30 @@ Validated live evidence now captured:
 - Stick confirmed audio generation works,
 - Stick confirmed barge-in works.
 
-Strict timing proof still wants one UI readback/screenshot of the `Streaming telemetry` line containing first-play and max-gap values. Until that readback is captured, this is a live functional pass rather than the final strict timing closeout.
-
-Current classification:
+Strict timing proof captured from browser UI:
 
 ```text
-STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_FUNCTIONAL_PASS_TELEMETRY_READBACK_PENDING
+Streaming telemetry: first play 267ms; max gap 255ms; played 2/2
+STICKBOT_TARS_M7R_LOW_LATENCY_CLIENT_TELEMETRY; local-only, no transcript/audio cloud path.
 ```
 
-Pending strict timing classification:
+Streaming transport evidence:
+
+```text
+Streaming transport: 2 chunk frames preloaded
+M7R browser_preload_queue_then_serial_playback; target first audio 1200ms; final WAV remains fallback.
+```
+
+Result:
+
+- first play: `267ms` — under target `1200ms`,
+- max gap: `255ms`,
+- played frames: `2/2`,
+- local-only boundary visible,
+- no transcript/audio cloud path,
+- partial STT, reconstruction, Send, audio generation, and barge-in were human-confirmed working.
+
+Final classification:
 
 ```text
 STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_PASS

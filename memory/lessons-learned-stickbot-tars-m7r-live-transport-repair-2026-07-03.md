@@ -77,7 +77,14 @@ After the STT args repair and backend voice smoke, Stick confirmed the browser f
 partial STT works, reconstruction works, send works, audio generation works, barge in works.
 ```
 
-Treat that as `STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_FUNCTIONAL_PASS_TELEMETRY_READBACK_PENDING`. Strict final M7R timing PASS still wants a readback/screenshot of the `Streaming telemetry` line with first-play and max-gap values.
+Initial classification was `STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_FUNCTIONAL_PASS_TELEMETRY_READBACK_PENDING`. Stick then provided the strict readback/screenshots:
+
+```text
+Streaming telemetry: first play 267ms; max gap 255ms; played 2/2
+STICKBOT_TARS_M7R_LOW_LATENCY_CLIENT_TELEMETRY; local-only, no transcript/audio cloud path.
+```
+
+Final classification: `STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_PASS`.
 
 ## Canonical project notes updated
 

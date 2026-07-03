@@ -653,7 +653,9 @@ Validation:
 - Response included `STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_READY` and audio frames.
 - After corrected STT restart, a second backend voice smoke completed in ~20 seconds and produced a final WAV.
 - Stick later confirmed the repaired live browser flow: “partial STT works, reconstruction works, send works, audio generation works, barge in works.”
-- Classification after this confirmation: `STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_FUNCTIONAL_PASS_TELEMETRY_READBACK_PENDING`.
+- Classification after functional confirmation: `STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_FUNCTIONAL_PASS_TELEMETRY_READBACK_PENDING`.
+- Stick then provided strict timing readback/screenshots: `Streaming telemetry: first play 267ms; max gap 255ms; played 2/2` and `STICKBOT_TARS_M7R_LOW_LATENCY_CLIENT_TELEMETRY; local-only, no transcript/audio cloud path.`
+- Final classification: `STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_PASS`.
 
 Follow-up hardening recommendation:
 

@@ -1343,9 +1343,9 @@
     "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7q-true-partial-local-stt-loop/M7Q_TRUE_PARTIAL_LOCAL_STT_LOOP_LIVE_PASS.md"
   },
   "m7r": {
-    "classification": "STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_FUNCTIONAL_PASS_TELEMETRY_READBACK_PENDING",
+    "classification": "STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_PASS",
     "implemented": true,
-    "livePass": false,
+    "livePass": true,
     "liveFunctionalPass": true,
     "summary": "Realtime frame manifests now expose an explicit low-latency transport plan, and the browser uses a preloaded serial audio queue with client-side first-play/inter-chunk-gap telemetry.",
     "newOrChangedModules": [
@@ -1422,14 +1422,19 @@
         "error": null
       }
     },
-    "livePending": {
-      "requiredClassification": "STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_PASS",
-      "requiredEvidence": [
-        "voice turn shows Streaming transport",
-        "voice turn shows Streaming telemetry with first-play and max-gap values",
-        "strict timing telemetry screenshot/readback captured",
-        "if Send hangs again, patch timeout/fail-fast recovery before live PASS"
-      ]
+    "liveTelemetryEvidence": {
+      "streamingTelemetryLine": "Streaming telemetry: first play 267ms; max gap 255ms; played 2/2",
+      "classification": "STICKBOT_TARS_M7R_LOW_LATENCY_CLIENT_TELEMETRY",
+      "firstPlayMs": 267,
+      "firstAudioTargetMs": 1200,
+      "maxGapMs": 255,
+      "playedFrames": 2,
+      "totalFrames": 2,
+      "streamingTransportLine": "Streaming transport: 2 chunk frames preloaded",
+      "mode": "browser_preload_queue_then_serial_playback",
+      "localOnly": true,
+      "transcriptAudioCloudPath": false,
+      "humanScreenshotReadback": true
     },
     "boundaries": {
       "localOnly": true,
@@ -1440,7 +1445,7 @@
       "gatewayConfigMutation": false,
       "port8787Touched": false
     },
-    "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7r-low-latency-streaming-transport/M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_FUNCTIONAL_PASS.md"
+    "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7r-low-latency-streaming-transport/M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_PASS.md"
   },
-  "nextMilestone": "M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_TIMING_PROOF"
+  "nextMilestone": "M7S_LIVE_BARGE_IN_WITH_REAL_SPEECH"
 }
