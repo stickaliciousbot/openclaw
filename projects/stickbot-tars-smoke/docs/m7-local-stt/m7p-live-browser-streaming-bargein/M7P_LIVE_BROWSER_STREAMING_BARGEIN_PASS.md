@@ -130,6 +130,28 @@ This proves the intended streaming barge-in lifecycle:
 
 Streaming-path M7P is therefore confirmed end-to-end: audible streaming playback -> mic-start barge-in -> playback stop -> mic remains recording.
 
+## R4 follow-up — final live confirmation
+
+Stick then reported:
+
+> all worked perfectly.
+
+This confirms the post-R2 browser build behaved correctly in live testing, including the barge-in playback stop behavior after the fallback/final WAV playback registry fix.
+
+M7P final live status:
+
+- streaming-frame playback visible and audible,
+- live streaming playback stops on mic-start barge-in,
+- mic continues recording after barge-in,
+- final/fallback WAV playback path has the same stop-on-mic-start coverage after R2,
+- raw transcript durable storage remains disabled and is understood as privacy state.
+
+Final classification remains:
+
+```text
+STICKBOT_TARS_M7P_LIVE_BROWSER_STREAMING_BARGEIN_PASS
+```
+
 ## Remaining work
 
 Next recommended milestones:

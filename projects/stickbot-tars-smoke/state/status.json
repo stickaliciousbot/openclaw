@@ -1123,6 +1123,11 @@
       "finding": "After live streaming playback cut out on mic-start, the mic continued recording with no break and no browser error.",
       "streamingBargeInEndToEnd": true
     },
+    "r4FinalLiveConfirmation": {
+      "humanReport": "all worked perfectly",
+      "streamingAndFallbackBargeInLiveConfirmed": true,
+      "finalStatus": "STICKBOT_TARS_M7P_LIVE_BROWSER_STREAMING_BARGEIN_PASS"
+    },
     "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7p-live-browser-streaming-bargein/M7P_LIVE_BROWSER_STREAMING_BARGEIN_PASS.md",
     "boundaries": {
       "canonicalTextAuthoritative": true,
