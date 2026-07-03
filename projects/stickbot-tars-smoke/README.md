@@ -416,17 +416,25 @@ Safety gates:
 - protected runtime roots such as speaker reference, models, tools, certs, source, tests, and app code are never scan roots,
 - docs/evidence references do not make generated audio a live app dependency.
 
-Current no-delete audit gate after script-fixture dependency correction:
+Current post-clean audit gate:
 
 ```text
 STICKBOT_TARS_GENERATED_AUDIO_AUDIT_STAGE_PASS
-files scanned: 483
-staged for deletion: 482
+files scanned: 1
+staged for deletion: 0
 protected/skipped: 1
-staged bytes: 68075006
-protected bytes: 95788
+total bytes: 95788
 protected file: /home/stickai/stickbot-voice/output/m4-first-generation.wav
 reason: REFERENCED_BY_EXECUTABLE_SOURCE via M7B/M7C smoke script defaults
+```
+
+Most recent guarded delete pass:
+
+```text
+STICKBOT_TARS_GENERATED_AUDIO_AUDIT_DELETE_PASS
+deleted files: 482
+deleted bytes: 68075006
+refused: 0
 ```
 
 ### Start XTTS loopback
