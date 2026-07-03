@@ -530,10 +530,41 @@ document.getElementById('send').onclick = async () => {
 
 let rec;
 let chunks = [];
+let micTurnId = null;
+let partialSeq = 0;
+let stoppingMic = false;
+let partialQueue = Promise.resolve();
+
+function newClientTurnId() {
+  if (globalThis.crypto?.randomUUID) return globalThis.crypto.randomUUID();
+  return `turn-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+}
+
+function queuePartialAudio(blob, turnId, seq) {
+  if (!blob?.size || !turnId) return;
+  partialQueue = partialQueue.then(async () => {
+    const { r, j } = await csrfFetchJson(`/api/stt/partial-audio?turnId=${encodeURIComponent(turnId)}&seq=${encodeURIComponent(seq)}`, {
+      headers: { 'content-type': blob.type || 'audio/webm' },
+      body: blob
+    });
+    if (r.status === 501) {
+      add(`<b>Partial STT:</b> capture-only<br><span class="muted">${escapeHtml(j.error || 'local STT not configured')}; no cloud speech API used.</span>`);
+      return;
+    }
+    if (!r.ok) throw new Error(j.error || `partial STT ${r.status}`);
+    if (j.partialTranscript) {
+      add(`<b>Partial STT:</b> ${escapeHtml(j.partialTranscript)}<br><span class="muted">seq ${escapeHtml(j.seq)}; local whisper slice; privacy guard: raw transcript durable storage is ${escapeHtml(j.boundaries?.rawTranscriptDurableStorage === false ? 'off' : 'check')}.</span>`);
+    } else {
+      add(`<b>Partial STT:</b> listening…<br><span class="muted">seq ${escapeHtml(j.seq)}; ${escapeHtml(j.error || 'no transcript yet')}; local-only.</span>`);
+    }
+  }).catch((e) => add(`<b>Partial STT:</b> failed<br><span class="muted">${escapeHtml(e.message)}</span>`));
+}
+
 mic.onclick = async () => {
   if (rec && rec.state === 'recording') {
     mic.textContent = 'Processing mic capture...';
     mic.disabled = true;
+    stoppingMic = true;
     rec.stop();
     return;
   }
@@ -547,11 +578,20 @@ mic.onclick = async () => {
     return;
   }
   chunks = [];
+  micTurnId = newClientTurnId();
+  partialSeq = 0;
+  stoppingMic = false;
+  partialQueue = Promise.resolve();
   rec = new MediaRecorder(stream, { mimeType: 'audio/webm' });
-  rec.ondataavailable = (e) => chunks.push(e.data);
+  rec.ondataavailable = (e) => {
+    if (!e.data?.size) return;
+    chunks.push(e.data);
+    if (!stoppingMic) queuePartialAudio(new Blob(chunks, { type: e.data.type || 'audio/webm' }), micTurnId, partialSeq++);
+  };
   rec.onstop = async () => {
     try {
       stream.getTracks().forEach((t) => t.stop());
+      await partialQueue.catch(() => {});
       const blob = new Blob(chunks, { type: 'audio/webm' });
       const { r, j } = await csrfFetchJson('/api/stt', {
         headers: { 'content-type': 'audio/webm' },
@@ -564,13 +604,15 @@ mic.onclick = async () => {
         add(`<b>Mic capture:</b> saved locally<br><span class="muted">${escapeHtml(j.error || JSON.stringify(j))}</span>`);
       }
     } finally {
+      micTurnId = null;
+      stoppingMic = false;
       mic.textContent = 'Start mic capture';
       mic.disabled = false;
     }
   };
-  rec.start();
+  rec.start(2500);
   mic.textContent = 'Recording… tap to stop/send';
-  add('<b>Mic:</b> recording... tap the mic button again to stop and transcribe');
+  add('<b>Mic:</b> recording with local partial STT slices… tap the mic button again to stop and transcribe');
 };
 
 ensureSession().catch((e) => add(`<span class="muted">Session setup failed: ${escapeHtml(e.message)}</span>`));

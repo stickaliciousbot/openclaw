@@ -11,6 +11,7 @@ import { normalizeAudio } from './src/audio-normalizer.js';
 import { polishChunkArtifacts } from './src/audio/dsp-polish-stage.js';
 import { masterVoiceBodyArtifacts } from './src/audio/voice-body-mastering-stage.js';
 import { buildFinalSttControllerSummary, buildPartialSttControllerSummary, runSanitizedDuplexScenario } from './src/audio/duplex-event-ingress.js';
+import { buildPartialLocalSttLoopResponse } from './src/audio/partial-stt-loop.js';
 import { conductChunkedXtts, publicChunkConductorSummary } from './src/audio/xtts-chunk-conductor.js';
 import { resolveAudioOutputPath, audioUrlForFile } from './safety/audio-path-policy.js';
 import { readJsonBody, readAudioUploadBody, assertTextWithinLimit } from './safety/limits.js';
@@ -243,7 +244,8 @@ const requestHandler = async (req, res) => {
         },
         boundaries: {
           browserWebSpeechApi: false,
-          cloudSpeechApi: false
+          cloudSpeechApi: false,
+          partialLocalSttLoop: true
         }
       });
     }
@@ -310,6 +312,60 @@ const requestHandler = async (req, res) => {
         }
       });
     }
+    if (req.method === 'POST' && url.pathname === '/api/stt/partial-audio') {
+      guardMutatingRequest(req);
+      const id = url.searchParams.get('turnId') || crypto.randomUUID();
+      const seq = Number(url.searchParams.get('seq') || 0);
+      const ct = req.headers['content-type'] || 'application/octet-stream';
+      const ext = String(ct).includes('webm') ? 'webm' : 'bin';
+      await mkdir(AUDIO_INPUT_DIR, { recursive: true });
+      const out = path.join(AUDIO_INPUT_DIR, `${id}-partial-${String(seq).padStart(4, '0')}.${ext}`);
+      const buf = await readAudioUploadBody(req, config.maxAudioUploadBytes);
+      await writeFile(out, buf);
+      if (config.sttMode === 'capture') {
+        return json(res, 501, buildPartialLocalSttLoopResponse({
+          id,
+          seq,
+          savedLocal: true,
+          normalizedLocal: false,
+          sttMode: config.sttMode,
+          noTranscript: true,
+          error: 'Local STT engine not configured yet. Partial audio captured locally only; no cloud speech API used.'
+        }));
+      }
+      let sttInput = out;
+      let normalized = null;
+      if (config.audioNormalize) {
+        await mkdir(AUDIO_NORMALIZED_DIR, { recursive: true });
+        normalized = path.join(AUDIO_NORMALIZED_DIR, `${id}-partial-${String(seq).padStart(4, '0')}-normalized.wav`);
+        await normalizeAudio(out, normalized, config);
+        sttInput = normalized;
+      }
+      try {
+        const transcript = await transcribeAudio(sttInput, config);
+        return json(res, 200, buildPartialLocalSttLoopResponse({
+          id,
+          seq,
+          transcript,
+          savedLocal: true,
+          normalizedLocal: Boolean(normalized),
+          sttMode: config.sttMode
+        }));
+      } catch (e) {
+        if (e.classification === 'STT_EMPTY_OUTPUT' || e.classification === 'STT_TRANSCRIPT_NOT_FOUND') {
+          return json(res, 200, buildPartialLocalSttLoopResponse({
+            id,
+            seq,
+            savedLocal: true,
+            normalizedLocal: Boolean(normalized),
+            sttMode: config.sttMode,
+            noTranscript: true,
+            error: e.classification
+          }));
+        }
+        throw e;
+      }
+    }
     if (req.method === 'POST' && url.pathname === '/api/chat') {
       guardMutatingRequest(req);
       const { text, voice = true } = await readJsonBody(req, config.maxJsonBodyBytes);
@@ -368,6 +424,7 @@ const requestHandler = async (req, res) => {
         duplex: buildFinalSttControllerSummary({ turnId: id, finalText: transcript }),
         maxAudioDurationSeconds: config.maxAudioDurationSeconds,
         boundaries: {
+          rawTranscriptDurableStorage: false,
           browserWebSpeechApi: false,
           cloudSpeechApi: false
         }

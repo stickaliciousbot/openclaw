@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { buildFinalSttControllerSummary, buildPartialSttControllerSummary, runSanitizedDuplexScenario, sanitizeDuplexEvent, transcriptEventFromText } from '../src/audio/duplex-event-ingress.js';
+import { buildPartialLocalSttLoopResponse } from '../src/audio/partial-stt-loop.js';
 
 test('STICKBOT_TARS_M7N_PARTIAL_STT_CONTROLLER_INGRESS_PASS', () => {
   const summary = buildPartialSttControllerSummary({ turnId: 'turn-partial', partialText: 'partial local words', confidence: 0.42 });
@@ -44,4 +45,35 @@ test('STICKBOT_TARS_M7O_BARGE_IN_SCENARIO_INGRESS_PASS', () => {
   assert.ok(summary.actions.some((action) => action.type === 'stop_audio_output'));
   assert.ok(summary.actions.some((action) => action.type === 'return_to_local_listening'));
   assert.equal(summary.events.find((event) => event.type === 'final_transcript').payload.text, undefined);
+});
+
+test('STICKBOT_TARS_M7Q_TRUE_PARTIAL_LOCAL_STT_LOOP_RESPONSE_PASS', () => {
+  const response = buildPartialLocalSttLoopResponse({
+    id: 'turn-m7q',
+    seq: 3,
+    transcript: 'partial local speech',
+    savedLocal: true,
+    normalizedLocal: true,
+    sttMode: 'cli'
+  });
+  assert.equal(response.classification, 'STICKBOT_TARS_M7Q_TRUE_PARTIAL_LOCAL_STT_LOOP_PASS');
+  assert.equal(response.seq, 3);
+  assert.equal(response.partialTranscript, 'partial local speech');
+  assert.equal(response.partialTranscriptSha256.length, 64);
+  assert.equal(response.boundaries.localOnly, true);
+  assert.equal(response.boundaries.rawTranscriptDurableStorage, false);
+  assert.equal(response.boundaries.browserWebSpeechApi, false);
+  assert.equal(response.boundaries.cloudSpeechApi, false);
+  const partialEvent = response.duplex.events.find((event) => event.type === 'partial_transcript');
+  assert.equal(partialEvent.payload.text, undefined);
+  assert.equal(partialEvent.payload.textSha256, response.partialTranscriptSha256);
+});
+
+test('STICKBOT_TARS_M7Q_EMPTY_PARTIAL_LOCAL_STT_LOOP_NO_TRANSCRIPT_PASS', () => {
+  const response = buildPartialLocalSttLoopResponse({ id: 'turn-empty', seq: 1, sttMode: 'cli', noTranscript: true, error: 'STT_EMPTY_OUTPUT' });
+  assert.equal(response.classification, 'STICKBOT_TARS_M7Q_TRUE_PARTIAL_LOCAL_STT_LOOP_NO_TRANSCRIPT');
+  assert.equal(response.partialTranscript, null);
+  assert.equal(response.noTranscript, true);
+  assert.equal(response.error, 'STT_EMPTY_OUTPUT');
+  assert.equal(response.duplex.boundaries.rawTranscriptDurableStorage, false);
 });
