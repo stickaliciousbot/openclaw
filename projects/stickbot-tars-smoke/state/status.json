@@ -1224,6 +1224,25 @@
           "firstMaster": "54ac75b8-7852-4401-b5cf-d2bd995a5867-chunk-001.dsp.master.wav",
           "finalDurationSeconds": 4.255
         }
+      },
+      "r3TailGuardFix": {
+        "finding": "R2 timing was much better but final syllable clipped slightly at the end of the full sentence.",
+        "fix": "Added 320 ms apad tail guard after mastering while keeping end/tail trimming disabled.",
+        "regressionGate": "M5.6 filter includes apad=pad_dur=0.320 and does not contain stop_periods=",
+        "liveSmoke": {
+          "audioUrl": "/audio/dff8aa9d-e95a-4910-8419-962bae538516.wav",
+          "masteringEnabled": true,
+          "outputFormat": {
+            "codec": "pcm_s16le",
+            "sampleRate": 48000,
+            "channels": 1,
+            "bitRate": 768000
+          },
+          "frameCount": 3,
+          "masteredFrames": 3,
+          "firstMaster": "dff8aa9d-e95a-4910-8419-962bae538516-chunk-001.dsp.master.wav",
+          "finalDurationSeconds": 5.035
+        }
       }
     },
     "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m56-voice-body-mastering/M56_VOICE_BODY_POSTPROCESS_PASS.md",

@@ -206,3 +206,55 @@ Final playback WAV duration proof:
   "durationSeconds": 4.255
 }
 ```
+
+## R3 — tail guard for final syllable clipping
+
+Stick then confirmed sentence timing was much better but the last syllable still clipped slightly:
+
+> it replayed 99.8% of it and only clipped the last syllable from the entire sentence.
+
+Fix:
+
+- Add a conservative 320 ms `apad` tail guard after mastering.
+- Keep improved voice-body EQ/compression.
+- Keep end/tail trimming disabled.
+- Add regression assertion for `apad=pad_dur=0.320`.
+
+Validation:
+
+```text
+npm run check -> 82/82 PASS
+targeted tars-dsp-stream-duplex tests -> 8/8 PASS
+```
+
+Live smoke after refreshed server:
+
+```json
+{
+  "ok": true,
+  "audioUrl": "/audio/dff8aa9d-e95a-4910-8419-962bae538516.wav",
+  "masteringEnabled": true,
+  "outputFormat": {
+    "codec": "pcm_s16le",
+    "sampleRate": 48000,
+    "channels": 1,
+    "bitRate": 768000
+  },
+  "frameCount": 3,
+  "masteredFrames": 3,
+  "firstMaster": "dff8aa9d-e95a-4910-8419-962bae538516-chunk-001.dsp.master.wav"
+}
+```
+
+Tail-guard final playback WAV duration proof:
+
+```json
+{
+  "file": "dff8aa9d-e95a-4910-8419-962bae538516.wav",
+  "codec": "pcm_s16le",
+  "sampleRate": 48000,
+  "channels": 1,
+  "bitRate": 768000,
+  "durationSeconds": 5.035
+}
+```

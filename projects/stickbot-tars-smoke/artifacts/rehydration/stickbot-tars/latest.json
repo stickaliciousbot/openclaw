@@ -1,0 +1,2269 @@
+{
+  "generatedAt": "2026-07-03T04:35:54.312Z",
+  "script": "projects/stickbot-tars-smoke/scripts/stickbot-tars-rehydrate.mjs",
+  "mode": "offline-deterministic",
+  "project": {
+    "name": "Stickbot-TARS local voice smoke",
+    "thesis": "A local-only TARS-like voice/audio stack for Stickbot: browser text+mic UI, local whisper.cpp STT, local XTTS voice generation, deterministic prosody/chunking, DSP/mastering, streaming-frame playback, and barge-in control without mutating OpenClaw production routing.",
+    "repoRoot": "projects/stickbot-tars-smoke",
+    "runtime": {
+      "projectRoot": "projects/stickbot-tars-smoke",
+      "runtimeRoot": "/home/stickai/stickbot-voice",
+      "branch": "feature/stickbot-tars-m25-hardening-repair",
+      "remote": "https://github.com/stickaliciousbot/webworkspace.git",
+      "lanUrl": "https://192.168.1.107:19890/",
+      "loopbackUrl": "https://127.0.0.1:19890/",
+      "xttsUrl": "http://127.0.0.1:8020",
+      "reservedPort": 8787,
+      "windowsLanIp": "192.168.1.107",
+      "wslIp": "172.24.168.46",
+      "httpsCertDir": "/home/stickai/stickbot-voice/certs/m7d-https",
+      "whisperBin": "/home/stickai/stickbot-voice/tools/whisper.cpp/v1.9.1-ubuntu-x64/extract/whisper-bin-ubuntu-x64/whisper-cli",
+      "whisperModel": "/home/stickai/stickbot-voice/stt_models/whisper.cpp/ggml-small.en.bin",
+      "ffmpegBin": "/home/stickai/stickbot-voice/tools/ffmpeg-static/johnvansickle-ffmpeg-release-amd64-static/extract/ffmpeg",
+      "ffprobeBin": "/home/stickai/stickbot-voice/tools/ffmpeg-static/johnvansickle-ffmpeg-release-amd64-static/extract/ffprobe",
+      "tarsModelPath": "/home/stickai/stickbot-voice/xtts_models/tars",
+      "referenceWav": "/home/stickai/stickbot-voice/speakers/reference.wav",
+      "tarsModel": {
+        "hfRepo": "Pyrater/TARS",
+        "revision": "7a1517d76eb0db89828b1c812682fa75125e5de7",
+        "status": "private-demo-only until rights/branding review"
+      }
+    },
+    "current": {
+      "latestClassification": "STICKBOT_TARS_M56_VOICE_BODY_POSTPROCESS_PASS_R3_TAIL_GUARD_PENDING_COMMIT",
+      "lastPushedMilestone": "STICKBOT_TARS_M56_VOICE_BODY_POSTPROCESS_PASS_R2_END_TRIM_FIX",
+      "liveBrowserMilestone": "STICKBOT_TARS_M7P_LIVE_BROWSER_STREAMING_BARGEIN_PASS",
+      "nextRecommendedMilestones": [
+        "M56_LIVE_AB_CONFIRM_TAIL_GUARD",
+        "M7Q_TRUE_PARTIAL_LOCAL_STT_LOOP",
+        "M7R_LOW_LATENCY_STREAMING_TRANSPORT",
+        "M7S_LIVE_BARGE_IN_WITH_REAL_SPEECH"
+      ],
+      "latestKnownLiveSmoke": {
+        "masteringEnabled": true,
+        "outputFormat": {
+          "codec": "pcm_s16le",
+          "sampleRate": 48000,
+          "channels": 1,
+          "bitRate": 768000
+        },
+        "masteredFrames": 3,
+        "finalDurationSecondsBeforeTailGuard": 4.255,
+        "finalDurationSecondsAfterTailGuardSmoke": 5.035
+      }
+    }
+  },
+  "guardrails": [
+    "Do not mutate OpenClaw Gateway config, production routing/default/fallbacks, NOA, Android, or provider settings for this project unless Stick explicitly authorizes it.",
+    "Do not use port 8787; it is reserved for NOA bridge work.",
+    "Do not use cloud STT by default and do not use browser Web Speech API.",
+    "Do not durably store raw mic transcripts; public/controller summaries use hashes/counts where possible.",
+    "Do not store runtime/model/audio/venv/cache artifacts under /mnt/c paths.",
+    "Do not commit generated audio, model files, venvs, caches, private keys, cert private keys, or runtime output directories.",
+    "Canonical assistant text is authoritative; prosody, DSP, mastering, mood, and audio polish must not rewrite response text.",
+    "TARS voice/branding remains private-demo-only until rights/branding review."
+  ],
+  "resumeCommands": {
+    "rehydrate": "npm run rehydrate:tars",
+    "rehydrateWithGitStatus": "npm run rehydrate:tars -- --status",
+    "check": "npm run check",
+    "startXtts": "npm run m7e:xtts:start",
+    "startHttpsLanDemo": "HOST=0.0.0.0 PORT=19890 VOICE_DEMO_ALLOW_LAN=true VOICE_DEMO_HTTPS=true VOICE_DEMO_HTTPS_KEY=/home/stickai/stickbot-voice/certs/m7d-https/stickbot-tars-m7d-server.key.pem VOICE_DEMO_HTTPS_CERT=/home/stickai/stickbot-voice/certs/m7d-https/stickbot-tars-m7d-server.cert.pem LOG_DIR=/tmp/tars-live-demo bash scripts/m7d-local-real-mic-demo.sh",
+    "healthChecks": [
+      "curl -k -fsS https://127.0.0.1:19890/health",
+      "curl -k -fsS https://192.168.1.107:19890/health",
+      "curl -fsS http://127.0.0.1:8020/ready"
+    ],
+    "liveBrowserUrl": "https://192.168.1.107:19890/"
+  },
+  "milestones": {
+    "proven": [
+      "M3 model acquired/provenance recorded, no load",
+      "M4 sandboxed XTTS local load",
+      "M5 local serverization node voice pass",
+      "M6 OpenClaw adapter fixture voice pass",
+      "M7D HTTPS LAN real mic STT + echo pass",
+      "M7E audible HTTPS LAN TARS voice output pass",
+      "M7F prosody kernel local check pass",
+      "M7G tuning console + JSON/matrix controls + audible XTTS slider mapping pass",
+      "M7H/M55 prosody score engine pass",
+      "M7I chunk conductor local pass",
+      "M7J/K/L DSP + streaming frame + duplex controller local pass",
+      "M7M/N/O streaming playback hooks + partial ingress + barge-in local pass",
+      "M7P live browser streaming + barge-in pass",
+      "M5.6 voice body/mastering postprocess pass with R2 tail-trim fix and R3 tail guard pending subjective confirmation"
+    ],
+    "next": [
+      "M56_LIVE_AB_CONFIRM_TAIL_GUARD",
+      "M7Q_TRUE_PARTIAL_LOCAL_STT_LOOP",
+      "M7R_LOW_LATENCY_STREAMING_TRANSPORT",
+      "M7S_LIVE_BARGE_IN_WITH_REAL_SPEECH"
+    ]
+  },
+  "liveReadiness": {
+    "status": "M56_R2_VALIDATED_TAIL_GUARD_IN_PROGRESS",
+    "url": "https://192.168.1.107:19890/",
+    "needsHumanEar": "Confirm M5.6 R3 tail guard fixes final-syllable clipping while preserving the improved voice body and avoiding mud."
+  },
+  "statusJson": {
+    "schema": "stickbot.tars.milestone.status.v1",
+    "generatedUtc": "2026-07-02T12:22:00Z",
+    "branch": "feature/stickbot-tars-m25-hardening-repair",
+    "headBeforeM25Repair": "143fa869ac1969dc0766eaa0bcb9a7be9da45e79",
+    "m25RepairCommit": "5c29204016bebd11da4ffa6dc20bb99aba9676a4",
+    "m3Commit": "0fa3b732e70d403a4b0597c225a41d2f6043e452",
+    "m25": {
+      "previousClassification": "STICKBOT_TARS_M25_HARDENING_CLOSEOUT_BLOCKED_FAIL_CLOSED",
+      "refinedAuditClassification": "STICKBOT_TARS_REFINED_REPO_AUDIT_READONLY_COMPLETE_READY_FOR_REPAIR_PLAN",
+      "finalClassification": "STICKBOT_TARS_M25_HARDENING_CLOSEOUT_PASS_READY_FOR_M3",
+      "blockerGates": {
+        "configFailClosedImplemented": true,
+        "unsafeLanRefusesStartup": true,
+        "uuidOnlyAudioRoute": true,
+        "separateAudioLimitExists": true,
+        "originHostCsrfChecksExist": true
+      },
+      "validation": {
+        "npmRunCheck": "PASS",
+        "blockerTests": {
+          "status": "PASS",
+          "passed": 19,
+          "failed": 0
+        },
+        "unsafeStartupTests": "PASS",
+        "localEchoSmoke": {
+          "status": "PASS",
+          "port": 19888,
+          "host": "127.0.0.1",
+          "mode": "echo",
+          "note": "Earlier smoke attempt on 18789 hit a different service and failed with 404; guarded rerun on 19888 verified TARS health shape and passed."
+        },
+        "gitDiffCheck": "PASS",
+        "noMntCInRuntimeRepairFiles": "PASS",
+        "productionSentinelReadback": "PASS"
+      }
+    },
+    "m3": {
+      "finalClassification": "STICKBOT_TARS_M3_MODEL_ACQUIRED_HASHED_PROVENANCE_RECORDED_NO_LOAD_PASS",
+      "modelName": "Pyrater/TARS",
+      "source": "Hugging Face",
+      "sourceUrl": "https://huggingface.co/Pyrater/TARS",
+      "revision": "7a1517d76eb0db89828b1c812682fa75125e5de7",
+      "downloadedAt": "2026-07-02T07:41:45.596Z",
+      "manifest": "projects/stickbot-tars-smoke/docs/m3-model-provenance/tars-model-provenance-manifest.json",
+      "sha256List": "projects/stickbot-tars-smoke/docs/m3-model-provenance/sha256sum.txt",
+      "closeout": "projects/stickbot-tars-smoke/docs/m3-model-provenance/M3_MODEL_ACQUIRED_HASHED_PROVENANCE_RECORDED_NO_LOAD.md",
+      "runtimeRoot": "/home/stickai/stickbot-voice",
+      "modelRoot": "/home/stickai/stickbot-voice/xtts_models/tars",
+      "speakerRoot": "/home/stickai/stickbot-voice/speakers",
+      "outputRoot": "/home/stickai/stickbot-voice/output",
+      "pathPolicy": {
+        "wslNative": true,
+        "notUnderMntC": true,
+        "noHybridWindowsWslPath": true
+      },
+      "files": {
+        "config.json": {
+          "sha256": "7187e9fb84193c2780769227ba07eeb1b74b474a52cd5f9d537964a566a8dc90",
+          "bytes": 4355
+        },
+        "vocab.json": {
+          "sha256": "df6f3454c184d2d01c5461ac82087da2eacff6aaafc9fdf65b8264550d5cb779",
+          "bytes": 335171
+        },
+        "model.pth": {
+          "sha256": "fbcbdae803777b0dea5c02b6309786b8dc06fde0120de8df4159151a11b51688",
+          "bytes": 1863948438
+        },
+        "speakers_xtts.pth": {
+          "sha256": "f0f6137c19a4eab0cbbe4c99b5babacf68b1746e50da90807708c10e645b943b",
+          "bytes": 7754818
+        },
+        "reference.wav": {
+          "sha256": "b2935696d607156e251852efb6d977507c997ee215762e401c71b587253f6cfb",
+          "bytes": 986156
+        }
+      },
+      "license": {
+        "name": "MIT",
+        "commercialUseAllowedByDeclaredLicense": true,
+        "privateDemoOnlyUntilVoiceRightsReview": true
+      },
+      "expectedSizeGate": {
+        "allExpectedFilesPresent": true,
+        "modelPthBytesAtLeastOneGb": true,
+        "referenceWavNonEmpty": true,
+        "noModelLoad": true
+      }
+    },
+    "m4": {
+      "finalClassification": "STICKBOT_TARS_M4_SANDBOXED_XTTS_LOCAL_LOAD_PASS_READY_FOR_M5_PLANNING_ONLY",
+      "approvalId": "76573901-c5d3-490a-b475-cdc8c86c6ba2",
+      "session": "good-lobster",
+      "exitCode": 0,
+      "result": "projects/stickbot-tars-smoke/docs/m4-sandboxed-load/result.json",
+      "closeout": "projects/stickbot-tars-smoke/docs/m4-sandboxed-load/M4_SANDBOXED_XTTS_LOCAL_LOAD_PASS.md",
+      "evidenceManifest": "projects/stickbot-tars-smoke/docs/m4-sandboxed-load/evidence_manifest.json",
+      "modelLoaded": true,
+      "wavGenerated": true,
+      "startedAt": "2026-07-02T08:24:37Z",
+      "finishedAt": "2026-07-02T08:30:46Z",
+      "runtime": {
+        "venv": "/home/stickai/stickbot-voice/venv-coqui",
+        "coquiTtsVersion": "0.27.5",
+        "torchVersion": "2.8.0+cpu",
+        "torchaudioVersion": "2.8.0+cpu",
+        "transformersVersion": "4.57.6",
+        "cudaAvailable": false
+      },
+      "generatedAudio": {
+        "hostPath": "/home/stickai/stickbot-voice/output/m4-first-generation.wav",
+        "sandboxPath": "/tmp/tars-m4-boundary/output/m4-first-generation.wav",
+        "bytes": 95788,
+        "sampleRate": 24000,
+        "sha256": "9a1f332a74f2625c4f18e246b738eee29aede9c89362b5a407e6033b7135fc84",
+        "fileType": "RIFF WAVE audio, Microsoft PCM, 16 bit, mono 24000 Hz",
+        "commitPolicy": "excluded_from_git"
+      },
+      "boundary": {
+        "mechanism": "unshare -Urnm",
+        "networkBlockedOrUnavailable": true,
+        "modelReadOnly": true,
+        "speakerReadOnly": true,
+        "outputWritable": true,
+        "hiddenSecretDirs": [
+          "/home/stickai/.openclaw",
+          "/home/stickai/.ssh",
+          "/home/stickai/.codex",
+          "/home/stickai/.config"
+        ]
+      },
+      "serverStarted": false,
+      "lanExposed": false,
+      "port8787Touched": false,
+      "nextMilestone": "M5_LOCAL_SERVERIZATION_APPROVED_AND_COMPLETED"
+    },
+    "m5": {
+      "finalClassification": "STICKBOT_TARS_M5_LOCAL_SERVERIZATION_NODE_VOICE_PASS_READY_FOR_M6_PLANNING_ONLY",
+      "approvalId": "655a4a74-5e73-4c3c-94ab-2b36b3ebda8c",
+      "session": "vivid-cove",
+      "exitCode": 0,
+      "result": "projects/stickbot-tars-smoke/docs/m5-local-serverization/result.json",
+      "nodeVoiceSmoke": "projects/stickbot-tars-smoke/docs/m5-local-serverization/node-voice-smoke.json",
+      "xttsReady": "projects/stickbot-tars-smoke/docs/m5-local-serverization/xtts-ready.json",
+      "closeout": "projects/stickbot-tars-smoke/docs/m5-local-serverization/M5_LOCAL_SERVERIZATION_NODE_VOICE_PASS.md",
+      "evidenceManifest": "projects/stickbot-tars-smoke/docs/m5-local-serverization/evidence_manifest.json",
+      "implementationPlan": "projects/stickbot-tars-smoke/docs/m5-local-serverization/M5_LOCAL_SERVERIZATION_IMPLEMENTATION_PLAN.md",
+      "staticValidation": {
+        "r1": {
+          "approvalId": "0e9bda9a-504b-4dd2-b007-bd2393770ed4",
+          "session": "calm-ocean",
+          "marker": "STICKBOT_TARS_M5_STATIC_CHECK_PASS",
+          "testsPassed": 19,
+          "testsFailed": 0
+        },
+        "r2": {
+          "approvalId": "f9412916-6e17-4bbc-b5b4-0f07c7053fec",
+          "session": "sharp-crest",
+          "marker": "STICKBOT_TARS_M5_R2_STATIC_CHECK_PASS",
+          "testsPassed": 19,
+          "testsFailed": 0
+        }
+      },
+      "r1Repair": {
+        "approvalId": "b01b48c0-9d38-4334-92f6-95d337437cfd",
+        "session": "dawn-ember",
+        "classification": "STICKBOT_TARS_M5_R1_SAFE_FAILURE_LOOPBACK_DOWN",
+        "rootCause": "loopback was down inside the private unshare network namespace, so the XTTS server listened but /ready could not connect",
+        "repair": "bring loopback up inside namespace and make cleanup tolerate unset process ids"
+      },
+      "serverization": {
+        "xttsServerReady": true,
+        "nodeEchoVoicePass": true,
+        "openclawMode": "echo",
+        "host": "127.0.0.1",
+        "nodePort": 18788,
+        "xttsPort": 18020,
+        "persistentServiceInstalled": false,
+        "lanOrTailscaleExposed": false
+      },
+      "nodeTurn": {
+        "status": 200,
+        "turnId": "41712ff0-d842-4e12-9228-5fe33536f2a2",
+        "text": "Echo smoke response: M5 local voice echo smoke",
+        "audioUrl": "/audio/41712ff0-d842-4e12-9228-5fe33536f2a2.wav",
+        "audioError": null,
+        "dailyWritten": true,
+        "eventWritten": true
+      },
+      "generatedAudio": {
+        "sandboxPath": "/tmp/tars-m5-boundary/app/data/audio/output/41712ff0-d842-4e12-9228-5fe33536f2a2.wav",
+        "bytes": 142380,
+        "sampleRate": 24000,
+        "sha256": "1daf103c5e9de8dbeef2a373638b843ff8e01429b415c6ae279853c9908712ec",
+        "fileType": "RIFF WAVE audio, Microsoft PCM, 16 bit, mono 24000 Hz",
+        "commitPolicy": "excluded_from_git"
+      },
+      "boundary": {
+        "mechanism": "unshare -Urnm",
+        "loopbackEnabledInsideNamespace": true,
+        "networkBlockedOrUnavailable": true,
+        "modelReadOnly": true,
+        "speakerReadOnly": true,
+        "secretDirsHidden": true,
+        "nodeWorkspace": "/tmp/tars-m5-boundary/workspace"
+      },
+      "nextMilestone": "M6_OPENCLAW_ADAPTER_APPROVED_AND_COMPLETED",
+      "futureLanTailscaleUserTesting": "NOT_STARTED_REQUIRES_SEPARATE_APPROVAL"
+    },
+    "m6": {
+      "finalClassification": "STICKBOT_TARS_M6_OPENCLAW_ADAPTER_FIXTURE_VOICE_PASS_READY_FOR_M7_PLANNING_ONLY",
+      "approvalId": "9932f947-07b8-4d46-b5ef-46dddbf90485",
+      "session": "fresh-daisy",
+      "exitCode": 0,
+      "result": "projects/stickbot-tars-smoke/docs/m6-openclaw-adapter/result.json",
+      "nodeOpenClawVoiceSmoke": "projects/stickbot-tars-smoke/docs/m6-openclaw-adapter/node-openclaw-voice-smoke.json",
+      "xttsReady": "projects/stickbot-tars-smoke/docs/m6-openclaw-adapter/xtts-ready.json",
+      "closeout": "projects/stickbot-tars-smoke/docs/m6-openclaw-adapter/M6_OPENCLAW_ADAPTER_FIXTURE_VOICE_PASS.md",
+      "evidenceManifest": "projects/stickbot-tars-smoke/docs/m6-openclaw-adapter/evidence_manifest.json",
+      "implementationPlan": "projects/stickbot-tars-smoke/docs/m6-openclaw-adapter/M6_OPENCLAW_ADAPTER_IMPLEMENTATION_PLAN.md",
+      "staticValidation": {
+        "approvalId": "718a054e-a122-44e9-8dd9-624e65fc79d3",
+        "session": "glow-ocean",
+        "marker": "STICKBOT_TARS_M6_STATIC_CHECK_PASS",
+        "testsPassed": 27,
+        "testsFailed": 0
+      },
+      "adapter": {
+        "mode": "infer",
+        "surface": "openclaw infer model run --prompt {prompt} --json",
+        "fixtureOpenClawCli": true,
+        "liveProviderCalled": false,
+        "gatewayCalled": false,
+        "spawnShell": false,
+        "promptPlaceholderRequired": true,
+        "stdoutStderrBounded": true,
+        "timeoutMsConfigured": true
+      },
+      "nodeTurn": {
+        "status": 200,
+        "turnId": "f640fa4b-115d-4063-9ea8-511d998d1592",
+        "text": "OpenClaw adapter fixture response: M6 OpenClaw adapter fixture voice smoke",
+        "audioUrl": "/audio/f640fa4b-115d-4063-9ea8-511d998d1592.wav",
+        "audioError": null,
+        "dailyWritten": true,
+        "eventWritten": true
+      },
+      "generatedAudio": {
+        "sandboxPath": "/tmp/tars-m6-boundary/app/data/audio/output/f640fa4b-115d-4063-9ea8-511d998d1592.wav",
+        "bytes": 111148,
+        "sampleRate": 24000,
+        "sha256": "fc7da588940bbe2238dcc91b9dc5156d36cbcaafcc49bbf606ebbdc3427ce5d0",
+        "fileType": "RIFF WAVE audio, Microsoft PCM, 16 bit, mono 24000 Hz",
+        "commitPolicy": "excluded_from_git"
+      },
+      "boundary": {
+        "mechanism": "unshare -Urnm",
+        "loopbackEnabledInsideNamespace": true,
+        "networkBlockedOrUnavailable": true,
+        "modelReadOnly": true,
+        "speakerReadOnly": true,
+        "secretDirsHidden": true,
+        "nodeWorkspace": "/tmp/tars-m6-boundary/workspace"
+      },
+      "nextMilestone": "M7_LOCAL_STT_FIXTURE_CONTRACT_APPROVED_AND_COMPLETED",
+      "liveProviderGatewaySmoke": "NOT_STARTED_REQUIRES_SEPARATE_APPROVAL",
+      "futureLanTailscaleUserTesting": "NOT_STARTED_REQUIRES_SEPARATE_APPROVAL"
+    },
+    "m7": {
+      "finalClassification": "STICKBOT_TARS_M7_LOCAL_STT_FIXTURE_CONTRACT_PASS_REAL_ENGINE_BLOCKED_READY_FOR_STT_ENGINE_ACQUISITION",
+      "discovery": {
+        "approvalId": "21ac704a-c2b9-4a12-af9e-2a7af8cf9303",
+        "session": "young-crustacean",
+        "marker": "STICKBOT_TARS_M7_LOCAL_STT_DISCOVERY_COMPLETE",
+        "ffmpegAvailable": false,
+        "ffprobeAvailable": false,
+        "whisperCliAvailable": false,
+        "whisperCppAvailable": false,
+        "fasterWhisperAvailable": false,
+        "localSttModelsFound": false,
+        "classification": "REAL_STT_ENGINE_BLOCKED_MISSING_LOCAL_ENGINE_MODEL_AND_FFMPEG"
+      },
+      "staticValidation": {
+        "approvalId": "0e287a97-bbd6-4e0a-b107-f7abd8313b8a",
+        "session": "salty-atlas",
+        "marker": "STICKBOT_TARS_M7_STATIC_CHECK_PASS",
+        "testsPassed": 34,
+        "testsFailed": 0
+      },
+      "fixtureSmoke": {
+        "approvalId": "3291be75-7ba2-4869-87bb-92b91d978264",
+        "session": "quick-reef",
+        "marker": "STICKBOT_TARS_M7_SANDBOXED_STT_FIXTURE_SMOKE_COMMAND_PASS",
+        "result": "projects/stickbot-tars-smoke/docs/m7-local-stt/result.json",
+        "nodeResponse": "projects/stickbot-tars-smoke/docs/m7-local-stt/stt-fixture-smoke.json",
+        "classification": "STICKBOT_TARS_M7_LOCAL_STT_FIXTURE_CONTRACT_PASS_REAL_ENGINE_BLOCKED",
+        "sttMode": "fixture",
+        "transcript": "M7 fixture transcript",
+        "nodeStatus": 200,
+        "cloudSpeechApiCalled": false,
+        "browserWebSpeechApi": false
+      },
+      "capturedAudio": {
+        "sandboxPath": "/tmp/tars-m7-boundary/app/data/audio/input/2812d254-740c-455c-a65f-cdf88521a57d-input.bin",
+        "bytes": 3244,
+        "sampleRate": 16000,
+        "sha256": "2976da01e205a110c9fa41d47659e238a5c6d3c3f3137582f2949853faa201dd",
+        "fileType": "RIFF WAVE audio, Microsoft PCM, 16 bit, mono 16000 Hz",
+        "commitPolicy": "excluded_from_git"
+      },
+      "boundary": {
+        "mechanism": "unshare -Urnm",
+        "loopbackEnabledInsideNamespace": true,
+        "networkBlockedOrUnavailable": true,
+        "secretDirsHidden": true,
+        "nodeWorkspace": "/tmp/tars-m7-boundary/workspace"
+      },
+      "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/M7_LOCAL_STT_FIXTURE_CONTRACT_PASS.md",
+      "evidenceManifest": "projects/stickbot-tars-smoke/docs/m7-local-stt/evidence_manifest.json",
+      "implementationPlan": "projects/stickbot-tars-smoke/docs/m7-local-stt/M7_LOCAL_STT_IMPLEMENTATION_PLAN.md",
+      "nextMilestone": "M7A_LOCAL_AUDIO_NORMALIZATION_APPROVED_AND_COMPLETED"
+    },
+    "m7a": {
+      "finalClassification": "STICKBOT_TARS_M7A_LOCAL_AUDIO_NORMALIZATION_PROVENANCE_PASS",
+      "preflight": {
+        "approvalId": "4e509d14-9671-4514-8882-d97a02c9a3a6",
+        "session": "nova-ocean",
+        "marker": "STICKBOT_TARS_M7A_FFMPEG_PREFLIGHT_COMPLETE",
+        "ffmpegAvailableBeforeAcquisition": false,
+        "ffprobeAvailableBeforeAcquisition": false,
+        "aptPackageInstalledBeforeAcquisition": false
+      },
+      "staticValidation": {
+        "session": "faint-basil",
+        "testsPassed": 39,
+        "testsFailed": 0,
+        "note": "first bundle stopped at sudo TTY requirement after tests passed; no apt install performed"
+      },
+      "source": {
+        "kind": "static-binary-fallback",
+        "provider": "John Van Sickle FFmpeg Static Builds",
+        "releaseUrl": "https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz",
+        "licensePosture": "GPLv3 static build; private/dev validation only, not future distributable default",
+        "downloadPath": "/home/stickai/stickbot-voice/tools/ffmpeg-static/downloads/ffmpeg-release-amd64-static.tar.xz",
+        "downloadSha256": "abda8d77ce8309141f83ab8edf0596834087c52467f6badf376a6a2a4c87cf67",
+        "upstreamMd5": "7fa72b652e19bf84c9461e332ea1cdf3",
+        "md5Check": "PASS"
+      },
+      "binaries": {
+        "ffmpeg": {
+          "path": "/home/stickai/stickbot-voice/tools/ffmpeg-static/johnvansickle-ffmpeg-release-amd64-static/extract/ffmpeg",
+          "sha256": "e7e7fb30477f717e6f55f9180a70386c62677ef8a4d4d1a5d948f4098aa3eb99",
+          "version": "7.0.2-static"
+        },
+        "ffprobe": {
+          "path": "/home/stickai/stickbot-voice/tools/ffmpeg-static/johnvansickle-ffmpeg-release-amd64-static/extract/ffprobe",
+          "sha256": "4f231a1960d83e403d08f7971e271707bec278a9ae18e21b8b5b03186668450d",
+          "version": "7.0.2-static"
+        }
+      },
+      "smoke": {
+        "approvalId": "02aed404-7c9e-417b-b309-13de64bde293",
+        "session": "glow-valley",
+        "marker": "STICKBOT_TARS_M7A_STATIC_FFMPEG_ACQUIRE_AND_NORMALIZE_PASS",
+        "result": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7a-audio-normalization/result.json",
+        "classification": "STICKBOT_TARS_M7A_LOCAL_AUDIO_NORMALIZATION_PROVENANCE_PASS",
+        "inputSha256": "b2504afa2c2ab1c7fd7291c75343c3161322948b7cddda0f7605a751453aedd5",
+        "normalizedSha256": "38e3b264d99a035f168d6913520d2541a943c6a931e3f896882daf756b66fb7f",
+        "normalizedBytes": 32078,
+        "normalizedProbe": {
+          "codec_name": "pcm_s16le",
+          "sample_rate": "16000",
+          "channels": 1
+        },
+        "networkBlockedOrUnavailable": true,
+        "secretDirsHidden": true,
+        "cloudSpeechApiCalled": false,
+        "browserWebSpeechApi": false,
+        "openClawMutation": false
+      },
+      "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7a-audio-normalization/M7A_LOCAL_AUDIO_NORMALIZATION_PROVENANCE_PASS.md",
+      "evidenceManifest": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7a-audio-normalization/evidence_manifest.json",
+      "nextMilestone": "M7B_WHISPERCPP_LOCAL_STT_FIXTURE_APPROVED_AND_COMPLETED"
+    },
+    "m7b": {
+      "finalClassification": "STICKBOT_TARS_M7B_WHISPERCPP_LOCAL_STT_FIXTURE_PASS",
+      "preflight": {
+        "approvalId": "540f891f-aff6-4ff9-8dc9-88e9c91131f7",
+        "session": "swift-slug",
+        "marker": "STICKBOT_TARS_M7B_WHISPERCPP_PREFLIGHT_COMPLETE",
+        "cmakeAvailable": false,
+        "makeAvailable": true,
+        "gccAvailable": true,
+        "existingWhisperToolsFound": false,
+        "existingWhisperModelsFound": false
+      },
+      "source": {
+        "engine": "whisper.cpp",
+        "tag": "v1.9.1",
+        "commit": "f049fff95a089aa9969deb009cdd4892b3e74916",
+        "asset": "whisper-bin-ubuntu-x64.tar.gz",
+        "assetUrl": "https://github.com/ggml-org/whisper.cpp/releases/download/v1.9.1/whisper-bin-ubuntu-x64.tar.gz",
+        "expectedAssetSha256": "f3bf3b4369a99b54665b0f19b88483b30de27f25963b0414235dea03198515c5",
+        "downloadedAssetSha256": "f3bf3b4369a99b54665b0f19b88483b30de27f25963b0414235dea03198515c5",
+        "binaryPath": "/home/stickai/stickbot-voice/tools/whisper.cpp/v1.9.1-ubuntu-x64/extract/whisper-bin-ubuntu-x64/whisper-cli",
+        "binarySha256": "427dfb509f2c04d0f01c101978b5666102c6f7e3abf2a236452db5939f5b533a"
+      },
+      "model": {
+        "name": "ggml-base.en.bin",
+        "path": "/home/stickai/stickbot-voice/stt_models/whisper.cpp/ggml-base.en.bin",
+        "sha256": "a03779c86df3323075f5e796cb2ce5029f00ec8869eee3fdfb897afe36c6d002",
+        "bytes": 147964211,
+        "commitPolicy": "excluded_from_git"
+      },
+      "staticValidation": {
+        "approvalId": "73997222-455b-46d3-b2f4-1b5fc4042b02",
+        "session": "grand-pine",
+        "testsPassed": 39,
+        "testsFailed": 0
+      },
+      "repairs": [
+        "R1 selected deprecated main and failed closed with STT_EXIT_NONZERO; repaired to whisper-cli and main block",
+        "R2 transcribed locally but normalization was false because env value 1 parsed false; repaired to STT_NORMALIZE_AUDIO=true and normalizedLocal assertion"
+      ],
+      "smoke": {
+        "approvalId": "aecf89d6-537b-42f9-9076-72381acde0c6",
+        "session": "nova-bison",
+        "marker": "STICKBOT_TARS_M7B_WHISPERCPP_LOCAL_STT_SMOKE_PASS_R3",
+        "result": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7b-whispercpp-local-stt/result.json",
+        "classification": "STICKBOT_TARS_M7B_WHISPERCPP_LOCAL_STT_FIXTURE_PASS",
+        "nodeStatus": 200,
+        "sttMode": "cli",
+        "normalizedLocal": true,
+        "fixtureInputSha256": "9a1f332a74f2625c4f18e246b738eee29aede9c89362b5a407e6033b7135fc84",
+        "normalizedAudioSha256": "2cdd6e22cbf67805f03d275881955edfa7cd8deada3b818e7fff827010fab4ad",
+        "transcriptChars": 42,
+        "transcriptSha256": "3e1f84be507525854b4acd7d9074dd1c7c55478130609fab0d509f97b6420075",
+        "rawTranscriptPolicy": "trace_only_not_committed",
+        "networkRequiredDuringTranscription": false,
+        "networkBlockedOrUnavailable": true,
+        "secretDirsHidden": true,
+        "cloudSpeechApiCalled": false,
+        "browserWebSpeechApi": false,
+        "openClawMutation": false
+      },
+      "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7b-whispercpp-local-stt/M7B_WHISPERCPP_LOCAL_STT_FIXTURE_PASS.md",
+      "evidenceManifest": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7b-whispercpp-local-stt/evidence_manifest.json",
+      "implementationPlan": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7b-whispercpp-local-stt/M7B_WHISPERCPP_IMPLEMENTATION_PLAN.md",
+      "nextMilestone": "M7C_SMALL_EN_USABLE_DEMO_APPROVED_AND_COMPLETED"
+    },
+    "m7c": {
+      "finalClassification": "STICKBOT_TARS_M7C_SMALL_EN_USABLE_DEMO_PASS",
+      "approvalId": "655d2910-b2b9-42e5-834a-d05c23e9a508",
+      "session": "tide-mist",
+      "marker": "STICKBOT_TARS_M7C_SMALL_EN_USABLE_DEMO_SMOKE_PASS",
+      "staticValidation": {
+        "testsPassed": 39,
+        "testsFailed": 0
+      },
+      "source": {
+        "engine": "whisper.cpp",
+        "tag": "v1.9.1",
+        "binaryPath": "/home/stickai/stickbot-voice/tools/whisper.cpp/v1.9.1-ubuntu-x64/extract/whisper-bin-ubuntu-x64/whisper-cli",
+        "binarySha256": "427dfb509f2c04d0f01c101978b5666102c6f7e3abf2a236452db5939f5b533a"
+      },
+      "model": {
+        "name": "ggml-small.en.bin",
+        "path": "/home/stickai/stickbot-voice/stt_models/whisper.cpp/ggml-small.en.bin",
+        "sha256": "c6138d6d58ecc8322097e0f987c32f1be8bb0a18532a3f88f734d1bbf9c41e5d",
+        "bytes": 487614201,
+        "commitPolicy": "excluded_from_git"
+      },
+      "smoke": {
+        "result": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7c-small-en-usable-demo/result.json",
+        "classification": "STICKBOT_TARS_M7C_SMALL_EN_USABLE_DEMO_PASS",
+        "nodeStatus": 200,
+        "sttMode": "cli",
+        "normalizedLocal": true,
+        "fixtureInputSha256": "9a1f332a74f2625c4f18e246b738eee29aede9c89362b5a407e6033b7135fc84",
+        "normalizedAudioSha256": "2cdd6e22cbf67805f03d275881955edfa7cd8deada3b818e7fff827010fab4ad",
+        "transcriptChars": 45,
+        "transcriptSha256": "44b7adbb95a5d4d7129029ad17b4b2cc1bc3429e1b9057f3ad3640ef234a2fac",
+        "rawTranscriptPolicy": "trace_only_not_committed",
+        "networkRequiredDuringTranscription": false,
+        "networkBlockedOrUnavailable": true,
+        "secretDirsHidden": true,
+        "cloudSpeechApiCalled": false,
+        "browserWebSpeechApi": false,
+        "openClawMutation": false
+      },
+      "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7c-small-en-usable-demo/M7C_SMALL_EN_USABLE_DEMO_PASS.md",
+      "evidenceManifest": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7c-small-en-usable-demo/evidence_manifest.json",
+      "implementationPlan": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7c-small-en-usable-demo/M7C_SMALL_EN_USABLE_DEMO_IMPLEMENTATION_PLAN.md",
+      "nextMilestone": "M7D_REAL_MIC_LOCAL_DEMO_NOT_STARTED_REQUIRES_SEPARATE_APPROVAL"
+    },
+    "boundaries": {
+      "m3Started": true,
+      "m3Completed": true,
+      "m4Started": true,
+      "m4Completed": true,
+      "m5Started": true,
+      "m5Completed": true,
+      "m6Started": true,
+      "m6Completed": true,
+      "m7Started": true,
+      "m7Completed": true,
+      "m7aStarted": true,
+      "m7aCompleted": true,
+      "m7bStarted": true,
+      "m7bCompleted": true,
+      "m7cStarted": true,
+      "m7cCompleted": true,
+      "modelDownloaded": true,
+      "modelLoaded": true,
+      "xttsStarted": true,
+      "xttsPersistentServiceInstalled": false,
+      "sttTouched": true,
+      "sttFixtureOnly": true,
+      "realSttEngineAvailable": true,
+      "whisperCppAvailable": true,
+      "whisperCppModelAvailable": true,
+      "whisperCppSmallModelAvailable": true,
+      "rawTranscriptDurable": false,
+      "ffmpegAvailable": true,
+      "ffmpegStaticFallback": true,
+      "audioNormalizationAvailable": true,
+      "cloudSpeechApiCalled": false,
+      "browserWebSpeechApi": false,
+      "androidTouched": false,
+      "openClawProductionMutation": false,
+      "gatewayRestart": false,
+      "gatewayConfigMutation": false,
+      "noaTouched": false,
+      "lanOrTailscaleExposed": false,
+      "providerApiCalled": false,
+      "gatewayCalled": false,
+      "liveOpenClawProviderCalled": false
+    },
+    "productionReadback": {
+      "openclawJson": {
+        "path": "/home/stickai/.openclaw/openclaw.json",
+        "exists": true,
+        "mode": "600",
+        "bytes": 27481,
+        "mtime": "2026-07-02 11:20:40.560128383 +1000"
+      },
+      "restartSentinel": {
+        "path": "/home/stickai/.openclaw/restart-sentinel.json",
+        "exists": false
+      }
+    },
+    "excludedFromCommit": [
+      "/home/stickai/stickbot-voice/xtts_models/tars/config.json",
+      "/home/stickai/stickbot-voice/xtts_models/tars/vocab.json",
+      "/home/stickai/stickbot-voice/xtts_models/tars/model.pth",
+      "/home/stickai/stickbot-voice/xtts_models/tars/speakers_xtts.pth",
+      "/home/stickai/stickbot-voice/xtts_models/tars/reference.wav",
+      "/home/stickai/stickbot-voice/speakers/reference.wav",
+      "/home/stickai/stickbot-voice/output/m4-first-generation.wav",
+      "memory/context-bridge-events/*stickbot-tars*.json",
+      "memory/2026-07-02.md",
+      "projects/stickbot-tars-smoke/data/audio/**",
+      "projects/stickbot-tars-smoke/data/traces/**",
+      "projects/stickbot-tars-smoke/models/**",
+      "projects/stickbot-tars-smoke/xtts_models/**",
+      "projects/stickbot-tars-smoke/.venv/**",
+      "projects/stickbot-tars-smoke/venv/**",
+      "projects/stickbot-tars-smoke/node_modules/**",
+      "projects/stickbot-tars-smoke/cache/**"
+    ],
+    "m7d": {
+      "finalClassification": "STICKBOT_TARS_M7D_HTTPS_LAN_REAL_MIC_STT_ECHO_PASS_OPTIONAL_XTTS_OUTPUT_BLOCKED",
+      "server": {
+        "host": "0.0.0.0",
+        "port": 19890,
+        "liveNodePid": 571853,
+        "openclawMode": "echo"
+      },
+      "validation": {
+        "npmRunCheck": "PASS",
+        "testsPassed": 40,
+        "testsFailed": 0,
+        "health": "PASS",
+        "capabilities": {
+          "voiceEnabled": false,
+          "reason": "xtts_not_ready"
+        },
+        "lanOriginCsrfPost": "PASS",
+        "operatorLocalhostMicCapture": "PASS",
+        "operatorHttpsLanMicCapture": "PASS",
+        "operatorHttpsLanEchoSend": "PASS",
+        "operatorEchoSend": "PASS"
+      },
+      "boundaries": {
+        "browserWebSpeechApi": false,
+        "cloudSpeechApi": false,
+        "rawTranscriptDurable": false,
+        "openClawProductionMutation": false,
+        "gatewayRestart": false,
+        "gatewayConfigMutation": false,
+        "noaTouched": false,
+        "port8787Touched": false
+      },
+      "knownBlockers": {
+        "httpLanMicSecureOrigin": "HTTP_LAN_IP_NOT_TRUSTWORTHY_FOR_GETUSERMEDIA_SUPERSEDED_BY_HTTPS_LAN_PASS",
+        "optionalTarsVoiceOutput": "BLOCKED_XTTS_BACKEND_NOT_RUNNING",
+        "uxPolish": "TIMER_OR_PULSE_INDICATOR_RECOMMENDED_BEFORE_FINAL_USER_TESTING"
+      },
+      "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7d-real-mic-local-demo/M7D_HTTPS_LAN_REAL_MIC_STT_ECHO_PASS.md",
+      "priorLocalhostCloseout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7d-real-mic-local-demo/M7D_REAL_MIC_LOCALHOST_DEMO_PASS.md",
+      "loopbackLanNotebook": "projects/stickbot-tars-smoke/docs/LOOPBACK_LAN_EXPOSURE_NOTEBOOK.md"
+    },
+    "m7e": {
+      "finalClassification": "STICKBOT_TARS_M7E_HTTPS_LAN_TARS_VOICE_OUTPUT_PASS",
+      "approvalId": "15cc2145-71e1-4036-ad32-39b1866ebed1",
+      "session": "sharp-mist",
+      "validation": {
+        "npmRunCheck": "PASS",
+        "xttsReady": "PASS",
+        "frontendCapabilitiesVoiceEnabled": true,
+        "httpsLanSessionCsrf": "PASS",
+        "httpsLanChatVoice": "PASS",
+        "audioError": null
+      },
+      "xtts": {
+        "url": "http://127.0.0.1:8020",
+        "loopbackOnly": true,
+        "modelLoaded": true,
+        "modelLoadedAt": "2026-07-02T13:46:25Z"
+      },
+      "chat": {
+        "id": "5a18bf48-d136-4cac-9656-fe03ebac82e3",
+        "text": "Echo smoke response: M7E local TARS voice output smoke",
+        "audioUrl": "/audio/5a18bf48-d136-4cac-9656-fe03ebac82e3.wav",
+        "audioSha256": "2e8556b9bac193ce5efde9bbc5ba2553d52c7428473aee18dcb1c8eb568218f0",
+        "audioBytes": 73260,
+        "audioType": "RIFF WAVE audio, Microsoft PCM, 16 bit, mono 24000 Hz"
+      },
+      "boundaries": {
+        "browserWebSpeechApi": false,
+        "cloudSpeechApi": false,
+        "providerApiCalled": false,
+        "openClawProductionMutation": false,
+        "gatewayRestart": false,
+        "gatewayConfigMutation": false,
+        "noaTouched": false,
+        "port8787Touched": false,
+        "xttsLoopbackOnly": true,
+        "rawTranscriptDurable": false
+      },
+      "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7e-https-lan-xtts-voice-output/M7E_HTTPS_LAN_TARS_VOICE_OUTPUT_PASS.md"
+    },
+    "m7f": {
+      "classification": "STICKBOT_TARS_M7F_PROSODY_KERNEL_LOCAL_CHECK_PASS",
+      "approvedCommandId": "7ca280ac-99a1-4363-8a82-baedadfea7c1",
+      "session": "wild-kelp",
+      "scope": "voice_likeness_only_delivery_metadata_canonical_text_unchanged",
+      "validation": {
+        "npmRunCheck": "PASS",
+        "nodeTestsPassed": 46,
+        "nodeTestsFailed": 0,
+        "statusJsonParse": "PASS",
+        "terminalMarker": "STICKBOT_TARS_M7F_PROSODY_KERNEL_LOCAL_CHECK_PASS"
+      },
+      "referenceFindings": {
+        "tarsAiV3SentenceChunkStreaming": true,
+        "tarsAiV3RecommendedStt": "faster-whisper",
+        "tarsAiV3RecommendedTts": "piper",
+        "piperTarsOnnxConfig": {
+          "sampleRateHz": 22050,
+          "noiseScale": 0.667,
+          "lengthScale": 1,
+          "noiseW": 0.8
+        }
+      },
+      "modules": [
+        "src/voice/tars-prosody-profile.js",
+        "src/voice/tars-salience-annotator.js",
+        "src/voice/tars-sentence-chunker.js",
+        "src/voice/tars-prosody-kernel.js"
+      ],
+      "gates": [
+        "TARS_PROSODY_PROFILE_LOAD_PASS",
+        "TARS_SENTENCE_CHUNKING_PASS",
+        "TARS_STATUS_SALIENCE_PASS",
+        "TARS_NO_SECRET_SPEECH_PASS",
+        "TARS_CANONICAL_TEXT_UNCHANGED_PASS"
+      ],
+      "plan": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7f-prosody-kernel/M7F_PROSODY_KERNEL_IMPLEMENTATION_PLAN.md",
+      "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7f-prosody-kernel/M7F_PROSODY_KERNEL_LOCAL_CHECK_PASS.md",
+      "boundaries": {
+        "canonicalTextAuthoritative": true,
+        "textRewriteAllowed": false,
+        "deliveryMetadataOnly": true,
+        "openClawProductionMutation": false,
+        "gatewayConfigMutation": false,
+        "gatewayRestart": false,
+        "noaTouched": false,
+        "port8787Touched": false
+      }
+    },
+    "m7g": {
+      "classification": "STICKBOT_TARS_M7G_PROSODY_TUNING_CONSOLE_LOCAL_CHECK_PASS",
+      "latestRefinementClassification": "STICKBOT_TARS_M7G_R5_AUDIBLE_PROSODY_SLIDER_XTTS_PASS",
+      "scope": "local_prosody_tuning_console_delivery_metadata_canonical_text_unchanged",
+      "controls": {
+        "parameters": [
+          "pitch",
+          "timbre",
+          "speed",
+          "compression",
+          "verbalGait",
+          "verbosity",
+          "clip"
+        ],
+        "randomness": [
+          "global",
+          "threshold",
+          "pitch",
+          "timbre",
+          "speed",
+          "compression",
+          "verbalGait",
+          "verbosity",
+          "clip"
+        ],
+        "baselineActions": [
+          "apply",
+          "establishBaseline",
+          "restoreBaseline",
+          "resetToFactoryDefault"
+        ],
+        "moodMatrix": {
+          "schema": "stickbot-tars-prosody-tuning-matrix/v0.1-derived-local",
+          "source": "uploaded recommendation matrix treated as local reference data only",
+          "statePath": "projects/stickbot-tars-smoke/state/prosody-matrix.json",
+          "moodPresetCount": 13,
+          "defaultMood": "baseline_deadpan",
+          "jsonControls": [
+            "readActiveJson",
+            "uploadJson",
+            "resetDefaultJson"
+          ],
+          "jsonValueSliderWiring": [
+            "xttsParams",
+            "deliveryTiming"
+          ],
+          "currentSingleUtteranceXttsParamPassThrough": true,
+          "sheetMusicPlan": true,
+          "presetsInclude": [
+            "urgent_alert",
+            "fail_closed",
+            "confidential_low",
+            "skeptical_challenge",
+            "reassuring_calm",
+            "mission_brief",
+            "celebratory_green",
+            "curious_diagnostic",
+            "dry_wit",
+            "confused_recovering",
+            "playful_banter",
+            "baseline_deadpan",
+            "low_power_tired"
+          ]
+        }
+      },
+      "api": [
+        "GET /api/prosody",
+        "POST /api/prosody",
+        "POST /api/prosody/reset",
+        "POST /api/prosody/baseline",
+        "POST /api/prosody/restore-baseline",
+        "GET /api/prosody/matrix",
+        "POST /api/prosody/matrix",
+        "POST /api/prosody/matrix/reset"
+      ],
+      "statePath": "projects/stickbot-tars-smoke/state/prosody-tuning.json",
+      "validation": {
+        "npmRunCheck": "PASS",
+        "nodeTestsPassed": 58,
+        "nodeTestsFailed": 0,
+        "newGates": [
+          "TARS_PROSODY_TUNING_SCHEMA_PASS",
+          "TARS_PROSODY_TUNING_CLAMP_PASS",
+          "TARS_PROSODY_TUNING_CANONICAL_TEXT_UNCHANGED_PASS",
+          "TARS_PROSODY_TUNING_DELIVERY_DERIVATION_PASS",
+          "TARS_PROSODY_TUNING_AUDIBLE_XTTS_SLIDER_MAPPING_PASS",
+          "TARS_PROSODY_MATRIX_SCHEMA_PASS",
+          "TARS_PROSODY_MATRIX_XTTS_CLAMP_PASS",
+          "TARS_PROSODY_MATRIX_MOOD_DELIVERY_PASS",
+          "TARS_PROSODY_MATRIX_UNKNOWN_MOOD_FALLBACK_PASS",
+          "TARS_PROSODY_MATRIX_OVERRIDE_WIRING_PASS",
+          "TARS_PROSODY_MATRIX_JSON_IMPORT_PASS",
+          "TARS_PROSODY_SHEET_MUSIC_PASS"
+        ]
+      },
+      "liveValidation": {
+        "classification": "STICKBOT_TARS_M7G_R5_AUDIBLE_PROSODY_SLIDER_XTTS_PASS",
+        "url": "https://192.168.1.107:19890/",
+        "health": "PASS",
+        "capabilities": "PASS",
+        "matrixEndpoint": "PASS",
+        "servedHtmlControls": "PASS",
+        "servedJsMatrixControls": "PASS",
+        "servedUiCacheBust": "PASS_APP_JS_QUERY_M7G_R4_CSRF_RETRY",
+        "servedStaticCacheControl": "PASS_NO_STORE",
+        "audibleProsodySliderMapping": {
+          "status": "PASS",
+          "lowSliderVoiceXttsParams": {
+            "temperature": 0.59,
+            "topP": 0.8,
+            "topK": 35,
+            "repetitionPenalty": 9.14,
+            "lengthPenalty": 0.94,
+            "speed": 0.88
+          },
+          "highSliderVoiceXttsParams": {
+            "temperature": 0.9,
+            "topP": 0.95,
+            "topK": 80,
+            "repetitionPenalty": 12,
+            "lengthPenalty": 1.12,
+            "speed": 1.11
+          },
+          "paramsDiffer": true,
+          "lowAudioUrl": "/audio/460b747b-ab2b-41f4-ad91-5d9359153baf.wav",
+          "highAudioUrl": "/audio/ef7e3770-a6e2-423b-bdbd-1b20d302bd95.wav",
+          "audioErrors": [
+            null,
+            null
+          ]
+        },
+        "xttsServerParamConsumption": {
+          "status": "PASS",
+          "header": "{\"length_penalty\": 1.15, \"repetition_penalty\": 12.0, \"speed\": 1.12, \"temperature\": 0.9, \"top_k\": 80, \"top_p\": 0.95}",
+          "directAudioBytes": 109100,
+          "directAudioSha256": "9ec1f502e33c29f9713d75f4fae0c1a54473fbc8bbf953366558337e117f63cd"
+        },
+        "applyJsonSliderValues": {
+          "status": "PASS",
+          "moodId": "mission_brief",
+          "xttsParams": {
+            "temperature": 0.71,
+            "topP": 0.91,
+            "topK": 61,
+            "repetitionPenalty": 11.1,
+            "lengthPenalty": 1.1,
+            "speed": 1.08
+          },
+          "delivery": {
+            "maxCharsPerChunk": 124,
+            "sentencePauseMs": 400,
+            "commaPauseMs": 130,
+            "lineBreakPauseMs": 460
+          }
+        },
+        "chatVoiceProsodySheet": {
+          "status": "PASS",
+          "audioUrl": "/audio/cd8163c6-ffb1-4454-8661-3aac56b581b9.wav",
+          "audioError": null,
+          "observedMoodIds": [
+            "mission_brief"
+          ],
+          "observedXttsParams": {
+            "temperature": 0.71,
+            "topP": 0.91,
+            "topK": 61,
+            "repetitionPenalty": 11.1,
+            "lengthPenalty": 1.1,
+            "speed": 1.08
+          },
+          "observedMaxCharsPerChunk": 124,
+          "canonicalTextUnchanged": true
+        },
+        "csrfRetryRecovery": {
+          "status": "PASS",
+          "prosodyApplyFirstStatus": 403,
+          "prosodyApplyFirstClassification": "CSRF_REJECTED",
+          "prosodyApplyRetryStatus": 200,
+          "chatVoiceFirstStatus": 403,
+          "chatVoiceFirstClassification": "CSRF_REJECTED",
+          "chatVoiceRetryStatus": 200,
+          "chatVoiceRetryAudioError": null,
+          "chatVoiceRetryAudioUrl": "/audio/cd8163c6-ffb1-4454-8661-3aac56b581b9.wav"
+        },
+        "xttsPreserved": true,
+        "xttsUrl": "http://127.0.0.1:8020",
+        "demoBind": "0.0.0.0:19890",
+        "liveNodePid": 620626,
+        "liveXttsPid": 620654,
+        "gatewayRestart": false,
+        "noaTouched": false,
+        "port8787Touched": false,
+        "browserUiAutomation": "BLOCKED_NO_SUPPORTED_CHROMIUM_ON_HOST",
+        "note": "R5 verified generic prosody sliders now affect concrete XTTS params and patched XTTS server consumes those params. Browser tool could not run because no supported Chromium was installed on this host."
+      },
+      "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7g-prosody-tuning-console/M7G_PROSODY_TUNING_CONSOLE_LOCAL_CHECK_PASS.md",
+      "boundaries": {
+        "canonicalTextAuthoritative": true,
+        "textRewriteAllowed": false,
+        "deliveryMetadataOnly": true,
+        "openClawProductionMutation": false,
+        "gatewayConfigMutation": false,
+        "gatewayRestart": false,
+        "noaTouched": false,
+        "port8787Touched": false,
+        "cloudSpeechApiCalled": false,
+        "browserWebSpeechApi": false
+      },
+      "currentLimitation": "Dashboard can read/upload/reset the local JSON matrix, switch moods dynamically, expose and persist concrete JSON XTTS/delivery values, map generic prosody sliders into concrete XTTS params, pass active XTTS params to the current single-utterance local XTTS request, and precompute per-chunk prosody sheet metadata. XTTS still receives canonical text as one request in the current path; true pitch shifting, timbre shaping, chunk-by-chunk synthesis, mid-speech parameter changes, pause insertion, and FFmpeg audio post-processing remain M7H/M7I work."
+    },
+    "m7h": {
+      "classification": "STICKBOT_TARS_M55_PROSODY_SCORE_ENGINE_PASS",
+      "scope": "local_prosody_score_engine_base_effective_delta_phrase_role_xtts_envelope_canonical_text_unchanged",
+      "implementedModules": [
+        "src/prosody/mood-profile-loader.js",
+        "src/prosody/sentence-analyzer.js",
+        "src/prosody/phrase-role-classifier.js",
+        "src/prosody/chunk-planner.js",
+        "src/prosody/xtts-param-resolver.js",
+        "src/prosody/pause-score-resolver.js",
+        "src/prosody/prosody-score-engine.js",
+        "src/prosody/prosody-trace-writer.js"
+      ],
+      "validation": {
+        "npmRunCheck": "PASS",
+        "nodeTestsPassed": 66,
+        "nodeTestsFailed": 0,
+        "newGates": [
+          "STICKBOT_TARS_M55_MOOD_BASE_XTTS_VALUES_CHANGE_PASS",
+          "STICKBOT_TARS_M55_BLOCKER_PHRASE_SCORE_APPLIED_PASS",
+          "STICKBOT_TARS_M55_DRY_ASIDE_PAUSE_AND_EXPRESSIVENESS_PASS",
+          "STICKBOT_TARS_M55_URGENT_STOP_CLIPPED_TIMING_PASS",
+          "STICKBOT_TARS_M55_VALUES_CLAMP_WITHIN_IDENTITY_SAFE_BOUNDS_PASS",
+          "STICKBOT_TARS_M55_UI_DATA_MODEL_BASE_EFFECTIVE_DELTA_SEPARATED_PASS",
+          "STICKBOT_TARS_M55_TARS_AND_CASE_SAME_TEXT_RESOLVE_DIFFERENTLY_PASS"
+        ]
+      },
+      "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7h-prosody-score-engine/M7H_M55_PROSODY_SCORE_ENGINE_PASS.md",
+      "boundaries": {
+        "canonicalTextAuthoritative": true,
+        "textRewriteAllowed": false,
+        "localOnly": true,
+        "openClawProductionMutation": false,
+        "gatewayConfigMutation": false,
+        "gatewayRestart": false,
+        "noaTouched": false,
+        "port8787Touched": false,
+        "cloudSpeechApiCalled": false,
+        "browserWebSpeechApi": false,
+        "lanExposureChanged": false,
+        "xttsRuntimeIsolationChanged": false
+      },
+      "currentLimitation": "Current XTTS runtime remains one request per assistant turn; M7H now computes an utterance-level effective XTTS envelope from per-chunk scores. Full chunk-by-chunk synthesis, rest insertion, stitching, and per-chunk audio artifacts remain M7I. FFmpeg/DSP post-processing remains an optional later M7H polish lane."
+    },
+    "m7i": {
+      "classification": "STICKBOT_TARS_M7I_CHUNK_CONDUCTOR_LOCAL_PASS",
+      "scope": "local_chunk_by_chunk_xtts_synthesis_pause_insertion_wav_stitch_audio_performance_pipeline",
+      "implementedModules": [
+        "src/audio/audio-performance-pipeline.js",
+        "src/audio/wav-stitcher.js",
+        "src/audio/xtts-chunk-conductor.js"
+      ],
+      "serverIntegration": {
+        "synthesizePath": "server.js synthesize() now uses conductChunkedXtts()",
+        "publicApi": "voicePlan.audioPerformance exposes redacted audio pipeline summary",
+        "rawTextBoundary": "raw chunk text remains internal to local synthesis; public summaries expose textSha256 only"
+      },
+      "validation": {
+        "npmRunCheck": "PASS",
+        "nodeTestsPassed": 69,
+        "nodeTestsFailed": 0,
+        "newGates": [
+          "STICKBOT_TARS_M7I_CHUNK_SYNTH_USES_PER_CHUNK_EFFECTIVE_XTTS_PASS",
+          "STICKBOT_TARS_M7I_CONDUCTOR_STITCHES_AND_EXPOSES_PUBLIC_MESH_SUMMARY_PASS",
+          "STICKBOT_TARS_M7I_CANONICAL_BOUNDARY_FAILS_CLOSED_PASS"
+        ]
+      },
+      "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7i-chunk-conductor/M7I_CHUNK_CONDUCTOR_LOCAL_PASS.md",
+      "futureHooks": {
+        "dspStageReserved": true,
+        "dspFrameSchema": "stickbot.tars.audio-dsp-frame.v1",
+        "realtimeStageReserved": true,
+        "realtimeFrameSchema": "stickbot.tars.realtime-audio-frame.v1",
+        "target": "streaming_full_duplex_mesh"
+      },
+      "boundaries": {
+        "canonicalTextAuthoritative": true,
+        "textRewriteAllowed": false,
+        "localOnly": true,
+        "openClawProductionMutation": false,
+        "gatewayConfigMutation": false,
+        "gatewayRestart": false,
+        "noaTouched": false,
+        "port8787Touched": false,
+        "cloudSpeechApiCalled": false,
+        "browserWebSpeechApi": false,
+        "lanExposureChanged": false,
+        "xttsRuntimeIsolationChanged": false
+      },
+      "currentLimitation": "M7I is local sequential chunk synthesis/rendering, not realtime full duplex. DSP is reserved as a native stage but not implemented yet. Streaming can reuse the chunk frame contract in a later milestone."
+    },
+    "m7jkl": {
+      "classification": "STICKBOT_TARS_M7JKL_DSP_STREAM_DUPLEX_LOCAL_PASS",
+      "scope": "local_dsp_stage_streaming_frame_interface_full_duplex_turn_controller_skeleton",
+      "implementedModules": [
+        "src/audio/dsp-polish-stage.js",
+        "src/audio/streaming-frame-interface.js",
+        "src/audio/full-duplex-turn-controller.js"
+      ],
+      "integration": {
+        "dsp": "xtts-chunk-conductor accepts dspProcessor; server passes polishChunkArtifacts before WAV stitch/render",
+        "streaming": "xtts-chunk-conductor emits realtime frame manifest and pipeline stages.realtime",
+        "duplex": "full-duplex controller provides deterministic listen/think/speak/barge-in/resume transitions"
+      },
+      "validation": {
+        "npmRunCheck": "PASS",
+        "nodeTestsPassed": 75,
+        "nodeTestsFailed": 0,
+        "newGates": [
+          "STICKBOT_TARS_M7J_DSP_PROFILE_AND_FILTER_GRAPH_PASS",
+          "STICKBOT_TARS_M7J_DSP_STAGE_PROCESSES_CHUNK_ARTIFACTS_PASS",
+          "STICKBOT_TARS_M7K_STREAMING_FRAME_INTERFACE_PASS",
+          "STICKBOT_TARS_M7L_FULL_DUPLEX_TURN_CONTROLLER_BARGE_IN_PASS",
+          "STICKBOT_TARS_M7L_INVALID_EVENT_FAILS_SAFE_BY_IGNORING_PASS",
+          "STICKBOT_TARS_M7JKL_PIPELINE_INTEGRATION_SUMMARY_PASS"
+        ]
+      },
+      "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7jkl-dsp-stream-duplex/M7JKL_DSP_STREAM_DUPLEX_LOCAL_PASS.md",
+      "frameSchemas": {
+        "dsp": "stickbot.tars.audio-dsp-frame.v1",
+        "realtime": "stickbot.tars.realtime-audio-frame.v1",
+        "fullDuplexController": "stickbot.tars.full-duplex-turn-controller.v1"
+      },
+      "boundaries": {
+        "canonicalTextAuthoritative": true,
+        "textRewriteAllowed": false,
+        "voiceIdentityRewriteAllowed": false,
+        "localOnly": true,
+        "rawTranscriptDurableStorage": false,
+        "openClawProductionMutation": false,
+        "gatewayConfigMutation": false,
+        "gatewayRestart": false,
+        "noaTouched": false,
+        "port8787Touched": false,
+        "cloudSpeechApiCalled": false,
+        "browserWebSpeechApi": false,
+        "lanExposureChanged": false,
+        "xttsRuntimeIsolationChanged": false
+      },
+      "currentLimitation": "M7J/K/L provide local DSP processing, streaming frame contracts, and deterministic duplex state transitions. M7M/N/O add browser/client smoke wiring and redacted ingress; true live partial STT and low-latency transport remain later work."
+    },
+    "m7mno": {
+      "classification": "STICKBOT_TARS_M7MNO_STREAMING_PARTIAL_BARGEIN_LOCAL_PASS",
+      "scope": "browser_frame_playback_smoke_partial_stt_controller_ingress_barge_in_stop_playback_smoke",
+      "implementedModules": [
+        "src/audio/duplex-event-ingress.js"
+      ],
+      "modifiedSurfaces": [
+        "public/app.js",
+        "public/index.html",
+        "server.js",
+        "safety/audio-path-policy.js"
+      ],
+      "integration": {
+        "m7m": "browser consumes voicePlan.audioPerformance.realtime.frames and plays generated chunk audio URLs in order with computed pauses; final WAV remains fallback",
+        "m7n": "POST /api/stt/partial and /api/stt final responses produce redacted duplex-controller summaries without raw transcript durable storage",
+        "m7o": "starting mic capture stops active streaming playback and posts a deterministic barge-in/resume scenario to /api/duplex/scenario"
+      },
+      "validation": {
+        "npmRunCheck": "PASS",
+        "nodeTestsPassed": 80,
+        "nodeTestsFailed": 0,
+        "newGates": [
+          "generated UUID chunk .wav files are accepted for streaming playback smoke",
+          "STICKBOT_TARS_M7N_PARTIAL_STT_CONTROLLER_INGRESS_PASS",
+          "STICKBOT_TARS_M7N_FINAL_STT_CONTROLLER_INGRESS_PASS",
+          "STICKBOT_TARS_M7N_SANITIZES_RAW_TRANSCRIPT_EVENTS_PASS",
+          "STICKBOT_TARS_M7O_BARGE_IN_SCENARIO_INGRESS_PASS"
+        ]
+      },
+      "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7mno-streaming-partial-bargein/M7MNO_STREAMING_PARTIAL_BARGEIN_LOCAL_PASS.md",
+      "boundaries": {
+        "canonicalTextAuthoritative": true,
+        "textRewriteAllowed": false,
+        "voiceIdentityRewriteAllowed": false,
+        "localOnly": true,
+        "rawTranscriptDurableStorage": false,
+        "openClawProductionMutation": false,
+        "gatewayConfigMutation": false,
+        "gatewayRestart": false,
+        "noaTouched": false,
+        "port8787Touched": false,
+        "cloudSpeechApiCalled": false,
+        "browserWebSpeechApi": false,
+        "lanExposureChanged": false,
+        "xttsRuntimeIsolationChanged": false
+      },
+      "currentLimitation": "M7M/N/O local implementation and automated smoke gates passed. M7P live browser proof now confirmed streaming frame playback, audible TARS, and mic-start barge-in stop. True partial local STT loop and low-latency transport remain later work."
+    },
+    "m7p": {
+      "classification": "STICKBOT_TARS_M7P_LIVE_BROWSER_STREAMING_BARGEIN_PASS",
+      "scope": "human_verified_https_lan_browser_streaming_frame_playback_and_mic_start_barge_in_stop",
+      "liveUrl": "https://192.168.1.107:19890/",
+      "observedEvidence": {
+        "tarsAudible": true,
+        "streamingFramesQueued": 4,
+        "micStartStoppedPlayback": true,
+        "micContinuedRecordingAfterStreamingBargeIn": true,
+        "micLifecycleBreakObserved": false,
+        "browserMicErrorObserved": false,
+        "bargeInSmokeState": "listening",
+        "finalSttDuplexState": "thinking",
+        "rawTranscriptDurableStorage": false,
+        "micTranscript": "[BLANK_AUDIO]"
+      },
+      "uiFix": "Changed raw transcript durable storage wording from error-like status to privacy guard wording in public/app.js",
+      "r2FinalWavBargeInFix": {
+        "finding": "Manual playback of the final WAV fallback was not stopped by mic-start because only the streaming chunk Audio object was tracked as active playback.",
+        "fix": "Registered inline final WAV audio elements by turnId and made stopActivePlayback pause/reset any registered or currently-playing audio element while preserving final WAV replay/save ability.",
+        "cacheBuster": "m7p-final-wav-bargein-stop"
+      },
+      "r3StreamingMicLifecycleConfirmation": {
+        "finding": "After live streaming playback cut out on mic-start, the mic continued recording with no break and no browser error.",
+        "streamingBargeInEndToEnd": true
+      },
+      "r4FinalLiveConfirmation": {
+        "humanReport": "all worked perfectly",
+        "streamingAndFallbackBargeInLiveConfirmed": true,
+        "finalStatus": "STICKBOT_TARS_M7P_LIVE_BROWSER_STREAMING_BARGEIN_PASS"
+      },
+      "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7p-live-browser-streaming-bargein/M7P_LIVE_BROWSER_STREAMING_BARGEIN_PASS.md",
+      "boundaries": {
+        "canonicalTextAuthoritative": true,
+        "textRewriteAllowed": false,
+        "voiceIdentityRewriteAllowed": false,
+        "localOnly": true,
+        "rawTranscriptDurableStorage": false,
+        "openClawProductionMutation": false,
+        "gatewayConfigMutation": false,
+        "gatewayRestart": false,
+        "noaTouched": false,
+        "port8787Touched": false,
+        "cloudSpeechApiCalled": false,
+        "browserWebSpeechApi": false,
+        "lanExposureChangedBeyondApprovedDemoPath": false,
+        "xttsRuntimeIsolationChanged": false
+      },
+      "currentLimitation": "M7P verified live browser playback and mic-start interruption. It did not verify non-blank spoken interruption recognition or true low-latency streaming while synthesis is still running."
+    },
+    "m56": {
+      "classification": "STICKBOT_TARS_M56_VOICE_BODY_POSTPROCESS_PASS",
+      "scope": "local_voice_body_mastering_postprocess_for_browser_playback",
+      "implementedModules": [
+        "src/audio/voice-body-mastering-stage.js"
+      ],
+      "integration": {
+        "placement": "after M7J DSP and before M7K realtime frame manifest plus final stitch",
+        "streamingPlayback": "audio_chunk_ready frames include mastering.outputFileBasename and browser prefers mastered chunk files",
+        "finalPlayback": "final stitched WAV is rendered from mastered chunks",
+        "rawPreservation": "raw XTTS chunk artifacts and DSP intermediates remain on disk under local output dir"
+      },
+      "format": {
+        "internalExpected": {
+          "codec": "pcm_s16le",
+          "sampleRate": 24000,
+          "channels": 1,
+          "bitRate": 384000
+        },
+        "masteredPlayback": {
+          "codec": "pcm_s16le",
+          "sampleRate": 48000,
+          "channels": 1,
+          "bitRate": 768000,
+          "stereoWideningApplied": false
+        }
+      },
+      "filterFamily": [
+        "silence_trim",
+        "highpass_60hz",
+        "low_mid_body_eq_170hz",
+        "upper_body_eq_320hz",
+        "presence_restraint_3200hz",
+        "compression",
+        "loudness_normalization"
+      ],
+      "validation": {
+        "npmRunCheck": "PASS",
+        "nodeTestsPassed": 82,
+        "nodeTestsFailed": 0,
+        "newGates": [
+          "STICKBOT_TARS_M56_VOICE_BODY_PROFILE_AND_FILTER_PASS",
+          "STICKBOT_TARS_M56_VOICE_BODY_STAGE_PRESERVES_RAW_AND_MASTERS_PASS"
+        ],
+        "liveSmoke": {
+          "lanHealthOk": true,
+          "cacheBuster": "m56-voice-body-mastering",
+          "masteringEnabled": true,
+          "outputFormat": {
+            "codec": "pcm_s16le",
+            "sampleRate": 48000,
+            "channels": 1,
+            "bitRate": 768000
+          },
+          "frameCount": 3,
+          "masteredFrames": 3,
+          "firstMaster": "f470fbd4-4015-4368-aab3-53d25d0701f1-chunk-001.dsp.master.wav"
+        },
+        "r2TruncationFix": {
+          "finding": "Initial M5.6 sounded better but produced about 0:02 and cut off mid-sentence.",
+          "rootCause": "FFmpeg silenceremove stop_periods=1 can treat normal phrase pauses as end-of-audio.",
+          "fix": "Removed end/tail trimming and kept only conservative leading-silence trim.",
+          "regressionGate": "M5.6 filter must not contain stop_periods=",
+          "liveSmoke": {
+            "audioUrl": "/audio/54ac75b8-7852-4401-b5cf-d2bd995a5867.wav",
+            "masteringEnabled": true,
+            "outputFormat": {
+              "codec": "pcm_s16le",
+              "sampleRate": 48000,
+              "channels": 1,
+              "bitRate": 768000
+            },
+            "frameCount": 3,
+            "masteredFrames": 3,
+            "firstMaster": "54ac75b8-7852-4401-b5cf-d2bd995a5867-chunk-001.dsp.master.wav",
+            "finalDurationSeconds": 4.255
+          }
+        },
+        "r3TailGuardFix": {
+          "finding": "R2 timing was much better but final syllable clipped slightly at the end of the full sentence.",
+          "fix": "Added 320 ms apad tail guard after mastering while keeping end/tail trimming disabled.",
+          "regressionGate": "M5.6 filter includes apad=pad_dur=0.320 and does not contain stop_periods=",
+          "liveSmoke": {
+            "audioUrl": "/audio/dff8aa9d-e95a-4910-8419-962bae538516.wav",
+            "masteringEnabled": true,
+            "outputFormat": {
+              "codec": "pcm_s16le",
+              "sampleRate": 48000,
+              "channels": 1,
+              "bitRate": 768000
+            },
+            "frameCount": 3,
+            "masteredFrames": 3,
+            "firstMaster": "dff8aa9d-e95a-4910-8419-962bae538516-chunk-001.dsp.master.wav",
+            "finalDurationSeconds": 5.035
+          }
+        }
+      },
+      "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m56-voice-body-mastering/M56_VOICE_BODY_POSTPROCESS_PASS.md",
+      "boundaries": {
+        "canonicalTextAuthoritative": true,
+        "textRewriteAllowed": false,
+        "voiceIdentityRewriteAllowed": false,
+        "localOnly": true,
+        "rawTranscriptDurableStorage": false,
+        "openClawProductionMutation": false,
+        "gatewayConfigMutation": false,
+        "gatewayRestart": false,
+        "noaTouched": false,
+        "port8787Touched": false,
+        "cloudSpeechApiCalled": false,
+        "browserWebSpeechApi": false,
+        "generatedAudioCommitted": false,
+        "stereoWideningApplied": false
+      },
+      "currentLimitation": "M5.6 adds deterministic local mastering and automated gates. Live A/B subjective quality still needs Stick's ear to tune body versus mud."
+    },
+    "nextMilestone": "M56_LIVE_AB_TEST_THEN_M7Q_TRUE_PARTIAL_LOCAL_STT_LOOP"
+  },
+  "runtimePaths": [
+    {
+      "label": "runtimeRoot",
+      "path": "/home/stickai/stickbot-voice",
+      "exists": true,
+      "bytes": 4096,
+      "mtime": "2026-07-02T13:33:24.666Z"
+    },
+    {
+      "label": "tarsModelPath",
+      "path": "/home/stickai/stickbot-voice/xtts_models/tars",
+      "exists": true,
+      "bytes": 4096,
+      "mtime": "2026-07-02T07:41:41.062Z"
+    },
+    {
+      "label": "referenceWav",
+      "path": "/home/stickai/stickbot-voice/speakers/reference.wav",
+      "exists": true,
+      "bytes": 986156,
+      "mtime": "2026-07-02T07:41:41.071Z",
+      "sha256": "b2935696d607156e251852efb6d977507c997ee215762e401c71b587253f6cfb"
+    },
+    {
+      "label": "whisperBin",
+      "path": "/home/stickai/stickbot-voice/tools/whisper.cpp/v1.9.1-ubuntu-x64/extract/whisper-bin-ubuntu-x64/whisper-cli",
+      "exists": true,
+      "bytes": 976312,
+      "mtime": "2026-06-19T04:24:05.000Z",
+      "sha256": "427dfb509f2c04d0f01c101978b5666102c6f7e3abf2a236452db5939f5b533a"
+    },
+    {
+      "label": "whisperModel",
+      "path": "/home/stickai/stickbot-voice/stt_models/whisper.cpp/ggml-small.en.bin",
+      "exists": true,
+      "bytes": 487614201,
+      "mtime": "2026-07-02T12:19:12.778Z"
+    },
+    {
+      "label": "ffmpegBin",
+      "path": "/home/stickai/stickbot-voice/tools/ffmpeg-static/johnvansickle-ffmpeg-release-amd64-static/extract/ffmpeg",
+      "exists": true,
+      "bytes": 79826272,
+      "mtime": "2024-08-23T22:46:48.000Z"
+    },
+    {
+      "label": "ffprobeBin",
+      "path": "/home/stickai/stickbot-voice/tools/ffmpeg-static/johnvansickle-ffmpeg-release-amd64-static/extract/ffprobe",
+      "exists": true,
+      "bytes": 79665792,
+      "mtime": "2024-08-23T22:46:48.000Z"
+    },
+    {
+      "label": "httpsCertDir",
+      "path": "/home/stickai/stickbot-voice/certs/m7d-https",
+      "exists": true,
+      "bytes": 4096,
+      "mtime": "2026-07-02T13:33:26.294Z"
+    }
+  ],
+  "sourceInventory": [
+    {
+      "kind": "repo",
+      "path": "projects/stickbot-tars-smoke/README.md",
+      "exists": true,
+      "bytes": 998,
+      "lines": 46,
+      "sha256": "36559499c5d63ec4381036043f26b01ee84b3b71ce5d0e9eebacf02063fb92c5",
+      "mtime": "2026-07-03T04:29:09.862Z",
+      "headings": [
+        "# Stickbot-TARS local voice smoke",
+        "## Rehydrate first",
+        "## Core guardrails",
+        "## Current live demo path"
+      ]
+    },
+    {
+      "kind": "repo",
+      "path": "projects/stickbot-tars-smoke/package.json",
+      "exists": true,
+      "bytes": 3366,
+      "lines": 28,
+      "sha256": "55d7d388705d25aafa078dc88962223f88cee27287eaee21c22f0a042dfa0f0f",
+      "mtime": "2026-07-03T04:28:00.653Z",
+      "headings": []
+    },
+    {
+      "kind": "repo",
+      "path": "projects/stickbot-tars-smoke/server.js",
+      "exists": true,
+      "bytes": 16606,
+      "lines": 396,
+      "sha256": "c211ff1b8ecf4d9dc403d713ad32a548023ad53b49b82687a7a8b5fd4df07bed",
+      "mtime": "2026-07-03T03:56:06.640Z",
+      "headings": []
+    },
+    {
+      "kind": "repo",
+      "path": "projects/stickbot-tars-smoke/scripts/stickbot-tars-rehydrate.mjs",
+      "exists": true,
+      "bytes": 18134,
+      "lines": 342,
+      "sha256": "5cdb2e6b498727f5bdf0705b5c3ae73dfdf9670ada06a728fad21009fc4df9e9",
+      "mtime": "2026-07-03T04:34:28.395Z",
+      "headings": []
+    },
+    {
+      "kind": "repo",
+      "path": "projects/stickbot-tars-smoke/src/config.js",
+      "exists": true,
+      "bytes": 3355,
+      "lines": 83,
+      "sha256": "970254a02b8049f3260c99ce88276cab0cba48647ba613c534431ab2f5ae0cd7",
+      "mtime": "2026-07-02T13:31:51.438Z",
+      "headings": []
+    },
+    {
+      "kind": "repo",
+      "path": "projects/stickbot-tars-smoke/src/stt-adapter.js",
+      "exists": true,
+      "bytes": 4930,
+      "lines": 147,
+      "sha256": "cc078e89d94e08cb5d0d45d70b010701465e66b11c90c99cfd1fa8c141d9eba9",
+      "mtime": "2026-07-02T10:15:02.738Z",
+      "headings": []
+    },
+    {
+      "kind": "repo",
+      "path": "projects/stickbot-tars-smoke/src/audio-normalizer.js",
+      "exists": true,
+      "bytes": 3732,
+      "lines": 118,
+      "sha256": "673cab9a8d7737c1d11a347d712d29d154b658ed296db35fa3910d5be587bae0",
+      "mtime": "2026-07-02T10:38:53.995Z",
+      "headings": []
+    },
+    {
+      "kind": "repo",
+      "path": "projects/stickbot-tars-smoke/src/audio/dsp-polish-stage.js",
+      "exists": true,
+      "bytes": 7154,
+      "lines": 224,
+      "sha256": "c320a9bd73e0619bc1269065daf9c94fa38806347dffff2c07eedf81f57506a1",
+      "mtime": "2026-07-03T03:02:25.906Z",
+      "headings": []
+    },
+    {
+      "kind": "repo",
+      "path": "projects/stickbot-tars-smoke/src/audio/voice-body-mastering-stage.js",
+      "exists": true,
+      "bytes": 8880,
+      "lines": 247,
+      "sha256": "641ff69703f618388b4c5f04d752335d88c60af59d02eb6c6ec0b6d470400c2e",
+      "mtime": "2026-07-03T04:19:09.732Z",
+      "headings": []
+    },
+    {
+      "kind": "repo",
+      "path": "projects/stickbot-tars-smoke/src/audio/audio-performance-pipeline.js",
+      "exists": true,
+      "bytes": 3203,
+      "lines": 96,
+      "sha256": "785996ff3669c362dcd42a98e023f52a29513142f8673fde6d2a8597522e66c9",
+      "mtime": "2026-07-03T03:55:54.292Z",
+      "headings": []
+    },
+    {
+      "kind": "repo",
+      "path": "projects/stickbot-tars-smoke/src/audio/streaming-frame-interface.js",
+      "exists": true,
+      "bytes": 4097,
+      "lines": 138,
+      "sha256": "19374e73def356ead56a61875b42fc35100875772ebfb51b7f8938b7afc36539",
+      "mtime": "2026-07-03T03:59:07.678Z",
+      "headings": []
+    },
+    {
+      "kind": "repo",
+      "path": "projects/stickbot-tars-smoke/src/audio/full-duplex-turn-controller.js",
+      "exists": true,
+      "bytes": 5319,
+      "lines": 179,
+      "sha256": "c41382400e9fd4b0ed11c597adbcfdccbf18c6769c4e78ef42e4de9aea871b38",
+      "mtime": "2026-07-03T03:01:09.654Z",
+      "headings": []
+    },
+    {
+      "kind": "repo",
+      "path": "projects/stickbot-tars-smoke/src/audio/duplex-event-ingress.js",
+      "exists": true,
+      "bytes": 2233,
+      "lines": 64,
+      "sha256": "163cb88438570240f63f552e1136cc98c4417393f933acc17bb295e3d2ced4be",
+      "mtime": "2026-07-03T03:13:34.961Z",
+      "headings": []
+    },
+    {
+      "kind": "repo",
+      "path": "projects/stickbot-tars-smoke/src/audio/wav-stitcher.js",
+      "exists": true,
+      "bytes": 4195,
+      "lines": 122,
+      "sha256": "b3dab5a33b94bf3b88c7c2dad67a82c3b0364fab05f5660b186a853ec5326634",
+      "mtime": "2026-07-03T02:44:33.329Z",
+      "headings": []
+    },
+    {
+      "kind": "repo",
+      "path": "projects/stickbot-tars-smoke/src/audio/xtts-chunk-conductor.js",
+      "exists": true,
+      "bytes": 9341,
+      "lines": 246,
+      "sha256": "99c1da6b7eb1d369b8d46026dc4e42b7395e8c4ad568a45c4aacb36c36b71842",
+      "mtime": "2026-07-03T03:59:14.886Z",
+      "headings": []
+    },
+    {
+      "kind": "repo",
+      "path": "projects/stickbot-tars-smoke/src/prosody/prosody-score-engine.js",
+      "exists": true,
+      "bytes": 5471,
+      "lines": 154,
+      "sha256": "98e488709d90eb59fdc07fcc2630b7d88664a679a97795d8bfa1af18811c2b0b",
+      "mtime": "2026-07-03T01:30:06.732Z",
+      "headings": []
+    },
+    {
+      "kind": "repo",
+      "path": "projects/stickbot-tars-smoke/src/voice/tars-prosody-kernel.js",
+      "exists": true,
+      "bytes": 8310,
+      "lines": 193,
+      "sha256": "13b4dc08f8702ae5684760a5014c77d6978a54ecf8e04bb455414d5cfaf095a6",
+      "mtime": "2026-07-03T02:46:59.610Z",
+      "headings": []
+    },
+    {
+      "kind": "repo",
+      "path": "projects/stickbot-tars-smoke/src/voice/tars-prosody-matrix.js",
+      "exists": true,
+      "bytes": 20336,
+      "lines": 434,
+      "sha256": "ad30c2f89559726345cf6bb24b39e30d02abf906ef85e041a6f07b8167df46e9",
+      "mtime": "2026-07-02T23:56:07.994Z",
+      "headings": []
+    },
+    {
+      "kind": "repo",
+      "path": "projects/stickbot-tars-smoke/public/app.js",
+      "exists": true,
+      "bytes": 24194,
+      "lines": 579,
+      "sha256": "b68184c093fbdf8d16c674ab8d9b4d0fc010b7e79d9bfab50ab8ce5ae891bc7e",
+      "mtime": "2026-07-03T03:59:23.802Z",
+      "headings": []
+    },
+    {
+      "kind": "repo",
+      "path": "projects/stickbot-tars-smoke/public/index.html",
+      "exists": true,
+      "bytes": 4506,
+      "lines": 75,
+      "sha256": "981cba672ecc3941cb0eb285d9f033c6d72dc3118c5f918460b10494521324c6",
+      "mtime": "2026-07-03T03:59:35.446Z",
+      "headings": []
+    },
+    {
+      "kind": "repo",
+      "path": "projects/stickbot-tars-smoke/safety/audio-path-policy.js",
+      "exists": true,
+      "bytes": 1894,
+      "lines": 44,
+      "sha256": "2c6f52fd7c2abe288e846e9cc0ae11c636c0fbdb3490f49ad074919ffb103df3",
+      "mtime": "2026-07-03T03:56:34.817Z",
+      "headings": []
+    },
+    {
+      "kind": "repo",
+      "path": "projects/stickbot-tars-smoke/safety/network-policy.js",
+      "exists": true,
+      "bytes": 2261,
+      "lines": 65,
+      "sha256": "48c836a3a29a41fcbb45c47ee84a9d18578b0c53bb2e6415bbbe484a841f93df",
+      "mtime": "2026-07-02T06:50:39.481Z",
+      "headings": []
+    },
+    {
+      "kind": "repo",
+      "path": "projects/stickbot-tars-smoke/scripts/m7d-local-real-mic-demo.sh",
+      "exists": true,
+      "bytes": 3942,
+      "lines": 99,
+      "sha256": "352b645ea0bd7b88396c7f1b0bbbd657961cc36737269f9eb88b3e5b80fc178c",
+      "mtime": "2026-07-02T13:32:16.238Z",
+      "headings": []
+    },
+    {
+      "kind": "repo",
+      "path": "projects/stickbot-tars-smoke/scripts/m7e-start-xtts-loopback.sh",
+      "exists": true,
+      "bytes": 2794,
+      "lines": 64,
+      "sha256": "e578525e0ef44506fac3f9f425ff6d8eb22435e899e4e7b4b52f4405cb05fecc",
+      "mtime": "2026-07-02T13:43:36.721Z",
+      "headings": []
+    },
+    {
+      "kind": "repo",
+      "path": "projects/stickbot-tars-smoke/scripts/xtts-local-server.py",
+      "exists": true,
+      "bytes": 10180,
+      "lines": 262,
+      "sha256": "909cdeb470afebaee7825176af6c5b975e80a4700b3e15a0a96997243e83db7d",
+      "mtime": "2026-07-02T22:49:06.659Z",
+      "headings": []
+    },
+    {
+      "kind": "repo",
+      "path": "projects/stickbot-tars-smoke/state/status.json",
+      "exists": true,
+      "bytes": 54020,
+      "lines": 1269,
+      "sha256": "682fa28abf42973651f5801eda88ec3becce310d5d7aa0a47c5803e97d0a9af8",
+      "mtime": "2026-07-03T04:30:08.890Z",
+      "headings": []
+    },
+    {
+      "kind": "doc",
+      "path": "projects/stickbot-tars-smoke/docs/STICKBOT_TARS_REHYDRATION.md",
+      "exists": true,
+      "bytes": 1984,
+      "lines": 63,
+      "sha256": "147618e4af3861758cff481b0252381d89606c42273c631b774419e23858405d",
+      "mtime": "2026-07-03T04:28:26.965Z",
+      "headings": [
+        "# Stickbot-TARS deterministic rehydration",
+        "## Command",
+        "## What it rehydrates",
+        "## Grounding rule"
+      ]
+    },
+    {
+      "kind": "doc",
+      "path": "projects/stickbot-tars-smoke/docs/LOW_LEVEL_DESIGN_AND_IMPLEMENTATION_PLAN.md",
+      "exists": true,
+      "bytes": 41445,
+      "lines": 1045,
+      "sha256": "b5a9065606717f4132bd514975a9583cccfff2c5872c7b4baf4445e1614537c0",
+      "mtime": "2026-07-03T02:52:30.944Z",
+      "headings": [
+        "# Stickbot-TARS Voice Demo — Low-Level Design and Implementation Plan",
+        "## 1. Executive goal",
+        "## 2. Non-goals / boundaries",
+        "## 3. Current evidence baseline",
+        "## 4. Architecture overview",
+        "### 4.1 Runtime lanes",
+        "### 4.2 Module boundaries",
+        "## 5. Integration surfaces",
+        "### 5.1 Client → Node API",
+        "### 5.2 Node → OpenClaw"
+      ]
+    },
+    {
+      "kind": "doc",
+      "path": "projects/stickbot-tars-smoke/docs/LOOPBACK_LAN_EXPOSURE_NOTEBOOK.md",
+      "exists": true,
+      "bytes": 7912,
+      "lines": 166,
+      "sha256": "e161d380d315607b214eb56281c3fd34f46fc943035cd7dc16b3984b1fc1df25",
+      "mtime": "2026-07-02T13:20:42.806Z",
+      "headings": [
+        "# Loopback / LAN Exposure Notebook",
+        "## Why this exists",
+        "## Proven prior procedure: Douglas Bagmaker / EquipmentIQ",
+        "## WSL2-specific rule",
+        "## Required procedure for every future loopback/LAN demo",
+        "## M7D repair summary",
+        "## Browser microphone secure-origin rule",
+        "## M7D UX blocker",
+        "## TTS voice-output rule",
+        "## General rule"
+      ]
+    },
+    {
+      "kind": "doc",
+      "path": "projects/stickbot-tars-smoke/docs/TROUBLESHOOTING_AND_REPAIR_NOTEBOOK.md",
+      "exists": true,
+      "bytes": 17673,
+      "lines": 545,
+      "sha256": "18170627a0f5a15316cf379c59467482eeb96a8ad8e377597cc671336d4395a6",
+      "mtime": "2026-07-02T13:16:28.033Z",
+      "headings": [
+        "# Stickbot-TARS Troubleshooting and Repair Notebook",
+        "## Purpose",
+        "## Repair protocol",
+        "## M2.5 repairs",
+        "### Issue: pre-hardening scaffold was unsafe for M3",
+        "## M3 repairs / notes",
+        "### Issue: approval-card/runtime friction during preflight and download",
+        "## M4 sandbox and runtime repairs",
+        "### Issue: no Docker/Podman/bwrap/firejail available",
+        "### Issue: plain `unshare -Urn` still sees secrets"
+      ]
+    },
+    {
+      "kind": "doc",
+      "path": "projects/stickbot-tars-smoke/docs/m3-model-provenance/M3_MODEL_ACQUIRED_HASHED_PROVENANCE_RECORDED_NO_LOAD.md",
+      "exists": true,
+      "bytes": 1393,
+      "lines": 47,
+      "sha256": "466ea14bf8e17b2e5c515c5e01f0ff08878b86336a5f760d033db660fd5c36ee",
+      "mtime": "2026-07-02T07:41:54.093Z",
+      "headings": [
+        "# Stickbot-TARS M3 Model Acquisition / Hash / Provenance Closeout",
+        "## Classification",
+        "## Scope",
+        "## Source",
+        "## WSL-native paths",
+        "## Files acquired",
+        "## Evidence",
+        "## Stop condition"
+      ]
+    },
+    {
+      "kind": "doc",
+      "path": "projects/stickbot-tars-smoke/docs/m5-local-serverization/M5_LOCAL_SERVERIZATION_NODE_VOICE_PASS.md",
+      "exists": true,
+      "bytes": 5118,
+      "lines": 159,
+      "sha256": "59d47b22daf4aa6947094a1c0996f65e318e32510735fc83a6a95e91bd936921",
+      "mtime": "2026-07-02T09:39:14.555Z",
+      "headings": [
+        "# M5 Local Serverization / Node Voice Integration — PASS",
+        "## Summary",
+        "## Result",
+        "## Boundary evidence",
+        "## Static validation",
+        "## R1 failure and repair",
+        "## Boundaries preserved",
+        "## Future LAN/Tailscale note",
+        "## Final M5 classification"
+      ]
+    },
+    {
+      "kind": "doc",
+      "path": "projects/stickbot-tars-smoke/docs/m6-openclaw-adapter/M6_OPENCLAW_ADAPTER_FIXTURE_VOICE_PASS.md",
+      "exists": true,
+      "bytes": 4807,
+      "lines": 147,
+      "sha256": "5da254bc043ef70b9085d47eb0d238b5cf4f9c4738820e0bb8bda3757096eaca",
+      "mtime": "2026-07-02T10:02:57.548Z",
+      "headings": [
+        "# M6 OpenClaw Adapter Fixture Voice Smoke — PASS",
+        "## Summary",
+        "## Result",
+        "## Static validation",
+        "## Adapter implementation",
+        "## Boundary evidence",
+        "## Boundaries preserved",
+        "## Final M6 classification"
+      ]
+    },
+    {
+      "kind": "doc",
+      "path": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7d-real-mic-local-demo/M7D_HTTPS_LAN_REAL_MIC_STT_ECHO_PASS.md",
+      "exists": true,
+      "bytes": 1288,
+      "lines": 36,
+      "sha256": "fd106485939ae31814573fbefaf7db4007984fab82c2b9d045e3d77a93491f98",
+      "mtime": "2026-07-02T13:37:21.375Z",
+      "headings": [
+        "# M7D HTTPS LAN Real Mic STT + Echo PASS",
+        "## Result",
+        "## Remaining blocker",
+        "## Related artifacts"
+      ]
+    },
+    {
+      "kind": "doc",
+      "path": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7e-https-lan-xtts-voice-output/M7E_HTTPS_LAN_TARS_VOICE_OUTPUT_PASS.md",
+      "exists": true,
+      "bytes": 3009,
+      "lines": 125,
+      "sha256": "ab549333abd218d4d6efadb2f5b9848d4a74b025d1df8aaf34d5b2985bbcb70a",
+      "mtime": "2026-07-02T13:47:19.314Z",
+      "headings": [
+        "# M7E HTTPS LAN TARS Voice Output PASS",
+        "## Summary",
+        "## Validation run",
+        "## Runtime shape",
+        "## Evidence",
+        "## Boundaries preserved",
+        "## Operator instruction",
+        "## Next state"
+      ]
+    },
+    {
+      "kind": "doc",
+      "path": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7h-prosody-score-engine/M7H_M55_PROSODY_SCORE_ENGINE_PASS.md",
+      "exists": true,
+      "bytes": 3554,
+      "lines": 127,
+      "sha256": "dd2c30b933bb7e314c8e4f2788ab2451d7fbc5a20f18bb072f1d4d1b71d38675",
+      "mtime": "2026-07-03T01:36:09.206Z",
+      "headings": [
+        "# M7H / M55 Prosody Score Engine — PASS",
+        "## Summary",
+        "## Implemented modules",
+        "## Behavior",
+        "## UI/API exposure",
+        "## Pass gates",
+        "## Boundaries",
+        "## Remaining M7H/M7I work"
+      ]
+    },
+    {
+      "kind": "doc",
+      "path": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7i-chunk-conductor/M7I_CHUNK_CONDUCTOR_LOCAL_PASS.md",
+      "exists": true,
+      "bytes": 4353,
+      "lines": 166,
+      "sha256": "80bd0b6661fc871624ff632fb737e34bce2ff503a9de6d956eaec77ed903352c",
+      "mtime": "2026-07-03T02:49:20.471Z",
+      "headings": [
+        "# M7I Chunk Conductor — Local PASS",
+        "## Summary",
+        "## New modules",
+        "### `audio-performance-pipeline.js`",
+        "### `wav-stitcher.js`",
+        "### `xtts-chunk-conductor.js`",
+        "## Server integration",
+        "## Future mesh hooks",
+        "## Validation",
+        "## Boundaries preserved"
+      ]
+    },
+    {
+      "kind": "doc",
+      "path": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7jkl-dsp-stream-duplex/M7JKL_DSP_STREAM_DUPLEX_LOCAL_PASS.md",
+      "exists": true,
+      "bytes": 4906,
+      "lines": 200,
+      "sha256": "d12eb4ed1ed5cf4d7dcad890bf9a66459631969e7467f7e624868d07b74a8ba3",
+      "mtime": "2026-07-03T03:05:20.639Z",
+      "headings": [
+        "# M7J / M7K / M7L — DSP, Streaming Frames, Full-Duplex Controller Local PASS",
+        "## Summary",
+        "## New modules",
+        "## M7J — DSP polish stage",
+        "## M7K — streaming frame interface",
+        "## M7L — full-duplex turn controller",
+        "## Integration",
+        "## Validation",
+        "## Boundaries preserved",
+        "## Remaining work"
+      ]
+    },
+    {
+      "kind": "doc",
+      "path": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7mno-streaming-partial-bargein/M7MNO_STREAMING_PARTIAL_BARGEIN_LOCAL_PASS.md",
+      "exists": true,
+      "bytes": 4046,
+      "lines": 134,
+      "sha256": "48460f9e72c3f972f6ab4a2b1efc35465093f49e340cb3a642171efee8881cbe",
+      "mtime": "2026-07-03T03:18:28.379Z",
+      "headings": [
+        "# M7M / M7N / M7O — Streaming Playback, Partial STT Ingress, Barge-In Smoke Local PASS",
+        "## Summary",
+        "## M7M — streaming playback smoke",
+        "## M7N — partial/final STT controller ingress",
+        "## M7O — barge-in smoke",
+        "## Validation",
+        "## Boundaries preserved",
+        "## Remaining work"
+      ]
+    },
+    {
+      "kind": "doc",
+      "path": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7p-live-browser-streaming-bargein/M7P_LIVE_BROWSER_STREAMING_BARGEIN_PASS.md",
+      "exists": true,
+      "bytes": 5489,
+      "lines": 162,
+      "sha256": "806fa4ff39e436b52b090ced7f8f9c35cab308ac3f2b3f000638a20c265029b7",
+      "mtime": "2026-07-03T03:47:22.716Z",
+      "headings": [
+        "# M7P — Live Browser Streaming + Barge-In Verification PASS",
+        "## Summary",
+        "## Human-observed evidence",
+        "## UI wording fix",
+        "## Validation",
+        "## Boundaries preserved",
+        "## R2 follow-up — final WAV fallback barge-in stop",
+        "## R3 follow-up — mic lifecycle after streaming barge-in confirmed",
+        "## R4 follow-up — final live confirmation",
+        "## Remaining work"
+      ]
+    },
+    {
+      "kind": "doc",
+      "path": "projects/stickbot-tars-smoke/docs/m7-local-stt/m56-voice-body-mastering/M56_VOICE_BODY_POSTPROCESS_PASS.md",
+      "exists": true,
+      "bytes": 6257,
+      "lines": 261,
+      "sha256": "1fd66f0d8612985df14b79b3226e6c861ccd7da6ac78628063055ae050530387",
+      "mtime": "2026-07-03T04:29:40.066Z",
+      "headings": [
+        "# M5.6 — TARS Voice Body / Mastering Postprocess PASS",
+        "## Why",
+        "## Implementation",
+        "## Important integration details",
+        "## Gates",
+        "## Boundaries",
+        "## Live smoke",
+        "## R2 — end-trim truncation fix",
+        "## R3 — tail guard for final syllable clipping"
+      ]
+    },
+    {
+      "kind": "memory",
+      "path": "memory/2026-07-03.md",
+      "exists": true,
+      "bytes": 46768,
+      "lines": 257,
+      "sha256": "b2aad1f116040bbb256664decd45c7313fdc61b5be4c04f6061f978f205b8ef6",
+      "mtime": "2026-07-03T04:30:54.058Z",
+      "headings": [
+        "# 2026-07-03 Memory — RECOVERED",
+        "## Stickbot-TARS voice continuity",
+        "## M7F/M7G implementation status",
+        "## Recommended next Stickbot-TARS milestones",
+        "## Altoura / SASSI",
+        "## Cron repair / event logging",
+        "## `/btw` aside switch",
+        "## Async command closeouts",
+        "## 09:58 AEST — Stickbot-TARS/CASE prosody matrix v2.0 imported",
+        "## 10:13 AEST — Stickbot-TARS/CASE v2 sample bundle exported"
+      ]
+    },
+    {
+      "kind": "memory",
+      "path": "memory/lessons-learned-stickbot-tars-live-dashboard-refresh-2026-07-03.md",
+      "exists": true,
+      "bytes": 3305,
+      "lines": 70,
+      "sha256": "bc743eedea7cf56fd768e818ad3ad5ddb9e12781b840495d4a55671df5d6716b",
+      "mtime": "2026-07-02T22:20:59.383Z",
+      "headings": [
+        "# Lesson learned — Stickbot-TARS live dashboard refresh after local code changes",
+        "## Trigger",
+        "## What happened",
+        "## Key lesson",
+        "## Push-live procedure for local Stickbot-TARS dashboard changes",
+        "## Current blocker at capture time",
+        "## Durable rule"
+      ]
+    }
+  ],
+  "missingSources": [],
+  "artifacts": {
+    "latestGeneratedWavs": [
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/dff8aa9d-e95a-4910-8419-962bae538516.wav",
+        "mtime": "2026-07-03T04:21:03.841Z",
+        "bytes": 483474
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/dff8aa9d-e95a-4910-8419-962bae538516-stitch/silence-002-190ms.wav",
+        "mtime": "2026-07-03T04:21:03.800Z",
+        "bytes": 18318
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/dff8aa9d-e95a-4910-8419-962bae538516-stitch/silence-001-245ms.wav",
+        "mtime": "2026-07-03T04:21:03.785Z",
+        "bytes": 23598
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/dff8aa9d-e95a-4910-8419-962bae538516-chunk-003.dsp.master.wav",
+        "mtime": "2026-07-03T04:21:03.773Z",
+        "bytes": 216930
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/dff8aa9d-e95a-4910-8419-962bae538516-chunk-002.dsp.master.wav",
+        "mtime": "2026-07-03T04:21:03.709Z",
+        "bytes": 85498
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/dff8aa9d-e95a-4910-8419-962bae538516-chunk-001.dsp.master.wav",
+        "mtime": "2026-07-03T04:21:03.677Z",
+        "bytes": 139442
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/dff8aa9d-e95a-4910-8419-962bae538516-chunk-003.dsp.wav",
+        "mtime": "2026-07-03T04:21:03.633Z",
+        "bytes": 105360
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/dff8aa9d-e95a-4910-8419-962bae538516-chunk-002.dsp.wav",
+        "mtime": "2026-07-03T04:21:03.545Z",
+        "bytes": 38888
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/dff8aa9d-e95a-4910-8419-962bae538516-chunk-001.dsp.wav",
+        "mtime": "2026-07-03T04:21:03.501Z",
+        "bytes": 65872
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/dff8aa9d-e95a-4910-8419-962bae538516-chunk-003.wav",
+        "mtime": "2026-07-03T04:21:03.433Z",
+        "bytes": 106540
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/dff8aa9d-e95a-4910-8419-962bae538516-chunk-002.wav",
+        "mtime": "2026-07-03T04:20:53.173Z",
+        "bytes": 39980
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/dff8aa9d-e95a-4910-8419-962bae538516-chunk-001.wav",
+        "mtime": "2026-07-03T04:20:48.273Z",
+        "bytes": 66604
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/54aa07b6-6b67-4893-bd51-c26fae6d6cff.wav",
+        "mtime": "2026-07-03T04:17:38.308Z",
+        "bytes": 380830
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/54aa07b6-6b67-4893-bd51-c26fae6d6cff-stitch/silence-001-245ms.wav",
+        "mtime": "2026-07-03T04:17:38.268Z",
+        "bytes": 23598
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/54aa07b6-6b67-4893-bd51-c26fae6d6cff-chunk-002.dsp.master.wav",
+        "mtime": "2026-07-03T04:17:38.248Z",
+        "bytes": 248538
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/54aa07b6-6b67-4893-bd51-c26fae6d6cff-chunk-001.dsp.master.wav",
+        "mtime": "2026-07-03T04:17:38.172Z",
+        "bytes": 108850
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/54aa07b6-6b67-4893-bd51-c26fae6d6cff-chunk-002.dsp.wav",
+        "mtime": "2026-07-03T04:17:38.116Z",
+        "bytes": 136508
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/54aa07b6-6b67-4893-bd51-c26fae6d6cff-chunk-001.dsp.wav",
+        "mtime": "2026-07-03T04:17:38.008Z",
+        "bytes": 65936
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/54aa07b6-6b67-4893-bd51-c26fae6d6cff-chunk-002.wav",
+        "mtime": "2026-07-03T04:17:37.944Z",
+        "bytes": 137772
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/54aa07b6-6b67-4893-bd51-c26fae6d6cff-chunk-001.wav",
+        "mtime": "2026-07-03T04:17:25.296Z",
+        "bytes": 66604
+      }
+    ],
+    "latestMasteredChunks": [
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/dff8aa9d-e95a-4910-8419-962bae538516-chunk-003.dsp.master.wav",
+        "mtime": "2026-07-03T04:21:03.773Z",
+        "bytes": 216930
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/dff8aa9d-e95a-4910-8419-962bae538516-chunk-002.dsp.master.wav",
+        "mtime": "2026-07-03T04:21:03.709Z",
+        "bytes": 85498
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/dff8aa9d-e95a-4910-8419-962bae538516-chunk-001.dsp.master.wav",
+        "mtime": "2026-07-03T04:21:03.677Z",
+        "bytes": 139442
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/54aa07b6-6b67-4893-bd51-c26fae6d6cff-chunk-002.dsp.master.wav",
+        "mtime": "2026-07-03T04:17:38.248Z",
+        "bytes": 248538
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/54aa07b6-6b67-4893-bd51-c26fae6d6cff-chunk-001.dsp.master.wav",
+        "mtime": "2026-07-03T04:17:38.172Z",
+        "bytes": 108850
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/aeaa91a1-aeb6-4e00-bd85-80d7ca4d3381-chunk-002.dsp.master.wav",
+        "mtime": "2026-07-03T04:16:20.727Z",
+        "bytes": 210346
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/aeaa91a1-aeb6-4e00-bd85-80d7ca4d3381-chunk-001.dsp.master.wav",
+        "mtime": "2026-07-03T04:16:20.659Z",
+        "bytes": 112534
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/54ac75b8-7852-4401-b5cf-d2bd995a5867-chunk-003.dsp.master.wav",
+        "mtime": "2026-07-03T04:11:11.980Z",
+        "bytes": 200350
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/54ac75b8-7852-4401-b5cf-d2bd995a5867-chunk-002.dsp.master.wav",
+        "mtime": "2026-07-03T04:11:11.912Z",
+        "bytes": 58146
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/54ac75b8-7852-4401-b5cf-d2bd995a5867-chunk-001.dsp.master.wav",
+        "mtime": "2026-07-03T04:11:11.880Z",
+        "bytes": 108438
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/ce0e5a5d-bdc7-481a-9fef-509e73e28d80-chunk-002.dsp.master.wav",
+        "mtime": "2026-07-03T04:07:42.578Z",
+        "bytes": 72002
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/ce0e5a5d-bdc7-481a-9fef-509e73e28d80-chunk-001.dsp.master.wav",
+        "mtime": "2026-07-03T04:07:42.542Z",
+        "bytes": 104822
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/f470fbd4-4015-4368-aab3-53d25d0701f1-chunk-003.dsp.master.wav",
+        "mtime": "2026-07-03T04:05:32.725Z",
+        "bytes": 104242
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/f470fbd4-4015-4368-aab3-53d25d0701f1-chunk-002.dsp.master.wav",
+        "mtime": "2026-07-03T04:05:32.677Z",
+        "bytes": 63602
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/f470fbd4-4015-4368-aab3-53d25d0701f1-chunk-001.dsp.master.wav",
+        "mtime": "2026-07-03T04:05:32.641Z",
+        "bytes": 108754
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/31ce103b-1c7c-411d-a803-e0318ff6c521-chunk-003.dsp.master.wav",
+        "mtime": "2026-07-03T04:04:47.757Z",
+        "bytes": 101378
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/31ce103b-1c7c-411d-a803-e0318ff6c521-chunk-002.dsp.master.wav",
+        "mtime": "2026-07-03T04:04:47.713Z",
+        "bytes": 63502
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/data/audio/output/31ce103b-1c7c-411d-a803-e0318ff6c521-chunk-001.dsp.master.wav",
+        "mtime": "2026-07-03T04:04:47.677Z",
+        "bytes": 108914
+      }
+    ],
+    "latestRehydrationPackets": [
+      {
+        "path": "projects/stickbot-tars-smoke/artifacts/rehydration/stickbot-tars/2026-07-03T04-34-35-824Z/stickbot-tars-rehydration.json",
+        "mtime": "2026-07-03T04:34:35.859Z",
+        "bytes": 94015
+      },
+      {
+        "path": "projects/stickbot-tars-smoke/artifacts/rehydration/stickbot-tars/2026-07-03T04-34-35-824Z/stickbot-tars-rehydration.md",
+        "mtime": "2026-07-03T04:34:35.859Z",
+        "bytes": 12508
+      }
+    ],
+    "prosodyMatrixState": {
+      "kind": "artifact",
+      "path": "projects/stickbot-tars-smoke/state/prosody-matrix.json",
+      "exists": true,
+      "bytes": 18671,
+      "lines": 632,
+      "sha256": "af9958e73a40de5a36587bb3b999d28982e00851836f55a07761e4d1e0c9273c",
+      "mtime": "2026-07-02T23:59:40.807Z",
+      "headings": []
+    },
+    "statusJson": {
+      "kind": "artifact",
+      "path": "projects/stickbot-tars-smoke/state/status.json",
+      "exists": true,
+      "bytes": 54020,
+      "lines": 1269,
+      "sha256": "682fa28abf42973651f5801eda88ec3becce310d5d7aa0a47c5803e97d0a9af8",
+      "mtime": "2026-07-03T04:30:08.890Z",
+      "headings": []
+    }
+  },
+  "git": {
+    "repo": null
+  }
+}

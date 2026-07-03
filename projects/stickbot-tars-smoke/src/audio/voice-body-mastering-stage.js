@@ -61,6 +61,7 @@ export function deriveVoiceBodyMasteringProfile({ voicePersona = 'TARS', strengt
     mode: 'local_ffmpeg_voice_body_mastering',
     trimLeadingSilenceOnly: true,
     trimEndingSilence: false,
+    tailGuardPadMs: 320,
     highpassHz: heavier ? 55 : 60,
     bodyEq: {
       lowBodyHz: heavier ? 150 : 170,
@@ -117,7 +118,8 @@ export function buildVoiceBodyMasteringFilterGraph(profile = {}) {
     `equalizer=f=${clamp(eq.upperBodyHz, 180, 500, 320)}:t=q:w=${clamp(eq.upperBodyQ, 0.4, 3, 1.2).toFixed(2)}:g=${clamp(eq.upperBodyGainDb, -3, 3, 1.5).toFixed(1)}`,
     `equalizer=f=${clamp(eq.presenceHz, 1800, 4500, 3200)}:t=q:w=${clamp(eq.presenceQ, 0.4, 3, 1.2).toFixed(2)}:g=${clamp(eq.presenceGainDb, -4, 3, -1.5).toFixed(1)}`,
     `acompressor=threshold=${clamp(comp.thresholdDb, -36, -8, -20)}dB:ratio=${clamp(comp.ratio, 1, 6, 2.2).toFixed(2)}:attack=${clamp(comp.attackMs, 1, 50, 8)}:release=${clamp(comp.releaseMs, 20, 400, 90)}:makeup=${clamp(comp.makeupDb, 0, 8, 2).toFixed(1)}`,
-    `loudnorm=I=${clamp(loud.integratedLUFS, -30, -12, -18)}:TP=${clamp(loud.truePeakDb, -6, -0.5, -1.5)}:LRA=${clamp(loud.lra, 3, 20, 9)}`
+    `loudnorm=I=${clamp(loud.integratedLUFS, -30, -12, -18)}:TP=${clamp(loud.truePeakDb, -6, -0.5, -1.5)}:LRA=${clamp(loud.lra, 3, 20, 9)}`,
+    `apad=pad_dur=${(clamp(profile.tailGuardPadMs, 0, 750, 320) / 1000).toFixed(3)}`
   ].join(',');
 }
 
