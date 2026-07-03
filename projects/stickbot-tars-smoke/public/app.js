@@ -142,9 +142,96 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, Math.max(0, Number(ms || 0))));
 }
 
+function nowMs() {
+  return globalThis.performance?.now ? performance.now() : Date.now();
+}
+
+function roundMs(value) {
+  return Math.round(Number(value || 0));
+}
+
 function chunkAudioUrlFromFrame(frame) {
   const name = frame?.payload?.mastering?.outputFileBasename || frame?.payload?.dsp?.outputFileBasename || frame?.payload?.fileBasename;
   return name ? `/audio/${encodeURIComponent(name)}` : null;
+}
+
+function waitForAudioCanPlay(audio, timeoutMs = 1200) {
+  if (!audio) return Promise.resolve(false);
+  if (audio.readyState >= 3) return Promise.resolve(true);
+  return new Promise((resolve) => {
+    let done = false;
+    const finish = (ok) => {
+      if (done) return;
+      done = true;
+      clearTimeout(timer);
+      audio.removeEventListener('canplay', onReady);
+      audio.removeEventListener('canplaythrough', onReady);
+      audio.removeEventListener('error', onError);
+      resolve(ok);
+    };
+    const onReady = () => finish(true);
+    const onError = () => finish(false);
+    const timer = setTimeout(() => finish(false), Math.max(50, Number(timeoutMs || 1200)));
+    audio.addEventListener('canplay', onReady, { once: true });
+    audio.addEventListener('canplaythrough', onReady, { once: true });
+    audio.addEventListener('error', onError, { once: true });
+    try { audio.load(); }
+    catch (_) { finish(false); }
+  });
+}
+
+function buildTransportQueue(audioFrames, turnId, transport = {}) {
+  const queueStartedAt = nowMs();
+  const entries = audioFrames.map((frame, index) => {
+    const audio = new Audio(chunkAudioUrlFromFrame(frame));
+    audio.preload = index < (transport.queueDepthTarget || 2) ? 'auto' : 'metadata';
+    audio.controls = true;
+    audio.autoplay = false;
+    audio.dataset.turnId = turnId || '';
+    registerPlaybackAudio(audio, turnId, { removeSourceOnStop: true });
+    return {
+      frame,
+      audio,
+      index,
+      queuedAt: nowMs(),
+      canPlayAt: null,
+      playStartedAt: null,
+      endedAt: null
+    };
+  });
+  return { queueStartedAt, entries };
+}
+
+function summarizeTransportTelemetry({ telemetry, transport }) {
+  const first = telemetry.entries.find((entry) => entry.playStartedAt);
+  const played = telemetry.entries.filter((entry) => entry.playStartedAt);
+  const gaps = [];
+  for (let i = 1; i < telemetry.entries.length; i++) {
+    const prev = telemetry.entries[i - 1];
+    const current = telemetry.entries[i];
+    if (prev.endedAt && current.playStartedAt) gaps.push(Math.max(0, current.playStartedAt - prev.endedAt));
+  }
+  return {
+    schema: 'stickbot.tars.client-stream-telemetry.v1',
+    classification: 'STICKBOT_TARS_M7R_LOW_LATENCY_CLIENT_TELEMETRY',
+    queueBuiltMs: roundMs((telemetry.queueBuiltAt || telemetry.queueStartedAt) - telemetry.queueStartedAt),
+    firstFrameCanPlayMs: telemetry.firstFrameCanPlayAt ? roundMs(telemetry.firstFrameCanPlayAt - telemetry.queueStartedAt) : null,
+    firstAudioPlayMs: first ? roundMs(first.playStartedAt - telemetry.queueStartedAt) : null,
+    maxInterChunkGapMs: gaps.length ? roundMs(Math.max(...gaps)) : 0,
+    playedFrameCount: played.length,
+    cancelled: Boolean(telemetry.cancelled),
+    target: {
+      firstAudioTargetMs: transport.firstAudioTargetMs || 1200,
+      interChunkGapTargetMs: transport.interChunkGapTargetMs || 120
+    },
+    boundaries: {
+      localOnly: true,
+      rawTranscriptDurableStorage: false,
+      browserWebSpeechApi: false,
+      cloudSpeechApi: false,
+      textRewriteAllowed: false
+    }
+  };
 }
 
 function stopAudioElement(audio, { removeSource = false } = {}) {
@@ -219,33 +306,41 @@ async function postBargeInSmoke(turnId) {
 async function playRealtimeFrames(j, container) {
   const manifest = j.voicePlan?.audioPerformance?.realtime;
   const frames = manifest?.frames || [];
+  const transport = manifest?.transport || {};
   const audioFrames = frames.filter((frame) => frame.type === 'audio_chunk_ready' && chunkAudioUrlFromFrame(frame));
   if (!audioFrames.length) return false;
-  const playback = { turnId: j.id, cancelled: false, audio: new Audio(), removeSourceOnStop: true };
+  const queue = buildTransportQueue(audioFrames, j.id, transport);
+  const playback = { turnId: j.id, cancelled: false, audio: queue.entries[0]?.audio, removeSourceOnStop: true };
   activePlayback = playback;
-  playback.audio.controls = true;
-  playback.audio.autoplay = false;
-  playback.audio.dataset.turnId = j.id || '';
-  registerPlaybackAudio(playback.audio, j.id, { removeSourceOnStop: true });
-  container.appendChild(playback.audio);
-  add(`<b>Streaming:</b> ${escapeHtml(audioFrames.length)} chunk frames queued<br><span class="muted">M7M local frame playback smoke; final WAV remains available as fallback.</span>`);
-  for (const frame of audioFrames) {
+  queue.queueBuiltAt = nowMs();
+  if (queue.entries[0]) container.appendChild(queue.entries[0].audio);
+  add(`<b>Streaming transport:</b> ${escapeHtml(audioFrames.length)} chunk frames preloaded<br><span class="muted">M7R ${escapeHtml(transport.mode || 'browser_preload_queue_then_serial_playback')}; target first audio ${escapeHtml(transport.firstAudioTargetMs || 1200)}ms; final WAV remains fallback.</span>`);
+  const firstReady = queue.entries[0] ? await waitForAudioCanPlay(queue.entries[0].audio, transport.preloadTimeoutMs || 1200) : false;
+  if (firstReady) queue.firstFrameCanPlayAt = nowMs();
+  for (const entry of queue.entries) {
     if (playback.cancelled) break;
-    const url = chunkAudioUrlFromFrame(frame);
-    playback.audio.src = url;
+    playback.audio = entry.audio;
+    if (!entry.audio.parentElement) container.appendChild(entry.audio);
+    const next = queue.entries[entry.index + 1];
+    if (next) waitForAudioCanPlay(next.audio, transport.preloadTimeoutMs || 1200).then((ok) => { if (ok && !next.canPlayAt) next.canPlayAt = nowMs(); });
     try { await playback.audio.play(); }
     catch (e) {
       add(`<b>Streaming:</b> browser blocked autoplay<br><span class="muted">Use audio controls or click Send again after user activation. ${escapeHtml(e.message)}</span>`);
       break;
     }
+    entry.playStartedAt = nowMs();
     await new Promise((resolve) => {
       playback.audio.onended = resolve;
       playback.audio.onerror = resolve;
     });
+    entry.endedAt = nowMs();
     if (playback.cancelled) break;
-    await sleep(frame.timing?.pauseAfterMs || 0);
+    await sleep(entry.frame.timing?.pauseAfterMs || 0);
   }
+  queue.cancelled = playback.cancelled;
   if (activePlayback === playback) activePlayback = null;
+  const summary = summarizeTransportTelemetry({ telemetry: queue, transport });
+  add(`<b>Streaming telemetry:</b> first play ${escapeHtml(summary.firstAudioPlayMs ?? 'n/a')}ms; max gap ${escapeHtml(summary.maxInterChunkGapMs)}ms; played ${escapeHtml(summary.playedFrameCount)}/${escapeHtml(audioFrames.length)}<br><span class="muted">${escapeHtml(summary.classification)}; local-only, no transcript/audio cloud path.</span>`);
   return true;
 }
 

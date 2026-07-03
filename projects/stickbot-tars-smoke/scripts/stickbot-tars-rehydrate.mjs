@@ -43,11 +43,11 @@ const RUNTIME = Object.freeze({
 });
 
 const CURRENT = Object.freeze({
-  latestClassification: 'STICKBOT_TARS_M7Q_TRUE_PARTIAL_LOCAL_STT_LOOP_LIVE_PASS',
+  latestClassification: 'STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_CODE_PASS_LIVE_TIMING_PENDING',
   lastPushedMilestone: 'STICKBOT_TARS_REHYDRATION_PACKET_WRITTEN',
   liveBrowserMilestone: 'STICKBOT_TARS_M7P_LIVE_BROWSER_STREAMING_BARGEIN_PASS',
   nextRecommendedMilestones: [
-    'M7R_LOW_LATENCY_STREAMING_TRANSPORT',
+    'M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_TIMING_PROOF',
     'M7S_LIVE_BARGE_IN_WITH_REAL_SPEECH',
     'LIVE_PROSODY_MOOD_SCORE_AND_EMOTIONAL_SHEET_MUSIC',
     'AUDIO_FIRST_MULTIPLEXED_PRODUCTION_STREAMING_ARCHITECTURE'
@@ -110,6 +110,7 @@ const SOURCE_FILES = [
   ['doc', 'docs/m7-local-stt/m7p-live-browser-streaming-bargein/M7P_LIVE_BROWSER_STREAMING_BARGEIN_PASS.md'],
   ['doc', 'docs/m7-local-stt/m56-voice-body-mastering/M56_VOICE_BODY_POSTPROCESS_PASS.md'],
   ['doc', 'docs/m7-local-stt/m7q-true-partial-local-stt-loop/M7Q_TRUE_PARTIAL_LOCAL_STT_LOOP_LIVE_PASS.md'],
+  ['doc', 'docs/m7-local-stt/m7r-low-latency-streaming-transport/M7R_LOW_LATENCY_STREAMING_TRANSPORT_CODE_PASS.md'],
   ['memory', '../../memory/2026-07-03.md'],
   ['memory', '../../memory/lessons-learned-stickbot-tars-live-dashboard-refresh-2026-07-03.md']
 ];
@@ -276,14 +277,15 @@ const rehydration = {
       'M7M/N/O streaming playback hooks + partial ingress + barge-in local pass',
       'M7P live browser streaming + barge-in pass',
       'M5.6 voice body/mastering postprocess pass with R2 tail-trim fix, R3 tail guard, and R4 terminal tail/drain live PASS',
-      'M7Q true partial local STT loop live pass: browser mic partials seq 0-5, final transcript, local whisper slices, privacy guard off'
+      'M7Q true partial local STT loop live pass: browser mic partials seq 0-5, final transcript, local whisper slices, privacy guard off',
+      'M7R low-latency streaming transport code pass: realtime manifest transport plan plus browser preload queue/client timing telemetry; live timing proof pending'
     ],
     next: CURRENT.nextRecommendedMilestones
   },
   liveReadiness: {
-    status: statusJson?.m7q?.classification || 'SEE_STATUS_JSON',
+    status: statusJson?.m7r?.classification || 'SEE_STATUS_JSON',
     url: RUNTIME.lanUrl,
-    needsHumanEar: 'M7Q live browser pass is complete; next work should move to M7R low-latency streaming transport.'
+    needsHumanEar: 'M7R code/local gate is ready; live browser should verify Streaming transport + Streaming telemetry, ordered audio playback, M7Q partial STT, and barge-in.'
   },
   statusJson,
   runtimePaths,

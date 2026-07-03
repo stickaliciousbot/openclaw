@@ -6,7 +6,7 @@ import path from 'node:path';
 import { buildProsodyScore } from '../src/prosody/prosody-score-engine.js';
 import { buildDspFilterGraph, deriveDspProfileFromProsody, polishChunkArtifacts } from '../src/audio/dsp-polish-stage.js';
 import { buildVoiceBodyMasteringFilterGraph, deriveVoiceBodyMasteringProfile, masterVoiceBodyArtifacts } from '../src/audio/voice-body-mastering-stage.js';
-import { buildRealtimeFrameManifest, iterateRealtimeFrames } from '../src/audio/streaming-frame-interface.js';
+import { buildLowLatencyTransportPlan, buildRealtimeFrameManifest, iterateRealtimeFrames } from '../src/audio/streaming-frame-interface.js';
 import { createFullDuplexTurnController, publicFullDuplexControllerSummary, reduceFullDuplexEvent, runFullDuplexScenario } from '../src/audio/full-duplex-turn-controller.js';
 import { conductChunkedXtts } from '../src/audio/xtts-chunk-conductor.js';
 import { loadTarsProsodyProfile } from '../src/voice/tars-prosody-profile.js';
@@ -151,6 +151,10 @@ test('STICKBOT_TARS_M7K_STREAMING_FRAME_INTERFACE_PASS', async () => {
   const manifest = buildRealtimeFrameManifest({ turnId: 'turn-stream', score, chunkArtifacts: artifacts, masteringStage, output: { renderer: 'fake', audioSha256: 'd'.repeat(64) } });
   assert.equal(manifest.classification, 'STICKBOT_TARS_M7K_STREAMING_FRAME_INTERFACE_PASS');
   assert.equal(manifest.target, 'streaming_full_duplex_mesh');
+  assert.equal(manifest.transport.classification, 'STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_READY');
+  assert.equal(manifest.transport.mode, 'browser_preload_queue_then_serial_playback');
+  assert.equal(manifest.transport.audioFrameCount, artifacts.length);
+  assert.equal(manifest.transport.boundaries.cloudSpeechApiAllowed, false);
   assert.equal(manifest.frames[0].type, 'turn_start');
   const audioFrame = manifest.frames.find((frame) => frame.type === 'audio_chunk_ready');
   assert.ok(audioFrame);
@@ -161,6 +165,33 @@ test('STICKBOT_TARS_M7K_STREAMING_FRAME_INTERFACE_PASS', async () => {
     assert.equal(frame.boundaries.cloudSpeechApiAllowed, false);
     assert.equal(frame.boundaries.rawTranscriptDurableStorage, false);
   }
+});
+
+test('STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_CONTRACT_PASS', () => {
+  const frames = [
+    { seq: 0, type: 'turn_start', timing: {}, payload: {} },
+    { seq: 1, type: 'audio_chunk_ready', payload: { chunkId: 'c001', chunkIndex: 0 }, timing: { pauseAfterMs: 80, durationMs: 500 } },
+    { seq: 2, type: 'pause', payload: {}, timing: { durationMs: 80 } },
+    { seq: 3, type: 'audio_chunk_ready', payload: { chunkId: 'c002', chunkIndex: 1 }, timing: { pauseAfterMs: 120, durationMs: 600 } }
+  ];
+  const transport = buildLowLatencyTransportPlan({ frames, targetQueueDepth: 1, firstAudioTargetMs: 900, interChunkGapTargetMs: 75 });
+  assert.equal(transport.classification, 'STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_READY');
+  assert.equal(transport.audioFrameCount, 2);
+  assert.equal(transport.queueDepthTarget, 1);
+  assert.equal(transport.firstAudioTargetMs, 900);
+  assert.equal(transport.interChunkGapTargetMs, 75);
+  assert.deepEqual(transport.schedule.map((item) => item.preloadPriority), ['eager', 'rolling']);
+  assert.deepEqual(transport.telemetryContract.fields, [
+    'queueBuiltMs',
+    'firstFrameCanPlayMs',
+    'firstAudioPlayMs',
+    'maxInterChunkGapMs',
+    'playedFrameCount',
+    'cancelled'
+  ]);
+  assert.equal(transport.telemetryContract.rawAudioStored, false);
+  assert.equal(transport.boundaries.gatewayMutationAllowed, false);
+  assert.equal(transport.boundaries.openClawRoutingMutationAllowed, false);
 });
 
 test('STICKBOT_TARS_M7L_FULL_DUPLEX_TURN_CONTROLLER_BARGE_IN_PASS', () => {
