@@ -8,6 +8,7 @@ import { loadConfig } from './src/config.js';
 import { askOpenClaw } from './src/openclaw-adapter.js';
 import { transcribeAudio } from './src/stt-adapter.js';
 import { normalizeAudio } from './src/audio-normalizer.js';
+import { polishChunkArtifacts } from './src/audio/dsp-polish-stage.js';
 import { conductChunkedXtts, publicChunkConductorSummary } from './src/audio/xtts-chunk-conductor.js';
 import { resolveAudioOutputPath, audioUrlForFile } from './safety/audio-path-policy.js';
 import { readJsonBody, readAudioUploadBody, assertTextWithinLimit } from './safety/limits.js';
@@ -135,6 +136,7 @@ async function synthesize(text, id) {
     outputDir: chunkDir,
     finalOutPath: finalOut,
     ffmpegBin: config.ffmpegBin,
+    dspProcessor: polishChunkArtifacts,
     timeoutMs: config.audioNormalizeTimeoutMs,
     synthesizeChunk: async ({ text: chunkText, effectiveXtts }) => ({
       buffer: await requestXttsAudio({ text: chunkText, xttsParams: effectiveXtts }),

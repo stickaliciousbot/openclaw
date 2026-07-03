@@ -2,6 +2,8 @@ import crypto from 'node:crypto';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { buildAudioPerformancePipeline, publicAudioPerformanceSummary } from './audio-performance-pipeline.js';
+import { publicDspStageSummary } from './dsp-polish-stage.js';
+import { buildRealtimeFrameManifest, publicRealtimeFrameManifest } from './streaming-frame-interface.js';
 import { stitchWavSequence } from './wav-stitcher.js';
 
 function sha256Buffer(buf) {
@@ -127,12 +129,33 @@ export async function conductChunkedXtts({
   synthesizeChunk,
   stitcher = stitchWavSequence,
   stitchWorkDir = null,
+  dspProcessor = null,
+  dspOutputDir = null,
   sampleRate = 24000,
   channels = 1,
   timeoutMs = 60000
 } = {}) {
   const chunkArtifacts = await synthesizeProsodyChunks({ turnId, score, outputDir, synthesizeChunk });
-  const sequence = chunkArtifacts.map((artifact) => ({ file: artifact.file, pauseAfterMs: artifact.pauseAfterMs }));
+  const dspStage = dspProcessor
+    ? await dspProcessor({
+      chunkArtifacts,
+      ffmpegBin,
+      outputDir: dspOutputDir || path.join(outputDir, `${turnId}-dsp`),
+      voicePersona: score?.voicePersona || 'TARS',
+      timeoutMs
+    })
+    : {
+      schema: 'stickbot.tars.dsp-stage.v1',
+      enabled: false,
+      interfaceReserved: true,
+      frameSchema: 'stickbot.tars.audio-dsp-frame.v1',
+      classification: 'STICKBOT_TARS_M7J_DSP_STAGE_RESERVED_NOT_APPLIED',
+      frames: [],
+      artifacts: chunkArtifacts,
+      boundaries: { localOnly: true, textRewriteAllowed: false, voiceIdentityRewriteAllowed: false }
+    };
+  const renderArtifacts = dspStage.artifacts || chunkArtifacts;
+  const sequence = renderArtifacts.map((artifact) => ({ file: artifact.file, pauseAfterMs: artifact.pauseAfterMs }));
   const stitch = await stitcher({
     ffmpegBin,
     sequence,
@@ -149,14 +172,25 @@ export async function conductChunkedXtts({
     audioSha256: finalBytesSha,
     entries: stitch.entries?.map((entry) => path.basename(entry)) || []
   };
-  const pipeline = buildAudioPerformancePipeline({ turnId, prosodyScore: score, output, chunkArtifacts });
+  const realtime = buildRealtimeFrameManifest({ turnId, score, chunkArtifacts: renderArtifacts, dspStage, output });
+  const pipeline = buildAudioPerformancePipeline({
+    turnId,
+    prosodyScore: score,
+    output,
+    chunkArtifacts: renderArtifacts,
+    dsp: publicDspStageSummary(dspStage),
+    realtime: publicRealtimeFrameManifest(realtime)
+  });
   return {
     schema: 'stickbot.tars.chunk-conductor.v1',
     classification: 'STICKBOT_TARS_M7I_CHUNK_CONDUCTOR_RENDER_PASS',
     turnId,
     output,
-    chunkArtifacts,
-    publicChunkArtifacts: chunkArtifacts.map(publicChunkArtifact),
+    chunkArtifacts: renderArtifacts,
+    originalChunkArtifacts: chunkArtifacts,
+    dspStage,
+    realtime,
+    publicChunkArtifacts: renderArtifacts.map(publicChunkArtifact),
     pipeline,
     publicPipeline: publicAudioPerformanceSummary(pipeline),
     boundaries: pipeline.boundaries
@@ -174,6 +208,8 @@ export function publicChunkConductorSummary(result = {}) {
       entries: result.output.entries || []
     } : null,
     chunkArtifacts: result.publicChunkArtifacts || (result.chunkArtifacts || []).map(publicChunkArtifact),
+    dspStage: result.dspStage ? publicDspStageSummary(result.dspStage) : null,
+    realtime: result.realtime ? publicRealtimeFrameManifest(result.realtime) : null,
     pipeline: result.publicPipeline || publicAudioPerformanceSummary(result.pipeline || {}),
     boundaries: result.boundaries
   };
