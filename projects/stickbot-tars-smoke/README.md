@@ -412,18 +412,21 @@ Safety gates:
 - delete mode requires a prior PASS manifest and `--confirm-delete`,
 - every file is rechecked by path, size, mtime, SHA256, allowlisted root, and open-process state before unlink,
 - git-tracked files are blocked,
-- app dependency references in `server.js`, `package.json`, `public/`, `src/`, and `safety/` are blocked,
+- executable dependency references in `server.js`, `package.json`, `public/`, `src/`, `safety/`, and `scripts/` are blocked,
 - protected runtime roots such as speaker reference, models, tools, certs, source, tests, and app code are never scan roots,
 - docs/evidence references do not make generated audio a live app dependency.
 
-Current no-delete audit gate after M7R/README closeout:
+Current no-delete audit gate after script-fixture dependency correction:
 
 ```text
 STICKBOT_TARS_GENERATED_AUDIO_AUDIT_STAGE_PASS
 files scanned: 483
-staged for deletion: 483
-blocked/protected: 0
-staged bytes: 68170794
+staged for deletion: 482
+protected/skipped: 1
+staged bytes: 68075006
+protected bytes: 95788
+protected file: /home/stickai/stickbot-voice/output/m4-first-generation.wav
+reason: REFERENCED_BY_EXECUTABLE_SOURCE via M7B/M7C smoke script defaults
 ```
 
 ### Start XTTS loopback

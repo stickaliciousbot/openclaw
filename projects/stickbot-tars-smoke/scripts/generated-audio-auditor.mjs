@@ -162,14 +162,16 @@ async function gitTrackedSet() {
 }
 
 async function sourceFilesForReferenceScan() {
-  // This scan is intentionally limited to node-app dependency surfaces.
-  // Documentation/evidence references do not make generated audio a live dependency.
+  // This scan is intentionally limited to executable dependency surfaces.
+  // Documentation/evidence references do not make generated audio a live dependency,
+  // but runtime scripts do: deleting default smoke fixtures would break validation.
   const roots = [
     path.join(projectRoot, 'server.js'),
     path.join(projectRoot, 'package.json'),
     path.join(projectRoot, 'public'),
     path.join(projectRoot, 'src'),
     path.join(projectRoot, 'safety'),
+    path.join(projectRoot, 'scripts'),
   ];
   const out = [];
   for (const root of roots) {
@@ -317,7 +319,7 @@ function classifyCandidate(candidate, context) {
   if (ageMinutes < context.minAgeMinutes) blockers.push(`TOO_RECENT_UNDER_${context.minAgeMinutes}_MINUTES`);
 
   const sourceRefs = context.sourceRefs.get(absPath) || [];
-  if (sourceRefs.length > 0) blockers.push('REFERENCED_BY_NODE_APP_SOURCE');
+  if (sourceRefs.length > 0) blockers.push('REFERENCED_BY_EXECUTABLE_SOURCE');
 
   const openRefs = context.openFiles.get(absPath) || [];
   if (openRefs.length > 0) blockers.push('OPEN_BY_PROCESS');
@@ -354,11 +356,12 @@ function summarize(files, rootErrors, procScanError) {
   const totalBytes = files.reduce((sum, file) => sum + file.sizeBytes, 0);
   const stagedBytes = staged.reduce((sum, file) => sum + file.sizeBytes, 0);
   const blockedBytes = blocked.reduce((sum, file) => sum + file.sizeBytes, 0);
-  const classification = rootErrors.length || procScanError || blocked.length ? HOLD : PASS_STAGE;
+  const classification = rootErrors.length || procScanError ? HOLD : PASS_STAGE;
   return {
     classification,
     fileCount: files.length,
     stagedCount: staged.length,
+    protectedSkippedCount: blocked.length,
     blockedCount: blocked.length,
     totalBytes,
     stagedBytes,
@@ -411,7 +414,7 @@ async function buildAuditManifest(args) {
       scanRootsAllowlisted: true,
       protectedRootsDenied: true,
       gitTrackedFilesBlocked: true,
-      nodeAppSourceReferencesBlocked: true,
+      executableSourceReferencesBlocked: true,
       openProcessFilesBlocked: true,
       minAgeMinutes: args.minAgeMinutes,
       noMntC: true,
@@ -440,7 +443,7 @@ function renderMarkdown(manifest, deleteResult = null) {
   lines.push('');
   lines.push(`- files scanned: ${manifest.summary.fileCount}`);
   lines.push(`- staged for deletion: ${manifest.summary.stagedCount}`);
-  lines.push(`- blocked/protected: ${manifest.summary.blockedCount}`);
+  lines.push(`- protected/skipped: ${manifest.summary.protectedSkippedCount ?? manifest.summary.blockedCount}`);
   lines.push(`- total bytes: ${manifest.summary.totalBytes}`);
   lines.push(`- staged bytes: ${manifest.summary.stagedBytes}`);
   lines.push(`- blocked bytes: ${manifest.summary.blockedBytes}`);
@@ -457,7 +460,7 @@ function renderMarkdown(manifest, deleteResult = null) {
   lines.push('- Stage/audit mode never deletes files.');
   lines.push('- Delete mode requires `--delete --manifest <PASS manifest> --confirm-delete`.');
   lines.push('- Candidates must be under allowlisted generated-audio roots.');
-  lines.push('- Git-tracked files, protected roots, node app source references, and open files are blocked.');
+  lines.push('- Git-tracked files, protected roots, executable source/script references, and open files are blocked.');
   lines.push('- Runtime speaker reference, models, tools, certs, source, tests, and app dependencies are never scan roots.');
   lines.push('');
   lines.push('## Scan roots');
@@ -471,7 +474,7 @@ function renderMarkdown(manifest, deleteResult = null) {
     lines.push(`- \`${file.path}\` (${file.sizeBytes} bytes, sha256 \`${file.sha256.slice(0, 16)}…\`)`);
   }
   lines.push('');
-  lines.push('## Blocked/protected files');
+  lines.push('## Protected/skipped files');
   lines.push('');
   if (!blocked.length) lines.push('_None._');
   for (const file of blocked) {
