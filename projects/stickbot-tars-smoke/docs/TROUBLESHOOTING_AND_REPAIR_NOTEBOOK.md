@@ -542,3 +542,119 @@ Durable repair rule:
 Every loopback/LAN browser demo must identify runtime location, discover all relevant addresses, bind with explicit LAN allow, verify local health, verify representative browser POST path, and configure/verify host-network forwarding/firewall when runtime is WSL2 or otherwise behind NAT. Do not tell Stick to retry a LAN URL until these gates pass.
 
 M7D real mic final PASS remains pending actual microphone interaction and privacy-safe transcript confirmation. M8, live provider/Gateway smoke, Android, persistent service install, and broader host-PC Tailscale proxy/user-testing exposure are not started and require separate approval.
+
+## M7R live low-latency transport repairs
+
+Date: 2026-07-03 AEST
+
+Context:
+
+- M7R code-pass added low-latency transport manifest metadata and browser client telemetry.
+- Code validation passed before live repair:
+  - focused streaming/duplex gate: `9/9 PASS`
+  - full `npm run check`: `85/85 PASS`
+  - rehydrator: `47` sources, `missingSources: []`
+- Live server target: `https://192.168.1.107:19890/` / loopback `https://127.0.0.1:19890/`.
+
+### Issue: foreground live demo timeout killed server
+
+Symptom:
+
+- Approved demo command printed:
+  - `STICKBOT_TARS_M7D_REAL_MIC_LOCAL_DEMO_READY`
+  - `stickbot-tars-smoke listening on https://0.0.0.0:19890`
+- The exec wrapper later reported timeout.
+- Follow-up health checks failed: `curl: (7) Failed to connect to 127.0.0.1 port 19890`.
+
+Root cause:
+
+- `scripts/m7d-local-real-mic-demo.sh` is designed to run in the foreground until Ctrl-C.
+- Using a bounded exec timeout for a foreground live server causes the wrapper to kill the demo process.
+
+Repair:
+
+- Restart only the TARS Node demo process; keep XTTS running.
+- For long-running live browser tests, use a managed background process/session or a detached launch that does not depend on a bounded foreground exec.
+- Always verify after restart:
+  - loopback `/health`
+  - LAN `/health`
+  - app cache-buster/version
+  - `/api/capabilities`
+
+Validation:
+
+- After repaired restart, loopback and LAN `/health` returned `ok:true`.
+- App served `app.js?v=m7r-low-latency-transport`.
+
+### Issue: detached restart missed `STT_ARGS_JSON` placeholder
+
+Symptom:
+
+- Browser UI showed:
+  - `Partial STT: failed`
+  - `Mic capture: saved locally`
+  - `STT args must include a {file} placeholder`
+- Audio uploads were captured/saved, but STT did not run.
+
+Root cause:
+
+- Manual detached `node server.js` launch preserved `STT_MODE=cli`, `STT_BIN`, `STT_NORMALIZE_AUDIO=true`, and `FFMPEG_BIN`, but omitted `STT_ARGS_JSON`.
+- `src/stt-adapter.js` intentionally fails closed unless STT args contain `{file}` so the audio path is passed as an argv element, not appended ambiguously.
+- The normal `scripts/m7d-local-real-mic-demo.sh` harness generates:
+
+```json
+["-m", "/home/stickai/stickbot-voice/stt_models/whisper.cpp/ggml-small.en.bin", "-f", "{file}", "-nt", "-np", "-l", "en"]
+```
+
+Repair:
+
+- Kill the bad Node demo process.
+- Restart `node server.js` with the same live LAN/HTTPS/local whisper environment and explicit `STT_ARGS_JSON` containing `{file}`.
+
+Validation:
+
+- Live partial STT smoke returned:
+  - classification `STICKBOT_TARS_M7Q_TRUE_PARTIAL_LOCAL_STT_LOOP_PASS`
+  - `sttMode: cli`
+  - `normalizedLocal: true`
+  - `noTranscript: false`
+  - `error: null`
+- No raw transcript payload needs to be stored durably for this repair; public proof can use classification, mode, normalized flag, char count/hash, and boundaries.
+
+### Issue: browser Send stuck indefinitely on `Sending...`
+
+Symptom:
+
+- Stick reported Send had been stuck for >1 minute and later >5 minutes with no voice output.
+- Screenshot showed browser still on `Sending...`.
+
+Evidence:
+
+- Backend `/health` remained OK.
+- XTTS `/ready` remained OK.
+- Recent output files showed one new `*-chunk-001.wav` with no matching final WAV, indicating synthesis had started but the turn did not complete.
+- XTTS log showed `BrokenPipeError` during `/tts_to_audio/`, followed by a failed attempt to write the error response to an already closed socket.
+
+Root cause:
+
+- The browser/client request had effectively been abandoned or broken while XTTS was still writing audio. The stale in-flight browser Send would not recover on its own.
+- This is distinct from the backend being wholly down; a bounded backend voice smoke can distinguish stale-request failure from service failure.
+
+Repair:
+
+- Do not ask Stick to keep pressing Send or stack retries while the old tab is stuck.
+- Run a bounded backend voice smoke.
+- If backend smoke passes, tell Stick to use a fresh/hard-refreshed tab and send a short first prompt.
+- If backend smoke fails, restart XTTS and/or Node cleanly, then re-run health/capability/voice smoke.
+
+Validation:
+
+- Bounded backend voice smoke completed in ~20 seconds and produced a final WAV.
+- Response included `STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_READY` and audio frames.
+- After corrected STT restart, a second backend voice smoke completed in ~20 seconds and produced a final WAV.
+
+Follow-up hardening recommendation:
+
+- Add explicit browser/backend timeout/fail-fast handling for `Send text` so the UI cannot remain indefinitely on `Sending...`.
+- Expose a visible recovery action for abandoned voice turns.
+- Consider server-side turn timing logs that record chunk generation start/end, final stitch start/end, and XTTS request elapsed time without durably storing raw transcript or canonical prompt text beyond existing daily smoke policy.

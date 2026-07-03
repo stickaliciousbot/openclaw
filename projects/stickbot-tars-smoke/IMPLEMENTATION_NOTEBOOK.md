@@ -526,3 +526,55 @@ Validation:
 - `npm run check` PASS.
 - Node tests: `56/56 PASS`.
 - New gates: `TARS_PROSODY_MATRIX_JSON_IMPORT_PASS`, `TARS_PROSODY_SHEET_MUSIC_PASS`.
+
+## M7R — low-latency streaming transport / live repair trail
+
+Status: `STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_CODE_PASS_LIVE_TIMING_PENDING`
+
+Commit: `0b1366791`
+
+Implementation:
+
+- Added explicit low-latency transport metadata to realtime frame manifests:
+  - schema `stickbot.tars.low-latency-transport.v1`
+  - classification `STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_READY`
+  - mode `browser_preload_queue_then_serial_playback`
+  - queue-depth target `2`
+  - first-audio target `1200ms`
+  - inter-chunk-gap target `120ms`
+- Updated browser playback to build a preloaded serial audio queue and display `STICKBOT_TARS_M7R_LOW_LATENCY_CLIENT_TELEMETRY` with first-play / max-gap / played-count data.
+- Preserved final WAV fallback, M7Q partial local STT, and M7O barge-in semantics.
+- Boundaries unchanged: local-only, no cloud STT, no browser Web Speech API, no OpenClaw/Gateway/NOA/provider mutation, no port `8787`.
+
+Validation before live repair:
+
+- Focused gate: `node --check src/audio/streaming-frame-interface.js`, `node --check public/app.js`, `node --test test/tars-dsp-stream-duplex.test.mjs` → `9/9 PASS`.
+- Full gate: `npm run check` → `85/85 PASS`.
+- Rehydrator: `47` sources, `missingSources: []`.
+
+Live repair findings captured during M7R browser test:
+
+1. **Foreground demo timeout can kill the server.**
+   - Symptom: approved `scripts/m7d-local-real-mic-demo.sh` printed READY, then the exec wrapper timed out and `19890` went down.
+   - Cause: the demo script intentionally runs foreground until Ctrl-C; bounded exec timeout terminated it.
+   - Repair: use a managed/background process for live testing or a detached command that preserves the exact script environment. Verify with loopback + LAN `/health` after the wrapper exits.
+
+2. **Detached restart must preserve the script-generated STT args.**
+   - Symptom: browser partial/final STT showed `STT args must include a {file} placeholder`; audio was saved locally but local whisper was not invoked.
+   - Cause: manual detached `node server.js` restart set `STT_BIN`/model paths but omitted `STT_ARGS_JSON` with the `{file}` placeholder. The harness normally generates this JSON.
+   - Repair: restart Node with `STT_ARGS_JSON=["-m","/home/stickai/stickbot-voice/stt_models/whisper.cpp/ggml-small.en.bin","-f","{file}","-nt","-np","-l","en"]` or use the script path that generates it. Validation: real partial STT smoke returned `STICKBOT_TARS_M7Q_TRUE_PARTIAL_LOCAL_STT_LOOP_PASS`, `sttMode:cli`, `normalizedLocal:true`, `error:null`.
+
+3. **Stuck browser Send is not the same as backend down.**
+   - Symptom: browser remained on `Sending...` for several minutes with no voice output.
+   - Evidence: backend health and XTTS `/ready` were green; one turn produced only `chunk-001.wav` and no final WAV; XTTS log showed `BrokenPipeError` during `/tts_to_audio/` after the client side abandoned the request.
+   - Repair: do not stack repeated browser sends; run a bounded backend voice smoke. If backend smoke passes, instruct Stick to open a fresh/hard-refreshed tab rather than waiting on the stale request. If it fails, restart XTTS/Node cleanly.
+   - Validation: bounded backend voice smoke completed in ~20 seconds, produced final WAV, and returned `STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_READY`.
+
+Required follow-up before M7R live PASS:
+
+- Browser hard-refresh/new tab.
+- Verify `Streaming transport` and `Streaming telemetry` appear.
+- Verify ordered audio playback.
+- Verify M7Q partial local STT still works.
+- Verify barge-in still stops active playback.
+- If Send hangs again, patch UI/backend timeout/fail-fast recovery instead of accepting indefinite `Sending...`.

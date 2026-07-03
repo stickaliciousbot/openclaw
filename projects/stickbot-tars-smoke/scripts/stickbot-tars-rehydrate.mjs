@@ -67,6 +67,7 @@ const CURRENT = Object.freeze({
 
 const SOURCE_FILES = [
   ['repo', 'README.md'],
+  ['repo', 'IMPLEMENTATION_NOTEBOOK.md'],
   ['repo', 'package.json'],
   ['repo', 'server.js'],
   ['repo', 'scripts/stickbot-tars-rehydrate.mjs'],
@@ -112,7 +113,8 @@ const SOURCE_FILES = [
   ['doc', 'docs/m7-local-stt/m7q-true-partial-local-stt-loop/M7Q_TRUE_PARTIAL_LOCAL_STT_LOOP_LIVE_PASS.md'],
   ['doc', 'docs/m7-local-stt/m7r-low-latency-streaming-transport/M7R_LOW_LATENCY_STREAMING_TRANSPORT_CODE_PASS.md'],
   ['memory', '../../memory/2026-07-03.md'],
-  ['memory', '../../memory/lessons-learned-stickbot-tars-live-dashboard-refresh-2026-07-03.md']
+  ['memory', '../../memory/lessons-learned-stickbot-tars-live-dashboard-refresh-2026-07-03.md'],
+  ['memory', '../../memory/lessons-learned-stickbot-tars-m7r-live-transport-repair-2026-07-03.md']
 ];
 
 function relFromWorkspace(filePath) {
