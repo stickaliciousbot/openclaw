@@ -144,9 +144,9 @@ async function synthesize(text, id) {
     masteringProcessor: masterVoiceBodyArtifacts,
     masteringOutputDir: AUDIO_OUTPUT_DIR,
     timeoutMs: config.audioNormalizeTimeoutMs,
-    synthesizeChunk: async ({ text: chunkText, effectiveXtts }) => ({
-      buffer: await requestXttsAudio({ text: chunkText, xttsParams: effectiveXtts }),
-      synthesis: { provider: 'local_xtts_loopback', chunked: true }
+    synthesizeChunk: async ({ text: chunkText, renderText, effectiveXtts, renderTextSha256, terminalTailHintApplied }) => ({
+      buffer: await requestXttsAudio({ text: renderText || chunkText, xttsParams: effectiveXtts }),
+      synthesis: { provider: 'local_xtts_loopback', chunked: true, renderTextSha256, terminalTailHintApplied: Boolean(terminalTailHintApplied) }
     })
   });
   const publicPlan = publicProsodyPlanSummary(voicePlan);

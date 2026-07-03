@@ -43,21 +43,26 @@ const RUNTIME = Object.freeze({
 });
 
 const CURRENT = Object.freeze({
-  latestClassification: 'STICKBOT_TARS_M56_VOICE_BODY_POSTPROCESS_PASS_R3_TAIL_GUARD_PENDING_COMMIT',
-  lastPushedMilestone: 'STICKBOT_TARS_M56_VOICE_BODY_POSTPROCESS_PASS_R2_END_TRIM_FIX',
+  latestClassification: 'STICKBOT_TARS_M56_R4_TERMINAL_TAIL_DRAIN_LIVE_PASS',
+  lastPushedMilestone: 'STICKBOT_TARS_REHYDRATION_PACKET_WRITTEN',
   liveBrowserMilestone: 'STICKBOT_TARS_M7P_LIVE_BROWSER_STREAMING_BARGEIN_PASS',
   nextRecommendedMilestones: [
-    'M56_LIVE_AB_CONFIRM_TAIL_GUARD',
     'M7Q_TRUE_PARTIAL_LOCAL_STT_LOOP',
     'M7R_LOW_LATENCY_STREAMING_TRANSPORT',
-    'M7S_LIVE_BARGE_IN_WITH_REAL_SPEECH'
+    'M7S_LIVE_BARGE_IN_WITH_REAL_SPEECH',
+    'LIVE_PROSODY_MOOD_SCORE_AND_EMOTIONAL_SHEET_MUSIC',
+    'AUDIO_FIRST_MULTIPLEXED_PRODUCTION_STREAMING_ARCHITECTURE'
   ],
   latestKnownLiveSmoke: {
     masteringEnabled: true,
     outputFormat: { codec: 'pcm_s16le', sampleRate: 48000, channels: 1, bitRate: 768000 },
     masteredFrames: 3,
     finalDurationSecondsBeforeTailGuard: 4.255,
-    finalDurationSecondsAfterTailGuardSmoke: 5.035
+    finalDurationSecondsAfterTailGuardSmoke: 5.035,
+    r4TailDrainPadMs: 900,
+    r4TerminalTailHintApplied: true,
+    r4HumanConfirmedSentenceFinishedPerfectly: true,
+    r4BargeInStillWorks: true
   }
 });
 
@@ -89,6 +94,7 @@ const SOURCE_FILES = [
   ['repo', 'scripts/xtts-local-server.py'],
   ['repo', 'state/status.json'],
   ['doc', 'docs/STICKBOT_TARS_REHYDRATION.md'],
+  ['doc', 'docs/PRODUCTION_VOICE_STREAM_ARCHITECTURE.md'],
   ['doc', 'docs/LOW_LEVEL_DESIGN_AND_IMPLEMENTATION_PLAN.md'],
   ['doc', 'docs/LOOPBACK_LAN_EXPOSURE_NOTEBOOK.md'],
   ['doc', 'docs/TROUBLESHOOTING_AND_REPAIR_NOTEBOOK.md'],
@@ -268,14 +274,14 @@ const rehydration = {
       'M7J/K/L DSP + streaming frame + duplex controller local pass',
       'M7M/N/O streaming playback hooks + partial ingress + barge-in local pass',
       'M7P live browser streaming + barge-in pass',
-      'M5.6 voice body/mastering postprocess pass with R2 tail-trim fix and R3 tail guard pending subjective confirmation'
+      'M5.6 voice body/mastering postprocess pass with R2 tail-trim fix, R3 tail guard, and R4 terminal tail/drain live PASS'
     ],
     next: CURRENT.nextRecommendedMilestones
   },
   liveReadiness: {
-    status: statusJson?.m56?.validation?.r2TruncationFix ? 'M56_R2_VALIDATED_TAIL_GUARD_IN_PROGRESS' : 'SEE_STATUS_JSON',
+    status: statusJson?.m56?.validation?.r4TerminalTailDrainFix ? 'M56_R4_TERMINAL_TAIL_DRAIN_LIVE_PASS' : 'SEE_STATUS_JSON',
     url: RUNTIME.lanUrl,
-    needsHumanEar: 'Confirm M5.6 R3 tail guard fixes final-syllable clipping while preserving the improved voice body and avoiding mud.'
+    needsHumanEar: 'M5.6 R4 was human-confirmed: sentence finished perfectly, sound is great, and barge-in still works.'
   },
   statusJson,
   runtimePaths,

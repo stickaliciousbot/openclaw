@@ -1243,6 +1243,25 @@
           "firstMaster": "dff8aa9d-e95a-4910-8419-962bae538516-chunk-001.dsp.master.wav",
           "finalDurationSeconds": 5.035
         }
+      },
+      "r4TerminalTailDrainFix": {
+        "classification": "STICKBOT_TARS_M56_R4_TERMINAL_TAIL_DRAIN_LIVE_PASS",
+        "finding": "R3 preserved voice body but still cut the final syllable in half abruptly.",
+        "fix": "Increased post-mastering apad tail guard to 900 ms and added a TTS-only terminal render hint for the final chunk while preserving canonical text/hash.",
+        "regressionGate": "M5.6 filter includes apad=pad_dur=0.900, final chunk applies terminalTailHintApplied=true, and canonical text remains unchanged.",
+        "liveSmoke": {
+          "audioUrl": "/audio/3a5664c9-c6ae-44a4-9a48-20cbabc8f8eb.wav",
+          "hasPad900": true,
+          "hasTerminalTailHint": true,
+          "frameCount": 3,
+          "chunkCount": 3,
+          "textRewriteAllowed": false
+        },
+        "humanConfirmation": {
+          "sentenceFinishedPerfectly": true,
+          "voiceBodyGreat": true,
+          "bargeInStillWorks": true
+        }
       }
     },
     "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m56-voice-body-mastering/M56_VOICE_BODY_POSTPROCESS_PASS.md",
@@ -1262,7 +1281,7 @@
       "generatedAudioCommitted": false,
       "stereoWideningApplied": false
     },
-    "currentLimitation": "M5.6 adds deterministic local mastering and automated gates. Live A/B subjective quality still needs Stick's ear to tune body versus mud."
+    "currentLimitation": "M5.6 R4 passed live browser tail/drain confirmation. Remaining voice work before production closeout includes live-driven prosody/mood scoring and audio-first multiplexed streaming architecture."
   },
-  "nextMilestone": "M56_LIVE_AB_TEST_THEN_M7Q_TRUE_PARTIAL_LOCAL_STT_LOOP"
+  "nextMilestone": "M7Q_TRUE_PARTIAL_LOCAL_STT_LOOP_THEN_LIVE_PROSODY_DRIVE_AND_AUDIO_FIRST_MULTIPLEX_ARCHITECTURE"
 }

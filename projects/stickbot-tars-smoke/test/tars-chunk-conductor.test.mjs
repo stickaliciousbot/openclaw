@@ -35,9 +35,22 @@ test('STICKBOT_TARS_M7I_CHUNK_SYNTH_USES_PER_CHUNK_EFFECTIVE_XTTS_PASS', async (
   assert.equal(artifacts.length, score.chunks.length);
   for (const [index, call] of calls.entries()) {
     assert.equal(call.text, score.chunks[index].text);
+    assert.equal(call.textSha256, score.chunks[index].textSha256);
     assert.deepEqual(call.effectiveXtts, score.chunks[index].effectiveXtts);
     assert.equal(call.pauseAfterMs, score.chunks[index].pauseAfterMs);
-    assert.equal(call.textSha256, score.chunks[index].textSha256);
+    assert.equal(typeof call.renderTextSha256, 'string');
+    assert.equal(call.renderTextSha256.length, 64);
+    if (index === calls.length - 1) {
+      assert.notEqual(call.renderText, call.text);
+      assert.match(call.renderText, /…$/);
+      assert.equal(call.terminalTailHintApplied, true);
+      assert.equal(artifacts[index].synthesis.terminalTailHintApplied, true);
+      assert.equal(artifacts[index].synthesis.renderTextClassification, 'STICKBOT_TARS_M56_R4_TERMINAL_TTS_TAIL_HINT_APPLIED');
+    } else {
+      assert.equal(call.renderText, call.text);
+      assert.equal(call.terminalTailHintApplied, false);
+      assert.equal(artifacts[index].synthesis.terminalTailHintApplied, false);
+    }
     assert.ok(artifacts[index].audioSha256?.length === 64);
   }
 });

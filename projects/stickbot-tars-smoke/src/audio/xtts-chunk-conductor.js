@@ -19,6 +19,25 @@ function chunkFilename(turnId, index) {
   return `${turnId}-chunk-${String(index + 1).padStart(3, '0')}.wav`;
 }
 
+function buildTtsRenderText(chunk, { terminal = false } = {}) {
+  const canonical = String(chunk?.text ?? '');
+  if (!terminal) {
+    return {
+      text: canonical,
+      renderTextSha256: sha256Text(canonical),
+      tailHintApplied: false,
+      classification: 'STICKBOT_TARS_TTS_RENDER_TEXT_CANONICAL'
+    };
+  }
+  const renderText = `${canonical.trimEnd()} …`;
+  return {
+    text: renderText,
+    renderTextSha256: sha256Text(renderText),
+    tailHintApplied: renderText !== canonical,
+    classification: 'STICKBOT_TARS_M56_R4_TERMINAL_TTS_TAIL_HINT_APPLIED'
+  };
+}
+
 function assertCanonicalText(score) {
   if (!score?.canonicalTextUnchanged || score?.textRewriteAllowed) {
     const e = new Error('M7I refuses to synthesize a score that does not preserve canonical text.');
@@ -77,13 +96,18 @@ export async function synthesizeProsodyChunks({
   await mkdir(outputDir, { recursive: true });
 
   const artifacts = [];
-  for (const chunk of score.chunks) {
+  for (const [index, chunk] of score.chunks.entries()) {
+    const terminal = index === score.chunks.length - 1;
+    const renderText = buildTtsRenderText(chunk, { terminal });
     const file = path.join(outputDir, chunkFilename(turnId, chunk.chunkIndex));
     const result = await synthesizeChunk({
       turnId,
       chunkId: chunk.chunkId,
       chunkIndex: chunk.chunkIndex,
       text: chunk.text,
+      renderText: renderText.text,
+      renderTextSha256: renderText.renderTextSha256,
+      terminalTailHintApplied: renderText.tailHintApplied,
       textSha256: chunk.textSha256,
       phraseRole: chunk.phraseRole,
       effectiveXtts: chunk.effectiveXtts,
@@ -111,7 +135,13 @@ export async function synthesizeProsodyChunks({
       fileBasename: path.basename(finalFile),
       audioSha256,
       durationMs: result?.durationMs || null,
-      synthesis: result?.synthesis || { provider: 'local_xtts_loopback' },
+      synthesis: {
+        provider: 'local_xtts_loopback',
+        ...(result?.synthesis || {}),
+        renderTextSha256: renderText.renderTextSha256,
+        terminalTailHintApplied: renderText.tailHintApplied,
+        renderTextClassification: renderText.classification
+      },
       boundaries: {
         canonicalTextAuthoritative: true,
         textRewriteAllowed: false,

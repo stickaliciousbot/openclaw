@@ -258,3 +258,51 @@ Tail-guard final playback WAV duration proof:
   "durationSeconds": 5.035
 }
 ```
+
+## R4 — terminal TTS tail hint + longer output drain PASS
+
+Stick confirmed the M5.6 sound was great and barge-in still worked, but R3 still cut the very last syllable in half abruptly.
+
+Diagnosis:
+
+- R3 silence padding helped playback drain, but cannot recover a terminal phoneme if XTTS itself stops the final waveform too abruptly.
+- The fix should preserve the M5.6 voice body and barge-in behavior.
+
+Fix:
+
+- Increase post-mastering `apad` tail guard from 320 ms to 900 ms.
+- Apply a TTS-only terminal render hint on the final chunk by appending an ellipsis to the text sent to XTTS.
+- Preserve canonical text and canonical text hash; the render hint is tracked separately as `renderTextSha256` / `terminalTailHintApplied`.
+- Keep public summaries free of raw chunk text.
+
+R4 live verification:
+
+```json
+{
+  "ok": true,
+  "audioUrl": "/audio/3a5664c9-c6ae-44a4-9a48-20cbabc8f8eb.wav",
+  "hasPad900": true,
+  "hasTerminalTailHint": true,
+  "frameCount": 3,
+  "chunkCount": 3,
+  "textRewriteAllowed": false
+}
+```
+
+Human confirmation:
+
+```text
+The sentence finished perfectly.
+```
+
+Barge-in confirmation:
+
+```text
+Stick also retested that barge-in still works.
+```
+
+R4 classification:
+
+```text
+STICKBOT_TARS_M56_R4_TERMINAL_TAIL_DRAIN_LIVE_PASS
+```
