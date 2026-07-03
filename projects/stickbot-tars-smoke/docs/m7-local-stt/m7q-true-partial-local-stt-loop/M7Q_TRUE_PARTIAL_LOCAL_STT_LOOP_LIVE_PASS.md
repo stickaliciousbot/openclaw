@@ -1,7 +1,7 @@
-# M7Q — True Partial Local STT Loop CODE PASS
+# M7Q — True Partial Local STT Loop LIVE PASS
 
 Date: 2026-07-03
-Classification: `STICKBOT_TARS_M7Q_TRUE_PARTIAL_LOCAL_STT_LOOP_CODE_PASS_LIVE_STT_RESTART_PENDING`
+Classification: `STICKBOT_TARS_M7Q_TRUE_PARTIAL_LOCAL_STT_LOOP_LIVE_PASS`
 
 ## Purpose
 
@@ -81,24 +81,62 @@ npm run check -> 84/84 PASS
 
 ## Live status
 
-At code-pass time, the existing browser demo server was still running with:
+The HTTPS LAN demo was restarted through the STT-aware local path. Readiness checks:
 
-```text
-sttMode: capture
+```json
+{
+  "healthLoopback": true,
+  "healthLan": true,
+  "capabilities": {
+    "sttMode": "cli",
+    "partialLocalSttLoop": true,
+    "voiceReady": true
+  }
+}
 ```
 
-That means the code path is implemented and tested, but the live webport must be restarted through the STT-aware `scripts/m7d-local-real-mic-demo.sh` path before claiming live M7Q pass.
+Server-side endpoint smokes:
 
-Pending live gate:
+```json
+{
+  "partialAudio": {
+    "classification": "STICKBOT_TARS_M7Q_TRUE_PARTIAL_LOCAL_STT_LOOP_PASS",
+    "sttMode": "cli",
+    "normalizedLocal": true,
+    "transcriptPresent": true,
+    "rawTranscriptDurableStorage": false,
+    "browserWebSpeechApi": false,
+    "cloudSpeechApi": false,
+    "duplexState": "listening"
+  },
+  "finalStt": {
+    "sttMode": "cli",
+    "normalizedLocal": true,
+    "transcriptPresent": true,
+    "rawTranscriptDurableStorage": false,
+    "browserWebSpeechApi": false,
+    "cloudSpeechApi": false,
+    "duplexState": "thinking"
+  }
+}
+```
+
+Human browser evidence from Stick:
+
+```text
+PASSED ✅
+```
+
+Screenshot evidence showed:
+
+- `Partial STT` seq `0` through `5` progressively expanding the transcript,
+- final `Mic transcript` filled the input text,
+- duplex state `thinking`,
+- each partial line marked `local whisper slice`,
+- privacy guard displayed as `raw mic transcript durable storage is off`.
+
+Final classification:
 
 ```text
 STICKBOT_TARS_M7Q_TRUE_PARTIAL_LOCAL_STT_LOOP_LIVE_PASS
 ```
-
-Required live evidence:
-
-- `/api/capabilities` reports `sttMode: cli`,
-- browser mic capture shows partial local STT slice events,
-- final `/api/stt` still works,
-- barge-in still works,
-- no cloud STT / browser Web Speech / raw transcript durable storage.

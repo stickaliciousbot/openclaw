@@ -1284,9 +1284,9 @@
     "currentLimitation": "M5.6 R4 passed live browser tail/drain confirmation. Remaining voice work before production closeout includes live-driven prosody/mood scoring and audio-first multiplexed streaming architecture."
   },
   "m7q": {
-    "classification": "STICKBOT_TARS_M7Q_TRUE_PARTIAL_LOCAL_STT_LOOP_CODE_PASS_LIVE_STT_RESTART_PENDING",
+    "classification": "STICKBOT_TARS_M7Q_TRUE_PARTIAL_LOCAL_STT_LOOP_LIVE_PASS",
     "implemented": true,
-    "livePass": false,
+    "livePass": true,
     "summary": "Browser MediaRecorder partial slices now post accumulated local audio to /api/stt/partial-audio, which normalizes/transcribes through configured local STT and returns sanitized partial duplex summaries.",
     "newModule": "projects/stickbot-tars-smoke/src/audio/partial-stt-loop.js",
     "endpoint": "POST /api/stt/partial-audio?turnId=<id>&seq=<n>",
@@ -1305,9 +1305,31 @@
         "STICKBOT_TARS_M7Q_EMPTY_PARTIAL_LOCAL_STT_LOOP_NO_TRANSCRIPT_PASS"
       ]
     },
-    "livePending": {
-      "reason": "Existing HTTPS LAN server reported sttMode=capture; live M7Q requires restart via scripts/m7d-local-real-mic-demo.sh so sttMode=cli uses local whisper.cpp.",
-      "requiredClassification": "STICKBOT_TARS_M7Q_TRUE_PARTIAL_LOCAL_STT_LOOP_LIVE_PASS"
+    "liveEvidence": {
+      "capabilitiesSttMode": "cli",
+      "capabilitiesPartialLocalSttLoop": true,
+      "loopbackHealthOk": true,
+      "lanHealthOk": true,
+      "serverPartialAudioSmoke": {
+        "classification": "STICKBOT_TARS_M7Q_TRUE_PARTIAL_LOCAL_STT_LOOP_PASS",
+        "normalizedLocal": true,
+        "transcriptPresent": true,
+        "rawTranscriptDurableStorage": false,
+        "browserWebSpeechApi": false,
+        "cloudSpeechApi": false,
+        "duplexState": "listening"
+      },
+      "serverFinalSttSmoke": {
+        "sttMode": "cli",
+        "normalizedLocal": true,
+        "transcriptPresent": true,
+        "rawTranscriptDurableStorage": false,
+        "browserWebSpeechApi": false,
+        "cloudSpeechApi": false,
+        "duplexState": "thinking"
+      },
+      "humanBrowserConfirmation": "PASSED ✅",
+      "screenshotEvidence": "Partial STT seq 0-5 progressively expanded transcript; final Mic transcript populated input; privacy guard showed raw mic transcript durable storage is off."
     },
     "boundaries": {
       "localOnly": true,
@@ -1318,7 +1340,7 @@
       "gatewayConfigMutation": false,
       "port8787Touched": false
     },
-    "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7q-true-partial-local-stt-loop/M7Q_TRUE_PARTIAL_LOCAL_STT_LOOP_CODE_PASS.md"
+    "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7q-true-partial-local-stt-loop/M7Q_TRUE_PARTIAL_LOCAL_STT_LOOP_LIVE_PASS.md"
   },
-  "nextMilestone": "M7Q_TRUE_PARTIAL_LOCAL_STT_LOOP_LIVE_STT_RESTART_AND_BROWSER_MIC_PARTIALS"
+  "nextMilestone": "M7R_LOW_LATENCY_STREAMING_TRANSPORT"
 }
