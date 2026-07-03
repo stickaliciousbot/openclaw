@@ -1204,6 +1204,26 @@
         "frameCount": 3,
         "masteredFrames": 3,
         "firstMaster": "f470fbd4-4015-4368-aab3-53d25d0701f1-chunk-001.dsp.master.wav"
+      },
+      "r2TruncationFix": {
+        "finding": "Initial M5.6 sounded better but produced about 0:02 and cut off mid-sentence.",
+        "rootCause": "FFmpeg silenceremove stop_periods=1 can treat normal phrase pauses as end-of-audio.",
+        "fix": "Removed end/tail trimming and kept only conservative leading-silence trim.",
+        "regressionGate": "M5.6 filter must not contain stop_periods=",
+        "liveSmoke": {
+          "audioUrl": "/audio/54ac75b8-7852-4401-b5cf-d2bd995a5867.wav",
+          "masteringEnabled": true,
+          "outputFormat": {
+            "codec": "pcm_s16le",
+            "sampleRate": 48000,
+            "channels": 1,
+            "bitRate": 768000
+          },
+          "frameCount": 3,
+          "masteredFrames": 3,
+          "firstMaster": "54ac75b8-7852-4401-b5cf-d2bd995a5867-chunk-001.dsp.master.wav",
+          "finalDurationSeconds": 4.255
+        }
       }
     },
     "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m56-voice-body-mastering/M56_VOICE_BODY_POSTPROCESS_PASS.md",

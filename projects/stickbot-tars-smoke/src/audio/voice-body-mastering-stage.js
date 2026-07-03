@@ -59,7 +59,8 @@ export function deriveVoiceBodyMasteringProfile({ voicePersona = 'TARS', strengt
   return {
     schema: 'stickbot.tars.voice-body-mastering-profile.v1',
     mode: 'local_ffmpeg_voice_body_mastering',
-    trimSilence: true,
+    trimLeadingSilenceOnly: true,
+    trimEndingSilence: false,
     highpassHz: heavier ? 55 : 60,
     bodyEq: {
       lowBodyHz: heavier ? 150 : 170,
@@ -110,7 +111,7 @@ export function buildVoiceBodyMasteringFilterGraph(profile = {}) {
   const comp = profile.compressor || {};
   const loud = profile.loudness || {};
   return [
-    'silenceremove=start_periods=1:start_duration=0.03:start_threshold=-50dB:stop_periods=1:stop_duration=0.08:stop_threshold=-50dB',
+    'silenceremove=start_periods=1:start_duration=0.03:start_threshold=-50dB',
     `highpass=f=${highpassHz}`,
     `equalizer=f=${clamp(eq.lowBodyHz, 100, 260, 170)}:t=q:w=${clamp(eq.lowBodyQ, 0.4, 3, 1).toFixed(2)}:g=${clamp(eq.lowBodyGainDb, -3, 5, 3).toFixed(1)}`,
     `equalizer=f=${clamp(eq.upperBodyHz, 180, 500, 320)}:t=q:w=${clamp(eq.upperBodyQ, 0.4, 3, 1.2).toFixed(2)}:g=${clamp(eq.upperBodyGainDb, -3, 3, 1.5).toFixed(1)}`,

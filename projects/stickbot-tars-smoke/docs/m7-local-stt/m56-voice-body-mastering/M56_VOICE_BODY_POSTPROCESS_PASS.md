@@ -147,3 +147,62 @@ Result summary:
 ```
 
 Human A/B listening remains the next subjective quality check: confirm heavier/cleaner TARS body without muddy low-mid buildup.
+
+## R2 — end-trim truncation fix
+
+Stick reported that M5.6 sounded much better, but the browser output was only about `0:02` and cut off mid-sentence.
+
+Root cause:
+
+```text
+silenceremove ... stop_periods=1 ...
+```
+
+The end-trim side of `silenceremove` can interpret a normal phrase pause as end-of-audio and truncate the mastered chunk/final output.
+
+Fix:
+
+- keep conservative leading-silence trim,
+- remove end/tail silence trim entirely,
+- set `trimLeadingSilenceOnly: true`,
+- set `trimEndingSilence: false`,
+- add a regression gate that the M5.6 filter must not contain `stop_periods=`.
+
+Validation after fix:
+
+```text
+npm run check -> 82/82 PASS
+targeted tars-dsp-stream-duplex tests -> 8/8 PASS
+```
+
+Live smoke after refreshed server:
+
+```json
+{
+  "ok": true,
+  "audioUrl": "/audio/54ac75b8-7852-4401-b5cf-d2bd995a5867.wav",
+  "masteringEnabled": true,
+  "outputFormat": {
+    "codec": "pcm_s16le",
+    "sampleRate": 48000,
+    "channels": 1,
+    "bitRate": 768000
+  },
+  "frameCount": 3,
+  "masteredFrames": 3,
+  "firstMaster": "54ac75b8-7852-4401-b5cf-d2bd995a5867-chunk-001.dsp.master.wav"
+}
+```
+
+Final playback WAV duration proof:
+
+```json
+{
+  "file": "54ac75b8-7852-4401-b5cf-d2bd995a5867.wav",
+  "codec": "pcm_s16le",
+  "sampleRate": 48000,
+  "channels": 1,
+  "bitRate": 768000,
+  "durationSeconds": 4.255
+}
+```

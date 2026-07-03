@@ -78,7 +78,10 @@ test('STICKBOT_TARS_M56_VOICE_BODY_PROFILE_AND_FILTER_PASS', () => {
   assert.equal(profile.output.channels, 1);
   assert.equal(profile.output.bitRate, 768000);
   const filter = buildVoiceBodyMasteringFilterGraph(profile);
-  assert.match(filter, /silenceremove=/);
+  assert.match(filter, /silenceremove=start_periods=1/);
+  assert.doesNotMatch(filter, /stop_periods=/);
+  assert.equal(profile.trimLeadingSilenceOnly, true);
+  assert.equal(profile.trimEndingSilence, false);
   assert.match(filter, /highpass=f=60/);
   assert.match(filter, /equalizer=f=170/);
   assert.match(filter, /equalizer=f=3200/);
