@@ -1095,7 +1095,40 @@
       "lanExposureChanged": false,
       "xttsRuntimeIsolationChanged": false
     },
-    "currentLimitation": "M7M/N/O are local implementation and automated smoke gates. Live browser proof still requires running the HTTPS demo with local XTTS and confirming chunk-frame playback plus mic barge-in in the browser."
+    "currentLimitation": "M7M/N/O local implementation and automated smoke gates passed. M7P live browser proof now confirmed streaming frame playback, audible TARS, and mic-start barge-in stop. True partial local STT loop and low-latency transport remain later work."
   },
-  "nextMilestone": "M7P_LIVE_BROWSER_STREAMING_AND_BARGE_IN_VERIFICATION_REQUIRES_HUMAN_ASSIST"
+  "m7p": {
+    "classification": "STICKBOT_TARS_M7P_LIVE_BROWSER_STREAMING_BARGEIN_PASS",
+    "scope": "human_verified_https_lan_browser_streaming_frame_playback_and_mic_start_barge_in_stop",
+    "liveUrl": "https://192.168.1.107:19890/",
+    "observedEvidence": {
+      "tarsAudible": true,
+      "streamingFramesQueued": 4,
+      "micStartStoppedPlayback": true,
+      "bargeInSmokeState": "listening",
+      "finalSttDuplexState": "thinking",
+      "rawTranscriptDurableStorage": false,
+      "micTranscript": "[BLANK_AUDIO]"
+    },
+    "uiFix": "Changed raw transcript durable storage wording from error-like status to privacy guard wording in public/app.js",
+    "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7p-live-browser-streaming-bargein/M7P_LIVE_BROWSER_STREAMING_BARGEIN_PASS.md",
+    "boundaries": {
+      "canonicalTextAuthoritative": true,
+      "textRewriteAllowed": false,
+      "voiceIdentityRewriteAllowed": false,
+      "localOnly": true,
+      "rawTranscriptDurableStorage": false,
+      "openClawProductionMutation": false,
+      "gatewayConfigMutation": false,
+      "gatewayRestart": false,
+      "noaTouched": false,
+      "port8787Touched": false,
+      "cloudSpeechApiCalled": false,
+      "browserWebSpeechApi": false,
+      "lanExposureChangedBeyondApprovedDemoPath": false,
+      "xttsRuntimeIsolationChanged": false
+    },
+    "currentLimitation": "M7P verified live browser playback and mic-start interruption. It did not verify non-blank spoken interruption recognition or true low-latency streaming while synthesis is still running."
+  },
+  "nextMilestone": "M7Q_TRUE_PARTIAL_LOCAL_STT_LOOP_THEN_M7R_LOW_LATENCY_STREAMING_TRANSPORT"
 }

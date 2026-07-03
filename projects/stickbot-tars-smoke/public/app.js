@@ -177,7 +177,7 @@ async function postBargeInSmoke(turnId) {
         ]
       })
     });
-    if (r.ok) add(`<b>Duplex:</b> barge-in smoke ${escapeHtml(j.state || 'ok')}<br><span class="muted">raw transcript durable storage: ${escapeHtml(j.boundaries?.rawTranscriptDurableStorage)}</span>`);
+    if (r.ok) add(`<b>Duplex:</b> barge-in smoke ${escapeHtml(j.state || 'ok')}<br><span class="muted">Privacy guard: raw mic transcript is not durably stored (${escapeHtml(j.boundaries?.rawTranscriptDurableStorage === false ? 'off' : 'check')}).</span>`);
   } catch (e) {
     add(`<b>Duplex:</b> barge-in smoke failed<br><span class="muted">${escapeHtml(e.message)}</span>`);
   }
@@ -523,7 +523,7 @@ mic.onclick = async () => {
       });
       if (j.transcript) {
         text.value = j.transcript;
-        add(`<b>Mic transcript:</b> ${escapeHtml(j.transcript)}<br><span class="muted">Saved locally; click Send text to ask Stickbot. Duplex state: ${escapeHtml(j.duplex?.state || 'n/a')}; raw transcript durable storage: ${escapeHtml(j.duplex?.boundaries?.rawTranscriptDurableStorage)}</span>`);
+        add(`<b>Mic transcript:</b> ${escapeHtml(j.transcript)}<br><span class="muted">Saved locally; click Send text to ask Stickbot. Duplex state: ${escapeHtml(j.duplex?.state || 'n/a')}; privacy guard: raw mic transcript durable storage is ${escapeHtml(j.duplex?.boundaries?.rawTranscriptDurableStorage === false ? 'off' : 'check')}.</span>`);
       } else {
         add(`<b>Mic capture:</b> saved locally<br><span class="muted">${escapeHtml(j.error || JSON.stringify(j))}</span>`);
       }
