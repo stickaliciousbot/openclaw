@@ -1047,7 +1047,55 @@
       "lanExposureChanged": false,
       "xttsRuntimeIsolationChanged": false
     },
-    "currentLimitation": "M7J/K/L provide local DSP processing, streaming frame contracts, and deterministic duplex state transitions. They do not yet implement live browser streaming playback, partial STT event ingestion, or real mic barge-in smoke."
+    "currentLimitation": "M7J/K/L provide local DSP processing, streaming frame contracts, and deterministic duplex state transitions. M7M/N/O add browser/client smoke wiring and redacted ingress; true live partial STT and low-latency transport remain later work."
   },
-  "nextMilestone": "M7M_LIVE_STREAMING_PLAYBACK_SMOKE_THEN_M7N_PARTIAL_STT_AND_M7O_BARGE_IN"
+  "m7mno": {
+    "classification": "STICKBOT_TARS_M7MNO_STREAMING_PARTIAL_BARGEIN_LOCAL_PASS",
+    "scope": "browser_frame_playback_smoke_partial_stt_controller_ingress_barge_in_stop_playback_smoke",
+    "implementedModules": [
+      "src/audio/duplex-event-ingress.js"
+    ],
+    "modifiedSurfaces": [
+      "public/app.js",
+      "public/index.html",
+      "server.js",
+      "safety/audio-path-policy.js"
+    ],
+    "integration": {
+      "m7m": "browser consumes voicePlan.audioPerformance.realtime.frames and plays generated chunk audio URLs in order with computed pauses; final WAV remains fallback",
+      "m7n": "POST /api/stt/partial and /api/stt final responses produce redacted duplex-controller summaries without raw transcript durable storage",
+      "m7o": "starting mic capture stops active streaming playback and posts a deterministic barge-in/resume scenario to /api/duplex/scenario"
+    },
+    "validation": {
+      "npmRunCheck": "PASS",
+      "nodeTestsPassed": 80,
+      "nodeTestsFailed": 0,
+      "newGates": [
+        "generated UUID chunk .wav files are accepted for streaming playback smoke",
+        "STICKBOT_TARS_M7N_PARTIAL_STT_CONTROLLER_INGRESS_PASS",
+        "STICKBOT_TARS_M7N_FINAL_STT_CONTROLLER_INGRESS_PASS",
+        "STICKBOT_TARS_M7N_SANITIZES_RAW_TRANSCRIPT_EVENTS_PASS",
+        "STICKBOT_TARS_M7O_BARGE_IN_SCENARIO_INGRESS_PASS"
+      ]
+    },
+    "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7mno-streaming-partial-bargein/M7MNO_STREAMING_PARTIAL_BARGEIN_LOCAL_PASS.md",
+    "boundaries": {
+      "canonicalTextAuthoritative": true,
+      "textRewriteAllowed": false,
+      "voiceIdentityRewriteAllowed": false,
+      "localOnly": true,
+      "rawTranscriptDurableStorage": false,
+      "openClawProductionMutation": false,
+      "gatewayConfigMutation": false,
+      "gatewayRestart": false,
+      "noaTouched": false,
+      "port8787Touched": false,
+      "cloudSpeechApiCalled": false,
+      "browserWebSpeechApi": false,
+      "lanExposureChanged": false,
+      "xttsRuntimeIsolationChanged": false
+    },
+    "currentLimitation": "M7M/N/O are local implementation and automated smoke gates. Live browser proof still requires running the HTTPS demo with local XTTS and confirming chunk-frame playback plus mic barge-in in the browser."
+  },
+  "nextMilestone": "M7P_LIVE_BROWSER_STREAMING_AND_BARGE_IN_VERIFICATION_REQUIRES_HUMAN_ASSIST"
 }

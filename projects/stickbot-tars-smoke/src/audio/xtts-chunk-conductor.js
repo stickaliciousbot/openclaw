@@ -50,6 +50,7 @@ function publicChunkArtifact(artifact = {}) {
     pauseAfterMs: artifact.pauseAfterMs,
     audioSha256: artifact.audioSha256,
     fileBasename: artifact.fileBasename,
+    audioUrl: artifact.fileBasename ? `/audio/${encodeURIComponent(artifact.fileBasename)}` : null,
     durationMs: artifact.durationMs || null,
     synthesis: artifact.synthesis || null,
     boundaries: artifact.boundaries

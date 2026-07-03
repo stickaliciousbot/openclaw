@@ -15,6 +15,7 @@ const prosodyJsonPreview = document.getElementById('prosody-json-preview');
 let csrfToken = null;
 let voiceAvailable = false;
 let prosodyState = null;
+let activePlayback = null;
 
 const PARAMETER_LABELS = {
   pitch: 'Pitch',
@@ -134,6 +135,83 @@ function add(html) {
   div.className = 'turn';
   div.innerHTML = html;
   log.prepend(div);
+  return div;
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, Math.max(0, Number(ms || 0))));
+}
+
+function chunkAudioUrlFromFrame(frame) {
+  const name = frame?.payload?.dsp?.outputFileBasename || frame?.payload?.fileBasename;
+  return name ? `/audio/${encodeURIComponent(name)}` : null;
+}
+
+function stopActivePlayback(reason = 'stopped') {
+  if (!activePlayback) return false;
+  activePlayback.cancelled = true;
+  if (activePlayback.audio) {
+    activePlayback.audio.pause();
+    activePlayback.audio.removeAttribute('src');
+    activePlayback.audio.load();
+  }
+  const stopped = activePlayback;
+  activePlayback = null;
+  add(`<b>Playback:</b> stopped<br><span class="muted">${escapeHtml(reason)}</span>`);
+  return stopped;
+}
+
+async function postBargeInSmoke(turnId) {
+  try {
+    const { r, j } = await csrfFetchJson('/api/duplex/scenario', {
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        turnId,
+        events: [
+          { type: 'listen_start' },
+          { type: 'final_transcript', payload: { textSha256: '0'.repeat(64), charCount: 0 } },
+          { type: 'assistant_text_ready', payload: { canonicalTextSha256: '0'.repeat(64) } },
+          { type: 'audio_frame_ready', payload: { seq: 1, frameType: 'audio_chunk_ready' } },
+          { type: 'barge_in', payload: { reason: 'mic_capture_started' } },
+          { type: 'resume_listening' }
+        ]
+      })
+    });
+    if (r.ok) add(`<b>Duplex:</b> barge-in smoke ${escapeHtml(j.state || 'ok')}<br><span class="muted">raw transcript durable storage: ${escapeHtml(j.boundaries?.rawTranscriptDurableStorage)}</span>`);
+  } catch (e) {
+    add(`<b>Duplex:</b> barge-in smoke failed<br><span class="muted">${escapeHtml(e.message)}</span>`);
+  }
+}
+
+async function playRealtimeFrames(j, container) {
+  const manifest = j.voicePlan?.audioPerformance?.realtime;
+  const frames = manifest?.frames || [];
+  const audioFrames = frames.filter((frame) => frame.type === 'audio_chunk_ready' && chunkAudioUrlFromFrame(frame));
+  if (!audioFrames.length) return false;
+  const playback = { turnId: j.id, cancelled: false, audio: new Audio() };
+  activePlayback = playback;
+  playback.audio.controls = true;
+  playback.audio.autoplay = false;
+  container.appendChild(playback.audio);
+  add(`<b>Streaming:</b> ${escapeHtml(audioFrames.length)} chunk frames queued<br><span class="muted">M7M local frame playback smoke; final WAV remains available as fallback.</span>`);
+  for (const frame of audioFrames) {
+    if (playback.cancelled) break;
+    const url = chunkAudioUrlFromFrame(frame);
+    playback.audio.src = url;
+    try { await playback.audio.play(); }
+    catch (e) {
+      add(`<b>Streaming:</b> browser blocked autoplay<br><span class="muted">Use audio controls or click Send again after user activation. ${escapeHtml(e.message)}</span>`);
+      break;
+    }
+    await new Promise((resolve) => {
+      playback.audio.onended = resolve;
+      playback.audio.onerror = resolve;
+    });
+    if (playback.cancelled) break;
+    await sleep(frame.timing?.pauseAfterMs || 0);
+  }
+  if (activePlayback === playback) activePlayback = null;
+  return true;
 }
 
 log.addEventListener('click', (event) => {
@@ -405,10 +483,13 @@ document.getElementById('send').onclick = async () => {
     return;
   }
   const selectedScoreChunk = j.voicePlan?.prosodyScore?.chunks?.[0] || j.voicePlan?.prosodySheet?.[0] || null;
+  const realtimeFrames = j.voicePlan?.audioPerformance?.realtime?.frames || [];
+  const hasStreamingFrames = realtimeFrames.some((frame) => frame.type === 'audio_chunk_ready' && chunkAudioUrlFromFrame(frame));
   const voicePlan = j.voicePlan?.delivery
-    ? `<br><span class="muted">Voice score: mood ${escapeHtml(j.voicePlan.delivery.moodLabel || j.voicePlan.delivery.moodId || 'n/a')}, base temp ${escapeHtml(j.voicePlan.delivery.baseXttsParams?.temperature ?? 'n/a')}, effective temp ${escapeHtml(j.voicePlan.delivery.xttsParams?.temperature ?? 'n/a')}, top_p ${escapeHtml(j.voicePlan.delivery.xttsParams?.topP ?? 'n/a')}, XTTS speed ${escapeHtml(j.voicePlan.delivery.xttsParams?.speed ?? 'n/a')}, chunk ${escapeHtml(j.voicePlan.delivery.maxCharsPerChunk || 'n/a')}</span>${selectedScoreChunk ? `<br><span class="muted">Selected chunk: ${escapeHtml(selectedScoreChunk.chunkId || 'c001')} role ${escapeHtml(selectedScoreChunk.phraseRole || 'n/a')}; Δ ${escapeHtml(JSON.stringify(selectedScoreChunk.deltas || {}))}; effective ${escapeHtml(JSON.stringify(selectedScoreChunk.effectiveXtts || selectedScoreChunk.xttsParams || {}))}</span>` : ''}`
+    ? `<br><span class="muted">Voice score: mood ${escapeHtml(j.voicePlan.delivery.moodLabel || j.voicePlan.delivery.moodId || 'n/a')}, base temp ${escapeHtml(j.voicePlan.delivery.baseXttsParams?.temperature ?? 'n/a')}, effective temp ${escapeHtml(j.voicePlan.delivery.xttsParams?.temperature ?? 'n/a')}, top_p ${escapeHtml(j.voicePlan.delivery.xttsParams?.topP ?? 'n/a')}, XTTS speed ${escapeHtml(j.voicePlan.delivery.xttsParams?.speed ?? 'n/a')}, chunk ${escapeHtml(j.voicePlan.delivery.maxCharsPerChunk || 'n/a')}</span>${selectedScoreChunk ? `<br><span class="muted">Selected chunk: ${escapeHtml(selectedScoreChunk.chunkId || 'c001')} role ${escapeHtml(selectedScoreChunk.phraseRole || 'n/a')}; Δ ${escapeHtml(JSON.stringify(selectedScoreChunk.deltas || {}))}; effective ${escapeHtml(JSON.stringify(selectedScoreChunk.effectiveXtts || selectedScoreChunk.xttsParams || {}))}</span>` : ''}${hasStreamingFrames ? `<br><span class="muted">Streaming frames: ${escapeHtml(realtimeFrames.length)} / target ${escapeHtml(j.voicePlan.audioPerformance?.realtime?.target || 'streaming_full_duplex_mesh')}</span>` : ''}`
     : '';
-  add(`<b>Stickbot:</b> ${escapeHtml(j.text || j.error)}${j.audioUrl ? `<audio controls autoplay src="${j.audioUrl}"></audio>${voiceSaveHtml(j)}` : ''}${j.audioError ? `<br><span class="muted">Voice: ${escapeHtml(j.audioError)}</span>` : ''}${voicePlan}`);
+  const turn = add(`<b>Stickbot:</b> ${escapeHtml(j.text || j.error)}${j.audioUrl ? `<audio controls ${hasStreamingFrames ? '' : 'autoplay'} src="${j.audioUrl}"></audio>${voiceSaveHtml(j)}` : ''}${j.audioError ? `<br><span class="muted">Voice: ${escapeHtml(j.audioError)}</span>` : ''}${voicePlan}`);
+  if (hasStreamingFrames) playRealtimeFrames(j, turn).catch((e) => add(`<b>Streaming:</b> failed<br><span class="muted">${escapeHtml(e.message)}</span>`));
 };
 
 let rec;
@@ -420,6 +501,8 @@ mic.onclick = async () => {
     rec.stop();
     return;
   }
+  const stoppedPlayback = stopActivePlayback('M7O barge-in: mic capture started');
+  if (stoppedPlayback?.turnId) postBargeInSmoke(stoppedPlayback.turnId).catch(() => {});
   let stream;
   try {
     stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -440,7 +523,7 @@ mic.onclick = async () => {
       });
       if (j.transcript) {
         text.value = j.transcript;
-        add(`<b>Mic transcript:</b> ${escapeHtml(j.transcript)}<br><span class="muted">Saved locally; click Send text to ask Stickbot. TARS voice output requires local XTTS backend.</span>`);
+        add(`<b>Mic transcript:</b> ${escapeHtml(j.transcript)}<br><span class="muted">Saved locally; click Send text to ask Stickbot. Duplex state: ${escapeHtml(j.duplex?.state || 'n/a')}; raw transcript durable storage: ${escapeHtml(j.duplex?.boundaries?.rawTranscriptDurableStorage)}</span>`);
       } else {
         add(`<b>Mic capture:</b> saved locally<br><span class="muted">${escapeHtml(j.error || JSON.stringify(j))}</span>`);
       }

@@ -72,6 +72,7 @@ test('STICKBOT_TARS_M7I_CONDUCTOR_STITCHES_AND_EXPOSES_PUBLIC_MESH_SUMMARY_PASS'
   const pub = publicChunkConductorSummary(result);
   assert.equal(pub.chunkArtifacts[0].text, undefined, 'public conductor summary must not expose raw chunk text');
   assert.equal(pub.chunkArtifacts[0].textSha256.length, 64);
+  assert.match(pub.chunkArtifacts[0].audioUrl, /^\/audio\//);
   assert.equal(pub.pipeline.stages.chunkSynthesis.frames.length, score.chunks.length);
   assert.equal(pub.boundaries.textRewriteAllowed, false);
 });

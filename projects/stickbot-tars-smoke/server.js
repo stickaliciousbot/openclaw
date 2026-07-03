@@ -9,6 +9,7 @@ import { askOpenClaw } from './src/openclaw-adapter.js';
 import { transcribeAudio } from './src/stt-adapter.js';
 import { normalizeAudio } from './src/audio-normalizer.js';
 import { polishChunkArtifacts } from './src/audio/dsp-polish-stage.js';
+import { buildFinalSttControllerSummary, buildPartialSttControllerSummary, runSanitizedDuplexScenario } from './src/audio/duplex-event-ingress.js';
 import { conductChunkedXtts, publicChunkConductorSummary } from './src/audio/xtts-chunk-conductor.js';
 import { resolveAudioOutputPath, audioUrlForFile } from './safety/audio-path-policy.js';
 import { readJsonBody, readAudioUploadBody, assertTextWithinLimit } from './safety/limits.js';
@@ -128,7 +129,7 @@ async function synthesize(text, id) {
     throw e;
   }
   await mkdir(AUDIO_OUTPUT_DIR, { recursive: true });
-  const chunkDir = path.join(AUDIO_OUTPUT_DIR, `${id}-chunks`);
+  const chunkDir = AUDIO_OUTPUT_DIR;
   const finalOut = path.join(AUDIO_OUTPUT_DIR, `${id}.wav`);
   const conductor = await conductChunkedXtts({
     turnId: id,
@@ -136,7 +137,9 @@ async function synthesize(text, id) {
     outputDir: chunkDir,
     finalOutPath: finalOut,
     ffmpegBin: config.ffmpegBin,
+    stitchWorkDir: path.join(AUDIO_OUTPUT_DIR, `${id}-stitch`),
     dspProcessor: polishChunkArtifacts,
+    dspOutputDir: AUDIO_OUTPUT_DIR,
     timeoutMs: config.audioNormalizeTimeoutMs,
     synthesizeChunk: async ({ text: chunkText, effectiveXtts }) => ({
       buffer: await requestXttsAudio({ text: chunkText, xttsParams: effectiveXtts }),
@@ -283,6 +286,27 @@ const requestHandler = async (req, res) => {
       const tuningState = await restoreTarsTuningBaseline(config.workspace);
       return json(res, 200, publicTuningSummary(tuningState));
     }
+    if (req.method === 'POST' && url.pathname === '/api/duplex/scenario') {
+      guardMutatingRequest(req);
+      const body = await readJsonBody(req, config.maxJsonBodyBytes);
+      const id = body.turnId || crypto.randomUUID();
+      return json(res, 200, runSanitizedDuplexScenario(Array.isArray(body.events) ? body.events : [], { turnId: id }));
+    }
+    if (req.method === 'POST' && url.pathname === '/api/stt/partial') {
+      guardMutatingRequest(req);
+      const body = await readJsonBody(req, config.maxJsonBodyBytes);
+      const id = body.turnId || crypto.randomUUID();
+      return json(res, 200, {
+        id,
+        classification: 'STICKBOT_TARS_M7N_PARTIAL_STT_CONTROLLER_INGRESS_PASS',
+        duplex: buildPartialSttControllerSummary({ turnId: id, partialText: body.partialText || '', confidence: body.confidence ?? null }),
+        boundaries: {
+          rawTranscriptDurableStorage: false,
+          browserWebSpeechApi: false,
+          cloudSpeechApi: false
+        }
+      });
+    }
     if (req.method === 'POST' && url.pathname === '/api/chat') {
       guardMutatingRequest(req);
       const { text, voice = true } = await readJsonBody(req, config.maxJsonBodyBytes);
@@ -338,6 +362,7 @@ const requestHandler = async (req, res) => {
         normalizedLocal: Boolean(normalized),
         sttMode: config.sttMode,
         transcript,
+        duplex: buildFinalSttControllerSummary({ turnId: id, finalText: transcript }),
         maxAudioDurationSeconds: config.maxAudioDurationSeconds,
         boundaries: {
           browserWebSpeechApi: false,

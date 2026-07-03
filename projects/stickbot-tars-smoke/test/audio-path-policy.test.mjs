@@ -6,6 +6,8 @@ import path from 'node:path';
 import { resolveAudioOutputPath, audioUrlForFile } from '../safety/audio-path-policy.js';
 
 const UUID = '123e4567-e89b-12d3-a456-426614174000.wav';
+const UUID_CHUNK = '123e4567-e89b-12d3-a456-426614174000-chunk-001.wav';
+const UUID_CHUNK_DSP = '123e4567-e89b-12d3-a456-426614174000-chunk-001.dsp.wav';
 
 test('UUID .wav is accepted when file exists in controlled output dir', async () => {
   const dir = await mkdtemp(path.join(os.tmpdir(), 'tars-audio-'));
@@ -14,6 +16,15 @@ test('UUID .wav is accepted when file exists in controlled output dir', async ()
   assert.equal(resolved.name, UUID);
   assert.equal(resolved.full, path.join(dir, UUID));
   assert.equal(audioUrlForFile(UUID), `/audio/${UUID}`);
+});
+
+test('generated UUID chunk .wav files are accepted for streaming playback smoke', async () => {
+  const dir = await mkdtemp(path.join(os.tmpdir(), 'tars-audio-'));
+  await writeFile(path.join(dir, UUID_CHUNK), 'wav');
+  await writeFile(path.join(dir, UUID_CHUNK_DSP), 'wav');
+  assert.equal(resolveAudioOutputPath(dir, UUID_CHUNK).name, UUID_CHUNK);
+  assert.equal(resolveAudioOutputPath(dir, UUID_CHUNK_DSP).name, UUID_CHUNK_DSP);
+  assert.equal(audioUrlForFile(UUID_CHUNK), `/audio/${UUID_CHUNK}`);
 });
 
 test('path traversal is rejected', () => {
@@ -25,6 +36,8 @@ test('path traversal is rejected', () => {
 
 test('non-UUID audio and alternate extensions are rejected', () => {
   assert.throws(() => resolveAudioOutputPath('/tmp/audio', 'not-a-uuid.wav'));
+  assert.throws(() => resolveAudioOutputPath('/tmp/audio', '123e4567-e89b-12d3-a456-426614174000-chunk-1.wav'));
+  assert.throws(() => resolveAudioOutputPath('/tmp/audio', '123e4567-e89b-12d3-a456-426614174000-chunk-001.tmp.wav'));
   assert.throws(() => resolveAudioOutputPath('/tmp/audio', '123e4567-e89b-12d3-a456-426614174000.mp3'));
   assert.throws(() => resolveAudioOutputPath('/tmp/audio', '123e4567-e89b-12d3-a456-426614174000.wav.bak'));
 });
