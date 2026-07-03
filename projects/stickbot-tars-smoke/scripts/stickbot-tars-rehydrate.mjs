@@ -43,11 +43,10 @@ const RUNTIME = Object.freeze({
 });
 
 const CURRENT = Object.freeze({
-  latestClassification: 'STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_PASS',
+  latestClassification: 'STICKBOT_TARS_M7S_LIVE_BARGE_IN_WITH_REAL_SPEECH_PASS',
   lastPushedMilestone: 'STICKBOT_TARS_REHYDRATION_PACKET_WRITTEN',
   liveBrowserMilestone: 'STICKBOT_TARS_M7P_LIVE_BROWSER_STREAMING_BARGEIN_PASS',
   nextRecommendedMilestones: [
-    'M7S_LIVE_BARGE_IN_WITH_REAL_SPEECH',
     'LIVE_PROSODY_MOOD_SCORE_AND_EMOTIONAL_SHEET_MUSIC',
     'AUDIO_FIRST_MULTIPLEXED_PRODUCTION_STREAMING_ARCHITECTURE'
   ],
@@ -112,6 +111,7 @@ const SOURCE_FILES = [
   ['doc', 'docs/m7-local-stt/m56-voice-body-mastering/M56_VOICE_BODY_POSTPROCESS_PASS.md'],
   ['doc', 'docs/m7-local-stt/m7q-true-partial-local-stt-loop/M7Q_TRUE_PARTIAL_LOCAL_STT_LOOP_LIVE_PASS.md'],
   ['doc', 'docs/m7-local-stt/m7r-low-latency-streaming-transport/M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_PASS.md'],
+  ['doc', 'docs/m7-local-stt/m7s-live-barge-in-real-speech/M7S_LIVE_BARGE_IN_WITH_REAL_SPEECH_PASS.md'],
   ['memory', '../../memory/2026-07-03.md'],
   ['memory', '../../memory/lessons-learned-stickbot-tars-live-dashboard-refresh-2026-07-03.md'],
   ['memory', '../../memory/lessons-learned-stickbot-tars-m7r-live-transport-repair-2026-07-03.md']
@@ -281,14 +281,15 @@ const rehydration = {
       'M5.6 voice body/mastering postprocess pass with R2 tail-trim fix, R3 tail guard, and R4 terminal tail/drain live PASS',
       'M7Q true partial local STT loop live pass: browser mic partials seq 0-5, final transcript, local whisper slices, privacy guard off',
       'M7R low-latency streaming transport live pass: partial STT, reconstruction, Send, audio generation, barge-in, and strict telemetry readback confirmed',
-      'Generated audio auditor added: deterministic stage manifest plus explicit guarded delete mode for generated/captured speech-session audio cleanup'
+      'Generated audio auditor added: deterministic stage manifest plus explicit guarded delete mode for generated/captured speech-session audio cleanup',
+      'M7S live barge-in with real speech pass: live spoken interruption stopped active TARS playback, triggered duplex barge-in/listening, and produced local partial STT with privacy guard off'
     ],
     next: CURRENT.nextRecommendedMilestones
   },
   liveReadiness: {
     status: statusJson?.m7r?.classification || 'SEE_STATUS_JSON',
     url: RUNTIME.lanUrl,
-    needsHumanEar: 'M7R live pass is complete. Next milestone is M7S live barge-in with real speech.'
+    needsHumanEar: 'M7S live barge-in with real speech is complete. Next milestone is live prosody mood score / emotional sheet music.'
   },
   statusJson,
   runtimePaths,

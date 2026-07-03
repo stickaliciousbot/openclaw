@@ -827,7 +827,10 @@
         "paramsDiffer": true,
         "lowAudioUrl": "/audio/460b747b-ab2b-41f4-ad91-5d9359153baf.wav",
         "highAudioUrl": "/audio/ef7e3770-a6e2-423b-bdbd-1b20d302bd95.wav",
-        "audioErrors": [null, null]
+        "audioErrors": [
+          null,
+          null
+        ]
       },
       "xttsServerParamConsumption": {
         "status": "PASS",
@@ -1447,5 +1450,48 @@
     },
     "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7r-low-latency-streaming-transport/M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_PASS.md"
   },
-  "nextMilestone": "M7S_LIVE_BARGE_IN_WITH_REAL_SPEECH"
+  "nextMilestone": "LIVE_PROSODY_MOOD_SCORE_AND_EMOTIONAL_SHEET_MUSIC",
+  "m7s": {
+    "classification": "STICKBOT_TARS_M7S_LIVE_BARGE_IN_WITH_REAL_SPEECH_PASS",
+    "implemented": true,
+    "livePass": true,
+    "summary": "Live browser test proved real spoken interruption during TARS audio playback: mic capture stopped playback, duplex entered barge-in/listening state, partial local whisper STT appeared, and privacy/local-only boundaries remained intact.",
+    "liveEvidence": {
+      "humanConfirmation": "that worked. screenshot attached",
+      "partialSttLine": "Partial STT: Stick butt, I'm so sorry to interrupt you.",
+      "partialSttSeq": 0,
+      "partialSttMode": "local whisper slice",
+      "playbackLine": "Playback: stopped",
+      "playbackReason": "M7O barge-in: mic capture started",
+      "duplexLine": "Duplex: barge-in smoke listening",
+      "micLine": "Mic: recording with local partial STT slices... tap the mic button again to stop and transcribe",
+      "streamingTransportLine": "Streaming transport: 3 chunk frames preloaded",
+      "streamingTransportMode": "M7R browser_preload_queue_then_serial_playback",
+      "interruptedAssistantText": "Echo smoke response: Okay, Stickbot, we're about to test M7S and I'm going to interrupt you. I don't mean to be rude.",
+      "voiceMood": "TARS mission brief / marine commander",
+      "streamingFrames": 3,
+      "humanScreenshotReadback": true
+    },
+    "validation": {
+      "liveBrowserHumanGate": "PASS",
+      "preflightHealth": "PASS",
+      "capabilities": {
+        "sttMode": "cli",
+        "voiceEnabled": true,
+        "partialLocalSttLoop": true,
+        "browserWebSpeechApi": false,
+        "cloudSpeechApi": false
+      }
+    },
+    "boundaries": {
+      "localOnly": true,
+      "rawTranscriptDurableStorage": false,
+      "browserWebSpeechApi": false,
+      "cloudSpeechApi": false,
+      "openClawProductionMutation": false,
+      "gatewayConfigMutation": false,
+      "port8787Touched": false
+    },
+    "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7s-live-barge-in-real-speech/M7S_LIVE_BARGE_IN_WITH_REAL_SPEECH_PASS.md"
+  }
 }

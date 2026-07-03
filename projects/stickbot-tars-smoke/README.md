@@ -18,13 +18,13 @@ The project currently includes:
 Latest confirmed milestone at the time of this README:
 
 ```text
-STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_PASS
+STICKBOT_TARS_M7S_LIVE_BARGE_IN_WITH_REAL_SPEECH_PASS
 ```
 
 Next milestone:
 
 ```text
-M7S_LIVE_BARGE_IN_WITH_REAL_SPEECH
+LIVE_PROSODY_MOOD_SCORE_AND_EMOTIONAL_SHEET_MUSIC
 ```
 
 ---
@@ -540,6 +540,7 @@ Current proven chain:
 - M5.6 — voice-body/mastering postprocess pass with R2/R3/R4 tail fixes
 - M7Q — true partial local STT loop live pass
 - M7R — low-latency streaming transport live pass
+- M7S — live barge-in with real speech pass
 
 ---
 
@@ -602,7 +603,6 @@ Daily memory is usually local/untracked unless explicitly intended for repo pres
 Recommended next milestones:
 
 ```text
-M7S_LIVE_BARGE_IN_WITH_REAL_SPEECH
 LIVE_PROSODY_MOOD_SCORE_AND_EMOTIONAL_SHEET_MUSIC
 AUDIO_FIRST_MULTIPLEXED_PRODUCTION_STREAMING_ARCHITECTURE
 ```

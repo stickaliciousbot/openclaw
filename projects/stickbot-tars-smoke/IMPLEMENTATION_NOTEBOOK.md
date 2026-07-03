@@ -582,3 +582,42 @@ Live PASS confirmation:
 Follow-up hardening remains recommended:
 
 - If Send hangs again, patch UI/backend timeout/fail-fast recovery instead of accepting indefinite `Sending...`.
+
+## 2026-07-03 — M7S live barge-in with real speech PASS
+
+Status: `STICKBOT_TARS_M7S_LIVE_BARGE_IN_WITH_REAL_SPEECH_PASS`
+
+Objective:
+
+- Prove live spoken user interruption while TARS audio is playing, not only deterministic mic-start barge-in mechanics.
+
+Preflight:
+
+- Live server health passed on `https://127.0.0.1:19890/health`.
+- Capabilities passed: `sttMode:cli`, voice enabled, partial local STT loop enabled, browser Web Speech API false, cloud speech API false.
+- XTTS ready on `http://127.0.0.1:8020`, model loaded.
+
+Live evidence from Stick screenshot/readback:
+
+- Stick confirmed: “that worked. screenshot attached”.
+- Partial STT: `Stick butt, I'm so sorry to interrupt you.`
+- Partial STT metadata: `seq 0; local whisper slice; privacy guard: raw transcript durable storage is off.`
+- Duplex state: `barge-in smoke listening`; privacy guard off.
+- Mic state: `recording with local partial STT slices... tap the mic button again to stop and transcribe`.
+- Playback stopped with reason: `M7O barge-in: mic capture started`.
+- Streaming transport: `3 chunk frames preloaded`; mode `M7R browser_preload_queue_then_serial_playback`.
+- Interrupted assistant text: `Echo smoke response: Okay, Stickbot, we're about to test M7S and I'm going to interrupt you. I don't mean to be rude.`
+- Voice score: mood `TARS mission brief / marine commander`; streaming frames `3 / target streaming_full_duplex_mesh`.
+
+Boundaries preserved:
+
+- local-only true;
+- raw transcript durable storage false;
+- browser Web Speech API false;
+- cloud speech API false;
+- OpenClaw/Gateway/NOA/provider routing unchanged;
+- port `8787` untouched.
+
+Next recommended milestone:
+
+- `LIVE_PROSODY_MOOD_SCORE_AND_EMOTIONAL_SHEET_MUSIC`.
