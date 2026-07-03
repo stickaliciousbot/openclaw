@@ -47,3 +47,15 @@ test('explicit LAN/remote opt-in permits non-loopback validation only', () => {
   const cfg = loadConfig(base({ HOST: '192.168.1.50', XTTS_URL: 'http://192.168.1.51:8020', VOICE_DEMO_ALLOW_LAN: 'true' }));
   assert.equal(cfg.allowLan, true);
 });
+
+test('HTTPS mode requires explicit existing key/cert paths', () => {
+  assert.equal(classificationFor(base({ VOICE_DEMO_HTTPS: 'true' })), 'BLOCKED_HTTPS_CERT_MISSING');
+});
+
+test('HTTPS key/cert paths reject /mnt/c', () => {
+  assert.equal(classificationFor(base({
+    VOICE_DEMO_HTTPS: 'true',
+    VOICE_DEMO_HTTPS_KEY: '/mnt/c/tmp/key.pem',
+    VOICE_DEMO_HTTPS_CERT: '/tmp/cert.pem'
+  })), 'BLOCKED_MNT_C_PATH');
+});

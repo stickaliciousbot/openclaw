@@ -144,3 +144,41 @@ M7B result: whisper.cpp `v1.9.1` release asset SHA256 `f3bf3b4369a99b54665b0f19b
 M7C upgraded only the model, not the STT authority boundary. Reusing the same M7A/M7B harness with `ggml-small.en.bin` proved a more usable local demo path while preserving the same local-only constraints.
 
 M7C result: `ggml-small.en.bin` SHA256 `c6138d6d58ecc8322097e0f987c32f1be8bb0a18532a3f88f734d1bbf9c41e5d`, bytes `487614201`; `/api/stt` HTTP 200, `normalizedLocal:true`, transcript chars `45`, transcript SHA256 `44b7adbb95a5d4d7129029ad17b4b2cc1bc3429e1b9057f3ad3640ef234a2fac`, no network required during transcription, network blocked/unavailable in sandbox, secret dirs hidden, no cloud/WebSpeech/OpenClaw mutation. Raw transcript remains trace-only and must not be copied into durable docs/memory.
+
+## M7D: WSL localhost is not LAN exposure
+
+M7D exposed a durable loopback/LAN lesson.
+
+What happened:
+
+- The TARS Node process was running inside WSL2 on Susie-Dell-Inspiron.
+- `http://localhost:19890/` worked from the Windows host because Windows forwards localhost into WSL.
+- `http://192.168.1.107:19890/` failed from LAN because Windows was not listening/forwarding that port on the Wi-Fi interface.
+- Binding Node to `0.0.0.0` inside WSL was necessary but not sufficient for LAN devices.
+
+What fixed it:
+
+```powershell
+netsh interface portproxy add v4tov4 listenaddress=192.168.1.107 listenport=19890 connectaddress=172.24.168.46 connectport=19890
+New-NetFirewallRule -DisplayName "Stickbot TARS M7D 19890" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 19890
+```
+
+Durable rule:
+
+Every loopback/LAN browser demo must explicitly instrument the whole path before telling Stick to retry:
+
+1. Identify where the process is actually running: Windows native, WSL2, Alienware, node, container, etc.
+2. Discover and record loopback, WSL, Windows LAN, Tailscale, and/or remote-host addresses.
+3. Keep loopback as the default; require an explicit allow flag for `0.0.0.0` / LAN bind.
+4. Verify `GET /health` locally and require HTTP 200.
+5. Verify the actual browser mutation path, not just health: session/CSRF/Origin + representative POST.
+6. If runtime is WSL2 and LAN IP fails while Windows localhost works, add Windows `netsh interface portproxy` plus firewall rule from Windows LAN IP/port to WSL IP/port.
+7. Only then give Stick the retry URL.
+
+Never conflate “works on localhost” with “available on LAN.” Also never conflate “page loads on LAN” with “browser mic/camera APIs are permitted on LAN.” `http://localhost` is treated as trustworthy for mic access; plain `http://192.168.1.107` is not necessarily a secure origin, so the browser may block mic permission without a normal prompt. Stick confirmed he did not block the permission.
+
+M7D UX blocker before final: localhost voice capture works, but the initial “press once to start, press again to stop/send” interaction was clunky and had no recording indicator. Basic repair added active recording and processing button states plus clearer insecure-origin mic error text; final polish still needs timer/pulse indicator and better stop/send wording.
+
+M7D voice-output lesson: capture/STT and TTS playback are separate gates. `voice fetch failed` on Send was expected because M7D ran in `OPENCLAW_MODE=echo` without starting the local XTTS backend at `127.0.0.1:8020`, while the UI had allowed `generate TARS voice`. Repair: added `/api/capabilities`; the UI now probes XTTS readiness, disables/unchecks voice when XTTS is down, and Send forces `voice:false` unless XTTS is actually ready. Validation/restart `95dcb06e` passed with live Node PID `571853` and `/api/capabilities` returning `voice.enabled:false`, `reason:"xtts_not_ready"`. Future final demo should either keep voice output off or start/health-check XTTS and gate voice generation on backend readiness.
+
+M7D local real-mic localhost path passed after Stick confirmed capture/STT, visual indicator, and echo send. It was then upgraded to HTTPS LAN pass after optional HTTPS support, local CA/IP-SAN cert generation, and Stick confirmation that `https://192.168.1.107:19890/` microphone capture/STT and echo send worked. Durable evidence preserves semantic confirmation only, not raw transcript. Plain HTTP LAN IP remains unsuitable for mic; HTTPS/cert flow is the working LAN path for this demo. M7E then proved optional TARS voice output safely: start XTTS loopback-only behind the HTTPS Node frontend, require `/api/capabilities` to report `voice.enabled:true` / `xtts_ready`, then allow `voice:true`. Generated WAV SHA256 `2e8556b9bac193ce5efde9bbc5ba2553d52c7428473aee18dcb1c8eb568218f0`, bytes `73260`, mono 24 kHz PCM WAV. Voice output is now a separate PASS gate, not an implicit default. Do not start M8, live provider/Gateway smoke, Android, persistent service install, or broader user-testing exposure without separate owner approval and a fresh threat model.

@@ -1,8 +1,74 @@
 const log = document.getElementById('log');
 const text = document.getElementById('text');
 const voice = document.getElementById('voice');
+const mic = document.getElementById('mic');
+const voiceStatus = document.getElementById('voice-status');
+const prosodyParameters = document.getElementById('prosody-parameters');
+const prosodyRandomness = document.getElementById('prosody-randomness');
+const prosodyMatrixXtts = document.getElementById('prosody-matrix-xtts');
+const prosodyMatrixDelivery = document.getElementById('prosody-matrix-delivery');
+const prosodyStatus = document.getElementById('prosody-status');
+const prosodyMood = document.getElementById('prosody-mood');
+const prosodyJsonFile = document.getElementById('prosody-json-file');
+const prosodyJsonPreview = document.getElementById('prosody-json-preview');
 
 let csrfToken = null;
+let voiceAvailable = false;
+let prosodyState = null;
+
+const PARAMETER_LABELS = {
+  pitch: 'Pitch',
+  timbre: 'Timbre',
+  speed: 'Speed',
+  compression: 'Compression',
+  verbalGait: 'Verbal gait',
+  verbosity: 'Verbosity',
+  clip: 'Clip guard'
+};
+
+const RANDOMNESS_LABELS = {
+  global: 'Randomness',
+  threshold: 'Random threshold',
+  pitch: 'Pitch random',
+  timbre: 'Timbre random',
+  speed: 'Speed random',
+  compression: 'Compression random',
+  verbalGait: 'Gait random',
+  verbosity: 'Verbosity random',
+  clip: 'Clip random'
+};
+
+const XTTS_LABELS = {
+  temperature: 'Temperature',
+  topP: 'Top P',
+  topK: 'Top K',
+  repetitionPenalty: 'Repeat penalty',
+  lengthPenalty: 'Length penalty',
+  speed: 'XTTS speed'
+};
+
+const XTTS_RANGES = {
+  temperature: [0.55, 0.9, 0.01],
+  topP: [0.75, 0.95, 0.01],
+  topK: [35, 80, 1],
+  repetitionPenalty: [8, 12, 0.1],
+  lengthPenalty: [0.9, 1.15, 0.01],
+  speed: [0.88, 1.12, 0.01]
+};
+
+const DELIVERY_LABELS = {
+  maxCharsPerChunk: 'Max chars',
+  sentencePauseMs: 'Sentence pause',
+  commaPauseMs: 'Comma pause',
+  lineBreakPauseMs: 'Line pause'
+};
+
+const DELIVERY_RANGES = {
+  maxCharsPerChunk: [60, 230, 1],
+  sentencePauseMs: [50, 500, 10],
+  commaPauseMs: [50, 500, 10],
+  lineBreakPauseMs: [50, 500, 10]
+};
 
 function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, (c) => ({
@@ -14,12 +80,73 @@ function escapeHtml(s) {
   }[c]));
 }
 
+function safeFilename(s, fallback = 'stickbot-tars-prosody-sample') {
+  const safe = String(s || fallback)
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9._-]+/g, '_')
+    .replace(/^_+|_+$/g, '')
+    .slice(0, 96);
+  return safe || fallback;
+}
+
+function voiceProfileName(voicePlan = {}) {
+  return safeFilename(
+    voicePlan?.delivery?.moodId
+      || voicePlan?.tuning?.moodId
+      || voicePlan?.prosodySheet?.[0]?.moodId
+      || 'stickbot-tars-prosody-sample'
+  );
+}
+
+function voiceSaveHtml(j) {
+  if (!j.audioUrl || !j.voicePlan) return '';
+  const profileName = voiceProfileName(j.voicePlan);
+  const payload = {
+    profileName,
+    text: j.text || '',
+    audioUrl: j.audioUrl,
+    voicePlan: j.voicePlan,
+    boundaries: {
+      canonicalTextAuthoritative: true,
+      textRewriteAllowed: false,
+      localOnly: true
+    }
+  };
+  const encoded = encodeURIComponent(JSON.stringify(payload));
+  return `<div class="voice-save-row"><a class="button-link" href="${escapeHtml(j.audioUrl)}" download="${escapeHtml(profileName)}.wav">Save WAV</a><button class="secondary save-prosody-json" type="button" data-profile="${escapeHtml(profileName)}" data-json="${encoded}">Save prosody JSON</button></div>`;
+}
+
+function downloadJson(filename, payload) {
+  const blob = new Blob([`${JSON.stringify(payload, null, 2)}\n`], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
 function add(html) {
   const div = document.createElement('div');
   div.className = 'turn';
   div.innerHTML = html;
   log.prepend(div);
 }
+
+log.addEventListener('click', (event) => {
+  const button = event.target.closest('.save-prosody-json');
+  if (!button) return;
+  try {
+    const profile = safeFilename(button.dataset.profile || 'stickbot-tars-prosody-sample');
+    const payload = JSON.parse(decodeURIComponent(button.dataset.json || '{}'));
+    downloadJson(`${profile}.json`, payload);
+  } catch (e) {
+    add(`<b>Save:</b> prosody JSON failed<br><span class="muted">${escapeHtml(e.message)}</span>`);
+  }
+});
 
 async function ensureSession() {
   if (csrfToken) return csrfToken;
@@ -33,50 +160,300 @@ async function csrfHeaders(extra = {}) {
   return { ...extra, 'x-csrf-token': await ensureSession() };
 }
 
+async function readJsonResponse(r) {
+  return r.json().catch(() => ({ error: `HTTP ${r.status}` }));
+}
+
+function isCsrfRejected(j, r) {
+  return r.status === 403 && (j.classification === 'CSRF_REJECTED' || /csrf/i.test(j.error || ''));
+}
+
+async function csrfFetchJson(path, { headers = {}, body = '{}', method = 'POST' } = {}, retry = true) {
+  const r = await fetch(path, {
+    method,
+    credentials: 'same-origin',
+    headers: await csrfHeaders(headers),
+    body
+  });
+  const j = await readJsonResponse(r);
+  if (!r.ok && retry && isCsrfRejected(j, r)) {
+    csrfToken = null;
+    await ensureSession();
+    return csrfFetchJson(path, { headers, body, method }, false);
+  }
+  return { r, j };
+}
+
+async function refreshCapabilities() {
+  try {
+    const r = await fetch('/api/capabilities', { method: 'GET', credentials: 'same-origin' });
+    const j = await r.json();
+    voiceAvailable = Boolean(j.voice?.enabled);
+    voice.disabled = !voiceAvailable;
+    if (!voiceAvailable) voice.checked = false;
+    voiceStatus.textContent = voiceAvailable
+      ? '(local XTTS backend ready)'
+      : '(local XTTS backend not running; text/echo only)';
+  } catch (e) {
+    voiceAvailable = false;
+    voice.checked = false;
+    voice.disabled = true;
+    voiceStatus.textContent = '(voice status unavailable; text/echo only)';
+  }
+}
+
+function sliderHtml(kind, key, value, label) {
+  const id = `prosody-${kind}-${key}`;
+  const safeValue = Number(value || 0).toFixed(2);
+  return `<label class="slider-row" for="${id}"><span>${escapeHtml(label)}</span><input id="${id}" data-kind="${kind}" data-key="${key}" type="range" min="0" max="1" step="0.01" value="${safeValue}"><output>${safeValue}</output></label>`;
+}
+
+function rangedSliderHtml(kind, key, value, label, range) {
+  const id = `prosody-${kind}-${key}`;
+  const [min, max, step] = range;
+  const decimals = String(step).includes('.') ? 2 : 0;
+  const safe = Number.isFinite(Number(value)) ? Number(value) : min;
+  const safeValue = Math.min(max, Math.max(min, safe));
+  return `<label class="slider-row" for="${id}"><span>${escapeHtml(label)}</span><input id="${id}" data-matrix-kind="${kind}" data-key="${key}" type="range" min="${min}" max="${max}" step="${step}" value="${safeValue}"><output>${safeValue.toFixed(decimals)}</output></label>`;
+}
+
+function bindSliderOutputs(root) {
+  root.querySelectorAll('input[type="range"]').forEach((input) => {
+    const out = input.parentElement.querySelector('output');
+    input.addEventListener('input', () => {
+      const step = input.getAttribute('step') || '0.01';
+      out.textContent = Number(input.value).toFixed(step.includes('.') ? 2 : 0);
+    });
+  });
+}
+
+function moodPreset(id) {
+  return (prosodyState?.matrix?.moods || []).find((mood) => mood.id === id) || null;
+}
+
+function renderMatrixControls(matrix) {
+  const m = matrix || {};
+  prosodyMatrixXtts.innerHTML = Object.entries(XTTS_LABELS)
+    .map(([key, label]) => rangedSliderHtml('xttsParams', key, m.xttsParams?.[key] ?? m.recommendedXttsParams?.[key], label, XTTS_RANGES[key]))
+    .join('');
+  prosodyMatrixDelivery.innerHTML = Object.entries(DELIVERY_LABELS)
+    .map(([key, label]) => rangedSliderHtml('delivery', key, m.delivery?.[key] ?? m.recommendedDelivery?.[key], label, DELIVERY_RANGES[key]))
+    .join('');
+  bindSliderOutputs(prosodyMatrixXtts);
+  bindSliderOutputs(prosodyMatrixDelivery);
+}
+
+function matrixFromMoodPreset(id) {
+  const mood = moodPreset(id);
+  if (!mood) return null;
+  return {
+    moodId: mood.id,
+    label: mood.label,
+    expressionToken: mood.expressionToken,
+    xttsParams: mood.xttsParams,
+    recommendedXttsParams: mood.xttsParams,
+    delivery: mood.delivery,
+    recommendedDelivery: mood.delivery
+  };
+}
+
+function renderProsody(state) {
+  prosodyState = state;
+  const active = state.active || { parameters: {}, randomness: {} };
+  const moods = state.controls?.moodPresets || [];
+  prosodyMood.innerHTML = moods
+    .map((mood) => `<option value="${escapeHtml(mood.id)}" title="${escapeHtml(mood.purpose || '')}"${mood.id === active.moodId ? ' selected' : ''}>${escapeHtml(`${mood.expressionToken || '🎚️'} ${mood.label}`)}</option>`)
+    .join('');
+  prosodyParameters.innerHTML = Object.entries(PARAMETER_LABELS)
+    .map(([key, label]) => sliderHtml('parameters', key, active.parameters[key], label))
+    .join('');
+  prosodyRandomness.innerHTML = Object.entries(RANDOMNESS_LABELS)
+    .map(([key, label]) => sliderHtml('randomness', key, active.randomness[key], label))
+    .join('');
+  renderMatrixControls(active.matrix || matrixFromMoodPreset(active.moodId));
+  bindSliderOutputs(prosodyParameters);
+  bindSliderOutputs(prosodyRandomness);
+  const updated = active.updatedAt ? ` Updated ${escapeHtml(active.updatedAt)}.` : '';
+  const mood = active.matrix?.label || active.moodId || 'baseline_deadpan';
+  prosodyStatus.textContent = `Active: ${active.label || 'Active tuning'} / ${mood}.${updated} Canonical text remains authoritative.`;
+}
+
+function collectProsody() {
+  const body = { moodId: prosodyMood.value || 'baseline_deadpan', parameters: {}, randomness: {}, matrix: { xttsParams: {}, delivery: {} } };
+  document.querySelectorAll('[data-kind][data-key]').forEach((input) => {
+    body[input.dataset.kind][input.dataset.key] = Number(input.value);
+  });
+  document.querySelectorAll('[data-matrix-kind][data-key]').forEach((input) => {
+    body.matrix[input.dataset.matrixKind][input.dataset.key] = Number(input.value);
+  });
+  body.matrix.moodId = body.moodId;
+  return body;
+}
+
+prosodyMood.onchange = () => {
+  const matrix = matrixFromMoodPreset(prosodyMood.value);
+  if (!matrix) return;
+  renderMatrixControls(matrix);
+  prosodyStatus.textContent = `Loaded JSON values for ${matrix.expressionToken || '🎚️'} ${matrix.label}. Hit Apply tuning to persist.`;
+};
+
+async function postProsody(path, body = {}) {
+  const { r, j } = await csrfFetchJson(path, {
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify(body)
+  });
+  if (!r.ok) throw new Error(j.error || `prosody ${r.status}`);
+  renderProsody(j);
+  return j;
+}
+
+async function refreshProsody() {
+  try {
+    const r = await fetch('/api/prosody', { method: 'GET', credentials: 'same-origin' });
+    const j = await r.json();
+    renderProsody(j);
+  } catch (e) {
+    prosodyStatus.textContent = `Prosody unavailable: ${e.message}`;
+  }
+}
+
+async function refreshProsodyMatrixPreview() {
+  const r = await fetch('/api/prosody/matrix', { method: 'GET', credentials: 'same-origin' });
+  const j = await r.json();
+  if (!r.ok) throw new Error(j.error || `matrix ${r.status}`);
+  prosodyJsonPreview.textContent = JSON.stringify(j, null, 2);
+  prosodyStatus.textContent = `Active JSON matrix: ${j.source || 'default'} / ${j.moods?.length || 0} moods. Canonical text remains authoritative.`;
+  return j;
+}
+
+document.getElementById('prosody-save').onclick = async () => {
+  try {
+    prosodyStatus.textContent = 'Applying tuning...';
+    await postProsody('/api/prosody', collectProsody());
+  } catch (e) { prosodyStatus.textContent = `Apply failed: ${e.message}`; }
+};
+
+document.getElementById('prosody-baseline').onclick = async () => {
+  try {
+    prosodyStatus.textContent = 'Saving current tuning as baseline...';
+    await postProsody('/api/prosody', collectProsody());
+    await postProsody('/api/prosody/baseline');
+  } catch (e) { prosodyStatus.textContent = `Baseline failed: ${e.message}`; }
+};
+
+document.getElementById('prosody-restore').onclick = async () => {
+  try {
+    prosodyStatus.textContent = 'Restoring baseline...';
+    await postProsody('/api/prosody/restore-baseline');
+  } catch (e) { prosodyStatus.textContent = `Restore failed: ${e.message}`; }
+};
+
+document.getElementById('prosody-reset').onclick = async () => {
+  try {
+    prosodyStatus.textContent = 'Resetting to factory default...';
+    await postProsody('/api/prosody/reset');
+  } catch (e) { prosodyStatus.textContent = `Reset failed: ${e.message}`; }
+};
+
+document.getElementById('prosody-json-read').onclick = async () => {
+  try {
+    prosodyStatus.textContent = 'Reading active prosody JSON...';
+    await refreshProsodyMatrixPreview();
+  } catch (e) { prosodyStatus.textContent = `Read failed: ${e.message}`; }
+};
+
+document.getElementById('prosody-json-upload').onclick = async () => {
+  try {
+    if (!prosodyJsonFile.files.length) throw new Error('choose a JSON file first');
+    prosodyStatus.textContent = 'Uploading prosody JSON...';
+    const matrix = JSON.parse(await prosodyJsonFile.files[0].text());
+    const { r, j } = await csrfFetchJson('/api/prosody/matrix', {
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ matrix })
+    });
+    if (!r.ok) throw new Error(j.error || `matrix upload ${r.status}`);
+    prosodyJsonPreview.textContent = JSON.stringify(j.matrix, null, 2);
+    renderProsody(j.prosody);
+    prosodyStatus.textContent = `Uploaded sanitized local matrix: ${j.matrix.moods?.length || 0} moods. Text rewrite still blocked.`;
+  } catch (e) { prosodyStatus.textContent = `Upload failed: ${e.message}`; }
+};
+
+document.getElementById('prosody-json-reset').onclick = async () => {
+  try {
+    prosodyStatus.textContent = 'Resetting prosody JSON to built-in default...';
+    const { r, j } = await csrfFetchJson('/api/prosody/matrix/reset', {
+      headers: { 'content-type': 'application/json' },
+      body: '{}'
+    });
+    if (!r.ok) throw new Error(j.error || `matrix reset ${r.status}`);
+    prosodyJsonPreview.textContent = JSON.stringify(j.matrix, null, 2);
+    renderProsody(j.prosody);
+    prosodyStatus.textContent = 'Prosody JSON reset to built-in default.';
+  } catch (e) { prosodyStatus.textContent = `Reset JSON failed: ${e.message}`; }
+};
+
 document.getElementById('send').onclick = async () => {
   const input = text.value.trim();
   if (!input) return;
   add(`<b>You:</b> ${escapeHtml(input)}<br><span class="muted">Sending...</span>`);
-  const r = await fetch('/api/chat', {
-    method: 'POST',
-    credentials: 'same-origin',
-    headers: await csrfHeaders({ 'content-type': 'application/json' }),
-    body: JSON.stringify({ text: input, voice: voice.checked })
+  const { r, j } = await csrfFetchJson('/api/chat', {
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({ text: input, voice: voiceAvailable && voice.checked })
   });
-  const j = await r.json();
-  add(`<b>Stickbot:</b> ${escapeHtml(j.text || j.error)}${j.audioUrl ? `<audio controls autoplay src="${j.audioUrl}"></audio>` : ''}${j.audioError ? `<br><span class="muted">Voice: ${escapeHtml(j.audioError)}</span>` : ''}`);
+  if (!r.ok) {
+    add(`<b>Stickbot:</b> request failed<br><span class="muted">${escapeHtml(j.error || `HTTP ${r.status}`)}</span>`);
+    return;
+  }
+  const selectedScoreChunk = j.voicePlan?.prosodyScore?.chunks?.[0] || j.voicePlan?.prosodySheet?.[0] || null;
+  const voicePlan = j.voicePlan?.delivery
+    ? `<br><span class="muted">Voice score: mood ${escapeHtml(j.voicePlan.delivery.moodLabel || j.voicePlan.delivery.moodId || 'n/a')}, base temp ${escapeHtml(j.voicePlan.delivery.baseXttsParams?.temperature ?? 'n/a')}, effective temp ${escapeHtml(j.voicePlan.delivery.xttsParams?.temperature ?? 'n/a')}, top_p ${escapeHtml(j.voicePlan.delivery.xttsParams?.topP ?? 'n/a')}, XTTS speed ${escapeHtml(j.voicePlan.delivery.xttsParams?.speed ?? 'n/a')}, chunk ${escapeHtml(j.voicePlan.delivery.maxCharsPerChunk || 'n/a')}</span>${selectedScoreChunk ? `<br><span class="muted">Selected chunk: ${escapeHtml(selectedScoreChunk.chunkId || 'c001')} role ${escapeHtml(selectedScoreChunk.phraseRole || 'n/a')}; Δ ${escapeHtml(JSON.stringify(selectedScoreChunk.deltas || {}))}; effective ${escapeHtml(JSON.stringify(selectedScoreChunk.effectiveXtts || selectedScoreChunk.xttsParams || {}))}</span>` : ''}`
+    : '';
+  add(`<b>Stickbot:</b> ${escapeHtml(j.text || j.error)}${j.audioUrl ? `<audio controls autoplay src="${j.audioUrl}"></audio>${voiceSaveHtml(j)}` : ''}${j.audioError ? `<br><span class="muted">Voice: ${escapeHtml(j.audioError)}</span>` : ''}${voicePlan}`);
 };
 
 let rec;
 let chunks = [];
-document.getElementById('mic').onclick = async () => {
+mic.onclick = async () => {
   if (rec && rec.state === 'recording') {
+    mic.textContent = 'Processing mic capture...';
+    mic.disabled = true;
     rec.stop();
     return;
   }
-  const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+  let stream;
+  try {
+    stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+  } catch (e) {
+    add(`<b>Mic:</b> unavailable<br><span class="muted">${escapeHtml(e.message || String(e))}. If this is a LAN URL, browser secure-origin policy may block microphone permission over plain HTTP; use localhost or HTTPS.</span>`);
+    return;
+  }
   chunks = [];
   rec = new MediaRecorder(stream, { mimeType: 'audio/webm' });
   rec.ondataavailable = (e) => chunks.push(e.data);
   rec.onstop = async () => {
-    stream.getTracks().forEach((t) => t.stop());
-    const blob = new Blob(chunks, { type: 'audio/webm' });
-    const r = await fetch('/api/stt', {
-      method: 'POST',
-      credentials: 'same-origin',
-      headers: await csrfHeaders({ 'content-type': 'audio/webm' }),
-      body: blob
-    });
-    const j = await r.json();
-    if (j.transcript) {
-      text.value = j.transcript;
-      add(`<b>Mic transcript:</b> ${escapeHtml(j.transcript)}<br><span class="muted">Saved locally; click Send to ask Stickbot.</span>`);
-    } else {
-      add(`<b>Mic capture:</b> saved locally<br><span class="muted">${escapeHtml(j.error || JSON.stringify(j))}</span>`);
+    try {
+      stream.getTracks().forEach((t) => t.stop());
+      const blob = new Blob(chunks, { type: 'audio/webm' });
+      const { r, j } = await csrfFetchJson('/api/stt', {
+        headers: { 'content-type': 'audio/webm' },
+        body: blob
+      });
+      if (j.transcript) {
+        text.value = j.transcript;
+        add(`<b>Mic transcript:</b> ${escapeHtml(j.transcript)}<br><span class="muted">Saved locally; click Send text to ask Stickbot. TARS voice output requires local XTTS backend.</span>`);
+      } else {
+        add(`<b>Mic capture:</b> saved locally<br><span class="muted">${escapeHtml(j.error || JSON.stringify(j))}</span>`);
+      }
+    } finally {
+      mic.textContent = 'Start mic capture';
+      mic.disabled = false;
     }
   };
   rec.start();
-  add('<b>Mic:</b> recording... click again to stop');
+  mic.textContent = 'Recording… tap to stop/send';
+  add('<b>Mic:</b> recording... tap the mic button again to stop and transcribe');
 };
 
 ensureSession().catch((e) => add(`<span class="muted">Session setup failed: ${escapeHtml(e.message)}</span>`));
+refreshCapabilities().catch(() => {});
+refreshProsody().catch(() => {});

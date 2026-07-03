@@ -3,10 +3,11 @@ import assert from 'node:assert/strict';
 import { assertPostOriginAllowed } from '../safety/origin-policy.js';
 import { createSessionStore, createCsrfSession, assertCsrf } from '../safety/csrf.js';
 
-const config = { port: 18788 };
+const config = { port: 18788, allowLan: false };
 
-function req({ method = 'POST', origin, cookie, csrf } = {}) {
+function req({ method = 'POST', origin, host = '127.0.0.1:18788', cookie, csrf } = {}) {
   const headers = {};
+  headers.host = host;
   if (origin !== undefined) headers.origin = origin;
   if (cookie !== undefined) headers.cookie = cookie;
   if (csrf !== undefined) headers['x-csrf-token'] = csrf;
@@ -21,6 +22,22 @@ test('allowed loopback Origin accepted', () => {
 test('unexpected Origin rejected', () => {
   assert.throws(() => assertPostOriginAllowed(req({ origin: 'http://evil.example' }), config), /Unexpected Origin/);
   assert.throws(() => assertPostOriginAllowed(req({ origin: 'http://192.168.1.5:18788' }), config), /Unexpected Origin/);
+});
+
+test('LAN Origin accepted only with explicit allowLan and same host/port', () => {
+  const lanConfig = { port: 18788, allowLan: true };
+  assert.doesNotThrow(() => assertPostOriginAllowed(req({
+    origin: 'http://192.168.1.107:18788',
+    host: '192.168.1.107:18788'
+  }), lanConfig));
+  assert.throws(() => assertPostOriginAllowed(req({
+    origin: 'http://192.168.1.108:18788',
+    host: '192.168.1.107:18788'
+  }), lanConfig), /Unexpected Origin/);
+  assert.throws(() => assertPostOriginAllowed(req({
+    origin: 'http://192.168.1.107:18789',
+    host: '192.168.1.107:18788'
+  }), lanConfig), /Unexpected Origin/);
 });
 
 test('local CLI/no-Origin allowance is documented but still requires CSRF', () => {

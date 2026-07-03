@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs';
 import { boolEnv, validateNetworkConfig } from '../safety/network-policy.js';
 
 export class ConfigError extends Error {
@@ -14,12 +15,23 @@ function asInt(value, fallback) {
   return n;
 }
 
+function assertSafeLocalFilePath(value, name) {
+  if (!value) return '';
+  if (String(value).startsWith('/mnt/c/') || String(value) === '/mnt/c') {
+    throw new ConfigError('BLOCKED_MNT_C_PATH', `${name} must use a WSL-native path, not /mnt/c.`);
+  }
+  return String(value);
+}
+
 export function loadConfig(env = process.env) {
   const config = {
     workspace: env.WORKSPACE_DIR || '/home/stickai/.openclaw/workspace',
     host: env.HOST || '127.0.0.1',
     port: asInt(env.PORT, 18788),
     allowLan: boolEnv(env.VOICE_DEMO_ALLOW_LAN),
+    httpsEnabled: boolEnv(env.VOICE_DEMO_HTTPS),
+    httpsKeyPath: assertSafeLocalFilePath(env.VOICE_DEMO_HTTPS_KEY || '', 'VOICE_DEMO_HTTPS_KEY'),
+    httpsCertPath: assertSafeLocalFilePath(env.VOICE_DEMO_HTTPS_CERT || '', 'VOICE_DEMO_HTTPS_CERT'),
     allowRemoteXtts: boolEnv(env.VOICE_DEMO_ALLOW_REMOTE_XTTS),
     xttsUrl: env.XTTS_URL || 'http://127.0.0.1:8020',
     xttsSpeaker: env.XTTS_SPEAKER || 'reference.wav',
@@ -44,6 +56,15 @@ export function loadConfig(env = process.env) {
     maxAudioUploadBytes: asInt(env.MAX_AUDIO_UPLOAD_BYTES, 8 * 1024 * 1024),
     maxAudioDurationSeconds: asInt(env.MAX_AUDIO_DURATION_SECONDS, 60)
   };
+
+  if (config.httpsEnabled) {
+    if (!config.httpsKeyPath || !config.httpsCertPath) {
+      throw new ConfigError('BLOCKED_HTTPS_CERT_MISSING', 'VOICE_DEMO_HTTPS=true requires VOICE_DEMO_HTTPS_KEY and VOICE_DEMO_HTTPS_CERT.');
+    }
+    if (!existsSync(config.httpsKeyPath) || !existsSync(config.httpsCertPath)) {
+      throw new ConfigError('BLOCKED_HTTPS_CERT_MISSING', 'HTTPS key/cert path does not exist.');
+    }
+  }
 
   try {
     validateNetworkConfig({

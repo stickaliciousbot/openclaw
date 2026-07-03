@@ -1,0 +1,59 @@
+{
+  "classification": "STICKBOT_TARS_M25_HARDENING_CLOSEOUT_BLOCKED_FAIL_CLOSED",
+  "timestampUtc": "2026-07-02T02:35:51.888Z",
+  "projectRoot": "/home/stickai/.openclaw/workspace/projects/stickbot-tars-smoke",
+  "availableChecks": {
+    "npmRunCheck": "PASS"
+  },
+  "checks": {
+    "configFailClosedImplemented": false,
+    "loopbackDefaultExists": true,
+    "unsafeLanRefusesStartup": false,
+    "audioPathTraversalBlocked": true,
+    "uuidOnlyAudioRoute": false,
+    "requestBodyLimitExists": true,
+    "separateAudioLimitExists": false,
+    "originHostCsrfChecksExist": false,
+    "noBrowserWebSpeechApi": true,
+    "noProviderDirectInBrowser": true,
+    "gitignoreAudioGeneratedTraces": true,
+    "gitignoreVenvModelsRuntime": true,
+    "routeDefaultFallbackMutationSentinelsPlanned": true,
+    "noOpenClawProductionMutationInCode": true,
+    "noMntCInProjectPolicy": true
+  },
+  "failed": [
+    "configFailClosedImplemented",
+    "unsafeLanRefusesStartup",
+    "uuidOnlyAudioRoute",
+    "separateAudioLimitExists",
+    "originHostCsrfChecksExist"
+  ],
+  "evidenceFiles": [
+    {
+      "path": "/home/stickai/.openclaw/workspace/projects/stickbot-tars-smoke/server.js",
+      "sha256": "0415564e15257f2292f9c8f7dc879f53f9335b3d516b07117224394a06806579"
+    },
+    {
+      "path": "/home/stickai/.openclaw/workspace/projects/stickbot-tars-smoke/public/app.js",
+      "sha256": "b8dffc801aaa9fb12f80c47138a9c9a3b7dce7bbc2007312059ed86a74bedca6"
+    },
+    {
+      "path": "/home/stickai/.openclaw/workspace/projects/stickbot-tars-smoke/.gitignore",
+      "sha256": "5ab2fc03809ab4c7e06a2480687a5bee98b32bbe885a8289e7c166c6e1cb6212"
+    },
+    {
+      "path": "/home/stickai/.openclaw/workspace/projects/stickbot-tars-smoke/package.json",
+      "sha256": "516fb48d5e91cb4ad72d513331ff4d8b2f882e8e9f897327a313461838a60690"
+    },
+    {
+      "path": "/home/stickai/.openclaw/workspace/projects/stickbot-tars-smoke/docs/IMPLEMENTATION_PLAN.md",
+      "sha256": "5bd488b68efdad11e601212e939fca4ec8a8bbae7d4176e2d6e9e4ead6bb08e9"
+    },
+    {
+      "path": "/home/stickai/.openclaw/workspace/projects/stickbot-tars-smoke/docs/LOW_LEVEL_DESIGN_AND_IMPLEMENTATION_PLAN.md",
+      "sha256": "56ff1f782b038d709f6fe43d5c00c8247aae4c0da3509f160272e8261e7169a5"
+    }
+  ],
+  "conclusion": "M2.5 hardening gates are incomplete; do not proceed to M3 model acquisition/load."
+}

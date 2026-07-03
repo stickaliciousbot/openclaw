@@ -356,3 +356,173 @@ M7C outcome:
 - Evidence: `docs/m7-local-stt/m7c-small-en-usable-demo/M7C_SMALL_EN_USABLE_DEMO_PASS.md` and `docs/m7-local-stt/m7c-small-en-usable-demo/evidence_manifest.json`.
 
 Next possible target: `M7D_REAL_MIC_LOCAL_DEMO_NOT_STARTED_REQUIRES_SEPARATE_APPROVAL`.
+
+## M7D — real mic HTTPS LAN demo
+
+Status: `STICKBOT_TARS_M7D_HTTPS_LAN_REAL_MIC_STT_ECHO_PASS_OPTIONAL_XTTS_OUTPUT_BLOCKED`
+
+Summary:
+
+- Implemented `scripts/m7d-local-real-mic-demo.sh`, browser mic capture, local FFmpeg normalization, and local whisper.cpp `ggml-small.en.bin` STT behind the existing Node demo.
+- Runtime location was WSL2 on Susie-Dell-Inspiron, not Windows-native Node. Windows Wi-Fi IP `192.168.1.107`; WSL IP `172.24.168.46`; Tailscale IP `100.119.233.106`.
+- Windows `localhost:19890` working did not prove LAN reachability. Stick fixed LAN exposure with Windows `netsh interface portproxy` from `192.168.1.107:19890` to `172.24.168.46:19890` plus an inbound firewall rule.
+- HTTPS LAN path `https://192.168.1.107:19890/` was operator-confirmed: mic capture/STT worked, transcript appeared, and echo send worked.
+- Durable evidence intentionally preserves semantic confirmation only, not raw transcript.
+- Plain HTTP LAN may load the page but is not a trustworthy mic origin; HTTPS/cert flow is the working LAN mic path.
+- Added `/api/capabilities` so TARS voice output is disabled unless XTTS `/ready` is reachable.
+- Closeout artifacts:
+  - `docs/m7-local-stt/m7d-real-mic-local-demo/M7D_REAL_MIC_LOCAL_DEMO_PLAN.md`
+  - `docs/m7-local-stt/m7d-real-mic-local-demo/M7D_REAL_MIC_LOCALHOST_DEMO_PASS.md`
+  - `docs/m7-local-stt/m7d-real-mic-local-demo/M7D_HTTPS_LAN_REAL_MIC_STT_ECHO_PASS.md`
+  - `docs/LOOPBACK_LAN_EXPOSURE_NOTEBOOK.md`
+
+Boundaries held: no cloud STT, no browser Web Speech API, no OpenClaw/Gateway/NOA mutation, no `8787`, no raw transcript durable storage.
+
+## M7E — HTTPS LAN TARS voice output
+
+Status: `STICKBOT_TARS_M7E_HTTPS_LAN_TARS_VOICE_OUTPUT_PASS`
+
+Summary:
+
+- Started local XTTS backend loopback-only at `http://127.0.0.1:8020` behind the already-working HTTPS LAN Node frontend on port `19890`.
+- XTTS was started via `scripts/m7e-start-xtts-loopback.sh` in a mount-isolated boundary with model/speaker read-only and `.openclaw`, `.ssh`, `.codex`, `.config` hidden.
+- Approved run `15cc2145-71e1-4036-ad32-39b1866ebed1` / `sharp-mist` passed with marker `STICKBOT_TARS_M7E_HTTPS_LAN_TARS_VOICE_OUTPUT_SMOKE_PASS`.
+- `/api/capabilities` reported `voice.enabled:true`, `reason:"xtts_ready"`, `detail:200`.
+- HTTPS LAN-shaped `/api/chat` with `voice:true` returned `audioError:null` and `/audio/5a18bf48-d136-4cac-9656-fe03ebac82e3.wav`.
+- Generated WAV SHA256 `2e8556b9bac193ce5efde9bbc5ba2553d52c7428473aee18dcb1c8eb568218f0`, bytes `73260`, type `RIFF WAVE audio, Microsoft PCM, 16 bit, mono 24000 Hz`.
+- Closeout artifact: `docs/m7-local-stt/m7e-https-lan-xtts-voice-output/M7E_HTTPS_LAN_TARS_VOICE_OUTPUT_PASS.md`.
+
+Boundary held: no cloud STT, no browser Web Speech API, no provider API, no OpenClaw/Gateway production mutation, no Gateway restart, no NOA touch, no `8787`, no generated audio committed.
+
+## M7F — TARS-inspired prosody kernel
+
+Status: `STICKBOT_TARS_M7F_PROSODY_KERNEL_LOCAL_CHECK_PASS`
+
+Stick approved starting a prosody kernel on 2026-07-03 and clarified the governing boundary: capture voice likeness only, do not alter what Stickbot says.
+
+Scope:
+
+- Add local delivery metadata layer for TARS-inspired cadence/salience.
+- Preserve canonical assistant text byte-for-byte.
+- Add sentence chunking that reconstructs exactly to canonical text.
+- Add salience annotation for status/risk/number/operator/mission-state spans.
+- Add no-secret-speech guard before synthesis.
+- Return public `voicePlan` summary from `/api/chat` when voice synthesis succeeds.
+- Do not import external TARS-AI code/binaries in this milestone.
+
+Reference findings from TARS-AI docs/source:
+
+- v3 release notes mention TTS/STT refactor, Silero VAD, and sentence-level TTS chunk streaming.
+- v3 config points to `faster-whisper` for STT and `piper` for TTS.
+- v3 Piper TARS ONNX config reports sample rate `22050` and inference defaults `noise_scale:0.667`, `length_scale:1`, `noise_w:0.8`.
+
+Implementation files:
+
+- `src/voice/tars-prosody-profile.js`
+- `src/voice/tars-salience-annotator.js`
+- `src/voice/tars-sentence-chunker.js`
+- `src/voice/tars-prosody-kernel.js`
+- `test/tars-prosody-kernel.test.mjs`
+- `docs/m7-local-stt/m7f-prosody-kernel/M7F_PROSODY_KERNEL_IMPLEMENTATION_PLAN.md`
+
+Integration:
+
+- `server.js` now builds a prosody plan before XTTS synthesis.
+- The current XTTS call still receives canonical assistant text unchanged.
+- If secret-like text is detected, synthesis is refused with `TARS_NO_SECRET_SPEECH_FAIL`.
+
+Validation:
+
+- Approved command/run: `7ca280ac-99a1-4363-8a82-baedadfea7c1` / `wild-kelp`.
+- Result: exit `0`, tests `46/46 PASS`, status JSON parse PASS.
+- Terminal marker: `STICKBOT_TARS_M7F_PROSODY_KERNEL_LOCAL_CHECK_PASS`.
+
+Validated gates:
+
+- `TARS_PROSODY_PROFILE_LOAD_PASS`
+- `TARS_SENTENCE_CHUNKING_PASS`
+- `TARS_STATUS_SALIENCE_PASS`
+- `TARS_NO_SECRET_SPEECH_PASS`
+- `TARS_CANONICAL_TEXT_UNCHANGED_PASS`
+
+Closeout artifact:
+
+- `docs/m7-local-stt/m7f-prosody-kernel/M7F_PROSODY_KERNEL_LOCAL_CHECK_PASS.md`
+
+M7F local check is PASS. Future work requires separate approval: chunked synthesis/playback queue, FFmpeg rate/pitch/loudness post-processing, Faster-Whisper benchmark, Piper low-latency lane, live OpenClaw/Gateway/provider path, Android/phone packaging, persistent service install, or broader user-testing exposure.
+
+## M7G — Local/private TARS prosody tuning console
+
+Status: `STICKBOT_TARS_M7G_PROSODY_TUNING_CONSOLE_LOCAL_CHECK_PASS`
+
+Implementation:
+
+- Added `src/voice/tars-prosody-tuning.js` for local tuning state, slider sanitization/clamping, baseline/factory/active profile handling, and delivery metadata derivation.
+- Added UI/API controls for pitch, timbre, speed, compression, verbal gait, verbosity, clip guard, global randomness, randomness threshold, and per-parameter randomness co-sliders.
+- Added baseline actions: apply, establish baseline, restore baseline, and reset to factory default.
+- Updated `server.js`, `public/index.html`, `public/app.js`, `src/voice/tars-prosody-kernel.js`, tests, and package check script.
+
+Boundary:
+
+- Canonical assistant text remains authoritative and unchanged.
+- Tuning is delivery metadata only.
+- XTTS still receives canonical text directly; audio post-processing/application is deferred to M7H/M7I.
+
+Validation:
+
+- `npm run check` PASS.
+- Node tests: `50/50 PASS` at initial M7G closeout.
+
+Closeout artifact:
+
+- `docs/m7-local-stt/m7g-prosody-tuning-console/M7G_PROSODY_TUNING_CONSOLE_LOCAL_CHECK_PASS.md`
+
+## M7G-R1 — Local prosody mood/preset matrix integration
+
+Status: `STICKBOT_TARS_M7G_PROSODY_TUNING_MATRIX_LOCAL_CHECK_PASS`
+
+Input:
+
+- Stick supplied `stickbot_tars_prosody_tuning_matrix_v0_1.json` as local testing recommendations.
+- Treated as reference data only, not prompt authority.
+
+Implementation:
+
+- Added `src/voice/tars-prosody-matrix.js` with 13 local mood presets, XTTS safe bounds, chunking recommendations, acceptance thresholds, and unknown-mood fallback to `baseline_deadpan`.
+- Added mood preset selector to the tuning console.
+- Extended active tuning summaries and public voice plans with mood id/label, chunking metadata, pause metadata, and XTTS recommendation metadata.
+- Mood matrix can cap chunk size and affect delivery metadata. It cannot rewrite assistant text.
+
+Validation:
+
+- `npm run check` PASS.
+- Node tests: `54/54 PASS`.
+- New gates: `TARS_PROSODY_MATRIX_SCHEMA_PASS`, `TARS_PROSODY_MATRIX_XTTS_CLAMP_PASS`, `TARS_PROSODY_MATRIX_MOOD_DELIVERY_PASS`, `TARS_PROSODY_MATRIX_UNKNOWN_MOOD_FALLBACK_PASS`.
+
+Next:
+
+- `M7H_FFMPEG_AUDIO_POLISH_FROM_TUNING_STATE` should apply pitch/rate/loudness/compression/clip guard in the audio pipeline while preserving canonical text and local-only boundaries.
+
+## M7G-R2 — JSON matrix controls and prosody sheet-music planning
+
+Status: `STICKBOT_TARS_M7G_PROSODY_JSON_MATRIX_AND_SHEET_MUSIC_LOCAL_CHECK_PASS`
+
+Implementation:
+
+- Dashboard can now read the active prosody JSON matrix, upload a new JSON matrix, and reset to the built-in default JSON.
+- Uploaded matrices are sanitized and persisted at `state/prosody-matrix.json` only when a user uploads one.
+- Mood dropdown is dynamic from the active matrix, including expressive emoji-style tokens.
+- Voice plans now include a per-chunk `prosodySheet`: chunk hash/range, selected mood, expression token, intensity, cues, XTTS recommendation parameters, delivery timing, and no-rewrite flags.
+- Current speech path still sends canonical assistant text to XTTS as one request; the sheet is the control score for M7H/M7I chunked synthesis and live prosody application.
+
+New endpoints:
+
+- `GET /api/prosody/matrix`
+- `POST /api/prosody/matrix`
+- `POST /api/prosody/matrix/reset`
+
+Validation:
+
+- `npm run check` PASS.
+- Node tests: `56/56 PASS`.
+- New gates: `TARS_PROSODY_MATRIX_JSON_IMPORT_PASS`, `TARS_PROSODY_SHEET_MUSIC_PASS`.

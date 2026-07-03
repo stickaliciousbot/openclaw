@@ -50,6 +50,14 @@ DEFAULT_LANGUAGE = os.environ.get("TARS_XTTS_LANGUAGE", "en")
 
 LOOPBACK_HOSTS = {"127.0.0.1", "localhost", "::1"}
 SAFE_SPEAKER_RE = re.compile(r"^[A-Za-z0-9_.-]+\.wav$")
+XTTS_PARAM_BOUNDS = {
+    "temperature": (0.55, 0.90, 0.68, float),
+    "top_p": (0.75, 0.95, 0.82, float),
+    "top_k": (35, 80, 45, int),
+    "repetition_penalty": (8.0, 12.0, 10.0, float),
+    "length_penalty": (0.90, 1.15, 1.03, float),
+    "speed": (0.88, 1.12, 0.98, float),
+}
 
 MODEL = None
 CONFIG = None
@@ -141,6 +149,19 @@ def resolve_speaker(name: str) -> Path:
     return speaker
 
 
+def bounded_xtts_params(payload: dict) -> dict:
+    params = {}
+    for key, (lo, hi, default, caster) in XTTS_PARAM_BOUNDS.items():
+        raw = payload.get(key, default)
+        try:
+            value = caster(raw)
+        except (TypeError, ValueError):
+            value = default
+        value = max(lo, min(hi, value))
+        params[key] = int(value) if caster is int else round(float(value), 3)
+    return params
+
+
 class Handler(BaseHTTPRequestHandler):
     server_version = "StickbotTarsXTTS/0.1"
 
@@ -200,7 +221,8 @@ class Handler(BaseHTTPRequestHandler):
 
             import soundfile as sf
 
-            result = MODEL.synthesize(text, CONFIG, speaker_wav=str(speaker), language=language)
+            xtts_params = bounded_xtts_params(payload)
+            result = MODEL.synthesize(text, CONFIG, speaker_wav=str(speaker), language=language, **xtts_params)
             audio = result["wav"] if isinstance(result, dict) and "wav" in result else result
             out = io.BytesIO()
             sf.write(out, audio, CONFIG.audio.output_sample_rate, format="WAV")
@@ -208,6 +230,7 @@ class Handler(BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header("content-type", "audio/wav")
             self.send_header("x-stickbot-tars-classification", "STICKBOT_TARS_M5_XTTS_SERVER_TTS_PASS")
+            self.send_header("x-stickbot-tars-xtts-params", json.dumps(xtts_params, sort_keys=True))
             self.send_header("content-length", str(len(wav)))
             self.end_headers()
             self.wfile.write(wav)

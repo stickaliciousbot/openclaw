@@ -5,23 +5,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Stickbot TARS Smoke</title>
   <style>
-    body { font-family: system-ui, sans-serif; max-width: 760px; margin: 32px auto; padding: 0 16px; background:#0b0f12; color:#e5f4ec; }
+    body { font-family: system-ui, sans-serif; max-width: 920px; margin: 32px auto; padding: 0 16px; background:#0b0f12; color:#e5f4ec; }
     textarea { width:100%; min-height:100px; background:#101820; color:#e5f4ec; border:1px solid #2b5440; border-radius:8px; padding:10px; }
     button { margin:8px 8px 8px 0; padding:10px 14px; border-radius:8px; border:0; background:#22a06b; color:white; font-weight:700; }
     button.secondary { background:#335; }
+    button.warn { background:#7c4a19; }
+    .button-link { display:inline-block; margin:8px 8px 8px 0; padding:10px 14px; border-radius:8px; border:0; background:#285f80; color:white; font-weight:700; text-decoration:none; }
+    .voice-save-row { display:flex; flex-wrap:wrap; gap:4px; align-items:center; margin-top:4px; }
     .turn { border:1px solid #254; border-radius:10px; padding:12px; margin:12px 0; background:#101820; }
     .muted { color:#9bb; font-size: 0.9em; }
+    .panel { border:1px solid #254; border-radius:12px; padding:14px; margin:16px 0; background:#0f171e; }
+    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:12px; }
+    .slider-row { display:grid; grid-template-columns: 116px 1fr 48px; gap:8px; align-items:center; margin:8px 0; }
+    .mood-row { display:grid; grid-template-columns: 116px 1fr; gap:8px; align-items:center; margin:8px 0 14px; }
+    .mood-row select { background:#101820; color:#e5f4ec; border:1px solid #2b5440; border-radius:8px; padding:8px; }
+    .json-preview { max-height:220px; overflow:auto; background:#081018; border:1px solid #254; border-radius:8px; padding:8px; color:#cfe; white-space:pre-wrap; }
+    input[type="file"] { color:#cfe; margin:8px 8px 8px 0; }
+    .slider-row input { width:100%; accent-color:#22a06b; }
+    .slider-row output { color:#cfe; font-variant-numeric: tabular-nums; }
+    .small-title { margin: 4px 0 8px; font-weight:800; color:#cfe; }
     audio { width:100%; margin-top:8px; }
   </style>
 </head>
 <body>
   <h1>🛰️ Stickbot TARS Smoke</h1>
-  <p class="muted">Local-first smoke. Text works now; mic records locally and waits for a local STT backend. No browser Web Speech API.</p>
+  <p class="muted">Local-first smoke. Mic uses browser MediaRecorder only, then local FFmpeg + whisper.cpp STT. No browser Web Speech API. No cloud STT.</p>
   <textarea id="text" placeholder="Type to Stickbot..."></textarea><br />
-  <label><input id="voice" type="checkbox" checked /> generate TARS voice</label><br />
+  <label><input id="voice" type="checkbox" /> generate TARS voice <span id="voice-status" class="muted">(checking local XTTS backend...)</span></label><br />
   <button id="send">Send text</button>
   <button id="mic" class="secondary">Hold / stop mic capture</button>
+  <section class="panel" aria-labelledby="prosody-title">
+    <h2 id="prosody-title">TARS prosody tuning</h2>
+    <p class="muted">Local delivery metadata only: these controls must not rewrite canonical assistant text.</p>
+    <label class="mood-row" for="prosody-mood"><span>Mood preset</span><select id="prosody-mood"></select></label>
+    <div class="grid">
+      <div>
+        <div class="small-title">Voice parameters</div>
+        <div id="prosody-parameters"></div>
+      </div>
+      <div>
+        <div class="small-title">Randomness + thresholds</div>
+        <div id="prosody-randomness"></div>
+      </div>
+      <div>
+        <div class="small-title">JSON XTTS values</div>
+        <div id="prosody-matrix-xtts"></div>
+      </div>
+      <div>
+        <div class="small-title">JSON chunk + pause values</div>
+        <div id="prosody-matrix-delivery"></div>
+      </div>
+    </div>
+    <button id="prosody-save">Apply tuning</button>
+    <button id="prosody-baseline" class="secondary">Establish baseline</button>
+    <button id="prosody-restore" class="secondary">Restore baseline</button>
+    <button id="prosody-reset" class="warn">Reset to factory default</button>
+    <div class="small-title">Prosody JSON matrix</div>
+    <input id="prosody-json-file" type="file" accept="application/json,.json" />
+    <button id="prosody-json-read" class="secondary">Read active JSON</button>
+    <button id="prosody-json-upload" class="secondary">Upload JSON</button>
+    <button id="prosody-json-reset" class="warn">Reset default JSON</button>
+    <pre id="prosody-json-preview" class="json-preview"></pre>
+    <div id="prosody-status" class="muted">Loading tuning profile...</div>
+  </section>
   <div id="log"></div>
-  <script src="/app.js"></script>
+  <script src="/app.js?v=m7g-r6-save-prosody-samples"></script>
 </body>
 </html>

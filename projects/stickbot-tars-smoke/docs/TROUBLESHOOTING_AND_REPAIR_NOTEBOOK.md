@@ -484,4 +484,61 @@ Smoke:
 - No network required during transcription; network blocked/unavailable in sandbox.
 - No cloud STT, no browser Web Speech API, no OpenClaw/Gateway/NOA mutation.
 
-M7D real mic local demo, M8, live provider/Gateway smoke, Android, persistent service install, and host-PC Tailscale proxy/user-testing exposure are not started and require separate approval.
+## M7D LAN/loopback repair notes
+
+### Issue: Windows localhost worked but Windows LAN IP did not
+
+Context:
+
+- M7D real mic demo was approved after M7C.
+- Node was running inside WSL2 on Susie-Dell-Inspiron.
+- Windows host Wi-Fi IP: `192.168.1.107`.
+- WSL internal IP: `172.24.168.46`.
+- Port: `19890`.
+
+Symptoms:
+
+- `http://localhost:19890/` worked from the Windows host.
+- `http://192.168.1.107:19890/` did not work from LAN.
+
+Root cause:
+
+- Windows localhost forwarding into WSL does not automatically mean Windows is listening on the Wi-Fi/LAN interface.
+- Binding Node to `0.0.0.0` inside WSL is necessary but not sufficient for same-LAN devices.
+- Windows required explicit portproxy/firewall exposure from Windows LAN IP/port to WSL IP/port.
+
+Related harness repairs:
+
+- M7D harness supports explicit LAN mode with `VOICE_DEMO_ALLOW_LAN=true`.
+- Default remains loopback-only.
+- `0.0.0.0` requires explicit LAN allow.
+- Port `8787` remains blocked.
+- LAN browser Origin is accepted only when `allowLan=true` and Host/Origin match.
+- Validation included local health and LAN-shaped Origin+CSRF mutating POST, not just listener presence.
+
+Validation before Windows host exposure:
+
+- `npm run check`: PASS, 41/41 tests after Origin policy repair.
+- `STICKBOT_TARS_M7D_LAN_READINESS_VALIDATION_PASS`.
+- `HEALTH_OK host=0.0.0.0 port=19890`.
+- `SESSION_CSRF_OK`.
+- `LAN_ORIGIN_MUTATING_POST_OK`.
+- `STICKBOT_TARS_M7D_LIVE_SERVER_HEALTH_PASS`.
+- Listener: `0.0.0.0:19890`, Node PID `568896`.
+
+Operator-applied Windows host repair:
+
+```powershell
+netsh interface portproxy add v4tov4 listenaddress=192.168.1.107 listenport=19890 connectaddress=172.24.168.46 connectport=19890
+New-NetFirewallRule -DisplayName "Stickbot TARS M7D 19890" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 19890
+```
+
+Result:
+
+- Stick reported the PowerShell exposure advice worked.
+
+Durable repair rule:
+
+Every loopback/LAN browser demo must identify runtime location, discover all relevant addresses, bind with explicit LAN allow, verify local health, verify representative browser POST path, and configure/verify host-network forwarding/firewall when runtime is WSL2 or otherwise behind NAT. Do not tell Stick to retry a LAN URL until these gates pass.
+
+M7D real mic final PASS remains pending actual microphone interaction and privacy-safe transcript confirmation. M8, live provider/Gateway smoke, Android, persistent service install, and broader host-PC Tailscale proxy/user-testing exposure are not started and require separate approval.
