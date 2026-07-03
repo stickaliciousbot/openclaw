@@ -90,3 +90,39 @@ M5.6/M7 browser work remains useful because it proves:
 - privacy boundaries.
 
 But production should evolve toward audio-first multiplexed streaming rather than browser final-WAV playback as the primary architecture.
+
+## Contract layer added — 2026-07-03
+
+Milestone classification:
+
+```text
+STICKBOT_TARS_AUDIO_FIRST_MULTIPLEXED_PRODUCTION_STREAMING_ARCHITECTURE_LOCAL_CONTRACT_PASS
+```
+
+The production-facing contract now lives at:
+
+```text
+src/audio/production-multiplex-contract.js
+```
+
+It defines five lanes for each turn:
+
+1. `canonical_text` — authoritative text/hash lane for meaning, audit, memory, search, chat, and accessibility.
+2. `audio_pcm_stream` — primary realtime output lane for direct WAV/PCM frames, cancellable by barge-in.
+3. `prosody_metadata` — mood score, emotional sheet music, and cue glyphs; delivery metadata only.
+4. `control_events` — turn lifecycle and barge-in policy.
+5. `audit_trace` — hashes, provenance, and interruption markers without raw transcript storage.
+
+Hard invariants:
+
+```json
+{
+  "canonicalTextHashSharedByAllLanes": true,
+  "audioLaneOwnsBargeIn": true,
+  "audioCancellationPreservesTextLane": true,
+  "prosodyMetadataCannotRewriteText": true,
+  "auditUsesHashesNotRawText": true
+}
+```
+
+The next implementation milestone should wire this contract into a runtime harness that emits a complete local turn across all lanes and proves barge-in cancels audio while preserving the canonical text lane.

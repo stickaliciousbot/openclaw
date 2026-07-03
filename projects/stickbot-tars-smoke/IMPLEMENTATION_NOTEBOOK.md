@@ -1,6 +1,6 @@
 # Stickbot-TARS Implementation Notebook
 
-Last updated: 2026-07-03 21:15 AEST / 2026-07-03T11:15:00Z
+Last updated: 2026-07-03 22:15 AEST / 2026-07-03T12:15:00Z
 
 ## Standing documentation rule
 
@@ -25,6 +25,32 @@ Do not treat a milestone as closed until the notebook/repair/lesson trail is acc
 - Browser/Android must not call providers directly or use browser Web Speech API.
 
 ## Milestone ledger
+
+### Audio-first multiplexed production streaming architecture — local contract
+
+Status: `STICKBOT_TARS_AUDIO_FIRST_MULTIPLEXED_PRODUCTION_STREAMING_ARCHITECTURE_LOCAL_CONTRACT_PASS`
+
+Summary:
+
+- Added `src/audio/production-multiplex-contract.js`.
+- Defined five production lanes: `canonical_text`, `audio_pcm_stream`, `prosody_metadata`, `control_events`, and `audit_trace`.
+- Enforced canonical text hash sharing across lanes, audio-owned barge-in, audio cancellation without text mutation, prosody metadata as delivery-only, and hash-only audit traces.
+- Added deterministic event reduction for `barge_in` so active audio frames are cancelled, listening resumes locally, and interruption markers are recorded without raw transcript storage.
+- Added fail-closed hash mismatch handling when live prosody cue metadata does not match canonical text.
+
+Validation:
+
+- `node --check src/audio/production-multiplex-contract.js` passed.
+- `node --test test/tars-dsp-stream-duplex.test.mjs` passed `12/12`, including new production multiplex contract tests.
+
+Artifacts:
+
+- `docs/audio-first-multiplexed-production-streaming/AUDIO_FIRST_MULTIPLEXED_PRODUCTION_STREAMING_ARCHITECTURE_LOCAL_CONTRACT_PASS.md`
+- `docs/PRODUCTION_VOICE_STREAM_ARCHITECTURE.md`
+
+Next:
+
+- `AUDIO_FIRST_MULTIPLEXED_RUNTIME_HARNESS_LIVE_PASS`
 
 ### M7T — live prosody mood score and emotional sheet music
 

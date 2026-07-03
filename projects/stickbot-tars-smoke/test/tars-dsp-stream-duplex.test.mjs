@@ -8,9 +8,11 @@ import { buildDspFilterGraph, deriveDspProfileFromProsody, polishChunkArtifacts 
 import { buildVoiceBodyMasteringFilterGraph, deriveVoiceBodyMasteringProfile, masterVoiceBodyArtifacts } from '../src/audio/voice-body-mastering-stage.js';
 import { buildLowLatencyTransportPlan, buildRealtimeFrameManifest, iterateRealtimeFrames } from '../src/audio/streaming-frame-interface.js';
 import { createFullDuplexTurnController, publicFullDuplexControllerSummary, reduceFullDuplexEvent, runFullDuplexScenario } from '../src/audio/full-duplex-turn-controller.js';
+import { buildProductionMultiplexTurnContract, publicProductionMultiplexTurnContract, reduceProductionMultiplexEvent } from '../src/audio/production-multiplex-contract.js';
 import { conductChunkedXtts } from '../src/audio/xtts-chunk-conductor.js';
 import { loadTarsProsodyProfile } from '../src/voice/tars-prosody-profile.js';
 import { sanitizeTarsTuning } from '../src/voice/tars-prosody-tuning.js';
+import { buildLiveProsodyCueLayer } from '../src/prosody/live-prosody-cue-layer.js';
 
 const profile = loadTarsProsodyProfile();
 
@@ -165,6 +167,70 @@ test('STICKBOT_TARS_M7K_STREAMING_FRAME_INTERFACE_PASS', async () => {
     assert.equal(frame.boundaries.cloudSpeechApiAllowed, false);
     assert.equal(frame.boundaries.rawTranscriptDurableStorage, false);
   }
+});
+
+test('STICKBOT_TARS_AUDIO_FIRST_MULTIPLEXED_PRODUCTION_STREAMING_ARCHITECTURE_CONTRACT_PASS', () => {
+  const score = sampleScore();
+  const artifacts = score.chunks.map((chunk) => ({
+    chunkId: chunk.chunkId,
+    chunkIndex: chunk.chunkIndex,
+    textSha256: chunk.textSha256,
+    phraseRole: chunk.phraseRole,
+    effectiveXtts: chunk.effectiveXtts,
+    pauseAfterMs: chunk.pauseAfterMs,
+    audioSha256: 'e'.repeat(64),
+    fileBasename: `${chunk.chunkId}.wav`
+  }));
+  const manifest = buildRealtimeFrameManifest({ turnId: 'turn-prod-mux', score, chunkArtifacts: artifacts, output: { renderer: 'fake', audioSha256: 'f'.repeat(64) } });
+  const cueLayer = buildLiveProsodyCueLayer(score);
+  const contract = buildProductionMultiplexTurnContract({
+    turnId: 'turn-prod-mux',
+    canonicalTextSha256: score.canonicalTextSha256,
+    textCharCount: 'PASS. No model load occurred. Naturally, the robot waits.'.length,
+    realtimeManifest: manifest,
+    liveProsodyCueLayer: cueLayer,
+    prosodyScore: score
+  });
+  const pub = publicProductionMultiplexTurnContract(contract);
+  assert.equal(pub.classification, 'STICKBOT_TARS_AUDIO_FIRST_MULTIPLEXED_PRODUCTION_STREAMING_ARCHITECTURE_READY');
+  assert.deepEqual(pub.channelOrder, ['canonical_text', 'audio_pcm_stream', 'prosody_metadata', 'control_events', 'audit_trace']);
+  assert.equal(pub.invariants.canonicalTextHashSharedByAllLanes, true);
+  assert.equal(pub.invariants.audioLaneOwnsBargeIn, true);
+  assert.equal(pub.invariants.audioCancellationPreservesTextLane, true);
+  assert.equal(pub.invariants.prosodyMetadataCannotRewriteText, true);
+  assert.equal(pub.boundaries.openClawRoutingMutationAllowed, false);
+  const textLane = pub.lanes.find((lane) => lane.channel === 'canonical_text');
+  const audioLane = pub.lanes.find((lane) => lane.channel === 'audio_pcm_stream');
+  const prosodyLane = pub.lanes.find((lane) => lane.channel === 'prosody_metadata');
+  const auditLane = pub.lanes.find((lane) => lane.channel === 'audit_trace');
+  assert.equal(textLane.authoritative, true);
+  assert.equal(textLane.mutableByAudioBargeIn, false);
+  assert.equal(audioLane.primaryRealtimeOutput, true);
+  assert.equal(audioLane.cancellationPolicy, 'stop_audio_frames_preserve_text_lane');
+  assert.equal(audioLane.frameCount, artifacts.length);
+  assert.ok(audioLane.frames.every((frame) => frame.targetCodec === 'pcm_s16le'));
+  assert.equal(prosodyLane.deliveryMetadataOnly, true);
+  assert.equal(prosodyLane.exposesRawText, false);
+  assert.equal(auditLane.records.rawTranscriptText, false);
+});
+
+test('STICKBOT_TARS_AUDIO_FIRST_BARGE_IN_CANCELS_AUDIO_NOT_TEXT_PASS', () => {
+  const event = reduceProductionMultiplexEvent({ turnId: 'turn-prod-mux' }, { type: 'barge_in', payload: { reason: 'user_started_speaking' } });
+  assert.equal(event.schema, 'stickbot.tars.production-multiplex-event.v1');
+  assert.ok(event.effects.some((effect) => effect.lane === 'audio_pcm_stream' && effect.action === 'cancel_active_audio_frames' && effect.preserveCanonicalText === true));
+  assert.ok(event.effects.some((effect) => effect.lane === 'control_events' && effect.action === 'return_to_local_listening'));
+  assert.ok(event.effects.some((effect) => effect.lane === 'audit_trace' && effect.rawTranscriptStored === false));
+  assert.equal(event.payload.rawTranscriptStored, false);
+});
+
+test('STICKBOT_TARS_AUDIO_FIRST_HASH_MISMATCH_FAILS_CLOSED_PASS', () => {
+  const score = sampleScore();
+  const cueLayer = { ...buildLiveProsodyCueLayer(score), canonicalTextSha256: '0'.repeat(64) };
+  assert.throws(() => buildProductionMultiplexTurnContract({
+    turnId: 'turn-prod-mux',
+    canonicalTextSha256: score.canonicalTextSha256,
+    liveProsodyCueLayer: cueLayer
+  }), /canonical hash does not match/);
 });
 
 test('STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_CONTRACT_PASS', () => {

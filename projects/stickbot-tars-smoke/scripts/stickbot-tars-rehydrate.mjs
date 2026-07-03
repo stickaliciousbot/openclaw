@@ -43,11 +43,12 @@ const RUNTIME = Object.freeze({
 });
 
 const CURRENT = Object.freeze({
-  latestClassification: 'STICKBOT_TARS_M7T_LIVE_PROSODY_MOOD_SCORE_AND_EMOTIONAL_SHEET_MUSIC_PASS',
+  latestClassification: 'STICKBOT_TARS_AUDIO_FIRST_MULTIPLEXED_PRODUCTION_STREAMING_ARCHITECTURE_LOCAL_CONTRACT_PASS',
   lastPushedMilestone: 'STICKBOT_TARS_REHYDRATION_PACKET_WRITTEN',
   liveBrowserMilestone: 'STICKBOT_TARS_M7P_LIVE_BROWSER_STREAMING_BARGEIN_PASS',
   nextRecommendedMilestones: [
-    'AUDIO_FIRST_MULTIPLEXED_PRODUCTION_STREAMING_ARCHITECTURE'
+    'AUDIO_FIRST_MULTIPLEXED_RUNTIME_HARNESS_LIVE_PASS',
+    'AUTOMATIC_OPERATIONAL_REHYDRATOR_MESH_AFTER_STICKBOT_TARS'
   ],
   latestKnownLiveSmoke: {
     masteringEnabled: true,
@@ -77,6 +78,7 @@ const SOURCE_FILES = [
   ['repo', 'src/audio/audio-performance-pipeline.js'],
   ['repo', 'src/audio/streaming-frame-interface.js'],
   ['repo', 'src/audio/full-duplex-turn-controller.js'],
+  ['repo', 'src/audio/production-multiplex-contract.js'],
   ['repo', 'src/audio/duplex-event-ingress.js'],
   ['repo', 'src/audio/partial-stt-loop.js'],
   ['repo', 'src/audio/wav-stitcher.js'],
@@ -95,6 +97,7 @@ const SOURCE_FILES = [
   ['repo', 'state/status.json'],
   ['doc', 'docs/STICKBOT_TARS_REHYDRATION.md'],
   ['doc', 'docs/PRODUCTION_VOICE_STREAM_ARCHITECTURE.md'],
+  ['doc', 'docs/audio-first-multiplexed-production-streaming/AUDIO_FIRST_MULTIPLEXED_PRODUCTION_STREAMING_ARCHITECTURE_LOCAL_CONTRACT_PASS.md'],
   ['doc', 'docs/LOW_LEVEL_DESIGN_AND_IMPLEMENTATION_PLAN.md'],
   ['doc', 'docs/LOOPBACK_LAN_EXPOSURE_NOTEBOOK.md'],
   ['doc', 'docs/TROUBLESHOOTING_AND_REPAIR_NOTEBOOK.md'],
@@ -284,14 +287,15 @@ const rehydration = {
       'M7R low-latency streaming transport live pass: partial STT, reconstruction, Send, audio generation, barge-in, and strict telemetry readback confirmed',
       'Generated audio auditor added: deterministic stage manifest plus explicit guarded delete mode for generated/captured speech-session audio cleanup',
       'M7S live barge-in with real speech pass: live spoken interruption stopped active TARS playback, triggered duplex barge-in/listening, and produced local partial STT with privacy guard off',
-      'M7T live prosody mood score / emotional sheet music pass: deterministic delivery-metadata cue layer emits mood score, cue glyphs, intensity, contour, rests, and text hashes without rewriting canonical assistant text'
+      'M7T live prosody mood score / emotional sheet music pass: deterministic delivery-metadata cue layer emits mood score, cue glyphs, intensity, contour, rests, and text hashes without rewriting canonical assistant text',
+      'Audio-first multiplexed production streaming architecture local contract pass: five-lane turn contract defines canonical text, audio PCM stream, prosody metadata, control events, and audit trace; barge-in cancels audio without mutating canonical text'
     ],
     next: CURRENT.nextRecommendedMilestones
   },
   liveReadiness: {
-    status: statusJson?.m7t?.classification || CURRENT.latestClassification,
+    status: statusJson?.audioFirstMultiplexedProductionStreaming?.classification || CURRENT.latestClassification,
     url: RUNTIME.lanUrl,
-    needsHumanEar: 'M7T deterministic cue layer is complete. Next milestone is audio-first multiplexed production streaming architecture.'
+    needsHumanEar: 'Audio-first production contract is complete. Next milestone is a local runtime harness/live proof across all multiplex lanes.'
   },
   statusJson,
   runtimePaths,
