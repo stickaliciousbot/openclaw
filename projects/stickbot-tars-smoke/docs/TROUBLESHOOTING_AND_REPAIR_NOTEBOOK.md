@@ -652,6 +652,8 @@ Validation:
 - Bounded backend voice smoke completed in ~20 seconds and produced a final WAV.
 - Response included `STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_READY` and audio frames.
 - After corrected STT restart, a second backend voice smoke completed in ~20 seconds and produced a final WAV.
+- Stick later confirmed the repaired live browser flow: “partial STT works, reconstruction works, send works, audio generation works, barge in works.”
+- Classification after this confirmation: `STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_FUNCTIONAL_PASS_TELEMETRY_READBACK_PENDING`.
 
 Follow-up hardening recommendation:
 

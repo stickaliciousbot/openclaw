@@ -1343,9 +1343,10 @@
     "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7q-true-partial-local-stt-loop/M7Q_TRUE_PARTIAL_LOCAL_STT_LOOP_LIVE_PASS.md"
   },
   "m7r": {
-    "classification": "STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_CODE_PASS_LIVE_TIMING_PENDING",
+    "classification": "STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_FUNCTIONAL_PASS_TELEMETRY_READBACK_PENDING",
     "implemented": true,
     "livePass": false,
+    "liveFunctionalPass": true,
     "summary": "Realtime frame manifests now expose an explicit low-latency transport plan, and the browser uses a preloaded serial audio queue with client-side first-play/inter-chunk-gap telemetry.",
     "newOrChangedModules": [
       "projects/stickbot-tars-smoke/src/audio/streaming-frame-interface.js",
@@ -1399,15 +1400,34 @@
         "validation": "Backend voice smoke completed in about 20 seconds and returned M7R transport plus final WAV."
       }
     ],
+    "liveFunctionalEvidence": {
+      "humanConfirmation": "partial STT works, reconstruction works, send works, audio generation works, barge in works.",
+      "browserServesM7rApp": true,
+      "capabilities": {
+        "sttMode": "cli",
+        "voiceEnabled": true,
+        "partialLocalSttLoop": true,
+        "browserWebSpeechApi": false,
+        "cloudSpeechApi": false
+      },
+      "serverVoiceSmoke": {
+        "transport": "STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_READY",
+        "finalWavProduced": true,
+        "audioFrames": 2
+      },
+      "serverPartialSttSmokeAfterRepair": {
+        "classification": "STICKBOT_TARS_M7Q_TRUE_PARTIAL_LOCAL_STT_LOOP_PASS",
+        "sttMode": "cli",
+        "normalizedLocal": true,
+        "error": null
+      }
+    },
     "livePending": {
       "requiredClassification": "STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_PASS",
       "requiredEvidence": [
-        "browser serves /app.js?v=m7r-low-latency-transport",
         "voice turn shows Streaming transport",
         "voice turn shows Streaming telemetry with first-play and max-gap values",
-        "audio still plays in order",
-        "M7Q partial STT still works",
-        "barge-in still stops active playback",
+        "strict timing telemetry screenshot/readback captured",
         "if Send hangs again, patch timeout/fail-fast recovery before live PASS"
       ]
     },
@@ -1420,7 +1440,7 @@
       "gatewayConfigMutation": false,
       "port8787Touched": false
     },
-    "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7r-low-latency-streaming-transport/M7R_LOW_LATENCY_STREAMING_TRANSPORT_CODE_PASS.md"
+    "closeout": "projects/stickbot-tars-smoke/docs/m7-local-stt/m7r-low-latency-streaming-transport/M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_FUNCTIONAL_PASS.md"
   },
   "nextMilestone": "M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_TIMING_PROOF"
 }

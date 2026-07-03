@@ -1,7 +1,7 @@
-# M7R — Low-Latency Streaming Transport CODE PASS
+# M7R — Low-Latency Streaming Transport LIVE FUNCTIONAL PASS
 
 Date: 2026-07-03
-Classification: `STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_CODE_PASS_LIVE_TIMING_PENDING`
+Classification: `STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_FUNCTIONAL_PASS_TELEMETRY_READBACK_PENDING`
 
 ## Scope
 
@@ -69,20 +69,33 @@ New/updated gates:
 
 ## Live status
 
-Code/local gate is complete. Live browser timing proof is pending.
+After the M7R live repair sequence, Stick confirmed the repaired browser flow:
 
-Pending live evidence for full M7R pass:
+```text
+partial STT works, reconstruction works, send works, audio generation works, barge in works.
+```
 
-- refreshed browser serves `/app.js?v=m7r-low-latency-transport`,
-- voice turn shows `Streaming transport` line,
-- voice turn shows `Streaming telemetry` line,
-- first-play and max-gap values appear,
-- audio still plays in order,
-- M7Q mic partials still work,
-- barge-in still stops active TARS playback,
-- boundaries remain local-only/no-cloud/no-Web-Speech/no-routing-mutation.
+Validated live evidence now captured:
 
-Pending classification:
+- refreshed browser served `/app.js?v=m7r-low-latency-transport`,
+- `/api/capabilities` reported `sttMode:"cli"`, `voiceEnabled:true`, `partialLocalSttLoop:true`, `browserWebSpeechApi:false`, `cloudSpeechApi:false`,
+- server-side voice smoke returned `STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_READY`, final WAV, and audio frames,
+- real partial STT smoke passed after restoring `STT_ARGS_JSON` with `{file}`,
+- Stick confirmed browser partial STT works,
+- Stick confirmed transcript reconstruction works,
+- Stick confirmed Send works,
+- Stick confirmed audio generation works,
+- Stick confirmed barge-in works.
+
+Strict timing proof still wants one UI readback/screenshot of the `Streaming telemetry` line containing first-play and max-gap values. Until that readback is captured, this is a live functional pass rather than the final strict timing closeout.
+
+Current classification:
+
+```text
+STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_FUNCTIONAL_PASS_TELEMETRY_READBACK_PENDING
+```
+
+Pending strict timing classification:
 
 ```text
 STICKBOT_TARS_M7R_LOW_LATENCY_STREAMING_TRANSPORT_LIVE_PASS
