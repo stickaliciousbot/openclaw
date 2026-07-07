@@ -14,9 +14,11 @@ import argparse
 import hashlib
 import json
 import os
+import subprocess
 import sys
 import time
 from dataclasses import dataclass
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable
 
@@ -47,6 +49,16 @@ def read_json(path: Path) -> Any:
 def write_json(path: Path, payload: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, indent=2, sort_keys=True, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
+def now_utc() -> str:
+    return datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+
+
+def safe_excerpt(text: str, limit: int = 2000) -> str:
+    if len(text) <= limit:
+        return text
+    return text[:limit] + "…<truncated>"
 
 
 def iter_jsonl(path: Path) -> Iterable[dict[str, Any]]:
@@ -216,6 +228,68 @@ def validate_manifest(path: Path, expected_sha: str | None) -> tuple[list[dict[s
     return records, actual_sha
 
 
+def workspace_status_lines() -> list[str]:
+    proc = subprocess.run(["git", "status", "--short"], text=True, capture_output=True, check=False)
+    if proc.returncode != 0:
+        raise ComparatorError(f"git status failed: {safe_excerpt(proc.stderr)}")
+    return [line for line in proc.stdout.splitlines() if line.strip()]
+
+
+def filter_status_outside_output(lines: list[str], out_dir: Path) -> list[str]:
+    out_prefix = str(out_dir).rstrip("/") + "/"
+    filtered: list[str] = []
+    for line in lines:
+        path = line[3:] if len(line) > 3 else line
+        if path == str(out_dir) or path.startswith(out_prefix):
+            continue
+        filtered.append(line)
+    return filtered
+
+
+def extract_output_text(payload: dict[str, Any]) -> str:
+    outputs = payload.get("outputs")
+    if isinstance(outputs, list) and outputs:
+        first = outputs[0]
+        if isinstance(first, dict) and isinstance(first.get("text"), str):
+            return first["text"]
+    if isinstance(payload.get("text"), str):
+        return payload["text"]
+    if isinstance(payload.get("response"), str):
+        return payload["response"]
+    return ""
+
+
+def looks_like_rate_limit_or_cooldown(text: str) -> bool:
+    lowered = text.lower()
+    needles = ["429", "rate limit", "ratelimit", "quota", "cooldown", "too many requests"]
+    return any(needle in lowered for needle in needles)
+
+
+def live_gateway_model_run(prompt: str, requested_model: str, timeout_seconds: int) -> tuple[int, str, str, float]:
+    argv = [
+        "openclaw",
+        "infer",
+        "model",
+        "run",
+        "--gateway",
+        "--json",
+        "--model",
+        requested_model,
+        "--prompt",
+        prompt,
+    ]
+    started = time.monotonic()
+    try:
+        proc = subprocess.run(argv, text=True, capture_output=True, timeout=timeout_seconds, check=False)
+        elapsed_ms = (time.monotonic() - started) * 1000
+        return proc.returncode, proc.stdout, proc.stderr, elapsed_ms
+    except subprocess.TimeoutExpired as exc:
+        elapsed_ms = (time.monotonic() - started) * 1000
+        stdout = exc.stdout if isinstance(exc.stdout, str) else ""
+        stderr = exc.stderr if isinstance(exc.stderr, str) else ""
+        return 124, stdout, stderr + "\nTIMEOUT", elapsed_ms
+
+
 def cmd_run_production_replay(args: argparse.Namespace) -> int:
     manifest = Path(args.manifest)
     records, manifest_sha = validate_manifest(manifest, args.manifest_sha256)
@@ -259,16 +333,243 @@ def cmd_run_production_replay(args: argparse.Namespace) -> int:
         print(json.dumps(run_config, sort_keys=True, ensure_ascii=False))
         return 0
 
-    # Deliberately fail closed until this function is reviewed for live replay.
-    # This prevents accidental provider calls even if the explicit flag is present
-    # before the implementation is separately approved.
-    write_json(out_dir / "replay_blocked_pending_implementation_review.json", {
-        "classification": "HOLD_REPLAY_BOUNDARY_UNCLEAR",
-        "reason": "live replay execution implementation intentionally blocked pending separate approval/review",
-        "gateway_model_provider_calls": PROVIDER_CALLS_THIS_PROCESS,
+    if args.dry_run:
+        write_json(out_dir / "replay_not_executed.json", {
+            "classification": "HOLD_FRESH_BASELINE_REPLAY_REQUIRED",
+            "reason": "--dry-run supplied; no Gateway/model/provider calls made",
+            "gateway_model_provider_calls": PROVIDER_CALLS_THIS_PROCESS,
+            "mutation_performed": False,
+        })
+        print(json.dumps(run_config, sort_keys=True, ensure_ascii=False))
+        return 0
+
+    if args.transport != "gateway":
+        raise ComparatorError(f"approved transport violation: {args.transport}")
+    if args.model != "token-broker-vmesh/auto":
+        raise ComparatorError(f"approved model violation: {args.model}")
+    if args.expected_provider != "token-broker-vmesh":
+        raise ComparatorError(f"approved expected provider violation: {args.expected_provider}")
+    if args.max_retries != 0:
+        raise ComparatorError("approved replay requires --max-retries 0")
+    if args.max_cases != 440 or len(records) != 440:
+        raise ComparatorError(f"approved replay requires exactly 440 manifest cases; max_cases={args.max_cases}, manifest_cases={len(records)}")
+    required_boolean_flags = [
+        args.abort_on_rate_limit,
+        args.abort_on_provider_cooldown,
+        args.abort_on_provider_path_mismatch,
+        args.abort_on_mutation,
+        args.require_mutation_sentinel,
+        args.read_only,
+        args.no_route_config_gateway_memory_cache_mutation,
+    ]
+    if not all(required_boolean_flags):
+        raise ComparatorError("approved replay requires all abort/read-only/no-mutation flags")
+
+    before_status = workspace_status_lines()
+    before_filtered = filter_status_outside_output(before_status, out_dir)
+    journal_path = out_dir / "production_replay_journal.jsonl"
+    journal_path.parent.mkdir(parents=True, exist_ok=True)
+    call_count = 0
+    completed = 0
+    provider_mismatches: list[dict[str, Any]] = []
+    incomplete: list[dict[str, Any]] = []
+    rate_limit_events: list[dict[str, Any]] = []
+    fallback_attempt_events: list[dict[str, Any]] = []
+    hard_abort: dict[str, Any] | None = None
+
+    started_run_utc = now_utc()
+    with journal_path.open("w", encoding="utf-8") as fh:
+        for index, case in enumerate(records[:args.max_cases], start=1):
+            if index > 1 and args.min_delay_ms > 0:
+                time.sleep(args.min_delay_ms / 1000.0)
+            prompt = str(case.get("visible_user_text") or "")
+            if not prompt.strip():
+                hard_abort = {"classification": "ABORT", "reason": "empty prompt in manifest", "case_id": case.get("case_id")}
+                break
+
+            started_case_utc = now_utc()
+            returncode, stdout, stderr, elapsed_ms = live_gateway_model_run(prompt, args.model, args.timeout_seconds)
+            count_provider_call()
+            call_count += 1
+
+            parsed: dict[str, Any] | None = None
+            parse_error = None
+            if stdout.strip():
+                try:
+                    parsed_payload = json.loads(stdout)
+                    if isinstance(parsed_payload, dict):
+                        parsed = parsed_payload
+                    else:
+                        parse_error = "stdout_json_not_object"
+                except json.JSONDecodeError as exc:
+                    parse_error = str(exc)
+            else:
+                parse_error = "stdout_empty"
+
+            provider = parsed.get("provider") if parsed else None
+            model = parsed.get("model") if parsed else None
+            attempts = parsed.get("attempts") if parsed else None
+            output_text = extract_output_text(parsed or {})
+            output_present = bool(output_text.strip())
+            provider_path_verified = provider == args.expected_provider
+            fallback_detected = isinstance(attempts, list) and len(attempts) > 0
+            rate_limit_or_cooldown = looks_like_rate_limit_or_cooldown(stdout + "\n" + stderr)
+
+            if returncode != 0 and rate_limit_or_cooldown:
+                rate_limit_events.append({"case_id": case.get("case_id"), "returncode": returncode, "stderr_excerpt": safe_excerpt(stderr)})
+            if provider is not None and not provider_path_verified:
+                provider_mismatches.append({"case_id": case.get("case_id"), "provider": provider, "expected_provider": args.expected_provider})
+            if provider is None and returncode == 0:
+                provider_mismatches.append({"case_id": case.get("case_id"), "provider": None, "expected_provider": args.expected_provider, "reason": "provider_missing"})
+            if fallback_detected:
+                fallback_attempt_events.append({"case_id": case.get("case_id"), "attempts": attempts})
+            if returncode != 0 or parse_error or not output_present:
+                incomplete.append({
+                    "case_id": case.get("case_id"),
+                    "returncode": returncode,
+                    "parse_error": parse_error,
+                    "output_present": output_present,
+                    "stderr_excerpt": safe_excerpt(stderr),
+                })
+
+            record = {
+                "schema": "stickbot.context_plus.same_suite.production_replay.v1",
+                "run_id": out_dir.name,
+                "started_utc": started_case_utc,
+                "created_utc": now_utc(),
+                "case_index": case.get("case_index", index),
+                "case_id": case.get("case_id"),
+                "fixture_id": case.get("fixture_id"),
+                "category": case.get("category"),
+                "visible_user_text": prompt,
+                "visible_user_text_sha256": case.get("visible_user_text_sha256"),
+                "expected_route_class": case.get("expected_route_class"),
+                "shadow_selected_route_class": case.get("shadow_selected_route_class"),
+                "command": "openclaw infer model run --gateway --json --model token-broker-vmesh/auto --prompt <visible_user_text>",
+                "transport": "gateway",
+                "requested_model": args.model,
+                "expected_provider": args.expected_provider,
+                "provider": provider,
+                "model": model,
+                "provider_path_verified_gateway_token_broker": provider_path_verified,
+                "direct_provider_bypass": 0 if provider_path_verified else 1,
+                "fallback_attempt_detected": fallback_detected,
+                "returncode": returncode,
+                "duration_ms": round(elapsed_ms, 3),
+                "timeout": returncode == 124,
+                "output_present": output_present,
+                "output_text_excerpt": safe_excerpt(output_text, 1000),
+                "output_text_sha256": sha256_text(output_text) if output_text else None,
+                "stdout_sha256": sha256_text(stdout),
+                "stderr_sha256": sha256_text(stderr),
+                "stdout_excerpt": safe_excerpt(stdout, 2000),
+                "stderr_excerpt": safe_excerpt(stderr, 2000),
+                "material_regression": None,
+                "missing_output_user_regression": 0 if output_present else 1,
+                "mutation_detected": 0,
+                "artifact_memory_promoted": False,
+                "cache_enabled": False,
+                "protected_changes": {},
+            }
+            fh.write(json.dumps(record, sort_keys=True, ensure_ascii=False) + "\n")
+            fh.flush()
+
+            if returncode == 0 and provider_path_verified and output_present and not parse_error and not fallback_detected:
+                completed += 1
+
+            if rate_limit_events:
+                hard_abort = {"classification": "HOLD_REPLAY_INCOMPLETE", "reason": "rate_limit_or_cooldown_detected", "case_id": case.get("case_id")}
+                break
+            if provider_mismatches:
+                hard_abort = {"classification": "FAIL_REPLAY_UNSAFE", "reason": "provider_mismatch_or_missing", "case_id": case.get("case_id")}
+                break
+            if fallback_attempt_events:
+                hard_abort = {"classification": "FAIL_REPLAY_UNSAFE", "reason": "fallback_attempt_detected", "case_id": case.get("case_id")}
+                break
+            if incomplete:
+                hard_abort = {"classification": "HOLD_REPLAY_INCOMPLETE", "reason": "case_output_incomplete_or_corrupt", "case_id": case.get("case_id")}
+                break
+
+    after_status = workspace_status_lines()
+    after_filtered = filter_status_outside_output(after_status, out_dir)
+    workspace_changed_outside_output = before_filtered != after_filtered
+    if workspace_changed_outside_output and not hard_abort:
+        hard_abort = {"classification": "FAIL_REPLAY_UNSAFE", "reason": "workspace_status_changed_outside_output_dir"}
+
+    if hard_abort:
+        classification = hard_abort["classification"]
+    elif completed == 440 and call_count == 440 and not workspace_changed_outside_output:
+        classification = "PASS_REPLAY_EVIDENCE_READY"
+    else:
+        classification = "HOLD_REPLAY_INCOMPLETE"
+
+    ended_run_utc = now_utc()
+    mutation_report = {
+        "classification": "PASS_MUTATION_SENTINEL" if not workspace_changed_outside_output else "FAIL_MUTATION_SENTINEL",
+        "workspace_status_before_filtered_outside_output": before_filtered,
+        "workspace_status_after_filtered_outside_output": after_filtered,
+        "workspace_changed_outside_output": workspace_changed_outside_output,
+        "artifact_memory_promoted": False,
+        "cache_enabled": False,
+        "route_config_gateway_memory_provider_model_mutation_detected": workspace_changed_outside_output,
         "mutation_performed": False,
-    })
-    raise ComparatorError("live production replay execution is intentionally blocked in this script version; no provider calls made")
+    }
+    provider_report = {
+        "classification": "PASS_PROVIDER_CALL_BOUNDARY" if call_count == completed and not provider_mismatches and not fallback_attempt_events else "HOLD_OR_FAIL_PROVIDER_CALL_BOUNDARY",
+        "expected_calls": 440,
+        "actual_calls": call_count,
+        "completed_calls": completed,
+        "expected_provider": args.expected_provider,
+        "requested_model": args.model,
+        "provider_mismatch_count": len(provider_mismatches),
+        "provider_mismatches": provider_mismatches[:20],
+        "fallback_attempt_count": len(fallback_attempt_events),
+        "fallback_attempt_events": fallback_attempt_events[:20],
+    }
+    rate_report = {
+        "classification": "PASS_NO_RATE_LIMIT_OR_COOLDOWN" if not rate_limit_events else "HOLD_RATE_LIMIT_OR_COOLDOWN_DETECTED",
+        "rate_limit_or_cooldown_event_count": len(rate_limit_events),
+        "events": rate_limit_events[:20],
+        "min_delay_ms": args.min_delay_ms,
+        "max_retries": args.max_retries,
+    }
+    comparator_ready = {
+        "classification": "PASS_SAME_SUITE_COMPARATOR_READY" if classification == "PASS_REPLAY_EVIDENCE_READY" else "HOLD_SAME_SUITE_COMPARATOR_NOT_READY",
+        "production_replay_journal": str(journal_path),
+        "replay_summary": str(out_dir / "replay_summary.json"),
+        "completed_cases": completed,
+        "expected_cases": 440,
+        "manifest_sha256": manifest_sha,
+        "provider_call_boundary": provider_report["classification"],
+        "mutation_sentinel": mutation_report["classification"],
+    }
+    summary = {
+        "classification": classification,
+        "hard_abort": hard_abort,
+        "started_utc": started_run_utc,
+        "ended_utc": ended_run_utc,
+        "manifest": str(manifest),
+        "manifest_sha256": manifest_sha,
+        "expected_cases": 440,
+        "completed_cases": completed,
+        "provider_model_call_count": call_count,
+        "journal_path": str(journal_path),
+        "mutation_sentinel_report": str(out_dir / "mutation_sentinel_report.json"),
+        "provider_model_call_count_report": str(out_dir / "provider_model_call_count_report.json"),
+        "rate_limit_cooldown_report": str(out_dir / "rate_limit_cooldown_report.json"),
+        "same_suite_comparator_ready_status": str(out_dir / "same_suite_comparator_ready_status.json"),
+        "gateway_model_provider_calls": call_count,
+        "mutation_performed": False,
+        "promotion_performed": False,
+    }
+    write_json(out_dir / "mutation_sentinel_report.json", mutation_report)
+    write_json(out_dir / "provider_model_call_count_report.json", provider_report)
+    write_json(out_dir / "rate_limit_cooldown_report.json", rate_report)
+    write_json(out_dir / "same_suite_comparator_ready_status.json", comparator_ready)
+    write_json(out_dir / "replay_summary.json", summary)
+    write_json(out_dir / "status.json", summary)
+    print(json.dumps(summary, sort_keys=True, ensure_ascii=False))
+    return 0 if classification == "PASS_REPLAY_EVIDENCE_READY" else 2
 
 
 def load_by_case_id(path: Path) -> dict[str, dict[str, Any]]:
@@ -416,7 +717,7 @@ def add_build_case_manifest(sub: argparse._SubParsersAction[argparse.ArgumentPar
 
 
 def add_run_production_replay(sub: argparse._SubParsersAction[argparse.ArgumentParser]) -> None:
-    p = sub.add_parser("run-production-replay", help="Validate replay boundary; live replay requires --execute-approved and is fail-closed in this version")
+    p = sub.add_parser("run-production-replay", help="Validate or run the approved live replay boundary; live replay requires --execute-approved and no --dry-run")
     p.add_argument("--manifest", required=True)
     p.add_argument("--manifest-sha256", default=APPROVED_MANIFEST_SHA256)
     p.add_argument("--out-dir", required=True)
@@ -436,7 +737,8 @@ def add_run_production_replay(sub: argparse._SubParsersAction[argparse.ArgumentP
     p.add_argument("--read-only", action="store_true")
     p.add_argument("--no-route-config-gateway-memory-cache-mutation", action="store_true")
     p.add_argument("--dry-run", action="store_true", help="Boundary validation only; zero provider calls")
-    p.add_argument("--execute-approved", action="store_true", help="Explicit future approval flag; still fail-closed pending implementation review")
+    p.add_argument("--execute-approved", action="store_true", help="Explicit approval flag required for live replay execution")
+    p.add_argument("--timeout-seconds", type=int, default=180, help="Per-case Gateway model-call timeout")
     p.set_defaults(func=cmd_run_production_replay)
 
 

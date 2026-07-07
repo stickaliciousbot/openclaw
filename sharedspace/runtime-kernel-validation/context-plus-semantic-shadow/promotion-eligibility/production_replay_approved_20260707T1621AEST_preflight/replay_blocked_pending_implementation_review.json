@@ -1,0 +1,6 @@
+{
+  "classification": "HOLD_REPLAY_BOUNDARY_UNCLEAR",
+  "gateway_model_provider_calls": 0,
+  "mutation_performed": false,
+  "reason": "live replay execution implementation intentionally blocked pending separate approval/review"
+}
