@@ -1,0 +1,6 @@
+{
+  "classification": "HOLD_FRESH_BASELINE_REPLAY_REQUIRED",
+  "gateway_model_provider_calls": 0,
+  "mutation_performed": false,
+  "reason": "--execute-approved not supplied; no Gateway/model/provider calls made"
+}
