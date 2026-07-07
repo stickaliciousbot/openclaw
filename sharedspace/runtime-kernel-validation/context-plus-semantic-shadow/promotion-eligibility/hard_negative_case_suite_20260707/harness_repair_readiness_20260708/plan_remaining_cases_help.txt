@@ -1,0 +1,19 @@
+usage: context_plus_hard_negative_evaluator.py plan-remaining-cases
+       [-h] --manifest MANIFEST [--manifest-sha256 MANIFEST_SHA256]
+       [--allow-fixture-manifest] [--resume-from RESUME_FROM]
+       [--resume-report RESUME_REPORT] --expected-provider EXPECTED_PROVIDER
+       --out-json OUT_JSON [--allow-partial-remaining] [--dry-run]
+
+options:
+  -h, --help            show this help message and exit
+  --manifest MANIFEST
+  --manifest-sha256 MANIFEST_SHA256
+  --allow-fixture-manifest
+                        Skip approved 240-case shape checks for local fixture
+                        manifests only
+  --resume-from RESUME_FROM
+  --resume-report RESUME_REPORT
+  --expected-provider EXPECTED_PROVIDER
+  --out-json OUT_JSON
+  --allow-partial-remaining
+  --dry-run

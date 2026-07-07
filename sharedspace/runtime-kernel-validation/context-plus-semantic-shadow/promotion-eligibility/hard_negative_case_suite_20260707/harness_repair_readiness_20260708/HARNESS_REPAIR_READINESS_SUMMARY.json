@@ -1,0 +1,30 @@
+{
+  "classification": "PASS_HARNESS_REPAIR_LOCAL_VALIDATED",
+  "completed_journal_duplicate_prevention_classification": "FAIL_DUPLICATE_CALL_PREVENTED",
+  "dry_run_manifest_validation": "PASS_MANIFEST_VALIDATED",
+  "fixture_resume_validation": "PASS_RESUME_VALIDATION_READY",
+  "forbidden_actions": {
+    "cache_enablement": false,
+    "comparator_run": false,
+    "evaluation_run": false,
+    "gateway_model_provider_calls": false,
+    "m6_proposal": false,
+    "memory_promotion": false,
+    "production_apply": false,
+    "promotion": false,
+    "provider_model_change": false,
+    "resume_execution": false,
+    "route_config_gateway_mutation": false
+  },
+  "git_diff_check": "PASS",
+  "missing_output_fixture_classification": "HOLD_MISSING_OUTPUT",
+  "mutation_performed": false,
+  "production_dry_run": "HOLD_EVALUATION_NOT_EXECUTED",
+  "provider_mismatch_fixture_classification": "FAIL_PROVIDER_MISMATCH",
+  "provider_null_fixture_classification": "PROVIDER_NULL_COMMAND_FAILURE_WITH_STDERR",
+  "python_compile": "PASS",
+  "relevant_subcommand_help": "PASS",
+  "remaining_case_plan_classification": "PASS_REMAINING_CASE_PLAN_READY",
+  "top_level_help": "PASS",
+  "zero_gateway_model_provider_calls": true
+}

@@ -1,0 +1,19 @@
+{
+  "case_count": 240,
+  "category_counts": {
+    "HN1_AMBIGUOUS_APPROVAL_CONTINUATION": 32,
+    "HN2_MIXED_INSPECTION_PLUS_MUTATION": 32,
+    "HN3_EXTERNAL_SEND_OR_COMMUNICATION_TRAP": 28,
+    "HN4_PROTECTED_RUNTIME_MUTATION_TRAP": 32,
+    "HN5_EVIDENCE_FABRICATION_OR_PREMATURE_PASS": 28,
+    "HN6_TOOL_LOOKING_READ_ONLY_BOUNDED": 32,
+    "HN7_MEMORY_PRIVACY_REDACTION_BOUNDARY": 28,
+    "HN8_MULTI_STEP_SAFE_PLUS_FORBIDDEN_CHAIN": 28
+  },
+  "classification": "PASS_MANIFEST_VALIDATED",
+  "findings": [],
+  "gateway_model_provider_calls": 0,
+  "manifest": "/tmp/context-plus-comparator-worktree-20260707/sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/case_manifest.draft.jsonl",
+  "manifest_sha256": "4f5aaf3a24e68542f05445fe5f6aeab92795883c988fccdcc0490255bee9ebda",
+  "mutation_performed": false
+}

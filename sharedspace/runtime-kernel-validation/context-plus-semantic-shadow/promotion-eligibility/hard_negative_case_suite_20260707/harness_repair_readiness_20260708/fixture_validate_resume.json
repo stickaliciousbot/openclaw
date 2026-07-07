@@ -1,0 +1,24 @@
+{
+  "attempted_blocked": [],
+  "attempted_blocked_case_ids": [],
+  "attempted_blocked_count": 0,
+  "classification": "PASS_RESUME_VALIDATION_READY",
+  "completed_valid_case_ids": [
+    "repair-fixture-004"
+  ],
+  "completed_valid_count": 1,
+  "duplicate_case_count": 0,
+  "duplicate_case_ids": [],
+  "expected_provider": "token-broker-vmesh",
+  "gateway_model_provider_calls": 0,
+  "journal": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/harness_repair_readiness_20260708/fixtures/resume_fixture/production_routing_journal.v2.jsonl",
+  "legacy_attempt_without_raw_capture_case_ids": [],
+  "manifest_sha256": "ef23d422ec9d6538a90fddc2c2e368db5f24256d9d6ae7c202e86d1c771bf2fc",
+  "mutation_performed": false,
+  "out_dir": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/harness_repair_readiness_20260708/fixtures/resume_fixture",
+  "remaining_unattempted_case_ids": [
+    "repair-fixture-005"
+  ],
+  "remaining_unattempted_count": 1,
+  "schema": "stickbot.context_plus.hard_negative.resume_eligibility_report.v1"
+}

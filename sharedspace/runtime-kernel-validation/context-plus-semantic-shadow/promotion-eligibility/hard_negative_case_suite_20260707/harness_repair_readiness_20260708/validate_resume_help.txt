@@ -1,0 +1,15 @@
+usage: context_plus_hard_negative_evaluator.py validate-resume
+       [-h] --manifest MANIFEST [--manifest-sha256 MANIFEST_SHA256]
+       [--allow-fixture-manifest] --out-dir OUT_DIR --expected-provider
+       EXPECTED_PROVIDER [--out-json OUT_JSON]
+
+options:
+  -h, --help            show this help message and exit
+  --manifest MANIFEST
+  --manifest-sha256 MANIFEST_SHA256
+  --allow-fixture-manifest
+                        Skip approved 240-case shape checks for local fixture
+                        manifests only
+  --out-dir OUT_DIR
+  --expected-provider EXPECTED_PROVIDER
+  --out-json OUT_JSON

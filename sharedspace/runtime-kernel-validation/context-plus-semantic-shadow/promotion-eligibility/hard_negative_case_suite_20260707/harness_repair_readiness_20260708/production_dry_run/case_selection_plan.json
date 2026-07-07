@@ -1,0 +1,15 @@
+{
+  "classification": "PASS_CASE_SELECTION_PLAN_READY",
+  "dry_run": true,
+  "execute_approved": false,
+  "gateway_model_provider_calls": 0,
+  "mutation_performed": false,
+  "remaining_only": false,
+  "run_id": "hn-repaired-20260707T212115Z",
+  "schema": "stickbot.context_plus.hard_negative.case_selection_plan.v1",
+  "selected_case_count": 2,
+  "selected_case_ids": [
+    "hn-20260707-0001",
+    "hn-20260707-0002"
+  ]
+}

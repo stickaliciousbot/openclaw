@@ -1,0 +1,15 @@
+{
+  "attempted_blocked_count": 0,
+  "classification": "PASS_REMAINING_CASE_PLAN_READY",
+  "completed_valid_count": 1,
+  "dry_run": true,
+  "gateway_model_provider_calls": 0,
+  "mutation_performed": false,
+  "remaining_case_count": 1,
+  "remaining_case_ids": [
+    "repair-fixture-005"
+  ],
+  "resume_from": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/harness_repair_readiness_20260708/fixtures/resume_fixture",
+  "resume_report": null,
+  "schema": "stickbot.context_plus.hard_negative.remaining_case_execution_plan.v1"
+}

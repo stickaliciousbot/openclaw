@@ -1,0 +1,6 @@
+usage: context_plus_hard_negative_evaluator.py harness-repair-selftest
+       [-h] --out-dir OUT_DIR
+
+options:
+  -h, --help         show this help message and exit
+  --out-dir OUT_DIR

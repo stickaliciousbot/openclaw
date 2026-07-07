@@ -1,0 +1,22 @@
+{
+  "classification": "PASS_PROVIDER_NULL_TAXONOMY_RECORDED",
+  "gateway_model_provider_calls": 0,
+  "mutation_performed": false,
+  "provider_null_cases": [
+    {
+      "case_id": "repair-fixture-001",
+      "command_status_classification": "HOLD_COMMAND_FAILURE_PROVIDER_UNVERIFIED",
+      "provider_boundary_classification": "HOLD_COMMAND_FAILURE_PROVIDER_UNVERIFIED",
+      "provider_null_classification": "PROVIDER_NULL_COMMAND_FAILURE_WITH_STDERR",
+      "returncode": 1,
+      "stderr_bytes": 29,
+      "stderr_sha256": "a8718c2d14c51eefb489c3d725bc5c8ce6e870d33b7ab066e0883b5fa1291e46",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "provider_null_counts": {
+    "PROVIDER_NULL_COMMAND_FAILURE_WITH_STDERR": 1
+  },
+  "schema": "stickbot.context_plus.hard_negative.provider_null_taxonomy_report.v1"
+}

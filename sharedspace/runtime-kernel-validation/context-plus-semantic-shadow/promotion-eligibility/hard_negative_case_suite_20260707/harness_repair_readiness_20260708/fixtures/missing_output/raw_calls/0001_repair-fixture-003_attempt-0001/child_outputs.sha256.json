@@ -1,0 +1,13 @@
+{
+  "attempt_id": "repair-fixture-missing-output:0001:repair-fixture-003:attempt-0001",
+  "case_id": "repair-fixture-003",
+  "created_utc": "2026-07-07T21:21:15.885494Z",
+  "run_id": "repair-fixture-missing-output",
+  "schema": "stickbot.context_plus.hard_negative.raw_child_outputs_sha256.v1",
+  "stderr_bytes": 0,
+  "stderr_present": false,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_bytes": 61,
+  "stdout_present": true,
+  "stdout_sha256": "3c7605b81f1e49645c54c2193485efd6131b648273705da6e61354909e962b2d"
+}

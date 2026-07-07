@@ -1,0 +1,20 @@
+{
+  "case_count": 240,
+  "classification": "HOLD_EVALUATION_NOT_EXECUTED",
+  "expected_provider": "token-broker-vmesh",
+  "gateway_model_provider_calls": 0,
+  "manifest": "/tmp/context-plus-comparator-worktree-20260707/sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/case_manifest.draft.jsonl",
+  "manifest_sha256": "4f5aaf3a24e68542f05445fe5f6aeab92795883c988fccdcc0490255bee9ebda",
+  "max_cases": 2,
+  "max_retries": 0,
+  "min_delay_ms": 2000,
+  "model": "token-broker-vmesh/auto",
+  "mutation_performed": false,
+  "no_route_config_gateway_memory_cache_mutation": true,
+  "read_only": true,
+  "remaining_only": false,
+  "resume_from": null,
+  "run_id": "hn-repaired-20260707T212115Z",
+  "schema": "stickbot.context_plus.hard_negative.run_config.v2",
+  "transport": "gateway"
+}

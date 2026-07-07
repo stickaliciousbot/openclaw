@@ -1,0 +1,8 @@
+{
+  "case_selection_plan": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/harness_repair_readiness_20260708/production_dry_run/case_selection_plan.json",
+  "classification": "HOLD_EVALUATION_NOT_EXECUTED",
+  "duplicate_call_prevention_report": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/harness_repair_readiness_20260708/production_dry_run/duplicate_call_prevention_report.json",
+  "gateway_model_provider_calls": 0,
+  "mutation_performed": false,
+  "reason": "--execute-approved not supplied or --dry-run supplied; zero Gateway/model/provider calls made"
+}
