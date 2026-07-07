@@ -1,0 +1,90 @@
+{
+  "schema": "stickbot.context_plus.hard_negative.tail_continuation_readiness.v1",
+  "classification": "PASS_CONTINUATION_READY_WITH_APPROVAL_REQUIRED",
+  "scope": "read-only duplicate-safe tail planning; no live provider calls/comparator/promotion/M6",
+  "mutation_performed": false,
+  "gateway_model_provider_calls": 0,
+  "new_live_execution_performed": false,
+  "source_manifest": {
+    "path": "/tmp/context-plus-comparator-worktree-20260707/sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/case_manifest.approved.jsonl",
+    "sha256": "4f5aaf3a24e68542f05445fe5f6aeab92795883c988fccdcc0490255bee9ebda",
+    "count": 240,
+    "tail_first_readback_case_id": "hn-20260707-0134",
+    "tail_last_readback_case_id": "hn-20260707-0240"
+  },
+  "attempted_authority_inputs": [
+    {
+      "kind": "legacy_v1_attempted_authority_only",
+      "path": "/tmp/context-plus-hard-negative-eval-clean-worktree-de5800b1/sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_evaluation_clean_worktree_20260708T001800AEST/production_routing/production_routing_journal.jsonl",
+      "sha256": "8ebcceaf8d651929158eb430587963f1407ea5929b7401469bb6226e3d7e0446",
+      "case_count": 56,
+      "case_range": ["hn-20260707-0001", "hn-20260707-0056"],
+      "provider_evidence_upgrade_allowed": false
+    },
+    {
+      "kind": "partial_live_v2_provider_verified_attempts",
+      "path": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_remaining_resume_20260708T083500AEST/production_routing_journal.v2.jsonl",
+      "case_count": 77,
+      "case_range": ["hn-20260707-0057", "hn-20260707-0133"],
+      "provider_boundary": "PASS_PROVIDER_CALL_BOUNDARY",
+      "provider_verified_count": 77,
+      "provider_mismatch_count": 0,
+      "rate_cooldown_classification": "HOLD_RATE_LIMIT_OR_COOLDOWN",
+      "rate_cooldown_event_case_id": "hn-20260707-0133"
+    }
+  ],
+  "already_attempted": {
+    "total_count": 133,
+    "ranges": [
+      ["hn-20260707-0001", "hn-20260707-0056"],
+      ["hn-20260707-0057", "hn-20260707-0133"]
+    ],
+    "contiguous_0001_to_0133": true
+  },
+  "tail_selection": {
+    "classification": "PASS_TAIL_CASE_SELECTION_READY",
+    "selected_case_count": 107,
+    "selected_case_range": ["hn-20260707-0134", "hn-20260707-0240"],
+    "selected_case_rule": "approved manifest cases with numeric suffix 0134 through 0240 inclusive",
+    "expected_first_case_id": "hn-20260707-0134",
+    "expected_last_case_id": "hn-20260707-0240"
+  },
+  "duplicate_prevention": {
+    "classification": "PASS_DUPLICATE_CALL_PREVENTION_READY_FOR_TAIL",
+    "duplicate_case_ids": [],
+    "overlap_with_legacy_0001_0056_count": 0,
+    "overlap_with_partial_0057_0133_count": 0,
+    "tail_contiguous_after_attempted_prefix": true,
+    "arithmetic_check": "240 approved - 133 already attempted = 107 selected"
+  },
+  "fresh_output_dir": {
+    "candidate_path": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_remaining_tail_resume_20260708T0940AEST",
+    "must_be_new_empty_dir_at_live_start": true,
+    "do_not_reuse_dirs": [
+      "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_remaining_resume_20260708T083000AEST",
+      "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_remaining_resume_20260708T083500AEST"
+    ],
+    "approved_async_preflight": {
+      "gateway_id": "23e12344-d6a7-4152-8c57-1230da897ec1",
+      "exit_code": 0,
+      "classification": "PASS_FRESH_OUTPUT_DIR_ABSENT_OR_EMPTY_GUARD",
+      "stdout_retained": false,
+      "interpretation": "exit code 0 proves candidate path was absent or empty at preflight time; exact absent-vs-empty variant is unknown because stdout was not retained",
+      "must_reverify_immediately_before_live_provider_calls": true
+    }
+  },
+  "approval_gate": {
+    "live_provider_calls_require_separate_owner_approval": true,
+    "recommended_next_live_scope_if_approved": "tail-only hard-negative continuation for hn-20260707-0134 through hn-20260707-0240 into the fresh output dir",
+    "forbidden_without_separate_approval": [
+      "live provider calls",
+      "comparator",
+      "promotion",
+      "M6 proposal",
+      "route/config/Gateway mutation",
+      "production apply",
+      "cache enablement",
+      "commit/push"
+    ]
+  }
+}
