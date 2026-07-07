@@ -1,0 +1,22 @@
+{
+  "classification": "FAIL_REPLAY_UNSAFE",
+  "completed_cases": 440,
+  "ended_utc": "2026-07-07T08:28:28.174001Z",
+  "expected_cases": 440,
+  "gateway_model_provider_calls": 440,
+  "hard_abort": {
+    "classification": "FAIL_REPLAY_UNSAFE",
+    "reason": "workspace_status_changed_outside_output_dir"
+  },
+  "journal_path": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/production_replay_approved_fresh_20260707/production_replay_journal.jsonl",
+  "manifest": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/m7_replay_input_manifest.readiness.jsonl",
+  "manifest_sha256": "0c28b5f5080838ee80e77ee47845e108685019ad613401385d4796e3615b8188",
+  "mutation_performed": false,
+  "mutation_sentinel_report": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/production_replay_approved_fresh_20260707/mutation_sentinel_report.json",
+  "promotion_performed": false,
+  "provider_model_call_count": 440,
+  "provider_model_call_count_report": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/production_replay_approved_fresh_20260707/provider_model_call_count_report.json",
+  "rate_limit_cooldown_report": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/production_replay_approved_fresh_20260707/rate_limit_cooldown_report.json",
+  "same_suite_comparator_ready_status": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/production_replay_approved_fresh_20260707/same_suite_comparator_ready_status.json",
+  "started_utc": "2026-07-07T06:45:22.220393Z"
+}

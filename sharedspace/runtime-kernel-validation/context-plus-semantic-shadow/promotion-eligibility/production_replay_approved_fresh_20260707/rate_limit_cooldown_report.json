@@ -1,0 +1,7 @@
+{
+  "classification": "PASS_NO_RATE_LIMIT_OR_COOLDOWN",
+  "events": [],
+  "max_retries": 0,
+  "min_delay_ms": 2000,
+  "rate_limit_or_cooldown_event_count": 0
+}

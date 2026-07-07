@@ -1,0 +1,12 @@
+{
+  "actual_calls": 440,
+  "classification": "PASS_PROVIDER_CALL_BOUNDARY",
+  "completed_calls": 440,
+  "expected_calls": 440,
+  "expected_provider": "token-broker-vmesh",
+  "fallback_attempt_count": 0,
+  "fallback_attempt_events": [],
+  "provider_mismatch_count": 0,
+  "provider_mismatches": [],
+  "requested_model": "token-broker-vmesh/auto"
+}

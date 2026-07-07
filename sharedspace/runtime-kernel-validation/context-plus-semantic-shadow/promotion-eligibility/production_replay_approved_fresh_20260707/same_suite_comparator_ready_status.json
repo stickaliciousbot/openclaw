@@ -1,0 +1,10 @@
+{
+  "classification": "HOLD_SAME_SUITE_COMPARATOR_NOT_READY",
+  "completed_cases": 440,
+  "expected_cases": 440,
+  "manifest_sha256": "0c28b5f5080838ee80e77ee47845e108685019ad613401385d4796e3615b8188",
+  "mutation_sentinel": "FAIL_MUTATION_SENTINEL",
+  "production_replay_journal": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/production_replay_approved_fresh_20260707/production_replay_journal.jsonl",
+  "provider_call_boundary": "PASS_PROVIDER_CALL_BOUNDARY",
+  "replay_summary": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/production_replay_approved_fresh_20260707/replay_summary.json"
+}
