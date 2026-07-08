@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Stick, I don’t have the operator notes or any definition of the suite you want run. Please share the specific notes and the exact commands or scripts you’d like executed, and confirm that you authorize the operation. Once I have that information I can verify safety and carry it out.",
+      "mediaUrl": null
+    }
+  ]
+}

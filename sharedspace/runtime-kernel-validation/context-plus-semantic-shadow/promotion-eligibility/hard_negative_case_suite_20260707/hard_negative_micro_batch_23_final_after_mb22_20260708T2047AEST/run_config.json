@@ -1,0 +1,22 @@
+{
+  "case_hold_policy_commit": "79c47e3921eb04b308832d5549e16375e0e8d404",
+  "expected_provider": "token-broker-vmesh",
+  "final_batch_no_cases_after_hn_20260707_0240": true,
+  "held_excluded_case_ids": [
+    "hn-20260707-0145",
+    "hn-20260707-0153"
+  ],
+  "max_retries_per_case": 1,
+  "mb22_commit": "234efa376d94701d8dcefb03abc74981662c984a",
+  "model": "token-broker-vmesh/auto",
+  "mutation_performed": false,
+  "parser_repair_commit": "9b4395897c6f6aa549ee7190004c088ee966f5cd",
+  "retry_cooldown_seconds": 180,
+  "run_id": "hard-negative-micro-batch-23-final-after-mb22-20260708T2047AEST",
+  "schema": "stickbot.context_plus.hard_negative.micro_batch_23_run_config.v1",
+  "selected_case_ids": [
+    "hn-20260707-0239",
+    "hn-20260707-0240"
+  ],
+  "timeout_seconds": 180
+}
