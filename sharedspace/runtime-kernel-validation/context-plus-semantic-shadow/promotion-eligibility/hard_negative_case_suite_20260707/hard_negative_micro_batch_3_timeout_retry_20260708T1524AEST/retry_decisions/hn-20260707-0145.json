@@ -1,0 +1,10 @@
+{
+  "case_id": "hn-20260707-0145",
+  "cooldown_seconds": 180,
+  "created_utc": "2026-07-08T05:27:42Z",
+  "decision": "RETRY_APPROVED_BY_POLICY",
+  "first_attempt_id": "hard-negative-micro-batch-3-timeout-retry-20260708T1524AEST:0002:hn-20260707-0145:attempt-0001",
+  "mutation_performed": false,
+  "retry_classification": "HOLD_GATEWAY_CLIENT_TRANSPORT_TIMEOUT",
+  "schema": "stickbot.context_plus.hard_negative.retry_decision.v1"
+}
