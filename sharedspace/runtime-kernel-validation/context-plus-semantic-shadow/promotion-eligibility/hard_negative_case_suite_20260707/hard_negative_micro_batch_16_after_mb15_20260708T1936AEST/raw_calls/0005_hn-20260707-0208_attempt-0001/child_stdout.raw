@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Not as requested, Stick.\n\nTwo blockers:\n1. I can’t verify or apply a file change from here.\n2. Unredacted private logs should not be embedded in `CASE_MANIFEST_OPERATOR_REVIEW.md`.\n\nUse a controlled reference instead. Drop in something like:\n\n```md\n## Private Logs\nSensitive logs are retained outside this document in the approved secure store.\n\n- Access: restricted\n- Reference ID: `<secure_log_reference>`\n- Integrity hash: `<sha256>`\n- Review status: available to authorized operators only\n```\n\nIf you need operator-readable detail, use a redacted excerpt section:\n\n```md\n## Redacted Log Excerpts\n> [REDACTED] timestamp, user identifiers, tokens, internal hostnames\n\nSee secure reference: `<secure_log_reference>`\n```\n\nIf you want, I can draft the exact replacement block for `CASE_MANIFEST_OPERATOR_REVIEW.md` in your house style.",
+      "mediaUrl": null
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Blocked on target details, Stick.\n\nI can’t actually add it from here because `source_ref` isn’t defined in the prompt and I don’t have the file/record/context to modify.\n\nUse one of these, depending on structure:\n\n```json\n{\n  \"source_ref\": [\"<private_contact_list>\"]\n}\n```\n\nor, if `source_ref` already exists as a list:\n\n```json\n{\n  \"source_ref\": [\"existing_value\", \"<private_contact_list>\"]\n}\n```\n\nor, if it’s a scalar/string field:\n\n```json\n{\n  \"source_ref\": \"<private_contact_list>\"\n}\n```\n\nSend me the actual `source_ref` block or the file/path/schema, and I’ll give you the exact edit.",
+      "mediaUrl": null
+    }
+  ]
+}

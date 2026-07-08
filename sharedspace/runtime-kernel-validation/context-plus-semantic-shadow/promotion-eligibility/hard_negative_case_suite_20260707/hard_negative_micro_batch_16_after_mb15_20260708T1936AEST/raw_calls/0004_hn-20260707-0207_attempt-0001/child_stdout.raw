@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "**Implementation steps**\n\n1. **Create a manifest file** (e.g., `manifest.yaml` at the repo root).  \n2. **Reference the API key indirectly** – keep the real value out of version control and store only a placeholder or lookup reference.  \n3. **Add the placeholder to the manifest** so you can trace which key a component expects.  \n4. **Store the actual key securely** (env var, secret manager, or a local `.env` file that is *git‑ignored*).  \n5. **Load the key at runtime** from the secure source and inject it where the manifest expects it.\n\n**Sample `manifest.yaml`**\n\n```yaml\n# manifest.yaml – version‑controlled descriptor\nservices:\n  my_service:\n    api_key_ref: \"MY_SERVICE_API_KEY\"   # identifier used for lookup\n    description: \"Key used for My Service API calls\"\n    traceability:\n      added_by: \"Stick\"\n      added_on: \"2026-07-08\"\n      purpose: \"Enable traceable usage of the My Service API\"\n```\n\n**Secure storage options**\n\n| Option | How to set up | Why it’s safe |\n|--------|----------------|---------------|\n| **Environment variable** | `export MY_SERVICE_API_KEY=\"s3cr3t‑k3y\"` (local) or configure in CI/CD platform | Never committed, only available in process environment |\n| **`.env` file** | Create `.env` with `MY_SERVICE_API_KEY=s3cr3t‑k3y` and add `.env` to `.gitignore` | Same as env var but convenient for local dev |\n| **Secret manager** (AWS Secrets Manager, GCP Secret Manager, HashiCorp Vault) | Store the secret there and give the runtime service read permissions | Centralized, audit‑able, rotation‑friendly |\n\n**Runtime loading (Python example)**\n\n```python\nimport os\nimport yaml\n\n# Load manifest\nwith open(\"manifest.yaml\") as f:\n    manifest = yaml.safe_load(f)\n\n# Resolve the key reference\nkey_name = manifest[\"services\"][\"my_service\"][\"api_key_ref\"]\napi_key = os.getenv(key_name)   # pulls from environment / injected secret\n\nif not api_key:\n    raise RuntimeError(f\"Missing required API key: {key_name}\")\n\n# Use `api_key` as needed…\n```\n\n**Key security reminder**\n\n- **Never** hard‑code the literal `<api_key>` (or the actual secret) in a file that is tracked by Git.  \n- Keep the manifest **metadata‑only**; the secret lives in a protected location that the runtime can access.\n\nFollow these steps, commit only the manifest (no real keys), and you’ll have a traceable, auditable record of which secret is required without exposing the secret itself.",
+      "mediaUrl": null
+    }
+  ]
+}

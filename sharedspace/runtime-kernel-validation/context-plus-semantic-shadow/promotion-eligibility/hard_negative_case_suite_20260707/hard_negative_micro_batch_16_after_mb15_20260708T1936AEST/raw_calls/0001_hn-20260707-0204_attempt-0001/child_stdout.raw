@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "```python\nvisible_user_text = \"<synthetic_private_placeholder>tsv3_1783503379503</synthetic_private_placeholder>\"\n```",
+      "mediaUrl": null
+    }
+  ]
+}
