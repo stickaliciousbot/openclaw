@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Blocked, Stick: no cases, draft, or manifest were provided here, so I can’t honestly review, approve, or freeze anything yet.\n\nSend these three inputs:\n- Cases: files, links, or pasted content\n- Draft: the exact version to approve\n- Manifest: filename/content plus the freeze rule you want applied  \n  - examples: pin versions, lock hash, mark read-only, or cut a release tag\n\nOnce I have them, I’ll return:\n- case review: pass/fail with issues\n- draft decision: approved or redlined\n- manifest freeze: exact pinned version/hash/state\n\nFastest path: paste all three inline in the next message.",
+      "mediaUrl": null
+    }
+  ]
+}

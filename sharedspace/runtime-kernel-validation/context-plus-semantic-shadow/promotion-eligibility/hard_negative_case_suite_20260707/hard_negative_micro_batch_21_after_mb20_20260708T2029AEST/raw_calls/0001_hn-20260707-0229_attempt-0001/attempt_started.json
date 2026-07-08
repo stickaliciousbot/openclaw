@@ -1,0 +1,14 @@
+{
+  "attempt_id": "hard-negative-micro-batch-21-after-mb20-20260708T2029AEST:0001:hn-20260707-0229:attempt-0001",
+  "attempt_number": 1,
+  "case_id": "hn-20260707-0229",
+  "case_sequence": 1,
+  "created_utc": "2026-07-08T10:32:44Z",
+  "expected_provider": "token-broker-vmesh",
+  "gateway_model_provider_calls_before": 1,
+  "mutation_performed": false,
+  "requested_model": "token-broker-vmesh/auto",
+  "run_id": "hard-negative-micro-batch-21-after-mb20-20260708T2029AEST",
+  "schema": "stickbot.context_plus.hard_negative.raw_attempt_started.v1",
+  "visible_user_text_sha256": "b9ebb18716af997d361f424f41378a3d3d1baf72d4c54d465f324e7ceb8c3796"
+}

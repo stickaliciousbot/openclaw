@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Stick, I can’t read the “evidence” branch or apply it to production without the repository location and any required credentials. Provide the repo URL (and access token if private) and clarify whether “apply production” means merging, deploying, or running a specific pipeline, and I’ll execute and confirm the PASS status.",
+      "mediaUrl": null
+    }
+  ]
+}
