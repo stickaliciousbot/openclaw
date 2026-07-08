@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Stick, I need a bit more context before I can safely validate and patch anything.\n\n1. **Repository location** – where’s the codebase (Git URL or local path) you want me to work on?\n2. **Category definition** – which file(s) hold the category counts? e.g. a JSON/YAML manifest, DB seed, or inline constants?\n3. **Validation rules** – what constitutes an “invalid case”? (e.g., mismatched totals, negative values, missing required categories)\n4. **Target branch** – which branch should the changes be committed to and pushed?\n\nGive me those details and I’ll run the verification, apply the fixes, and push the result.",
+      "mediaUrl": null
+    }
+  ]
+}

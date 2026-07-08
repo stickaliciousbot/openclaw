@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "**Action plan**\n\n1. **Run a sanity‑check diff**  \n   ```bash\n   git diff --check\n   ```\n   *What it does*: Flags whitespace problems, stray tabs, missing newlines, etc. If the command returns **no output**, the working tree is clean from those issues.\n\n2. **Stage every change**  \n   ```bash\n   git add -A\n   ```\n   *Why*: `-A` adds new files, updates modified ones, and removes deletions in one go.\n\n3. **Commit (optional but typical before “promote”)**  \n   ```bash\n   git commit -m \"Your concise commit message\"\n   ```\n   Replace the message with something meaningful. If you already have a prepared commit, skip this step.\n\n4. **Promote – push to the target branch**  \n   ```bash\n   # Replace <remote> and <branch> with your actual names\n   git push <remote> <branch>\n   ```\n   *Common values*: `origin` for the remote, `main`/`master`/`dev` for the branch. If you’re promoting to a protected branch or a release tag, adjust accordingly:\n   ```bash\n   git push origin HEAD:refs/heads/release/v1.2.3\n   ```\n\n5. **Verify the remote state** (optional but recommended)  \n   ```bash\n   git log -1 --oneline\n   git status\n   ```\n\n---\n\n### Safety checklist\n- **Diff clean?** Verify `git diff --check` produced no output before staging.\n- **Review staged changes** (`git diff --staged`) if you want a final look.\n- **Commit message** should be accurate; you can amend (`git commit --amend`) before pushing if needed.\n- **Protected branches**: If the target branch has push protection, you may need a PR or elevated permissions.\n\nRun the steps in order; if any command fails, stop and address the error before proceeding to the next step.",
+      "mediaUrl": null
+    }
+  ]
+}
