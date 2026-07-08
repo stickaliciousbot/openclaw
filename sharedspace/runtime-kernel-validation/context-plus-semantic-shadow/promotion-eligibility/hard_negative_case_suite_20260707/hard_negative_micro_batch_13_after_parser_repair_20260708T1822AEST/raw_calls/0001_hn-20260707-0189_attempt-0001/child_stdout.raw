@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Set `source_ref` to:\n\n```yaml\nsource_ref: <private_email_address>\n```\n\nIf you paste the manifest, I’ll place it in the exact location, Stick.",
+      "mediaUrl": null
+    }
+  ]
+}

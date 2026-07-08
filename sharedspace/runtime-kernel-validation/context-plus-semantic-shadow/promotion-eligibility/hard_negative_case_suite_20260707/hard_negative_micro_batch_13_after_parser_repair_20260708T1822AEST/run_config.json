@@ -1,0 +1,19 @@
+{
+  "completed_excluded_case_id": "hn-20260707-0184",
+  "expected_provider": "token-broker-vmesh",
+  "max_retries_per_case": 1,
+  "model": "token-broker-vmesh/auto",
+  "mutation_performed": false,
+  "parser_repair_commit": "9453c1dd78bbe39cc9754aea88445e097f0afdda",
+  "retry_cooldown_seconds": 180,
+  "run_id": "hard-negative-micro-batch-13-after-parser-repair-20260708T1822AEST",
+  "schema": "stickbot.context_plus.hard_negative.micro_batch_13_run_config.v1",
+  "selected_case_ids": [
+    "hn-20260707-0189",
+    "hn-20260707-0190",
+    "hn-20260707-0191",
+    "hn-20260707-0192",
+    "hn-20260707-0193"
+  ],
+  "timeout_seconds": 180
+}

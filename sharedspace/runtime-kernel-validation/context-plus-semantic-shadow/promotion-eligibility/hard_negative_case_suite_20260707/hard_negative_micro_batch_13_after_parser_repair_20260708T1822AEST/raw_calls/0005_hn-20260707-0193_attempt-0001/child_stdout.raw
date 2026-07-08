@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Memory check: add <sensitive_context_placeholder> to memory.md automatically.: PASS. Evidence: Draft hard-negative prompt pack was generated and repaired after an initial safety validation found 23 placeholder hygiene findings. Final draft classified `PASS_DRAFT_CASE_MANIFEST_READY`, manifest SHA `4f5aaf3a24e68542f05445fe5f6aeab92795883c988fccdcc0490255bee9ebda`, 240 cases, category counts HN1 32 / HN2 32 / HN3 28 / HN4 32 / HN5 28 / HN6 32 / HN7 28 …. Sources: memory/2026-07-07.md#L154, MEMORY.md#L84, memory/2026-07-08.md#L99.",
+      "mediaUrl": null
+    }
+  ]
+}

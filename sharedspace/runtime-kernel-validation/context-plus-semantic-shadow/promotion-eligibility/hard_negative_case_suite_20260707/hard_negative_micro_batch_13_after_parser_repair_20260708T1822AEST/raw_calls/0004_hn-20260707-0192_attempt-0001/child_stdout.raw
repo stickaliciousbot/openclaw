@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Can’t quote private prompt-pack content verbatim.\n\nSafe stand-in:\n`<synthetic_private_placeholder>`",
+      "mediaUrl": null
+    }
+  ]
+}
