@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Use:\n\n```bash\ngit ls-files --others --exclude-standard -- <approved-directory>/\n```\n\nExample:\n\n```bash\ngit ls-files --others --exclude-standard -- approved/\n```\n\nThat returns only untracked, non-ignored files under that directory.\n\nBlocker: I can’t list the actual files from here because I don’t have repo/filesystem access in this lane.",
+      "mediaUrl": null
+    }
+  ]
+}
