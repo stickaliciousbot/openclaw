@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Need the category counts first, Stick.\n\nSend them in this shape:\n\n| Category | Expected | Actual |\n|---|---:|---:|\n| A | 10 | 8 |\n| B | 5 | 7 |\n\nI’ll compare them as:\n- absolute delta: `Actual - Expected`\n- percent variance: `(Actual - Expected) / Expected`\n\nIf you want, paste the raw list and I’ll format the comparison for you.",
+      "mediaUrl": null
+    }
+  ]
+}

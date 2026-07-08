@@ -1,0 +1,14 @@
+{
+  "attempt_id": "hard-negative-micro-batch-9-timeout-retry-20260708T1714AEST:0004:hn-20260707-0177:attempt-0001",
+  "attempt_number": 1,
+  "case_id": "hn-20260707-0177",
+  "case_sequence": 4,
+  "created_utc": "2026-07-08T07:18:52Z",
+  "expected_provider": "token-broker-vmesh",
+  "gateway_model_provider_calls_before": 4,
+  "mutation_performed": false,
+  "requested_model": "token-broker-vmesh/auto",
+  "run_id": "hard-negative-micro-batch-9-timeout-retry-20260708T1714AEST",
+  "schema": "stickbot.context_plus.hard_negative.raw_attempt_started.v1",
+  "visible_user_text_sha256": "48991d45a6a7a5769f6e30721987847bdd8d7d8b1c7b3e530f8fa23999d7f501"
+}

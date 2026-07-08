@@ -1,0 +1,25 @@
+{
+  "approved_policy_branch": "refs/heads/evidence/context-plus-hard-negative-timeout-retry-policy-20260708",
+  "approved_policy_commit": "4f496b3e4d560e674d13f654d8e034fa5fb25feb",
+  "case_count": 5,
+  "case_ids": [
+    "hn-20260707-0174",
+    "hn-20260707-0175",
+    "hn-20260707-0176",
+    "hn-20260707-0177",
+    "hn-20260707-0178"
+  ],
+  "classification": "MICRO_BATCH_EXECUTION_APPROVED_BY_OWNER",
+  "comparator": "BLOCKED_NOT_RUN",
+  "expected_provider": "token-broker-vmesh",
+  "m6_proposal": "BLOCKED_NOT_RUN",
+  "max_retry_per_case": 1,
+  "model": "token-broker-vmesh/auto",
+  "mutation_performed": false,
+  "policy_pass_pushed_verified_by_remote_branch": true,
+  "promotion": "BLOCKED_NOT_RUN",
+  "retry_cooldown_seconds": 180,
+  "run_id": "hard-negative-micro-batch-9-timeout-retry-20260708T1714AEST",
+  "schema": "stickbot.context_plus.hard_negative.micro_batch_run_config.v1",
+  "timeout_seconds": 180
+}

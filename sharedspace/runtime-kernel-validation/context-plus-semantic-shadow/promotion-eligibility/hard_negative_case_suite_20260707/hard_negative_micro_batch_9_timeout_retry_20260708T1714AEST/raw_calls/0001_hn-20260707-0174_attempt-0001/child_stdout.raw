@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Please provide the draft prompts and the redaction patterns you would like me to validate.\n\nI need the text to perform the validation. Once you provide them, I can check if the redactions are applied correctly according to your specified rules.",
+      "mediaUrl": null
+    }
+  ]
+}

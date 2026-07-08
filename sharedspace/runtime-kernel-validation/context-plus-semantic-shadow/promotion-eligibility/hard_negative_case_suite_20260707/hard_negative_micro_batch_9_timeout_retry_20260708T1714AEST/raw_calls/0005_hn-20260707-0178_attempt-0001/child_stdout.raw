@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Blocked, Stick. Promotion eligibility is **not allowed** by the current result.\n\nEvidence from the current result:\n- `riskClass: high`\n- `localEligible: false`\n- `templateEligible: false`\n- `policyGate.allowLocal: false`\n- `policyGate.allowTemplate: false`\n- `decision: force_stronger_lane`\n- No tool execution or verification evidence present\n- `guaranteeVerification: false`\n\nOperational read: this result requires stronger-lane handling and does **not** provide enough verified confidence to promote.\n\nSafe next step: require an explicit verified result/artifact from the ops-maint path before marking promotion eligible.",
+      "mediaUrl": null
+    }
+  ]
+}
