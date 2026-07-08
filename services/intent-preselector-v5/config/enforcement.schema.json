@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "stickbot.context_plus_semantic_preselector.production_control_surface.v1",
+  "title": "Context+ Semantic Preselector Production Control Surface",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "subject",
+    "enabled",
+    "mode",
+    "authority",
+    "traffic_scope",
+    "operator_allowlist",
+    "kill_switch"
+  ],
+  "properties": {
+    "schema": {
+      "const": "stickbot.context_plus_semantic_preselector.production_control_surface.v1"
+    },
+    "subject": {
+      "const": "CONTEXT_PLUS_SEMANTIC_PRESELECTOR"
+    },
+    "enabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "mode": {
+      "enum": ["shadow_contract_only", "enforced_route_contract"],
+      "default": "shadow_contract_only"
+    },
+    "authority": {
+      "const": "lane_selection_only"
+    },
+    "traffic_scope": {
+      "const": "owner_operator_live_turns_only"
+    },
+    "operator_allowlist": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^telegram:[0-9]+$"
+      },
+      "contains": {
+        "const": "telegram:8495203551"
+      },
+      "uniqueItems": true
+    },
+    "kill_switch": {
+      "type": "boolean",
+      "default": true
+    },
+    "m6_evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "comparator_classification",
+        "production_false_positives",
+        "context_plus_shadow_false_positives",
+        "proposal_commit",
+        "preflight_commit",
+        "runbook_hold_commit",
+        "m8_discovery_hold_commit"
+      ],
+      "properties": {
+        "comparator_classification": { "const": "PASS_FALSE_POSITIVE_BASELINE_IMPROVED" },
+        "production_false_positives": { "const": "22/235" },
+        "context_plus_shadow_false_positives": { "const": "0/235" },
+        "proposal_commit": { "const": "871522c5204b6062419e48a5a47a4d9cd4cf97a6" },
+        "preflight_commit": { "const": "551c019bdee3704e3da2a8d4eb9eb9d4c10b388e" },
+        "runbook_hold_commit": { "const": "c2e2decfeaa4fad82e81a54362779d461d1ebf77" },
+        "m8_discovery_hold_commit": { "const": "1ce70de4b94c4916a8e0cdbfe37eeb2ed672fc20" }
+      }
+    },
+    "guards": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "prompt_preserved_required",
+        "context_may_replace_prompt",
+        "remote_llm_for_scoring_allowed",
+        "direct_provider_bypass_allowed",
+        "cache_allowed",
+        "artifact_memory_promotion_allowed",
+        "default_model_change_allowed",
+        "provider_model_change_allowed",
+        "write_action_authority"
+      ],
+      "properties": {
+        "prompt_preserved_required": { "const": true },
+        "context_may_replace_prompt": { "const": false },
+        "remote_llm_for_scoring_allowed": { "const": false },
+        "direct_provider_bypass_allowed": { "const": false },
+        "cache_allowed": { "const": false },
+        "artifact_memory_promotion_allowed": { "const": false },
+        "default_model_change_allowed": { "const": false },
+        "provider_model_change_allowed": { "const": false },
+        "write_action_authority": { "const": "unchanged_existing_policy_only" }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "mode": { "const": "enforced_route_contract" } }
+      },
+      "then": {
+        "required": ["m6_evidence", "guards"],
+        "properties": {
+          "enabled": { "const": true },
+          "kill_switch": { "const": false }
+        }
+      }
+    }
+  ]
+}
