@@ -1,0 +1,8 @@
+{
+  "classification": "PASS_NO_PROVIDER_NULL_CASES",
+  "gateway_model_provider_calls": 3,
+  "mutation_performed": false,
+  "provider_null_cases": [],
+  "provider_null_counts": {},
+  "schema": "stickbot.context_plus.hard_negative.provider_null_taxonomy_report.v1"
+}

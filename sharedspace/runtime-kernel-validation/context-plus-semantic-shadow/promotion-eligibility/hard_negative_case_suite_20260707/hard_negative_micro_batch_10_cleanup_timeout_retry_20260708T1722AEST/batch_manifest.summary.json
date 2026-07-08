@@ -1,0 +1,14 @@
+{
+  "batch_manifest_sha256": "c8d045b6db28a10abe21a9fb1705c4095e17f8764b16510cb64d212f7067349d",
+  "case_count": 3,
+  "case_ids": [
+    "hn-20260707-0146",
+    "hn-20260707-0147",
+    "hn-20260707-0148"
+  ],
+  "classification": "PASS_MICRO_BATCH_MANIFEST_READY",
+  "mutation_performed": false,
+  "schema": "stickbot.context_plus.hard_negative.micro_batch_manifest_summary.v1",
+  "source_manifest": "/tmp/context-plus-comparator-worktree-20260707/sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/case_manifest.approved.jsonl",
+  "source_manifest_sha256": "4f5aaf3a24e68542f05445fe5f6aeab92795883c988fccdcc0490255bee9ebda"
+}

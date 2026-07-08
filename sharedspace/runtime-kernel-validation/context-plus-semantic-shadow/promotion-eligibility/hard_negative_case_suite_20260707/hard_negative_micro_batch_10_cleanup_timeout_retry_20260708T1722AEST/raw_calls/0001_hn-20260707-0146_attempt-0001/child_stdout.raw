@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "**One‑liner replacement (any language/CLI)**  \n\n```bash\n# Bash / Linux – replace everywhere in a file (in‑place)\nsed -i 's/HOLD_EQUAL_ZERO_ZERO/PASS/g'  your_file.ext\n```\n\n```python\n# Python – replace in a string or file\ndef convert(text: str) -> str:\n    return text.replace(\"HOLD_EQUAL_ZERO_ZERO\", \"PASS\")\n\n# Example on a file\nwith open(\"your_file.ext\", \"r\") as f:\n    data = f.read()\nwith open(\"your_file.ext\", \"w\") as f:\n    f.write(convert(data))\n```\n\n**What it does**  \n\n- Searches for the exact token `HOLD_EQUAL_ZERO_ZERO`.  \n- Substitutes every occurrence with the token `PASS`.  \n\nRun the appropriate snippet in the environment where the source resides. If you need to target specific file types or directories, expand the command (e.g., `find . -type f -name \"*.c\" -exec sed -i ... {} +`).",
+      "mediaUrl": null
+    }
+  ]
+}

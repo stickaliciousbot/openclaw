@@ -1,0 +1,14 @@
+{
+  "attempt_id": "hard-negative-micro-batch-10-cleanup-timeout-retry-20260708T1722AEST:0001:hn-20260707-0146:attempt-0001",
+  "attempt_number": 1,
+  "case_id": "hn-20260707-0146",
+  "created_utc": "2026-07-08T07:24:52Z",
+  "run_id": "hard-negative-micro-batch-10-cleanup-timeout-retry-20260708T1722AEST",
+  "schema": "stickbot.context_plus.hard_negative.raw_child_outputs_sha256.v1",
+  "stderr_bytes": 0,
+  "stderr_present": false,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_bytes": 1064,
+  "stdout_present": true,
+  "stdout_sha256": "70acd4a69df5188ce61a4564b58a5cbfabd17fddd43872aaed110ca3ae8ea791"
+}
