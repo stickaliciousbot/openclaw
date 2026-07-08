@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Memory check: Evidence: Long-term memory updated under the Ollama/Ollama Cloud model wiring pattern with GLM-5.2 details: raw id `glm-5.2:cloud`, agent-facing id `ollama/glm-5.2:cloud`, alias `ollama-cloud-glm-5-2`, contextWindow/contextTokens/maxTokens `131072/131072/32768`, marker `GLM_5_2_SELECTOR_CONFIG_PATCHED_AND_VALIDATED`, artifact dir `state/model-selector-additions/glm-5…. Sources: memory/2026-07-08.md#L91, memory/2026-07-08.md#L129, memory/2026-07-08.md#L187.",
+      "mediaUrl": null
+    }
+  ]
+}

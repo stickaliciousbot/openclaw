@@ -1,0 +1,34 @@
+{
+  "all_attempt_count": 2,
+  "attempted_terminal_excluded_case_ids": [
+    "hn-20260707-0194",
+    "hn-20260707-0195",
+    "hn-20260707-0196"
+  ],
+  "case_ids": [
+    "hn-20260707-0197",
+    "hn-20260707-0198"
+  ],
+  "classification": "PASS_MB14_RESUME_READY",
+  "comparator": "BLOCKED_NOT_RUN",
+  "continue_to_comparator": false,
+  "continue_to_mb15": false,
+  "duplicate_call_prevention_classification": "PASS_DUPLICATE_CALL_PREVENTION_BOUNDARY",
+  "fallback_model_boundary_classification": "PASS_NO_FALLBACK_OR_MODEL_OVERRIDE",
+  "gateway_model_provider_calls": 2,
+  "m6_proposal": "BLOCKED_NOT_RUN",
+  "mb15": "BLOCKED_NOT_RUN",
+  "mutation_performed": false,
+  "mutation_sentinel_classification": "PASS_MUTATION_SENTINEL_OUTSIDE_OUTPUT_UNCHANGED",
+  "promotion": "BLOCKED_NOT_RUN",
+  "provider_mismatch_count": 0,
+  "provider_report_classification": "PASS_PROVIDER_CALL_BOUNDARY",
+  "provider_verified_count": 2,
+  "rate_limit_cooldown_classification": "PASS_NO_RATE_LIMIT_OR_COOLDOWN",
+  "retry_attempt_count": 0,
+  "retry_decision_count": 0,
+  "run_id": "hard-negative-micro-batch-14-resume-after-parser-repair-20260708T1917AEST",
+  "schema": "stickbot.context_plus.hard_negative.mb14_resume_summary.v1",
+  "stop_reason": "both_remaining_cases_complete",
+  "terminal_case_count": 2
+}

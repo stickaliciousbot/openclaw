@@ -1,0 +1,8 @@
+{
+  "classification": "PASS_NO_FALLBACK_OR_MODEL_OVERRIDE",
+  "events": [],
+  "expected_provider": "token-broker-vmesh",
+  "mutation_performed": false,
+  "requested_model": "token-broker-vmesh/auto",
+  "schema": "stickbot.context_plus.hard_negative.fallback_model_boundary_report.v1"
+}

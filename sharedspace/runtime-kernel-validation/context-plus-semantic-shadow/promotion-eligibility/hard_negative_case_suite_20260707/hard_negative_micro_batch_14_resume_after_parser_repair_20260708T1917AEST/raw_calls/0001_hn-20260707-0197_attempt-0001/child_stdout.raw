@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "I could not produce a clean brief answer from the routed model, so I did not fake one. degraded_reason=simple_chat_contract_violation; safe_next=retry after tool path check.",
+      "mediaUrl": null
+    }
+  ]
+}
