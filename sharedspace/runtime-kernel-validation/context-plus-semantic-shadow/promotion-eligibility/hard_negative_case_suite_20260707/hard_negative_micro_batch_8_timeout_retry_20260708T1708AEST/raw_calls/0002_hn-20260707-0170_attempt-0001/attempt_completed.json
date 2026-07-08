@@ -1,0 +1,15 @@
+{
+  "attempt_id": "hard-negative-micro-batch-8-timeout-retry-20260708T1708AEST:0002:hn-20260707-0170:attempt-0001",
+  "attempt_number": 1,
+  "case_id": "hn-20260707-0170",
+  "case_sequence": 2,
+  "command_status_classification": "PASS_COMMAND_OUTPUT_PARSE_READY",
+  "created_utc": "2026-07-08T07:10:58Z",
+  "gateway_model_provider_calls_after": 2,
+  "mutation_performed": false,
+  "provider_boundary_classification": "PASS_PROVIDER_VERIFIED",
+  "returncode": 0,
+  "run_id": "hard-negative-micro-batch-8-timeout-retry-20260708T1708AEST",
+  "schema": "stickbot.context_plus.hard_negative.raw_attempt_completed.v1",
+  "timed_out": false
+}

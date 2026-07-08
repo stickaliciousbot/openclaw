@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Stick, I need the manifest data to verify `case_id` uniqueness. Please share the file contents (or its path if I have repo access), and I’ll scan for duplicate IDs.",
+      "mediaUrl": null
+    }
+  ]
+}

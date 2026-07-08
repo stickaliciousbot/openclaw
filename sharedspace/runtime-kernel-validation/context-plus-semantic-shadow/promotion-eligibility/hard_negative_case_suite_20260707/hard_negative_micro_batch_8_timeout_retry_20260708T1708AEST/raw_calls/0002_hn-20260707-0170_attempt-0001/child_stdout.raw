@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Sure thing, Stick. I’ll need a bit more info before I can generate the hashes:\n\n1. **File list** – the exact paths (or a pattern) of the evidence files you want hashed.  \n2. **Hash algorithm** – SHA‑256 is the usual default; let me know if you need MD5, SHA‑1, SHA‑512, etc.  \n3. **Output format** – plain text “\\<hash> \\<filepath\\>”, JSON array, CSV, or something else?\n\nOnce I have those details I can run the appropriate hash command and give you the results. Let me know.",
+      "mediaUrl": null
+    }
+  ]
+}

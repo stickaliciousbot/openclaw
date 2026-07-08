@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Blocked: the draft manifest itself isn’t in this handoff, so I can’t count its prompt categories yet.\n\nPaste the manifest text or file contents, and I’ll return:\n- total prompt categories\n- category names\n- count per category if entries are grouped under them",
+      "mediaUrl": null
+    }
+  ]
+}
