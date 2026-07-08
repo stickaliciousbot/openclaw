@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "File evidence found from sharedspace/runtime-kernel-validation/lifecycle-visibility-production-apply-health-gated-20260627.md + sharedspace/runtime-kernel-validation/lifecycle-visibility-recovery-state-20260627.md + sharedspace/runtime-kernel-v…. Summary: # Lifecycle Visibility Patch — Production Apply with Health-Based Restart Gate Timestamp: 2026-06-27 AEST ## Result | Area | Status | | --- | --- | | Production apply | PASS | | Installed runtime | `OpenClaw 2026.5.7 (5c3a327)` | | Restart wrapper exit | code `1`, no stdout/stderr — known false-negative class | | Health-based restart gate | PASS | | Old Gateway PID | `707840` | | New Gateway PID | `717046` | | Gatew….",
+      "mediaUrl": null
+    }
+  ]
+}

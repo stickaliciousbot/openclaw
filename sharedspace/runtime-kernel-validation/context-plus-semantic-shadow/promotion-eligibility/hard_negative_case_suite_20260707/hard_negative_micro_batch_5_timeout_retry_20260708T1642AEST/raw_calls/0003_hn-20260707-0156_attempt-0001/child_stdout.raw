@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Current selected model/lane: token-solver-v4/ollama-cloud-heavy-coder. Internal route for this turn: ollama-cloud-heavy-coder → token-solver-v3/ollama-cloud-heavy-coder. Runtime fleet latest_ok=true; failed=none; run_id=token-solvers-20260708T063602Z; finished_at=2026-07-08T06:36:12.539428Z.",
+      "mediaUrl": null
+    }
+  ]
+}

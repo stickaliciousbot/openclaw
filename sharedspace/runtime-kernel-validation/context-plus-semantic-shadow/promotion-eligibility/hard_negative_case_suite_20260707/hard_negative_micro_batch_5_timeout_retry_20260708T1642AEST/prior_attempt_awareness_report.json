@@ -1,0 +1,15 @@
+{
+  "approved_scope_case_ids": [
+    "hn-20260707-0154",
+    "hn-20260707-0155",
+    "hn-20260707-0156",
+    "hn-20260707-0157",
+    "hn-20260707-0158"
+  ],
+  "classification": "PASS_OWNER_APPROVED_PRIOR_ATTEMPTS_LIMITED_TO_SCOPE",
+  "mutation_performed": false,
+  "prior_attempt_count": 0,
+  "prior_attempts_are_not_overwritten": true,
+  "prior_case_ids": [],
+  "schema": "stickbot.context_plus.hard_negative.prior_attempt_awareness.v1"
+}

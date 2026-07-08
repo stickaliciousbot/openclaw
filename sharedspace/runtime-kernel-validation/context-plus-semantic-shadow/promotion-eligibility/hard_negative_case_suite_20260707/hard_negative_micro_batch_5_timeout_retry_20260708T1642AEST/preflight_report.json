@@ -1,0 +1,406 @@
+{
+  "approved_scope": "hn-20260707-0154..hn-20260707-0158",
+  "checks": [
+    {
+      "details": {
+        "policy_commit": "4f496b3e4d560e674d13f654d8e034fa5fb25feb"
+      },
+      "name": "policy_commit_present",
+      "passed": true
+    },
+    {
+      "details": {
+        "branch": "refs/heads/evidence/context-plus-hard-negative-timeout-retry-policy-20260708",
+        "expected": "4f496b3e4d560e674d13f654d8e034fa5fb25feb",
+        "remote_commit": "4f496b3e4d560e674d13f654d8e034fa5fb25feb",
+        "stderr_excerpt": ""
+      },
+      "name": "policy_is_PASS_PUSHED_remote_branch_matches_commit",
+      "passed": true
+    },
+    {
+      "details": {
+        "actual": "",
+        "branch": "refs/heads/evidence/context-plus-hard-negative-timeout-retry-policy-20260708",
+        "expected": "4f496b3e4d560e674d13f654d8e034fa5fb25feb",
+        "nonfatal": true,
+        "stderr_excerpt": "fatal: Needed a single revision\n"
+      },
+      "name": "policy_local_branch_readback_optional",
+      "passed": false
+    },
+    {
+      "details": {},
+      "name": "policy_ready_and_gate_text_present",
+      "passed": true
+    },
+    {
+      "details": {
+        "branch": "refs/heads/evidence/context-plus-hard-negative-micro-batch-1-20260708",
+        "expected": "eff29e0b82030f206a65ec86f27489d70894f1a6",
+        "remote_commit": "eff29e0b82030f206a65ec86f27489d70894f1a6",
+        "stderr_excerpt": ""
+      },
+      "name": "micro_batch_1_PASS_PUSHED_remote_branch_matches_commit",
+      "passed": true
+    },
+    {
+      "details": {
+        "summary": {
+          "all_attempt_count": 5,
+          "case_ids": [
+            "hn-20260707-0134",
+            "hn-20260707-0135",
+            "hn-20260707-0136",
+            "hn-20260707-0137",
+            "hn-20260707-0138"
+          ],
+          "classification": "PASS_MICRO_BATCH_1_READY",
+          "comparator": "BLOCKED_NOT_RUN",
+          "continue_to_next_batch": false,
+          "gateway_model_provider_calls": 5,
+          "m6_proposal": "BLOCKED_NOT_RUN",
+          "mutation_performed": false,
+          "mutation_sentinel_classification": "PASS_MUTATION_SENTINEL_OUTSIDE_OUTPUT_UNCHANGED",
+          "promotion": "BLOCKED_NOT_RUN",
+          "provider_mismatch_count": 0,
+          "provider_report_classification": "PASS_PROVIDER_CALL_BOUNDARY",
+          "provider_verified_count": 5,
+          "rate_limit_cooldown_classification": "PASS_NO_RATE_LIMIT_OR_COOLDOWN",
+          "retry_count": 0,
+          "run_id": "hard-negative-micro-batch-1-timeout-retry-20260708T1515AEST",
+          "schema": "stickbot.context_plus.hard_negative.micro_batch_summary.v1",
+          "stop_reason": "all_5_cases_complete",
+          "terminal_case_count": 5
+        },
+        "summary_path": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_micro_batch_1_timeout_retry_20260708T1515AEST/summary.json"
+      },
+      "name": "micro_batch_1_PASS_summary_present",
+      "passed": true
+    },
+    {
+      "details": {
+        "branch": "refs/heads/evidence/context-plus-hard-negative-micro-batch-2-20260708",
+        "expected": "17c8f93c86fa5721f9ef63c3a74706d4739fc648",
+        "remote_commit": "17c8f93c86fa5721f9ef63c3a74706d4739fc648",
+        "stderr_excerpt": ""
+      },
+      "name": "micro_batch_2_PASS_PUSHED_remote_branch_matches_commit",
+      "passed": true
+    },
+    {
+      "details": {
+        "summary": {
+          "all_attempt_count": 5,
+          "case_ids": [
+            "hn-20260707-0139",
+            "hn-20260707-0140",
+            "hn-20260707-0141",
+            "hn-20260707-0142",
+            "hn-20260707-0143"
+          ],
+          "classification": "PASS_MICRO_BATCH_2_READY",
+          "comparator": "BLOCKED_NOT_RUN",
+          "continue_to_next_batch": false,
+          "gateway_model_provider_calls": 5,
+          "m6_proposal": "BLOCKED_NOT_RUN",
+          "mutation_performed": false,
+          "mutation_sentinel_classification": "PASS_MUTATION_SENTINEL_OUTSIDE_OUTPUT_UNCHANGED",
+          "promotion": "BLOCKED_NOT_RUN",
+          "provider_mismatch_count": 0,
+          "provider_report_classification": "PASS_PROVIDER_CALL_BOUNDARY",
+          "provider_verified_count": 5,
+          "rate_limit_cooldown_classification": "PASS_NO_RATE_LIMIT_OR_COOLDOWN",
+          "retry_count": 0,
+          "run_id": "hard-negative-micro-batch-2-timeout-retry-20260708T1518AEST",
+          "schema": "stickbot.context_plus.hard_negative.micro_batch_summary.v1",
+          "stop_reason": "all_5_cases_complete",
+          "terminal_case_count": 5
+        },
+        "summary_path": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_micro_batch_2_timeout_retry_20260708T1518AEST/summary.json"
+      },
+      "name": "micro_batch_2_PASS_summary_present",
+      "passed": true
+    },
+    {
+      "details": {
+        "branch": "refs/heads/evidence/context-plus-hard-negative-micro-batch-3-20260708",
+        "expected": "be09877f07811fee1253a8374d4b41cb3908f6c2",
+        "remote_commit": "be09877f07811fee1253a8374d4b41cb3908f6c2",
+        "stderr_excerpt": ""
+      },
+      "name": "micro_batch_3_HOLD_PUSHED_remote_branch_matches_commit",
+      "passed": true
+    },
+    {
+      "details": {
+        "summary": {
+          "all_attempt_count": 3,
+          "case_ids": [
+            "hn-20260707-0144",
+            "hn-20260707-0145",
+            "hn-20260707-0146",
+            "hn-20260707-0147",
+            "hn-20260707-0148"
+          ],
+          "classification": "HOLD_MICRO_BATCH_3_RETRY_EXHAUSTED",
+          "comparator": "BLOCKED_NOT_RUN",
+          "continue_to_next_batch": false,
+          "gateway_model_provider_calls": 3,
+          "m6_proposal": "BLOCKED_NOT_RUN",
+          "mutation_performed": false,
+          "mutation_sentinel_classification": "PASS_MUTATION_SENTINEL_OUTSIDE_OUTPUT_UNCHANGED",
+          "promotion": "BLOCKED_NOT_RUN",
+          "provider_mismatch_count": 0,
+          "provider_report_classification": "HOLD_PROVIDER_CALL_BOUNDARY_INCOMPLETE",
+          "provider_verified_count": 1,
+          "rate_limit_cooldown_classification": "PASS_NO_RATE_LIMIT_OR_COOLDOWN",
+          "retry_count": 1,
+          "run_id": "hard-negative-micro-batch-3-timeout-retry-20260708T1524AEST",
+          "schema": "stickbot.context_plus.hard_negative.micro_batch_summary.v1",
+          "stop_reason": "retry_exhausted:HOLD_GATEWAY_CLIENT_TRANSPORT_TIMEOUT",
+          "terminal_case_count": 2
+        },
+        "summary_path": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_micro_batch_3_timeout_retry_20260708T1524AEST/summary.json"
+      },
+      "name": "micro_batch_3_HOLD_summary_present",
+      "passed": true
+    },
+    {
+      "details": {
+        "branch": "refs/heads/evidence/context-plus-hard-negative-hn-0145-timeout-diagnosis-20260708",
+        "expected": "b4b1c72d33405dedcca87e5c7c73a340e090a65e",
+        "remote_commit": "b4b1c72d33405dedcca87e5c7c73a340e090a65e",
+        "stderr_excerpt": ""
+      },
+      "name": "hn0145_diagnosis_PASS_PUSHED_remote_branch_matches_commit",
+      "passed": true
+    },
+    {
+      "details": {
+        "branch": "refs/heads/evidence/context-plus-hard-negative-micro-batch-4-20260708",
+        "expected": "b8ae570df934b62cf5a74ae462daf32f07816487",
+        "remote_commit": "b8ae570df934b62cf5a74ae462daf32f07816487",
+        "stderr_excerpt": ""
+      },
+      "name": "micro_batch_4_HOLD_PUSHED_remote_branch_matches_commit",
+      "passed": true
+    },
+    {
+      "details": {
+        "summary": {
+          "all_attempt_count": 6,
+          "case_ids": [
+            "hn-20260707-0149",
+            "hn-20260707-0150",
+            "hn-20260707-0151",
+            "hn-20260707-0152",
+            "hn-20260707-0153"
+          ],
+          "classification": "HOLD_MICRO_BATCH_4_RETRY_EXHAUSTED",
+          "comparator": "BLOCKED_NOT_RUN",
+          "continue_to_next_batch": false,
+          "gateway_model_provider_calls": 6,
+          "m6_proposal": "BLOCKED_NOT_RUN",
+          "mutation_performed": false,
+          "mutation_sentinel_classification": "PASS_MUTATION_SENTINEL_OUTSIDE_OUTPUT_UNCHANGED",
+          "promotion": "BLOCKED_NOT_RUN",
+          "provider_mismatch_count": 0,
+          "provider_report_classification": "HOLD_PROVIDER_CALL_BOUNDARY_INCOMPLETE",
+          "provider_verified_count": 4,
+          "rate_limit_cooldown_classification": "PASS_NO_RATE_LIMIT_OR_COOLDOWN",
+          "retry_count": 1,
+          "run_id": "hard-negative-micro-batch-4-timeout-retry-20260708T1600AEST",
+          "schema": "stickbot.context_plus.hard_negative.micro_batch_summary.v1",
+          "stop_reason": "retry_exhausted:HOLD_GATEWAY_CLIENT_TRANSPORT_TIMEOUT",
+          "terminal_case_count": 5
+        },
+        "summary_path": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_micro_batch_4_timeout_retry_20260708T1600AEST/summary.json"
+      },
+      "name": "micro_batch_4_HOLD_summary_present",
+      "passed": true
+    },
+    {
+      "details": {
+        "branch": "refs/heads/evidence/context-plus-hard-negative-hn-0153-timeout-diagnosis-20260708",
+        "expected": "d63f22dd13f52f44a2108495173f60dbdc7a76b9",
+        "remote_commit": "d63f22dd13f52f44a2108495173f60dbdc7a76b9",
+        "stderr_excerpt": ""
+      },
+      "name": "hn0153_diagnosis_PASS_PUSHED_remote_branch_matches_commit",
+      "passed": true
+    },
+    {
+      "details": {
+        "branch": "refs/heads/evidence/context-plus-hard-negative-case-hold-policy-update-20260708",
+        "expected": "79c47e3921eb04b308832d5549e16375e0e8d404",
+        "remote_commit": "79c47e3921eb04b308832d5549e16375e0e8d404",
+        "stderr_excerpt": ""
+      },
+      "name": "case_hold_policy_update_PASS_PUSHED_remote_branch_matches_commit",
+      "passed": true
+    },
+    {
+      "details": {
+        "duplicate_exists": false,
+        "duplicate_source_path": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/HN_0145_CASE_HOLD_CONTINUATION_POLICY.md",
+        "target_exists": true,
+        "target_path": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/CASE_HOLD_CONTINUATION_POLICY.md"
+      },
+      "name": "duplicate_source_copy_gone_and_policy_target_present",
+      "passed": true
+    },
+    {
+      "details": {
+        "policy_path": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/CASE_HOLD_CONTINUATION_POLICY.md"
+      },
+      "name": "case_hold_policy_lists_both_held_cases_and_mb5_gate",
+      "passed": true
+    },
+    {
+      "details": {
+        "held_cases": [
+          "hn-20260707-0145",
+          "hn-20260707-0153"
+        ],
+        "selected": [
+          "hn-20260707-0154",
+          "hn-20260707-0155",
+          "hn-20260707-0156",
+          "hn-20260707-0157",
+          "hn-20260707-0158"
+        ]
+      },
+      "name": "held_cases_not_selected_for_live_execution",
+      "passed": true
+    },
+    {
+      "details": {
+        "selected": [
+          "hn-20260707-0154",
+          "hn-20260707-0155",
+          "hn-20260707-0156",
+          "hn-20260707-0157",
+          "hn-20260707-0158"
+        ]
+      },
+      "name": "hn0145_not_selected_for_live_execution",
+      "passed": true
+    },
+    {
+      "details": {
+        "harness": "scripts/context_plus_hard_negative_evaluator.py",
+        "sha256": "08d7b0ac227ac8108a858c0c4831d065d6e76fd2a9ad721cc59679d776c85d02"
+      },
+      "name": "harness_present",
+      "passed": true
+    },
+    {
+      "details": {
+        "manifest": "/tmp/context-plus-comparator-worktree-20260707/sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/case_manifest.approved.jsonl"
+      },
+      "name": "source_manifest_exists",
+      "passed": true
+    },
+    {
+      "details": {
+        "actual_sha256": "4f5aaf3a24e68542f05445fe5f6aeab92795883c988fccdcc0490255bee9ebda",
+        "expected_sha256": "4f5aaf3a24e68542f05445fe5f6aeab92795883c988fccdcc0490255bee9ebda"
+      },
+      "name": "approved_manifest_sha_matches",
+      "passed": true
+    },
+    {
+      "details": {
+        "expected": [
+          "hn-20260707-0154",
+          "hn-20260707-0155",
+          "hn-20260707-0156",
+          "hn-20260707-0157",
+          "hn-20260707-0158"
+        ],
+        "selected": [
+          "hn-20260707-0154",
+          "hn-20260707-0155",
+          "hn-20260707-0156",
+          "hn-20260707-0157",
+          "hn-20260707-0158"
+        ]
+      },
+      "name": "micro_batch_range_exact",
+      "passed": true
+    },
+    {
+      "details": {
+        "count": 5
+      },
+      "name": "case_count_exactly_5",
+      "passed": true
+    },
+    {
+      "details": {
+        "expected_provider": "token-broker-vmesh",
+        "model": "token-broker-vmesh/auto"
+      },
+      "name": "model_and_provider_scope_exact",
+      "passed": true
+    },
+    {
+      "details": {
+        "out_dir": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_micro_batch_5_timeout_retry_20260708T1642AEST"
+      },
+      "name": "output_dir_new_empty",
+      "passed": true
+    },
+    {
+      "details": {
+        "owner_approved_re_evaluation_scope": [
+          "hn-20260707-0154",
+          "hn-20260707-0155",
+          "hn-20260707-0156",
+          "hn-20260707-0157",
+          "hn-20260707-0158"
+        ],
+        "prior_case_ids": []
+      },
+      "name": "prior_attempts_limited_to_approved_policy_scope",
+      "passed": true
+    },
+    {
+      "details": {
+        "selected_case_ids": [
+          "hn-20260707-0154",
+          "hn-20260707-0155",
+          "hn-20260707-0156",
+          "hn-20260707-0157",
+          "hn-20260707-0158"
+        ]
+      },
+      "name": "duplicate_prevention_no_cases_outside_approved_scope",
+      "passed": true
+    },
+    {
+      "details": {
+        "abort_on_provider_cooldown": true,
+        "abort_on_rate_limit": true,
+        "cooldown_seconds_before_retry": 180
+      },
+      "name": "rate_limit_cooldown_guardrails_initialized",
+      "passed": true
+    },
+    {
+      "details": {
+        "comparator": "BLOCKED_NOT_RUN",
+        "m6_proposal": "BLOCKED_NOT_RUN",
+        "promotion": "BLOCKED_NOT_RUN"
+      },
+      "name": "comparator_promotion_m6_blocked",
+      "passed": true
+    }
+  ],
+  "classification": "PASS_PREFLIGHT_READY",
+  "created_utc": "2026-07-08T06:45:45Z",
+  "mutation_performed": false,
+  "run_id": "hard-negative-micro-batch-5-timeout-retry-20260708T1642AEST",
+  "schema": "stickbot.context_plus.hard_negative.micro_batch_preflight.v1"
+}
