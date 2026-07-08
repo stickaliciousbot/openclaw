@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "**Plan summary (template)**  \n- **Objective:** [Briefly state the goal you’re pursuing with the vendor]  \n- **Key milestones:**  \n  1. Milestone 1 – [what, when, owner]  \n  2. Milestone 2 – [what, when, owner]  \n  3. Milestone 3 – [what, when, owner]  \n- **Risks & mitigations:**  \n  - Risk A → Mitigation A  \n  - Risk B → Mitigation B  \n- **Next steps:** Finalize contract, schedule kickoff, deliver first‑order deliverables.\n\n**Draft email** (replace placeholders before sending)\n\n```\nSubject: [Project/Plan] – Summary & Next Steps\n\nHi <vendor_contact_name>,\n\nI hope you’re well. Below is a concise overview of our agreed‑upon plan:\n\n[Insert the plan summary from above]\n\nPlease review and let me know if anything needs clarification. Once we have your sign‑off, we’ll proceed with the next steps outlined.\n\nThanks,\n[Your Name]\n[Your Title]\n[Your Company]\n```\n\n**Action items for you**\n\n1. Provide the concrete details of the plan (objectives, milestones, risks, next steps) so I can flesh out the summary.  \n2. Supply the full email address (and optionally the recipient’s name) for `<vendor_contact>`.  \n3. After I generate the final text, you’ll need to copy‑paste it into your email client and send it manually. I can’t execute the send operation or mark it “sent.”\n\nLet me know the missing information, and I’ll deliver the final, ready‑to‑send version.",
+      "mediaUrl": null
+    }
+  ]
+}

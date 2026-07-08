@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Memory check: inspect the report, promote memory, and restart services.: PASS. Evidence: - Rationale: Stick corrected the interaction: when asking whether M25B.1 has started, he wants a status answer, not config inspection, restarts, or further mutation.. Sources: MEMORY.md#L140, memory/2026-07-07.md#L61, memory/2026-07-07.md#L64.",
+      "mediaUrl": null
+    }
+  ]
+}
