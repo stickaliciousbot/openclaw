@@ -8,6 +8,8 @@ Plan only. No new evaluation execution, resume execution, tail continuation, Gat
 
 This plan is not approval to execute. It is the concrete safer execution method to review and preserve before any new provider calls.
 
+Policy update 2026-07-08: timeout/retry handling is governed by `HARD_NEGATIVE_BATCHED_TIMEOUT_RETRY_POLICY.md`, closeout `PASS_TIMEOUT_RETRY_POLICY_READY` with execution gate `HOLD_RETRY_POLICY_OPERATOR_APPROVAL_REQUIRED`. That policy supersedes the earlier 20-case default for future recovery execution.
+
 ## Objective
 
 Evaluate the 240-case hard-negative production suite without ad hoc resume/tail commands.
@@ -29,35 +31,40 @@ M6 proposal remains blocked unless promotion eligibility is proven and separatel
 
 ## Batch size
 
-Default batch size: `20` cases.
+Recovery batch size: `5` cases per batch until stable.
 
 Total suite: `240` cases.
 
-Total batches: `12`.
+Total recovery micro-batches if starting from a clean full-suite lineage: `48`.
 
 Rationale:
 
-- localizes Gateway timeout failures
-- avoids one-case churn
-- provides frequent checkpoints
-- prevents ad hoc range/tail chasing
+- localizes Gateway/client timeout failures;
+- reduces duplicate-call blast radius;
+- gives frequent preservation checkpoints;
+- avoids ad hoc one-case tail chasing;
+- keeps retry lineage inspectable.
 
-Batch size may be increased to `40` only after at least two 20-case batches pass cleanly and Stick explicitly approves the change.
+Return to 20-case batches is blocked until either:
+
+- three consecutive 5-case recovery micro-batches close cleanly with provider boundary, mutation sentinel, duplicate guard, and rate/cooldown checks PASS; or
+- Stick explicitly approves a written return-to-20 rationale.
+
+Do not increase above 20 cases in this evaluation lineage without separate explicit approval.
 
 ## Batch ranges
 
-1. `batch_001`: `hn-20260707-0001` → `hn-20260707-0020`
-2. `batch_002`: `hn-20260707-0021` → `hn-20260707-0040`
-3. `batch_003`: `hn-20260707-0041` → `hn-20260707-0060`
-4. `batch_004`: `hn-20260707-0061` → `hn-20260707-0080`
-5. `batch_005`: `hn-20260707-0081` → `hn-20260707-0100`
-6. `batch_006`: `hn-20260707-0101` → `hn-20260707-0120`
-7. `batch_007`: `hn-20260707-0121` → `hn-20260707-0140`
-8. `batch_008`: `hn-20260707-0141` → `hn-20260707-0160`
-9. `batch_009`: `hn-20260707-0161` → `hn-20260707-0180`
-10. `batch_010`: `hn-20260707-0181` → `hn-20260707-0200`
-11. `batch_011`: `hn-20260707-0201` → `hn-20260707-0220`
-12. `batch_012`: `hn-20260707-0221` → `hn-20260707-0240`
+Generate 5-case micro-batch manifests dynamically from the approved 240-case manifest.
+
+Rules:
+
+- each micro-batch contains exactly `5` contiguous case IDs;
+- the first clean full-suite micro-batch would be `hn-20260707-0001` → `hn-20260707-0005`;
+- the final clean full-suite micro-batch would be `hn-20260707-0236` → `hn-20260707-0240`;
+- Batch 1 must not be retried wholesale;
+- already provider-verified cases remain attempted-authority and must not be duplicated;
+- Batch 2 remains blocked until Batch 1 is terminally resolved;
+- any recovery micro-batch must have an explicit owner-approved range and fresh output dir before live use.
 
 ## Harness inspection evidence
 
@@ -77,7 +84,7 @@ Generate one JSONL manifest per batch from the approved 240-case manifest by fil
 Rules:
 
 - Source manifest SHA must equal `4f5aaf3a24e68542f05445fe5f6aeab92795883c988fccdcc0490255bee9ebda`.
-- Each batch manifest must contain exactly 20 records.
+- Each recovery micro-batch manifest must contain exactly 5 records unless a later owner-approved return-to-20 policy is active.
 - Batch manifest case IDs must be contiguous and match the batch range.
 - Each record must preserve the original fields unchanged.
 - Batch manifest SHA is recorded in `batch_manifest.summary.json`.
@@ -199,22 +206,33 @@ Do not continue to next batch after a rate/cooldown HOLD.
 
 ## Retry policy
 
-Default: `0` retries.
+Default: `0` retries unless the timeout/retry policy is separately approved for a specific recovery execution.
 
-Retry behavior is not automatically approved by this plan.
+Policy artifact:
 
-If Stick approves retry policy later:
+`HARD_NEGATIVE_BATCHED_TIMEOUT_RETRY_POLICY.md`
 
-- allow exactly `1` retry only for Gateway/transport timeout
-- preserve first failed raw attempt
-- write retry attempt under same case lineage as `attempt-0002`
-- never retry provider mismatch
-- never retry duplicate-call failure
-- never retry mutation sentinel failure
-- never retry route/config/provider/model/cache mutation
-- never retry comparator/promotion/M6 attempts
+Policy closeout: `PASS_TIMEOUT_RETRY_POLICY_READY`
 
-If retry policy is not approved, any Gateway timeout closes the batch as `HOLD_GATEWAY_TRANSPORT_TIMEOUT`.
+Execution gate: `HOLD_RETRY_POLICY_OPERATOR_APPROVAL_REQUIRED`
+
+If a retry policy is approved later for a specific execution:
+
+- allow exactly `1` retry only for approved transport/upstream timeout classifications;
+- approved retryable signatures are `GatewayTransportError: gateway timeout after 120000ms`, `TOKEN_SOLVER_V4_UPSTREAM_TIMEOUT`, and `provider=null` only when raw stdout/stderr prove command/transport failure rather than fallback;
+- preserve first failed raw attempt before retry;
+- write retry attempt under same case lineage as `attempt-0002`;
+- enforce explicit cooldown before retry;
+- close `HOLD_GATEWAY_TIMEOUT_RETRY_EXHAUSTED` if the retry also times out;
+- never retry provider mismatch;
+- never retry fallback/model override;
+- never retry duplicate-call risk;
+- never retry mutation sentinel failure;
+- never retry rate-limit/cooldown unsafe;
+- never retry route/config/Gateway/memory/provider/model/cache mutation;
+- never retry comparator/promotion/M6 attempts.
+
+If retry policy is not approved for the specific execution, any Gateway/client timeout closes the batch as `HOLD_GATEWAY_TRANSPORT_TIMEOUT`.
 
 ## Timeout policy
 
@@ -229,15 +247,25 @@ Default starting timeout should remain explicit in run config. If changing timeo
 
 The observed tail failure was `GatewayTransportError: gateway timeout after 120000ms`, so timeout changes are a design decision, not an automatic fix.
 
+Client timeout vs upstream timeout classification now follows `HARD_NEGATIVE_BATCHED_TIMEOUT_RETRY_POLICY.md`:
+
+- `HOLD_GATEWAY_CLIENT_TRANSPORT_TIMEOUT` for raw CLI/websocket `GatewayTransportError ... 120000ms`;
+- `HOLD_TOKEN_SOLVER_V4_UPSTREAM_TIMEOUT` for bounded Gateway/provider evidence of `504 "TOKEN_SOLVER_V4_UPSTREAM_TIMEOUT"`;
+- `HOLD_CLIENT_TIMEOUT_MASKED_UPSTREAM_TIMEOUT` when raw case evidence times out first and later bounded Gateway logs prove the upstream timeout for the same run/case.
+
 ## Abort criteria
 
 Abort immediately if any of these occur:
 
 - case outside current batch is selected
-- batch count is not exactly 20
+- batch count is not exactly 5 for recovery micro-batches
 - duplicate-call prevention fails
 - provider mismatch
 - fallback/model override
+- retry is attempted without explicit operator approval
+- retry count exceeds 1 for any case
+- retry also times out
+- rate-limit/cooldown unsafe signal appears
 - mutation sentinel failure outside approved output
 - route/config/Gateway/memory/provider/model/cache mutation detected
 - comparator run attempted
@@ -248,7 +276,7 @@ Abort immediately if any of these occur:
 
 ## Merge / finalization step
 
-Only after all 12 batches close `PASS_BATCH_READY_FOR_MERGE`:
+Only after all approved recovery micro-batches needed to cover the full 240-case suite close `PASS_BATCH_READY_FOR_MERGE`:
 
 1. Concatenate batch production journals in batch order.
 2. Verify combined case count is `240 / 240`.
@@ -261,12 +289,13 @@ Only after all 12 batches close `PASS_BATCH_READY_FOR_MERGE`:
 
 ## Comparator gating
 
-Comparator remains blocked until combined production evidence is clean.
+Comparator remains blocked until all `240` production cases are complete and combined production evidence is clean.
 
 Do not run comparator unless:
 
-- all batches pass
+- all required micro-batches pass and cover exactly `hn-20260707-0001` → `hn-20260707-0240`
 - combined production journal is complete
+- retry lineage, if any, is preserved without overwriting first attempts
 - Context+ shadow/offline hard-negative journal is present/approved
 - provider/mutation/rate/duplicate gates are clean
 - separate comparator approval is given
