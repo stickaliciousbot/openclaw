@@ -40,7 +40,21 @@ APPROVED_CATEGORY_COUNTS = {
 }
 REQUIRED_FIELDS = ["case_id", "category", "visible_user_text", "visible_user_text_sha256", "expected_route_class", "allowed_behavior", "forbidden_behavior", "negative_trigger_type", "source_type", "source_ref", "redaction_review"]
 PROVIDER_CALLS_THIS_PROCESS = 0
-RATE_NEEDLES = ["429", "rate limit", "ratelimit", "quota", "cooldown", "too many requests"]
+RATE_TEXT_PATTERNS = [
+    ("rate_limit_phrase", re.compile(r"\brate[-\s]?limit(?:ed|ing)?\b", re.IGNORECASE)),
+    ("ratelimit_phrase", re.compile(r"\bratelimit(?:ed|ing)?\b", re.IGNORECASE)),
+    ("too_many_requests_phrase", re.compile(r"\btoo many requests\b", re.IGNORECASE)),
+    ("quota_phrase", re.compile(r"\bquota\b", re.IGNORECASE)),
+    ("cooldown_phrase", re.compile(r"\bcool[-\s]?down\b", re.IGNORECASE)),
+    ("retry_after_phrase", re.compile(r"\bretry[-\s]?after\b|\btry again in\b", re.IGNORECASE)),
+]
+RATE_STATUS_429_PATTERNS = [
+    ("http_status_429", re.compile(r"\bhttp(?:/\d(?:\.\d)?)?\s+429\b", re.IGNORECASE)),
+    ("status_code_429", re.compile(r"\bstatus(?:_code| code)?\s*[:=]\s*429\b", re.IGNORECASE)),
+    ("error_code_429", re.compile(r"\b(?:error|code|status)\s*[:=]\s*429\b", re.IGNORECASE)),
+    ("json_status_429", re.compile(r"[\"'](?:status|status_code|code|http_status)[\"']\s*:\s*429\b", re.IGNORECASE)),
+    ("standalone_429_with_context", re.compile(r"\b429\b[^\n]{0,80}\b(too many requests|rate[-\s]?limit|quota|cool[-\s]?down)\b", re.IGNORECASE)),
+]
 UNSAFE_PATTERNS = {
     "raw_chat_id_numeric_long": re.compile(r"(?<![A-Za-z0-9_])\d{8,}(?![A-Za-z0-9_])"),
     "token_like_secret_assignment": re.compile(r"(?i)(api[_-]?key|auth[_-]?token|secret[_-]?key|authorization)\s*[:=]\s*[A-Za-z0-9_./+=-]{8,}"),
@@ -201,6 +215,33 @@ def parse_output_text(stdout_text: str, payload: Any | None = None) -> str:
                 return payload[key]
     return stdout_text
 
+def rate_or_cooldown_signal(stdout_text: str, stderr_text: str = "", payload: Any | None = None) -> tuple[bool, list[str]]:
+    """Detect real rate/cooldown signals without matching 429 inside hashes.
+
+    Bare numeric 429 is intentionally not enough. It must appear as a structured
+    HTTP/status/code token or near rate-limit semantics; textual signals such as
+    rate limit, quota, cooldown, and retry-after remain conservative triggers.
+    """
+    combined = f"{stdout_text}\n{stderr_text}"
+    reasons: list[str] = []
+    for name, pattern in RATE_TEXT_PATTERNS:
+        if pattern.search(combined):
+            reasons.append(name)
+    for name, pattern in RATE_STATUS_429_PATTERNS:
+        if pattern.search(combined):
+            reasons.append(name)
+    if isinstance(payload, dict):
+        for key in ("status", "status_code", "code", "http_status"):
+            value = payload.get(key)
+            if value == 429 or value == "429":
+                reasons.append(f"payload_{key}_429")
+        message = " ".join(str(payload.get(k) or "") for k in ("message", "error", "detail", "reason"))
+        if message:
+            for name, pattern in RATE_TEXT_PATTERNS + RATE_STATUS_429_PATTERNS:
+                if pattern.search(message):
+                    reasons.append(f"payload_{name}")
+    return bool(reasons), sorted(set(reasons))
+
 def count_provider_call() -> None:
     global PROVIDER_CALLS_THIS_PROCESS
     PROVIDER_CALLS_THIS_PROCESS += 1
@@ -221,7 +262,7 @@ def command_status(returncode: int | None, timed_out: bool, stdout_bytes: bytes,
 def provider_null_class(returncode: int | None, timed_out: bool, stdout_bytes: bytes, stderr_bytes: bytes, json_ok: bool, payload: Any, provider_field_present: bool, provider: str | None, combined_lower: str) -> str | None:
     if provider not in (None, ""):
         return None
-    if any(n in combined_lower for n in RATE_NEEDLES):
+    if rate_or_cooldown_signal(combined_lower)[0]:
         return "PROVIDER_NULL_RATE_OR_COOLDOWN_SIGNAL"
     if timed_out:
         return "PROVIDER_NULL_TIMEOUT"
@@ -298,12 +339,12 @@ def build_attempt_record(case: dict[str, Any], seq: int, run_id: str, out_dir: P
     output_present = bool(output_text.strip())
     output_status = "PASS_OUTPUT_PRESENT" if output_present else "HOLD_MISSING_OUTPUT"
     fp, reasons = output_appears_to_execute_forbidden(output_text, case) if boundary == "PASS_PROVIDER_VERIFIED" and output_present else (False, [])
-    rate = any(n in combined for n in RATE_NEEDLES)
+    rate, rate_reasons = rate_or_cooldown_signal(stdout_text, stderr_text, payload if json_ok else None)
     hashes = {"schema": "stickbot.context_plus.hard_negative.raw_child_outputs_sha256.v1", "created_utc": now_utc(), "run_id": run_id, "attempt_id": attempt_id, "case_id": cid, "stdout_sha256": sha256_bytes(stdout_bytes), "stderr_sha256": sha256_bytes(stderr_bytes), "stdout_bytes": len(stdout_bytes), "stderr_bytes": len(stderr_bytes), "stdout_present": bool(stdout_bytes), "stderr_present": bool(stderr_bytes)}
-    parse_result = {"schema": "stickbot.context_plus.hard_negative.raw_parse_result.v1", "created_utc": now_utc(), "run_id": run_id, "attempt_id": attempt_id, "case_id": cid, "returncode": returncode, "timed_out": timed_out, "timeout_error": timeout_error, "stdout_text_decode_ok": stdout_ok, "stdout_decode_error": stdout_decode_error, "stderr_text_decode_ok": stderr_ok, "stderr_decode_error": stderr_decode_error, "stdout_json_parse_ok": json_ok, "stdout_json_top_level_type": type(payload).__name__ if json_ok else None, "stdout_json_keys": sorted(payload.keys()) if isinstance(payload, dict) else [], "provider_field_present": provider_field_present, "provider_raw_value": provider_raw, "provider_normalized": provider, "output_text_present": output_present, "parse_error_type": "JSONDecodeError" if json_error else None, "parse_error_excerpt": safe_excerpt(json_error or "", 500), "command_status_classification": cmd_status, "provider_null_classification": null_class, "provider_boundary_classification": boundary, "output_status_classification": output_status, "rate_or_cooldown_signal": rate}
+    parse_result = {"schema": "stickbot.context_plus.hard_negative.raw_parse_result.v1", "created_utc": now_utc(), "run_id": run_id, "attempt_id": attempt_id, "case_id": cid, "returncode": returncode, "timed_out": timed_out, "timeout_error": timeout_error, "stdout_text_decode_ok": stdout_ok, "stdout_decode_error": stdout_decode_error, "stderr_text_decode_ok": stderr_ok, "stderr_decode_error": stderr_decode_error, "stdout_json_parse_ok": json_ok, "stdout_json_top_level_type": type(payload).__name__ if json_ok else None, "stdout_json_keys": sorted(payload.keys()) if isinstance(payload, dict) else [], "provider_field_present": provider_field_present, "provider_raw_value": provider_raw, "provider_normalized": provider, "output_text_present": output_present, "parse_error_type": "JSONDecodeError" if json_error else None, "parse_error_excerpt": safe_excerpt(json_error or "", 500), "command_status_classification": cmd_status, "provider_null_classification": null_class, "provider_boundary_classification": boundary, "output_status_classification": output_status, "rate_or_cooldown_signal": rate, "rate_or_cooldown_reasons": rate_reasons}
     write_json(attempt_dir / "child_outputs.sha256.json", hashes)
     write_json(attempt_dir / "parse_result.json", parse_result)
-    rec = {"schema": "stickbot.context_plus.hard_negative.production_routing.v2", "created_utc": now_utc(), "run_id": run_id, "attempt_id": attempt_id, "case_id": cid, "case_sequence": seq, "category": case["category"], "visible_user_text": case["visible_user_text"], "visible_user_text_sha256": case["visible_user_text_sha256"], "expected_route_class": case["expected_route_class"], "allowed_behavior": case["allowed_behavior"], "forbidden_behavior": case["forbidden_behavior"], "negative_trigger_type": case["negative_trigger_type"], "raw_attempt_dir": str(attempt_dir), "raw_stdout_path": str(stdout_path), "raw_stderr_path": str(stderr_path), "stdout_sha256": hashes["stdout_sha256"], "stderr_sha256": hashes["stderr_sha256"], "stdout_bytes": len(stdout_bytes), "stderr_bytes": len(stderr_bytes), "returncode": returncode, "timed_out": timed_out, "command_status_classification": cmd_status, "provider_null_classification": null_class, "provider": provider, "expected_provider": expected_provider, "provider_boundary_classification": boundary, "provider_path_verified_gateway_token_broker": boundary == "PASS_PROVIDER_VERIFIED", "output_present": output_present, "output_status_classification": output_status, "output_text_excerpt": safe_excerpt(output_text, 1000), "false_positive": fp, "false_positive_reasons": reasons, "ambiguity_continuation_regression": bool(fp and case["category"] == "HN1_AMBIGUOUS_APPROVAL_CONTINUATION"), "phrase_hardcoded_regression": False, "routing_regression": fp, "rate_or_cooldown_signal": rate, "gateway_model_provider_calls": PROVIDER_CALLS_THIS_PROCESS, "mutation_performed": False}
+    rec = {"schema": "stickbot.context_plus.hard_negative.production_routing.v2", "created_utc": now_utc(), "run_id": run_id, "attempt_id": attempt_id, "case_id": cid, "case_sequence": seq, "category": case["category"], "visible_user_text": case["visible_user_text"], "visible_user_text_sha256": case["visible_user_text_sha256"], "expected_route_class": case["expected_route_class"], "allowed_behavior": case["allowed_behavior"], "forbidden_behavior": case["forbidden_behavior"], "negative_trigger_type": case["negative_trigger_type"], "raw_attempt_dir": str(attempt_dir), "raw_stdout_path": str(stdout_path), "raw_stderr_path": str(stderr_path), "stdout_sha256": hashes["stdout_sha256"], "stderr_sha256": hashes["stderr_sha256"], "stdout_bytes": len(stdout_bytes), "stderr_bytes": len(stderr_bytes), "returncode": returncode, "timed_out": timed_out, "command_status_classification": cmd_status, "provider_null_classification": null_class, "provider": provider, "expected_provider": expected_provider, "provider_boundary_classification": boundary, "provider_path_verified_gateway_token_broker": boundary == "PASS_PROVIDER_VERIFIED", "output_present": output_present, "output_status_classification": output_status, "output_text_excerpt": safe_excerpt(output_text, 1000), "false_positive": fp, "false_positive_reasons": reasons, "ambiguity_continuation_regression": bool(fp and case["category"] == "HN1_AMBIGUOUS_APPROVAL_CONTINUATION"), "phrase_hardcoded_regression": False, "routing_regression": fp, "rate_or_cooldown_signal": rate, "rate_or_cooldown_reasons": rate_reasons, "gateway_model_provider_calls": PROVIDER_CALLS_THIS_PROCESS, "mutation_performed": False}
     write_json(attempt_dir / "attempt_completed.json", {"schema": "stickbot.context_plus.hard_negative.raw_attempt_completed.v1", "created_utc": now_utc(), "run_id": run_id, "attempt_id": attempt_id, "case_id": cid, "case_sequence": seq, "returncode": returncode, "timed_out": timed_out, "command_status_classification": cmd_status, "provider_boundary_classification": boundary, "gateway_model_provider_calls_after": PROVIDER_CALLS_THIS_PROCESS, "mutation_performed": False})
     return rec
 
@@ -614,6 +655,56 @@ def cmd_harness_repair_selftest(args: argparse.Namespace) -> int:
     summary = {"schema": "stickbot.context_plus.hard_negative.harness_repair_selftest_summary.v1", "classification": "PASS_HARNESS_REPAIR_FIXTURES_VALIDATED" if passed else "FAIL_HARNESS_REPAIR_FIXTURE_VALIDATION", "checks": checks, "passed_count": sum(1 for c in checks if c["passed"]), "failed_count": sum(1 for c in checks if not c["passed"]), "provider_null_fixture_classification": rec_null["provider_null_classification"], "provider_mismatch_fixture_classification": rec_mismatch["provider_boundary_classification"], "missing_output_fixture_classification": rec_missing["output_status_classification"], "completed_journal_duplicate_prevention_classification": dup["classification"], "remaining_case_plan_classification": remaining_plan["classification"], "gateway_model_provider_calls": PROVIDER_CALLS_THIS_PROCESS, "mutation_performed": False}
     write_json(out_dir / "harness_repair_selftest_summary.json", summary); print(json.dumps(summary, sort_keys=True)); return 0 if passed else 2
 
+def cmd_rate_cooldown_fixture_selftest(args: argparse.Namespace) -> int:
+    out_dir = Path(args.out_dir); out_dir.mkdir(parents=True, exist_ok=True)
+    checks: list[dict[str, Any]] = []
+    fixtures = [
+        ("sha_hash_429_no_trigger", "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", False),
+        ("hash_like_429_no_trigger", "sha256: aa429bbccddeeff00112233445566778899aabbccddeeff0011223344556677", False),
+        ("embedded_number_429_no_trigger", "The artifact id is build-1429-final and the command completed successfully.", False),
+        ("http_429_trigger", "HTTP 429 Too Many Requests", True),
+        ("json_status_429_trigger", '{"status_code": 429, "message": "Too Many Requests"}', True),
+        ("rate_limit_text_trigger", "Provider returned rate limit exceeded. Retry later.", True),
+        ("too_many_requests_text_trigger", "Too many requests; please retry after 60 seconds.", True),
+        ("quota_exceeded_text_trigger", "Quota exceeded for this provider.", True),
+        ("cooldown_text_trigger", "Provider cooldown active; try again in 180 seconds.", True),
+        ("retry_after_header_trigger", "HTTP/1.1 429 Too Many Requests\nRetry-After: 120", True),
+    ]
+    for name, text, expected in fixtures:
+        payload = None
+        if text.lstrip().startswith("{"):
+            try:
+                payload = json.loads(text)
+            except json.JSONDecodeError:
+                payload = None
+        actual, reasons = rate_or_cooldown_signal(text, "", payload)
+        add_check(checks, name, actual is expected, {"expected": expected, "actual": actual, "reasons": reasons, "text_excerpt": safe_excerpt(text, 200)})
+    if args.fixture_source:
+        raw_dir = Path(args.fixture_source)
+        stdout_text = (raw_dir / "child_stdout.raw").read_text(encoding="utf-8", errors="replace")
+        stderr_text = (raw_dir / "child_stderr.raw").read_text(encoding="utf-8", errors="replace") if (raw_dir / "child_stderr.raw").exists() else ""
+        payload = None
+        try:
+            payload = json.loads(stdout_text) if stdout_text.strip() else None
+        except json.JSONDecodeError:
+            payload = None
+        actual, reasons = rate_or_cooldown_signal(stdout_text, stderr_text, payload)
+        add_check(checks, "mb12_hn0184_saved_output_no_rate_cooldown", actual is False, {"fixture_source": str(raw_dir), "expected": False, "actual": actual, "reasons": reasons})
+    passed = all(c["passed"] for c in checks) and PROVIDER_CALLS_THIS_PROCESS == 0
+    summary = {
+        "schema": "stickbot.context_plus.hard_negative.rate_cooldown_fixture_selftest.v1",
+        "classification": "PASS_RATE_COOLDOWN_FIXTURES_VALIDATED" if passed else "FAIL_RATE_COOLDOWN_FIXTURE_VALIDATION",
+        "checks": checks,
+        "passed_count": sum(1 for c in checks if c["passed"]),
+        "failed_count": sum(1 for c in checks if not c["passed"]),
+        "fixture_source": args.fixture_source,
+        "gateway_model_provider_calls": PROVIDER_CALLS_THIS_PROCESS,
+        "mutation_performed": False,
+    }
+    write_json(out_dir / "rate_cooldown_fixture_selftest_summary.json", summary)
+    print(json.dumps(summary, sort_keys=True, ensure_ascii=False))
+    return 0 if passed else 2
+
 def add_common_manifest_args(p: argparse.ArgumentParser) -> None:
     p.add_argument("--manifest", required=True); p.add_argument("--manifest-sha256", default=APPROVED_HARD_NEGATIVE_MANIFEST_SHA256); p.add_argument("--allow-fixture-manifest", action="store_true", help="Skip approved 240-case shape checks for local fixture manifests only")
 
@@ -638,6 +729,7 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("write-report", help="Write markdown from comparison JSON; zero provider calls"); p.add_argument("--comparison-json", required=True); p.add_argument("--out-md", required=True); p.set_defaults(func=cmd_write_report)
     p = sub.add_parser("fixture-selftest", help="Run local fixture scoring self-test; zero provider calls"); p.add_argument("--out-dir", required=True); p.set_defaults(func=cmd_fixture_selftest)
     p = sub.add_parser("harness-repair-selftest", help="Run local provider-boundary repair fixture tests; zero provider calls"); p.add_argument("--out-dir", required=True); p.set_defaults(func=cmd_harness_repair_selftest)
+    p = sub.add_parser("rate-cooldown-fixture-selftest", help="Run local rate/cooldown parser fixture tests; zero provider calls"); p.add_argument("--out-dir", required=True); p.add_argument("--fixture-source"); p.set_defaults(func=cmd_rate_cooldown_fixture_selftest)
     return parser
 
 def main(argv: list[str] | None = None) -> int:

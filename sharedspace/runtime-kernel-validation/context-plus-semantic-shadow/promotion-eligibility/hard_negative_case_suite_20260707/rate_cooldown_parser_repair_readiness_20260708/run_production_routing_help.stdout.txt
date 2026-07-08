@@ -1,0 +1,41 @@
+usage: context_plus_hard_negative_evaluator.py run-production-routing
+       [-h] --manifest MANIFEST [--manifest-sha256 MANIFEST_SHA256]
+       [--allow-fixture-manifest] --out-dir OUT_DIR --transport TRANSPORT
+       --model MODEL --expected-provider EXPECTED_PROVIDER [--run-id RUN_ID]
+       [--max-cases MAX_CASES] [--min-delay-ms MIN_DELAY_MS]
+       [--max-retries MAX_RETRIES] [--timeout-seconds TIMEOUT_SECONDS]
+       [--abort-on-rate-limit] [--abort-on-provider-cooldown]
+       [--abort-on-provider-path-mismatch] [--abort-on-mutation]
+       [--require-mutation-sentinel] [--read-only]
+       [--no-route-config-gateway-memory-cache-mutation] [--remaining-only]
+       [--allow-partial-remaining] [--dry-run] [--execute-approved]
+       [--resume-from RESUME_FROM]
+
+options:
+  -h, --help            show this help message and exit
+  --manifest MANIFEST
+  --manifest-sha256 MANIFEST_SHA256
+  --allow-fixture-manifest
+                        Skip approved 240-case shape checks for local fixture
+                        manifests only
+  --out-dir OUT_DIR
+  --transport TRANSPORT
+  --model MODEL
+  --expected-provider EXPECTED_PROVIDER
+  --run-id RUN_ID
+  --max-cases MAX_CASES
+  --min-delay-ms MIN_DELAY_MS
+  --max-retries MAX_RETRIES
+  --timeout-seconds TIMEOUT_SECONDS
+  --abort-on-rate-limit
+  --abort-on-provider-cooldown
+  --abort-on-provider-path-mismatch
+  --abort-on-mutation
+  --require-mutation-sentinel
+  --read-only
+  --no-route-config-gateway-memory-cache-mutation
+  --remaining-only
+  --allow-partial-remaining
+  --dry-run
+  --execute-approved
+  --resume-from RESUME_FROM

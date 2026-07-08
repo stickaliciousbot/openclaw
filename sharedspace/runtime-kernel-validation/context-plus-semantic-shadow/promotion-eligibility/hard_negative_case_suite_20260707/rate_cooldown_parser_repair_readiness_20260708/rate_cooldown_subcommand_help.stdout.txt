@@ -1,0 +1,7 @@
+usage: context_plus_hard_negative_evaluator.py rate-cooldown-fixture-selftest
+       [-h] --out-dir OUT_DIR [--fixture-source FIXTURE_SOURCE]
+
+options:
+  -h, --help            show this help message and exit
+  --out-dir OUT_DIR
+  --fixture-source FIXTURE_SOURCE

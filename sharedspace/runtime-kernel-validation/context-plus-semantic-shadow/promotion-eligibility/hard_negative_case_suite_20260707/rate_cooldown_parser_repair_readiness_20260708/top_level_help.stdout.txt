@@ -1,0 +1,37 @@
+usage: context_plus_hard_negative_evaluator.py [-h] [--version]
+                                               {validate-manifest,run-production-routing,validate-resume,plan-remaining-cases,run-context-plus-shadow-routing,compare,write-report,fixture-selftest,harness-repair-selftest,rate-cooldown-fixture-selftest}
+                                               ...
+
+Context+ hard-negative evaluation harness
+
+positional arguments:
+  {validate-manifest,run-production-routing,validate-resume,plan-remaining-cases,run-context-plus-shadow-routing,compare,write-report,fixture-selftest,harness-repair-selftest,rate-cooldown-fixture-selftest}
+    validate-manifest   Validate approved hard-negative manifest; zero
+                        provider calls
+    run-production-routing
+                        Run or dry-run production routing; live Gateway calls
+                        require --execute-approved and no --dry-run
+    validate-resume     Validate completed journal/raw evidence for duplicate-
+                        safe resume planning; zero provider calls
+    plan-remaining-cases
+                        Write remaining-case execution plan from resume
+                        validation; zero provider calls
+    run-context-plus-shadow-routing
+                        Run local/offline Context+ shadow routing; zero
+                        provider calls
+    compare             Compare production and Context+ shadow hard-negative
+                        journals; zero provider calls
+    write-report        Write markdown from comparison JSON; zero provider
+                        calls
+    fixture-selftest    Run local fixture scoring self-test; zero provider
+                        calls
+    harness-repair-selftest
+                        Run local provider-boundary repair fixture tests; zero
+                        provider calls
+    rate-cooldown-fixture-selftest
+                        Run local rate/cooldown parser fixture tests; zero
+                        provider calls
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit

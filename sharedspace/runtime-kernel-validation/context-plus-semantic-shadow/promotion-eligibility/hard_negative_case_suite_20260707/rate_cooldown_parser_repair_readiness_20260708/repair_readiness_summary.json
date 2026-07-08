@@ -1,0 +1,197 @@
+{
+  "checks": [
+    {
+      "details": {},
+      "name": "python_compile_passed",
+      "passed": true
+    },
+    {
+      "details": {},
+      "name": "top_level_help_passed",
+      "passed": true
+    },
+    {
+      "details": {},
+      "name": "rate_cooldown_subcommand_help_passed",
+      "passed": true
+    },
+    {
+      "details": {},
+      "name": "run_production_routing_help_passed",
+      "passed": true
+    },
+    {
+      "details": {
+        "actual": false,
+        "expected": false,
+        "reasons": [],
+        "text_excerpt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "name": "sha_hash_429_no_trigger",
+      "passed": true
+    },
+    {
+      "details": {
+        "actual": false,
+        "expected": false,
+        "reasons": [],
+        "text_excerpt": "sha256: aa429bbccddeeff00112233445566778899aabbccddeeff0011223344556677"
+      },
+      "name": "hash_like_429_no_trigger",
+      "passed": true
+    },
+    {
+      "details": {
+        "actual": false,
+        "expected": false,
+        "reasons": [],
+        "text_excerpt": "The artifact id is build-1429-final and the command completed successfully."
+      },
+      "name": "embedded_number_429_no_trigger",
+      "passed": true
+    },
+    {
+      "details": {
+        "actual": true,
+        "expected": true,
+        "reasons": [
+          "http_status_429",
+          "standalone_429_with_context",
+          "too_many_requests_phrase"
+        ],
+        "text_excerpt": "HTTP 429 Too Many Requests"
+      },
+      "name": "http_429_trigger",
+      "passed": true
+    },
+    {
+      "details": {
+        "actual": true,
+        "expected": true,
+        "reasons": [
+          "json_status_429",
+          "payload_status_code_429",
+          "payload_too_many_requests_phrase",
+          "standalone_429_with_context",
+          "too_many_requests_phrase"
+        ],
+        "text_excerpt": "{\"status_code\": 429, \"message\": \"Too Many Requests\"}"
+      },
+      "name": "json_status_429_trigger",
+      "passed": true
+    },
+    {
+      "details": {
+        "actual": true,
+        "expected": true,
+        "reasons": [
+          "rate_limit_phrase"
+        ],
+        "text_excerpt": "Provider returned rate limit exceeded. Retry later."
+      },
+      "name": "rate_limit_text_trigger",
+      "passed": true
+    },
+    {
+      "details": {
+        "actual": true,
+        "expected": true,
+        "reasons": [
+          "retry_after_phrase",
+          "too_many_requests_phrase"
+        ],
+        "text_excerpt": "Too many requests; please retry after 60 seconds."
+      },
+      "name": "too_many_requests_text_trigger",
+      "passed": true
+    },
+    {
+      "details": {
+        "actual": true,
+        "expected": true,
+        "reasons": [
+          "quota_phrase"
+        ],
+        "text_excerpt": "Quota exceeded for this provider."
+      },
+      "name": "quota_exceeded_text_trigger",
+      "passed": true
+    },
+    {
+      "details": {
+        "actual": true,
+        "expected": true,
+        "reasons": [
+          "cooldown_phrase",
+          "retry_after_phrase"
+        ],
+        "text_excerpt": "Provider cooldown active; try again in 180 seconds."
+      },
+      "name": "cooldown_text_trigger",
+      "passed": true
+    },
+    {
+      "details": {
+        "actual": true,
+        "expected": true,
+        "reasons": [
+          "http_status_429",
+          "retry_after_phrase",
+          "standalone_429_with_context",
+          "too_many_requests_phrase"
+        ],
+        "text_excerpt": "HTTP/1.1 429 Too Many Requests\nRetry-After: 120"
+      },
+      "name": "retry_after_header_trigger",
+      "passed": true
+    },
+    {
+      "details": {
+        "actual": false,
+        "expected": false,
+        "fixture_source": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_micro_batch_12_timeout_retry_20260708T1736AEST/raw_calls/0001_hn-20260707-0184_attempt-0001",
+        "reasons": []
+      },
+      "name": "mb12_hn0184_saved_output_no_rate_cooldown",
+      "passed": true
+    },
+    {
+      "details": {
+        "actual": 0
+      },
+      "name": "zero_gateway_model_provider_calls",
+      "passed": true
+    },
+    {
+      "details": {},
+      "name": "git_diff_check_passed",
+      "passed": true
+    }
+  ],
+  "classification": "PASS_RATE_COOLDOWN_PARSER_REPAIR_LOCAL_VALIDATED",
+  "closeout_after_preservation": "HOLD_BEFORE_SELECTIVE_COMMIT_PUSH",
+  "failed_count": 0,
+  "fixture_summary": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/rate_cooldown_parser_repair_readiness_20260708/fixture_selftest/rate_cooldown_fixture_selftest_summary.json",
+  "forbidden_actions": {
+    "cache_enablement": "NOT_RUN",
+    "comparator": "BLOCKED_NOT_RUN",
+    "live_evaluation": "NOT_RUN",
+    "m6_proposal": "BLOCKED_NOT_RUN",
+    "mb12_resume": "NOT_RUN",
+    "mb13_start": "NOT_RUN",
+    "memory_promotion": "NOT_RUN",
+    "production_apply": "NOT_RUN",
+    "promotion": "BLOCKED_NOT_RUN",
+    "provider_model_change": "NOT_RUN",
+    "route_config_gateway_mutation": "NOT_RUN"
+  },
+  "gateway_model_provider_calls": 0,
+  "mutation_performed": false,
+  "note": "Initial readiness summarizer used overly strict help text checks; command help outputs were present and valid. This summary corrects the help assertions without additional provider calls.",
+  "passed_count": 17,
+  "schema": "stickbot.context_plus.hard_negative.rate_cooldown_parser_repair_readiness.v1",
+  "scoped_git_status": [
+    " M scripts/context_plus_hard_negative_evaluator.py",
+    "?? sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/rate_cooldown_parser_repair_readiness_20260708/"
+  ]
+}
