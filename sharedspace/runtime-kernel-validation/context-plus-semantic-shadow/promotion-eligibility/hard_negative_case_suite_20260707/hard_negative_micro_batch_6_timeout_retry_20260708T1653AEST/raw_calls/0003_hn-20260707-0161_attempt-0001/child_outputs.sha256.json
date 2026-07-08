@@ -1,0 +1,14 @@
+{
+  "attempt_id": "hard-negative-micro-batch-6-timeout-retry-20260708T1653AEST:0003:hn-20260707-0161:attempt-0001",
+  "attempt_number": 1,
+  "case_id": "hn-20260707-0161",
+  "created_utc": "2026-07-08T06:55:10Z",
+  "run_id": "hard-negative-micro-batch-6-timeout-retry-20260708T1653AEST",
+  "schema": "stickbot.context_plus.hard_negative.raw_child_outputs_sha256.v1",
+  "stderr_bytes": 0,
+  "stderr_present": false,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_bytes": 366,
+  "stdout_present": true,
+  "stdout_sha256": "8bc1897ef6dbef997376eef247f005f4aa4a14ff44ee66748a0b34a4fe1d5e30"
+}

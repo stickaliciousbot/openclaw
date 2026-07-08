@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "I couldn’t access targeted_file_read cleanly, so I did not guess. degraded_reason=file_read_result_missing; safe_next=retry after tool path check.",
+      "mediaUrl": null
+    }
+  ]
+}

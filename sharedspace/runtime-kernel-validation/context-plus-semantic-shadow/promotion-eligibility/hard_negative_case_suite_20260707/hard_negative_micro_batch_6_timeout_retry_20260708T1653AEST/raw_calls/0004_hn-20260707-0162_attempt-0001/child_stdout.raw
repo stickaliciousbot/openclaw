@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "**Quick validation workflow (no file changes required)**  \n\n1. **Identify the manifest file**  \n   - Typical names: `manifest.json`, `manifest.yaml`, `manifest.yml`.  \n   - If it’s a Kubernetes‑style manifest, it’s usually YAML; if it’s a generic app config, it’s often JSON.\n\n2. **Locate the schema definition**  \n   - Look for a sibling file like `manifest.schema.json` or `schema.yaml`.  \n   - If the project references an external schema (e.g., via `$schema` key or a README link), copy that URL.\n\n3. **Pick a validator that matches the format**  \n\n   | Format | CLI tool | Python lib | Node lib |\n   |--------|----------|------------|----------|\n   | JSON   | `ajv-cli` (`npm i -g ajv-cli`) | `jsonschema` (`pip install jsonschema`) | `ajv` (`npm i ajv`) |\n   | YAML   | `yamllint` (basic syntax) + `jsonschema` (schema) | `pyyaml` + `jsonschema` | `ajv` with `yaml` parser (e.g., `yaml` npm package) |\n\n4. **Run the validator**\n\n   **JSON – using `ajv-cli`**\n   ```bash\n   ajv validate -s manifest.schema.json -d manifest.json\n   ```\n   **JSON – using Python**\n   ```bash\n   python - <<'PY'\n   import json, sys, jsonschema, pathlib\n   schema = json.load(open('manifest.schema.json'))\n   data   = json.load(open('manifest.json'))\n   try:\n       jsonschema.validate(instance=data, schema=schema)\n       print(\"✅ Manifest conforms to schema\")\n   except jsonschema.exceptions.ValidationError as e:\n       print(\"❌ Validation error:\", e.message)\n       sys.exit(1)\n   PY\n   ```\n\n   **YAML – using Python**\n   ```bash\n   python - <<'PY'\n   import yaml, jsonschema, sys, pathlib\n   schema = json.load(open('manifest.schema.json'))   # schema must be JSON Schema\n   data   = yaml.safe_load(open('manifest.yaml'))\n   try:\n       jsonschema.validate(instance=data, schema=schema)\n       print(\"✅ Manifest conforms to schema\")\n   except jsonschema.exceptions.ValidationError as e:\n       print(\"❌ Validation error:\", e.message)\n       sys.exit(1)\n   PY\n   ```\n\n5. **Interpret the output**  \n   - **✅** means the file passes every rule in the schema.  \n   - **❌** will give a path (e.g., `data.settings.port`) and a message (e.g., “is not of type 'integer'”). Fix the source file if needed; the validation itself does not alter anything.\n\n6. **Automate (optional)**  \n   Add a pre‑commit hook or CI step that runs the same command so every push is validated automatically.\n\n**No file modifications are performed**—the commands only read the manifest and schema, then report success or errors. If you hit a missing schema or an unsupported format, let me know the exact filenames and I can suggest a concrete command tailored to your repo.",
+      "mediaUrl": null
+    }
+  ]
+}

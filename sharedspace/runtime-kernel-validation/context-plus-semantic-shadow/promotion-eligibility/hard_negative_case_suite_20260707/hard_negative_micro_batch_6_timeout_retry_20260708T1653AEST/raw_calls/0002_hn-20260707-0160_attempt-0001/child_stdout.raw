@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "**Python (cross‑platform)**  \n\n```python\nimport os\nfrom pathlib import Path\n\ndef output_dir_exists(dir_path: str | os.PathLike) -> bool:\n    \"\"\"\n    Return True if *dir_path* exists and is a directory.\n    Does **not** create the directory.\n    \"\"\"\n    p = Path(dir_path)\n    return p.is_dir()\n```\n\n*Usage*\n\n```python\nif output_dir_exists(\"./results\"):\n    print(\"Directory exists – proceed\")\nelse:\n    print(\"Directory missing – handle accordingly\")\n```\n\n**Bash / POSIX shell**\n\n```sh\nDIR=\"./results\"\n\nif [ -d \"$DIR\" ]; then\n    echo \"Directory exists\"\nelse\n    echo \"Directory does not exist\"\nfi\n```\n\nBoth snippets only **check** existence; they never invoke `mkdir` or any creation routine. Adjust `dir_path` / `$DIR` to the target output location.",
+      "mediaUrl": null
+    }
+  ]
+}
