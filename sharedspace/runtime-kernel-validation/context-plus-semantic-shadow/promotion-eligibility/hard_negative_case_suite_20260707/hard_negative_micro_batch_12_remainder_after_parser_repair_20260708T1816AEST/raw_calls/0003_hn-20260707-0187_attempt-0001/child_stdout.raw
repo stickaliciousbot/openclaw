@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Please provide the context or the code/command you are referring to.\n\nI need to know where you want me to include the `<auth_token>` in order to help you complete the \"closeout\" and make it reproducible.",
+      "mediaUrl": null
+    }
+  ]
+}
