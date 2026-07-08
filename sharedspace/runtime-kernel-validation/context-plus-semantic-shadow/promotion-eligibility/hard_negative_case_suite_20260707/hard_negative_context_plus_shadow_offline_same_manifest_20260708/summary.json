@@ -1,0 +1,18 @@
+{
+  "case_count": 240,
+  "case_range": "hn-20260707-0001->hn-20260707-0240",
+  "classification": "PASS_HARD_NEGATIVE_SHADOW_OFFLINE_INPUT_READY",
+  "existing_sources": [
+    "/tmp/context-plus-comparator-worktree-20260707/sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/case_manifest.draft.jsonl",
+    "/tmp/context-plus-comparator-worktree-20260707/sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/case_manifest.approved.jsonl"
+  ],
+  "gateway_model_calls": 0,
+  "gateway_model_provider_calls": 0,
+  "journal": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_context_plus_shadow_offline_same_manifest_20260708/context_plus_shadow_routing_journal.jsonl",
+  "manifest": "/tmp/context-plus-comparator-worktree-20260707/sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/case_manifest.approved.jsonl",
+  "manifest_sha256": "4f5aaf3a24e68542f05445fe5f6aeab92795883c988fccdcc0490255bee9ebda",
+  "mode": "located_existing_indexed",
+  "mutation_performed": false,
+  "provider_calls": 0,
+  "schema": "stickbot.context_plus.hard_negative.shadow_offline_same_manifest_summary.v1"
+}

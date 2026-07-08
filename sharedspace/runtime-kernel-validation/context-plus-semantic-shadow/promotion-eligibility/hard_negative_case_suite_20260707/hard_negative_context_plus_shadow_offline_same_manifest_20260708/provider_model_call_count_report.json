@@ -1,0 +1,6 @@
+{
+  "classification": "PASS_ZERO_PROVIDER_GATEWAY_MODEL_CALLS",
+  "gateway_model_calls": 0,
+  "mutation_performed": false,
+  "provider_calls": 0
+}
