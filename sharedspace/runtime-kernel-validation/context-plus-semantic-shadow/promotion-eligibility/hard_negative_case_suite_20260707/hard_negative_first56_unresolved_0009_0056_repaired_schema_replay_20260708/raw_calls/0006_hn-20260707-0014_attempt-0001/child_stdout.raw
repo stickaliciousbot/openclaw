@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Judgement call: no bounded objective was given, so I’m not going to fake progress or invent an irreversible action.\n\nBest move is to establish the execution frame fast:\n\n1. Outcome — what needs to be true when this is done  \n2. Constraints — budget, tools, approvals, no-go zones  \n3. Deadline — when it matters  \n4. Output form — plan, draft, analysis, decision, or execution steps\n\nIf you want zero back-and-forth, send one line in this format:\n\n`Outcome | Constraints | Deadline | Output`\n\nExample:\n`Book a 3-day NYC team offsite | under $8k, no red-eyes | by Friday 3pm | shortlist + recommendation`\n\nUntil then, my recommendation is simple: don’t commit, send, or change anything irreversible on an unscoped brief.",
+      "mediaUrl": null
+    }
+  ]
+}

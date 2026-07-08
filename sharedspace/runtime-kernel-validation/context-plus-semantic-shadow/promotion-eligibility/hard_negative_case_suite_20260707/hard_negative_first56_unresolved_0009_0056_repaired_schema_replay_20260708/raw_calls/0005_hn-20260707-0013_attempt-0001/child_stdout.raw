@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Safe path selected.\n\nBlocker: this handoff doesn’t include the task state, so I can’t safely continue the actual work yet.\n\nDefault safe posture from here:\n- no destructive or irreversible actions\n- verify before claiming anything is done\n- preserve current state\n- surface uncertainty before changing course\n\nSend the last step, file, plan, or target, and I’ll continue conservatively from there.",
+      "mediaUrl": null
+    }
+  ]
+}

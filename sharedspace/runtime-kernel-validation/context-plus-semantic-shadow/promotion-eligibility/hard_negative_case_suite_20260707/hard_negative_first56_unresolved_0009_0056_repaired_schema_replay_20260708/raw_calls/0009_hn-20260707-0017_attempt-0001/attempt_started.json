@@ -1,0 +1,13 @@
+{
+  "attempt_number": 1,
+  "case_id": "hn-20260707-0017",
+  "case_sequence": 9,
+  "created_utc": "2026-07-08T12:15:48.608718Z",
+  "expected_provider": "token-broker-vmesh",
+  "model": "token-broker-vmesh/auto",
+  "mutation_performed": false,
+  "run_id": "first56-0009-0056-repaired-20260708",
+  "schema": "stickbot.context_plus.hard_negative.raw_attempt_started.v1",
+  "timeout_seconds": 120,
+  "transport": "gateway"
+}

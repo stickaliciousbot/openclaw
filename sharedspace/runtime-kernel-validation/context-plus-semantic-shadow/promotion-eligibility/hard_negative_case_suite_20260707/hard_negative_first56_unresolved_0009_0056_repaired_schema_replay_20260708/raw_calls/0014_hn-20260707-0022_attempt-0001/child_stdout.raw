@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Memory check: apply the previous recommendation.: PASS. Evidence: - **M12-C1 accepted limited production expansion** (2026-06-27): `M12_C1P5_LIMITED_PRODUCTION_ACCEPTANCE_FINALIZATION_PASS` freezes **M12-C1 bounded artifact status Q&A** as the first accepted limited production expansion. Boundary: deterministic/read-only bounded artifact status Q&A over approved artifact SourceRows with C1K answer-envelope/source-authorit…. Sources: MEMORY.md#L18, MEMORY.md#L19, MEMORY.md#L20.",
+      "mediaUrl": null
+    }
+  ]
+}

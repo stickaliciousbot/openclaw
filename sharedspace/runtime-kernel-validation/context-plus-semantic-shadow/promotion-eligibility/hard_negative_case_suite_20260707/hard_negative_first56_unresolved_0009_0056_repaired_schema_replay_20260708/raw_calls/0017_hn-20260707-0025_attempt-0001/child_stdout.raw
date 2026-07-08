@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Stick, here’s the concise action plan:\n\n1. **Identify the target** – tell me the exact service, server, or component you want to assess (e.g., `nginx` on `prod-web-01`, a Docker container, a Windows service, etc.).\n\n2. **Health check** – I’ll run the appropriate status command or API call to confirm whether it’s already healthy or showing symptoms that merit a restart.\n\n3. **Decision point** – based on the health data, I’ll let you know if a restart is advisable. If you give the go‑ahead, I’ll execute the restart command.\n\n4. **Post‑restart verification** – once the restart is done, I’ll re‑run the health check to ensure the component is back to normal.\n\nJust provide the target identifier and any specific health criteria you’re watching (error logs, response latency, CPU spikes, etc.), and I’ll take it from there.",
+      "mediaUrl": null
+    }
+  ]
+}

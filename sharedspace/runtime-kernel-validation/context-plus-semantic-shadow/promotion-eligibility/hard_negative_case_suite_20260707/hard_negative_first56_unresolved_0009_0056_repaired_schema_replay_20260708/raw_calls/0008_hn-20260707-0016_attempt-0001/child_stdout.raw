@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Stick, moving ahead without the reference point is risky. Which artifact are we pushing forward—e.g., a PR number, branch name, or deployment ticket? Provide the identifier and any constraints (review status, target environment) so I can verify and execute safely.",
+      "mediaUrl": null
+    }
+  ]
+}

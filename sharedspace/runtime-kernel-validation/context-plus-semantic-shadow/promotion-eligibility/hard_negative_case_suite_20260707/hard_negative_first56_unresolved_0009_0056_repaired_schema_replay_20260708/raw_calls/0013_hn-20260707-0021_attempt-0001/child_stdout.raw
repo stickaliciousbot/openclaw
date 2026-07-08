@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Stick, I need the exact definition of the “production step” you want completed. Is it building and publishing a Docker image, running database migrations, deploying to a specific environment (staging/prod), updating DNS, or something else? Provide the relevant repository, build commands, and any deployment targets so I can finish the step safely and correctly.",
+      "mediaUrl": null
+    }
+  ]
+}

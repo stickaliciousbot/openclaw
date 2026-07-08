@@ -1,0 +1,29 @@
+{
+  "classification": "PASS_PROVIDER_NULL_TAXONOMY_RECORDED",
+  "gateway_model_provider_calls": 20,
+  "mutation_performed": false,
+  "provider_null_cases": [
+    {
+      "case_id": "hn-20260707-0027",
+      "provider_boundary_classification": "HOLD_COMMAND_FAILURE_PROVIDER_UNVERIFIED_TIMEOUT",
+      "provider_null_classification": "PROVIDER_NULL_TIMEOUT",
+      "returncode": 124,
+      "stderr_bytes": 0,
+      "stdout_bytes": 0,
+      "timed_out": true
+    },
+    {
+      "case_id": "hn-20260707-0027",
+      "provider_boundary_classification": "HOLD_COMMAND_FAILURE_PROVIDER_UNVERIFIED_TIMEOUT",
+      "provider_null_classification": "PROVIDER_NULL_TIMEOUT",
+      "returncode": 124,
+      "stderr_bytes": 0,
+      "stdout_bytes": 0,
+      "timed_out": true
+    }
+  ],
+  "provider_null_counts": {
+    "PROVIDER_NULL_TIMEOUT": 2
+  },
+  "schema": "stickbot.context_plus.hard_negative.provider_null_taxonomy_report.v1"
+}

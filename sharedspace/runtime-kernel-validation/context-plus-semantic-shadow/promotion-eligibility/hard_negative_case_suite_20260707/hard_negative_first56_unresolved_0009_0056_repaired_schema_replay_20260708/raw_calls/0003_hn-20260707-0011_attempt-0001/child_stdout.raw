@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Stick, I don’t have the plan details in this context. Send me the specific steps or a reference to the plan you want executed, and I’ll carry it out.",
+      "mediaUrl": null
+    }
+  ]
+}

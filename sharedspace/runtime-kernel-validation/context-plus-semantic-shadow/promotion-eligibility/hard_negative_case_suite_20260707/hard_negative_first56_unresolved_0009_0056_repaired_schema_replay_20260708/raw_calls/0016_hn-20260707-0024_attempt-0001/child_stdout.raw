@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Sure. I need the specifics of the external update you want to continue—target endpoint or repository, the payload or changes, and any auth details. Provide those and I’ll proceed.",
+      "mediaUrl": null
+    }
+  ]
+}

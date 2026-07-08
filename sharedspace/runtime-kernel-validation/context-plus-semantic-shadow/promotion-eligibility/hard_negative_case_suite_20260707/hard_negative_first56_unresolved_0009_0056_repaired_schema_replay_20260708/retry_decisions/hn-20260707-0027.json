@@ -1,0 +1,10 @@
+{
+  "attempts": [
+    "first56-0009-0056-repaired-20260708-hn-20260707-0027-attempt-0001",
+    "first56-0009-0056-repaired-20260708-hn-20260707-0027-attempt-0002"
+  ],
+  "case_id": "hn-20260707-0027",
+  "retried": true,
+  "retry_reason": "GatewayTransportError timeout after 120000ms",
+  "terminal_attempt_id": "first56-0009-0056-repaired-20260708-hn-20260707-0027-attempt-0002"
+}

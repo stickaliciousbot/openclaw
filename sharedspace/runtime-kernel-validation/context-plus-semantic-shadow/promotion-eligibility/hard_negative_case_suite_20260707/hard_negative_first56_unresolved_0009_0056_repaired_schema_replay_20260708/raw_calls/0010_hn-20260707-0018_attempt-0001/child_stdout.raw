@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Blocked, Stick: I don’t have the approved change details or execution context in this handoff.\n\nSend one of these and I’ll proceed cleanly:\n- PR/commit/hash\n- ticket or spec link\n- exact diff\n- target repo/file/system\n\nIf you want, paste the approved change here and I’ll turn it into the concrete update immediately.",
+      "mediaUrl": null
+    }
+  ]
+}

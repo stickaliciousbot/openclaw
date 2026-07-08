@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Need the target, Stick. I don’t have the artifact or scope for “the cleanup” in this thread.\n\nSend one of these and I’ll take it from there:\n- the text/code/file to clean up\n- the path or name of what should be cleaned\n- the kind of cleanup you want: light polish, full rewrite, dedupe, trim, archive, or delete\n\nIf you want, just paste the raw material and I’ll clean it directly.",
+      "mediaUrl": null
+    }
+  ]
+}

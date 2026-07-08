@@ -1,0 +1,9 @@
+{
+  "classification": "PASS_NO_RATE_LIMIT_OR_COOLDOWN",
+  "events": [],
+  "gateway_model_provider_calls": 20,
+  "mutation_performed": false,
+  "rate_limit_or_cooldown_event_count": 0,
+  "schema": "stickbot.context_plus.hard_negative.rate_cooldown_report.v1",
+  "source_aware_parser": true
+}

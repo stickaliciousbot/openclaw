@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Copy that. Which specific result should I promote—e.g., a PR number, build artifact, branch, or other identifier? Let me know so I can move it forward.",
+      "mediaUrl": null
+    }
+  ]
+}

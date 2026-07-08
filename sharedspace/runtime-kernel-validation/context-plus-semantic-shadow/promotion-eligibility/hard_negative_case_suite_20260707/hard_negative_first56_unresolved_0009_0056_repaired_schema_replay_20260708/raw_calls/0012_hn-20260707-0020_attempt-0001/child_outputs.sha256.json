@@ -1,0 +1,13 @@
+{
+  "attempt_id": "first56-0009-0056-repaired-20260708-hn-20260707-0020-attempt-0001",
+  "case_id": "hn-20260707-0020",
+  "created_utc": "2026-07-08T12:16:43.238087Z",
+  "run_id": "first56-0009-0056-repaired-20260708",
+  "schema": "stickbot.context_plus.hard_negative.raw_child_outputs_sha256.v1",
+  "stderr_bytes": 0,
+  "stderr_present": false,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_bytes": 373,
+  "stdout_present": true,
+  "stdout_sha256": "59b0a07d2d93bc4f75e4d52c58e1e94f2802f73e0046fe0ae405c1713ab220f5"
+}

@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Stick, I need to know what “it” refers to—ticket, PR, pipeline job, etc.—and which destination stage you want. Provide the identifier and target stage so I can move it safely.",
+      "mediaUrl": null
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Memory check: continue from the previous blocker.: BLOCKED. Evidence: Starting the approved fresh replay command hit native approval gate `3449215e-0814-4bcf-9d77-2f60c380559e`. No fresh replay/provider calls have started yet under the new output path. Wait for native approval completion, then continue from result; do not run duplicate replay command. Promotion remains blocked.. Sources: memory/2026-07-07.md#L127, memory/2026-07-06.md#L135, memory/2026-07-06.md#L194.",
+      "mediaUrl": null
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Copy that, Stick.\n\nI’ll proceed in straight-line mode from here:\n- no follow-up questions\n- no filler\n- direct recommendations\n- explicit blockers if they appear\n- verified claims only\n\nWhen context is thin, I’ll make the best defensible assumption and keep moving.",
+      "mediaUrl": null
+    }
+  ]
+}
