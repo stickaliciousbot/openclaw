@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "**Promotion rubric that rewards *likely* improvement**\n\n1. **Define forward‑looking competency bands**  \n   - **Strategic impact** – how the employee’s work aligns with upcoming product/market goals.  \n   - **Growth potential** – demonstrated ability to acquire new skills or take on broader scopes (e.g., mentorship, cross‑team initiatives).  \n   - **Leadership trajectory** – propensity to influence decisions, shape architecture, or drive process change.  \n   - **Risk mitigation** – ability to anticipate pitfalls in future work and propose safeguards.\n\n2. **Quantify expected contribution**  \n   - **Projection score**: each band gets a 1‑5 rating, then weight them (e.g., strategic 30 % + growth 30 % + leadership 20 % + risk 20).  \n   - **Calibration session**: senior peers review the projection together, adjusting for bias and ensuring consistency across teams.\n\n3. **Blend with measured data (optional)**  \n   - Keep historical performance as a *baseline* (e.g., delivery velocity, code quality).  \n   - Use it only to confirm that the employee meets a minimum competence floor; the promotion decision hinges on the forward projection.\n\n4. **Decision gate**  \n   - **Pass** if weighted projection ≥ threshold (e.g., 3.5/5) **and** baseline competence is acceptable.  \n   - **Fail/Defer** if projection is low or baseline competence is below floor; provide a concrete development plan that targets the missing forward‑looking factors.\n\n5. **Feedback loop**  \n   - After promotion, track actual outcomes versus the projection.  \n   - Feed the variance back into the rubric to improve future likelihood estimates.\n\n**Why this works**\n\n- **Focuses on future value** – aligns talent moves with where the organization needs growth.  \n- **Reduces anchoring bias** on past metrics that may be noisy or context‑specific.  \n- **Keeps a safety net** by insisting on a competence floor, preventing promotions of under‑prepared staff.  \n\nImplement the rubric in the next cycle; start with a pilot in one high‑growth squad to validate the projection calibrations before rolling out org‑wide.",
+      "mediaUrl": null
+    }
+  ]
+}

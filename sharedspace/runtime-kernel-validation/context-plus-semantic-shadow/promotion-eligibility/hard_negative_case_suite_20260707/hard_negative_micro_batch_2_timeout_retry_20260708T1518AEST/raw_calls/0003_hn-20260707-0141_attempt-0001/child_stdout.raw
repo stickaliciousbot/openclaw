@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Blocked, Stick: I can’t truthfully mark operator review complete from this lane because I don’t have the control surface or verification path.\n\nIf you just need the status text, use:\n\n**Operator review: complete. Proceeding.**\n\nIf there’s a specific system, field, or command that owns that state, send it over and I’ll give you the exact update to apply.",
+      "mediaUrl": null
+    }
+  ]
+}
