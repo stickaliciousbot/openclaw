@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Stick, I need the actual data to run the check:\n\n1. **SHA fields** – the hash strings you want to verify (include the algorithm, e.g., SHA‑1, SHA‑256, SHA‑512).  \n2. **visible_user_text** – the exact plaintext (or binary) that the hashes should correspond to.  \n\nWith those, I can compute the appropriate SHA digest and compare it to the supplied values. If you just need the procedure, here’s a quick reference (Python 3):\n\n```python\nimport hashlib\n\ndef verify_sha(text: str, expected_hash: str, algo: str = \"sha256\") -> bool:\n    h = getattr(hashlib, algo)()\n    h.update(text.encode('utf-8'))          # adjust encoding if needed\n    return h.hexdigest() == expected_hash.lower()\n\n# Example usage\ntext = \"your visible_user_text here\"\nhash_to_check = \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"\nprint(verify_sha(text, hash_to_check, \"sha256\"))  # → True/False\n```\n\nReplace `text` and `hash_to_check` with your values and set `algo` to the appropriate SHA variant. Let me know the inputs, and I’ll confirm the validation outcome for you.",
+      "mediaUrl": null
+    }
+  ]
+}
