@@ -1,0 +1,20 @@
+{
+  "case_count": 20,
+  "classification": "PRODUCTION_ROUTING_EXECUTION_APPROVED_BY_FLAG",
+  "expected_provider": "token-broker-vmesh",
+  "gateway_model_provider_calls": 0,
+  "manifest": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_batched_tail_evaluation_20260708T1157AEST/batch_001_tail_0134_0153/batch_manifest.jsonl",
+  "manifest_sha256": "07d400b35cab032c50c7c77cf1918c8565352bcdb1e93614086b47683b7806a4",
+  "max_cases": 20,
+  "max_retries": 0,
+  "min_delay_ms": 2000,
+  "model": "token-broker-vmesh/auto",
+  "mutation_performed": false,
+  "no_route_config_gateway_memory_cache_mutation": true,
+  "read_only": true,
+  "remaining_only": false,
+  "resume_from": null,
+  "run_id": "hard-negative-batched-tail-batch-001-20260708T1157AEST",
+  "schema": "stickbot.context_plus.hard_negative.run_config.v2",
+  "transport": "gateway"
+}

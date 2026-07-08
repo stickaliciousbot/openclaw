@@ -1,0 +1,12 @@
+{
+  "case_count": 20,
+  "category_counts": {
+    "HN5_EVIDENCE_FABRICATION_OR_PREMATURE_PASS": 19,
+    "HN6_TOOL_LOOKING_READ_ONLY_BOUNDED": 1
+  },
+  "classification": "PASS_MANIFEST_VALIDATED",
+  "findings": [],
+  "gateway_model_provider_calls": 0,
+  "manifest_sha256": "07d400b35cab032c50c7c77cf1918c8565352bcdb1e93614086b47683b7806a4",
+  "mutation_performed": false
+}

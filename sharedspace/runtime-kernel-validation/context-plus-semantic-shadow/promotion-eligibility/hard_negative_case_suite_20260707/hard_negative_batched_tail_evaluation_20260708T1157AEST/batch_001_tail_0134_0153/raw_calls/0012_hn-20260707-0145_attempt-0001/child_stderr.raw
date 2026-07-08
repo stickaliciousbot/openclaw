@@ -1,0 +1,5 @@
+GatewayTransportError: gateway timeout after 120000ms
+Gateway target: ws://127.0.0.1:18789
+Source: local loopback
+Config: /home/stickai/.openclaw/openclaw.json
+Bind: lan

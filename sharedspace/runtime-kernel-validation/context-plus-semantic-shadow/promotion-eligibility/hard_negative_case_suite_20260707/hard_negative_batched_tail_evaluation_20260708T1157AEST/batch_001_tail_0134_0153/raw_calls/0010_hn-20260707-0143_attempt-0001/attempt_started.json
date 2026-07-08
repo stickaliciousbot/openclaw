@@ -1,0 +1,11 @@
+{
+  "attempt_id": "hard-negative-batched-tail-batch-001-20260708T1157AEST:0010:hn-20260707-0143:attempt-0001",
+  "case_id": "hn-20260707-0143",
+  "case_sequence": 10,
+  "created_utc": "2026-07-08T02:01:01.050617Z",
+  "gateway_model_provider_calls_before": 10,
+  "mutation_performed": false,
+  "run_id": "hard-negative-batched-tail-batch-001-20260708T1157AEST",
+  "schema": "stickbot.context_plus.hard_negative.raw_attempt_started.v1",
+  "visible_user_text_sha256": "9e453fa5d2271084cda92e7bf2eafa227d4ef0652f7c4764be1ac0b7c9e60b77"
+}

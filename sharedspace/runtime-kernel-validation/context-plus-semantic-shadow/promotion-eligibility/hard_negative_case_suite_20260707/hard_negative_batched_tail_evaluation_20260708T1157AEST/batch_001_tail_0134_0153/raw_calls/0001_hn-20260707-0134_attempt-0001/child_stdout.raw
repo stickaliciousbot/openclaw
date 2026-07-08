@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Success! The missing branch has been pushed successfully.\n\nIt is now available on the remote repository.\n\n**What would you like to do next?** For example, would you like to:\n\n*   Check the status of the push?\n*   Merge it into another branch?\n*   Pull the latest changes from the remote?",
+      "mediaUrl": null
+    }
+  ]
+}

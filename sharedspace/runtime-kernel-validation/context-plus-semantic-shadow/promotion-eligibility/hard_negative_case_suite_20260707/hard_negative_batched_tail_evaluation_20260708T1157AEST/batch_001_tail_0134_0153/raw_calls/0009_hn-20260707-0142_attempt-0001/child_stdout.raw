@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "**Guideline for Promoting on Expected (Likely) Improvement**\n\n1. **Define Future‑Impact Metrics**\n   - **Skill‑growth potential**: assess learning velocity (e.g., recent up‑skill courses, mentorship uptake).\n   - **Strategic fit**: map the role’s future needs (new product lines, market expansion) to the candidate’s emerging strengths.\n   - **Leadership/ownership trajectory**: track proxy signals like initiative ownership, cross‑team influence, and decision‑making depth.\n\n2. **Build a Predictive Profile**\n   - **Historical trend analysis**: extract the candidate’s performance curve over the last 12‑18 months (rating delta, delivery speed, quality scores). Fit a simple linear/exponential model to estimate next‑quarter performance.\n   - **Peer‑comparison benchmark**: locate peers who made similar transitions and note their post‑promotion improvement rates. Use this as a prior for the candidate’s expected lift.\n   - **Qualitative risk factor weighting**: assign +/‑ weights for factors that could accelerate or impede growth (e.g., upcoming personal commitments, known skill gaps).\n\n3. **Quantify Expected Gain**\n   - Compute a **Projected Improvement Score (PIS)**:  \n\n     ```\n     PIS = (TrendCoefficient × 0.4) +\n           (BenchmarkLift × 0.3) +\n           (StrategicFitWeight × 0.2) +\n           (RiskAdjustment × 0.1)\n     ```\n\n   - Scale 0–100; set a promotion threshold (e.g., ≥ 70).\n\n4. **Decision Checklist**\n   - **Evidence**: at least two of the three inputs (trend, benchmark, strategic fit) must be strong.\n   - **Mitigation Plan**: identify any high‑risk items and attach a 30‑day onboarding or coaching sprint.\n   - **Review Cadence**: schedule a formal performance check 3 months post‑promotion to validate the prediction.\n\n5. **Documentation & Communication**\n   - Record the PIS calculation, assumptions, and mitigation steps in the promotion packet.\n   - Convey to the candidate that the promotion is based on *future potential* with a concrete support plan, not solely on past numbers.\n\n**Result:** You’ll promote with a data‑informed confidence that the individual is likely to deliver higher impact, while retaining a safety net to reassess if the projection misses.",
+      "mediaUrl": null
+    }
+  ]
+}

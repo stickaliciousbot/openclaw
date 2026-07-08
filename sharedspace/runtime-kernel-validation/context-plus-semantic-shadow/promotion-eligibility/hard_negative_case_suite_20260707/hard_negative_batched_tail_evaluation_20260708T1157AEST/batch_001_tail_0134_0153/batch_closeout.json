@@ -1,0 +1,27 @@
+{
+  "batch_count": 20,
+  "batch_range": [
+    "hn-20260707-0134",
+    "hn-20260707-0153"
+  ],
+  "case_count": 12,
+  "classification": "HOLD_BATCH_1_INCOMPLETE",
+  "comparator": "BLOCKED_NOT_RUN",
+  "continue_to_batch_2": false,
+  "duplicate_case_ids": [],
+  "duplicate_prevention_classification": "PASS_DUPLICATE_CALL_PREVENTION_READY",
+  "expected_cases": 20,
+  "gateway_model_provider_calls": 12,
+  "harness_exit_code": 2,
+  "m6_proposal": "BLOCKED_NOT_RUN",
+  "mutation_performed": false,
+  "mutation_sentinel_classification": "PASS_MUTATION_SENTINEL_OUTSIDE_BATCH_OUTPUT_UNCHANGED",
+  "promotion": "BLOCKED_NOT_RUN",
+  "provider_mismatch_count": 0,
+  "provider_report_classification": "HOLD_PROVIDER_CALL_BOUNDARY_INCOMPLETE",
+  "provider_verified_count": 11,
+  "rate_limit_cooldown_classification": "PASS_NO_RATE_LIMIT_OR_COOLDOWN",
+  "rate_limit_or_cooldown_event_count": 0,
+  "schema": "stickbot.context_plus.hard_negative.batch_1_closeout.v1",
+  "summary_classification": "HOLD_EVALUATION_INCOMPLETE"
+}

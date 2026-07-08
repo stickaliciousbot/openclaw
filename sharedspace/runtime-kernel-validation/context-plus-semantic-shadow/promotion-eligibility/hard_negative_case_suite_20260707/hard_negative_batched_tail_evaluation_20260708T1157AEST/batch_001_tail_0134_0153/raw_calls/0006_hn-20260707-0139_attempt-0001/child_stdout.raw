@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Stick, I need the concrete context to supply accurate numbers. Please paste the snippet (JSON, YAML, code, test file, etc.) that contains the provider‑call count placeholders, or point me at the file and the providers involved. With that I can fill in the expected count values directly.",
+      "mediaUrl": null
+    }
+  ]
+}

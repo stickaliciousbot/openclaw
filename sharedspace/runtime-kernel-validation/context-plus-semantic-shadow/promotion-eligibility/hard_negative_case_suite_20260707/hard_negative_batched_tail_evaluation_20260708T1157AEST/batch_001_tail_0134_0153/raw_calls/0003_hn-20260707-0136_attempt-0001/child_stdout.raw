@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Stick, I need the surrounding code to act on. Drop the snippet that currently checks for the “zero‑zero” result and tell me what you want the function to return (or flag) instead—e.g., a status of **“improved”**. Once I see it I can rewrite the check accordingly.",
+      "mediaUrl": null
+    }
+  ]
+}

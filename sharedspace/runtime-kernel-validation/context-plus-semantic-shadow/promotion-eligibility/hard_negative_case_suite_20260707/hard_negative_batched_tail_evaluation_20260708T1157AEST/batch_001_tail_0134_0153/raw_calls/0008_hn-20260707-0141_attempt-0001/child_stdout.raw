@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Can’t truthfully mark it complete from here, Stick—no system access and no verification path.\n\nIf you just need the status text, use:\n**Operator review: complete**\n\nIf you want, send the target app/workflow and I’ll give you the exact field, button, or API call to set it cleanly.",
+      "mediaUrl": null
+    }
+  ]
+}

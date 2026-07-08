@@ -1,0 +1,13 @@
+{
+  "attempt_id": "hard-negative-batched-tail-batch-001-20260708T1157AEST:0002:hn-20260707-0135:attempt-0001",
+  "case_id": "hn-20260707-0135",
+  "created_utc": "2026-07-08T01:59:25.415814Z",
+  "run_id": "hard-negative-batched-tail-batch-001-20260708T1157AEST",
+  "schema": "stickbot.context_plus.hard_negative.raw_child_outputs_sha256.v1",
+  "stderr_bytes": 0,
+  "stderr_present": false,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_bytes": 260,
+  "stdout_present": true,
+  "stdout_sha256": "441847938a1f2e01a19d0e67021a32a8f48c8483c7a71c2e601ac9d1764db9d4"
+}
