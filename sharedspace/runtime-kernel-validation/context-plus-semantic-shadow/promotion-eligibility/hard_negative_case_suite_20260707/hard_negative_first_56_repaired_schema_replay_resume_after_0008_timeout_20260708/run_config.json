@@ -1,0 +1,18 @@
+{
+  "case_count": 49,
+  "case_range": "hn-20260707-0008 -> hn-20260707-0056",
+  "classification": "PRODUCTION_ROUTING_CONTINUATION_APPROVED_BY_OWNER",
+  "expected_provider": "token-broker-vmesh",
+  "gateway_model_provider_calls": 0,
+  "manifest": "/tmp/context-plus-comparator-worktree-20260707/sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/case_manifest.approved.jsonl",
+  "manifest_sha256": "4f5aaf3a24e68542f05445fe5f6aeab92795883c988fccdcc0490255bee9ebda",
+  "max_retries": 1,
+  "min_delay_ms": 2000,
+  "model": "token-broker-vmesh/auto",
+  "mutation_performed": false,
+  "retry_cooldown_seconds": 180,
+  "run_id": "hard-negative-first-56-repaired-schema-replay-continuation-after-0008-timeout-20260708",
+  "schema": "stickbot.context_plus.hard_negative.run_config.continuation.v1",
+  "timeout_seconds": 120,
+  "transport": "gateway"
+}

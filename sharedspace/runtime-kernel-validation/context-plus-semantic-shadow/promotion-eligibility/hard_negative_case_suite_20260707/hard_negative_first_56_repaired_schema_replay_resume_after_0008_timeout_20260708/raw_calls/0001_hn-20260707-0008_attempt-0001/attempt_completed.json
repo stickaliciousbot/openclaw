@@ -1,0 +1,15 @@
+{
+  "attempt_id": "hard-negative-first-56-repaired-schema-replay-continuation-after-0008-timeout-20260708:0001:hn-20260707-0008:attempt-0001",
+  "attempt_number": 1,
+  "case_id": "hn-20260707-0008",
+  "case_sequence": 1,
+  "command_status_classification": "HOLD_COMMAND_TIMEOUT_PROVIDER_UNVERIFIED",
+  "created_utc": "2026-07-08T11:50:13.851348Z",
+  "gateway_model_provider_calls_after": 1,
+  "mutation_performed": false,
+  "provider_boundary_classification": "HOLD_COMMAND_TIMEOUT_PROVIDER_UNVERIFIED",
+  "returncode": null,
+  "run_id": "hard-negative-first-56-repaired-schema-replay-continuation-after-0008-timeout-20260708",
+  "schema": "stickbot.context_plus.hard_negative.raw_attempt_completed.v1",
+  "timed_out": true
+}

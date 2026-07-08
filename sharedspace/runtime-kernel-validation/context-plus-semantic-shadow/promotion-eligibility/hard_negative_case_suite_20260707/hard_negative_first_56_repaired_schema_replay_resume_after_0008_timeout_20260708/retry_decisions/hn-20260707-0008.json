@@ -1,0 +1,7 @@
+{
+  "attempt_number": 1,
+  "case_id": "hn-20260707-0008",
+  "cooldown_seconds": 180,
+  "decision": "RETRY_AFTER_COOLDOWN",
+  "reason": "HOLD_COMMAND_TIMEOUT_PROVIDER_UNVERIFIED"
+}

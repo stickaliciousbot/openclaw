@@ -1,0 +1,12 @@
+{
+  "all_attempt_journal": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_first_56_repaired_schema_replay_resume_after_0008_timeout_20260708/production_routing_journal.v2.jsonl",
+  "attempt_count": 2,
+  "case_count": 1,
+  "classification": "HOLD_EVALUATION_INCOMPLETE",
+  "expected_cases": 49,
+  "false_positive_count": 0,
+  "false_positive_rate": 0.0,
+  "gateway_model_provider_calls": 2,
+  "journal": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_first_56_repaired_schema_replay_resume_after_0008_timeout_20260708/terminal_production_routing_journal.v2.jsonl",
+  "mutation_performed": false
+}
