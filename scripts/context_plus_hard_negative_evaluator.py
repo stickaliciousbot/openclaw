@@ -215,31 +215,63 @@ def parse_output_text(stdout_text: str, payload: Any | None = None) -> str:
                 return payload[key]
     return stdout_text
 
-def rate_or_cooldown_signal(stdout_text: str, stderr_text: str = "", payload: Any | None = None) -> tuple[bool, list[str]]:
-    """Detect real rate/cooldown signals without matching 429 inside hashes.
-
-    Bare numeric 429 is intentionally not enough. It must appear as a structured
-    HTTP/status/code token or near rate-limit semantics; textual signals such as
-    rate limit, quota, cooldown, and retry-after remain conservative triggers.
-    """
-    combined = f"{stdout_text}\n{stderr_text}"
+def _rate_reason_matches(text: str, source: str) -> list[str]:
     reasons: list[str] = []
+    if not text:
+        return reasons
     for name, pattern in RATE_TEXT_PATTERNS:
-        if pattern.search(combined):
-            reasons.append(name)
+        if pattern.search(text):
+            reasons.append(f"{source}_{name}")
     for name, pattern in RATE_STATUS_429_PATTERNS:
-        if pattern.search(combined):
-            reasons.append(name)
+        if pattern.search(text):
+            reasons.append(f"{source}_{name}")
+    return reasons
+
+def _scan_attempt_metadata(value: Any, source: str = "attempts") -> list[str]:
+    """Scan provider/system attempt metadata while avoiding generated answer text."""
+    reasons: list[str] = []
+    generated_keys = {"output", "outputs", "text", "content", "message_text", "mediaurl"}
+    status_keys = {"status", "status_code", "code", "http_status"}
+    text_keys = {"message", "error", "detail", "reason", "status_text", "headers", "retry_after", "retry-after"}
+    if isinstance(value, dict):
+        for key, item in value.items():
+            key_l = str(key).lower()
+            if key_l in generated_keys:
+                continue
+            if key_l in status_keys and (item == 429 or item == "429"):
+                reasons.append(f"{source}_{key_l}_429")
+            if key_l in text_keys and isinstance(item, (str, int, float)):
+                reasons.extend(_rate_reason_matches(str(item), f"{source}_{key_l}"))
+            elif isinstance(item, (dict, list)):
+                reasons.extend(_scan_attempt_metadata(item, f"{source}_{key_l}"))
+    elif isinstance(value, list):
+        for idx, item in enumerate(value):
+            reasons.extend(_scan_attempt_metadata(item, f"{source}_{idx}"))
+    return reasons
+
+def rate_or_cooldown_signal(stdout_text: str, stderr_text: str = "", payload: Any | None = None) -> tuple[bool, list[str]]:
+    """Detect real rate/cooldown signals without treating generated answers as provider metadata.
+
+    Bare numeric 429 is intentionally not enough. When stdout is valid JSON, only
+    provider/system/transport surfaces are scanned: stderr, top-level status and
+    provider error/message fields, and provider attempt metadata. Generated model
+    answer text such as payload["outputs"][].text is not a rate/cooldown source by
+    itself. If stdout is not structured JSON, raw stdout remains conservatively
+    scanned as transport/error text.
+    """
+    reasons: list[str] = []
+    reasons.extend(_rate_reason_matches(stderr_text, "stderr"))
     if isinstance(payload, dict):
         for key in ("status", "status_code", "code", "http_status"):
             value = payload.get(key)
             if value == 429 or value == "429":
                 reasons.append(f"payload_{key}_429")
         message = " ".join(str(payload.get(k) or "") for k in ("message", "error", "detail", "reason"))
-        if message:
-            for name, pattern in RATE_TEXT_PATTERNS + RATE_STATUS_429_PATTERNS:
-                if pattern.search(message):
-                    reasons.append(f"payload_{name}")
+        reasons.extend(_rate_reason_matches(message, "payload"))
+        reasons.extend(_scan_attempt_metadata(payload.get("attempts"), "attempts"))
+    else:
+        # No structured payload: preserve conservative detection for raw CLI/provider text.
+        reasons.extend(_rate_reason_matches(stdout_text, "stdout"))
     return bool(reasons), sorted(set(reasons))
 
 def count_provider_call() -> None:
@@ -669,6 +701,9 @@ def cmd_rate_cooldown_fixture_selftest(args: argparse.Namespace) -> int:
         ("quota_exceeded_text_trigger", "Quota exceeded for this provider.", True),
         ("cooldown_text_trigger", "Provider cooldown active; try again in 180 seconds.", True),
         ("retry_after_header_trigger", "HTTP/1.1 429 Too Many Requests\nRetry-After: 120", True),
+        ("generated_outputs_retry_after_no_trigger", json.dumps({"ok": True, "capability": "model.run", "transport": "gateway", "provider": "token-broker-vmesh", "model": "auto", "attempts": [], "outputs": [{"text": "I couldn’t complete the requested internal path cleanly, so I did not guess. degraded_reason=stale_ack_instead_of_answer; safe_next=retry after tool path check.", "mediaUrl": None}]}), False),
+        ("payload_retry_after_message_trigger", json.dumps({"ok": False, "provider": "token-broker-vmesh", "message": "Provider requested retry after 120 seconds."}), True),
+        ("attempt_metadata_cooldown_trigger", json.dumps({"ok": False, "provider": "token-broker-vmesh", "attempts": [{"status_code": 429, "error": "too many requests"}], "outputs": [{"text": "Generated text alone should not matter."}]}), True),
     ]
     for name, text, expected in fixtures:
         payload = None
