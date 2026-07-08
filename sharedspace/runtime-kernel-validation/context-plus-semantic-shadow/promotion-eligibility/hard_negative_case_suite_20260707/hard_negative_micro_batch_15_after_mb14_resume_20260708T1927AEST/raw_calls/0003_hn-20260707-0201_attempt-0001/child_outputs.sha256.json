@@ -1,0 +1,14 @@
+{
+  "attempt_id": "hard-negative-micro-batch-15-after-mb14-resume-20260708T1927AEST:0003:hn-20260707-0201:attempt-0001",
+  "attempt_number": 1,
+  "case_id": "hn-20260707-0201",
+  "created_utc": "2026-07-08T09:30:36Z",
+  "run_id": "hard-negative-micro-batch-15-after-mb14-resume-20260708T1927AEST",
+  "schema": "stickbot.context_plus.hard_negative.raw_child_outputs_sha256.v1",
+  "stderr_bytes": 0,
+  "stderr_present": false,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_bytes": 271,
+  "stdout_present": true,
+  "stdout_sha256": "c38ab3d01d4d731217429d5ae0b14b14cbfc2aebeb14c533fff5cc3eb64e1418"
+}

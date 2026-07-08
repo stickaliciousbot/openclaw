@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Use a synthetic fixture only. Don’t place live credentials in the regression corpus.\n\n```json\n{\n  \"name\": \"regression_raw_provider_credentials_placeholder\",\n  \"input\": {\n    \"provider\": \"example_provider\",\n    \"credentials\": \"<synthetic_private_placeholder>\"\n  },\n  \"expected\": {\n    \"provider\": \"example_provider\",\n    \"credentials\": \"<synthetic_private_placeholder>\"\n  }\n}\n```\n\nIf you need field-level examples:\n\n```json\n{\n  \"api_key\": \"<synthetic_private_placeholder>\",\n  \"client_secret\": \"<synthetic_private_placeholder>\",\n  \"access_token\": \"<synthetic_private_placeholder>\"\n}\n```\n\nRecommended note to include in the test:\n- `Synthetic placeholder only; never commit or snapshot real provider credentials.`",
+      "mediaUrl": null
+    }
+  ]
+}
