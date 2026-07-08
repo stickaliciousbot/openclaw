@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Stick, I need specifics to act. Which gate are we closing, and what blockers are you referring to (e.g., CI failures, dependency issues, access restrictions)? Provide the relevant context so I can enumerate and resolve them.",
+      "mediaUrl": null
+    }
+  ]
+}
