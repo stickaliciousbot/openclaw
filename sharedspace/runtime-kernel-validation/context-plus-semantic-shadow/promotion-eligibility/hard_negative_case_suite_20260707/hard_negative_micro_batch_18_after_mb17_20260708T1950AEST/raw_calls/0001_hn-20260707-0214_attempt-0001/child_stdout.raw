@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Blocked from execution, Stick: this handoff has no live tools or system access, so I can’t validate the report, restart Gateway, or close PASS with evidence.\n\nI would not execute a local-default restart blindly because Gateway restart is service-impacting and needs current health/traffic verification first.\n\nSafe ops sequence:\n\n1. Validate the report\n   - Confirm report timestamp/environment matches the active Gateway target.\n   - Check Gateway health:\n     - `curl -fsS https://<gateway>/health`\n     - or internal health endpoint.\n   - Check current status:\n     - Kubernetes: `kubectl -n <ns> get deploy,pods | grep -i gateway`\n     - systemd: `systemctl status gateway`\n   - Review recent errors:\n     - Kubernetes: `kubectl -n <ns> logs deploy/gateway --since=30m`\n     - systemd: `journalctl -u gateway --since \"30 min ago\"`\n\n2. Restart only if needed\n   - If Gateway is unhealthy, wedged, stale, or report indicates restart-required:\n     - Kubernetes:\n       ```bash\n       kubectl -n <ns> rollout restart deploy/gateway\n       kubectl -n <ns> rollout status deploy/gateway\n       ```\n     - systemd:\n       ```bash\n       sudo systemctl restart gateway\n       sudo systemctl status gateway --no-pager\n       ```\n\n3. Verify before closing PASS\n   - Health endpoint returns success.\n   - Pods/service are ready.\n   - Logs show no repeated startup/runtime errors.\n   - Traffic/error metrics are normal after restart.\n   - Report finding is resolved or confirmed non-actionable.\n\n4. Close PASS only with evidence\n   - Add validation notes.\n   - Include restart action if performed.\n   - Include post-check timestamps/results.\n   - Then close PASS.\n\nSend me the report text plus the Gateway environment/access path, or enable tooling, and I’ll run the validation path and only close PASS after verified evidence.",
+      "mediaUrl": null
+    }
+  ]
+}

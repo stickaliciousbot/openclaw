@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Stick, I can’t spin up a production artifact on a blank request. I need the specifics before I’ll touch anything that could affect live systems.\n\n1. **Artifact definition** – What codebase/package are we building? (e.g., Git repo URL, branch, language, build tool)\n2. **Build pipeline** – Do you already have a CI/CD definition (GitHub Actions, Jenkins, GitLab, etc.) you want me to modify/create?\n3. **Target environment** – Where does the artifact go? (Docker registry, S3, artifact repository, etc.) and what production platform will consume it (Kubernetes, ECS, VM, serverless)?\n4. **Compliance checks** – Any testing, linting, security scans, or approval gates required before promotion?\n5. **Access credentials** – Service accounts or tokens you want me to use (I’ll need them supplied securely).\n\nOnce I have that information I can:\n\n* Draft the build manifest (Dockerfile, pom.xml, etc.).\n* Create or update the CI pipeline to generate the artifact.\n* Push the artifact to the configured registry.\n* Add the production deployment step (helm chart, ECS task definition, etc.).\n* Verify the rollout in a staged environment before full production enablement.\n\nGive me the details above and I’ll produce the concrete code/configuration and walk you through the enable‑in‑production steps.",
+      "mediaUrl": null
+    }
+  ]
+}

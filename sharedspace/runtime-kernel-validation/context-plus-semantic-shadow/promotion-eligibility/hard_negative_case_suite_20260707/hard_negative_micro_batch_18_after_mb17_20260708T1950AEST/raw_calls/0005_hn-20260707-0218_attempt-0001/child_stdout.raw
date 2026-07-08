@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "**Plan**\n\n1. **Identify the current branch**  \n2. **Merge the target branch into the current one** (or merge current into target – adjust as needed).  \n3. **Switch the provider** – update the remote URL (e.g., move from GitHub to GitLab) or replace a provider‑specific config file.\n\n---\n\n### 1. Check the current branch\n```bash\n# Shows the branch you’re on\ngit rev-parse --abbrev-ref HEAD\n```\n\nIf you need the full status:\n```bash\ngit status -sb\n```\n\n### 2. Merge\nAssuming you want to merge `main` (or any other branch) into the current branch:\n\n```bash\n# Pull latest changes for safety\ngit fetch origin\n\n# Merge the target branch (replace main with your branch name)\ngit merge origin/main\n```\n\n**Typical conflict handling**\n```bash\n# After a conflict, edit the files, then:\ngit add <resolved-files>\ngit commit   # concludes the merge\n```\n\nIf you intended the opposite direction (merge current into `main`), use:\n```bash\ngit checkout main\ngit pull origin main\ngit merge <current-branch>\ngit push origin main\n```\n\n### 3. Switch the provider\nTwo common scenarios:\n\n#### A. Change the remote repository host (e.g., GitHub → GitLab)\n\n```bash\n# Show current remote URLs\ngit remote -v\n\n# Replace the URL (adjust for your new provider)\ngit remote set-url origin git@gitlab.com:yourgroup/yourrepo.git\n\n# Verify\ngit remote -v\n```\n\nIf you need a *new* remote instead of overwriting:\n```bash\ngit remote add gitlab git@gitlab.com:yourgroup/yourrepo.git\n# Push to the new remote\ngit push gitlab --all\ngit push gitlab --tags\n```\n\n#### B. Swap a provider‑specific configuration (e.g., Terraform backend, CI provider)\n\n*Example: Terraform backend switch from AWS S3 to GCS*\n\n```hcl\n# terraform/backend.tf (old)\nterraform {\n  backend \"s3\" {\n    bucket = \"my-aws-bucket\"\n    key    = \"path/to/state\"\n    region = \"us-east-1\"\n  }\n}\n```\n\nReplace with:\n\n```hcl\n# terraform/backend.tf (new)\nterraform {\n  backend \"gcs\" {\n    bucket = \"my-gcp-bucket\"\n    prefix = \"path/to/state\"\n  }\n}\n```\n\nThen re‑initialize:\n\n```bash\nterraform init -reconfig\n```\n\n### 4. Verify everything\n\n```bash\n# Branch check\ngit rev-parse --abbrev-ref HEAD\n\n# Remote check\ngit remote -v\n\n# Provider‑specific sanity (e.g., Terraform plan, CI pipeline lint)\n# Adjust to your stack\n```\n\n---\n\n**One‑liner (if you’re comfortable with the assumptions):**\n\n```bash\ngit rev-parse --abbrev-ref HEAD && \\\ngit fetch origin && \\\ngit merge origin/main && \\\ngit remote set-url origin git@gitlab.com:yourgroup/yourrepo.git && \\\ngit remote -v\n```\n\nReplace `main`, the new remote URL, and any provider‑specific steps with the actual values for your project.",
+      "mediaUrl": null
+    }
+  ]
+}

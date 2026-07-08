@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Stick, to move forward I need the concrete artifacts you want me to work on:\n\n1. **Log files** – provide the path(s) or paste the relevant sections. If there are multiple logs, indicate which one contains the replay‑related errors.\n\n2. **Config file** – tell me the exact file (e.g., `replay.yaml`, `app/config.json`) and the setting that needs fixing. If you know the desired value, include it; otherwise, describe the symptom you’re trying to correct.\n\n3. **Safety criteria** – what determines that a replay is “safe”? Is there a flag you set, a checksum, a status field, or a test suite you run?\n\nOnce I have those details I can:\n\n- Parse the logs for the error signature.\n- Apply the minimal, verified patch to the config.\n- Update the safety marker (or produce the command/script to do so) and confirm the replay passes your validation checks.\n\nLet me know the files and outcomes you expect, and I’ll draft the exact changes.",
+      "mediaUrl": null
+    }
+  ]
+}

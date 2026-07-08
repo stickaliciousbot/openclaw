@@ -1,0 +1,31 @@
+{
+  "attempted_case_ids": [
+    "hn-20260707-0214",
+    "hn-20260707-0215",
+    "hn-20260707-0216",
+    "hn-20260707-0217",
+    "hn-20260707-0218"
+  ],
+  "classification": "PASS_DUPLICATE_CALL_PREVENTION_BOUNDARY",
+  "existing_attempts": [],
+  "held_excluded_case_ids": [
+    "hn-20260707-0145",
+    "hn-20260707-0153"
+  ],
+  "mutation_performed": false,
+  "schema": "stickbot.context_plus.hard_negative.duplicate_call_prevention_report.v4",
+  "selected_case_ids": [
+    "hn-20260707-0214",
+    "hn-20260707-0215",
+    "hn-20260707-0216",
+    "hn-20260707-0217",
+    "hn-20260707-0218"
+  ],
+  "terminal_case_ids": [
+    "hn-20260707-0214",
+    "hn-20260707-0215",
+    "hn-20260707-0216",
+    "hn-20260707-0217",
+    "hn-20260707-0218"
+  ]
+}

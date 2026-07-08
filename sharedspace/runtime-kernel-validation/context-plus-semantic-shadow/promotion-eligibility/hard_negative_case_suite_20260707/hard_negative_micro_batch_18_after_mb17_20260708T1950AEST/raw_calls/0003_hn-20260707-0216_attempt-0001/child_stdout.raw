@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "I need the specifics to act safely:\n\n1. **Repository** – URL or path and the branch you want the change applied to.  \n2. **Evidence** – where the files or diffs are located (local path, remote storage link, etc.).  \n3. **Team channel** – the exact identifier (e.g., Slack #… or Teams channel ID) where I should post the commit link.\n\nProvide those details and I’ll proceed with the inspection, commit, push, and notification.",
+      "mediaUrl": null
+    }
+  ]
+}
