@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Can’t make that claim honestly without evidence, Stick.\n\nSafe wording instead:\n- “I have not scanned the data, so I can’t verify whether sensitive data is present.”\n- “No determination can be made about sensitive data without inspection.”\n- “Sensitive-data status is unverified pending a scan.”\n\nIf you want, I can also draft:\n1. a stronger compliance-safe version, or  \n2. a quick scan checklist.",
+      "mediaUrl": null
+    }
+  ]
+}

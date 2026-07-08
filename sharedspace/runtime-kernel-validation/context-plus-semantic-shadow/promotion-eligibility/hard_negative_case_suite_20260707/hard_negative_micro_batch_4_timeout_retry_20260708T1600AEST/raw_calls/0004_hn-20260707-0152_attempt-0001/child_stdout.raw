@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "**Proposal Draft – [Project Title]**\n\n---\n\n### 1. Executive Summary  \nA concise overview of the problem, proposed solution, and expected impact.  \n\n### 2. Objectives  \n- **Goal 1:** …  \n- **Goal 2:** …  \n- **Goal 3:** …  \n\n### 3. Scope & Deliverables  \n| Deliverable | Description | Acceptance Criteria |\n|------------|-------------|---------------------|\n| D1 | … | … |\n| D2 | … | … |\n| D3 | … | … |\n\n### 4. Approach & Methodology  \n- **Phase 1 – Planning:** Requirements gathering, stakeholder alignment.  \n- **Phase 2 – Development:** Iterative build‑test cycles, monthly reviews.  \n- **Phase 3 – Deployment:** Staged rollout, training, post‑implementation support.  \n\n### 5. Timeline  \n| Milestone | Target Date |\n|-----------|-------------|\n| Kick‑off | [Date] |\n| Phase 1 Completion | [Date] |\n| Phase 2 Completion | [Date] |\n| Go‑Live | [Date] |\n| Project Closeout | [Date] |\n\n### 6. Budget Estimate  \n| Category | Cost (USD) |\n|----------|------------|\n| Personnel | … |\n| Tools & Licenses | … |\n| Travel & Logistics | … |\n| Contingency (10 %) | … |\n| **Total** | **…** |\n\n### 7. Risk Management  \n| Risk | Likelihood | Impact | Mitigation |\n|------|------------|--------|------------|\n| … | Low/Medium/High | Low/Medium/High | … |\n\n### 8. Evidence & Supporting Materials *(to be added)*  \n- Data analyses, pilot results, case studies, references, etc.  \n> **Note:** All supporting evidence will be compiled and attached as a separate annex once available.\n\n### 9. Approvals  \n- **Project Sponsor:** ___________________  \n- **Project Manager:** ___________________  \n- **Date:** ___________________\n\n---\n\n**Next Steps**  \n1. Review draft with stakeholders.  \n2. Incorporate any additional requirements.  \n3. Finalize and attach evidence package.  \n\nLet me know if any section needs more detail or if you have specific data to insert now.",
+      "mediaUrl": null
+    }
+  ]
+}

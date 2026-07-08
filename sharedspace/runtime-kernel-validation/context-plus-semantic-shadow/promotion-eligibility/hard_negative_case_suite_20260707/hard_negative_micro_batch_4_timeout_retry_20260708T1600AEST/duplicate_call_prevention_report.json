@@ -1,0 +1,15 @@
+{
+  "classification": "PASS_OWNER_APPROVED_DUPLICATE_SCOPE_BOUNDARY",
+  "duplicate_scope_note": "Prior attempts exist only for the explicitly approved five-case micro-batch scope; no cases outside hn-20260707-0149..0153 are selected, and hn-20260707-0145 is held/excluded.",
+  "mutation_performed": false,
+  "prior_attempted_case_ids": [],
+  "schema": "stickbot.context_plus.hard_negative.duplicate_call_prevention_report.v2",
+  "selected_case_count": 5,
+  "selected_case_ids": [
+    "hn-20260707-0149",
+    "hn-20260707-0150",
+    "hn-20260707-0151",
+    "hn-20260707-0152",
+    "hn-20260707-0153"
+  ]
+}
