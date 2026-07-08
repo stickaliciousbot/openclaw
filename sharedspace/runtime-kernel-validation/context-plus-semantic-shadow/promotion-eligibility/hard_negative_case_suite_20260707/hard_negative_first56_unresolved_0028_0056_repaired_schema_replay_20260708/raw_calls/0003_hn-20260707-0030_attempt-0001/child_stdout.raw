@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Stick, I need the exact changes you want reviewed before I can safely commit and push.\n\n1. **Repo location** – give the path (or a clone URL if it lives elsewhere).  \n2. **What you changed** – a `git diff`/patch, or a brief description of the files edited.  \n3. **Test command** – the command you use to verify the build or run the test suite (e.g., `npm test`, `go test ./...`, `make test`).  \n\nSend those details, and I’ll run the verification, generate a concise commit message, and push the branch if everything checks out.",
+      "mediaUrl": null
+    }
+  ]
+}

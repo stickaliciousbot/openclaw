@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "I need the evidence you want me to review—e.g., logs, test results, metrics, or a diff link. Share that information, and I’ll verify it and promote the route if everything checks out.",
+      "mediaUrl": null
+    }
+  ]
+}

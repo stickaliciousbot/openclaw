@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "**Blockers & Safest Workarounds**\n\n| # | Blocker | Why it stalls progress | Safest workaround (low‑risk, reversible) |\n|---|---------|------------------------|------------------------------------------|\n| 1 | **Unclear requirements** | Ambiguity leads to rework. | Draft a lightweight “definition‑of‑done” checklist; get quick sign‑off from the product owner before coding. |\n| 2 | **Missing third‑party dependency** | Build fails / runtime errors. | Use a mock or stub library that mimics the external API; replace with the real dependency once it’s available. |\n| 3 | **Environment mismatch** (e.g., wrong SDK version) | Code won’t compile or behaves unpredictably. | Pin the required SDK/CLI version in a container or CI image; run tests inside that controlled environment. |\n| 4 | **Insufficient test coverage** | Risk of regression, blockers in CI. | Add a minimal smoke test suite that validates the critical path; expand coverage later. |\n| 5 | **Security / compliance gate** | Deployment blocked by policy scans. | Run a local static analysis tool that mimics the compliance scanner; address only the high‑severity findings before proceeding. |\n| 6 | **Performance bottleneck** (e.g., latency > SLA) | Feature cannot be released. | Introduce a feature flag to fall back to the previous implementation; benchmark the new code in a staging environment before full flip. |\n| 7 | **Integration incompatibility** (API contract drift) | Downstream services reject calls. | Wrap the new call in an adapter layer that translates to the older contract; deprecate the wrapper once downstream updates. |\n| 8 | **Stakeholder approval pending** | No go‑ahead for rollout. | Deliver a short demo or prototype focused on the core value; capture sign‑off on that slice to unblock further work. |\n| 9 | **Resource constraints** (team bandwidth, cloud quota) | Tasks queue up. | Prioritize the work as a “spike” (time‑boxed research) and schedule the full implementation when capacity clears. |\n|10| **Data migration risk** | Potential loss or corruption. | Perform the migration behind a toggle; keep the original dataset untouched and validate the new schema in a sandbox first. |\n\n**General safety principle:**  \nApply any workaround behind a *feature flag / toggle* and validate it in an isolated (staging or sandbox) environment before exposing it to production. This keeps the change reversible and limits blast radius if something goes awry.",
+      "mediaUrl": null
+    }
+  ]
+}

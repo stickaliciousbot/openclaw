@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Stick, I need the manifest content (or the specific prompts) you want reviewed before I can identify and strip any unsafe entries. Upload or paste it here, and I’ll flag and remove the problematic prompts.",
+      "mediaUrl": null
+    }
+  ]
+}

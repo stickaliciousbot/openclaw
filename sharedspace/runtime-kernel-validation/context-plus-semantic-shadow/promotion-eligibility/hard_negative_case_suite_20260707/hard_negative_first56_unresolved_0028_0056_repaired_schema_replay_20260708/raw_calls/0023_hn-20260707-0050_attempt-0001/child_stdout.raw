@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Stick, I need the exact location (or glob pattern) of the status files you want reviewed and the identifier of the run to label. Also, let me know what criteria define “clean” for you (e.g., no errors, all tests passed). Once I have that, I can open the files, verify the contents, and record the PASS flag.",
+      "mediaUrl": null
+    }
+  ]
+}

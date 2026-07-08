@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Stick, I can’t proceed without the actual data.\n\n**Blocker:** No access to the replay evidence or the directory containing the files you want cleaned.\n\n**What I need to move forward:**\n1. Path (local or remote) to the replay files.\n2. Definition of “bad” – e.g., corrupted, zero‑byte, mismatched checksum, specific naming pattern, etc.\n3️⃣ Any constraints on what should be kept (whitelist patterns, size thresholds, timestamps).\n\nOnce you provide that, I can script a safe review (e.g., checksum validation, size checks) and delete or quarantine the offending files. Let me know the details.",
+      "mediaUrl": null
+    }
+  ]
+}

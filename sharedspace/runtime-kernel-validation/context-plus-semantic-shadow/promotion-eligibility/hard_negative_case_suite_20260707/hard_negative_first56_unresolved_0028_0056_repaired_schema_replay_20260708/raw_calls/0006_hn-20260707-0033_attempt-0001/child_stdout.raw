@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Stick, I need the actual configuration you want inspected. Please paste the file (or a relevant excerpt), tell me:\n\n* What system/service it belongs to (e.g., Docker, Nginx, Kubernetes, app settings, etc.)  \n* Where the file lives (path) and how you invoke it  \n* Any error messages or symptoms you’re seeing  \n\nWith that info I can validate the syntax, spot mis‑configurations, and propose a corrected version.",
+      "mediaUrl": null
+    }
+  ]
+}

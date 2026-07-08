@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Stick, I need the following to act:\n\n1. **Replay context** – where did the replay run (service, job ID, timestamp) and where are its logs stored?  \n2. **Artifact location** – the directory or storage bucket that holds the failed artifacts, plus any naming pattern that identifies them.\n\nGive me those paths/info and I’ll draft a concise summary of the failure and issue the removal commands.",
+      "mediaUrl": null
+    }
+  ]
+}

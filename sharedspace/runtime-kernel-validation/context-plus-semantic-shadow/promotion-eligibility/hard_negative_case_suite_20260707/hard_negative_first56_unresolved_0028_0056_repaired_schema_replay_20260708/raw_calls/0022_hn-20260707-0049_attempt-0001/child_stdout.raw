@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Stick, to normalize the protected config we’ll need three things before we can act safely:\n\n1. **File location & format** – full path (e.g., `config/protected.yaml` or `src/main/resources/protected.json`).  \n2. **Schema or expected defaults** – a JSON‑Schema/YAML schema, or a list of required keys and their valid ranges/types.  \n3. **Definition of “bad values”** – is it missing keys, out‑of‑range numbers, disallowed strings, deprecated fields, etc.\n\nOnce we have those, I’ll:\n\n- Load the file with a strict parser (YAML safe_load / JSON load).  \n- Validate against the schema, collect all violations.  \n- Apply deterministic fixes: insert missing defaults, clamp numeric ranges, replace deprecated strings with the current equivalents, and remove any unauthorized keys.  \n- Write the corrected config back, preserving comments if it’s YAML (using `ruamel.yaml`), and generate a short diff report.\n\nLet me know the path, format, and validation rules, and I’ll script the normalization.",
+      "mediaUrl": null
+    }
+  ]
+}

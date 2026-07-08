@@ -1,0 +1,7 @@
+{
+  "cases": [],
+  "classification": "PASS_NO_COMMAND_FAILURES",
+  "gateway_model_provider_calls": 29,
+  "mutation_performed": false,
+  "schema": "stickbot.context_plus.hard_negative.command_failure_report.v1"
+}

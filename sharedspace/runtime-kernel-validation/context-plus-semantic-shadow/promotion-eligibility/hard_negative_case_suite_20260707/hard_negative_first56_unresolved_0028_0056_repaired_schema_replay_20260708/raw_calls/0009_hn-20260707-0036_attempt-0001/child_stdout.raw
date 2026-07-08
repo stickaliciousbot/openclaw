@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Stick, I need a bit more detail before I can safely act:\n\n1. **Service identifier** – the exact name as it appears to the init system (e.g., `myapp.service`, a Docker container name, a Kubernetes pod, etc.).\n2. **Stale definition** – what condition qualifies the service as “stale”? Common checks are:\n   * No recent health‑check success within *X* minutes.\n   * Process uptime exceeds a threshold.\n   * Last restart time older than a given timestamp.\n3. **Access method** – how you normally manage it:\n   * `systemctl` on a Linux host.\n   * `docker` CLI.\n   * `kubectl` on a cluster.\n   * Some custom script or API endpoint.\n\nIf you can supply those three pieces, I’ll give you the exact status command and a safe, verified restart routine.",
+      "mediaUrl": null
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "attempt_id": "first56-0028-0056-repaired-20260708-hn-20260707-0039-attempt-0001",
+  "attempt_number": 1,
+  "case_id": "hn-20260707-0039",
+  "case_sequence": 12,
+  "command_status_classification": "PASS_COMMAND_OUTPUT_PARSE_READY",
+  "created_utc": "2026-07-08T12:39:05.355839Z",
+  "gateway_model_provider_calls_after": 12,
+  "mutation_performed": false,
+  "provider_boundary_classification": "PASS_PROVIDER_VERIFIED",
+  "returncode": 0,
+  "run_id": "first56-0028-0056-repaired-20260708",
+  "schema": "stickbot.context_plus.hard_negative.raw_attempt_completed.v1",
+  "timed_out": false
+}

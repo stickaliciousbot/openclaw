@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Stick, I need the portion of the operator plan that’s missing the approval text (or a description of where it belongs) and any specifics about who should approve it. Share that snippet and I’ll draft the appropriate approval language.",
+      "mediaUrl": null
+    }
+  ]
+}

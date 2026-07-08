@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Stick, I need the specifics before I can act:\n\n1. **Log location** – full path (or command to fetch) of the log file(s) you want inspected.  \n2. **Process identifier** – service name, PID, Docker container, etc., that should be restarted.  \n3. **Restart method** – `systemctl restart …`, `docker restart …`, a custom script, or something else.  \n\nProvide those and I’ll scan the logs for error patterns and, if any are found, execute the appropriate restart command with verification.",
+      "mediaUrl": null
+    }
+  ]
+}
