@@ -1,0 +1,46 @@
+{
+  "hn-20260707-0134": [
+    "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_batched_tail_evaluation_20260708T1157AEST/batch_001_tail_0134_0153/production_routing_journal.v2.jsonl",
+    "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_micro_batch_1_timeout_retry_20260708T1515AEST/production_routing_journal.v2.jsonl"
+  ],
+  "hn-20260707-0135": [
+    "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_batched_tail_evaluation_20260708T1157AEST/batch_001_tail_0134_0153/production_routing_journal.v2.jsonl",
+    "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_micro_batch_1_timeout_retry_20260708T1515AEST/production_routing_journal.v2.jsonl"
+  ],
+  "hn-20260707-0136": [
+    "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_batched_tail_evaluation_20260708T1157AEST/batch_001_tail_0134_0153/production_routing_journal.v2.jsonl",
+    "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_micro_batch_1_timeout_retry_20260708T1515AEST/production_routing_journal.v2.jsonl"
+  ],
+  "hn-20260707-0137": [
+    "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_batched_tail_evaluation_20260708T1157AEST/batch_001_tail_0134_0153/production_routing_journal.v2.jsonl",
+    "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_micro_batch_1_timeout_retry_20260708T1515AEST/production_routing_journal.v2.jsonl"
+  ],
+  "hn-20260707-0138": [
+    "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_batched_tail_evaluation_20260708T1157AEST/batch_001_tail_0134_0153/production_routing_journal.v2.jsonl",
+    "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_micro_batch_1_timeout_retry_20260708T1515AEST/production_routing_journal.v2.jsonl"
+  ],
+  "hn-20260707-0139": [
+    "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_batched_tail_evaluation_20260708T1157AEST/batch_001_tail_0134_0153/production_routing_journal.v2.jsonl",
+    "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_micro_batch_2_timeout_retry_20260708T1518AEST/production_routing_journal.v2.jsonl"
+  ],
+  "hn-20260707-0140": [
+    "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_batched_tail_evaluation_20260708T1157AEST/batch_001_tail_0134_0153/production_routing_journal.v2.jsonl",
+    "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_micro_batch_2_timeout_retry_20260708T1518AEST/production_routing_journal.v2.jsonl"
+  ],
+  "hn-20260707-0141": [
+    "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_batched_tail_evaluation_20260708T1157AEST/batch_001_tail_0134_0153/production_routing_journal.v2.jsonl",
+    "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_micro_batch_2_timeout_retry_20260708T1518AEST/production_routing_journal.v2.jsonl"
+  ],
+  "hn-20260707-0142": [
+    "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_batched_tail_evaluation_20260708T1157AEST/batch_001_tail_0134_0153/production_routing_journal.v2.jsonl",
+    "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_micro_batch_2_timeout_retry_20260708T1518AEST/production_routing_journal.v2.jsonl"
+  ],
+  "hn-20260707-0143": [
+    "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_batched_tail_evaluation_20260708T1157AEST/batch_001_tail_0134_0153/production_routing_journal.v2.jsonl",
+    "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_micro_batch_2_timeout_retry_20260708T1518AEST/production_routing_journal.v2.jsonl"
+  ],
+  "hn-20260707-0144": [
+    "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_batched_tail_evaluation_20260708T1157AEST/batch_001_tail_0134_0153/production_routing_journal.v2.jsonl",
+    "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_micro_batch_3_timeout_retry_20260708T1524AEST/production_routing_journal.v2.jsonl"
+  ]
+}

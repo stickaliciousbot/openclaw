@@ -1,0 +1,16 @@
+{
+  "reject_count": 1,
+  "rejects_sample": [
+    {
+      "case_id": "hn-20260707-0134",
+      "journal": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_remaining_tail_resume_20260708T0940AEST/production_routing_journal.v2.jsonl",
+      "reasons": [
+        "provider_boundary_not_pass",
+        "provider_not_token_broker_vmesh",
+        "provider_path_not_verified_gateway_token_broker",
+        "returncode_not_zero",
+        "output_not_present"
+      ]
+    }
+  ]
+}
