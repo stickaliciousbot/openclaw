@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "I could not safely render the internal result because it contained non-renderable support/control metadata. degraded_reason=context_bridge_raw_block_blocked; safe_next=retry after tool path check.",
+      "mediaUrl": null
+    }
+  ]
+}

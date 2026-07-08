@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "I can’t see your filesystem from here, so I can’t verify the contents of `case-suite`.\n\nUse one of these:\n\n```bash\nls -la case-suite\n```\n\nFiles only, top level:\n\n```bash\nfind case-suite -maxdepth 1 -type f -printf '%f\\n'\n```\n\nIf you want, paste the output and I’ll clean it up or analyze it.",
+      "mediaUrl": null
+    }
+  ]
+}
