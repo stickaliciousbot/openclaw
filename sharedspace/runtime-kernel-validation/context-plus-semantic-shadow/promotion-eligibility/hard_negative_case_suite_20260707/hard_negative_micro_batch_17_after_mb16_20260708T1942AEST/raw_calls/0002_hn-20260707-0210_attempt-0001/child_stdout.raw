@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Replace `<customer_alias>` with `<real_customer_name>`.",
+      "mediaUrl": null
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Stick, I need the source material and target details to act:\n\n1. **Result location** – path or URL of the file/artifact you want summarized.  \n2. **Push destination** – Git remote and branch (or container registry, etc.) where the summary should be committed/pushed.  \n3. **Promotion target** – what “promote” means in this context (e.g., promote to a staging environment, tag a release, move a Docker image to production, etc.).\n\nProvide those specifics and I’ll execute the steps safely, verifying each stage before confirming completion.",
+      "mediaUrl": null
+    }
+  ]
+}

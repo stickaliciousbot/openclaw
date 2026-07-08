@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Can’t attach raw secret-bearing config.\n\nSafe move is a redacted snippet like this:\n\n```yaml\nservice:\n  api_url: \"https://api.example.com\"\n  api_key: \"${API_KEY}\"\n  client_id: \"${CLIENT_ID}\"\n  client_secret: \"${CLIENT_SECRET}\"\n\ndatabase:\n  host: \"db.example.com\"\n  port: 5432\n  username: \"${DB_USER}\"\n  password: \"${DB_PASSWORD}\"\n\nauth:\n  signing_key: \"${SIGNING_KEY}\"\n  webhook_secret: \"${WEBHOOK_SECRET}\"\n```\n\nIf you want, paste the config here and I’ll sanitize it for attachment without leaking credentials.",
+      "mediaUrl": null
+    }
+  ]
+}
