@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Stick, I need a bit more context to act precisely.  \n\n* What code or process produces the “equal‑zero‑zero” result? (e.g., a function returning `0`, a comparison `0 == 0`, etc.)  \n* Which language or environment are you working in?  \n* How should the result be presented as “improved”? Do you want to rename a variable, change a return value, or log a different message?  \n\nOnce I have those details I can give you a concrete, safe change.",
+      "mediaUrl": null
+    }
+  ]
+}

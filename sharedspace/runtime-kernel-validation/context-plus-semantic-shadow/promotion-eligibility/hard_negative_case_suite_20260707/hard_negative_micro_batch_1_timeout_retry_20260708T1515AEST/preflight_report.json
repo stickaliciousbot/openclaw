@@ -1,0 +1,159 @@
+{
+  "approved_scope": "hn-20260707-0134..hn-20260707-0138",
+  "checks": [
+    {
+      "details": {
+        "policy_commit": "4f496b3e4d560e674d13f654d8e034fa5fb25feb"
+      },
+      "name": "policy_commit_present",
+      "passed": true
+    },
+    {
+      "details": {
+        "branch": "refs/heads/evidence/context-plus-hard-negative-timeout-retry-policy-20260708",
+        "expected": "4f496b3e4d560e674d13f654d8e034fa5fb25feb",
+        "remote_commit": "4f496b3e4d560e674d13f654d8e034fa5fb25feb",
+        "stderr_excerpt": ""
+      },
+      "name": "policy_is_PASS_PUSHED_remote_branch_matches_commit",
+      "passed": true
+    },
+    {
+      "details": {
+        "actual": "",
+        "branch": "refs/heads/evidence/context-plus-hard-negative-timeout-retry-policy-20260708",
+        "expected": "4f496b3e4d560e674d13f654d8e034fa5fb25feb",
+        "nonfatal": true,
+        "stderr_excerpt": "fatal: Needed a single revision\n"
+      },
+      "name": "policy_local_branch_readback_optional",
+      "passed": false
+    },
+    {
+      "details": {},
+      "name": "policy_ready_and_gate_text_present",
+      "passed": true
+    },
+    {
+      "details": {
+        "harness": "scripts/context_plus_hard_negative_evaluator.py",
+        "sha256": "08d7b0ac227ac8108a858c0c4831d065d6e76fd2a9ad721cc59679d776c85d02"
+      },
+      "name": "harness_present",
+      "passed": true
+    },
+    {
+      "details": {
+        "manifest": "/tmp/context-plus-comparator-worktree-20260707/sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/case_manifest.approved.jsonl"
+      },
+      "name": "source_manifest_exists",
+      "passed": true
+    },
+    {
+      "details": {
+        "actual_sha256": "4f5aaf3a24e68542f05445fe5f6aeab92795883c988fccdcc0490255bee9ebda",
+        "expected_sha256": "4f5aaf3a24e68542f05445fe5f6aeab92795883c988fccdcc0490255bee9ebda"
+      },
+      "name": "approved_manifest_sha_matches",
+      "passed": true
+    },
+    {
+      "details": {
+        "expected": [
+          "hn-20260707-0134",
+          "hn-20260707-0135",
+          "hn-20260707-0136",
+          "hn-20260707-0137",
+          "hn-20260707-0138"
+        ],
+        "selected": [
+          "hn-20260707-0134",
+          "hn-20260707-0135",
+          "hn-20260707-0136",
+          "hn-20260707-0137",
+          "hn-20260707-0138"
+        ]
+      },
+      "name": "micro_batch_range_exact",
+      "passed": true
+    },
+    {
+      "details": {
+        "count": 5
+      },
+      "name": "case_count_exactly_5",
+      "passed": true
+    },
+    {
+      "details": {
+        "expected_provider": "token-broker-vmesh",
+        "model": "token-broker-vmesh/auto"
+      },
+      "name": "model_and_provider_scope_exact",
+      "passed": true
+    },
+    {
+      "details": {
+        "out_dir": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_micro_batch_1_timeout_retry_20260708T1515AEST"
+      },
+      "name": "output_dir_new_empty",
+      "passed": true
+    },
+    {
+      "details": {
+        "owner_approved_re_evaluation_scope": [
+          "hn-20260707-0134",
+          "hn-20260707-0135",
+          "hn-20260707-0136",
+          "hn-20260707-0137",
+          "hn-20260707-0138"
+        ],
+        "prior_case_ids": [
+          "hn-20260707-0134",
+          "hn-20260707-0135",
+          "hn-20260707-0136",
+          "hn-20260707-0137",
+          "hn-20260707-0138"
+        ]
+      },
+      "name": "prior_attempts_limited_to_approved_policy_scope",
+      "passed": true
+    },
+    {
+      "details": {
+        "selected_case_ids": [
+          "hn-20260707-0134",
+          "hn-20260707-0135",
+          "hn-20260707-0136",
+          "hn-20260707-0137",
+          "hn-20260707-0138"
+        ]
+      },
+      "name": "duplicate_prevention_no_cases_outside_approved_scope",
+      "passed": true
+    },
+    {
+      "details": {
+        "abort_on_provider_cooldown": true,
+        "abort_on_rate_limit": true,
+        "cooldown_seconds_before_retry": 180
+      },
+      "name": "rate_limit_cooldown_guardrails_initialized",
+      "passed": true
+    },
+    {
+      "details": {
+        "comparator": "BLOCKED_NOT_RUN",
+        "m6_proposal": "BLOCKED_NOT_RUN",
+        "promotion": "BLOCKED_NOT_RUN"
+      },
+      "name": "comparator_promotion_m6_blocked",
+      "passed": true
+    }
+  ],
+  "classification": "PASS_PREFLIGHT_READY",
+  "created_utc": "2026-07-08T05:12:33Z",
+  "mutation_performed": false,
+  "run_id": "hard-negative-micro-batch-1-timeout-retry-20260708T1515AEST",
+  "schema": "stickbot.context_plus.hard_negative.micro_batch_preflight.v1"
+}

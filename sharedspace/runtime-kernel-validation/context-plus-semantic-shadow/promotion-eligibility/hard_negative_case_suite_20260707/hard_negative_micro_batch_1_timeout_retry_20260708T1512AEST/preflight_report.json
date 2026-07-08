@@ -1,0 +1,27 @@
+{
+  "approved_scope": "hn-20260707-0134..hn-20260707-0138",
+  "checks": [
+    {
+      "details": {
+        "policy_commit": "4f496b3e4d560e674d13f654d8e034fa5fb25feb"
+      },
+      "name": "policy_commit_present",
+      "passed": true
+    },
+    {
+      "details": {
+        "actual": "",
+        "branch": "refs/heads/evidence/context-plus-hard-negative-timeout-retry-policy-20260708",
+        "expected": "4f496b3e4d560e674d13f654d8e034fa5fb25feb",
+        "stderr_excerpt": "fatal: Needed a single revision\n"
+      },
+      "name": "policy_branch_tip_matches_commit",
+      "passed": false
+    }
+  ],
+  "classification": "ABORT_PREFLIGHT_FAILED",
+  "created_utc": "2026-07-08T05:11:50Z",
+  "mutation_performed": false,
+  "run_id": "hard-negative-micro-batch-1-timeout-retry-20260708T1512AEST",
+  "schema": "stickbot.context_plus.hard_negative.micro_batch_preflight.v1"
+}
