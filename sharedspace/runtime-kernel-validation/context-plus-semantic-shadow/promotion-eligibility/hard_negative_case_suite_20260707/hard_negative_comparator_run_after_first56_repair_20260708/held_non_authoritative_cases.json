@@ -1,0 +1,10 @@
+{
+  "classification": "PASS_HELD_CASE_LIST_RECORDED",
+  "held_non_authoritative_case_ids": [
+    "hn-20260707-0008",
+    "hn-20260707-0027",
+    "hn-20260707-0145",
+    "hn-20260707-0153"
+  ],
+  "held_non_authoritative_case_count": 4
+}
