@@ -1,0 +1,10 @@
+{
+  "case_count": 8,
+  "classification": "HOLD_EVALUATION_INCOMPLETE",
+  "expected_cases": 56,
+  "false_positive_count": 1,
+  "false_positive_rate": 0.125,
+  "gateway_model_provider_calls": 8,
+  "journal": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/hard_negative_first_56_repaired_schema_replay_20260708/production_routing_journal.v2.jsonl",
+  "mutation_performed": false
+}

@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Blocked, Stick — this handoff only contains “Looks good, apply it,” but not the actual patch/config/change to apply, and I don’t have tool access here.\n\nSend me one of these and I’ll proceed cleanly:\n\n1. The diff/patch to apply  \n2. The exact file changes requested  \n3. The repo/path plus the prior plan/change summary  \n4. A tool-enabled continuation so I can inspect, apply, and verify\n\nI won’t fake completion or apply from missing context.",
+      "mediaUrl": null
+    }
+  ]
+}

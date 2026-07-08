@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Blocked: I don’t have the prior task state or artifact in this handoff, only the word “continue.”\n\nI won’t guess on an ops-maint lane because the wrong continuation could mutate or diagnose the wrong thing.\n\nSend one of these and I’ll pick it up cleanly:\n\n1. The last command/output/log snippet  \n2. The incident/task objective  \n3. The repo/file/service name  \n4. The last plan step you want continued  \n5. “Continue with diagnosis only” if you want read-only next steps\n\nLocal-default should not execute here because there’s no verified target, environment, or last known safe state.",
+      "mediaUrl": null
+    }
+  ]
+}

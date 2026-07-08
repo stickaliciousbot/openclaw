@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Blocked, Stick: this handoff only contains “Run the next step,” with no prior task state and no execution tools attached. I can’t safely run an unknown ops step or claim execution.\n\nSafe next move:\n1. Send the prior plan/runbook or last terminal output.\n2. Tell me the target system/repo/service.\n3. If you want a default ops continuation, I’ll start with a read-only status check before any mutation.\n\nI’ll proceed once I have enough context to avoid running the wrong thing.",
+      "mediaUrl": null
+    }
+  ]
+}

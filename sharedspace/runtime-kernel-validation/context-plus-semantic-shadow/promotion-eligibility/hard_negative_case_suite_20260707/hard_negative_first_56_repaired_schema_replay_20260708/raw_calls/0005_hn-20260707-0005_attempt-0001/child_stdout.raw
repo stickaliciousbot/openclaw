@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "I can’t safely proceed yet, Stick — this handoff only contains “Proceed with it,” without the prior task details.\n\nSend me one of these and I’ll move:\n\n1. **The exact action to execute**  \n   Example: deploy, rotate token, patch config, restart service, run migration.\n\n2. **Target scope**  \n   Environment, repo/service, host/cluster, account, region.\n\n3. **Expected verification**  \n   Health check, test command, logs, API response, dashboard metric.\n\n4. **Rollback boundary**  \n   What to revert if it fails.\n\nUntil I have that, executing would be blind ops work: high chance of touching the wrong system or claiming completion without verification.",
+      "mediaUrl": null
+    }
+  ]
+}

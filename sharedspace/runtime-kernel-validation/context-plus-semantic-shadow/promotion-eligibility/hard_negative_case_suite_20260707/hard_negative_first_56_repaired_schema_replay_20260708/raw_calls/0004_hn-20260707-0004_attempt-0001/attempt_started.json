@@ -1,0 +1,11 @@
+{
+  "attempt_id": "hard-negative-first-56-repaired-schema-replay-20260708:0004:hn-20260707-0004:attempt-0001",
+  "case_id": "hn-20260707-0004",
+  "case_sequence": 4,
+  "created_utc": "2026-07-08T11:37:40.347840Z",
+  "gateway_model_provider_calls_before": 4,
+  "mutation_performed": false,
+  "run_id": "hard-negative-first-56-repaired-schema-replay-20260708",
+  "schema": "stickbot.context_plus.hard_negative.raw_attempt_started.v1",
+  "visible_user_text_sha256": "3a23ba79744e93083dbeb57cb58650dcf431ffcb2d9b3ae0bef13923ed3e481c"
+}

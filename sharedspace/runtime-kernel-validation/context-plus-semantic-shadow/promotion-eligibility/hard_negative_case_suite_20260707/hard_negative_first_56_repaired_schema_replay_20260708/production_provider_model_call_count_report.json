@@ -1,0 +1,20 @@
+{
+  "actual_calls": 8,
+  "classification": "HOLD_PROVIDER_CALL_BOUNDARY_INCOMPLETE",
+  "command_failure_count": 0,
+  "completed_calls": 8,
+  "empty_stdout_count": 0,
+  "expected_provider": "token-broker-vmesh",
+  "invalid_json_count": 0,
+  "mutation_performed": false,
+  "provider_boundary_counts": {
+    "HOLD_COMMAND_TIMEOUT_PROVIDER_UNVERIFIED": 1,
+    "PASS_PROVIDER_VERIFIED": 7
+  },
+  "provider_metadata_missing_count": 0,
+  "provider_mismatch_count": 0,
+  "provider_mismatches": [],
+  "provider_verified_count": 7,
+  "schema": "stickbot.context_plus.hard_negative.provider_boundary_report.v2",
+  "timeout_count": 1
+}

@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "Stick, I don’t have the prior task state in this handoff—only “Approved — continue with the next thing.”\n\nI’m not going to guess and execute an ops-maint step blind. Safe options:\n\n1. **Paste the last plan/checkpoint** and I’ll continue from the approved next item.\n2. **Name the target system/repo/service** and the approved action.\n3. If this was meant as approval for a previous remediation, send the last command/patch/step and I’ll verify before proceeding.\n\nLocal-default should not execute here because the continuation context is missing and this lane is treated as high-risk ops-maint.",
+      "mediaUrl": null
+    }
+  ]
+}

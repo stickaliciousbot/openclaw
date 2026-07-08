@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "capability": "model.run",
+  "transport": "gateway",
+  "provider": "token-broker-vmesh",
+  "model": "auto",
+  "attempts": [],
+  "outputs": [
+    {
+      "text": "I don’t have the prior action in this handoff, Stick, so I’m not going to guess on an ops-maint step.\n\nSend me the exact thing you’re approving — command, target system, config change, or the last recommendation — and I’ll proceed with bounded execution/verification guidance.",
+      "mediaUrl": null
+    }
+  ]
+}
