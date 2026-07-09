@@ -1,0 +1,128 @@
+{
+  "schema": "stickbot.memory_ledger.rehydrator.v1",
+  "generatedAt": "2026-07-09T09:44:51.742Z",
+  "project": "stickbot-memory-ledger-v0.1",
+  "projectRoot": "projects/stickbot-memory-ledger-v0",
+  "branch": "feature/stickbot-memory-ledger-v0-1",
+  "preferredWorktree": "/tmp/stickbot-memory-ledger-v0-worktree",
+  "status": "WARN_MISSING_SOURCES",
+  "implementationAuthority": "docs/STICKBOT_MEMORY_LEDGER_V0_1_REVISED_IMPROVED_PLAN.md",
+  "noApplyBoundaries": [
+    "No Gateway config mutation",
+    "No model/provider route mutation",
+    "No production memory-route mutation",
+    "No MEMORY.md writes in v0.1",
+    "No Nuzo code/package/schema/test/plugin reuse",
+    "No hidden inferred writes"
+  ],
+  "currentMilestone": "CB-L5R actions ledger redaction/provenance repair in progress; CB-L5 marker append blocked and not performed; CB-L4 pushed PASS; no authority promotion; CB-L6/M21/M22 not started",
+  "previousMilestone": "CB-L4 sanitizer canary PASS and pushed; CB-L3 shadow projection PASS and pushed; CB-L2 authority matrix PASS and pushed; CB-L1 read-only audit PASS and pushed; M20R deterministic observer recovery PASS; M20 detached observer HOLD; M19 controlled production enablement PASS",
+  "nextImplementationSlice": "Finish CB-L5R actions ledger redaction/provenance repair only; do not append CB-L5 marker or start CB-L6/M21/M22 without separate owner approval",
+  "activeObservation": {
+    "milestone": "M20R",
+    "status": "MEMORY_LEDGER_V0_1_M20R_DETERMINISTIC_OBSERVER_RECOVERY_PASS_NO_AUTHORITY_PROMOTION",
+    "startedAt": "2026-07-06T17:49:33+10:00",
+    "finalEligibilityAt": "2026-07-07T17:49:33+10:00",
+    "sessionTarget": "session:m20-post-production-observation",
+    "currentGate": "CB-L5R",
+    "detachedObserver": true,
+    "detachedObserverNote": "Original M20 detached observer did not execute required checks; M20R used deterministic harness and child observer artifacts instead.",
+    "checkpointJobs": {
+      "tPlus2h": "8980885e-fc62-44e7-897f-ccc84e2f673c",
+      "tPlus8h": "4334fb16-e319-4ef2-a804-bb83c1eef22b",
+      "tPlus24hFinal": "72b92d09-602f-4649-9bd8-df7b91d3d4ce"
+    },
+    "guards": [
+      "No runtime mutation",
+      "No recall memory write",
+      "No recall authority leak",
+      "Operator surface must remain inert",
+      "Do not start M21/M22 without separate owner approval"
+    ]
+  },
+  "branchRecovery": {
+    "currentCheckoutMayBeDifferent": true,
+    "preferredWorktree": "/tmp/stickbot-memory-ledger-v0-worktree",
+    "branch": "feature/stickbot-memory-ledger-v0-1",
+    "latestPacketGitShow": "git show feature/stickbot-memory-ledger-v0-1:projects/stickbot-memory-ledger-v0/artifacts/rehydration/stickbot-memory-ledger/latest.md",
+    "boundedDiscovery": [
+      "git worktree list",
+      "git branch --all --list '*memory-ledger*'",
+      "git ls-tree -r --name-only feature/stickbot-memory-ledger-v0-1 projects/stickbot-memory-ledger-v0"
+    ]
+  },
+  "sources": [
+    {
+      "relPath": "docs/STICKBOT_MEMORY_LEDGER_V0_1_REVISED_IMPROVED_PLAN.md",
+      "bytes": 35416,
+      "sha256": "97862604efb7a507e80e77d178e300bca994bb8a2a671c87b031f034a1548931"
+    },
+    {
+      "relPath": "docs/TROUBLESHOOTING_REPAIR_AND_IMPLEMENTATION_GUIDE.md",
+      "bytes": 40257,
+      "sha256": "69eb46d4507a5cd833c29a1121b62753ff000b58ba3228c7fa2b04be21f0b1b2"
+    },
+    {
+      "relPath": "docs/PROJECT_REHYDRATOR.md",
+      "bytes": 18170,
+      "sha256": "18ddc848255a3ad7f5c154baefe561c55f272da7ef4527231084a26f66abe458"
+    },
+    {
+      "relPath": "docs/MILESTONES.md",
+      "bytes": 55924,
+      "sha256": "f4946c6ba6218b7710c73182015fd1974c5967236f64c8aaf8caedbf874c3eef"
+    },
+    {
+      "relPath": "docs/CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L5R_ACTIONS_LEDGER_REDACTION_PROVENANCE.md",
+      "bytes": 3901,
+      "sha256": "6c89634f755fe63010d6d32c09f67b42ea704b23c21c8fdd4a7dfa262c9fb889"
+    },
+    {
+      "relPath": "scripts/stickbot-memory-ledger-rehydrate.mjs",
+      "bytes": 13313,
+      "sha256": "4e05ab659cc9c5b3860ea1e73dc52b58a8da953857f4b1dbcab63b9cc2bbd48c"
+    },
+    {
+      "relPath": "scripts/context_bridge_actions_l5r_redact_provenance.py",
+      "bytes": 19834,
+      "sha256": "cf54ad020136a9dd412e45b5027ba2572e95718bc0f04a93e869e35189725cfe"
+    }
+  ],
+  "missingSources": [
+    "README.md",
+    "pyproject.toml",
+    "docs/REHYDRATOR_IMPROVEMENTS_NOTEBOOK.md",
+    "docs/CLEAN_ROOM_NOTES.md",
+    "docs/M10_READ_ONLY_OPENCLAW_ADAPTER_CANARY_APPROVAL.md",
+    "docs/M11_PRODUCTION_READINESS_AND_RUNTIME_ENABLEMENT_PLAN.md",
+    "docs/M12_TINY_PRODUCTION_READONLY_CANARY.md",
+    "docs/M13_CONTROLLED_PRODUCTION_INTEGRATION_PLAN.md",
+    "docs/M14_OPERATOR_ONLY_PRODUCTION_READONLY_RECALL.md",
+    "docs/M15_OPENCLAW_RUNTIME_OPERATOR_READONLY_RECALL.md",
+    "docs/M16_OPERATOR_RECALL_HARDENING_AND_REPEATABILITY.md",
+    "docs/M17_STICKBOT_TARS_OPERATOR_READONLY_RECALL.md",
+    "docs/M18_PRODUCTION_RELEASE_CANDIDATE_CUTOVER_READINESS.md",
+    "docs/M19_CONTROLLED_PRODUCTION_ENABLEMENT.md",
+    "docs/M20R_DETERMINISTIC_OBSERVER_RECOVERY.md",
+    "docs/CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L0_L1_READONLY_AUDIT.md",
+    "docs/CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L2_AUTHORITY_MATRIX.md",
+    "docs/CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L3_SHADOW_PROJECTION.md",
+    "docs/CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L4_SANITIZER_CANARY.md",
+    "scripts/stickbot-memory-ledger-cli.py",
+    "scripts/stickbot-memory-ledger-m12-canary.py",
+    "scripts/stickbot-memory-ledger-operator-recall.py",
+    "scripts/stickbot-memory-ledger-m16-repeatability.py",
+    "scripts/context_bridge_ledger_l0_l1_readonly_audit.py",
+    "scripts/context_bridge_ledger_l2_authority_matrix.py",
+    "scripts/context_bridge_ledger_l3_shadow_projection.py",
+    "scripts/context_bridge_ledger_l4_sanitizer_canary.py",
+    "src/stickbot_memory_ledger/__init__.py",
+    "src/stickbot_memory_ledger/constants.py",
+    "src/stickbot_memory_ledger/util.py",
+    "src/stickbot_memory_ledger/redaction.py",
+    "src/stickbot_memory_ledger/store.py",
+    "src/stickbot_memory_ledger/cli.py",
+    "src/stickbot_memory_ledger/openclaw_readonly_adapter.py",
+    "test/test_first_slice.py"
+  ]
+}
