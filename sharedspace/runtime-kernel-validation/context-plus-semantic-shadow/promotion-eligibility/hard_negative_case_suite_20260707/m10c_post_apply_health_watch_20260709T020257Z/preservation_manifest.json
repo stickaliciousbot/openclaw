@@ -1,0 +1,18 @@
+{
+  "schema": "stickbot.context_plus.m10c.post_apply_health_watch_preservation.v1",
+  "classification": "PASS_M10C_POST_APPLY_HEALTH_WATCH_READY",
+  "recommendation": "KEEP_PROMOTED",
+  "evidence_root": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/m10c_post_apply_health_watch_20260709T020257Z",
+  "closeout_artifact": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/M10C_CONTEXT_PLUS_POST_APPLY_HEALTH_WATCH.md",
+  "rollback_required": false,
+  "provider_calls": 0,
+  "mutation": "none_unexpected",
+  "semantic_direct_provider_bypass_count": 0,
+  "raw_direct_provider_bypass_grep_count": 1,
+  "raw_direct_provider_bypass_disposition": "false_positive_guard_line_direct_provider_bypass_allowed_false",
+  "fallback_surprise_count": 0,
+  "route_contract_failure_count": 0,
+  "rollback_trigger_count": 0,
+  "preservation_branch": "evidence/context-plus-m10c-post-apply-health-watch-20260709T020257Z",
+  "preservation_marker": "M10C_CONTEXT_PLUS_POST_APPLY_HEALTH_WATCH_READY_KEEP_PROMOTED"
+}

@@ -1,0 +1,22 @@
+{
+  "bounded": true,
+  "counts": {
+    "direct_provider_bypass": 1,
+    "fallback_surprise": 0,
+    "rollback_trigger": 0,
+    "route_contract_failure": 0
+  },
+  "files_scanned": 1,
+  "ok": true,
+  "samples": {
+    "direct_provider_bypass": [
+      {
+        "file": "/home/stickai/.openclaw/workspace/state/intent-preselector-v5/enforcement.json",
+        "line": "    \"direct_provider_bypass_allowed\": false,"
+      }
+    ],
+    "fallback_surprise": [],
+    "rollback_trigger": [],
+    "route_contract_failure": []
+  }
+}

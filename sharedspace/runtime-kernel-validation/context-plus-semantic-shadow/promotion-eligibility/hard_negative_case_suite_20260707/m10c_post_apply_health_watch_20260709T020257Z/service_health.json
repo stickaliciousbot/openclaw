@@ -1,0 +1,39 @@
+{
+  "token_solver_v4_health": {
+    "ok": true,
+    "service": "token-solver-v4",
+    "port": 8800,
+    "upstream_v3_base_url": "http://127.0.0.1:8799",
+    "upstream_v3": {
+      "ok": true,
+      "status": 200,
+      "body": {
+        "ok": true,
+        "service": "token-solver-v3",
+        "readiness_ok": true,
+        "readiness_reason": null,
+        "readiness_age_sec": null,
+        "local_fast_model": "ollama/gemma4:e2b",
+        "local_agentic_model": "ollama/gemma4:e2b",
+        "local_reasoning_model": "ollama/qwen3",
+        "local_embed_model": "ollama/nomic-embed-text",
+        "codex_high_model": "openai-codex/gpt-5.5",
+        "codex_5_3_codex_model": "openai-codex/gpt-5.3-codex",
+        "intent_preselector_v5": {
+          "enabled": true,
+          "mode": "shadow_contract_only",
+          "enforced": false,
+          "trace_enabled": false
+        },
+        "ollama_base_url": "http://192.168.1.109:11434"
+      }
+    },
+    "scoring": "deterministic-local-only",
+    "required_strong_model_policy": "openai-codex/gpt-5.5",
+    "nano_model_policy": "gpt-5.4"
+  },
+  "gateway_status": {
+    "ok": true,
+    "text": "Service: systemd user (enabled)\nFile logs: /tmp/openclaw/openclaw-2026-07-09.log\nCommand: /usr/bin/node /home/stickai/.npm-global/lib/node_modules/openclaw/dist/index.js gateway --port 18789\nService file: ~/.config/systemd/user/openclaw-gateway.service\nService env: OPENCLAW_GATEWAY_PORT=18789\n\nService config looks out of date or non-standard.\nService config issue: Gateway service PATH missing required dirs: /home/stickai/.local/share/pnpm\nRecommendation: run \"openclaw doctor\" (or \"openclaw doctor --repair\").\nConfig (cli): ~/.openclaw/openclaw.json\nConfig (service): ~/.openclaw/openclaw.json\n\nGateway: bind=lan (0.0.0.0), port=18789 (service args)\nProbe target: ws://127.0.0.1:18789\nDashboard: http://172.24.168.46:18789/\nProbe note: bind=lan listens on 0.0.0.0 (all interfaces); probing via 127.0.0.1.\n\nRuntime: running (pid 811617, state active, sub running, last exit 0, reason 0)\nConnectivity probe: ok\nCapability: admin-capable\n\nListening: *:18789\nTroubles: run openclaw status\nTroubleshooting: https://docs.openclaw.ai/troubleshooting\n"
+  }
+}

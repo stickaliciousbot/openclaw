@@ -1,0 +1,15 @@
+{
+  "ok": true,
+  "classification": "PASS_M10C_SIDE_EFFECT_CHECK_NO_UNEXPECTED_MUTATION",
+  "baseline": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/m10b_production_apply_20260709T015158Z/post_apply_snapshot/manifest.json",
+  "current": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/m10c_post_apply_health_watch_20260709T020257Z/current_manifest.json",
+  "changes": [],
+  "unexpected_changes": [],
+  "provider_model_cache_memory_config_mutation": false,
+  "provider_calls": 0,
+  "rollback_required": false,
+  "notes": [
+    "Current manifest matches M10B post-apply manifest for openclaw.json, enforcement state, Token Solver v4 source, and enforcement schema.",
+    "No Gateway/config/routes/cache/memory/provider/model mutation detected by manifest comparison."
+  ]
+}
