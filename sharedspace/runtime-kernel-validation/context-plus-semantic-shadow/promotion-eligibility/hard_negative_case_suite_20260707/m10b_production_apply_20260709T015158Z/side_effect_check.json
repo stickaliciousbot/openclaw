@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "classification": "PASS_M10B_SIDE_EFFECT_CHECK_ONLY_ALLOWED_STATE_FILE_CHANGED",
+  "production_apply": "RUN_SCOPED_STATE_FILE_ONLY",
+  "rollback_required": false,
+  "provider_gateway_model_calls": 0,
+  "pre_post_manifest_comparison": {
+    "/home/stickai/.openclaw/openclaw.json": "UNCHANGED",
+    "/home/stickai/.openclaw/workspace/services/token-solver-v4/src/config.js": "UNCHANGED",
+    "/home/stickai/.openclaw/workspace/services/token-solver-v4/src/v5Contract.js": "UNCHANGED",
+    "/home/stickai/.openclaw/workspace/services/token-solver-v4/src/intentPreselectorV5ControlSurface.js": "UNCHANGED",
+    "/home/stickai/.openclaw/workspace/services/intent-preselector-v5/config/enforcement.schema.json": "UNCHANGED",
+    "/home/stickai/.openclaw/workspace/state/intent-preselector-v5/enforcement.json": "EXPECTED_CREATED"
+  },
+  "allowed_mutation": [
+    "/home/stickai/.openclaw/workspace/state/intent-preselector-v5/enforcement.json",
+    "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/m10b_production_apply_20260709T015158Z/"
+  ],
+  "forbidden_side_effects": {
+    "gateway_config_route_default_fallback_model_changed": false,
+    "provider_model_catalog_or_credentials_changed": false,
+    "cache_enabled_or_changed": false,
+    "memory_route_backend_or_promotion_changed": false,
+    "m9_advisory_key_reused_or_mutated": false,
+    "token_solver_v4_source_changed_during_apply": false,
+    "intent_preselector_schema_changed_during_apply": false,
+    "comparator_rerun": false,
+    "replay_or_provider_calls": false
+  },
+  "evidence": {
+    "pre_apply_manifest": "pre_apply_snapshot/manifest.json",
+    "post_apply_manifest": "post_apply_snapshot/manifest.json",
+    "apply_validation": "apply_validation.json",
+    "post_apply_readback": "post_apply_readback.json",
+    "post_apply_smoke_plan": "post_apply_smoke_plan.json"
+  }
+}

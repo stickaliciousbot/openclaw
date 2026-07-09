@@ -1,0 +1,16 @@
+{
+  "action": "smoke",
+  "assertions": [
+    "state_schema_valid",
+    "owner_operator_scope_enforced_only_when_allowlisted",
+    "non_allowlisted_scope_shadow_or_rejected",
+    "prompt_preserved_true",
+    "context_may_replace_prompt_false",
+    "gateway_provider_model_cache_memory_unchanged"
+  ],
+  "dry_run": true,
+  "endpoint": "http://127.0.0.1:8800/route/dry-run",
+  "mutation": "none",
+  "ok": true,
+  "provider_calls": 0
+}

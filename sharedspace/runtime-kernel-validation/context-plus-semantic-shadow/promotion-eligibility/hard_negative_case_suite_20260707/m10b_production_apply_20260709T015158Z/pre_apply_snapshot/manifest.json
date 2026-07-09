@@ -1,0 +1,43 @@
+{
+  "dry_run": true,
+  "manifest": [
+    {
+      "exists": true,
+      "path": "/home/stickai/.openclaw/openclaw.json",
+      "sha256": "3ad1452efd7e01a1300b974f7f13e874c427db3a007dd45752bf19b9a4c29483",
+      "size": 27860
+    },
+    {
+      "exists": false,
+      "path": "/home/stickai/.openclaw/workspace/state/intent-preselector-v5/enforcement.json",
+      "sha256": null,
+      "size": null
+    },
+    {
+      "exists": true,
+      "path": "/home/stickai/.openclaw/workspace/services/token-solver-v4/src/config.js",
+      "sha256": "013fc764d610d67bb9244847d2b4a8d07c8e72df50f64d337571b531de9e8f79",
+      "size": 4838
+    },
+    {
+      "exists": true,
+      "path": "/home/stickai/.openclaw/workspace/services/token-solver-v4/src/v5Contract.js",
+      "sha256": "5be813971c7f9fe732aea03485cf05c988a10ee099c3da17c8e45dffe535bd2d",
+      "size": 7489
+    },
+    {
+      "exists": true,
+      "path": "/home/stickai/.openclaw/workspace/services/token-solver-v4/src/intentPreselectorV5ControlSurface.js",
+      "sha256": "15f32dfe992533e7117bbdd2248db3ee98f6b3baf79558c0f95e51570a7367f6",
+      "size": 8621
+    },
+    {
+      "exists": true,
+      "path": "/home/stickai/.openclaw/workspace/services/intent-preselector-v5/config/enforcement.schema.json",
+      "sha256": "6376b093b07691dd81a00a532e6cc65e127e7560219f01a330110229aeb107f6",
+      "size": 3633
+    }
+  ],
+  "mutation": "none",
+  "ok": true
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "stickbot.context_plus_semantic_preselector.production_control_surface.v1",
+  "subject": "CONTEXT_PLUS_SEMANTIC_PRESELECTOR",
+  "enabled": true,
+  "mode": "enforced_route_contract",
+  "authority": "lane_selection_only",
+  "traffic_scope": "owner_operator_live_turns_only",
+  "operator_allowlist": ["telegram:8495203551"],
+  "kill_switch": false,
+  "m6_evidence": {
+    "comparator_classification": "PASS_FALSE_POSITIVE_BASELINE_IMPROVED",
+    "production_false_positives": "22/235",
+    "context_plus_shadow_false_positives": "0/235",
+    "proposal_commit": "871522c5204b6062419e48a5a47a4d9cd4cf97a6",
+    "preflight_commit": "551c019bdee3704e3da2a8d4eb9eb9d4c10b388e",
+    "runbook_hold_commit": "c2e2decfeaa4fad82e81a54362779d461d1ebf77",
+    "m8_discovery_hold_commit": "1ce70de4b94c4916a8e0cdbfe37eeb2ed672fc20"
+  },
+  "guards": {
+    "prompt_preserved_required": true,
+    "context_may_replace_prompt": false,
+    "remote_llm_for_scoring_allowed": false,
+    "direct_provider_bypass_allowed": false,
+    "cache_allowed": false,
+    "artifact_memory_promotion_allowed": false,
+    "default_model_change_allowed": false,
+    "provider_model_change_allowed": false,
+    "write_action_authority": "unchanged_existing_policy_only"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schema": "stickbot.context_plus.m10b.production_apply_evidence_preservation.v1",
+  "classification": "PASS_M10B_PRODUCTION_APPLY_SCOPED_STATE_FILE_READY_FOR_EVIDENCE_PRESERVATION",
+  "run_id": "m10b_production_apply_20260709T015158Z",
+  "evidence_root": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/m10b_production_apply_20260709T015158Z",
+  "production_apply": "RUN_SCOPED_STATE_FILE_ONLY",
+  "state_path": "/home/stickai/.openclaw/workspace/state/intent-preselector-v5/enforcement.json",
+  "state_sha256": "cc1ebfe0d875e71a334e1c5db4995215a0d8edbc5b84a8f66b8cc3e0f08a8dd6",
+  "post_apply_readback": {
+    "ok": true,
+    "exists": true,
+    "active": true,
+    "enforced": true,
+    "mode": "enforced_route_contract",
+    "reasons": []
+  },
+  "side_effect_check": "PASS_M10B_SIDE_EFFECT_CHECK_ONLY_ALLOWED_STATE_FILE_CHANGED",
+  "rollback_required": false,
+  "provider_gateway_model_calls": 0,
+  "gateway_config_routes_cache_memory_provider_model_mutation": "NOT_RUN",
+  "evidence_files": [
+    "pre_apply_snapshot/manifest.json",
+    "pre_apply_snapshot/enforcement.preimage.json",
+    "candidate/enforcement.owner_operator_live_turns_only.json",
+    "apply_validation.json",
+    "post_apply_readback.json",
+    "post_apply_smoke_plan.json",
+    "post_apply_snapshot/manifest.json",
+    "side_effect_check.json"
+  ],
+  "preservation_branch": "evidence/context-plus-m10b-production-apply-evidence-20260709T015158Z",
+  "preservation_marker": "M10B_CONTEXT_PLUS_PRODUCTION_APPLY_EVIDENCE_PRESERVED"
+}
