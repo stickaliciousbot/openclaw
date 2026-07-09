@@ -1,6 +1,6 @@
 {
   "schema": "stickbot.memory_ledger.rehydrator.v1",
-  "generatedAt": "2026-07-09T09:44:51.742Z",
+  "generatedAt": "2026-07-09T09:51:23.758Z",
   "project": "stickbot-memory-ledger-v0.1",
   "projectRoot": "projects/stickbot-memory-ledger-v0",
   "branch": "feature/stickbot-memory-ledger-v0-1",
@@ -15,7 +15,7 @@
     "No Nuzo code/package/schema/test/plugin reuse",
     "No hidden inferred writes"
   ],
-  "currentMilestone": "CB-L5R actions ledger redaction/provenance repair in progress; CB-L5 marker append blocked and not performed; CB-L4 pushed PASS; no authority promotion; CB-L6/M21/M22 not started",
+  "currentMilestone": "CB-L5R actions ledger redaction/provenance repair PASS with closeout metadata repaired to explicit PASS; terminal CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L5R_ACTIONS_LEDGER_REDACTION_PROVENANCE_PASS_NO_MARKER_APPEND; repair terminal CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L5R_CLOSEOUT_REPAIRED_PASS_NO_MARKER_APPEND; CB-L5 marker append blocked and not performed; no authority promotion; CB-L6/M21/M22 not started",
   "previousMilestone": "CB-L4 sanitizer canary PASS and pushed; CB-L3 shadow projection PASS and pushed; CB-L2 authority matrix PASS and pushed; CB-L1 read-only audit PASS and pushed; M20R deterministic observer recovery PASS; M20 detached observer HOLD; M19 controlled production enablement PASS",
   "nextImplementationSlice": "Finish CB-L5R actions ledger redaction/provenance repair only; do not append CB-L5 marker or start CB-L6/M21/M22 without separate owner approval",
   "activeObservation": {
@@ -64,13 +64,13 @@
     },
     {
       "relPath": "docs/PROJECT_REHYDRATOR.md",
-      "bytes": 18170,
-      "sha256": "18ddc848255a3ad7f5c154baefe561c55f272da7ef4527231084a26f66abe458"
+      "bytes": 18166,
+      "sha256": "76b1b1b3eeff7df1248c5d7b14deb2437de39ffbaf9f526a69767458022c6ed6"
     },
     {
       "relPath": "docs/MILESTONES.md",
-      "bytes": 55924,
-      "sha256": "f4946c6ba6218b7710c73182015fd1974c5967236f64c8aaf8caedbf874c3eef"
+      "bytes": 55922,
+      "sha256": "fabd6251c23d1bfb484e08deb3edbd1e5ed93d247b6724e9f0dbf51c32d9e787"
     },
     {
       "relPath": "docs/CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L5R_ACTIONS_LEDGER_REDACTION_PROVENANCE.md",
@@ -79,8 +79,8 @@
     },
     {
       "relPath": "scripts/stickbot-memory-ledger-rehydrate.mjs",
-      "bytes": 13313,
-      "sha256": "4e05ab659cc9c5b3860ea1e73dc52b58a8da953857f4b1dbcab63b9cc2bbd48c"
+      "bytes": 13784,
+      "sha256": "6eddf2fe728a6700d01cc7794aea24eba02de227f1d6b8030312eef57eac7450"
     },
     {
       "relPath": "scripts/context_bridge_actions_l5r_redact_provenance.py",

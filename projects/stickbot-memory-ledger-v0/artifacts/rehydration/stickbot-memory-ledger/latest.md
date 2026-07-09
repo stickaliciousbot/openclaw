@@ -1,6 +1,6 @@
 # Stickbot Memory Ledger v0.1 — Rehydration Packet
 
-Generated: 2026-07-09T09:44:51.742Z
+Generated: 2026-07-09T09:51:23.758Z
 
 Status: WARN_MISSING_SOURCES
 
@@ -14,14 +14,14 @@ Branch: `feature/stickbot-memory-ledger-v0-1`
 2. Read `docs/MILESTONES.md`, `docs/M10_READ_ONLY_OPENCLAW_ADAPTER_CANARY_APPROVAL.md`, `docs/M11_PRODUCTION_READINESS_AND_RUNTIME_ENABLEMENT_PLAN.md`, `docs/M12_TINY_PRODUCTION_READONLY_CANARY.md`, `docs/M13_CONTROLLED_PRODUCTION_INTEGRATION_PLAN.md`, `docs/M14_OPERATOR_ONLY_PRODUCTION_READONLY_RECALL.md`, `docs/M15_OPENCLAW_RUNTIME_OPERATOR_READONLY_RECALL.md`, `docs/M16_OPERATOR_RECALL_HARDENING_AND_REPEATABILITY.md`, `docs/M17_STICKBOT_TARS_OPERATOR_READONLY_RECALL.md`, `docs/M18_PRODUCTION_RELEASE_CANDIDATE_CUTOVER_READINESS.md`, `docs/M19_CONTROLLED_PRODUCTION_ENABLEMENT.md`, `docs/M20R_DETERMINISTIC_OBSERVER_RECOVERY.md`, `docs/CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L0_L1_READONLY_AUDIT.md`, `docs/CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L2_AUTHORITY_MATRIX.md`, `docs/CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L3_SHADOW_PROJECTION.md`, `docs/CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L4_SANITIZER_CANARY.md`, and `docs/CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L5R_ACTIONS_LEDGER_REDACTION_PROVENANCE.md`.
 3. Preserve hard boundaries: no Gateway/model/provider/runtime memory-route mutation and no `MEMORY.md` writes in v0.1.
 4. Treat the production recall path as operator-only and explicit-flag/confirmation/scope gated for exactly `system:memory-ledger`, `project:openclaw-runtime`, and `project:stickbot-tars`.
-5. Current live state: CB-L5 marker append is blocked/not performed while CB-L5R actions ledger redaction/provenance repair is in progress; CB-L4 PASS/repaired/pushed, CB-L3 PASS/repaired/pushed, CB-L2 PASS/repaired/pushed, CB-L1 PASS/pushed, M20R PASS, no authority promotion; CB-L6/M21/M22 not started. Original M20 remains HOLD because detached observer sessions did not execute required checks.
+5. Current live state: CB-L5 marker append is blocked/not performed; CB-L5R actions ledger redaction/provenance repair PASS with closeout metadata repaired to explicit PASS; terminal CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L5R_ACTIONS_LEDGER_REDACTION_PROVENANCE_PASS_NO_MARKER_APPEND; repair terminal CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L5R_CLOSEOUT_REPAIRED_PASS_NO_MARKER_APPEND; CB-L4 PASS/repaired/pushed, CB-L3 PASS/repaired/pushed, CB-L2 PASS/repaired/pushed, CB-L1 PASS/pushed, M20R PASS, no authority promotion; CB-L6/M21/M22 not started. Original M20 remains HOLD because detached observer sessions did not execute required checks.
 6. If the current checkout is not the Ledger branch, use the branch/worktree recovery section below before broad filesystem searches.
 7. Update this rehydrator and docs before every milestone closeout.
 8. For M20R details, read `docs/M20R_DETERMINISTIC_OBSERVER_RECOVERY.md`.
 
 ## Current Milestone
 
-CB-L5R actions ledger redaction/provenance repair in progress; CB-L5 marker append blocked and not performed; CB-L4 pushed PASS; no authority promotion; CB-L6/M21/M22 not started
+CB-L5R actions ledger redaction/provenance repair PASS with closeout metadata repaired to explicit PASS; terminal CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L5R_ACTIONS_LEDGER_REDACTION_PROVENANCE_PASS_NO_MARKER_APPEND; repair terminal CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L5R_CLOSEOUT_REPAIRED_PASS_NO_MARKER_APPEND; CB-L5 marker append blocked and not performed; no authority promotion; CB-L6/M21/M22 not started
 
 Previous milestone: CB-L4 sanitizer canary PASS and pushed; CB-L3 shadow projection PASS and pushed; CB-L2 authority matrix PASS and pushed; CB-L1 read-only audit PASS and pushed; M20R deterministic observer recovery PASS; M20 detached observer HOLD; M19 controlled production enablement PASS
 
@@ -76,10 +76,10 @@ Bounded discovery order:
 
 - `docs/STICKBOT_MEMORY_LEDGER_V0_1_REVISED_IMPROVED_PLAN.md` — 35416 bytes — sha256:97862604efb7a507e80e77d178e300bca994bb8a2a671c87b031f034a1548931
 - `docs/TROUBLESHOOTING_REPAIR_AND_IMPLEMENTATION_GUIDE.md` — 40257 bytes — sha256:69eb46d4507a5cd833c29a1121b62753ff000b58ba3228c7fa2b04be21f0b1b2
-- `docs/PROJECT_REHYDRATOR.md` — 18170 bytes — sha256:18ddc848255a3ad7f5c154baefe561c55f272da7ef4527231084a26f66abe458
-- `docs/MILESTONES.md` — 55924 bytes — sha256:f4946c6ba6218b7710c73182015fd1974c5967236f64c8aaf8caedbf874c3eef
+- `docs/PROJECT_REHYDRATOR.md` — 18166 bytes — sha256:76b1b1b3eeff7df1248c5d7b14deb2437de39ffbaf9f526a69767458022c6ed6
+- `docs/MILESTONES.md` — 55922 bytes — sha256:fabd6251c23d1bfb484e08deb3edbd1e5ed93d247b6724e9f0dbf51c32d9e787
 - `docs/CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L5R_ACTIONS_LEDGER_REDACTION_PROVENANCE.md` — 3901 bytes — sha256:6c89634f755fe63010d6d32c09f67b42ea704b23c21c8fdd4a7dfa262c9fb889
-- `scripts/stickbot-memory-ledger-rehydrate.mjs` — 13313 bytes — sha256:4e05ab659cc9c5b3860ea1e73dc52b58a8da953857f4b1dbcab63b9cc2bbd48c
+- `scripts/stickbot-memory-ledger-rehydrate.mjs` — 13784 bytes — sha256:6eddf2fe728a6700d01cc7794aea24eba02de227f1d6b8030312eef57eac7450
 - `scripts/context_bridge_actions_l5r_redact_provenance.py` — 19834 bytes — sha256:cf54ad020136a9dd412e45b5027ba2572e95718bc0f04a93e869e35189725cfe
 
 Missing sources:
