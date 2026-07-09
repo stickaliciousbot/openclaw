@@ -1,0 +1,20 @@
+{
+  "counts": {
+    "fallback_surprise": 0,
+    "rollback_trigger": 0,
+    "route_contract_failure": 0,
+    "semantic_direct_provider_bypass": 0
+  },
+  "files_scanned": [
+    "/tmp/openclaw/openclaw-2026-07-09.log"
+  ],
+  "ok": true,
+  "samples": {
+    "fallback_surprise": [],
+    "rollback_trigger": [],
+    "route_contract_failure": [],
+    "semantic_direct_provider_bypass": []
+  },
+  "source_aware": true,
+  "tail_lines_per_file": 2500
+}

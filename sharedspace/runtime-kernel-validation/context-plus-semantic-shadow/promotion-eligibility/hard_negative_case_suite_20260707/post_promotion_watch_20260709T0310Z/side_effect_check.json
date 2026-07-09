@@ -1,0 +1,10 @@
+{
+  "baseline": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/m10c_post_apply_health_watch_20260709T020257Z/current_manifest.json",
+  "changes": [],
+  "classification": "PASS_POST_PROMOTION_SIDE_EFFECT_CHECK_NO_UNEXPECTED_MUTATION",
+  "current": "sharedspace/runtime-kernel-validation/context-plus-semantic-shadow/promotion-eligibility/hard_negative_case_suite_20260707/post_promotion_watch_20260709T0310Z/current_manifest.json",
+  "mutation": "none",
+  "ok": true,
+  "provider_calls": 0,
+  "provider_gateway_model_side_effect_check": "PASS_NO_HASH_DRIFT"
+}

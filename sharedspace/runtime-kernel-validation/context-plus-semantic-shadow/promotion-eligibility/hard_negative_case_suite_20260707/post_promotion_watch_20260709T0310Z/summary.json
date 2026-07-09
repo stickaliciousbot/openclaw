@@ -1,0 +1,34 @@
+{
+  "classification": "PASS_POST_PROMOTION_WATCH_HEALTHY",
+  "closeout": "PASS_POST_PROMOTION_WATCH_HEALTHY",
+  "comparator_rerun": "NOT_RUN",
+  "fallback_surprise_count": 0,
+  "final_closeout_classification": "PASS_CONTEXT_PLUS_PRODUCTION_PROMOTION_CLOSEOUT_KEEP_PROMOTED",
+  "final_closeout_commit": "a1226a47cfd532db52a2a2a5de98d1cb51437281",
+  "memory_update": "NOT_RUN",
+  "production_apply": "NOT_RUN",
+  "production_mutation": "NOT_RUN",
+  "provider_calls": 0,
+  "readback": {
+    "active": true,
+    "enforced": true,
+    "mode": "enforced_route_contract",
+    "ok": true
+  },
+  "recommendation": "KEEP_PROMOTED",
+  "replay_provider_calls": "NOT_RUN",
+  "rollback_required": false,
+  "rollback_trigger_count": 0,
+  "route_contract_failure_count": 0,
+  "run_id": "post_promotion_watch_20260709T0310Z",
+  "schema": "stickbot.context_plus.post_promotion_passive_watch.v1",
+  "semantic_direct_provider_bypass_count": 0,
+  "service_health_ok": true,
+  "side_effect_ok": true,
+  "smoke": {
+    "mutation": "none",
+    "ok": true,
+    "provider_calls": 0
+  },
+  "unsafe_reasons": []
+}
