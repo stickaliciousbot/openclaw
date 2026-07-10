@@ -13,6 +13,7 @@ Observed cases:
 - Work Lifecycle M13: artifact body/status indicated `PASS_FINAL_ROLLOUT_CLOSEOUT_READY`, but visible footer said `Closeout: UNKNOWN`; root cause was missing explicit `closeoutStatus` for summary/footer readers.
 - Ledger v0.1 CB-L2/CB-L3/CB-L4: substantive evidence was green, but closeout presentation/metadata was missing or ambiguous and got classified as `HOLD_CB_L*_CLOSEOUT_STATUS_UNKNOWN_NEEDS_REPAIR`.
 - Ledger v0.1 closeout gates used weak checks such as `closeout_status != "UNKNOWN"`; missing fields (`None`) incorrectly passed that test.
+- CB-L9: canonical artifacts and pushed branch were explicit PASS, but the installed global OpenClaw closeout projector still rendered a visible `Closeout: UNKNOWN` because runtime normalization only read generic `status`/`terminalState` and returned UNKNOWN for closeout-shaped payloads without those fields.
 
 ## Root cause
 
@@ -39,6 +40,14 @@ For every closeout artifact, projector, footer, readback, or watcher:
 - Generalized `context_bridge_closeout_readback.py` to audit CB-L2, CB-L3, CB-L4, CB-L7, and all available milestone profiles.
 - Added regression coverage proving missing `closeout_status` is not explicit and must fail.
 - Validation after repair: current canonical UNKNOWN count `0`, unresolved UNKNOWN marker count `0`, resolved historical UNKNOWN count `3`.
+
+## Installed OpenClaw projector repair applied
+
+- Patched `/home/stickai/.npm-global/lib/node_modules/openclaw/dist/close-loop-visibility-BP2ADQa9.js` after CB-L9 showed the wider runtime projector was still vulnerable.
+- Backup preserved as `/home/stickai/.npm-global/lib/node_modules/openclaw/dist/close-loop-visibility-BP2ADQa9.js.bak-closeout-unknown-20260710T2328`.
+- Runtime projector now reads `closeoutStatus` / `closeout_status` before generic `status`, derives closeout from `terminalStatus` / `terminal_status` tokens, and no longer returns visible `UNKNOWN` for closeout-shaped payloads.
+- Explicit `UNKNOWN` or missing closeout status now fails closed as `HOLD` rather than surfacing `Closeout: UNKNOWN`.
+- Validation: `node tmp_closeout_unknown_projector_smoke.mjs` passed before and after Gateway SIGUSR1 reload. Smoke covered explicit closeout PASS, terminal-only PASS, explicit UNKNOWN -> HOLD, missing status -> HOLD, and no visible `Closeout: UNKNOWN`. `grep` confirmed no remaining `return "UNKNOWN"` fallback.
 
 ## Safety boundary
 
