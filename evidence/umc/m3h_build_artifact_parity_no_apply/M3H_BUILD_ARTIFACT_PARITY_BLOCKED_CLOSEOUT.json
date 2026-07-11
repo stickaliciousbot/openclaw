@@ -1,0 +1,29 @@
+{
+  "schema": "umc.m3h.build_artifact_parity_blocked_closeout.v1",
+  "generatedAt": "2026-07-11T22:38:30Z",
+  "status": "BLOCKED_M3H_BUILD_COMMAND_UNAVAILABLE",
+  "preflightStatus": "PASS_M3H_BUILD_PARITY_PREFLIGHT",
+  "buildCommandDiscoveryStatus": "BLOCKED_M3H_BUILD_COMMAND_UNAVAILABLE",
+  "sourceBuildResult": "NOT_RUN_BUILD_COMMAND_UNAVAILABLE",
+  "artifactParityResult": "NOT_RUN_BUILD_COMMAND_UNAVAILABLE",
+  "hardGateResult": "NOT_RUN_BUILD_COMMAND_UNAVAILABLE",
+  "generatedArtifactPath": null,
+  "generatedArtifactHash": null,
+  "installedRuntimeHashBefore": "6567099cf446f8675a00dd6a800b786013d0effbaae5c1b633d528272c0ab014",
+  "installedRuntimeHashAfter": "6567099cf446f8675a00dd6a800b786013d0effbaae5c1b633d528272c0ab014",
+  "counters": {
+    "installedDistMutationCount": 0,
+    "productionInstallApplyCount": 0,
+    "gatewayRestartCount": 0,
+    "providerModelLiveExecutionCount": 0,
+    "telegramSendCount": 0,
+    "externalSendCount": 0,
+    "realWriteToolCountOutsideBuildOutputs": 0,
+    "productionRuntimeConfigMutationCount": 0,
+    "memoryMutationCount": 0,
+    "contextBridgeMutationCount": 0,
+    "dirtySourceMutationCount": 0
+  },
+  "nextMilestone": "M3H_BUILD_DEPENDENCY_AVAILABILITY_OR_AUTHORIZED_INSTALL_PREP",
+  "nextMilestoneNote": "Before rerunning M3H build/parity, provide an authorized dependency-preparation path or a source worktree with pnpm/node_modules already available. Still no production apply/install/restart."
+}

@@ -1,0 +1,52 @@
+{
+  "schema": "umc.m3h.build_command_discovery_result.v1",
+  "generatedAt": "2026-07-11T22:38:30Z",
+  "status": "BLOCKED_M3H_BUILD_COMMAND_UNAVAILABLE",
+  "sourceWorktree": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+  "sourceBranch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+  "sourceHead": "8da099e99e94e3feb4532769112075bdca5aedba",
+  "safeBuildCommand": null,
+  "candidateBuildCommand": "node scripts/tsdown-build.mjs",
+  "candidateReason": "Minimal repo-local command that generates dist/dist-runtime runtime chunks and is invoked by package build profiles before runtime postbuild/stamps.",
+  "blocker": {
+    "class": "MISSING_LOCAL_BUILD_DEPENDENCIES_AND_PACKAGE_MANAGER",
+    "details": {
+      "buildScript": "node scripts/build-all.mjs",
+      "minimalArtifactCommandConsidered": "node scripts/tsdown-build.mjs",
+      "packageManager": "pnpm@10.33.2+sha512.a90faf6feeab71ad6c6e57f94e0fe1a12f5dcc22cd754db40ae9593eb6a3e0b6b12e3540218bb37ae083404b1f2ce6db2a4121e979829b4aff94b99f49da1cf8",
+      "requiresPnpm": true,
+      "requiresDependencies": true,
+      "observedPnpmCommand": "not found",
+      "observedCorepack": "0.34.6",
+      "observedNodeModules": false,
+      "observedTsdownBin": false,
+      "observedDist": false,
+      "observedDistRuntime": false
+    },
+    "whyBlocked": "The package is pnpm-managed, but pnpm is not installed and the clean source worktree has no node_modules or node_modules/.bin/tsdown. Using corepack to activate pnpm and installing dependencies would download/mutate dependency state; M3H did not authorize dependency installation and explicitly prefers blocked evidence over unsafe install when dependencies are missing."
+  },
+  "commandsRun": [
+    "pnpm --version -> command not found",
+    "test -d node_modules -> no",
+    "test -x node_modules/.bin/tsdown -> no",
+    "test -d dist -> no",
+    "test -d dist-runtime -> no",
+    "corepack --version -> 0.34.6",
+    "jq -r .packageManager package.json -> pnpm@10.33.2+sha512..."
+  ],
+  "productionMutation": false,
+  "installedRuntimeHashAfterDiscovery": "6567099cf446f8675a00dd6a800b786013d0effbaae5c1b633d528272c0ab014",
+  "counters": {
+    "installedDistMutationCount": 0,
+    "productionInstallApplyCount": 0,
+    "gatewayRestartCount": 0,
+    "providerModelLiveExecutionCount": 0,
+    "telegramSendCount": 0,
+    "externalSendCount": 0,
+    "realWriteToolCountOutsideBuildOutputs": 0,
+    "productionRuntimeConfigMutationCount": 0,
+    "memoryMutationCount": 0,
+    "contextBridgeMutationCount": 0,
+    "dirtySourceMutationCount": 0
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "schema": "umc.m3h.build_artifact_parity_evidence_manifest.v1",
+  "generatedAt": "2026-07-11T22:38:30Z",
+  "status": "BLOCKED_M3H_BUILD_COMMAND_UNAVAILABLE",
+  "sourceBranch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+  "sourceHead": "8da099e99e94e3feb4532769112075bdca5aedba",
+  "sourceRemoteBranch": "fork/evidence/umc-m3g-observe-only-hook-source-20260711",
+  "sourceRemoteHead": "8da099e99e94e3feb4532769112075bdca5aedba",
+  "umcEvidenceBranch": "evidence/umc-m3-envelope-tool-delivery-supervision-20260711",
+  "umcEvidenceHeadBeforeM3H": "e952268877eb0b04f7a697e27423dd9dde032cec",
+  "installedRuntimeHashBefore": "6567099cf446f8675a00dd6a800b786013d0effbaae5c1b633d528272c0ab014",
+  "installedRuntimeHashAfter": "6567099cf446f8675a00dd6a800b786013d0effbaae5c1b633d528272c0ab014",
+  "generatedArtifactPath": null,
+  "generatedArtifactHash": null,
+  "counters": {
+    "installedDistMutationCount": 0,
+    "productionInstallApplyCount": 0,
+    "gatewayRestartCount": 0,
+    "providerModelLiveExecutionCount": 0,
+    "telegramSendCount": 0,
+    "externalSendCount": 0,
+    "realWriteToolCountOutsideBuildOutputs": 0,
+    "productionRuntimeConfigMutationCount": 0,
+    "memoryMutationCount": 0,
+    "contextBridgeMutationCount": 0,
+    "dirtySourceMutationCount": 0
+  },
+  "artifacts": [
+    {
+      "path": "evidence/umc/m3h_build_artifact_parity_no_apply/M3H_BUILD_ARTIFACT_PARITY_PREFLIGHT.json",
+      "sha256": "5668a02baad469a3e19477f98029526863228406962d6ce4594a0f04cf14641c"
+    },
+    {
+      "path": "evidence/umc/m3h_build_artifact_parity_no_apply/M3H_BUILD_COMMAND_DISCOVERY_RESULT.json",
+      "sha256": "bb076201de39a3c729045b319a8991e3fd40fbbe07d679e606a26671f3760bde"
+    },
+    {
+      "path": "evidence/umc/m3h_build_artifact_parity_no_apply/M3H_BUILD_COMMAND_DISCOVERY.md",
+      "sha256": "80931418ab2d2a19e515064280fbdaee1ef4e26acd6f21848bf6c529df33d4e0"
+    },
+    {
+      "path": "evidence/umc/m3h_build_artifact_parity_no_apply/M3H_BUILD_ARTIFACT_PARITY_BLOCKED_CLOSEOUT.json",
+      "sha256": "4664e7a52d2f5e4a6ec61dc3a5209d018651e71507602b2cbe44d1ee74d45938"
+    }
+  ]
+}
