@@ -1,0 +1,428 @@
+{
+  "schema": "umc.m3h.generated_artifact_discovery_result.v1",
+  "generatedAt": "2026-07-11T23:22:14Z",
+  "status": "PASS_M3H_GENERATED_ARTIFACT_FOUND_RETRY",
+  "generatedOutputRoots": {
+    "dist": true,
+    "distRuntime": false
+  },
+  "generatedJsAndMapFileCount": 5076,
+  "candidateFiles": [
+    {
+      "path": "dist/test.DNmyFkvJ-SvhVkdUY.js",
+      "size": 332200,
+      "sha256": "44aeec80b536727acbdce4bec112732fd90774f2f287eb6991fea771a9d5e31f",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/device-pairing-B1MRm3c4.js",
+      "size": 23961,
+      "sha256": "536692fba8ad765ebba90db42f18670e843bef8e28b891c82fe83ff162b55773",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/http-auth-utils-stNI7HTF.js",
+      "size": 5101,
+      "sha256": "8f5bd55e9b39dfc25b3444fea1ab271a90387a307eefbe41971b27fca9e4976d",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/control-ui-B2T1SM7U.js",
+      "size": 27343,
+      "sha256": "7b0d3ef49eaaa320e8d88267f6979a46f0332f3981d6c27e2e65f7b4df3df444",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/action-send-BCUXZtSh.js",
+      "size": 2386,
+      "sha256": "bdb66e909a3d0d28c52fbc46c0f3787efd70a31195053ca9b605fd0c60eb5e67",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/assistant-qC0Ac50F.js",
+      "size": 10822,
+      "sha256": "638ca2b1a477eee01163edbf9c59e0019268d23a5133a90dbfc1919de239b326",
+      "hits": ["runEmbeddedPiAgent"]
+    },
+    {
+      "path": "dist/managed-image-attachments-BU1kfjGg.js",
+      "size": 27149,
+      "sha256": "c216f1af4b1553e5e23a64e529814c2124ddd4a90f66e8d15257881e5b149c85",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/failover-matches-CPP4oTKm.js",
+      "size": 8332,
+      "sha256": "ed06f6324bd10ab6ffdc3009e8b056cd85ea025653f2e0d4ec96c857ba2d0055",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/sessions-helpers-D-D4T8Yk.js",
+      "size": 11796,
+      "sha256": "5864428973ff81828d7b8acd0905e71fc4494327a6c27c572126891769d8e75a",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/server-methods-kb90hCbm.js",
+      "size": 444578,
+      "sha256": "009ce26e4f6c1d264cbaa6526ced6d22274aaa15ecf574eae8aa926e7ce64245",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/mcp-http-BxAe1WA4.js",
+      "size": 17981,
+      "sha256": "d3c25d59d97a7686d7836bbaab283cec9689f519e0adc04c8f2f82020bb16530",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/delivery-queue-Cs242Qjt.js",
+      "size": 15721,
+      "sha256": "d8328fe7b4d6192b1d8ccd7ea547cbeb66f3cef092c2ea85e88254cee1b3d64a",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/session-kill-http-Bkdx32wR.js",
+      "size": 3891,
+      "sha256": "eaaccb71994596ab4275a6bb91541356433afc66ffcb57cb658561c2b7c50e89",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/sanitize-user-facing-text-DuH1jYXX.js",
+      "size": 16069,
+      "sha256": "5970743ff3f502e38eb4b624704207e293d02989f23eb4d1d1c44f70dfe46c9b",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/openclaw-tools-BPqDdIs2.js",
+      "size": 428980,
+      "sha256": "90717030047935105a12d14a8e76dff4c9f99cf2cefed2c0d3d1a7f579834742",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/model-fallback-CcmH0And.js",
+      "size": 36725,
+      "sha256": "07290776c196b1a15103a5150ffd2875ca638c7aede3b098f3563127a07d9c05",
+      "hits": ["runWithModelFallback"]
+    },
+    {
+      "path": "dist/extensionAPI.js",
+      "size": 1767,
+      "sha256": "7e20e3614a4b03e010db5692da33594a603a69d30934bfa48ca3a7bbd3c729a4",
+      "hits": ["runEmbeddedPiAgent"]
+    },
+    {
+      "path": "dist/realtime-voice-D6fSK2aP.js",
+      "size": 8265,
+      "sha256": "f95013d15cc589759918904a5d3bc876057df3bea27ae35d413c5ee262905d3b",
+      "hits": ["runEmbeddedPiAgent"]
+    },
+    {
+      "path": "dist/llm-slug-generator-DXyPHPeP.js",
+      "size": 3006,
+      "sha256": "0da43ba6ecd7a6ea42daf0b344db2c8c9cabf12473e58b75bb14010bbc0632e6",
+      "hits": ["runEmbeddedPiAgent"]
+    },
+    {
+      "path": "dist/run-embedded.runtime-k9iLZQgl.js",
+      "size": 278,
+      "sha256": "53382882847174c2cde8fac106170827aa5abd01967012e7277fd43dc0ccd05a",
+      "hits": ["runEmbeddedPiAgent"]
+    },
+    {
+      "path": "dist/subagent-announce-delivery-QmO3sd3v.js",
+      "size": 38898,
+      "sha256": "63d510d3af0da026efc52227e9a015d0f8834c800c5cfa7d208d9b9f62013472",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/attempt-execution-BBPlCaO6.js",
+      "size": 18536,
+      "sha256": "d13ace116ad50b818a6f4ddcbf2566562dbcd3ef4077b98675b19efbafa7df72",
+      "hits": ["runEmbeddedPiAgent"]
+    },
+    {
+      "path": "dist/attempt.tool-run-context-B34pI1-C.js",
+      "size": 23399,
+      "sha256": "1260bcaec8a7ce39539b29c1cdf5760ebae68b0768f615a7ecf7b6990604a6ec",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/models-http-CExtQWzV.js",
+      "size": 3051,
+      "sha256": "007ec5135149297ba97c1cd6f0efc07eb02478fe2f6c2c2db8cbe68d488423f8",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/onboard-CeBlPyNo.js",
+      "size": 28574,
+      "sha256": "2d16a4345da5f81e307482fae37418dd2997f4b730a37c8b0ec3cce4240d5906",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/compact-mHVevSjN.js",
+      "size": 46570,
+      "sha256": "75931494b468a993dabfe5fdd514107662291ac1f8d56e1b18a543308b393a26",
+      "hits": ["runWithModelFallback"]
+    },
+    {
+      "path": "dist/http-endpoint-helpers-BkVvm7OY.js",
+      "size": 1561,
+      "sha256": "00c24ab047d04d4656a92785015f9276866141f73d233949755fe9a193e25031",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/bash-tools-Jb7lnyUJ.js",
+      "size": 115337,
+      "sha256": "dbc144047be41484a752744dd3f2a8634e625de47e97ad84da04341cebfca6ad",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/pi-embedded-zN6ySrMN.js",
+      "size": 1125,
+      "sha256": "49cb87358d176fe64653d33994eab22854ffb4d7f725eb4ee5dc7ea1e92e101b",
+      "hits": ["runEmbeddedPiAgent"]
+    },
+    {
+      "path": "dist/kdl-CtP1YDK5.js",
+      "size": 4101,
+      "sha256": "a1edcf1887a24f90abdd9b94707ef8e64e63ee559687bbb6e20ef1f11e62edeb",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/emacs-lisp-BFRYG3Ly.js",
+      "size": 782373,
+      "sha256": "4ba701a25f8a803e96b3b4c386173455ea0fa24bf4dd3d72a4e9e0827a84d047",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/run-delivery.runtime-CYIGXjBS.js",
+      "size": 22529,
+      "sha256": "e6160fe1a0ec990fd87de23f9efe25d05bcf5abc762677dfd775b7a14089fc44",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/native-hook-relay-LSyONNuH.js",
+      "size": 45620,
+      "sha256": "096c6ba4162b7a807da62993282606c4f8e96b07891e430fcd6c1bbfe78d651b",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/json-bigint-DoKo5BbO.js",
+      "size": 48355,
+      "sha256": "3814374db9e981a2341cd779c2e2ef82e606c57c89adaa3161846c01d9ab9764",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/action-kill-DFCKEu2D.js",
+      "size": 1630,
+      "sha256": "4a7239e483ab1c56d9f96c5a4ad6635df9d81040b94a537d878fc31649b0a931",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/run-executor.runtime-aWzlpEkY.js",
+      "size": 14059,
+      "sha256": "653c77fe0549d5bf7981f0dabdac5b95c3da06bb53fe3e1febe0f60b1e11714e",
+      "hits": ["runWithModelFallback", "runEmbeddedPiAgent"]
+    },
+    {
+      "path": "dist/subagent-spawn-BaSgktWE.js",
+      "size": 41758,
+      "sha256": "5d5fec97bc65ba22229d79debfd0bca06fbef1f2a97a8939546d94491263ce43",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/subagent-control-Co-GXnYm.js",
+      "size": 19412,
+      "sha256": "2575744e5f0abad9299dde17de9cd9d943d4ffe8c79cd4ae91831dc1ec46a0e9",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/public-surface-loader-D_vYM5aT.js",
+      "size": 4369,
+      "sha256": "11877665b21693321f397a1cd9db694a6a9a19ad98bb99353cd6003a4c122cdd",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/list.probe-oo7LI2Fm.js",
+      "size": 15194,
+      "sha256": "7373d3cf82e2317ef28d1e7d8dc2d172854b0e4bacfb4d1e482702616fa84dc9",
+      "hits": ["runEmbeddedPiAgent"]
+    },
+    {
+      "path": "dist/runtime-embedded-pi.runtime-B6MxBXEd.js",
+      "size": 140,
+      "sha256": "c1541f55aab59e636e8bd9f50e6b0b653df012f239f893280562a3aca4b35893",
+      "hits": ["runEmbeddedPiAgent"]
+    },
+    {
+      "path": "dist/assistant-error-format-IdliUQYV.js",
+      "size": 5779,
+      "sha256": "383da3f28cf75628ebb7f1bf9255d978e7cde6bb138617ce4a825259b499cbf6",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/devices-cli-DTnlE6Se.js",
+      "size": 22559,
+      "sha256": "9623f597dd6b73a967c852fa9a8998279804251f4279a0cdd0184d5a8e7b7d34",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/node-pairing-D8pwRdCX.js",
+      "size": 9099,
+      "sha256": "15b6f96595c449e474725a79b57756e00def4cfec0a30443b89f675a59a52940",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/pi-embedded.runtime-DPojCFV3.js",
+      "size": 580,
+      "sha256": "0536fcb8b42a2d809173825df963f555932ff4a407214700b9e0a177d239174a",
+      "hits": ["runEmbeddedPiAgent"]
+    },
+    {
+      "path": "dist/pi-embedded-BJMX_Hp-.js",
+      "size": 159850,
+      "sha256": "9b2d3dc54d129de42e13c11aff2a560d2f72f9e1b9f6bed59c4ac068dd882e8d",
+      "hits": ["runEmbeddedPiAgent"]
+    },
+    {
+      "path": "dist/agent-runner.runtime-DT4NbowI.js",
+      "size": 210529,
+      "sha256": "76d82c785f61d3e0af44db2d36fa3c555e4814d07b27df175bd346f859f2d847",
+      "hits": [
+        "followup-runner",
+        "createFollowupRunner",
+        "runWithModelFallback",
+        "runEmbeddedPiAgent",
+        "maybeRunUmcV1ShadowObserveOnly",
+        "observe_no_send",
+        "fixture_only",
+        "no_send",
+        "mock_only",
+        "forbidden"
+      ]
+    },
+    {
+      "path": "dist/agent-command-BKufYuC3.js",
+      "size": 40551,
+      "sha256": "d3330af59b023ded33436a2ba1c544ebed9e270690e3e7881be7cb0132ca2426",
+      "hits": ["runWithModelFallback"]
+    },
+    {
+      "path": "dist/delivery-B0pHVxpW.js",
+      "size": 38935,
+      "sha256": "9a5f4bf1d661daade1ef0adaa42e7e4272001c5e90d3f4ab4a436ddea7fe8f2a",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/acp-spawn-z_t_q3yd.js",
+      "size": 47355,
+      "sha256": "f0a05b9b26fe4d3357c75097c498dbbea0c6d71bfffbf5423eefa9e94e036675",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/runtime-Bzeowz4h.js",
+      "size": 15956,
+      "sha256": "d9b41bbcc923233b8196fae7c4a8a9a8d2ea2916a00de149dc6fb44e0991d1e9",
+      "hits": ["runEmbeddedPiAgent"]
+    },
+    {
+      "path": "dist/session-visibility-DOfIn8YE.js",
+      "size": 6997,
+      "sha256": "e9a4d5f4e5cd6a72b2fbcc8349038db41e516030ec9450195b7a42dde9abd523",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/errors-BqFqz2qx.js",
+      "size": 37672,
+      "sha256": "ea54cf2c39a510424dcc400bb3eb9065db0d025d4181448f6d7461726f88ec5f",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/plugin-sdk/channel-test-helpers.js",
+      "size": 31439,
+      "sha256": "b84810de30156d09b61cfb5cbb098d8ae8af5a4fae3f3f37875f09da272a12b8",
+      "hits": ["runEmbeddedPiAgent"]
+    },
+    {
+      "path": "dist/plugins/runtime/index.js",
+      "size": 22584,
+      "sha256": "45934742fa0bcdab8f4601e60f7aa16a0caacf7978272299421633b151d095c6",
+      "hits": ["runEmbeddedPiAgent"]
+    },
+    {
+      "path": "dist/extensions/nextcloud-talk/channel-DgA4KryD.js",
+      "size": 67295,
+      "sha256": "f4e6e81fd6d89bbb488e735a0061a0d41bc1a17363217a0cf272149f32cbcb8e",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/extensions/active-memory/index.js",
+      "size": 75882,
+      "sha256": "b73c86f697ce9b060b7963cddc0f62b6e28a68ed514402b28c941c8d58933b40",
+      "hits": ["runEmbeddedPiAgent"]
+    },
+    {
+      "path": "dist/extensions/voice-call/response-generator-DrEbuDnU.js",
+      "size": 7509,
+      "sha256": "d64825f44e5dc143c5c495d96117260fff1df3af8199e6272c717badae3540cb",
+      "hits": ["runEmbeddedPiAgent"]
+    },
+    {
+      "path": "dist/extensions/skill-workshop/index.js",
+      "size": 36787,
+      "sha256": "db43f1045b8493e6000e6cf7464d188d9c8d4c33f3d08aa0e675d6b5fc8e4922",
+      "hits": ["runEmbeddedPiAgent"]
+    },
+    {
+      "path": "dist/extensions/discord/resolve-channels-C4RIhvlm.js",
+      "size": 8140,
+      "sha256": "58674d8cd49adbdb9097955b510f473de6aaaa0068a74387cec703bf2222b618",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/extensions/whatsapp/session.runtime-BQFu-pvh.js",
+      "size": 3979779,
+      "sha256": "1288fe959fab6ea970588088a1fbcfcf13663932d99b450bfa8b276eb44c4572",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/extensions/device-pair/pair-command-approve.js",
+      "size": 2390,
+      "sha256": "6cbbcb0666c01ab6dace74147717b35fd8a3a55494e1f214e02d5944d0f4a39a",
+      "hits": ["forbidden"]
+    },
+    {
+      "path": "dist/extensions/llm-task/index.js",
+      "size": 8177,
+      "sha256": "93be14ec1ea4387e50c2575126cb33da542a0ac9f183bbbf7546434acfd69bb2",
+      "hits": ["runEmbeddedPiAgent"]
+    }
+  ],
+  "selectedArtifact": "dist/agent-runner.runtime-DT4NbowI.js",
+  "selectedArtifactSha256": "76d82c785f61d3e0af44db2d36fa3c555e4814d07b27df175bd346f859f2d847",
+  "selectedArtifactSize": 210529,
+  "matchedStrings": [
+    "followup-runner",
+    "createFollowupRunner",
+    "runWithModelFallback",
+    "runEmbeddedPiAgent",
+    "maybeRunUmcV1ShadowObserveOnly",
+    "observe_no_send",
+    "fixture_only",
+    "no_send",
+    "mock_only",
+    "forbidden"
+  ],
+  "relationToInstalledRuntimeArtifact": "generated replacement for installed dist/agent-runner.runtime-a09vVD0N.js; hashed chunk name changed to agent-runner.runtime-DT4NbowI.js",
+  "installedRuntimeTargetPath": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/agent-runner.runtime-a09vVD0N.js",
+  "installedRuntimeHashUnchanged": true,
+  "sourceMapsExist": false,
+  "sourceMapCandidates": [
+    {
+      "path": "dist/agent-runner.runtime-DT4NbowI.js.map",
+      "exists": false,
+      "sha256": null
+    }
+  ],
+  "chunkNamesChanged": true
+}

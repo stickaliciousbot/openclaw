@@ -1,0 +1,39 @@
+{
+  "schema": "umc.m3h.build_artifact_parity_retry_evidence_manifest.v1",
+  "generatedAt": "2026-07-11T23:22:14Z",
+  "status": "PASS_M3H_BUILD_ARTIFACT_PARITY_AND_NO_APPLY_VALIDATION_RETRY",
+  "sourceBranch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+  "sourceHead": "a64cc8b69f5a5c17776948c2b931b874e2d89211",
+  "selectedArtifact": "dist/agent-runner.runtime-DT4NbowI.js",
+  "selectedArtifactSha256": "76d82c785f61d3e0af44db2d36fa3c555e4814d07b27df175bd346f859f2d847",
+  "artifacts": [
+    {
+      "path": "evidence/umc/m3h_build_artifact_parity_retry/M3H_BUILD_ARTIFACT_PARITY_RETRY_PREFLIGHT.json",
+      "sha256": "6b318ce3fc7a030ae3046363ee66297d5eec7cb5f6912a79dbb850531898a37f"
+    },
+    {
+      "path": "evidence/umc/m3h_build_artifact_parity_retry/M3H_BUILD_COMMAND_RETRY_SELECTION.json",
+      "sha256": "2ff556c26bce123579d656cb84d50c7067b23307e135dca44d513f3af764ec8b"
+    },
+    {
+      "path": "evidence/umc/m3h_build_artifact_parity_retry/M3H_SOURCE_BUILD_RETRY_RESULT.json",
+      "sha256": "deba703911dd951720be626014a892f0eae33d48de40dd776793879205c6e1d6"
+    },
+    {
+      "path": "evidence/umc/m3h_build_artifact_parity_retry/M3H_GENERATED_ARTIFACT_DISCOVERY_RESULT.json",
+      "sha256": "2863ade4dddd2af407be7a46a2f4c72c2994036dc6a23e4f807548f854fb1472"
+    },
+    {
+      "path": "evidence/umc/m3h_build_artifact_parity_retry/M3H_BUILD_ARTIFACT_PARITY_RETRY_RESULT.json",
+      "sha256": "7b0d1327fcc80cb3869c608bb187333794212bf7048b885bf5001bcaec7d6a00"
+    },
+    {
+      "path": "evidence/umc/m3h_build_artifact_parity_retry/M3H_BUILD_ARTIFACT_PARITY_RETRY.md",
+      "sha256": "039b56242ac608a19cef9c65ed3e4279521fb62c6e14bba2bc4f8f2d66f4775b"
+    },
+    {
+      "path": "evidence/umc/m3h_build_artifact_parity_retry/M3H_BUILD_ARTIFACT_PARITY_RETRY_HARD_GATE_RESULTS.json",
+      "sha256": "d5a23f8cabba10440303bd883b1a3de6d21fbdb9b1b2b34cbd95b5d9904835d8"
+    }
+  ]
+}

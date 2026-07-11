@@ -1,0 +1,57 @@
+{
+  "schema": "umc.m3h.source_build_retry_result.v1",
+  "generatedAt": "2026-07-11T23:22:14Z",
+  "status": "PASS_M3H_SOURCE_BUILD_NO_APPLY_RETRY",
+  "sourceWorktree": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+  "sourceBranch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+  "sourceHeadAtBuildStart": "a64cc8b69f5a5c17776948c2b931b874e2d89211",
+  "command": "env npm_execpath=/home/stickai/.cache/node/corepack/v1/pnpm/10.33.2/bin/pnpm.cjs node scripts/tsdown-build.mjs",
+  "exitCode": 0,
+  "stdoutStderrSummary": [
+    "approved command completed with code 0",
+    "tsdown heartbeat observed: still running; no output for 30s",
+    "tsdown build completed successfully with no reported unresolved-import or ineffective-dynamic-import failure"
+  ],
+  "priorFailedCommandAttempts": [
+    {
+      "command": "node scripts/tsdown-build.mjs",
+      "exitCode": 1,
+      "reason": "spawn pnpm ENOENT",
+      "buildOutputProduced": false
+    },
+    {
+      "command": "corepack pnpm exec node scripts/tsdown-build.mjs",
+      "exitCode": 1,
+      "reason": "spawn pnpm ENOENT because npm_execpath was empty",
+      "buildOutputProduced": false
+    }
+  ],
+  "generatedOutputRoots": {
+    "distExists": true,
+    "distRuntimeExists": false
+  },
+  "generatedArtifactPaths": ["dist/agent-runner.runtime-DT4NbowI.js"],
+  "generatedArtifactHashes": {
+    "dist/agent-runner.runtime-DT4NbowI.js": "76d82c785f61d3e0af44db2d36fa3c555e4814d07b27df175bd346f859f2d847"
+  },
+  "worktreeStatusAfterBuild": "?? evidence/umc/m3h_build_artifact_parity_retry/",
+  "worktreeBecameDirty": true,
+  "dirtyChangesOnlyExpectedBuildOutputsOrEvidence": true,
+  "ignoredBuildOutputsExpected": ["dist/", "node_modules/", "$PWD/.pnpm-store/"],
+  "installedRuntimeHashBefore": "6567099cf446f8675a00dd6a800b786013d0effbaae5c1b633d528272c0ab014",
+  "installedRuntimeHashAfter": "6567099cf446f8675a00dd6a800b786013d0effbaae5c1b633d528272c0ab014",
+  "installedRuntimeHashUnchanged": true,
+  "counters": {
+    "installedDistMutationCount": 0,
+    "productionInstallApplyCount": 0,
+    "gatewayRestartCount": 0,
+    "providerModelLiveExecutionCount": 0,
+    "telegramSendCount": 0,
+    "externalSendCount": 0,
+    "realWriteToolCountOutsideExpectedBuildOutputs": 0,
+    "productionRuntimeConfigMutationCount": 0,
+    "productionMemoryMutationCount": 0,
+    "scopedRepoMemoryNoteUpdated": true,
+    "contextBridgeMutationCount": 0
+  }
+}

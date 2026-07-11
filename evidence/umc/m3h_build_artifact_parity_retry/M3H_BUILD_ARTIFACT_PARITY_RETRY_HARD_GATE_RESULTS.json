@@ -1,0 +1,133 @@
+{
+  "schema": "umc.m3h.build_artifact_parity_retry_hard_gate_results.v1",
+  "generatedAt": "2026-07-11T23:22:14Z",
+  "status": "PASS_M3H_BUILD_ARTIFACT_PARITY_RETRY_HARD_GATES",
+  "gates": [
+    {
+      "gate": "G-M3H-R-1",
+      "name": "source branch preserved before build",
+      "passed": true,
+      "evidence": "a64cc8b69f5a5c17776948c2b931b874e2d89211"
+    },
+    {
+      "gate": "G-M3H-R-2",
+      "name": "dependencies available before build",
+      "passed": true,
+      "evidence": "node_modules/.bin/tsdown present"
+    },
+    {
+      "gate": "G-M3H-R-3",
+      "name": "build executed in source worktree or temp artifact dir only",
+      "passed": true,
+      "evidence": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711"
+    },
+    {
+      "gate": "G-M3H-R-4",
+      "name": "build command recorded",
+      "passed": true,
+      "evidence": "env npm_execpath=/home/stickai/.cache/node/corepack/v1/pnpm/10.33.2/bin/pnpm.cjs node scripts/tsdown-build.mjs"
+    },
+    {
+      "gate": "G-M3H-R-5",
+      "name": "generated artifact found",
+      "passed": true,
+      "evidence": "dist/agent-runner.runtime-DT4NbowI.js"
+    },
+    {
+      "gate": "G-M3H-R-6",
+      "name": "observe-only hook present in generated artifact",
+      "passed": true,
+      "evidence": "marker present"
+    },
+    {
+      "gate": "G-M3H-R-7",
+      "name": "hook disabled by default in generated artifact",
+      "passed": true,
+      "evidence": "requires all fixture env gates; otherwise returns enabled false"
+    },
+    {
+      "gate": "G-M3H-R-8",
+      "name": "hook gating flags present",
+      "passed": true,
+      "evidence": "observe_no_send,fixture_only,no_send,mock_only,forbidden"
+    },
+    {
+      "gate": "G-M3H-R-9",
+      "name": "hook placement before provider/model execution preserved",
+      "passed": true,
+      "evidence": "later runWithModelFallback/runEmbeddedPiAgent markers after hook"
+    },
+    {
+      "gate": "G-M3H-R-10",
+      "name": "generated artifact hash recorded",
+      "passed": true,
+      "evidence": "76d82c785f61d3e0af44db2d36fa3c555e4814d07b27df175bd346f859f2d847"
+    },
+    {
+      "gate": "G-M3H-R-11",
+      "name": "installed runtime hash unchanged",
+      "passed": true,
+      "evidence": "6567099cf446f8675a00dd6a800b786013d0effbaae5c1b633d528272c0ab014"
+    },
+    {
+      "gate": "G-M3H-R-12",
+      "name": "installed dist mutation count 0",
+      "passed": true,
+      "evidence": "0"
+    },
+    {
+      "gate": "G-M3H-R-13",
+      "name": "production install/apply count 0",
+      "passed": true,
+      "evidence": "0"
+    },
+    {
+      "gate": "G-M3H-R-14",
+      "name": "Gateway restart count 0",
+      "passed": true,
+      "evidence": "0"
+    },
+    {
+      "gate": "G-M3H-R-15",
+      "name": "provider/model live execution count 0",
+      "passed": true,
+      "evidence": "0"
+    },
+    {
+      "gate": "G-M3H-R-16",
+      "name": "Telegram send count 0",
+      "passed": true,
+      "evidence": "0"
+    },
+    {
+      "gate": "G-M3H-R-17",
+      "name": "external-send count 0",
+      "passed": true,
+      "evidence": "0"
+    },
+    {
+      "gate": "G-M3H-R-18",
+      "name": "real write tool count 0 outside expected build outputs",
+      "passed": true,
+      "evidence": "0"
+    },
+    {
+      "gate": "G-M3H-R-19",
+      "name": "production runtime/config mutation count 0",
+      "passed": true,
+      "evidence": "0"
+    },
+    {
+      "gate": "G-M3H-R-20",
+      "name": "memory mutation count 0",
+      "passed": true,
+      "evidence": "0"
+    },
+    {
+      "gate": "G-M3H-R-21",
+      "name": "Context Bridge mutation count 0",
+      "passed": true,
+      "evidence": "0"
+    }
+  ]
+}

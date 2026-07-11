@@ -1,0 +1,51 @@
+{
+  "schema": "umc.m3h.build_artifact_parity_retry_result.v1",
+  "generatedAt": "2026-07-11T23:22:14Z",
+  "status": "PASS_M3H_BUILD_ARTIFACT_PARITY_NO_APPLY_RETRY",
+  "selectedArtifact": "dist/agent-runner.runtime-DT4NbowI.js",
+  "selectedArtifactSha256": "76d82c785f61d3e0af44db2d36fa3c555e4814d07b27df175bd346f859f2d847",
+  "hookPresent": true,
+  "sourceEquivalentMarkersPresent": {
+    "followup-runner": true,
+    "createFollowupRunner": true,
+    "runWithModelFallback": true,
+    "runEmbeddedPiAgent": true,
+    "maybeRunUmcV1ShadowObserveOnly": true,
+    "observe_no_send": true,
+    "fixture_only": true,
+    "no_send": true,
+    "mock_only": true,
+    "forbidden": true
+  },
+  "hookDisabledByDefault": "compiled isUmcV1ShadowObserveOnlyEnabled(env = process.env) requires all fixture env gates and maybeRunUmcV1ShadowObserveOnly returns { enabled: false } when not enabled",
+  "hookGatingFlagsPresent": true,
+  "requiredGatingFlags": ["observe_no_send", "fixture_only", "no_send", "mock_only", "forbidden"],
+  "hookPlacementBeforeProviderModelExecution": true,
+  "placementEvidence": {
+    "hookPosition": 137307,
+    "laterRunWithModelFallbackPositions": [147511],
+    "laterRunEmbeddedPiAgentPositions": [147985]
+  },
+  "providerModelExecutionPathStillAfterHook": true,
+  "noLiveSendCodePathIntroducedByHook": true,
+  "productionApplyOccurred": false,
+  "installedRuntimeHashBefore": "6567099cf446f8675a00dd6a800b786013d0effbaae5c1b633d528272c0ab014",
+  "installedRuntimeHashAfter": "6567099cf446f8675a00dd6a800b786013d0effbaae5c1b633d528272c0ab014",
+  "installedRuntimeHashUnchanged": true,
+  "snippetEvidence": {
+    "hookAndGateSnippet": "rn {\n\t\tprovider: defaultRoute.provider,\n\t\tmodel: defaultRoute.model,\n\t\tscoped: true,\n\t\tintercepted,\n\t\tintent\n\t};\n}\nfunction isUmcV1ShadowObserveOnlyEnabled(env = process.env) {\n\treturn env[UMC_V1_SHADOW_FIXTURE_ENV.mode] === \"observe_no_send\" && env[UMC_V1_SHADOW_FIXTURE_ENV.ownerScope] === \"fixture_only\" && env[UMC_V1_SHADOW_FIXTURE_ENV.delivery] === \"no_send\" && env[UMC_V1_SHADOW_FIXTURE_ENV.provider] === \"mock_only\" && env[UMC_V1_SHADOW_FIXTURE_ENV.mutation] === \"forbidden\";\n}\nasync function maybeRunUmcV1ShadowObserveOnly(params) {\n\tif (!isUmcV1ShadowObserveOnlyEnabled(params.env)) return { enabled: false };\n\ttry {\n\t\tif (params.simulateFailure) throw new Error(\"simulated M3G shadow fixture failure\");\n\t\tconst wouldHold = params.simulateHold === true || params.routeObservation?.hold === true;\n\t\tconst receipt = {\n\t\t\tcontractVersion: \"umc.v1\",\n\t\t\tmilestone: \"M3G_EDITABLE_SOURCE_OBSERVE_ONLY_HOOK_NO_SEND_IMPLEMENTATION\",\n\t\t\tmode: \"observe_no_send\",\n\t\t\tsource: \"queued_followup_source_hook\",\n\t\t\tadmittedTurn: {\n\t\t\t\tsessionKey: params.admittedTurn.sessionKey,\n\t\t\t\tprovider: params.admittedTurn.provider,\n\t\t\t\tmodel: params.admittedTurn.model,\n\t\t\t\tmessageProvider: params.admittedTurn.messageProvider,\n\t\t\t\toriginatingChannel: params.queued?.originatingChannel,\n\t\t\t\toriginatingChatType: params.queued?.originatingChatType,\n\t\t\t\tsenderIsOwner: params.admittedTurn.senderIsOwner === true\n\t\t\t},\n\t\t\tdeliveryReceipt: {\n\t\t\t\tchannel: \"shadow\",\n\t\t\t\tmode: \"no_send\",\n\t\t\t\tsent: false,\n\t\t\t\tproviderExecutionCount: 0,\n\t\t\t\ttelegramSendCount: 0,\n\t\t\t\texternalSendCount: 0,\n\t\t\t\trealWriteToolCount: 0\n\t\t\t},\n\t\t\tuniversalContractReceipt: {\n\t\t\t\tstatus: wouldHold ? \"WOULD_HOLD\" : \"WOULD_PASS\",\n\t\t\t\tproductionDecisi"
+  },
+  "counters": {
+    "installedDistMutationCount": 0,
+    "productionInstallApplyCount": 0,
+    "gatewayRestartCount": 0,
+    "providerModelLiveExecutionCount": 0,
+    "telegramSendCount": 0,
+    "externalSendCount": 0,
+    "realWriteToolCountOutsideExpectedBuildOutputs": 0,
+    "productionRuntimeConfigMutationCount": 0,
+    "productionMemoryMutationCount": 0,
+    "scopedRepoMemoryNoteUpdated": true,
+    "contextBridgeMutationCount": 0
+  }
+}

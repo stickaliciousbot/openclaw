@@ -1,0 +1,16 @@
+{
+  "schema": "umc.m3h.build_command_retry_selection.v1",
+  "generatedAt": "2026-07-11T23:16:12Z",
+  "status": "PASS_M3H_BUILD_COMMAND_RETRY_SELECTION",
+  "selectedCommand": "env npm_execpath=/home/stickai/.cache/node/corepack/v1/pnpm/10.33.2/bin/pnpm.cjs node scripts/tsdown-build.mjs",
+  "workingDirectory": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+  "reason": "scripts/tsdown-build.mjs is still the selected build wrapper, but repo runner requires npm_execpath to point at a pnpm executable when bare pnpm is not on PATH. Corepack cached pnpm.cjs is node-runnable and supported by scripts/pnpm-runner.mjs, so the metadata-correct invocation sets npm_execpath without global install.",
+  "commandExists": true,
+  "willRunBuild": true,
+  "noApplyNoInstallNoGatewayRestart": true,
+  "initialCandidateCommand": "node scripts/tsdown-build.mjs",
+  "initialCandidateResult": "failed_before_build_spawn_pnpm_ENOENT_no_build_output",
+  "corepackPnpmExecEquivalentResult": "failed_before_build_spawn_pnpm_ENOENT_no_build_output",
+  "buildWrapperUnchanged": "scripts/tsdown-build.mjs",
+  "globalPnpmInstallPerformed": false
+}
