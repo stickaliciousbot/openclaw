@@ -1,0 +1,11 @@
+{
+  "schema": "umc.m3h.build_command_availability_smoke.v1",
+  "generatedAt": "2026-07-11T23:06:03Z",
+  "status": "SKIPPED_M3H_BUILD_COMMAND_SMOKE_NO_SAFE_HELP_MODE",
+  "candidateBuildCommand": "node scripts/tsdown-build.mjs",
+  "reason": "Inspection of scripts/tsdown-build.mjs shows main execution prunes source checkout bundled plugin node_modules, prunes stale runtime symlinks, and calls cleanTsdownOutputRoots() before resolving/running tsdown with extra args. Therefore --help is not a no-mutation smoke for this milestone.",
+  "alternativeValidation": "Confirmed corepack pnpm v10.33.2 and node_modules/.bin/tsdown existence without invoking the build wrapper.",
+  "createdBuildArtifacts": false,
+  "distExistsAfterSmoke": false,
+  "distRuntimeExistsAfterSmoke": false
+}

@@ -1,0 +1,20 @@
+{
+  "schema": "umc.m3h.dependency_install_approval_request.v1",
+  "generatedAt": "2026-07-11T22:53:00Z",
+  "status": "BLOCKED_M3H_DEPENDENCY_INSTALL_AWAITING_APPROVAL",
+  "workingDirectory": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+  "exactCommand": "corepack pnpm install --frozen-lockfile --store-dir \"$PWD/.pnpm-store\"",
+  "networkAccessMayBeUsed": true,
+  "lockfileMutationForbidden": true,
+  "expectedCreatedPaths": ["node_modules", ".pnpm-store"],
+  "expectedUnchangedPaths": [
+    "/home/stickai/.npm-global",
+    "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/agent-runner.runtime-a09vVD0N.js",
+    "package.json",
+    "pnpm-lock.yaml"
+  ],
+  "noBuildApplyOrProductionInstallFromThisApproval": true,
+  "noGatewayRestart": true,
+  "noLiveSends": true,
+  "noExternalSends": true
+}

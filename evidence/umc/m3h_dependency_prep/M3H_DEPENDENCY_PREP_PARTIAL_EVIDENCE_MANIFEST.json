@@ -1,0 +1,23 @@
+{
+  "schema": "umc.m3h.dependency_prep_partial_evidence_manifest.v1",
+  "generatedAt": "2026-07-11T22:53:00Z",
+  "status": "BLOCKED_M3H_DEPENDENCY_INSTALL_AWAITING_APPROVAL",
+  "artifacts": [
+    {
+      "path": "evidence/umc/m3h_dependency_prep/M3H_DEPENDENCY_PREP_PREFLIGHT.json",
+      "sha256": "98f776c5631f2b577b5b6cf3ffdf9a28053143d39361fb50b32c9cbf4a8e31df"
+    },
+    {
+      "path": "evidence/umc/m3h_dependency_prep/M3H_DEPENDENCY_MANAGER_DISCOVERY.json",
+      "sha256": "a828146c7701a7b5a632b2131bcba2d7c965356e8dafca2cc152eee84adb5d2f"
+    },
+    {
+      "path": "evidence/umc/m3h_dependency_prep/M3H_DEPENDENCY_MANAGER_DISCOVERY.md",
+      "sha256": "b424e125e20288cc0e48b5504f5421a9ae9a64ed725e32a1cfc4339887764d6f"
+    },
+    {
+      "path": "evidence/umc/m3h_dependency_prep/M3H_DEPENDENCY_INSTALL_APPROVAL_REQUEST.json",
+      "sha256": "ceef02a9bfc4f1634faa1d33bd767f22aa3d995b8afa4963b4054804735f58e0"
+    }
+  ]
+}

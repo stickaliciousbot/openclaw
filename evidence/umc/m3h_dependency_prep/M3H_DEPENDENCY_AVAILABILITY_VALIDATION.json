@@ -1,0 +1,29 @@
+{
+  "schema": "umc.m3h.dependency_availability_validation.v1",
+  "generatedAt": "2026-07-11T23:06:03Z",
+  "status": "PASS_M3H_BUILD_DEPENDENCIES_AVAILABLE",
+  "requiredPackageManagerAvailable": true,
+  "packageManagerCommand": "corepack pnpm",
+  "packageManagerVersion": "10.33.2",
+  "nodeModulesExistsInSourceWorktree": true,
+  "nodeModulesExistsOutsideSourceWorktree": "not_observed_by_milestone_checks",
+  "nodeModulesBinTsdownExists": true,
+  "buildToolAvailability": {
+    "tool": "tsdown",
+    "path": "node_modules/.bin/tsdown",
+    "exists": true
+  },
+  "candidateBuildCommand": "node scripts/tsdown-build.mjs",
+  "candidateBuildCommandLocated": true,
+  "candidateBuildCommandExecuted": false,
+  "installedRuntimeHashBefore": "6567099cf446f8675a00dd6a800b786013d0effbaae5c1b633d528272c0ab014",
+  "installedRuntimeHashAfter": "6567099cf446f8675a00dd6a800b786013d0effbaae5c1b633d528272c0ab014",
+  "installedRuntimeHashUnchanged": true,
+  "installedDistMutationCount": 0,
+  "productionInstallApplyCount": 0,
+  "gatewayRestartCount": 0,
+  "providerModelLiveExecutionCount": 0,
+  "telegramSendCount": 0,
+  "externalSendCount": 0,
+  "productionRuntimeConfigMutationCount": 0
+}

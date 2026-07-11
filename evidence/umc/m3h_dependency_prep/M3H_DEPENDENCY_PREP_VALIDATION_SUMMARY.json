@@ -1,0 +1,26 @@
+{
+  "schema": "umc.m3h.dependency_prep_validation_summary.v1",
+  "generatedAt": "2026-07-11T23:06:03Z",
+  "status": "PASS_M3H_BUILD_DEPENDENCIES_AVAILABLE_NO_APPLY",
+  "jsonValidation": "pending_external_jq_gate",
+  "markdownSanity": "pending_external_gate",
+  "gitDiffCheck": "pending_external_gate",
+  "changedFileScopeValidation": "pending_external_gate",
+  "runtimeHashValidation": {
+    "before": "6567099cf446f8675a00dd6a800b786013d0effbaae5c1b633d528272c0ab014",
+    "after": "6567099cf446f8675a00dd6a800b786013d0effbaae5c1b633d528272c0ab014",
+    "pass": true
+  },
+  "counters": {
+    "installedDistMutationCount": 0,
+    "productionInstallApplyCount": 0,
+    "gatewayRestartCount": 0,
+    "providerModelLiveExecutionCount": 0,
+    "telegramSendCount": 0,
+    "externalSendCount": 0,
+    "productionRuntimeConfigMutationCount": 0,
+    "productionMemoryMutationCount": 0,
+    "scopedRepoMemoryNoteUpdated": true,
+    "contextBridgeMutationCount": 0
+  }
+}

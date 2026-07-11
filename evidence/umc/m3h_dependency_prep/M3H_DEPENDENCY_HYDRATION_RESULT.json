@@ -1,0 +1,59 @@
+{
+  "schema": "umc.m3h.dependency_hydration_result.v1",
+  "generatedAt": "2026-07-11T23:06:03Z",
+  "status": "PASS_M3H_DEPENDENCY_HYDRATED_SOURCE_WORKTREE_ONLY",
+  "sourceWorktree": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+  "sourceBranch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+  "sourceHead": "2898460dd7097bbff5a0a3303ad0248411e0b5d2",
+  "approvedCommand": "corepack pnpm install --frozen-lockfile --store-dir \"$PWD/.pnpm-store\"",
+  "workingDirectory": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+  "exitCode": 0,
+  "packageManagerVersion": "pnpm@10.33.2",
+  "stdoutStderrSummary": [
+    "Scope: all 125 workspace projects",
+    "Lockfile is up to date; resolution skipped",
+    "Packages: +1291",
+    "Network downloads occurred; pnpm update notice 10.33.2 -> 11.12.0 was informational only",
+    "@discordjs/opus prebuild 404 fell back to local node-gyp compile and completed",
+    "@matrix-org/matrix-sdk-crypto-nodejs downloaded native lib and completed",
+    "prepare hook ran git config core.hooksPath git-hooks inside the source repo only",
+    "Done in 4m 15.4s using pnpm v10.33.2"
+  ],
+  "hashes": {
+    "pnpmLockBefore": "bfa22169730e5710a7c8a821250a8c0b9868b4298f63fe36a28f0f823e227585",
+    "pnpmLockAfter": "bfa22169730e5710a7c8a821250a8c0b9868b4298f63fe36a28f0f823e227585",
+    "packageJsonBefore": "6e7592f379ac216d7ea00f50d38ed8ed7b328438c417cd8656d0a4f2b840a7c0",
+    "packageJsonAfter": "6e7592f379ac216d7ea00f50d38ed8ed7b328438c417cd8656d0a4f2b840a7c0",
+    "installedRuntimeBefore": "6567099cf446f8675a00dd6a800b786013d0effbaae5c1b633d528272c0ab014",
+    "installedRuntimeAfter": "6567099cf446f8675a00dd6a800b786013d0effbaae5c1b633d528272c0ab014"
+  },
+  "dependencyPaths": {
+    "nodeModulesExists": true,
+    "nodeModulesBinTsdownExists": true,
+    "sourceRootNodeModules": "node_modules",
+    "workspaceNodeModulesObserved": ["node_modules", "ui/node_modules"],
+    "approvedStoreArg": "$PWD/.pnpm-store",
+    "actualPnpmStorePathReported": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711/$PWD/.pnpm-store/v10",
+    "actualPnpmStoreInsideSourceWorktree": true,
+    "expectedStorePathDotPnpmStoreExists": false,
+    "literalPwdStoreExists": true,
+    "pathAnomalyDisposition": "warning_only_confined_to_source_worktree_and_git_ignored"
+  },
+  "sourceWorktreeStatusAfterInstall": "tracked clean except uncommitted scoped evidence files; dependency directories are ignored",
+  "lockfileMutated": false,
+  "packageManifestMutated": false,
+  "installedRuntimeMutated": false,
+  "productionTouched": false,
+  "counters": {
+    "installedDistMutationCount": 0,
+    "productionInstallApplyCount": 0,
+    "gatewayRestartCount": 0,
+    "providerModelLiveExecutionCount": 0,
+    "telegramSendCount": 0,
+    "externalSendCount": 0,
+    "productionRuntimeConfigMutationCount": 0,
+    "productionMemoryMutationCount": 0,
+    "scopedRepoMemoryNoteUpdated": true,
+    "contextBridgeMutationCount": 0
+  }
+}

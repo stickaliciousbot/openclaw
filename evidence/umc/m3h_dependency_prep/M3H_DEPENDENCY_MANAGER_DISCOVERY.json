@@ -1,0 +1,61 @@
+{
+  "schema": "umc.m3h.dependency_manager_discovery.v1",
+  "generatedAt": "2026-07-11T22:53:00Z",
+  "status": "PASS_M3H_DEPENDENCY_MANAGER_DISCOVERY",
+  "packageManagerFromPackageJson": "pnpm@10.33.2+sha512.a90faf6feeab71ad6c6e57f94e0fe1a12f5dcc22cd754db40ae9593eb6a3e0b6b12e3540218bb37ae083404b1f2ce6db2a4121e979829b4aff94b99f49da1cf8",
+  "requiredPackageManager": "pnpm",
+  "requiredPackageManagerVersion": "10.33.2",
+  "lockfiles": {
+    "pnpmLockYaml": {
+      "exists": true,
+      "sha256": "bfa22169730e5710a7c8a821250a8c0b9868b4298f63fe36a28f0f823e227585"
+    },
+    "packageLockJson": {
+      "exists": false
+    },
+    "yarnLock": {
+      "exists": false
+    }
+  },
+  "packageJson": {
+    "sha256": "6e7592f379ac216d7ea00f50d38ed8ed7b328438c417cd8656d0a4f2b840a7c0"
+  },
+  "repoConventions": {
+    "packageBuildScript": "node scripts/build-all.mjs",
+    "candidateBuildCommand": "node scripts/tsdown-build.mjs",
+    "buildToolExpectedAfterInstall": "node_modules/.bin/tsdown"
+  },
+  "corepack": {
+    "available": true,
+    "version": "0.34.6",
+    "canActivateRequiredPackageManager": "expected_from_packageManager_metadata_but_not_executed_yet"
+  },
+  "hydrationPlan": {
+    "exactCommand": "corepack pnpm install --frozen-lockfile --store-dir \"$PWD/.pnpm-store\"",
+    "workingDirectory": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+    "lockfileFrozen": true,
+    "lockfileMutationForbidden": true,
+    "packageManifestMutationForbidden": true,
+    "dependencyStoreConfinedToSourceWorktree": ".pnpm-store",
+    "nodeModulesConfinedToSourceWorktree": "node_modules",
+    "corepackCache": "default user Corepack cache; .corepack is intentionally not used because it is not ignored in this repo",
+    "expectedCreatedPaths": ["node_modules", ".pnpm-store"],
+    "expectedUnchangedPaths": [
+      "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711/package.json",
+      "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711/pnpm-lock.yaml",
+      "/home/stickai/.npm-global",
+      "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/agent-runner.runtime-a09vVD0N.js"
+    ],
+    "networkAccessMayBeUsed": true,
+    "offlineCacheObserved": false,
+    "offlineCacheEvidence": [
+      "~/.cache/node/corepack absent",
+      "~/.local/share/pnpm/store absent",
+      "~/.pnpm-store absent"
+    ]
+  },
+  "wouldAlterLockfiles": false,
+  "wouldCreateOnlyExpectedDependencyDirectories": true,
+  "installCanBeConfinedToSourceWorktree": true,
+  "approvalRequiredBeforeInstall": true
+}

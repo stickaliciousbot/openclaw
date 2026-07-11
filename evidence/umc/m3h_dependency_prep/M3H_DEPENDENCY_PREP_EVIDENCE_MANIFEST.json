@@ -1,0 +1,43 @@
+{
+  "schema": "umc.m3h.dependency_prep_evidence_manifest.v1",
+  "generatedAt": "2026-07-11T23:06:03Z",
+  "status": "PASS_M3H_BUILD_DEPENDENCIES_AVAILABLE_NO_APPLY",
+  "sourceWorktree": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+  "sourceBranch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+  "sourceHead": "2898460dd7097bbff5a0a3303ad0248411e0b5d2",
+  "nextMilestone": "M3H_BUILD_ARTIFACT_PARITY_AND_NO_APPLY_VALIDATION_RETRY",
+  "artifacts": [
+    {
+      "path": "evidence/umc/m3h_dependency_prep/M3H_DEPENDENCY_PREP_PREFLIGHT.json",
+      "sha256": "98f776c5631f2b577b5b6cf3ffdf9a28053143d39361fb50b32c9cbf4a8e31df"
+    },
+    {
+      "path": "evidence/umc/m3h_dependency_prep/M3H_DEPENDENCY_MANAGER_DISCOVERY.json",
+      "sha256": "a828146c7701a7b5a632b2131bcba2d7c965356e8dafca2cc152eee84adb5d2f"
+    },
+    {
+      "path": "evidence/umc/m3h_dependency_prep/M3H_DEPENDENCY_MANAGER_DISCOVERY.md",
+      "sha256": "b424e125e20288cc0e48b5504f5421a9ae9a64ed725e32a1cfc4339887764d6f"
+    },
+    {
+      "path": "evidence/umc/m3h_dependency_prep/M3H_DEPENDENCY_INSTALL_APPROVAL_REQUEST.json",
+      "sha256": "ceef02a9bfc4f1634faa1d33bd767f22aa3d995b8afa4963b4054804735f58e0"
+    },
+    {
+      "path": "evidence/umc/m3h_dependency_prep/M3H_DEPENDENCY_HYDRATION_RESULT.json",
+      "sha256": "1442c910461572a36d370a1f90b3169fc55e9995fc1645c380c7286b3f90b4e1"
+    },
+    {
+      "path": "evidence/umc/m3h_dependency_prep/M3H_DEPENDENCY_AVAILABILITY_VALIDATION.json",
+      "sha256": "85ecbd29b2b0b7c9b207aae7da4ebe6fcdb31d3718e195d591287c6ba931227c"
+    },
+    {
+      "path": "evidence/umc/m3h_dependency_prep/M3H_BUILD_COMMAND_AVAILABILITY_SMOKE.json",
+      "sha256": "98f58b7eccd5ca5ef2446224d38e9992de938a7fc16e78c76b51a3396f3851b6"
+    },
+    {
+      "path": "evidence/umc/m3h_dependency_prep/M3H_DEPENDENCY_PREP_VALIDATION_SUMMARY.json",
+      "sha256": "f7d99973040ed5a4dc9249b0f06339c63966f683e51cbbc06a5524fc2db5cfa6"
+    }
+  ]
+}
