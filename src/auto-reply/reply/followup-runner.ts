@@ -12,12 +12,19 @@ import {
   buildAgentRuntimeDeliveryPlan,
   buildAgentRuntimeOutcomePlan,
 } from "../../agents/runtime-plan/build.js";
+import { normalizeChatType } from "../../channels/chat-type.js";
 import type { SessionEntry } from "../../config/sessions.js";
+import { updateSessionStoreEntry } from "../../config/sessions/store.js";
 import type { TypingMode } from "../../config/types.js";
 import { logVerbose } from "../../globals.js";
 import { registerAgentRunContext } from "../../infra/agent-events.js";
 import { formatErrorMessage } from "../../infra/errors.js";
+import { enqueueSystemEvent } from "../../infra/system-events.js";
 import { defaultRuntime } from "../../runtime.js";
+import {
+  normalizeOptionalLowercaseString,
+  normalizeOptionalString,
+} from "../../shared/string-coerce.js";
 import { isInternalMessageChannel } from "../../utils/message-channel.js";
 import { stripHeartbeatToken } from "../heartbeat.js";
 import type { GetReplyOptions, ReplyPayload } from "../types.js";
@@ -38,6 +45,324 @@ import { createTypingSignaler } from "./typing-mode.js";
 import type { TypingController } from "./typing.js";
 
 type EmbeddedAgentRunResult = Awaited<ReturnType<typeof runEmbeddedPiAgent>>;
+
+type UmcV1QueuedRouteIntent = {
+  contractVersion: "umc.v1";
+  milestone: "M2Q_QUEUE_RESUME_ROUTE_ADMISSION";
+  source: "queued_followup";
+  hardPreference: false;
+  requested: { provider: string; model: string };
+  executable: { provider: string; model: string };
+  directBypass: false;
+  status: "INTERCEPTED_RAW_SELECTION_TO_DEFAULT_BROKER" | "DEFAULT_BROKER_ROUTE";
+  updatedAt: string;
+};
+
+type SessionEntryWithUmcV1Intent = SessionEntry & {
+  umcV1QueuedRouteIntent?: UmcV1QueuedRouteIntent;
+};
+
+type UmcV1QueuedRouteAdmissionResult = {
+  provider?: string;
+  model?: string;
+  scoped: boolean;
+  intercepted: boolean;
+  intent?: UmcV1QueuedRouteIntent;
+  hold?: boolean;
+  reply?: ReplyPayload;
+};
+
+type UmcV1ShadowObserveReceipt = {
+  contractVersion: "umc.v1";
+  milestone: "M3G_EDITABLE_SOURCE_OBSERVE_ONLY_HOOK_NO_SEND_IMPLEMENTATION";
+  mode: "observe_no_send";
+  source: "queued_followup_source_hook";
+  admittedTurn: {
+    sessionKey?: string;
+    provider?: string;
+    model?: string;
+    messageProvider?: string;
+    originatingChannel?: string;
+    originatingChatType?: string;
+    senderIsOwner: boolean;
+  };
+  deliveryReceipt: {
+    channel: "shadow";
+    mode: "no_send";
+    sent: false;
+    providerExecutionCount: 0;
+    telegramSendCount: 0;
+    externalSendCount: 0;
+    realWriteToolCount: 0;
+  };
+  universalContractReceipt: {
+    status: "WOULD_PASS" | "WOULD_HOLD" | "SHADOW_FAILED";
+    productionDecisionReturned: false;
+    routeProviderFallbackChanged: false;
+  };
+  terminalCloseout: {
+    status:
+      | "PASS_SHADOW_OBSERVE_NO_SEND"
+      | "HOLD_SHADOW_OBSERVE_NO_SEND"
+      | "FAIL_SHADOW_OBSERVE_NO_SEND";
+    productionPathContinues: true;
+  };
+  createdAt: string;
+};
+
+type UmcV1ShadowObserveResult = {
+  enabled: boolean;
+  receipt?: UmcV1ShadowObserveReceipt;
+  error?: string;
+};
+
+const UMC_V1_SHADOW_FIXTURE_ENV = {
+  mode: "UMC_SHADOW_MODE",
+  ownerScope: "UMC_SHADOW_OWNER_SCOPE",
+  delivery: "UMC_SHADOW_DELIVERY",
+  provider: "UMC_SHADOW_PROVIDER",
+  mutation: "UMC_SHADOW_MUTATION",
+} as const;
+
+function resolveUmcV1DefaultRouteFromConfig(
+  config: unknown,
+): { provider: string; model: string } | null {
+  const cfg = config as { agents?: { defaults?: { model?: { primary?: unknown } } } } | undefined;
+  const raw = normalizeOptionalString(cfg?.agents?.defaults?.model?.primary);
+  if (!raw) {
+    return null;
+  }
+  const slash = raw.indexOf("/");
+  if (slash <= 0 || slash >= raw.length - 1) {
+    return null;
+  }
+  const provider = normalizeOptionalString(raw.slice(0, slash));
+  const model = normalizeOptionalString(raw.slice(slash + 1));
+  if (!provider || !model) {
+    return null;
+  }
+  return { provider, model };
+}
+
+function isUmcV1QueuedOwnerScope(params: {
+  run?: FollowupRun["run"];
+  queued?: FollowupRun;
+}): boolean {
+  const run = params.run;
+  if (!run || run.senderIsOwner !== true) {
+    return false;
+  }
+  const chatType = normalizeChatType(params.queued?.originatingChatType);
+  if (chatType && chatType !== "direct") {
+    return false;
+  }
+  if (run.groupId || run.groupChannel || run.groupSpace) {
+    return false;
+  }
+  const provider = normalizeOptionalLowercaseString(
+    params.queued?.originatingChannel ?? run.messageProvider,
+  );
+  if (!provider) {
+    return false;
+  }
+  if (["cron", "heartbeat", "system", "memory-flush"].includes(provider)) {
+    return false;
+  }
+  return true;
+}
+
+export async function applyUmcV1QueuedRouteAdmission(params: {
+  config?: unknown;
+  run?: FollowupRun["run"];
+  queued?: FollowupRun;
+  sessionEntry?: SessionEntry;
+  sessionStore?: Record<string, SessionEntry>;
+  sessionKey?: string;
+  storePath?: string;
+  provider?: string;
+  model?: string;
+}): Promise<UmcV1QueuedRouteAdmissionResult> {
+  const selectedProvider = normalizeOptionalString(params.provider ?? params.run?.provider);
+  const selectedModel = normalizeOptionalString(params.model ?? params.run?.model);
+  if (!selectedProvider || !selectedModel) {
+    return { provider: selectedProvider, model: selectedModel, scoped: false, intercepted: false };
+  }
+  if (!isUmcV1QueuedOwnerScope(params)) {
+    return { provider: selectedProvider, model: selectedModel, scoped: false, intercepted: false };
+  }
+  const defaultRoute = resolveUmcV1DefaultRouteFromConfig(params.config ?? params.run?.config);
+  if (!defaultRoute) {
+    return {
+      provider: selectedProvider,
+      model: selectedModel,
+      scoped: true,
+      intercepted: false,
+      hold: true,
+      reply: {
+        text: "HOLD_UMC_QUEUE_ROUTE_UNAVAILABLE: queued owner execution requires a configured default route.",
+        isError: true,
+      },
+    };
+  }
+
+  const selectedRef = `${selectedProvider}/${selectedModel}`;
+  const defaultRef = `${defaultRoute.provider}/${defaultRoute.model}`;
+  const intercepted = selectedRef !== defaultRef;
+  const intent: UmcV1QueuedRouteIntent = {
+    contractVersion: "umc.v1",
+    milestone: "M2Q_QUEUE_RESUME_ROUTE_ADMISSION",
+    source: "queued_followup",
+    hardPreference: false,
+    requested: { provider: selectedProvider, model: selectedModel },
+    executable: { provider: defaultRoute.provider, model: defaultRoute.model },
+    directBypass: false,
+    status: intercepted ? "INTERCEPTED_RAW_SELECTION_TO_DEFAULT_BROKER" : "DEFAULT_BROKER_ROUTE",
+    updatedAt: new Date().toISOString(),
+  };
+  const updatedAt = Date.now();
+  if (params.sessionEntry) {
+    const entry = params.sessionEntry as SessionEntryWithUmcV1Intent;
+    entry.umcV1QueuedRouteIntent = intent;
+    entry.updatedAt = updatedAt;
+  }
+  if (params.sessionKey && params.sessionStore && params.sessionEntry) {
+    params.sessionStore[params.sessionKey] = params.sessionEntry;
+  }
+  if (params.sessionKey && params.storePath) {
+    await updateSessionStoreEntry({
+      storePath: params.storePath,
+      sessionKey: params.sessionKey,
+      update: async () =>
+        ({
+          umcV1QueuedRouteIntent: intent,
+          updatedAt,
+        }) as Partial<SessionEntry>,
+    });
+  }
+  const eventSessionKey = normalizeOptionalString(params.sessionKey ?? params.run?.sessionKey);
+  if (intercepted && eventSessionKey) {
+    enqueueSystemEvent(
+      `UMC v1 queued route intent captured; execution forced through ${defaultRef} instead of raw ${selectedRef}.`,
+      {
+        sessionKey: eventSessionKey,
+        contextKey: `umc-v1-queued-route-intent:${selectedRef}->${defaultRef}`,
+      },
+    );
+  }
+  return {
+    provider: defaultRoute.provider,
+    model: defaultRoute.model,
+    scoped: true,
+    intercepted,
+    intent,
+  };
+}
+
+function isUmcV1ShadowObserveOnlyEnabled(env: NodeJS.ProcessEnv = process.env): boolean {
+  return (
+    env[UMC_V1_SHADOW_FIXTURE_ENV.mode] === "observe_no_send" &&
+    env[UMC_V1_SHADOW_FIXTURE_ENV.ownerScope] === "fixture_only" &&
+    env[UMC_V1_SHADOW_FIXTURE_ENV.delivery] === "no_send" &&
+    env[UMC_V1_SHADOW_FIXTURE_ENV.provider] === "mock_only" &&
+    env[UMC_V1_SHADOW_FIXTURE_ENV.mutation] === "forbidden"
+  );
+}
+
+export async function maybeRunUmcV1ShadowObserveOnly(params: {
+  admittedTurn: FollowupRun["run"];
+  queued?: FollowupRun;
+  routeObservation?: UmcV1QueuedRouteAdmissionResult;
+  noSend: true;
+  mockProviderOnly: true;
+  mutationForbidden: true;
+  simulateFailure?: boolean;
+  simulateHold?: boolean;
+  onReceipt?: (receipt: UmcV1ShadowObserveReceipt) => void | Promise<void>;
+  env?: NodeJS.ProcessEnv;
+}): Promise<UmcV1ShadowObserveResult> {
+  if (!isUmcV1ShadowObserveOnlyEnabled(params.env)) {
+    return { enabled: false };
+  }
+  try {
+    if (params.simulateFailure) {
+      throw new Error("simulated M3G shadow fixture failure");
+    }
+    const wouldHold = params.simulateHold === true || params.routeObservation?.hold === true;
+    const receipt: UmcV1ShadowObserveReceipt = {
+      contractVersion: "umc.v1",
+      milestone: "M3G_EDITABLE_SOURCE_OBSERVE_ONLY_HOOK_NO_SEND_IMPLEMENTATION",
+      mode: "observe_no_send",
+      source: "queued_followup_source_hook",
+      admittedTurn: {
+        sessionKey: params.admittedTurn.sessionKey,
+        provider: params.admittedTurn.provider,
+        model: params.admittedTurn.model,
+        messageProvider: params.admittedTurn.messageProvider,
+        originatingChannel: params.queued?.originatingChannel,
+        originatingChatType: params.queued?.originatingChatType,
+        senderIsOwner: params.admittedTurn.senderIsOwner === true,
+      },
+      deliveryReceipt: {
+        channel: "shadow",
+        mode: "no_send",
+        sent: false,
+        providerExecutionCount: 0,
+        telegramSendCount: 0,
+        externalSendCount: 0,
+        realWriteToolCount: 0,
+      },
+      universalContractReceipt: {
+        status: wouldHold ? "WOULD_HOLD" : "WOULD_PASS",
+        productionDecisionReturned: false,
+        routeProviderFallbackChanged: false,
+      },
+      terminalCloseout: {
+        status: wouldHold ? "HOLD_SHADOW_OBSERVE_NO_SEND" : "PASS_SHADOW_OBSERVE_NO_SEND",
+        productionPathContinues: true,
+      },
+      createdAt: new Date().toISOString(),
+    };
+    await params.onReceipt?.(receipt);
+    return { enabled: true, receipt };
+  } catch (err) {
+    const receipt: UmcV1ShadowObserveReceipt = {
+      contractVersion: "umc.v1",
+      milestone: "M3G_EDITABLE_SOURCE_OBSERVE_ONLY_HOOK_NO_SEND_IMPLEMENTATION",
+      mode: "observe_no_send",
+      source: "queued_followup_source_hook",
+      admittedTurn: {
+        sessionKey: params.admittedTurn.sessionKey,
+        provider: params.admittedTurn.provider,
+        model: params.admittedTurn.model,
+        messageProvider: params.admittedTurn.messageProvider,
+        originatingChannel: params.queued?.originatingChannel,
+        originatingChatType: params.queued?.originatingChatType,
+        senderIsOwner: params.admittedTurn.senderIsOwner === true,
+      },
+      deliveryReceipt: {
+        channel: "shadow",
+        mode: "no_send",
+        sent: false,
+        providerExecutionCount: 0,
+        telegramSendCount: 0,
+        externalSendCount: 0,
+        realWriteToolCount: 0,
+      },
+      universalContractReceipt: {
+        status: "SHADOW_FAILED",
+        productionDecisionReturned: false,
+        routeProviderFallbackChanged: false,
+      },
+      terminalCloseout: {
+        status: "FAIL_SHADOW_OBSERVE_NO_SEND",
+        productionPathContinues: true,
+      },
+      createdAt: new Date().toISOString(),
+    };
+    await Promise.resolve(params.onReceipt?.(receipt)).catch(() => undefined);
+    return { enabled: true, receipt, error: formatErrorMessage(err) };
+  }
+}
 
 export function createFollowupRunner(params: {
   opts?: GetReplyOptions;
@@ -214,7 +539,7 @@ export function createFollowupRunner(params: {
       runtimeConfig === queued.run.config
         ? queued
         : { ...queued, run: { ...queued.run, config: runtimeConfig } };
-    const run = effectiveQueued.run;
+    let run = effectiveQueued.run;
     const replyOperation = createReplyOperation({
       sessionId: run.sessionId,
       sessionKey: replySessionKey ?? "",
@@ -238,10 +563,43 @@ export function createFollowupRunner(params: {
       }
       let autoCompactionCount = 0;
       let runResult: Awaited<ReturnType<typeof runEmbeddedPiAgent>>;
-      let fallbackProvider = run.provider;
-      let fallbackModel = run.model;
       let activeSessionEntry =
         (sessionKey ? sessionStore?.[sessionKey] : undefined) ?? sessionEntry;
+      const queueAdmission = await applyUmcV1QueuedRouteAdmission({
+        config: runtimeConfig,
+        run,
+        queued: effectiveQueued,
+        sessionEntry: activeSessionEntry,
+        sessionStore,
+        sessionKey: replySessionKey ?? sessionKey,
+        storePath,
+      });
+      if (queueAdmission.reply) {
+        replyOperation.fail(
+          "umc_queue_route_unavailable",
+          new Error(queueAdmission.reply.text ?? "UMC queued route unavailable"),
+        );
+        defaultRuntime.error?.(queueAdmission.reply.text ?? "HOLD_UMC_QUEUE_ROUTE_UNAVAILABLE");
+        return;
+      }
+      if (queueAdmission.scoped) {
+        run = {
+          ...run,
+          provider: queueAdmission.provider ?? run.provider,
+          model: queueAdmission.model ?? run.model,
+          modelOverrideSource: "auto",
+        };
+      }
+      await maybeRunUmcV1ShadowObserveOnly({
+        admittedTurn: run,
+        queued: effectiveQueued,
+        routeObservation: queueAdmission,
+        noSend: true,
+        mockProviderOnly: true,
+        mutationForbidden: true,
+      });
+      let fallbackProvider = run.provider;
+      let fallbackModel = run.model;
       activeSessionEntry = await runPreflightCompactionIfNeeded({
         cfg: runtimeConfig,
         followupRun: effectiveQueued,

@@ -1,0 +1,35 @@
+{
+  "schema": "umc.m3g.editable_source_observe_hook.implementation_preflight.v1",
+  "generatedAt": "2026-07-11T15:53:56.343Z",
+  "status": "PASS_M3G_EDITABLE_SOURCE_OBSERVE_HOOK_IMPLEMENTATION_PREFLIGHT",
+  "note": "Source worktree cleanliness at I0 was verified before implementation edits in the transcript; current dirty state is scoped implementation/evidence changes.",
+  "branch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+  "head": "8d4c7804dae74202afa76e41dd9cbcf506d0aec0",
+  "expectedBranch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+  "cleanBaseHead": "9338825836c9989062dfcf7e6231fc5b56bf44a5",
+  "sourceHeadDescendsFromCleanBase": true,
+  "cleanSourceWorktree": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+  "preImplementationWorktreeCleanVerified": true,
+  "portMapArtifacts": {
+    "json": "/home/stickai/.openclaw/worktrees/umc-m3-envelope-tool-delivery-supervision-20260711/sharedspace/runtime-kernel-validation/universal-model-contract/m3g_live_shadow_hook_observe_only/M3G_SOURCE_ADMISSION_HOOK_PORT_MAP.json",
+    "markdown": "/home/stickai/.openclaw/worktrees/umc-m3-envelope-tool-delivery-supervision-20260711/sharedspace/runtime-kernel-validation/universal-model-contract/m3g_live_shadow_hook_observe_only/M3G_SOURCE_ADMISSION_HOOK_PORT_MAP.md",
+    "status": "PASS_M3G_SOURCE_ADMISSION_HOOK_PORT_MAP_COMPLETE"
+  },
+  "dirtySource": {
+    "path": "/home/stickai/.openclaw/workspace/tmp/openclaw-2026-5-7-closeout-backport",
+    "head": "9338825836c9989062dfcf7e6231fc5b56bf44a5",
+    "dirtyEntries": 38,
+    "mutationCount": 0
+  },
+  "installedRuntime": {
+    "path": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/agent-runner.runtime-a09vVD0N.js",
+    "sha256Before": "6567099cf446f8675a00dd6a800b786013d0effbaae5c1b633d528272c0ab014",
+    "sha256After": "6567099cf446f8675a00dd6a800b786013d0effbaae5c1b633d528272c0ab014"
+  },
+  "installedDistUntouched": true,
+  "gatewayRestartRequired": false,
+  "productionInstallApplyAuthorized": false,
+  "liveSendApprovalExists": false,
+  "externalSendApprovalExists": false,
+  "rollbackMethod": "Revert the source commit or restore the changed source/evidence files in this linked worktree; no Gateway/runtime/config rollback is required because nothing was installed/applied."
+}

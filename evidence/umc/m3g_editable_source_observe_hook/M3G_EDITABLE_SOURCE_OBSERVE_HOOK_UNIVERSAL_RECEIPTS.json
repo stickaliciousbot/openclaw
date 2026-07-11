@@ -1,0 +1,24 @@
+{
+  "schema": "umc.m3g.editable_source_observe_hook.universal_receipts.v1",
+  "generatedAt": "2026-07-11T15:53:56.343Z",
+  "receipts": [
+    {
+      "id": "shadow-pass",
+      "status": "WOULD_PASS",
+      "productionDecisionReturned": false,
+      "routeProviderFallbackChanged": false
+    },
+    {
+      "id": "shadow-hold",
+      "status": "WOULD_HOLD",
+      "productionDecisionReturned": false,
+      "routeProviderFallbackChanged": false
+    },
+    {
+      "id": "shadow-failure",
+      "status": "SHADOW_FAILED",
+      "productionDecisionReturned": false,
+      "routeProviderFallbackChanged": false
+    }
+  ]
+}

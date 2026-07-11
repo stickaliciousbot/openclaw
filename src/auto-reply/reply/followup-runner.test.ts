@@ -19,6 +19,7 @@ let resolveQueuedReplyExecutionConfigActual:
   | (typeof import("./agent-runner-utils.js"))["resolveQueuedReplyExecutionConfig"]
   | undefined;
 let createFollowupRunner: typeof import("./followup-runner.js").createFollowupRunner;
+let maybeRunUmcV1ShadowObserveOnly: typeof import("./followup-runner.js").maybeRunUmcV1ShadowObserveOnly;
 let clearRuntimeConfigSnapshot: typeof import("../../config/config.js").clearRuntimeConfigSnapshot;
 let loadSessionStore: typeof import("../../config/sessions/store.js").loadSessionStore;
 let saveSessionStore: typeof import("../../config/sessions/store.js").saveSessionStore;
@@ -339,7 +340,7 @@ async function loadFreshFollowupRunnerModuleForTest() {
       };
     },
   }));
-  ({ createFollowupRunner } = await import("./followup-runner.js"));
+  ({ createFollowupRunner, maybeRunUmcV1ShadowObserveOnly } = await import("./followup-runner.js"));
   ({ clearRuntimeConfigSnapshot, setRuntimeConfigSnapshot } =
     await import("../../config/config.js"));
   ({ clearSessionStoreCacheForTest, loadSessionStore, saveSessionStore } =
@@ -1666,5 +1667,150 @@ describe("createFollowupRunner agentDir forwarding", () => {
     expect(runEmbeddedPiAgentMock).toHaveBeenCalledTimes(1);
     const call = runEmbeddedPiAgentMock.mock.calls.at(-1)?.[0] as { agentDir?: string };
     expect(call?.agentDir).toBe(agentDir);
+  });
+});
+
+describe("UMC M3G editable-source observe-only hook", () => {
+  const shadowEnv = {
+    UMC_SHADOW_MODE: "observe_no_send",
+    UMC_SHADOW_OWNER_SCOPE: "fixture_only",
+    UMC_SHADOW_DELIVERY: "no_send",
+    UMC_SHADOW_PROVIDER: "mock_only",
+    UMC_SHADOW_MUTATION: "forbidden",
+  } as const;
+
+  it("keeps the shadow hook disabled by default", async () => {
+    const receiptSpy = vi.fn();
+    const result = await maybeRunUmcV1ShadowObserveOnly({
+      admittedTurn: createQueuedRun().run,
+      noSend: true,
+      mockProviderOnly: true,
+      mutationForbidden: true,
+      onReceipt: receiptSpy,
+      env: {},
+    });
+
+    expect(result.enabled).toBe(false);
+    expect(receiptSpy).not.toHaveBeenCalled();
+  });
+
+  it("emits a no-send shadow receipt only in explicit fixture mode", async () => {
+    const receiptSpy = vi.fn();
+    const queued = createQueuedRun({
+      originatingChannel: "telegram",
+      originatingChatType: "direct",
+    });
+    const result = await maybeRunUmcV1ShadowObserveOnly({
+      admittedTurn: {
+        ...queued.run,
+        provider: "token-broker-vmesh",
+        model: "auto",
+        senderIsOwner: true,
+      },
+      queued,
+      noSend: true,
+      mockProviderOnly: true,
+      mutationForbidden: true,
+      onReceipt: receiptSpy,
+      env: shadowEnv,
+    });
+
+    expect(result.enabled).toBe(true);
+    expect(result.receipt?.deliveryReceipt.sent).toBe(false);
+    expect(result.receipt?.deliveryReceipt.providerExecutionCount).toBe(0);
+    expect(result.receipt?.deliveryReceipt.telegramSendCount).toBe(0);
+    expect(result.receipt?.deliveryReceipt.externalSendCount).toBe(0);
+    expect(result.receipt?.deliveryReceipt.realWriteToolCount).toBe(0);
+    expect(result.receipt?.universalContractReceipt.productionDecisionReturned).toBe(false);
+    expect(result.receipt?.terminalCloseout.productionPathContinues).toBe(true);
+    expect(receiptSpy).toHaveBeenCalledTimes(1);
+  });
+
+  it("surfaces would-be HOLD without returning a production route decision", async () => {
+    const result = await maybeRunUmcV1ShadowObserveOnly({
+      admittedTurn: createQueuedRun().run,
+      noSend: true,
+      mockProviderOnly: true,
+      mutationForbidden: true,
+      simulateHold: true,
+      env: shadowEnv,
+    });
+
+    expect(result.receipt?.universalContractReceipt.status).toBe("WOULD_HOLD");
+    expect(result.receipt?.universalContractReceipt.productionDecisionReturned).toBe(false);
+    expect(result.receipt?.terminalCloseout.status).toBe("HOLD_SHADOW_OBSERVE_NO_SEND");
+    expect(result.receipt?.terminalCloseout.productionPathContinues).toBe(true);
+  });
+
+  it("records shadow failure without altering production flow semantics", async () => {
+    const result = await maybeRunUmcV1ShadowObserveOnly({
+      admittedTurn: createQueuedRun().run,
+      noSend: true,
+      mockProviderOnly: true,
+      mutationForbidden: true,
+      simulateFailure: true,
+      env: shadowEnv,
+    });
+
+    expect(result.enabled).toBe(true);
+    expect(result.error).toContain("simulated M3G shadow fixture failure");
+    expect(result.receipt?.universalContractReceipt.status).toBe("SHADOW_FAILED");
+    expect(result.receipt?.terminalCloseout.productionPathContinues).toBe(true);
+  });
+
+  it("admits owner direct queued runs to the configured default before provider execution", async () => {
+    const order: string[] = [];
+    runPreflightCompactionIfNeededMock.mockImplementation(
+      async (params: { sessionEntry?: SessionEntry }) => {
+        order.push("preflight");
+        return params.sessionEntry;
+      },
+    );
+    runEmbeddedPiAgentMock.mockImplementationOnce(
+      async (args: { provider?: string; model?: string }) => {
+        order.push("provider");
+        return { payloads: [{ text: "hello world!" }], meta: {} };
+      },
+    );
+    const onBlockReply = vi.fn(async () => {});
+    const sessionEntry: SessionEntry = { sessionId: "session", updatedAt: Date.now() };
+    const sessionStore: Record<string, SessionEntry> = { main: sessionEntry };
+    const runner = createFollowupRunner({
+      opts: { onBlockReply },
+      typing: createMockTypingController(),
+      typingMode: "instant",
+      sessionEntry,
+      sessionStore,
+      sessionKey: "main",
+      defaultModel: "token-broker-vmesh/auto",
+    });
+
+    await runner(
+      createQueuedRun({
+        originatingChannel: "telegram",
+        originatingChatType: "direct",
+        run: {
+          senderIsOwner: true,
+          provider: "raw-provider",
+          model: "raw-model",
+          config: { agents: { defaults: { model: { primary: "token-broker-vmesh/auto" } } } },
+        },
+      }),
+    );
+
+    expect(order).toEqual(["preflight", "provider"]);
+    expect(runEmbeddedPiAgentMock).toHaveBeenCalledTimes(1);
+    const call = runEmbeddedPiAgentMock.mock.calls.at(-1)?.[0] as {
+      provider?: string;
+      model?: string;
+    };
+    expect(call?.provider).toBe("token-broker-vmesh");
+    expect(call?.model).toBe("auto");
+    expect(routeReplyMock).toHaveBeenCalledTimes(1);
+    expect(onBlockReply).not.toHaveBeenCalled();
+    const intent = (
+      sessionStore.main as SessionEntry & { umcV1QueuedRouteIntent?: { status?: string } }
+    ).umcV1QueuedRouteIntent;
+    expect(intent?.status).toBe("INTERCEPTED_RAW_SELECTION_TO_DEFAULT_BROKER");
   });
 });

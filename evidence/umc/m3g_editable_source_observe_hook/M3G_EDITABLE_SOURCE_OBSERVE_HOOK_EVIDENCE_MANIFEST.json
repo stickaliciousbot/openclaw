@@ -1,0 +1,66 @@
+{
+  "schema": "umc.m3g.editable_source_observe_hook.evidence_manifest.v1",
+  "generatedAt": "2026-07-11T15:53:56.343Z",
+  "status": "PASS_M3G_EDITABLE_SOURCE_OBSERVE_ONLY_HOOK_NO_SEND",
+  "sourceBranch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+  "sourceHead": "8d4c7804dae74202afa76e41dd9cbcf506d0aec0",
+  "cleanBaseHead": "9338825836c9989062dfcf7e6231fc5b56bf44a5",
+  "sourceHeadDescendsFromCleanBase": true,
+  "sourceWorktree": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+  "filesChanged": [
+    "scripts/umc/m3g_editable_source_observe_hook_no_send.mjs"
+  ],
+  "changedFileScopeOk": true,
+  "installedRuntimeHashBefore": "6567099cf446f8675a00dd6a800b786013d0effbaae5c1b633d528272c0ab014",
+  "installedRuntimeHashAfter": "6567099cf446f8675a00dd6a800b786013d0effbaae5c1b633d528272c0ab014",
+  "dirtySource": {
+    "path": "/home/stickai/.openclaw/workspace/tmp/openclaw-2026-5-7-closeout-backport",
+    "head": "9338825836c9989062dfcf7e6231fc5b56bf44a5",
+    "dirtyEntries": 38,
+    "mutationCount": 0
+  },
+  "counters": {
+    "providerModelLiveExecutionCount": 0,
+    "telegramSendCount": 0,
+    "externalSendCount": 0,
+    "realWriteToolCount": 0,
+    "productionRuntimeConfigMutationCount": 0,
+    "memoryMutationCount": 0,
+    "contextBridgeMutationCount": 0,
+    "installedDistMutationCount": 0,
+    "dirtySourceMutationCount": 0,
+    "productionInstallApplyCount": 0,
+    "routeProviderFallbackChangedCount": 0,
+    "productionResponsePathChanged": false
+  },
+  "artifacts": [
+    {
+      "path": "evidence/umc/m3g_editable_source_observe_hook/M3G_EDITABLE_SOURCE_OBSERVE_HOOK_IMPLEMENTATION_PREFLIGHT.json",
+      "sha256": "8b0d381f78259b8b5ccf77262cf67802aa7c09f7414353294a74b045eb96754e"
+    },
+    {
+      "path": "evidence/umc/m3g_editable_source_observe_hook/M3G_EDITABLE_SOURCE_OBSERVE_HOOK_IMPLEMENTATION_RESULT.json",
+      "sha256": "f050f745fa59b850808d0a76b451c4c91ea2c38b6a3dc1f3a692ab8de6998223"
+    },
+    {
+      "path": "evidence/umc/m3g_editable_source_observe_hook/M3G_EDITABLE_SOURCE_OBSERVE_HOOK_FIXTURE_RESULTS.json",
+      "sha256": "ff967260507bca48514ac3507945676856a0d412dc6c429380a061a095b41b9a"
+    },
+    {
+      "path": "evidence/umc/m3g_editable_source_observe_hook/M3G_EDITABLE_SOURCE_OBSERVE_HOOK_HARD_GATE_RESULTS.json",
+      "sha256": "1f1704855ff24e150e59f970df2e441a7c8193466b23d07a2297682732024ea4"
+    },
+    {
+      "path": "evidence/umc/m3g_editable_source_observe_hook/M3G_EDITABLE_SOURCE_OBSERVE_HOOK_UNIVERSAL_RECEIPTS.json",
+      "sha256": "1473ff509bf47fb1d79f23439edef2e31cbdf4025c3f88334009d6179245dcb4"
+    },
+    {
+      "path": "evidence/umc/m3g_editable_source_observe_hook/M3G_EDITABLE_SOURCE_OBSERVE_HOOK_TERMINAL_CLOSEOUTS.json",
+      "sha256": "6d0144cf7ac70a11f695290753a1e869047fa47bbdb7522a18e346b13d15a300"
+    },
+    {
+      "path": "evidence/umc/m3g_editable_source_observe_hook/M3G_EDITABLE_SOURCE_OBSERVE_HOOK_WOULD_BE_OUTCOMES.json",
+      "sha256": "9988e87b4dcbce6eb078463c12efcfcc6637e4f0a00c6a7d2e8c556681ea2abf"
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "schema": "umc.m3g.editable_source_observe_hook.hard_gate_results.v1",
+  "generatedAt": "2026-07-11T15:53:56.343Z",
+  "status": "PASS_M3G_EDITABLE_SOURCE_OBSERVE_HOOK_HARD_GATES",
+  "gates": [
+    {
+      "id": "G-M3G-SRC-1",
+      "name": "editable source path used, not installed dist",
+      "status": "PASS"
+    },
+    {
+      "id": "G-M3G-SRC-2",
+      "name": "admission hook source mapping implemented",
+      "status": "PASS"
+    },
+    {
+      "id": "G-M3G-SRC-3",
+      "name": "hook disabled by default",
+      "status": "PASS"
+    },
+    {
+      "id": "G-M3G-SRC-4",
+      "name": "hook requires explicit observe_no_send fixture mode",
+      "status": "PASS"
+    },
+    {
+      "id": "G-M3G-SRC-5",
+      "name": "hook executes after admission",
+      "status": "PASS"
+    },
+    {
+      "id": "G-M3G-SRC-6",
+      "name": "hook executes before provider/model execution",
+      "status": "PASS"
+    },
+    {
+      "id": "G-M3G-SRC-7",
+      "name": "production response path unchanged",
+      "status": "PASS"
+    },
+    {
+      "id": "G-M3G-SRC-8",
+      "name": "route/provider/fallback unchanged",
+      "status": "PASS"
+    },
+    {
+      "id": "G-M3G-SRC-9",
+      "name": "shadow emits UniversalContractReceipt",
+      "status": "PASS"
+    },
+    {
+      "id": "G-M3G-SRC-10",
+      "name": "shadow emits terminal closeout",
+      "status": "PASS"
+    },
+    {
+      "id": "G-M3G-SRC-11",
+      "name": "shadow failure does not break production flow",
+      "status": "PASS"
+    },
+    {
+      "id": "G-M3G-SRC-12",
+      "name": "no live provider/model execution",
+      "status": "PASS"
+    },
+    {
+      "id": "G-M3G-SRC-13",
+      "name": "no Telegram sends",
+      "status": "PASS"
+    },
+    {
+      "id": "G-M3G-SRC-14",
+      "name": "no external sends",
+      "status": "PASS"
+    },
+    {
+      "id": "G-M3G-SRC-15",
+      "name": "no real write tools",
+      "status": "PASS"
+    },
+    {
+      "id": "G-M3G-SRC-16",
+      "name": "no production runtime/config mutation",
+      "status": "PASS"
+    },
+    {
+      "id": "G-M3G-SRC-17",
+      "name": "no memory promotion",
+      "status": "PASS"
+    },
+    {
+      "id": "G-M3G-SRC-18",
+      "name": "no Context Bridge mutation",
+      "status": "PASS"
+    },
+    {
+      "id": "G-M3G-SRC-19",
+      "name": "installed dist unchanged",
+      "status": "PASS"
+    },
+    {
+      "id": "G-M3G-SRC-20",
+      "name": "production install/apply not performed",
+      "status": "PASS"
+    },
+    {
+      "id": "G-M3G-SRC-21",
+      "name": "dirty source untouched",
+      "status": "PASS"
+    }
+  ]
+}

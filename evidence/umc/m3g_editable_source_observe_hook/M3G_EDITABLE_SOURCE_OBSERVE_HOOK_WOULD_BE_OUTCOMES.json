@@ -1,0 +1,12 @@
+{
+  "schema": "umc.m3g.editable_source_observe_hook.would_be_outcomes.v1",
+  "generatedAt": "2026-07-11T15:53:56.343Z",
+  "summary": {
+    "wouldPass": 1,
+    "wouldHold": 1,
+    "wouldFail": 0,
+    "shadowFailureRecorded": 1
+  },
+  "productionPathChanged": false,
+  "routeProviderFallbackChanged": false
+}

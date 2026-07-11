@@ -1,0 +1,21 @@
+{
+  "schema": "umc.m3g.editable_source_observe_hook.terminal_closeouts.v1",
+  "generatedAt": "2026-07-11T15:53:56.343Z",
+  "closeouts": [
+    {
+      "id": "shadow-pass",
+      "status": "PASS_SHADOW_OBSERVE_NO_SEND",
+      "productionPathContinues": true
+    },
+    {
+      "id": "shadow-hold",
+      "status": "HOLD_SHADOW_OBSERVE_NO_SEND",
+      "productionPathContinues": true
+    },
+    {
+      "id": "shadow-failure",
+      "status": "FAIL_SHADOW_OBSERVE_NO_SEND",
+      "productionPathContinues": true
+    }
+  ]
+}

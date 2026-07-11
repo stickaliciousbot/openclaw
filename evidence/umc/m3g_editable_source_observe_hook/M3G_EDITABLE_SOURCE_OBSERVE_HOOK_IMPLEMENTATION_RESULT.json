@@ -1,0 +1,52 @@
+{
+  "schema": "umc.m3g.editable_source_observe_hook.implementation_result.v1",
+  "generatedAt": "2026-07-11T15:53:56.343Z",
+  "status": "PASS_M3G_EDITABLE_SOURCE_OBSERVE_HOOK_IMPLEMENTATION_RESULT",
+  "sourceFile": "src/auto-reply/reply/followup-runner.ts",
+  "sourceTestFile": "src/auto-reply/reply/followup-runner.test.ts",
+  "admissionImplementation": {
+    "sourceAdmissionImplemented": true,
+    "defaultRouteResolverImplemented": true,
+    "ownerScopeImplemented": true,
+    "missingDefaultHoldImplemented": true,
+    "sessionIntentImplemented": true,
+    "systemEventImplemented": true,
+    "shadowHelperImplemented": true,
+    "explicitFixtureEnvRequired": true,
+    "noProductionDecision": true,
+    "productionContinuesOnFailure": true
+  },
+  "hookPlacement": {
+    "callOrder": [
+      "queued followup execution",
+      "source-owned M2 admission/guard equivalent",
+      "optional M3G observe-only shadow hook",
+      "runPreflightCompactionIfNeeded",
+      "runWithModelFallback",
+      "runEmbeddedPiAgent"
+    ],
+    "orderChecks": {
+      "admissionBeforeShadow": true,
+      "shadowBeforePreflight": true,
+      "preflightBeforeFallback": true,
+      "fallbackBeforeEmbedded": true
+    }
+  },
+  "hookDefaultState": "disabled unless all UMC_SHADOW_* fixture variables match observe_no_send/fixture_only/no_send/mock_only/forbidden",
+  "productionPathContinuesOnShadowFailure": true,
+  "productionDecisionReturnedByShadow": false,
+  "counters": {
+    "providerModelLiveExecutionCount": 0,
+    "telegramSendCount": 0,
+    "externalSendCount": 0,
+    "realWriteToolCount": 0,
+    "productionRuntimeConfigMutationCount": 0,
+    "memoryMutationCount": 0,
+    "contextBridgeMutationCount": 0,
+    "installedDistMutationCount": 0,
+    "dirtySourceMutationCount": 0,
+    "productionInstallApplyCount": 0,
+    "routeProviderFallbackChangedCount": 0,
+    "productionResponsePathChanged": false
+  }
+}

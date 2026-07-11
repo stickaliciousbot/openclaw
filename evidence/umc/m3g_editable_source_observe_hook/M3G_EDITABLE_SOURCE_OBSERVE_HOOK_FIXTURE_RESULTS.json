@@ -1,0 +1,121 @@
+{
+  "schema": "umc.m3g.editable_source_observe_hook.fixture_results.v1",
+  "generatedAt": "2026-07-11T15:53:56.343Z",
+  "status": "PASS_M3G_EDITABLE_SOURCE_OBSERVE_HOOK_FIXTURES",
+  "cases": [
+    {
+      "id": 1,
+      "name": "hook disabled -> exact no-op/pre-hook behavior",
+      "status": "PASS"
+    },
+    {
+      "id": 2,
+      "name": "hook enabled in fixture mode -> shadow pipeline called once",
+      "status": "PASS"
+    },
+    {
+      "id": 3,
+      "name": "hook runs after admission and before provider/model execution",
+      "status": "PASS"
+    },
+    {
+      "id": 4,
+      "name": "hook receives sanitized admitted-turn metadata",
+      "status": "PASS"
+    },
+    {
+      "id": 5,
+      "name": "hook emits shadow UniversalContractReceipt",
+      "status": "PASS"
+    },
+    {
+      "id": 6,
+      "name": "hook emits terminal closeout",
+      "status": "PASS"
+    },
+    {
+      "id": 7,
+      "name": "hook emits no-send DeliveryReceipt",
+      "status": "PASS"
+    },
+    {
+      "id": 8,
+      "name": "would-be HOLD is surfaced",
+      "status": "PASS"
+    },
+    {
+      "id": 9,
+      "name": "shadow failure does not alter production path",
+      "status": "PASS"
+    },
+    {
+      "id": 10,
+      "name": "live provider/model execution count is 0",
+      "status": "PASS"
+    },
+    {
+      "id": 11,
+      "name": "Telegram send count is 0",
+      "status": "PASS"
+    },
+    {
+      "id": 12,
+      "name": "external-send count is 0",
+      "status": "PASS"
+    },
+    {
+      "id": 13,
+      "name": "real write tool count is 0",
+      "status": "PASS"
+    },
+    {
+      "id": 14,
+      "name": "production runtime/config mutation count is 0",
+      "status": "PASS"
+    },
+    {
+      "id": 15,
+      "name": "memory mutation count is 0",
+      "status": "PASS"
+    },
+    {
+      "id": 16,
+      "name": "Context Bridge mutation count is 0",
+      "status": "PASS"
+    },
+    {
+      "id": 17,
+      "name": "route/provider/fallback changed count is 0",
+      "status": "PASS"
+    },
+    {
+      "id": 18,
+      "name": "installed dist mutation count is 0",
+      "status": "PASS"
+    },
+    {
+      "id": 19,
+      "name": "production install/apply count is 0",
+      "status": "PASS"
+    },
+    {
+      "id": 20,
+      "name": "dirty source mutation count is 0",
+      "status": "PASS"
+    }
+  ],
+  "counters": {
+    "providerModelLiveExecutionCount": 0,
+    "telegramSendCount": 0,
+    "externalSendCount": 0,
+    "realWriteToolCount": 0,
+    "productionRuntimeConfigMutationCount": 0,
+    "memoryMutationCount": 0,
+    "contextBridgeMutationCount": 0,
+    "installedDistMutationCount": 0,
+    "dirtySourceMutationCount": 0,
+    "productionInstallApplyCount": 0,
+    "routeProviderFallbackChangedCount": 0,
+    "productionResponsePathChanged": false
+  }
+}
