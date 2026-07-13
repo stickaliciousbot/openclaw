@@ -1,0 +1,28 @@
+{
+  "schema": "umc.v1.m3m.r2.canonical_route_fingerprint_contract.v1",
+  "generated_utc": "2026-07-13T10:42:00Z",
+  "status": "M3M_R2_CANONICAL_ROUTE_FINGERPRINT_CONTRACT_DEFINED",
+  "helper": "scripts/m3m_route_fingerprint.py",
+  "fingerprint_schema": "umc.v1.route_provider_fallback_fingerprint.v1",
+  "canonical_fields": [
+    "schema",
+    "default_model",
+    "fallback_models",
+    "route_model_config_sha256"
+  ],
+  "separate_non_route_fields": [
+    "production_config_sha256"
+  ],
+  "default_model_handling": "included everywhere; missing and null canonicalize to null; strings are trimmed; empty strings canonicalize to null",
+  "fallback_models_handling": "included everywhere as an ordered array; missing/null canonicalizes to empty array; entries are string-normalized",
+  "stable_field_ordering": "JSON sort_keys=true for hash input",
+  "stable_json_canonicalization": "json.dumps(sort_keys=True, separators=(comma, colon), ensure_ascii=False)",
+  "hash_reproducibility": "route_provider_fallback_sha256 = sha256(canonical JSON bytes of the canonical fingerprint object)",
+  "drift_comparison": {
+    "shape_parity_required": true,
+    "shape_mismatch_classification": "validator_shape_mismatch / FAIL_M3M_R2B_VALIDATION, not production route drift unless production config also changed",
+    "route_provider_fallback_drift": "shape parity true and route_provider_fallback_sha256 differs",
+    "production_config_drift": "production_config_sha256 differs; reported separately and still aborts"
+  },
+  "justification": "default_model is production route authority for the owner/operator lane and was the missing field in the false R2 abort; including it everywhere preserves drift sensitivity without weakening gates. Fallbacks are included to detect fallback-chain drift. Full config hash is kept separate so unrelated config drift is visible without confusing route-fingerprint shape parity."
+}

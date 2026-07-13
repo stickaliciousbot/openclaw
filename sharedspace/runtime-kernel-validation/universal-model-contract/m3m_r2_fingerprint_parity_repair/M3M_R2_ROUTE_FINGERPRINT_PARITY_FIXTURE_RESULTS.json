@@ -1,0 +1,226 @@
+{
+  "cases": [
+    {
+      "detail": {
+        "checkpoint_hash": "0489015c7c22264b5d607ae18b88a2391a0bca8b4923b238a746d7087fd7e30c",
+        "checkpoint_keys": [
+          "default_model",
+          "fallback_models",
+          "route_model_config_sha256",
+          "schema"
+        ],
+        "hash_match": true,
+        "preflight_hash": "0489015c7c22264b5d607ae18b88a2391a0bca8b4923b238a746d7087fd7e30c",
+        "preflight_keys": [
+          "default_model",
+          "fallback_models",
+          "route_model_config_sha256",
+          "schema"
+        ],
+        "production_config_drift": false,
+        "production_config_hash_match": true,
+        "route_provider_fallback_drift": false,
+        "shape_parity": true,
+        "validator_shape_mismatch": false
+      },
+      "name": "same_config_same_preflight_checkpoint_fingerprint",
+      "ok": true
+    },
+    {
+      "detail": {
+        "default_model": "openai-codex/gpt-5.5",
+        "fallback_models": [
+          "ollama/deepseek-v4-pro:cloud"
+        ],
+        "route_model_config_sha256": "c488219281e8dc95e361e9bcdfabc786b4b7d4c546307dcd89092931ba98911b",
+        "schema": "umc.v1.route_provider_fallback_fingerprint.v1"
+      },
+      "name": "same_config_with_default_model_same_fingerprint",
+      "ok": true
+    },
+    {
+      "detail": {
+        "checkpoint_hash": "73af563e67175c7da0444090658b4412b9da1ba689c8ebabe854854ac5c2c80a",
+        "checkpoint_keys": [
+          "default_model",
+          "fallback_models",
+          "route_model_config_sha256",
+          "schema"
+        ],
+        "hash_match": true,
+        "preflight_hash": "73af563e67175c7da0444090658b4412b9da1ba689c8ebabe854854ac5c2c80a",
+        "preflight_keys": [
+          "default_model",
+          "fallback_models",
+          "route_model_config_sha256",
+          "schema"
+        ],
+        "production_config_drift": false,
+        "production_config_hash_match": true,
+        "route_provider_fallback_drift": false,
+        "shape_parity": true,
+        "validator_shape_mismatch": false
+      },
+      "name": "missing_vs_null_default_model_canonical",
+      "ok": true
+    },
+    {
+      "detail": {
+        "checkpoint_hash": "99be4f660a7d1c8f3f14583e9cea8cd0d597300853151f8bb951e5ed286c6b21",
+        "checkpoint_keys": [
+          "default_model",
+          "fallback_models",
+          "route_model_config_sha256",
+          "schema"
+        ],
+        "hash_match": false,
+        "preflight_hash": "0489015c7c22264b5d607ae18b88a2391a0bca8b4923b238a746d7087fd7e30c",
+        "preflight_keys": [
+          "default_model",
+          "fallback_models",
+          "route_model_config_sha256",
+          "schema"
+        ],
+        "production_config_drift": false,
+        "production_config_hash_match": true,
+        "route_provider_fallback_drift": true,
+        "shape_parity": true,
+        "validator_shape_mismatch": false
+      },
+      "name": "real_default_model_change_drift_detected",
+      "ok": true
+    },
+    {
+      "detail": {
+        "checkpoint_hash": "24636e3ea40e4720138007e9b9fe1ad30449e6d0e4943fac1ccfdf9c961b2f57",
+        "checkpoint_keys": [
+          "default_model",
+          "fallback_models",
+          "route_model_config_sha256",
+          "schema"
+        ],
+        "hash_match": false,
+        "preflight_hash": "0489015c7c22264b5d607ae18b88a2391a0bca8b4923b238a746d7087fd7e30c",
+        "preflight_keys": [
+          "default_model",
+          "fallback_models",
+          "route_model_config_sha256",
+          "schema"
+        ],
+        "production_config_drift": false,
+        "production_config_hash_match": true,
+        "route_provider_fallback_drift": true,
+        "shape_parity": true,
+        "validator_shape_mismatch": false
+      },
+      "name": "real_provider_change_drift_detected",
+      "ok": true
+    },
+    {
+      "detail": {
+        "checkpoint_hash": "ca4bef1db8bf2138f0ff8ccd181c5dfcb4066fc00b524e6480681c2285277550",
+        "checkpoint_keys": [
+          "default_model",
+          "fallback_models",
+          "route_model_config_sha256",
+          "schema"
+        ],
+        "hash_match": false,
+        "preflight_hash": "0489015c7c22264b5d607ae18b88a2391a0bca8b4923b238a746d7087fd7e30c",
+        "preflight_keys": [
+          "default_model",
+          "fallback_models",
+          "route_model_config_sha256",
+          "schema"
+        ],
+        "production_config_drift": false,
+        "production_config_hash_match": true,
+        "route_provider_fallback_drift": true,
+        "shape_parity": true,
+        "validator_shape_mismatch": false
+      },
+      "name": "real_fallback_change_drift_detected",
+      "ok": true
+    },
+    {
+      "detail": {
+        "checkpoint_hash": "02f39540d31cd82bb4bbbdfd8873b6419a5b7585c6e6e487f2ba324a78e697e5",
+        "checkpoint_keys": [
+          "default_model",
+          "fallback_models",
+          "route_model_config_sha256",
+          "schema"
+        ],
+        "hash_match": false,
+        "preflight_hash": "0489015c7c22264b5d607ae18b88a2391a0bca8b4923b238a746d7087fd7e30c",
+        "preflight_keys": [
+          "default_model",
+          "fallback_models",
+          "route_model_config_sha256",
+          "schema"
+        ],
+        "production_config_drift": false,
+        "production_config_hash_match": true,
+        "route_provider_fallback_drift": true,
+        "shape_parity": true,
+        "validator_shape_mismatch": false
+      },
+      "name": "real_route_config_change_drift_detected",
+      "ok": true
+    },
+    {
+      "detail": {
+        "checkpoint_hash": "0489015c7c22264b5d607ae18b88a2391a0bca8b4923b238a746d7087fd7e30c",
+        "checkpoint_keys": [
+          "default_model",
+          "fallback_models",
+          "route_model_config_sha256",
+          "schema"
+        ],
+        "hash_match": true,
+        "preflight_hash": "0489015c7c22264b5d607ae18b88a2391a0bca8b4923b238a746d7087fd7e30c",
+        "preflight_keys": [
+          "default_model",
+          "fallback_models",
+          "route_model_config_sha256",
+          "schema"
+        ],
+        "production_config_drift": false,
+        "production_config_hash_match": true,
+        "route_provider_fallback_drift": false,
+        "shape_parity": true,
+        "validator_shape_mismatch": false
+      },
+      "name": "field_order_only_difference_no_drift",
+      "ok": true
+    },
+    {
+      "detail": {
+        "checkpoint_hash": "different-because-shape-is-wrong",
+        "checkpoint_keys": [
+          "fallback_models",
+          "route_model_config_sha256",
+          "schema"
+        ],
+        "hash_match": false,
+        "preflight_hash": "0489015c7c22264b5d607ae18b88a2391a0bca8b4923b238a746d7087fd7e30c",
+        "preflight_keys": [
+          "default_model",
+          "fallback_models",
+          "route_model_config_sha256",
+          "schema"
+        ],
+        "production_config_drift": false,
+        "production_config_hash_match": true,
+        "route_provider_fallback_drift": false,
+        "shape_parity": false,
+        "validator_shape_mismatch": true
+      },
+      "name": "shape_mismatch_validator_failure_not_production_drift",
+      "ok": true
+    }
+  ],
+  "generated_utc": "2026-07-13T10:41:34Z",
+  "schema": "umc.v1.m3m.r2.route_fingerprint_parity_fixture_results.v1",
+  "status": "PASS_M3M_R2_ROUTE_FINGERPRINT_PARITY_FIXTURES"
+}

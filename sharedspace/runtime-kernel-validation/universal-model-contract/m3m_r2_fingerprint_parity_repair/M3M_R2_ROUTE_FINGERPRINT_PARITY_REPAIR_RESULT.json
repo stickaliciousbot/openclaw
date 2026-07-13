@@ -1,0 +1,29 @@
+{
+  "schema": "umc.v1.m3m.r2.route_fingerprint_parity_repair_result.v1",
+  "generated_utc": "2026-07-13T10:43:00Z",
+  "status": "PASS_M3M_R2_ROUTE_FINGERPRINT_PARITY_REPAIR_IMPLEMENTED",
+  "repair_scope": "scoped observer/preflight validation code, fixtures, and UMC evidence/docs only",
+  "production_routing_semantics_changed": false,
+  "production_config_mutation": false,
+  "route_provider_fallback_production_mutation": false,
+  "helper": {
+    "path": "scripts/m3m_route_fingerprint.py",
+    "sha256": "182c112a1bd5cd2f78ee5d4519cac63faa6341f0a677d9e01e135bbdd33aad44"
+  },
+  "callers": {
+    "preflight": "scripts/m3m_r2b_preflight_and_bounds.py",
+    "observer_checkpoint": "scripts/m3m_r2b_installed_shadow_soak_observer.py",
+    "fixtures": "scripts/m3m_r2_fingerprint_parity_fixtures.py"
+  },
+  "guarantees": {
+    "preflight_and_observer_call_same_helper": true,
+    "checkpoint_and_closeout_compare_same_canonical_shape": true,
+    "shape_mismatch_classified_as_validator_failure": true,
+    "real_route_provider_fallback_drift_still_aborts": true,
+    "production_config_drift_still_aborts": true,
+    "default_model_included_everywhere": true,
+    "fallback_models_included_everywhere": true
+  },
+  "fixture_validation_status": "PASS_M3M_R2_ROUTE_FINGERPRINT_PARITY_FIXTURES",
+  "do_not_advance_m3n": true
+}

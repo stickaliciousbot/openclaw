@@ -1,0 +1,18 @@
+{
+  "schema": "umc.v1.m3m.r2.false_drift_abort_rehydration.v1",
+  "generated_utc": "2026-07-13T10:42:00Z",
+  "status": "PASS_M3M_R2_FALSE_DRIFT_ABORT_REHYDRATED",
+  "failed_r2_root": "sharedspace/runtime-kernel-validation/universal-model-contract/m3m_r2_installed_shadow_soak/",
+  "verified": {
+    "final_status": "FAIL_M3M_R2_INSTALLED_SHADOW_SOAK_ABORTED",
+    "abort_checkpoint": "0001",
+    "abort_reason": "FAIL_M3M_R2_ROUTE_PROVIDER_FALLBACK_DRIFT",
+    "production_config_hash_unchanged": true,
+    "gateway_healthy": true,
+    "telegram_healthy": true,
+    "safety_counters_zero": true,
+    "m3n_started": false
+  },
+  "classification": "R2 false route/provider/fallback drift caused by validator fingerprint shape mismatch: preflight included default_model; observer checkpoint omitted default_model. Production config hash was unchanged.",
+  "m3n_unlocked": false
+}

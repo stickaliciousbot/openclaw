@@ -1,0 +1,99 @@
+{
+  "bounded_fresh_log_scan": {
+    "hits": [],
+    "ok": true
+  },
+  "checks": {
+    "failed_r2_false_drift_classified": true,
+    "failed_r2_status_preserved": true,
+    "fixtures_pass": true,
+    "fresh_logs_clean": true,
+    "gateway_reachable": true,
+    "gateway_rpc_ok": true,
+    "hook_disabled_by_default": true,
+    "m3n_not_started": true,
+    "old_runner_present": true,
+    "post_abort_stability_pass": true,
+    "production_config_hash_unchanged_from_failed_r2": true,
+    "queue_resting": true,
+    "r1_abort_not_pass": true,
+    "r1_abort_reason_gateway_unreachable": true,
+    "repair_implemented": true,
+    "required_chunk_present": true,
+    "rollback_backups_known": true,
+    "status_json_parsed": true,
+    "telegram_on_ok": true,
+    "zalo_manifest_hash_match": true,
+    "zalouser_manifest_hash_match": true
+  },
+  "failed_r2_production_config_sha256": "a4f0aac75704eb7d171e528c0486fd8baa95260450d38653aea5ba3226e2d859",
+  "failed_r2_root": "m3m_r2_installed_shadow_soak",
+  "gateway": {
+    "gateway_status_latency_ms": 1887.95,
+    "listener_error": null,
+    "listener_latency_ms": 1.6,
+    "listener_ok": true,
+    "pid": 3063179,
+    "reachable": true,
+    "rpc_ok": true,
+    "status_json_latency_ms": 14617.83
+  },
+  "generated_utc": "2026-07-13T10:47:09Z",
+  "hook_state": {
+    "disabled_by_default": true,
+    "fixture_env": {
+      "UMC_SHADOW_DELIVERY": null,
+      "UMC_SHADOW_MODE": null,
+      "UMC_SHADOW_MUTATION": null,
+      "UMC_SHADOW_OWNER_SCOPE": null,
+      "UMC_SHADOW_PROVIDER": null
+    },
+    "fixture_env_active": false
+  },
+  "installed_hashes": {
+    "chunk": "5ca5bbd48cdf718d6d99301c6d88277b1ccbc6177217a91444eb5da580aea6ff",
+    "runner": "6567099cf446f8675a00dd6a800b786013d0effbaae5c1b633d528272c0ab014",
+    "zalo_manifest": "635c83aa3b28d07c85cf55257e084dd678fcbe9808bc2b76db19edadcc43dcb1",
+    "zalouser_manifest": "03874c85b9a212217e25b55aeb75eed46f9252e56246d0b9b178176ccf823fae"
+  },
+  "m3n_started": false,
+  "production_hashes": {
+    "production_config_sha256": "a4f0aac75704eb7d171e528c0486fd8baa95260450d38653aea5ba3226e2d859",
+    "route_provider_fallback_fingerprint": {
+      "default_model": "openai-codex/gpt-5.5",
+      "fallback_models": [
+        "ollama/deepseek-v4-pro:cloud"
+      ],
+      "route_model_config_sha256": "c488219281e8dc95e361e9bcdfabc786b4b7d4c546307dcd89092931ba98911b",
+      "schema": "umc.v1.route_provider_fallback_fingerprint.v1"
+    },
+    "route_provider_fallback_sha256": "0489015c7c22264b5d607ae18b88a2391a0bca8b4923b238a746d7087fd7e30c"
+  },
+  "queue": {
+    "queued": 0,
+    "resting": true,
+    "running": 1
+  },
+  "repair_root": "m3m_r2_fingerprint_parity_repair",
+  "rollback_backups": [
+    "agent-runner.runtime-a09vVD0N.js.bak-umc-m2q-20260711T0538Z",
+    "get-reply-DGnDV9U-.js.bak-umc-m2-20260711T025241Z",
+    "get-reply-DGnDV9U-.js.bak-umc-m2-reapply-20260711T0448Z",
+    "pi-embedded-CHyx9q9Z.js.bak-forced-memory-prefetch-20260711T0942"
+  ],
+  "safety_counters": {
+    "context_bridge_mutation": 0,
+    "external_sends": 0,
+    "memory_mutation": 0,
+    "provider_model_shadow_calls": 0,
+    "real_write_tools": 0,
+    "route_fallback_mutation": 0,
+    "telegram_sends": 0
+  },
+  "schema": "umc.v1.m3m.r2b.installed_shadow_soak_preflight.v1",
+  "status": "PASS_M3M_R2B_INSTALLED_SHADOW_SOAK_PREFLIGHT",
+  "telegram": {
+    "accounts_1_of_1": true,
+    "healthy": true
+  }
+}

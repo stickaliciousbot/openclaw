@@ -1,0 +1,37 @@
+{
+  "schema": "umc.v1.m3m.r2.route_fingerprint_implementation_map.v1",
+  "generated_utc": "2026-07-13T10:42:00Z",
+  "status": "M3M_R2_ROUTE_FINGERPRINT_IMPLEMENTATION_MAP_COMPLETE",
+  "implementations": {
+    "failed_r2_preflight": {
+      "file": "scripts/m3m_r2_preflight_and_bounds.py",
+      "sha256": "42d8c180669bdd1463597306f37658b3501453f81aa503a6af7f48e041508ae8",
+      "fields": ["config_sha256", "default_model"],
+      "hash_input": "route_fingerprint object with config_sha256 plus default_model"
+    },
+    "failed_r2_observer_checkpoint": {
+      "file": "scripts/m3m_r2_installed_shadow_soak_observer.py",
+      "sha256": "3d43d304ca7caf8898444448ac0fc5af47106d3dc58b685422cf436101800d3b",
+      "fields": ["config_sha256"],
+      "hash_input": "route_fingerprint object with config_sha256 only"
+    },
+    "failed_r2_closeout_validation": {
+      "file": "M3M_R2_INSTALLED_SHADOW_SOAK_VALIDATION.json",
+      "fields": ["preflight_fingerprint", "checkpoint_fingerprint", "shape_mismatch_detected"],
+      "behavior": "correctly classified mismatch after abort, but after-the-fact only"
+    },
+    "repaired_shared_helper": {
+      "file": "scripts/m3m_route_fingerprint.py",
+      "sha256": "182c112a1bd5cd2f78ee5d4519cac63faa6341f0a677d9e01e135bbdd33aad44",
+      "fields": ["schema", "default_model", "fallback_models", "route_model_config_sha256"],
+      "separate_production_config_hash": "production_config_sha256",
+      "used_by": ["scripts/m3m_r2b_preflight_and_bounds.py", "scripts/m3m_r2b_installed_shadow_soak_observer.py", "scripts/m3m_r2_fingerprint_parity_fixtures.py"]
+    }
+  },
+  "exact_mismatch": "failed R2 preflight included default_model; failed R2 observer omitted default_model",
+  "default_model_canonical": true,
+  "other_field_shape_mismatch": false,
+  "validator_harness_bug_only": true,
+  "production_config_hash_unchanged": true,
+  "production_routing_semantics_changed": false
+}

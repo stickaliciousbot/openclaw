@@ -1,0 +1,14 @@
+{
+  "checkpoint_cadence_minutes": 30,
+  "checkpoint_count": 24,
+  "duration_hours": 12,
+  "expected_end_utc": "2026-07-13T22:47:09Z",
+  "generated_utc": "2026-07-13T10:47:09Z",
+  "hard_stop": true,
+  "mode": "duration",
+  "reason": "R2 false drift abort repaired via canonical route fingerprint helper",
+  "retry": "R2B",
+  "schema": "umc.v1.m3m.r2b.installed_shadow_soak_bounds.v1",
+  "start_utc": "2026-07-13T10:47:09Z",
+  "status": "M3M_R2B_SOAK_BOUNDS_DEFINED"
+}

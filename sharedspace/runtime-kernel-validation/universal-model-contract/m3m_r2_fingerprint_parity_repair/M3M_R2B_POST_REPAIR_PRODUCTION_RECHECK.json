@@ -1,0 +1,28 @@
+{
+  "schema": "umc.v1.m3m.r2b.post_repair_production_recheck.v1",
+  "generated_utc": "2026-07-13T10:48:00Z",
+  "status": "PASS_M3M_R2B_POST_REPAIR_PRODUCTION_RECHECK",
+  "gateway": { "reachable": true, "rpc_ok": true, "pid": 3063179 },
+  "telegram": { "healthy": true, "accounts_1_of_1": true },
+  "queue": { "queued": 0, "running": 1, "resting": true },
+  "production_config_sha256": "a4f0aac75704eb7d171e528c0486fd8baa95260450d38653aea5ba3226e2d859",
+  "production_config_unchanged_from_failed_r2": true,
+  "canonical_route_provider_fallback_fingerprint": {
+    "default_model": "openai-codex/gpt-5.5",
+    "fallback_models": ["ollama/deepseek-v4-pro:cloud"],
+    "route_model_config_sha256": "c488219281e8dc95e361e9bcdfabc786b4b7d4c546307dcd89092931ba98911b",
+    "route_provider_fallback_sha256": "0489015c7c22264b5d607ae18b88a2391a0bca8b4923b238a746d7087fd7e30c"
+  },
+  "installed": {
+    "old_runner_present": true,
+    "required_chunk_present": true,
+    "zalo_manifest_present": true,
+    "zalouser_manifest_present": true,
+    "zalo_hash_match": true,
+    "zalouser_hash_match": true
+  },
+  "logs_clean": true,
+  "safety_counters_zero": true,
+  "m3n_not_started": true,
+  "rollback_backups_present": true
+}
