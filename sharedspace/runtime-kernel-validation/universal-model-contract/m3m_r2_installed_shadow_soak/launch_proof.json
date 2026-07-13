@@ -1,0 +1,15 @@
+{
+  "checked_utc": "2026-07-13T10:21:11Z",
+  "launched_ok": true,
+  "parent_pid": 3814908,
+  "pgid": 3814909,
+  "pid": 3814909,
+  "pid_alive_after_initial_wait": true,
+  "return_code_after_initial_wait": null,
+  "run_id": "m3m-r2-installed-shadow-soak-20260713",
+  "schema": "stickbot.long_running_cron_observer_harness.v1.launch_proof",
+  "session_detached": true,
+  "sid": 3814909,
+  "start_new_session_requested": true,
+  "started_utc": "2026-07-13T10:21:10Z"
+}

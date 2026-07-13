@@ -1,0 +1,58 @@
+{
+  "schema": "umc.v1.m3m.r2.validation.v1",
+  "generated_utc": "2026-07-13T10:28:00Z",
+  "status": "FAIL_M3M_R2_INSTALLED_SHADOW_SOAK_VALIDATION",
+  "json_validation": {
+    "ok": true,
+    "validated": [
+      "M3M_R2_INSTALLED_SHADOW_SOAK_PREFLIGHT.json",
+      "M3M_R2_INSTALLED_SHADOW_SOAK_BOUNDS.json",
+      "M3M_R2_CHECKPOINT_0001.json",
+      "M3M_R2_INSTALLED_SHADOW_SOAK_ABORT.json",
+      "M3M_R2_INSTALLED_SHADOW_SOAK_CLOSEOUT.json"
+    ]
+  },
+  "checkpoint_count_validation": { "expected": 24, "completed": 1, "ok": false },
+  "safety_counter_validation": {
+    "ok": true,
+    "counts": {
+      "provider_model_live_execution_caused_by_shadow": 0,
+      "telegram_sends_caused_by_shadow": 0,
+      "external_sends": 0,
+      "real_write_tools": 0,
+      "memory_mutation": 0,
+      "context_bridge_mutation": 0,
+      "shadow_receipt_count": 0,
+      "terminal_closeout_count": 0,
+      "would_be_hold_count": 0,
+      "would_be_fail_count": 0
+    }
+  },
+  "installed_package_hash_validation": {
+    "ok": true,
+    "runner": "6567099cf446f8675a00dd6a800b786013d0effbaae5c1b633d528272c0ab014",
+    "required_chunk": "5ca5bbd48cdf718d6d99301c6d88277b1ccbc6177217a91444eb5da580aea6ff"
+  },
+  "manifest_hash_validation": {
+    "ok": true,
+    "zalo": "635c83aa3b28d07c85cf55257e084dd678fcbe9808bc2b76db19edadcc43dcb1",
+    "zalouser": "03874c85b9a212217e25b55aeb75eed46f9252e56246d0b9b178176ccf823fae"
+  },
+  "gateway_reachability_validation": { "ok": true, "reachable": true, "rpc_ok": true, "pid": 3063179 },
+  "rollback_readiness_validation": { "ok": true, "backups_present": true },
+  "no_send_validation": { "ok": true, "telegram_send_count": 0, "external_send_count": 0 },
+  "no_authority_validation": { "ok": true, "enforcement_started": false, "m3n_unlocked": false },
+  "route_fingerprint_validation": {
+    "ok": false,
+    "preflight_fingerprint": {
+      "config_sha256": "a4f0aac75704eb7d171e528c0486fd8baa95260450d38653aea5ba3226e2d859",
+      "default_model": "unknown"
+    },
+    "checkpoint_fingerprint": {
+      "config_sha256": "a4f0aac75704eb7d171e528c0486fd8baa95260450d38653aea5ba3226e2d859"
+    },
+    "preflight_hash": "7f63c6be4291bdacfe1587410b68ba8f087449a23f7630264e90b034fef32a3c",
+    "checkpoint_hash": "bdcd05fe140e20005e7d000b820aad23521bc6641b07bab334778f538dc5ed80",
+    "fingerprint_shape_mismatch_detected": true
+  }
+}

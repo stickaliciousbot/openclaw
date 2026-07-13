@@ -1,0 +1,114 @@
+{
+  "checkpoint": 1,
+  "counts": {
+    "context_bridge_mutation": 0,
+    "external_sends": 0,
+    "memory_mutation": 0,
+    "production_config_mutation": 0,
+    "provider_model_live_execution_caused_by_shadow": 0,
+    "real_write_tools": 0,
+    "shadow_receipt_count": 0,
+    "telegram_sends_caused_by_shadow": 0,
+    "terminal_closeout_count": 0,
+    "would_be_fail_count": 0,
+    "would_be_hold_count": 0
+  },
+  "errors_or_warnings": [
+    "FAIL_M3M_R2_ROUTE_PROVIDER_FALLBACK_DRIFT"
+  ],
+  "gateway": {
+    "attempts": [
+      {
+        "gateway_status_latency_ms": 1898.96,
+        "gateway_status_rc": 0,
+        "gateway_status_stderr_tail": "Service config looks out of date or non-standard.\nService config issue: Gateway service PATH missing required dirs: /home/stickai/.local/share/pnpm\nRecommendation: run \"openclaw doctor\" (or \"openclaw doctor --repair\").\n",
+        "pid": 3063179,
+        "reachable": true,
+        "rpc_ok": true,
+        "status_json": {
+          "latency_ms": 14968.37,
+          "parsed_full_stdout": true,
+          "rc": 0,
+          "stderr_tail": ""
+        },
+        "tcp_loopback": {
+          "error": null,
+          "latency_ms": 1.68,
+          "ok": true
+        }
+      }
+    ],
+    "listener_port_state": {
+      "error": null,
+      "latency_ms": 1.68,
+      "ok": true
+    },
+    "pid": 3063179,
+    "reachable": true,
+    "response_latency_or_timeout": {
+      "gateway_status_latency_ms": 1898.96,
+      "status_json_latency_ms": 14968.37
+    },
+    "rpc_ok": true
+  },
+  "hook_state": {
+    "disabled_by_default": true,
+    "fixture_active": false,
+    "fixture_env": {
+      "UMC_SHADOW_DELIVERY": null,
+      "UMC_SHADOW_MODE": null,
+      "UMC_SHADOW_MUTATION": null,
+      "UMC_SHADOW_OWNER_SCOPE": null,
+      "UMC_SHADOW_PROVIDER": null
+    }
+  },
+  "installed": {
+    "hashes": {
+      "old_runner": "6567099cf446f8675a00dd6a800b786013d0effbaae5c1b633d528272c0ab014",
+      "required_chunk": "5ca5bbd48cdf718d6d99301c6d88277b1ccbc6177217a91444eb5da580aea6ff",
+      "zalo_manifest": "635c83aa3b28d07c85cf55257e084dd678fcbe9808bc2b76db19edadcc43dcb1",
+      "zalouser_manifest": "03874c85b9a212217e25b55aeb75eed46f9252e56246d0b9b178176ccf823fae"
+    },
+    "old_runner_present": true,
+    "required_chunk_present": true,
+    "zalo_manifest_present": true,
+    "zalouser_manifest_present": true
+  },
+  "log_scan": {
+    "hits": [],
+    "ok": true
+  },
+  "optional_fixture": {
+    "ran": false,
+    "reason": "no safe pre-existing no-send fixture runner invoked during checkpoint"
+  },
+  "production_config_drift": false,
+  "production_hashes": {
+    "config_sha256": "a4f0aac75704eb7d171e528c0486fd8baa95260450d38653aea5ba3226e2d859",
+    "route_fingerprint": {
+      "config_sha256": "a4f0aac75704eb7d171e528c0486fd8baa95260450d38653aea5ba3226e2d859"
+    },
+    "route_provider_fallback_sha256": "bdcd05fe140e20005e7d000b820aad23521bc6641b07bab334778f538dc5ed80"
+  },
+  "production_route_provider_fallback_drift": true,
+  "queue": {
+    "queued": 0,
+    "running": 0
+  },
+  "rollback": {
+    "backups": [
+      "agent-runner.runtime-a09vVD0N.js.bak-umc-m2q-20260711T0538Z",
+      "get-reply-DGnDV9U-.js.bak-umc-m2-20260711T025241Z",
+      "get-reply-DGnDV9U-.js.bak-umc-m2-reapply-20260711T0448Z",
+      "pi-embedded-CHyx9q9Z.js.bak-forced-memory-prefetch-20260711T0942"
+    ],
+    "backups_present": true
+  },
+  "schema": "umc.v1.m3m.r2.checkpoint.v1",
+  "telegram": {
+    "accounts_1_of_1": true,
+    "healthy": true,
+    "status_latency_ms": 15481.43
+  },
+  "timestamp_utc": "2026-07-13T10:21:10Z"
+}

@@ -1,0 +1,34 @@
+{
+  "project": "universal-model-contract",
+  "contractVersion": "umc.v1",
+  "timestamp": "2026-07-13T10:30:00Z",
+  "milestone": "M3M_INSTALLED_OBSERVE_ONLY_SHADOW_SOAK_NO_SEND_RETRY_R2",
+  "closeoutStatus": "FAIL_M3M_R2_INSTALLED_SHADOW_SOAK_ABORTED",
+  "activeLane": "observe-only-shadow-no-send",
+  "activeProviderModel": "none; no provider/model shadow calls caused by R2 shadow hook",
+  "executionAuthority": "legacy_direct_plus_m2_route_intent_interceptor_plus_m2q_queue_admission_guard; no authority promotion",
+  "directBypass": false,
+  "manifestStatus": "shadow_only",
+  "requiredCapabilities": [
+    "installed_observe_only_shadow_soak_no_send",
+    "enhanced_gateway_reachability_diagnostics",
+    "post_abort_health_stability",
+    "safety_counter_validation",
+    "abort_evidence_preservation"
+  ],
+  "evidence": [
+    "m3m_r2_installed_shadow_soak/M3M_R2_INSTALLED_SHADOW_SOAK_PREFLIGHT.json",
+    "m3m_r2_installed_shadow_soak/M3M_R2_INSTALLED_SHADOW_SOAK_BOUNDS.json",
+    "m3m_r2_installed_shadow_soak/M3M_R2_CHECKPOINT_0001.json",
+    "m3m_r2_installed_shadow_soak/M3M_R2_INSTALLED_SHADOW_SOAK_ABORT.json",
+    "m3m_r2_installed_shadow_soak/M3M_R2_INSTALLED_SHADOW_SOAK_CLOSEOUT.json",
+    "m3m_r2_installed_shadow_soak/M3M_R2_INSTALLED_SHADOW_SOAK_VALIDATION.json",
+    "m3m_r2_installed_shadow_soak/M3M_R2_INSTALLED_SHADOW_SOAK_SUMMARY.md",
+    "m3m_r2_installed_shadow_soak/M3M_R2_INSTALLED_SHADOW_SOAK_EVIDENCE_MANIFEST.json"
+  ],
+  "mutation": "documentation/artifact preservation only after terminal abort; no runtime/config/route/fallback/provider/model/Context Bridge authority mutation; no M3N advancement",
+  "rollback": "PASS backups present; no runtime/config mutation made by R2",
+  "nextGate": "HOLD_M3M_R2_REPAIR_ROUTE_FINGERPRINT_VALIDATOR_AND_RERUN_R2",
+  "nextSafeAction": "Repair observer/preflight route fingerprint parity, validate with no-send local artifact checks, then rerun M3M R2 fresh. Do not advance to M3N until full R2 PASS.",
+  "blocker": "R2 aborted at checkpoint 0001 with route/provider/fallback drift caused by fingerprint-shape mismatch; M3N remains locked"
+}

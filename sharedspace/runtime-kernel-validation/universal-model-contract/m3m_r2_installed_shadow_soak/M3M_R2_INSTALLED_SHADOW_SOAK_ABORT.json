@@ -1,0 +1,11 @@
+{
+  "abort_status": "FAIL_M3M_R2_ROUTE_PROVIDER_FALLBACK_DRIFT",
+  "all_errors_or_warnings": [
+    "FAIL_M3M_R2_ROUTE_PROVIDER_FALLBACK_DRIFT"
+  ],
+  "checkpoint": 1,
+  "checkpoint_artifact": "M3M_R2_CHECKPOINT_0001.json",
+  "generated_utc": "2026-07-13T10:21:43Z",
+  "schema": "umc.v1.m3m.r2.abort.v1",
+  "status": "FAIL_M3M_R2_INSTALLED_SHADOW_SOAK_ABORTED"
+}

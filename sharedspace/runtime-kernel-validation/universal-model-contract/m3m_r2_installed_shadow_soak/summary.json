@@ -1,0 +1,17 @@
+{
+  "artifact_dir": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3m_r2_installed_shadow_soak",
+  "classification": "PASS_DETACHED_OBSERVER_LAUNCHED_EVIDENCE_WRITTEN",
+  "evidence_manifest_path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3m_r2_installed_shadow_soak/evidence_manifest.json",
+  "pid": 3814909,
+  "registry_path": "/home/stickai/.openclaw/workspace/state/long-running-cron-observers/registry.json",
+  "run_id": "m3m-r2-installed-shadow-soak-20260713",
+  "safety_readback": [
+    "no shell command construction",
+    "artifact directory created before child launch",
+    "status/summary/evidence manifest written by harness",
+    "child detached with start_new_session=True",
+    "semantic observer PASS remains child responsibility"
+  ],
+  "schema": "stickbot.long_running_cron_observer_harness.v1.summary",
+  "status_path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3m_r2_installed_shadow_soak/status.json"
+}

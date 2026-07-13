@@ -1,0 +1,51 @@
+{
+  "artifact_dir": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3m_r2_installed_shadow_soak",
+  "generated_utc": "2026-07-13T10:21:11Z",
+  "harness_pass_anchor": "LONG_RUNNING_CRON_OBSERVER_HARNESS_LAUNCH_PASS",
+  "required_files": [
+    {
+      "bytes": 1246,
+      "exists": true,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3m_r2_installed_shadow_soak/run_config.json",
+      "relPath": "run_config.json",
+      "sha256": "bffe62dc03f27334ec518e40e3490256d9fcdf15d91adfb67f743daeebcbf99d"
+    },
+    {
+      "bytes": 465,
+      "exists": true,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3m_r2_installed_shadow_soak/launch_proof.json",
+      "relPath": "launch_proof.json",
+      "sha256": "bf24c27b245c55fce0f36730622fcfdc24a66a0590d57dac9f0de02b1c6cb19e"
+    },
+    {
+      "bytes": 917,
+      "exists": true,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3m_r2_installed_shadow_soak/status.json",
+      "relPath": "status.json",
+      "sha256": "83bd874e0f104ed0203980663ef0a18533d36bf6de0b9465970a7f8bc5aca79b"
+    },
+    {
+      "bytes": 1091,
+      "exists": true,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3m_r2_installed_shadow_soak/summary.json",
+      "relPath": "summary.json",
+      "sha256": "899d78b6eda952b61c6ba96850b145c92b090f540eca23826e1b38f15dcb8e1d"
+    },
+    {
+      "bytes": 0,
+      "exists": true,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3m_r2_installed_shadow_soak/logs/observer.stdout.log",
+      "relPath": "logs/observer.stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "exists": true,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3m_r2_installed_shadow_soak/logs/observer.stderr.log",
+      "relPath": "logs/observer.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "run_id": "m3m-r2-installed-shadow-soak-20260713",
+  "schema": "stickbot.long_running_cron_observer_harness.v1.evidence_manifest"
+}

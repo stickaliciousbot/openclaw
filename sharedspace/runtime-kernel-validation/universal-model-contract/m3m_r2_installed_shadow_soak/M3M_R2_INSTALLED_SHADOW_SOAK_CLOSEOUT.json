@@ -1,0 +1,81 @@
+{
+  "abort_checkpoint": 1,
+  "abort_checkpoint_artifact": "M3M_R2_CHECKPOINT_0001.json",
+  "abort_status": "FAIL_M3M_R2_ROUTE_PROVIDER_FALLBACK_DRIFT",
+  "actual_duration": "aborted during checkpoint 0001 collection; did not complete 12h soak",
+  "checkpoints_completed": 1,
+  "configured_checkpoint_cadence_minutes": 30,
+  "configured_checkpoint_count": 24,
+  "configured_duration_hours": 12,
+  "context_bridge_mutation_count": 0,
+  "external_send_count": 0,
+  "fingerprint_shape_mismatch_detected": true,
+  "gateway_health_summary": "PASS at checkpoint 0001: reachable/RPC OK, PID stable",
+  "gateway_reachability_diagnostic_summary": {
+    "attempts": [
+      {
+        "gateway_status_latency_ms": 1898.96,
+        "gateway_status_rc": 0,
+        "gateway_status_stderr_tail": "Service config looks out of date or non-standard.\nService config issue: Gateway service PATH missing required dirs: /home/stickai/.local/share/pnpm\nRecommendation: run \"openclaw doctor\" (or \"openclaw doctor --repair\").\n",
+        "pid": 3063179,
+        "reachable": true,
+        "rpc_ok": true,
+        "status_json": {
+          "latency_ms": 14968.37,
+          "parsed_full_stdout": true,
+          "rc": 0,
+          "stderr_tail": ""
+        },
+        "tcp_loopback": {
+          "error": null,
+          "latency_ms": 1.68,
+          "ok": true
+        }
+      }
+    ],
+    "listener_port_state": {
+      "error": null,
+      "latency_ms": 1.68,
+      "ok": true
+    },
+    "pid": 3063179,
+    "reachable": true,
+    "response_latency_or_timeout": {
+      "gateway_status_latency_ms": 1898.96,
+      "status_json_latency_ms": 14968.37
+    },
+    "rpc_ok": true
+  },
+  "generated_utc": "2026-07-13T10:27:33Z",
+  "hard_stop": true,
+  "installed_package_hash_drift_count": 0,
+  "m3n_unlocked": false,
+  "memory_mutation_count": 0,
+  "missing_manifest_regression_count": 0,
+  "module_not_found_regression_count": 0,
+  "preflight_result": "PASS_M3M_R2_INSTALLED_SHADOW_SOAK_PREFLIGHT",
+  "production_config_drift_count": 0,
+  "production_config_hash_equal_preflight_to_checkpoint": true,
+  "production_route_provider_fallback_drift_count": 1,
+  "provider_model_live_execution_count": 0,
+  "queue_depth_summary": {
+    "queued": 0,
+    "running": 0
+  },
+  "r1_governing_state": "R1 remains ABORT / not PASS; abort checkpoint 0005; reason GATEWAY_UNREACHABLE",
+  "real_write_tool_count": 0,
+  "recommendation_next_milestone": "HOLD_M3M_R2_REPAIR_ROUTE_FINGERPRINT_VALIDATOR_AND_RERUN_R2; do not start M3N",
+  "required_manifest_hash_drift_count": 0,
+  "rollback_readiness_final_state": "PASS backups present",
+  "safety_boundary": "observe-only/no-send/no production authority; abort was fail-closed; no M3N advancement",
+  "schema": "umc.v1.m3m.r2.installed_shadow_soak_closeout.v1",
+  "semantic_classification": "VALIDATION_IMPLEMENTATION_FALSE_DRIFT_ABORT",
+  "shadow_receipt_count": 0,
+  "status": "FAIL_M3M_R2_INSTALLED_SHADOW_SOAK_ABORTED",
+  "telegram_health_summary": "PASS at checkpoint 0001: Telegram healthy and accounts 1/1",
+  "telegram_send_count": 0,
+  "terminal_closeout_count": 0,
+  "unknown_telegram_channel_regression_count": 0,
+  "would_be_fail_count": 0,
+  "would_be_hold_count": 0
+}

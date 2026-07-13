@@ -1,0 +1,14 @@
+{
+  "checkpoint_cadence_minutes": 30,
+  "checkpoint_count": 24,
+  "duration_hours": 12,
+  "expected_end_utc": "2026-07-13T22:19:41Z",
+  "generated_utc": "2026-07-13T10:19:41Z",
+  "hard_stop": true,
+  "mode": "duration",
+  "reason": "R1 aborted fail-closed at checkpoint 0005 due to transient GATEWAY_UNREACHABLE; post-abort 6/6 stability probes clean",
+  "retry": "R2",
+  "schema": "umc.v1.m3m.r2.installed_shadow_soak_bounds.v1",
+  "start_utc": "2026-07-13T10:19:41Z",
+  "status": "M3M_R2_SOAK_BOUNDS_DEFINED"
+}

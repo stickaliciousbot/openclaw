@@ -1,0 +1,16 @@
+{
+  "artifact_dir": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3m_r2_installed_shadow_soak",
+  "expected_child_anchor": null,
+  "failed_gates": [],
+  "harness_pass_anchor": "LONG_RUNNING_CRON_OBSERVER_HARNESS_LAUNCH_PASS",
+  "pid": 3814909,
+  "pid_alive": true,
+  "return_code_after_initial_wait": null,
+  "run_id": "m3m-r2-installed-shadow-soak-20260713",
+  "schema": "stickbot.long_running_cron_observer_harness.v1.status",
+  "session_detached": true,
+  "status": "RUNNING",
+  "stderr_path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3m_r2_installed_shadow_soak/logs/observer.stderr.log",
+  "stdout_path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3m_r2_installed_shadow_soak/logs/observer.stdout.log",
+  "updated_utc": "2026-07-13T10:21:11Z"
+}

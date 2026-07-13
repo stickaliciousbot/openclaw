@@ -90,6 +90,22 @@ def pid_alive(pid: int) -> bool:
         return True
 
 
+def proc_starttime(pid: int) -> str | None:
+    try:
+        return Path(f"/proc/{pid}/stat").read_text(encoding="utf-8").split()[21]
+    except Exception:
+        return None
+
+
+def pid_state(pid: int, expected_starttime: str | None = None) -> tuple[bool, str]:
+    actual = proc_starttime(pid)
+    if actual is None:
+        return False, "pid_missing"
+    if expected_starttime and actual != expected_starttime:
+        return False, "pid_reused"
+    return True, "running"
+
+
 def safe_getpgid(pid: int) -> int | None:
     try:
         return os.getpgid(pid)
@@ -124,6 +140,93 @@ def update_registry(path: Path, row: dict[str, Any]) -> None:
     data["runs"] = runs
     data["updated_utc"] = utc_now()
     write_json_atomic(path, data)
+
+
+def save_registry(path: Path, data: dict[str, Any]) -> None:
+    data["updated_utc"] = utc_now()
+    write_json_atomic(path, data)
+
+
+def command_arg(command: list[str], flag: str) -> str | None:
+    for i, part in enumerate(command):
+        if part == flag and i + 1 < len(command):
+            return command[i + 1]
+        prefix = flag + "="
+        if part.startswith(prefix):
+            return part[len(prefix):]
+    return None
+
+
+def semantic_artifact_paths(row: dict[str, Any]) -> dict[str, str | None]:
+    command = row.get("command") if isinstance(row.get("command"), list) else []
+    artifact_dir = row.get("semantic_artifact_dir") or command_arg(command, "--artifact-root")
+    status_path = row.get("semantic_status_path") or row.get("status_path")
+    summary_path = row.get("semantic_summary_path") or row.get("summary_path")
+    if artifact_dir:
+        status_path = status_path or str(Path(str(artifact_dir)) / "status.json")
+        summary_path = summary_path or str(Path(str(artifact_dir)) / "summary.json")
+    return {"semantic_artifact_dir": str(artifact_dir) if artifact_dir else None, "semantic_status_path": status_path, "semantic_summary_path": summary_path}
+
+
+def read_json_obj(path: str | None) -> dict[str, Any]:
+    if not path:
+        return {}
+    try:
+        p = Path(path)
+        if not p.exists() or p.stat().st_size > 10_000_000:
+            return {}
+        data = json.loads(p.read_text(encoding="utf-8"))
+        return data if isinstance(data, dict) else {}
+    except Exception:
+        return {}
+
+
+def semantic_terminal(status_obj: dict[str, Any], summary_obj: dict[str, Any]) -> tuple[bool, str | None, str | None]:
+    terminal_status = (
+        status_obj.get("terminal_status")
+        or summary_obj.get("terminal_status")
+        or status_obj.get("child_observer_terminal_status")
+        or summary_obj.get("child_observer_terminal_status")
+        or status_obj.get("m20r_terminal_status")
+        or summary_obj.get("m20r_terminal_status")
+    )
+    closeout_status = status_obj.get("closeout_status") or summary_obj.get("closeout_status")
+    status = str(status_obj.get("status") or closeout_status or "").upper()
+    term_upper = str(terminal_status or "").upper()
+
+    def inferred_closeout() -> str | None:
+        explicit = str(closeout_status or "").upper()
+        if explicit in {"PASS", "FAIL", "FAILED", "HOLD", "ABORT"}:
+            return "FAIL" if explicit == "FAILED" else explicit
+        if "ABORT" in term_upper:
+            return "ABORT"
+        if "HOLD" in term_upper:
+            return "HOLD"
+        if "FAIL" in term_upper:
+            return "FAIL"
+        if "PASS" in term_upper:
+            return "PASS"
+        if status in {"PASS", "FAIL", "FAILED", "HOLD", "ABORT"}:
+            return "FAIL" if status == "FAILED" else status
+        return None
+
+    if status in {"PASS", "FAIL", "FAILED", "HOLD", "ABORT", "DONE", "COMPLETE", "COMPLETED"}:
+        return True, str(inferred_closeout() or closeout_status or status), str(terminal_status or summary_obj.get("classification") or status)
+    if closeout_status or terminal_status:
+        close = str(closeout_status or "").upper()
+        if close in {"PASS", "FAIL", "FAILED", "HOLD", "ABORT"} or any(marker in term_upper for marker in ("PASS", "FAIL", "HOLD", "ABORT")):
+            return True, str(inferred_closeout() or closeout_status or "terminal"), str(terminal_status or summary_obj.get("classification") or closeout_status)
+    if summary_obj.get("ok") is True:
+        return True, "PASS", str(summary_obj.get("terminal_status") or summary_obj.get("classification") or "PASS")
+    if summary_obj.get("ok") is False and (summary_obj.get("failed_gates") or summary_obj.get("terminal_status")):
+        return True, str(summary_obj.get("closeout_status") or "HOLD"), str(summary_obj.get("terminal_status") or "HOLD")
+    return False, None, None
+
+
+def completed_line(row: dict[str, Any], status: str | None, terminal_status: str | None, paths: dict[str, str | None]) -> str:
+    run_id = row.get("run_id") or "unknown"
+    artifact = paths.get("semantic_artifact_dir") or row.get("artifact_dir") or "artifact=unspecified"
+    return f"{run_id} status={status or 'completed'} terminal_status={terminal_status or 'terminal'} artifact={artifact}"
 
 
 def build_manifest(artifact_dir: Path, files: list[Path], extra: dict[str, Any] | None = None) -> dict[str, Any]:
@@ -289,10 +392,12 @@ def launch(args: argparse.Namespace) -> int:
         "run_id": run_id,
         "registered_utc": utc_now(),
         "pid": proc.pid,
+        "proc_starttime": proc_starttime(proc.pid),
         "artifact_dir": str(artifact_dir),
         "status_path": str(status_path),
         "summary_path": str(summary_path),
         "evidence_manifest_path": str(manifest_path),
+        **semantic_artifact_paths({"command": cmd}),
         "expected_child_anchor": args.expected_child_anchor,
         "harness_status": summary["classification"],
         "command": cmd,
@@ -342,6 +447,135 @@ def validate(args: argparse.Namespace) -> int:
     result["ok"] = ok
     print(json.dumps(result, indent=2, sort_keys=True))
     return 0 if ok else 1
+
+
+def scan_abort_artifacts(artifact_dir: str | None) -> tuple[bool, str | None, str | None]:
+    """Scan artifact directory for early-abort artifacts. Returns (found, reason, path)."""
+    if not artifact_dir:
+        return False, None, None
+    ad = Path(artifact_dir)
+    if not ad.is_dir():
+        return False, None, None
+    abort_patterns = ["*ABORT*.json", "*abort*.json", "*ABORT*.md", "*abort*.md"]
+    for pattern in abort_patterns:
+        for p in ad.glob(pattern):
+            try:
+                data = json.loads(p.read_text(encoding="utf-8"))
+                reason = data.get("reason") or data.get("abort_reason") or data.get("errors_warnings") or "abort_artifact_found"
+                return True, str(reason), str(p.relative_to(ad))
+            except Exception:
+                return True, "abort_artifact_unparseable", str(p.relative_to(ad))
+    return False, None, None
+
+
+def check(args: argparse.Namespace) -> int:
+    registry_path = Path(args.registry).expanduser().resolve()
+    data = load_registry(registry_path)
+    stale: list[str] = []
+    aborted: list[str] = []
+    completed: list[str] = []
+    ok_items: list[str] = []
+    remaining: list[dict[str, Any]] = []
+    checked_utc = utc_now()
+
+    for raw in data.get("runs", []):
+        if not isinstance(raw, dict):
+            continue
+        row = dict(raw)
+        run_id = str(row.get("run_id") or "unknown")
+        pid = int(row.get("pid") or 0)
+        alive, detail = pid_state(pid, row.get("proc_starttime")) if pid else (False, "pid_missing")
+        paths = semantic_artifact_paths(row)
+        status_obj = read_json_obj(paths.get("semantic_status_path"))
+        summary_obj = read_json_obj(paths.get("semantic_summary_path"))
+        terminal, closeout_status, terminal_status = semantic_terminal(status_obj, summary_obj)
+        row["last_checked_utc"] = checked_utc
+        row["last_state"] = detail
+        row["pid_alive"] = alive
+        row.update({k: v for k, v in paths.items() if v and not row.get(k)})
+
+        if terminal:
+            completed.append(completed_line(row, closeout_status, terminal_status, paths))
+            continue
+        if alive:
+            row["last_seen_running_utc"] = checked_utc
+            ok_items.append(run_id)
+            remaining.append(row)
+            continue
+        # PID missing — scan for early-abort artifacts before classifying as mere STALE
+        artifact_dir = paths.get("semantic_artifact_dir") or row.get("artifact_dir")
+        abort_found, abort_reason, abort_path = scan_abort_artifacts(artifact_dir)
+        if abort_found:
+            aborted.append(f"{run_id} ABORTED reason={abort_reason} abort_artifact={abort_path}")
+            remaining.append(row)
+            continue
+        stale.append(f"{run_id} {detail} artifact={artifact_dir or 'unspecified'}")
+        remaining.append(row)
+
+    if remaining != data.get("runs", []):
+        data["runs"] = remaining
+        save_registry(registry_path, data)
+
+    status_report = {
+        "schema": SCHEMA + ".watch_check",
+        "checked_utc": checked_utc,
+        "ok": not stale and not completed and not aborted,
+        "ok_items": ok_items,
+        "completed": completed,
+        "aborted": aborted,
+        "stale": stale,
+        "registry_path": str(registry_path),
+    }
+    watch_status_path = registry_path.parent / "last-check.json"
+    write_json_atomic(watch_status_path, status_report)
+
+    if completed:
+        print("LONG_RUNNING_CRON_OBSERVER_COMPLETED")
+        for line in completed:
+            print(line)
+        if aborted:
+            print("LONG_RUNNING_CRON_OBSERVER_ABORTED")
+            for line in aborted:
+                print(line)
+        if stale:
+            print("LONG_RUNNING_CRON_OBSERVER_STALE")
+            for line in stale:
+                print(line)
+            return 2
+        return 3
+    if aborted:
+        print("LONG_RUNNING_CRON_OBSERVER_ABORTED")
+        for line in aborted:
+            print(line)
+        if stale:
+            print("LONG_RUNNING_CRON_OBSERVER_STALE")
+            for line in stale:
+                print(line)
+        return 4
+    if stale:
+        print("LONG_RUNNING_CRON_OBSERVER_STALE")
+        for line in stale:
+            print(line)
+        return 2
+    print("WATCH_OK")
+    return 0
+
+
+def done(args: argparse.Namespace) -> int:
+    registry_path = Path(args.registry).expanduser().resolve()
+    data = load_registry(registry_path)
+    before = len(data.get("runs", []))
+    data["runs"] = [r for r in data.get("runs", []) if not (isinstance(r, dict) and r.get("run_id") == args.run_id)]
+    save_registry(registry_path, data)
+    print(f"DONE_OK run_id={args.run_id} removed={before - len(data['runs'])}")
+    return 0
+
+
+def list_runs(args: argparse.Namespace) -> int:
+    registry_path = Path(args.registry).expanduser().resolve()
+    data = load_registry(registry_path)
+    print(json.dumps(data, indent=2, sort_keys=True))
+    return 0
 
 
 def cron_payload(args: argparse.Namespace) -> int:
@@ -406,6 +640,19 @@ def main(argv: list[str] | None = None) -> int:
     p_validate = sub.add_parser("validate")
     p_validate.add_argument("--artifact-dir", required=True)
     p_validate.set_defaults(func=validate)
+
+    p_check = sub.add_parser("check")
+    p_check.add_argument("--registry", default=str(DEFAULT_REGISTRY))
+    p_check.set_defaults(func=check)
+
+    p_done = sub.add_parser("done")
+    p_done.add_argument("run_id")
+    p_done.add_argument("--registry", default=str(DEFAULT_REGISTRY))
+    p_done.set_defaults(func=done)
+
+    p_list = sub.add_parser("list")
+    p_list.add_argument("--registry", default=str(DEFAULT_REGISTRY))
+    p_list.set_defaults(func=list_runs)
 
     p_payload = sub.add_parser("cron-payload")
     p_payload.add_argument("--run-id", required=True)

@@ -1,0 +1,24 @@
+{
+  "artifact_dir": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3m_r2_installed_shadow_soak",
+  "command": [
+    "python3",
+    "scripts/m3m_r2_installed_shadow_soak_observer.py"
+  ],
+  "created_utc": "2026-07-13T10:21:10Z",
+  "cron_job_id": null,
+  "cwd": "/home/stickai/.openclaw/workspace",
+  "expected_child_anchor": null,
+  "owner_note": "M3M R2 12h installed observe-only shadow soak \u2014 no-send, enhanced Gateway reachability diagnostics",
+  "run_id": "m3m-r2-installed-shadow-soak-20260713",
+  "safety_contract": {
+    "child_semantics_not_certified_by_harness": true,
+    "detached_with_start_new_session": true,
+    "evidence_written_before_pass_anchor": true,
+    "no_shell": true,
+    "registry_updated_before_pass_anchor": true
+  },
+  "schema": "stickbot.long_running_cron_observer_harness.v1.run_config",
+  "session_target": null,
+  "stderr_path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3m_r2_installed_shadow_soak/logs/observer.stderr.log",
+  "stdout_path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3m_r2_installed_shadow_soak/logs/observer.stdout.log"
+}
