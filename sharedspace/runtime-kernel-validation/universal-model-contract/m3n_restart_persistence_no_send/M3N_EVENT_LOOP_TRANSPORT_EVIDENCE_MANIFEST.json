@@ -1,0 +1,135 @@
+{
+  "artifacts": [
+    {
+      "bytes": 2449,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_EVENT_LOOP_TRANSPORT_BLOCKER_REHYDRATION.json",
+      "sha256": "b03fc3705c891b171049e6def69e84e5106efc6aa21870da307b6fc24f221b6c"
+    },
+    {
+      "bytes": 28206,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_EVENT_LOOP_TRANSPORT_BRANCH_SCOPE_VALIDATION.json",
+      "sha256": "1b80ab135380e89b6c2a2e0d82a64185a1aa20a8d9407b0a836870587ec27772"
+    },
+    {
+      "bytes": 82891,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_EVENT_LOOP_DELAY_DIAGNOSTIC.json",
+      "sha256": "a947748abb2bec3f4d85b60bb960e10074220e1d15960575c4f01e01ca3b95d4"
+    },
+    {
+      "bytes": 79646,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_TELEGRAM_TRANSPORT_DIAGNOSTIC.json",
+      "sha256": "a7e3a524336e51d5f8b9f44f1c0a5f1f108170dd32453de4f927d2d889a6caf7"
+    },
+    {
+      "bytes": 1492,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_EVENT_LOOP_TRANSPORT_WATCH_SUMMARY.json",
+      "sha256": "5622d44401355b261c404eacc28becefd64b069e55c1efc9d8d6630ef78b2bc5"
+    },
+    {
+      "bytes": 1396,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_EVENT_LOOP_TRANSPORT_RECOVERY_DECISION.json",
+      "sha256": "4877e04655da60f085285c0cdede03141c0e84deff55e23230417171f9516c93"
+    },
+    {
+      "bytes": 3688,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_EVENT_LOOP_TRANSPORT_RECOVERY_PLAN.json",
+      "sha256": "d2f21bc221040c08fd646af34ad793a0efcf27be238d3c69670c6331f397395b"
+    },
+    {
+      "bytes": 2092,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_EVENT_LOOP_TRANSPORT_WATCH_PROBE_0001.json",
+      "sha256": "229b53da35a8ddb0af46df4751d016caecdd20eb712e47183a7eb7da1943a31e"
+    },
+    {
+      "bytes": 5630,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_EVENT_LOOP_TRANSPORT_WATCH_PROBE_0002.json",
+      "sha256": "8e0c2e5adea17e715f55fa77c6ec29f6a12a835bdabaeb8df3f5b0d397269857"
+    },
+    {
+      "bytes": 2092,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_EVENT_LOOP_TRANSPORT_WATCH_PROBE_0003.json",
+      "sha256": "86e35c477b123bed28897280f9e336d2951e6af8ba84f02da22d7caeddfacb43"
+    },
+    {
+      "bytes": 2092,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_EVENT_LOOP_TRANSPORT_WATCH_PROBE_0004.json",
+      "sha256": "d10d959454a56b51f531ca7c668f7d58b9a148c692cc223401590eab39939308"
+    },
+    {
+      "bytes": 567,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_EVENT_LOOP_TRANSPORT_BLOCKER_SUMMARY.md",
+      "sha256": "bafe35d0fd6e0d5d9b17b6f36bc8f13b81d5998eb41ac6f28e0052b710f843a5"
+    },
+    {
+      "bytes": 442,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_EVENT_LOOP_DELAY_DIAGNOSTIC.md",
+      "sha256": "21eed4b86ab2629a65fe99dcfed6d04b11b0d1d388444b7454b9d5fdee5c55fe"
+    },
+    {
+      "bytes": 342,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_TELEGRAM_TRANSPORT_DIAGNOSTIC.md",
+      "sha256": "8b8732223da4a4fe5ab4f8c4602fc9d6d861b782f1352aa396ef00b8868f4aa1"
+    },
+    {
+      "bytes": 596,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_EVENT_LOOP_TRANSPORT_RECOVERY_DECISION.md",
+      "sha256": "8c8e7b1a65568ba4fbbd94a994fb5f01cd5ac31d6ca1acf6bee292d0cdd9dd98"
+    },
+    {
+      "bytes": 497,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_EVENT_LOOP_TRANSPORT_RECOVERY_PLAN.md",
+      "sha256": "1d20a04d31905a1fdbbe58c78501e93453a53877550d28604a79322663db2447"
+    },
+    {
+      "bytes": 1077,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_EVENT_LOOP_TRANSPORT_VALIDATION.json",
+      "sha256": "0b494c205f102450a5173a168c8376a1a2dc8fd649be788cf9a3908c493c2896"
+    },
+    {
+      "bytes": 3204,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/UMC_V1_HANDOFF.json",
+      "sha256": "e52a376c9930b9045126e6e2c591019a3216b08b46c4e2ea29eb16a9cdc31c6a"
+    },
+    {
+      "bytes": 15577,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/UMC_V1_MILESTONE_LEDGER.md",
+      "sha256": "1db4ccb5d5bf8ab04de480cb9e69f56f44dd42b66d8bc6cf4e9c04b61caff1e3"
+    },
+    {
+      "bytes": 29851,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/UMC_V1_IMPLEMENTATION_NOTEBOOK.md",
+      "sha256": "20063b1d272ce93d03bab7cedc84f8a906a85e25b71390f8cf2e2d77135d87f7"
+    },
+    {
+      "bytes": 26122,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/UMC_V1_TROUBLESHOOTING_AND_REPAIR_NOTEBOOK.md",
+      "sha256": "4b8eb1b1c6b4785423d93be5b9f47d2c5d2aed0b6db5a25ac2560135783f1a73"
+    },
+    {
+      "bytes": 21605,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/UMC_V1_REHYDRATOR.md",
+      "sha256": "5d20495313287e365c829e1a3782f52138df5e7a34022006315ac97cf220bc86"
+    }
+  ],
+  "commit_intended": true,
+  "generated_utc": "2026-07-14T09:20:36Z",
+  "push_status": "SKIP_M3N_EVENT_LOOP_TRANSPORT_REMOTE_PRESERVATION_NO_AUTHORIZATION",
+  "safety_counters": {
+    "context_bridge_mutation_count": 0,
+    "enforcement_started_count": 0,
+    "external_send_count": 0,
+    "gateway_restart_count": 0,
+    "m3n_persistence_verification_count": 0,
+    "m3o_started_count": 0,
+    "m4_started_count": 0,
+    "memory_mutation_count": 0,
+    "n2_n3_retry_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_config_mutation_count": 0,
+    "telegram_probe_send_count": 0,
+    "telegram_send_count": 0
+  },
+  "schema": "umc.v1.m3n.event_loop_transport_evidence_manifest.v1",
+  "status": "HOLD_M3N_EVENT_LOOP_TRANSPORT_RECOVERY_AWAITING_APPROVAL"
+}

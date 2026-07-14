@@ -1,0 +1,26 @@
+{
+  "changed_file_scope_validation": "PASS_SCOPED_UMC_ONLY_FOR_THIS_MILESTONE_WITH_EXISTING_UNRELATED_DIRTY_UNSTAGED",
+  "diagnostic_completeness_validation": "PASS",
+  "final_status": "HOLD_M3N_EVENT_LOOP_TRANSPORT_RECOVERY_AWAITING_APPROVAL",
+  "generated_utc": "2026-07-14T09:20:36Z",
+  "git_diff_check": "PASS",
+  "git_diff_check_output": {
+    "cmd": "git diff --check -- sharedspace/runtime-kernel-validation/universal-model-contract",
+    "rc": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  "json_errors": [],
+  "json_validation": "PASS",
+  "m3o_m4_enforcement_started": false,
+  "markdown_sanity": "PASS",
+  "n2_n3_retry_run": false,
+  "no_authority_validation": "PASS",
+  "no_send_validation": "PASS_NO_REPAIR_TELEGRAM_PROBE_OR_SEND",
+  "persistence_verification_started": false,
+  "runtime_config_mutation_validation": "PASS",
+  "safety_counter_validation": "PASS_ZERO_COUNTERS",
+  "schema": "umc.v1.m3n.event_loop_transport_validation.v1",
+  "status": "PASS_M3N_EVENT_LOOP_TRANSPORT_VALIDATION",
+  "watch_validation": "FAIL_M3N_EVENT_LOOP_TRANSPORT_STILL_UNSTABLE"
+}

@@ -1,0 +1,53 @@
+{
+  "checks": {
+    "diagnostic_classification_is_LIVENESS_NETWORK_OR_TRANSPORT_PROBLEM": true,
+    "final_status_is_FAIL_M3N_CURRENT_TELEGRAM_LIVENESS_STILL_UNSTABLE": true,
+    "gateway_restart_was_not_run_in_prior_current_liveness_phase": true,
+    "n2_n3_retry_was_not_run": true,
+    "path_f_selected": true,
+    "safety_counters_are_zero": true,
+    "telegram_probe_send_was_not_run": true
+  },
+  "enforcement_started": false,
+  "generated_utc": "2026-07-14T09:05:35Z",
+  "m3o_started": false,
+  "m4_started": false,
+  "missing": [],
+  "n2_n3_retry_run": false,
+  "persistence_verification_started": false,
+  "phase": "M3N_TELEGRAM_LIVENESS_EVENT_LOOP_TRANSPORT_DIAGNOSTIC_AND_RECOVERY_PLAN_NO_SEND",
+  "required_artifacts": [
+    "M3N_CURRENT_TELEGRAM_LIVENESS_BLOCKER_REHYDRATION.json",
+    "M3N_CURRENT_TELEGRAM_LIVENESS_DIAGNOSTIC.json",
+    "M3N_CURRENT_TELEGRAM_LIVENESS_WATCH_SUMMARY.json",
+    "M3N_CURRENT_TELEGRAM_LIVENESS_RECOVERY_DECISION.json",
+    "M3N_TELEGRAM_LIVENESS_FINAL_PRODUCTION_RECHECK.json",
+    "M3N_POST_RESTART_HEALTH_REPAIR_EVIDENCE_MANIFEST.json"
+  ],
+  "safety_counters": {
+    "context_bridge_mutation_count": 0,
+    "enforcement_started_count": 0,
+    "external_send_count": 0,
+    "gateway_restart_count": 0,
+    "m3n_persistence_verification_count": 0,
+    "m3o_started_count": 0,
+    "m4_started_count": 0,
+    "memory_mutation_count": 0,
+    "n2_n3_retry_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_config_mutation_count": 0,
+    "telegram_probe_send_count": 0,
+    "telegram_send_count": 0
+  },
+  "schema": "umc.v1.m3n.event_loop_transport_blocker_rehydration.v1",
+  "source_statuses": {
+    "M3N_CURRENT_TELEGRAM_LIVENESS_BLOCKER_REHYDRATION.json": "PASS_M3N_CURRENT_TELEGRAM_LIVENESS_BLOCKER_REHYDRATED",
+    "M3N_CURRENT_TELEGRAM_LIVENESS_DIAGNOSTIC.json": "PASS_M3N_CURRENT_TELEGRAM_LIVENESS_DIAGNOSTIC_COMPLETED",
+    "M3N_CURRENT_TELEGRAM_LIVENESS_RECOVERY_DECISION.json": "PASS_M3N_CURRENT_TELEGRAM_LIVENESS_RECOVERY_DECISION_READY",
+    "M3N_CURRENT_TELEGRAM_LIVENESS_WATCH_SUMMARY.json": "FAIL_M3N_CURRENT_TELEGRAM_LIVENESS_STILL_UNSTABLE",
+    "M3N_POST_RESTART_HEALTH_REPAIR_EVIDENCE_MANIFEST.json": "FAIL_M3N_POST_REPAIR_PRODUCTION_HEALTH_UNSTABLE",
+    "M3N_TELEGRAM_LIVENESS_FINAL_PRODUCTION_RECHECK.json": "FAIL_M3N_TELEGRAM_LIVENESS_FINAL_PRODUCTION_RECHECK"
+  },
+  "status": "PASS_M3N_EVENT_LOOP_TRANSPORT_BLOCKER_REHYDRATED"
+}

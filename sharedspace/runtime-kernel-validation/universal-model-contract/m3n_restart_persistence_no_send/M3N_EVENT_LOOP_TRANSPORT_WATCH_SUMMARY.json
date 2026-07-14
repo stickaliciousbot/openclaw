@@ -1,0 +1,49 @@
+{
+  "actual_probes": 4,
+  "cadence_seconds": 300,
+  "context_overflow_count": 0,
+  "duration_seconds": 900.439,
+  "event_loop_delay_count": 0,
+  "expected_probes": 4,
+  "fresh_liveness_probe_count": 0,
+  "gateway_pid_values": [
+    122580,
+    122580,
+    122580,
+    122580
+  ],
+  "gateway_timeout_count": 0,
+  "generated_utc": "2026-07-14T09:20:36Z",
+  "getme_timeout_count": 0,
+  "m3o_m4_enforcement_started": false,
+  "n2_n3_retry_run": false,
+  "no_authority_mutation": true,
+  "no_config_mutation": true,
+  "no_restart": true,
+  "no_sends": true,
+  "persistence_verification_started": false,
+  "probe_statuses": [
+    "FAIL_M3N_EVENT_LOOP_TRANSPORT_WATCH_PROBE_UNSTABLE",
+    "FAIL_M3N_EVENT_LOOP_TRANSPORT_WATCH_PROBE_UNSTABLE",
+    "FAIL_M3N_EVENT_LOOP_TRANSPORT_WATCH_PROBE_UNSTABLE",
+    "FAIL_M3N_EVENT_LOOP_TRANSPORT_WATCH_PROBE_UNSTABLE"
+  ],
+  "safety_counters": {
+    "context_bridge_mutation_count": 0,
+    "enforcement_started_count": 0,
+    "external_send_count": 0,
+    "gateway_restart_count": 0,
+    "m3n_persistence_verification_count": 0,
+    "m3o_started_count": 0,
+    "m4_started_count": 0,
+    "memory_mutation_count": 0,
+    "n2_n3_retry_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_config_mutation_count": 0,
+    "telegram_probe_send_count": 0,
+    "telegram_send_count": 0
+  },
+  "schema": "umc.v1.m3n.event_loop_transport_watch_summary.v1",
+  "status": "FAIL_M3N_EVENT_LOOP_TRANSPORT_STILL_UNSTABLE"
+}

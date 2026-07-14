@@ -1,0 +1,549 @@
+{
+  "account_readback_failure_matches_getme_timeout_windows": "unknown/no active readback probe; prior failure overlaps event-loop/getMe evidence window",
+  "bot_api_timeout_count": 1,
+  "bounded_signals": [
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38232\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:39:28.952Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:39:28.952+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38232\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:39:28.952000+00:00",
+      "timestamp_epoch": 1784014768.952
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38233\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:39:30.044Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:39:30.044+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38233\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:39:30.044000+00:00",
+      "timestamp_epoch": 1784014770.044
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38237\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:41:04.642Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:41:04.642+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38237\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:41:04.642000+00:00",
+      "timestamp_epoch": 1784014864.642
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38238\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:41:18.421Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:41:18.421+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38238\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:41:18.421000+00:00",
+      "timestamp_epoch": 1784014878.421
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38239\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:41:52.277Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:41:52.277+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38239\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:41:52.277000+00:00",
+      "timestamp_epoch": 1784014912.277
+    },
+    {
+      "message": "=1,age=1s last=model_call:started)|agent:main:cron:b29e6275-9bad-4622-8a56-041e5a2dc864:run:cef37989-ccd0-468f-ac32-47aeadc2138c(processing/model_call,q=0,age=4s last=model_call:started) queued=agent:main:telegram:direct:8495203551(processing/model_call,q=1,age=1s last=model_call:started)]\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"diagnostic\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:42:08.439Z\",\"logLevelId\":4,\"logLevelName\":\"WARN\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:42:08.439+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"liveness warning: reasons=event_loop_delay interval=30s eventLoopDelayP99Ms=22.7 eventLoopDelayMaxMs=3779.1 eventLoopUtilization=0.185 cpuCoreRatio=0.221 active=2 waiting=0 queued=1 phase=channels.telegram.start-account recentPhases=sidecars.subagent-recovery:12ms,sidecars.main-session-recovery:18ms,sidecars.model-prewarm:2114ms,post-attach.update-sentinel:65ms,sidecars.session-locks:156ms,post-ready.maintenance:11ms work=[active=agent:main:telegram:direct:8495203551(processing/model_call,q=1,age=1s last=model_call:started)|agent:main:cron:b29e6275-9bad-4622-8a56-041e5a2dc864:run:cef37989-ccd0-468f-ac32-47aeadc2138c(processing/model_call,q=0,age=4s last=model_call:started) queued=agent:main:telegram:direct:8495203551(processing/model_call,q=1,age=1s last=model_call:started)]\"}",
+      "terms": [
+        "active=",
+        "agent:main:cron",
+        "channels.telegram.start-account",
+        "event_loop_delay",
+        "liveness warning",
+        "model_call",
+        "queued="
+      ],
+      "timestamp": "2026-07-14T07:42:08.439000+00:00",
+      "timestamp_epoch": 1784014928.439
+    },
+    {
+      "message": "=1,age=4s last=model_call:started)|agent:main:cron:b29e6275-9bad-4622-8a56-041e5a2dc864:run:784e987d-8b0a-4b19-bdc5-9d8410ed8c96(processing/model_call,q=0,age=3s last=model_call:started) queued=agent:main:telegram:direct:8495203551(processing/model_call,q=1,age=4s last=model_call:started)]\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"diagnostic\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:47:08.443Z\",\"logLevelId\":4,\"logLevelName\":\"WARN\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:47:08.443+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"liveness warning: reasons=event_loop_delay interval=30s eventLoopDelayP99Ms=60.7 eventLoopDelayMaxMs=3806.3 eventLoopUtilization=0.252 cpuCoreRatio=0.332 active=2 waiting=0 queued=1 phase=channels.telegram.start-account recentPhases=sidecars.subagent-recovery:12ms,sidecars.main-session-recovery:18ms,sidecars.model-prewarm:2114ms,post-attach.update-sentinel:65ms,sidecars.session-locks:156ms,post-ready.maintenance:11ms work=[active=agent:main:telegram:direct:8495203551(processing/model_call,q=1,age=4s last=model_call:started)|agent:main:cron:b29e6275-9bad-4622-8a56-041e5a2dc864:run:784e987d-8b0a-4b19-bdc5-9d8410ed8c96(processing/model_call,q=0,age=3s last=model_call:started) queued=agent:main:telegram:direct:8495203551(processing/model_call,q=1,age=4s last=model_call:started)]\"}",
+      "terms": [
+        "active=",
+        "agent:main:cron",
+        "channels.telegram.start-account",
+        "event_loop_delay",
+        "liveness warning",
+        "model_call",
+        "queued="
+      ],
+      "timestamp": "2026-07-14T07:47:08.443000+00:00",
+      "timestamp_epoch": 1784015228.443
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38247\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:47:55.209Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:47:55.210+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38247\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:47:55.210000+00:00",
+      "timestamp_epoch": 1784015275.21
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38248\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:47:56.159Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:47:56.159+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38248\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:47:56.159000+00:00",
+      "timestamp_epoch": 1784015276.159
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38249\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:47:57.152Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:47:57.152+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38249\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:47:57.152000+00:00",
+      "timestamp_epoch": 1784015277.152
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38250\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:47:58.158Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:47:58.158+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38250\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:47:58.158000+00:00",
+      "timestamp_epoch": 1784015278.158
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38251\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:47:59.167Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:47:59.167+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38251\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:47:59.167000+00:00",
+      "timestamp_epoch": 1784015279.167
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38253\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:48:00.148Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:48:00.149+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38253\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:48:00.149000+00:00",
+      "timestamp_epoch": 1784015280.149
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38254\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:48:01.151Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:48:01.151+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38254\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:48:01.151000+00:00",
+      "timestamp_epoch": 1784015281.151
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38255\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:48:02.166Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:48:02.166+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38255\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:48:02.166000+00:00",
+      "timestamp_epoch": 1784015282.166
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38256\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:48:03.142Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:48:03.143+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38256\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:48:03.143000+00:00",
+      "timestamp_epoch": 1784015283.143
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38257\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:48:04.210Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:48:04.210+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38257\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:48:04.210000+00:00",
+      "timestamp_epoch": 1784015284.21
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38258\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:48:05.246Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:48:05.246+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38258\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:48:05.246000+00:00",
+      "timestamp_epoch": 1784015285.246
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38259\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:48:06.153Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:48:06.153+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38259\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:48:06.153000+00:00",
+      "timestamp_epoch": 1784015286.153
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38260\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:48:07.143Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:48:07.143+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38260\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:48:07.143000+00:00",
+      "timestamp_epoch": 1784015287.143
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38261\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:48:08.159Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:48:08.160+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38261\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:48:08.160000+00:00",
+      "timestamp_epoch": 1784015288.16
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38262\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:48:09.197Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:48:09.197+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38262\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:48:09.197000+00:00",
+      "timestamp_epoch": 1784015289.197
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38263\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:48:10.156Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:48:10.156+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38263\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:48:10.156000+00:00",
+      "timestamp_epoch": 1784015290.156
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38264\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:48:11.162Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:48:11.162+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38264\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:48:11.162000+00:00",
+      "timestamp_epoch": 1784015291.162
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38265\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:48:12.166Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:48:12.166+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38265\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:48:12.166000+00:00",
+      "timestamp_epoch": 1784015292.166
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38273\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:50:42.537Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:50:42.537+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38273\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:50:42.537000+00:00",
+      "timestamp_epoch": 1784015442.537
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38274\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:50:53.318Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:50:53.319+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38274\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:50:53.319000+00:00",
+      "timestamp_epoch": 1784015453.319
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38275\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:51:14.243Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:51:14.244+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38275\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:51:14.244000+00:00",
+      "timestamp_epoch": 1784015474.244
+    },
+    {
+      "message": "ge=30s last=model_call:started)|agent:main:cron:b29e6275-9bad-4622-8a56-041e5a2dc864:run:1da39a29-b50c-43a6-bff1-460f4468b5fd(processing/model_call,q=0,age=4s last=model_call:started) queued=agent:main:telegram:direct:8495203551(processing/model_call,q=1,age=30s last=model_call:started)]\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"diagnostic\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:52:08.447Z\",\"logLevelId\":4,\"logLevelName\":\"WARN\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:52:08.447+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"liveness warning: reasons=event_loop_delay interval=30s eventLoopDelayP99Ms=32.6 eventLoopDelayMaxMs=3739.2 eventLoopUtilization=0.252 cpuCoreRatio=0.318 active=2 waiting=0 queued=1 phase=channels.telegram.start-account recentPhases=sidecars.subagent-recovery:12ms,sidecars.main-session-recovery:18ms,sidecars.model-prewarm:2114ms,post-attach.update-sentinel:65ms,sidecars.session-locks:156ms,post-ready.maintenance:11ms work=[active=agent:main:telegram:direct:8495203551(processing/model_call,q=1,age=30s last=model_call:started)|agent:main:cron:b29e6275-9bad-4622-8a56-041e5a2dc864:run:1da39a29-b50c-43a6-bff1-460f4468b5fd(processing/model_call,q=0,age=4s last=model_call:started) queued=agent:main:telegram:direct:8495203551(processing/model_call,q=1,age=30s last=model_call:started)]\"}",
+      "terms": [
+        "active=",
+        "agent:main:cron",
+        "channels.telegram.start-account",
+        "event_loop_delay",
+        "liveness warning",
+        "model_call",
+        "queued="
+      ],
+      "timestamp": "2026-07-14T07:52:08.447000+00:00",
+      "timestamp_epoch": 1784015528.447
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38278\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:55:32.188Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:55:32.188+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38278\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:55:32.188000+00:00",
+      "timestamp_epoch": 1784015732.188
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38279\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:55:33.146Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:55:33.146+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38279\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:55:33.146000+00:00",
+      "timestamp_epoch": 1784015733.146
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38280\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:55:34.142Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:55:34.142+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38280\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:55:34.142000+00:00",
+      "timestamp_epoch": 1784015734.142
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38281\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:55:35.146Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:55:35.147+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38281\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:55:35.147000+00:00",
+      "timestamp_epoch": 1784015735.147
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38282\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:55:36.148Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:55:36.148+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38282\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:55:36.148000+00:00",
+      "timestamp_epoch": 1784015736.148
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38283\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:55:37.149Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:55:37.149+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38283\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:55:37.149000+00:00",
+      "timestamp_epoch": 1784015737.149
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38284\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:55:38.151Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:55:38.152+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38284\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:55:38.152000+00:00",
+      "timestamp_epoch": 1784015738.152
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38285\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:55:39.156Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:55:39.156+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38285\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:55:39.156000+00:00",
+      "timestamp_epoch": 1784015739.156
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38286\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:55:40.153Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:55:40.153+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38286\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:55:40.153000+00:00",
+      "timestamp_epoch": 1784015740.153
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38287\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:55:41.200Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:55:41.200+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38287\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T07:55:41.200000+00:00",
+      "timestamp_epoch": 1784015741.2
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"agent/embedded\\\"}\",\"1\":\"[timeout-compaction] LLM timed out with high prompt token usage (68%); attempting compaction before retry (attempt 1/2) diagId=ovf-mrkcz4he-HhuoeA\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"agent/embedded\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:57:30.866Z\",\"logLevelId\":4,\"logLevelName\":\"WARN\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:57:30.867+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"[timeout-compaction] LLM timed out with high prompt token usage (68%); attempting compaction before retry (attempt 1/2) diagId=ovf-mrkcz4he-HhuoeA\"}",
+      "terms": [
+        "timeout"
+      ],
+      "timestamp": "2026-07-14T07:57:30.867000+00:00",
+      "timestamp_epoch": 1784015850.867
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"agent/embedded\\\"}\",\"1\":\"[timeout-compaction] compaction succeeded for openai-codex/gpt-5.5; retrying prompt\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"agent/embedded\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:59:16.348Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:59:16.348+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"[timeout-compaction] compaction succeeded for openai-codex/gpt-5.5; retrying prompt\"}",
+      "terms": [
+        "timeout"
+      ],
+      "timestamp": "2026-07-14T07:59:16.348000+00:00",
+      "timestamp_epoch": 1784015956.348
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38292\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T08:18:24.219Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T18:18:24.219+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38292\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T08:18:24.219000+00:00",
+      "timestamp_epoch": 1784017104.219
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38293\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T08:18:30.454Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T18:18:30.454+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38293\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T08:18:30.454000+00:00",
+      "timestamp_epoch": 1784017110.454
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38294\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T08:18:43.739Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T18:18:43.739+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38294\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T08:18:43.739000+00:00",
+      "timestamp_epoch": 1784017123.739
+    },
+    {
+      "message": "=channels.telegram.start-account recentPhases=sidecars.subagent-recovery:12ms,sidecars.main-session-recovery:18ms,sidecars.model-prewarm:2114ms,post-attach.update-sentinel:65ms,sidecars.session-locks:156ms,post-ready.maintenance:11ms work=[active=agent:main:telegram:direct:8495203551(processing/tool_call,q=1,age=77s last=tool:exec:started) queued=agent:main:telegram:direct:8495203551(processing/tool_call,q=1,age=77s last=tool:exec:started)]\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"diagnostic\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T08:22:24.677Z\",\"logLevelId\":4,\"logLevelName\":\"WARN\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T18:22:24.678+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"liveness warning: reasons=event_loop_delay interval=30s eventLoopDelayP99Ms=29.9 eventLoopDelayMaxMs=3726.6 eventLoopUtilization=0.195 cpuCoreRatio=0.227 active=1 waiting=0 queued=1 phase=channels.telegram.start-account recentPhases=sidecars.subagent-recovery:12ms,sidecars.main-session-recovery:18ms,sidecars.model-prewarm:2114ms,post-attach.update-sentinel:65ms,sidecars.session-locks:156ms,post-ready.maintenance:11ms work=[active=agent:main:telegram:direct:8495203551(processing/tool_call,q=1,age=77s last=tool:exec:started) queued=agent:main:telegram:direct:8495203551(processing/tool_call,q=1,age=77s last=tool:exec:started)]\"}",
+      "terms": [
+        "active=",
+        "channels.telegram.start-account",
+        "event_loop_delay",
+        "liveness warning",
+        "queued="
+      ],
+      "timestamp": "2026-07-14T08:22:24.678000+00:00",
+      "timestamp_epoch": 1784017344.678
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38295\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T08:23:56.211Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T18:23:56.212+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38295\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T08:23:56.212000+00:00",
+      "timestamp_epoch": 1784017436.212
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38296\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T08:23:57.190Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T18:23:57.190+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38296\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T08:23:57.190000+00:00",
+      "timestamp_epoch": 1784017437.19
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38297\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T08:23:58.193Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T18:23:58.193+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38297\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T08:23:58.193000+00:00",
+      "timestamp_epoch": 1784017438.193
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38298\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T08:23:59.177Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T18:23:59.177+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38298\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T08:23:59.177000+00:00",
+      "timestamp_epoch": 1784017439.177
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38299\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T08:24:00.185Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T18:24:00.185+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38299\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T08:24:00.185000+00:00",
+      "timestamp_epoch": 1784017440.185
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38300\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T08:24:01.183Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T18:24:01.183+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38300\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T08:24:01.183000+00:00",
+      "timestamp_epoch": 1784017441.183
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38305\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T08:35:04.349Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T18:35:04.349+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38305\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T08:35:04.349000+00:00",
+      "timestamp_epoch": 1784018104.349
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38306\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T08:35:26.154Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T18:35:26.154+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38306\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T08:35:26.154000+00:00",
+      "timestamp_epoch": 1784018126.154
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38307\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T08:35:27.156Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T18:35:27.156+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38307\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T08:35:27.156000+00:00",
+      "timestamp_epoch": 1784018127.156
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38308\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T08:35:28.152Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T18:35:28.152+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38308\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T08:35:28.152000+00:00",
+      "timestamp_epoch": 1784018128.152
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"1\":\"telegram sendMessage ok chat=8495203551 message=38324\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"channels/telegram\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T09:00:20.265Z\",\"logLevelId\":3,\"logLevelName\":\"INFO\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T19:00:20.265+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"telegram sendMessage ok chat=8495203551 message=38324\"}",
+      "terms": [
+        "telegram sendMessage ok"
+      ],
+      "timestamp": "2026-07-14T09:00:20.265000+00:00",
+      "timestamp_epoch": 1784019620.265
+    },
+    {
+      "message": "age=7s last=model_call:started)|agent:main:cron:187cdfa9-7fd2-4bb7-8148-811247569066:run:b65fa5ac-2e72-4d9e-beb6-7270bb3e41f4(processing/model_call,q=0,age=10s last=model_call:started) queued=agent:main:telegram:direct:8495203551(processing/model_call,q=1,age=7s last=model_call:started)]\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"diagnostic\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T09:00:26.428Z\",\"logLevelId\":4,\"logLevelName\":\"WARN\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T19:00:26.428+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"liveness warning: reasons=event_loop_delay interval=30s eventLoopDelayP99Ms=189.7 eventLoopDelayMaxMs=3793.7 eventLoopUtilization=0.299 cpuCoreRatio=0.366 active=2 waiting=0 queued=1 phase=channels.telegram.start-account recentPhases=sidecars.subagent-recovery:12ms,sidecars.main-session-recovery:18ms,sidecars.model-prewarm:2114ms,post-attach.update-sentinel:65ms,sidecars.session-locks:156ms,post-ready.maintenance:11ms work=[active=agent:main:telegram:direct:8495203551(processing/model_call,q=1,age=7s last=model_call:started)|agent:main:cron:187cdfa9-7fd2-4bb7-8148-811247569066:run:b65fa5ac-2e72-4d9e-beb6-7270bb3e41f4(processing/model_call,q=0,age=10s last=model_call:started) queued=agent:main:telegram:direct:8495203551(processing/model_call,q=1,age=7s last=model_call:started)]\"}",
+      "terms": [
+        "active=",
+        "agent:main:cron",
+        "channels.telegram.start-account",
+        "event_loop_delay",
+        "liveness warning",
+        "model_call",
+        "queued="
+      ],
+      "timestamp": "2026-07-14T09:00:26.428000+00:00",
+      "timestamp_epoch": 1784019626.428
+    },
+    {
+      "message": "s.telegram.start-account recentPhases=sidecars.subagent-recovery:12ms,sidecars.main-session-recovery:18ms,sidecars.model-prewarm:2114ms,post-attach.update-sentinel:65ms,sidecars.session-locks:156ms,post-ready.maintenance:11ms work=[active=agent:main:telegram:direct:8495203551(processing/model_call,q=1,age=26s last=model_call:started) queued=agent:main:telegram:direct:8495203551(processing/model_call,q=1,age=26s last=model_call:started)]\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"diagnostic\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T09:02:56.429Z\",\"logLevelId\":4,\"logLevelName\":\"WARN\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T19:02:56.429+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"liveness warning: reasons=event_loop_delay interval=30s eventLoopDelayP99Ms=35.3 eventLoopDelayMaxMs=1003.5 eventLoopUtilization=0.127 cpuCoreRatio=0.199 active=1 waiting=0 queued=1 phase=channels.telegram.start-account recentPhases=sidecars.subagent-recovery:12ms,sidecars.main-session-recovery:18ms,sidecars.model-prewarm:2114ms,post-attach.update-sentinel:65ms,sidecars.session-locks:156ms,post-ready.maintenance:11ms work=[active=agent:main:telegram:direct:8495203551(processing/model_call,q=1,age=26s last=model_call:started) queued=agent:main:telegram:direct:8495203551(processing/model_call,q=1,age=26s last=model_call:started)]\"}",
+      "terms": [
+        "active=",
+        "channels.telegram.start-account",
+        "event_loop_delay",
+        "liveness warning",
+        "model_call",
+        "queued="
+      ],
+      "timestamp": "2026-07-14T09:02:56.429000+00:00",
+      "timestamp_epoch": 1784019776.429
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"diagnostic\\\"}\",\"1\":\"stalled session: sessionId=aa69dcbd-56b4-48b7-a79b-0b5e8909421f sessionKey=agent:main:telegram:direct:8495203551 state=processing age=146s queueDepth=1 reason=active_work_without_progress classification=stalled_agent_run activeWorkKind=model_call lastProgress=model_call:started lastProgressAge=146s recovery=none\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"diagnostic\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T09:04:56.439Z\",\"logLevelId\":4,\"logLevelName\":\"WARN\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T19:04:56.439+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"stalled session: sessionId=aa69dcbd-56b4-48b7-a79b-0b5e8909421f sessionKey=agent:main:telegram:direct:8495203551 state=processing age=146s queueDepth=1 reason=active_work_without_progress classification=stalled_agent_run activeWorkKind=model_call lastProgress=model_call:started lastProgressAge=146s recovery=none\"}",
+      "terms": [
+        "model_call"
+      ],
+      "timestamp": "2026-07-14T09:04:56.439000+00:00",
+      "timestamp_epoch": 1784019896.439
+    },
+    {
+      "message": "{\"0\":\"{\\\"subsystem\\\":\\\"diagnostic\\\"}\",\"1\":\"stalled session: sessionId=aa69dcbd-56b4-48b7-a79b-0b5e8909421f sessionKey=agent:main:telegram:direct:8495203551 state=processing age=176s queueDepth=1 reason=active_work_without_progress classification=stalled_agent_run activeWorkKind=model_call lastProgress=model_call:started lastProgressAge=176s recovery=none\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"diagnostic\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T09:05:26.430Z\",\"logLevelId\":4,\"logLevelName\":\"WARN\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T19:05:26.430+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"stalled session: sessionId=aa69dcbd-56b4-48b7-a79b-0b5e8909421f sessionKey=agent:main:telegram:direct:8495203551 state=processing age=176s queueDepth=1 reason=active_work_without_progress classification=stalled_agent_run activeWorkKind=model_call lastProgress=model_call:started lastProgressAge=176s recovery=none\"}",
+      "terms": [
+        "model_call"
+      ],
+      "timestamp": "2026-07-14T09:05:26.430000+00:00",
+      "timestamp_epoch": 1784019926.43
+    }
+  ],
+  "classification": "TELEGRAM_TRANSPORT_TIMEOUT_CORRELATED_WITH_EVENT_LOOP_DELAY",
+  "failures_correlate_with_event_loop_delay": true,
+  "generated_utc": "2026-07-14T09:05:36Z",
+  "getme_timeout_timing": "bounded logs scanned; counts included",
+  "ipv4_ipv6_family_behavior_visible": false,
+  "network_dns_connectivity_errors_logged": 0,
+  "no_config_mutation": true,
+  "no_restart": true,
+  "no_telegram_send_or_probe": true,
+  "safety_counters": {
+    "context_bridge_mutation_count": 0,
+    "enforcement_started_count": 0,
+    "external_send_count": 0,
+    "gateway_restart_count": 0,
+    "m3n_persistence_verification_count": 0,
+    "m3o_started_count": 0,
+    "m4_started_count": 0,
+    "memory_mutation_count": 0,
+    "n2_n3_retry_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_config_mutation_count": 0,
+    "telegram_probe_send_count": 0,
+    "telegram_send_count": 0
+  },
+  "schema": "umc.v1.m3n.telegram_transport_diagnostic.v1",
+  "status": "PASS_M3N_TELEGRAM_TRANSPORT_DIAGNOSTIC_COMPLETED",
+  "telegram_account_readback_behavior": "not actively probed; prior artifact readback/account not OK",
+  "telegram_liveness_recovers_without_restart": "not proven; mini-watch required",
+  "transport_retry_backoff_behavior_visible": false
+}

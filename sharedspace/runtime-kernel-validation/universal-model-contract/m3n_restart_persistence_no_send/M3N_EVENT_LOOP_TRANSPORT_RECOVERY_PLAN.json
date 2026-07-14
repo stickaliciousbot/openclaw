@@ -1,0 +1,93 @@
+{
+  "approval_required": true,
+  "boundaries": [
+    "no sends",
+    "no authority",
+    "no config mutation",
+    "no restart or cleanup without explicit approval"
+  ],
+  "evidence_supporting_path": {
+    "counts": {
+      "actual_probes": 4,
+      "cadence_seconds": 300,
+      "context_overflow_count": 0,
+      "duration_seconds": 900.439,
+      "event_loop_delay_count": 0,
+      "expected_probes": 4,
+      "fresh_liveness_probe_count": 0,
+      "gateway_pid_values": [
+        122580,
+        122580,
+        122580,
+        122580
+      ],
+      "gateway_timeout_count": 0,
+      "generated_utc": "2026-07-14T09:20:36Z",
+      "getme_timeout_count": 0,
+      "m3o_m4_enforcement_started": false,
+      "n2_n3_retry_run": false,
+      "no_authority_mutation": true,
+      "no_config_mutation": true,
+      "no_restart": true,
+      "no_sends": true,
+      "persistence_verification_started": false,
+      "probe_statuses": [
+        "FAIL_M3N_EVENT_LOOP_TRANSPORT_WATCH_PROBE_UNSTABLE",
+        "FAIL_M3N_EVENT_LOOP_TRANSPORT_WATCH_PROBE_UNSTABLE",
+        "FAIL_M3N_EVENT_LOOP_TRANSPORT_WATCH_PROBE_UNSTABLE",
+        "FAIL_M3N_EVENT_LOOP_TRANSPORT_WATCH_PROBE_UNSTABLE"
+      ],
+      "safety_counters": {
+        "context_bridge_mutation_count": 0,
+        "enforcement_started_count": 0,
+        "external_send_count": 0,
+        "gateway_restart_count": 0,
+        "m3n_persistence_verification_count": 0,
+        "m3o_started_count": 0,
+        "m4_started_count": 0,
+        "memory_mutation_count": 0,
+        "n2_n3_retry_count": 0,
+        "production_authority_change_count": 0,
+        "provider_model_shadow_calls": 0,
+        "route_config_mutation_count": 0,
+        "telegram_probe_send_count": 0,
+        "telegram_send_count": 0
+      },
+      "schema": "umc.v1.m3n.event_loop_transport_watch_summary.v1",
+      "status": "FAIL_M3N_EVENT_LOOP_TRANSPORT_STILL_UNSTABLE"
+    },
+    "event_loop_classification": "EVENT_LOOP_DELAY_FROM_LONG_RUNNING_OBSERVER",
+    "telegram_transport_classification": "TELEGRAM_TRANSPORT_TIMEOUT_CORRELATED_WITH_EVENT_LOOP_DELAY",
+    "watch_status": "FAIL_M3N_EVENT_LOOP_TRANSPORT_STILL_UNSTABLE"
+  },
+  "exact_proposed_command_or_tool_if_action_required": "inspect identified stale observer/job, then request explicit approval before any cleanup; no command executed in this milestone",
+  "generated_utc": "2026-07-14T09:20:36Z",
+  "n2_n3_retry_can_be_requested": false,
+  "next_phase": "APPROVE_M3N_EVENT_LOOP_TRANSPORT_RECOVERY_ACTION",
+  "post_recovery_validation_plan": [
+    "verify Gateway RPC/port/PID stability",
+    "run Telegram readback/liveness no-send check if available",
+    "run bounded log scan for event_loop_delay/getMe/gateway timeout/context overflow",
+    "only then request N2/N3 retry approval"
+  ],
+  "rollback_readiness": "Rollback not needed for diagnosis; if restart/cleanup later approved, rollback is Gateway stable PID/config snapshot plus no config mutation path.",
+  "safety_counters": {
+    "context_bridge_mutation_count": 0,
+    "enforcement_started_count": 0,
+    "external_send_count": 0,
+    "gateway_restart_count": 0,
+    "m3n_persistence_verification_count": 0,
+    "m3o_started_count": 0,
+    "m4_started_count": 0,
+    "memory_mutation_count": 0,
+    "n2_n3_retry_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_config_mutation_count": 0,
+    "telegram_probe_send_count": 0,
+    "telegram_send_count": 0
+  },
+  "schema": "umc.v1.m3n.event_loop_transport_recovery_plan.v1",
+  "selected_path": "PATH_C_TARGETED_STALE_OBSERVER_OR_JOB_CLEANUP_REQUIRES_APPROVAL",
+  "status": "HOLD_M3N_EVENT_LOOP_TRANSPORT_RECOVERY_AWAITING_APPROVAL"
+}

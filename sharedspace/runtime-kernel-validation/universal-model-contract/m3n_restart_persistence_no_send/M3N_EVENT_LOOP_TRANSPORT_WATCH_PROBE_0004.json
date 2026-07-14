@@ -1,0 +1,55 @@
+{
+  "context_overflow_signals": 0,
+  "cpu_memory_snapshot": {
+    "gateway_process": {
+      "State": "S (sleeping)",
+      "Threads": "11",
+      "VmRSS": "602188 kB",
+      "VmSize": "22741112 kB",
+      "cmdline": "/usr/bin/node /home/stickai/.npm-global/lib/node_modules/openclaw/dist/index.js gateway --port 18789",
+      "exists": true,
+      "pid": 122580,
+      "ps": "PID    PPID     ELAPSED %CPU %MEM   RSS    VSZ STAT CMD\n 122580     639    02:04:04  9.6  3.7 602188 22741112 Ssl /usr/bin/node /home/stickai/.npm-global/lib/node_modules/openclaw/dist/index.js gateway --port 18789",
+      "ps_rc": 0
+    },
+    "memory": {
+      "MemAvailable_kB": 14547888,
+      "MemFree_kB": 876876,
+      "MemTotal_kB": 16243308,
+      "SwapFree_kB": 33426108,
+      "SwapTotal_kB": 33554432
+    }
+  },
+  "event_loop_delay_signals": 0,
+  "fresh_bounded_log_scan": [],
+  "gateway_pid": 122580,
+  "gateway_pid_stable": true,
+  "gateway_rpc_ok_inferred_from_local_port": true,
+  "gateway_timeout_signals": 0,
+  "generated_utc": "2026-07-14T09:20:36Z",
+  "getme_timeout_signals": 0,
+  "no_send_probe_or_restart_or_mutation": true,
+  "probe_index": 4,
+  "queue_depth_state": "no fresh queued mentions in bounded log window",
+  "safety_counters": {
+    "context_bridge_mutation_count": 0,
+    "enforcement_started_count": 0,
+    "external_send_count": 0,
+    "gateway_restart_count": 0,
+    "m3n_persistence_verification_count": 0,
+    "m3o_started_count": 0,
+    "m4_started_count": 0,
+    "memory_mutation_count": 0,
+    "n2_n3_retry_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_config_mutation_count": 0,
+    "telegram_probe_send_count": 0,
+    "telegram_send_count": 0
+  },
+  "schema": "umc.v1.m3n.event_loop_transport_watch_probe.v1",
+  "status": "FAIL_M3N_EVENT_LOOP_TRANSPORT_WATCH_PROBE_UNSTABLE",
+  "telegram_liveness_state": "no fresh liveness warning in bounded log window",
+  "telegram_readback_account_state": "not actively probed; prior readback/account not OK",
+  "telegram_send_log_count_observed_not_counted_as_probe": 0
+}

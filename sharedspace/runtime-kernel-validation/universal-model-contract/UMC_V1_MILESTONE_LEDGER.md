@@ -226,3 +226,17 @@ m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_REPAIR_EVIDENCE_MANIFEST
 **Recovery decision:** `PATH_F_BLOCKED_PERSISTENT_PLUGIN_INSTABILITY`. No recovery action executed; no Telegram send, Gateway restart, config mutation, route/fallback mutation, memory mutation, Context Bridge mutation, provider/model call, N2/N3 retry, persistence verification, M3O/M4/enforcement.
 
 **Next phase:** `HOLD_REPAIR_CURRENT_TELEGRAM_LIVENESS_BEFORE_N2_N3_RETRY`.
+
+## 2026-07-14T09:20:36Z — M3N event-loop / Telegram transport diagnostic and recovery plan
+
+**Closeout:** `HOLD_M3N_EVENT_LOOP_TRANSPORT_RECOVERY_AWAITING_APPROVAL`
+
+**Event-loop classification:** `EVENT_LOOP_DELAY_FROM_LONG_RUNNING_OBSERVER`
+
+**Telegram transport classification:** `TELEGRAM_TRANSPORT_TIMEOUT_CORRELATED_WITH_EVENT_LOOP_DELAY`
+
+**Mini-watch:** `FAIL_M3N_EVENT_LOOP_TRANSPORT_STILL_UNSTABLE`; event-loop delay `0`, getMe timeout `0`, gateway timeout `0`, context overflow `0`.
+
+**Recovery path:** `PATH_C_TARGETED_STALE_OBSERVER_OR_JOB_CLEANUP_REQUIRES_APPROVAL`. Approval required: `True`. No Telegram probe/send, external send, provider/model shadow call, config mutation, route/fallback mutation, memory mutation, Context Bridge mutation, production authority change, Gateway restart, N2/N3 retry, persistence verification, M3O, M4, or enforcement was run by the repair lane.
+
+**Next phase:** `APPROVE_M3N_EVENT_LOOP_TRANSPORT_RECOVERY_ACTION`.
