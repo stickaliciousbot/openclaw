@@ -1,0 +1,36 @@
+{
+  "approval_boundary": "Any future Gateway restart or repair execution requires separate explicit approval",
+  "fresh_m3n_n2_n3_retry_required": true,
+  "generated_utc": "2026-07-14T07:45:34Z",
+  "plan": [
+    {
+      "details": "Runtime-log-only scanner; exclude agent session jsonl/trajectory/transcripts and checker source text; classify transcript matches as false positives, never health failures.",
+      "step": "Repair scanner scope"
+    },
+    {
+      "details": "Start at SIGUSR1 received / restart event; include bounded startup window and stabilization window; separate stale/pre-restart from post-restart-only signals.",
+      "step": "Define post-restart log window"
+    },
+    {
+      "details": "Keep real liveness/Telegram failures fail-closed; allow only documented grace readback after startup if no new liveness warnings appear.",
+      "step": "Add bounded Telegram/liveness stabilization checks"
+    },
+    {
+      "details": "Require gateway status RPC OK, PID/readback, queue depth 0, Telegram ON/OK 1/1, and runtime-log-only clean window.",
+      "step": "Confirm Gateway RPC/readback"
+    },
+    {
+      "details": "No Telegram probe sends, external sends, provider/model shadow calls, route/config/memory/Context Bridge mutation.",
+      "step": "Keep no-send/no-authority boundary"
+    },
+    {
+      "details": "Fresh M3N N2/N3 retry is required after repair. Resume from N2/N3 only if N0/N1 baseline hashes remain stable; otherwise restart from N0/N1. Future Gateway restart requires explicit approval.",
+      "step": "Retry decision"
+    }
+  ],
+  "resume_from": "N2/N3 after repaired validator if N0/N1 stability revalidated; otherwise N0/N1",
+  "rollback_readiness": "PASS backups present and no runtime/config mutation in this preservation pass",
+  "schema": "umc.v1.m3n.post_restart_health_repair_and_retry_plan.v1",
+  "status": "PASS_M3N_POST_RESTART_HEALTH_REPAIR_AND_RETRY_PLAN_READY",
+  "suggested_next_milestone": "M3N_POST_RESTART_HEALTH_SCANNER_AND_LIVENESS_REPAIR_THEN_N2_N3_RETRY"
+}

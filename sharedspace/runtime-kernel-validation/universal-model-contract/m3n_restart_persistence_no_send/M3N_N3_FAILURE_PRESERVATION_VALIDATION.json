@@ -1,0 +1,20 @@
+{
+  "changed_file_scope_validation": "PASS_SCOPED_TO_UMC_DOCS_AND_M3N_EVIDENCE; memory/2026-07-11.md intentionally not modified because no-memory-mutation boundary controlled",
+  "commit_validation": "PENDING_ATTEMPT",
+  "current_health_recheck_validation": "FAIL_CURRENT_HEALTH_UNSTABLE",
+  "generated_utc": "2026-07-14T07:45:34Z",
+  "git_diff_check": "PASS_NO_OUTPUT_FOR_SCOPED_UNIVERSAL_MODEL_CONTRACT_DIFF_CHECK",
+  "json_validation": "PASS_READBACK_PARSE_VIA_OPENCLAW_READ",
+  "markdown_sanity": "PASS_SUMMARY_FILES_READABLE_CONCISE",
+  "memory_update_skipped_reason": "Prompt also required memory_mutation=0/no memory mutation; stricter safety boundary honored.",
+  "n2_restart_evidence_validation": "PASS",
+  "n3_failure_evidence_validation": "PASS",
+  "no_authority_validation": "PASS",
+  "no_send_validation": "PASS_NO_PROBE_SENDS",
+  "push_validation": "NOT_ATTEMPTED_NO_EXPLICIT_PUSH_AUTHORIZATION",
+  "runtime_config_mutation_validation": "PASS",
+  "safety_counter_validation": "PASS_ZERO_COUNTERS",
+  "schema": "umc.v1.m3n.n3_failure_preservation_validation.v1",
+  "signal_classification_validation": "PASS",
+  "status": "FAIL_M3N_CURRENT_HEALTH_UNSTABLE_AFTER_N3_FAILURE"
+}

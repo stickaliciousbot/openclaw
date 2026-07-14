@@ -1,0 +1,70 @@
+{
+  "checks": {
+    "bounded_fresh_log_scan_clean": false,
+    "context_bridge_mutation_0": true,
+    "external_send_count_0": true,
+    "gateway_pid": 122580,
+    "gateway_reachable": true,
+    "gateway_rpc_ok": true,
+    "gateway_uptime": "~26m30s at session_status readback",
+    "installed_hashes_stable": true,
+    "memory_mutation_0": true,
+    "production_config_hash_stable": true,
+    "provider_model_shadow_calls_0": true,
+    "queue_depth_0": true,
+    "rollback_ready": true,
+    "route_fallback_config_mutation_0": true,
+    "route_provider_fallback_fingerprint_stable": true,
+    "telegram_account_count": "1/1",
+    "telegram_on_ok": true,
+    "telegram_send_count_0": true,
+    "zalo_zalouser_manifest_hashes_stable": true
+  },
+  "current_health_blocker": "fresh liveness warning remains in Gateway runtime log after N3 failure; do not repair automatically",
+  "current_state": {
+    "fresh_log_scan": {
+      "non_health_signals": [
+        "assistant/user-visible Telegram replies after user prompts are outside M3N shadow/probe send counters but prove Telegram transport could send replies"
+      ],
+      "real_current_signals": [
+        {
+          "classification": "REAL_GATEWAY_LOG_SIGNAL",
+          "signal": "diagnostic liveness warning: event_loop_delay; phase=channels.telegram.start-account; active telegram direct work and queued direct work",
+          "time": "2026-07-14T17:42:08+10:00"
+        }
+      ],
+      "scope": "/tmp/openclaw/openclaw-2026-07-14.log post-N3 readback tail, runtime logs only; session transcript excluded",
+      "status": "FAIL_CURRENT_HEALTH_UNSTABLE_AFTER_N3_FAILURE"
+    },
+    "gateway_pid": 122580,
+    "gateway_reachable": true,
+    "gateway_rpc_ok": true,
+    "gateway_uptime_observed": "session_status readback: gateway ~26m30s during preservation pass",
+    "installed_hashes_stable": true,
+    "production_config_hash_stable": true,
+    "queue_depth": {
+      "depth": 0,
+      "queued": 0,
+      "running": 0,
+      "source": "session_status steer depth 0"
+    },
+    "rollback_ready": true,
+    "route_provider_fallback_fingerprint_stable": true,
+    "telegram_account_count": "1/1 from repair artifact and N1 baseline",
+    "telegram_on_ok": true,
+    "zalo_zalouser_manifest_hashes_stable": true
+  },
+  "exact_next_phase": "M3N_POST_RESTART_HEALTH_ROOT_CAUSE_CLASSIFICATION",
+  "generated_utc": "2026-07-14T07:45:34Z",
+  "safety_counters": {
+    "context_bridge_mutation_count": 0,
+    "external_send_count": 0,
+    "memory_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_fallback_config_mutation_count": 0,
+    "telegram_send_count": 0
+  },
+  "schema": "umc.v1.m3n.current_health_recheck_after_n3_failure.v1",
+  "status": "FAIL_M3N_CURRENT_HEALTH_UNSTABLE_AFTER_N3_FAILURE"
+}

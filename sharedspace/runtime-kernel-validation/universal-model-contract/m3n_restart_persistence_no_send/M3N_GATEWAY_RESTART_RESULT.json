@@ -1,0 +1,71 @@
+{
+  "schema": "umc.v1.m3n.gateway_restart_result.v1",
+  "status": "PASS_M3N_GATEWAY_RESTART_COMPLETED",
+  "generated_utc": "2026-07-14T07:18:10Z",
+  "baseline_validation_result": "PASS_M3N_PRE_RESTART_BASELINE_CAPTURED",
+  "preflight_validation_result": "PASS_M3N_RESTART_PERSISTENCE_PREFLIGHT",
+  "stale_m3l_classification": "STALE_NON_ACTIONABLE_NO_M3L_ARTIFACTS_FOUND",
+  "restart_method": "gateway.restart first-class tool",
+  "restart_reason": "M3N installed observe-only shadow restart persistence no-send",
+  "pre_restart_pid": 104307,
+  "pre_restart_pid_source": "M3N_PRE_RESTART_PID_PROBE.txt",
+  "post_restart_pid": 110307,
+  "post_restart_pid_source": "gateway.restart tool result pid",
+  "restart_tool_result": {
+    "ok": true,
+    "pid": 110307,
+    "signal": "SIGUSR1",
+    "delayMs": 2000,
+    "reason": "M3N installed observe-only shadow restart persistence no-send",
+    "mode": "emit",
+    "coalesced": false,
+    "cooldownMsApplied": 0
+  },
+  "restart_result": "ok",
+  "startup_duration_ms": 2000,
+  "service_state_after_restart": {
+    "session_status_readback": {
+      "gateway_uptime": "58s at sentinel continuation readback",
+      "model": "openai-codex/gpt-5.5",
+      "fallbacks": [
+        "ollama/deepseek-v4-pro:cloud"
+      ],
+      "queue": "steer depth 0"
+    }
+  },
+  "bounded_startup_logs": {
+    "status": "NOT_VERIFIED_IN_HEARTBEAT_CONTEXT",
+    "reason": "Common log paths were absent and shell log scan approval was unavailable from heartbeat/restart-sentinel context.",
+    "common_paths_checked": [
+      "/home/stickai/.openclaw/gateway.log",
+      "/home/stickai/.openclaw/logs/gateway.log",
+      "/home/stickai/.openclaw/openclaw.log",
+      "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/logs/observer.stderr.log"
+    ]
+  },
+  "safety_counters": {
+    "telegram_send_count": 0,
+    "external_send_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_fallback_config_mutation_count": 0,
+    "memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0
+  },
+  "hard_boundaries_observed": {
+    "m3l_resumed": false,
+    "m3o_started": false,
+    "m4_started": false,
+    "enforcement_started": false,
+    "telegram_send": false,
+    "external_send": false,
+    "provider_model_shadow_call": false,
+    "route_fallback_config_mutation": false,
+    "memory_mutation": false,
+    "context_bridge_mutation": false
+  },
+  "files_changed": [
+    "M3N_GATEWAY_RESTART_RESULT.json",
+    "M3N_POST_RESTART_HEALTH.json"
+  ],
+  "exact_next_phase": "M3N_POST_RESTART_HEALTH"
+}

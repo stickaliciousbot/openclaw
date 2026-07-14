@@ -1,0 +1,43 @@
+{
+  "active_phase": "STOP_PRESERVE_EVIDENCE_REPAIR_M3N_POST_RESTART_HEALTH",
+  "evidence_status": {
+    "n0_preflight": "PASS_M3N_RESTART_PERSISTENCE_PREFLIGHT",
+    "n1_baseline": "PASS_M3N_PRE_RESTART_BASELINE_CAPTURED",
+    "n2_gateway_restart": "PASS_M3N_GATEWAY_RESTART_COMPLETED",
+    "n3_post_restart_health": "FAIL_M3N_POST_RESTART_HEALTH"
+  },
+  "exact_next_phase": "M3N_POST_RESTART_HEALTH_FAIL_CLOSED_CLOSEOUT",
+  "generated_utc": "2026-07-14T07:45:34Z",
+  "milestone": "M3N_INSTALLED_SHADOW_OBSERVE_ONLY_RESTART_PERSISTENCE_NO_SEND",
+  "safety_counters": {
+    "context_bridge_mutation_count": 0,
+    "external_send_count": 0,
+    "memory_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_fallback_config_mutation_count": 0,
+    "telegram_send_count": 0
+  },
+  "schema": "umc.v1.m3n.n3_failure_rehydration_result.v1",
+  "source_artifacts": [
+    "M3N_RESTART_PERSISTENCE_PREFLIGHT.json",
+    "M3N_PRE_RESTART_BASELINE.json",
+    "M3N_GATEWAY_RESTART_RESULT.json",
+    "M3N_POST_RESTART_HEALTH.json",
+    "M3N_POST_RESTART_HEALTH_ADJUDICATION.json"
+  ],
+  "status": "PASS_M3N_N3_FAILURE_REHYDRATED",
+  "verified": {
+    "enforcement_started": false,
+    "gateway_currently_up": true,
+    "m3n_persistence_verification_started": false,
+    "m3o_started": false,
+    "m4_started": false,
+    "n0_preflight_passed": true,
+    "n1_baseline_passed": true,
+    "n2_gateway_restart_passed": true,
+    "n3_post_restart_health_failed": true,
+    "queue_depth_currently_0": true,
+    "safety_counters_zero": true
+  }
+}

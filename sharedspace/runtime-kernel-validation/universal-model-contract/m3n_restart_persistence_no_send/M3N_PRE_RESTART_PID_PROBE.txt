@@ -1,0 +1,1 @@
+104307 /usr/bin/node /home/stickai/.npm-global/lib/node_modules/openclaw/dist/index.js gateway --port 18789

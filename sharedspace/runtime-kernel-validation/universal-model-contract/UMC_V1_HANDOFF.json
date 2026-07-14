@@ -1,34 +1,33 @@
 {
-  "project": "universal-model-contract",
-  "contractVersion": "umc.v1",
-  "timestamp": "2026-07-13T10:30:00Z",
-  "milestone": "M3M_INSTALLED_OBSERVE_ONLY_SHADOW_SOAK_NO_SEND_RETRY_R2",
-  "closeoutStatus": "FAIL_M3M_R2_INSTALLED_SHADOW_SOAK_ABORTED",
   "activeLane": "observe-only-shadow-no-send",
-  "activeProviderModel": "none; no provider/model shadow calls caused by R2 shadow hook",
-  "executionAuthority": "legacy_direct_plus_m2_route_intent_interceptor_plus_m2q_queue_admission_guard; no authority promotion",
+  "activeProviderModel": "none; no provider/model shadow calls caused by M3N preservation",
+  "blocker": "M3N N3 post-restart health remains fail-closed/current health unstable due real Telegram/liveness instability.",
+  "closeoutStatus": "FAIL_M3N_CURRENT_HEALTH_UNSTABLE_AFTER_N3_FAILURE",
+  "contractVersion": "umc.v1",
   "directBypass": false,
-  "manifestStatus": "shadow_only",
-  "requiredCapabilities": [
-    "installed_observe_only_shadow_soak_no_send",
-    "enhanced_gateway_reachability_diagnostics",
-    "post_abort_health_stability",
-    "safety_counter_validation",
-    "abort_evidence_preservation"
-  ],
   "evidence": [
-    "m3m_r2_installed_shadow_soak/M3M_R2_INSTALLED_SHADOW_SOAK_PREFLIGHT.json",
-    "m3m_r2_installed_shadow_soak/M3M_R2_INSTALLED_SHADOW_SOAK_BOUNDS.json",
-    "m3m_r2_installed_shadow_soak/M3M_R2_CHECKPOINT_0001.json",
-    "m3m_r2_installed_shadow_soak/M3M_R2_INSTALLED_SHADOW_SOAK_ABORT.json",
-    "m3m_r2_installed_shadow_soak/M3M_R2_INSTALLED_SHADOW_SOAK_CLOSEOUT.json",
-    "m3m_r2_installed_shadow_soak/M3M_R2_INSTALLED_SHADOW_SOAK_VALIDATION.json",
-    "m3m_r2_installed_shadow_soak/M3M_R2_INSTALLED_SHADOW_SOAK_SUMMARY.md",
-    "m3m_r2_installed_shadow_soak/M3M_R2_INSTALLED_SHADOW_SOAK_EVIDENCE_MANIFEST.json"
+    "m3n_restart_persistence_no_send/M3N_N3_FAILURE_REHYDRATION_RESULT.json",
+    "m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_FAIL_CLOSED_CLOSEOUT.json",
+    "m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_SIGNAL_CLASSIFICATION.json",
+    "m3n_restart_persistence_no_send/M3N_CURRENT_HEALTH_RECHECK_AFTER_N3_FAILURE.json",
+    "m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_ROOT_CAUSE_CLASSIFICATION.json",
+    "m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_REPAIR_AND_RETRY_PLAN.json",
+    "m3n_restart_persistence_no_send/M3N_N3_FAILURE_PRESERVATION_VALIDATION.json"
   ],
-  "mutation": "documentation/artifact preservation only after terminal abort; no runtime/config/route/fallback/provider/model/Context Bridge authority mutation; no M3N advancement",
-  "rollback": "PASS backups present; no runtime/config mutation made by R2",
-  "nextGate": "HOLD_M3M_R2_REPAIR_ROUTE_FINGERPRINT_VALIDATOR_AND_RERUN_R2",
-  "nextSafeAction": "Repair observer/preflight route fingerprint parity, validate with no-send local artifact checks, then rerun M3M R2 fresh. Do not advance to M3N until full R2 PASS.",
-  "blocker": "R2 aborted at checkpoint 0001 with route/provider/fallback drift caused by fingerprint-shape mismatch; M3N remains locked"
+  "executionAuthority": "legacy_direct_plus_m2_route_intent_interceptor_plus_m2q_queue_admission_guard; no authority promotion",
+  "manifestStatus": "shadow_only",
+  "milestone": "M3N_INSTALLED_SHADOW_OBSERVE_ONLY_RESTART_PERSISTENCE_NO_SEND",
+  "mutation": "documentation/artifact preservation only; memory update skipped due explicit no-memory-mutation boundary; no runtime/config/route/fallback/provider/model/Context Bridge authority mutation",
+  "nextGate": "M3N_POST_RESTART_HEALTH_SCANNER_AND_LIVENESS_REPAIR_THEN_N2_N3_RETRY",
+  "nextSafeAction": "Repair health validator scanner/log-window and liveness stabilization checks, then retry N2/N3 only after explicit approval for any Gateway restart. Do not proceed to persistence verification.",
+  "project": "universal-model-contract",
+  "requiredCapabilities": [
+    "installed_observe_only_shadow_restart_persistence_no_send",
+    "fail_closed_health_preservation",
+    "signal_classification",
+    "read_only_current_health_recheck",
+    "no_send_no_authority"
+  ],
+  "rollback": "PASS backups present; no runtime/config mutation made by preservation pass",
+  "timestamp": "2026-07-14T07:45:34Z"
 }

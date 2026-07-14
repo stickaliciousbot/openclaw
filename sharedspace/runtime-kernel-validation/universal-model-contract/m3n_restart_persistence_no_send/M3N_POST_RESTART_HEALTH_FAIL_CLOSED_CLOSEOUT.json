@@ -1,0 +1,26 @@
+{
+  "enforcement_locked": true,
+  "exact_next_phase": "M3N_POST_RESTART_HEALTH_SIGNAL_CLASSIFICATION",
+  "gateway_restart_passed": true,
+  "generated_utc": "2026-07-14T07:45:34Z",
+  "health_result": "FAIL_M3N_POST_RESTART_HEALTH",
+  "m3n_passed": false,
+  "m3n_persistence_verification_locked": true,
+  "m3n_post_restart_health_failed": true,
+  "m3o_locked": true,
+  "m4_locked": true,
+  "no_sends_or_authority_mutation": true,
+  "restart_result": "PASS_M3N_GATEWAY_RESTART_COMPLETED",
+  "safety_counters": {
+    "context_bridge_mutation_count": 0,
+    "external_send_count": 0,
+    "memory_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_fallback_config_mutation_count": 0,
+    "telegram_send_count": 0
+  },
+  "schema": "umc.v1.m3n.post_restart_health_fail_closed_closeout.v1",
+  "status": "PASS_M3N_POST_RESTART_HEALTH_FAILURE_PRESERVED",
+  "summary": "Gateway restart passed, but M3N_POST_RESTART_HEALTH failed closed; M3N did not pass and persistence verification remains locked."
+}

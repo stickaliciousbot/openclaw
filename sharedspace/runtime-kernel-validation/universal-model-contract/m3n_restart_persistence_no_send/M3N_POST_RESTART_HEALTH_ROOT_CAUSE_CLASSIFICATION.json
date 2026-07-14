@@ -1,0 +1,24 @@
+{
+  "allowed_classification": "POST_RESTART_TELEGRAM_PLUGIN_INSTABILITY",
+  "do_not_weaken_health_gate": true,
+  "evidence_cited": [
+    "M3N_POST_RESTART_HEALTH_SIGNAL_CLASSIFICATION.json",
+    "M3N_CURRENT_HEALTH_RECHECK_AFTER_N3_FAILURE.json",
+    "/tmp/openclaw/openclaw-2026-07-14.log lines around 17:22,17:28,17:29,17:42"
+  ],
+  "failure_real_or_scanner_only": "real instability plus scanner false positives; not scanner-only",
+  "gates_should_remain_unchanged": true,
+  "gateway_recovered_without_intervention": true,
+  "generated_utc": "2026-07-14T07:45:34Z",
+  "health_window_or_scanner_should_be_repaired": true,
+  "retry_safe": false,
+  "retry_safe_after_repair_and_explicit_restart_approval": true,
+  "schema": "umc.v1.m3n.post_restart_health_root_cause_classification.v1",
+  "secondary_classifications": [
+    "POST_RESTART_TELEGRAM_LIVENESS_TRANSIENT",
+    "POST_RESTART_HEALTH_WINDOW_TOO_SHORT",
+    "POST_RESTART_LOG_SCANNER_FALSE_POSITIVE"
+  ],
+  "status": "PASS_M3N_POST_RESTART_HEALTH_ROOT_CAUSE_CLASSIFIED",
+  "telegram_recovered_without_intervention": "partially; readback OK but fresh liveness warning remains"
+}

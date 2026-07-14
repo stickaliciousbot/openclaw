@@ -1,0 +1,82 @@
+{
+  "schema": "umc.v1.m3n.post_restart_health_adjudication.v1",
+  "status": "FAIL_M3N_POST_RESTART_HEALTH",
+  "classification": "FAIL_CLOSED_REPAIR_CHECK_COMPLETED_BUT_HEALTH_NOT_PROVEN",
+  "source_completion": {
+    "gateway_id": "e5961795-f2d1-400d-9225-0d4379a466b7",
+    "session": "tidy-summit",
+    "exit_code": 0,
+    "did_not_rerun_command": true
+  },
+  "artifacts_reviewed": [
+    "M3N_POST_RESTART_HEALTH_REPAIR_CHECK.json",
+    "M3N_POST_RESTART_HEALTH.json",
+    "M3N_GATEWAY_RESTART_RESULT.json",
+    "/tmp/openclaw/openclaw-2026-07-14.log"
+  ],
+  "restart_result_dependency": "PASS_M3N_GATEWAY_RESTART_COMPLETED",
+  "repair_check_result": {
+    "status": "FAIL_M3N_POST_RESTART_HEALTH",
+    "gateway_ok": true,
+    "telegram_ok": true,
+    "log_scan_ok": false,
+    "log_hits": 10,
+    "post_restart_pid": 122580,
+    "note": "The recorded bad-term hits are self-transcript/tool-code false positives from agent session jsonl/trajectory files, not direct Gateway startup failure evidence. The scanner scope was still too broad."
+  },
+  "actual_gateway_log_adjudication": {
+    "log_file": "/tmp/openclaw/openclaw-2026-07-14.log",
+    "restart_sequence_observed": true,
+    "restart_sequence_summary": [
+      "17:16:23+10 SIGUSR1 received",
+      "17:16:23+10 received SIGUSR1; restarting",
+      "17:16:24+10 shutdown completed with websocket-server warning",
+      "17:16:33+10 loading configuration / resolving authentication / starting",
+      "17:16:35+10 starting HTTP server"
+    ],
+    "true_post_restart_health_concerns": [
+      "17:22:08+10 diagnostic liveness warning: event_loop_delay, phase=channels.telegram.start-account, queued telegram direct item",
+      "17:28:38+10 context overflow detected for agent:main:telegram:direct:8495203551 during tool loop",
+      "17:29:02+10 Telegram getMe fetch timeout with event-loop starvation hint",
+      "17:29:02+10 exec approval followup dispatch failed due gateway timeout"
+    ],
+    "disqualifying_bad_terms_from_actual_gateway_startup": {
+      "err_module_not_found": false,
+      "missing_pi_embedded": false,
+      "missing_zalo_or_zalouser_manifest": false,
+      "unknown_telegram_channel_id": false
+    }
+  },
+  "checks": {
+    "gateway_restart_completed": true,
+    "gateway_running_and_rpc_ok_from_repair_artifact": true,
+    "telegram_readback_from_repair_artifact": true,
+    "queue_depth_at_rest_from_repair_artifact": true,
+    "bounded_startup_log_scan_clean": false,
+    "post_restart_telegram_stability_proven": false,
+    "safe_to_enter_m3n_post_restart_persistence_verification": false
+  },
+  "safety_counters": {
+    "telegram_send_count": 0,
+    "external_send_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_fallback_config_mutation_count": 0,
+    "memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0
+  },
+  "hard_boundaries_observed": {
+    "m3l_resumed": false,
+    "m3o_started": false,
+    "m4_started": false,
+    "enforcement_started": false,
+    "telegram_send_probe": false,
+    "external_send": false,
+    "provider_model_shadow_call": false,
+    "route_fallback_config_mutation": false,
+    "memory_mutation": false,
+    "context_bridge_mutation": false,
+    "additional_gateway_restart": false
+  },
+  "exact_next_phase": "STOP_PRESERVE_EVIDENCE_REPAIR_M3N_POST_RESTART_HEALTH",
+  "required_next_action": "Do not proceed to M3N_POST_RESTART_PERSISTENCE_VERIFICATION until post-restart health is re-established with a corrected runtime-log-only scanner and Telegram stability/readback is clean without sends."
+}

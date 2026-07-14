@@ -1,0 +1,123 @@
+{
+  "bounded_startup_logs": {
+    "hits": [
+      {
+        "file": "/home/stickai/.openclaw/agents/main/sessions/aa69dcbd-56b4-48b7-a79b-0b5e8909421f.jsonl",
+        "snippet": "unt_count')=='1/1','queue_depth_at_rest':queue_at_rest,'bounded_startup_logs_clean':logscan.get('ok') is True,'no_err_module_not_found':not any(h.get('term')=='ERR_MODULE_NOT_FOUND' for h in logscan.get('hits',[])),'no_missing_pi_embedded':not any(h.get('term')=='missing pi-embedded' for h in logscan.get('hits',[])),'no_missing_zalo_zalouser_manifest':not any(h.get('term') in ['missing Zalo','miss",
+        "term": "ERR_MODULE_NOT_FOUND"
+      },
+      {
+        "file": "/home/stickai/.openclaw/agents/main/sessions/aa69dcbd-56b4-48b7-a79b-0b5e8909421f.jsonl",
+        "snippet": " True,'no_err_module_not_found':not any(h.get('term')=='ERR_MODULE_NOT_FOUND' for h in logscan.get('hits',[])),'no_missing_pi_embedded':not any(h.get('term')=='missing pi-embedded' for h in logscan.get('hits',[])),'no_missing_zalo_zalouser_manifest':not any(h.get('term') in ['missing Zalo','missing Zalouser'] for h in logscan.get('hits',[])),'no_unknown_telegram_channel':not any(h.get('term')=='ch",
+        "term": "missing pi-embedded"
+      },
+      {
+        "file": "/home/stickai/.openclaw/agents/main/sessions/aa69dcbd-56b4-48b7-a79b-0b5e8909421f.jsonl",
+        "snippet": "ed':not any(h.get('term')=='missing pi-embedded' for h in logscan.get('hits',[])),'no_missing_zalo_zalouser_manifest':not any(h.get('term') in ['missing Zalo','missing Zalouser'] for h in logscan.get('hits',[])),'no_unknown_telegram_channel':not any(h.get('term')=='channels.telegram: unknown channel id' for h in logscan.get('hits',[])),'no_live_telegram_send':True,'no_external_send':True,'no_provi",
+        "term": "missing Zalo"
+      },
+      {
+        "file": "/home/stickai/.openclaw/agents/main/sessions/aa69dcbd-56b4-48b7-a79b-0b5e8909421f.jsonl",
+        "snippet": "ed':not any(h.get('term')=='missing pi-embedded' for h in logscan.get('hits',[])),'no_missing_zalo_zalouser_manifest':not any(h.get('term') in ['missing Zalo','missing Zalouser'] for h in logscan.get('hits',[])),'no_unknown_telegram_channel':not any(h.get('term')=='channels.telegram: unknown channel id' for h in logscan.get('hits',[])),'no_live_telegram_send':True,'no_external_send':True,'no_provi",
+        "term": "missing Zalouser"
+      },
+      {
+        "file": "/home/stickai/.openclaw/agents/main/sessions/aa69dcbd-56b4-48b7-a79b-0b5e8909421f.jsonl",
+        "snippet": "r_manifest':not any(h.get('term') in ['missing Zalo','missing Zalouser'] for h in logscan.get('hits',[])),'no_unknown_telegram_channel':not any(h.get('term')=='channels.telegram: unknown channel id' for h in logscan.get('hits',[])),'no_live_telegram_send':True,'no_external_send':True,'no_provider_model_shadow_call':True,'no_route_fallback_config_mutation':True,'no_memory_mutation':True,'no_context",
+        "term": "channels.telegram: unknown channel id"
+      },
+      {
+        "file": "/home/stickai/.openclaw/agents/main/sessions/aa69dcbd-56b4-48b7-a79b-0b5e8909421f.trajectory.jsonl",
+        "snippet": "**/*.log','/home/stickai/.npm-global/lib/node_modules/openclaw/**/*.log']:\\n        candidates += glob.glob(pat, recursive=True)[:50]\\n    hits=[]\\n    terms=['ERR_MODULE_NOT_FOUND','missing pi-embedded','pi-embedded','missing Zalo','missing Zalouser','channels.telegram: unknown channel id']\\n    for fp in candidates[-80:]:\\n        try:\\n            data=Path(fp).read_text(errors='ignore')[-20000",
+        "term": "ERR_MODULE_NOT_FOUND"
+      },
+      {
+        "file": "/home/stickai/.openclaw/agents/main/sessions/aa69dcbd-56b4-48b7-a79b-0b5e8909421f.trajectory.jsonl",
+        "snippet": "i/.npm-global/lib/node_modules/openclaw/**/*.log']:\\n        candidates += glob.glob(pat, recursive=True)[:50]\\n    hits=[]\\n    terms=['ERR_MODULE_NOT_FOUND','missing pi-embedded','pi-embedded','missing Zalo','missing Zalouser','channels.telegram: unknown channel id']\\n    for fp in candidates[-80:]:\\n        try:\\n            data=Path(fp).read_text(errors='ignore')[-20000:]\\n            for ter",
+        "term": "missing pi-embedded"
+      },
+      {
+        "file": "/home/stickai/.openclaw/agents/main/sessions/aa69dcbd-56b4-48b7-a79b-0b5e8909421f.trajectory.jsonl",
+        "snippet": "\\n        candidates += glob.glob(pat, recursive=True)[:50]\\n    hits=[]\\n    terms=['ERR_MODULE_NOT_FOUND','missing pi-embedded','pi-embedded','missing Zalo','missing Zalouser','channels.telegram: unknown channel id']\\n    for fp in candidates[-80:]:\\n        try:\\n            data=Path(fp).read_text(errors='ignore')[-20000:]\\n            for term in terms:\\n                if term in data:\\n    ",
+        "term": "missing Zalo"
+      },
+      {
+        "file": "/home/stickai/.openclaw/agents/main/sessions/aa69dcbd-56b4-48b7-a79b-0b5e8909421f.trajectory.jsonl",
+        "snippet": "\\n        candidates += glob.glob(pat, recursive=True)[:50]\\n    hits=[]\\n    terms=['ERR_MODULE_NOT_FOUND','missing pi-embedded','pi-embedded','missing Zalo','missing Zalouser','channels.telegram: unknown channel id']\\n    for fp in candidates[-80:]:\\n        try:\\n            data=Path(fp).read_text(errors='ignore')[-20000:]\\n            for term in terms:\\n                if term in data:\\n    ",
+        "term": "missing Zalouser"
+      },
+      {
+        "file": "/home/stickai/.openclaw/agents/main/sessions/aa69dcbd-56b4-48b7-a79b-0b5e8909421f.trajectory.jsonl",
+        "snippet": "s += glob.glob(pat, recursive=True)[:50]\\n    hits=[]\\n    terms=['ERR_MODULE_NOT_FOUND','missing pi-embedded','pi-embedded','missing Zalo','missing Zalouser','channels.telegram: unknown channel id']\\n    for fp in candidates[-80:]:\\n        try:\\n            data=Path(fp).read_text(errors='ignore')[-20000:]\\n            for term in terms:\\n                if term in data:\\n                    # o",
+        "term": "channels.telegram: unknown channel id"
+      }
+    ],
+    "ok": false,
+    "scanned_files": 54,
+    "scope": "recent <=2h logs/jsonl under .openclaw/agents,.openclaw/sessions,.openclaw/logs; workspace/temp_validation pruned",
+    "skipped_count": 0
+  },
+  "checks": {
+    "bounded_startup_logs_clean": false,
+    "gateway_reachable": true,
+    "gateway_rpc_ok": true,
+    "no_context_bridge_mutation": true,
+    "no_err_module_not_found": false,
+    "no_external_send": true,
+    "no_live_telegram_send": true,
+    "no_memory_mutation": true,
+    "no_missing_pi_embedded": false,
+    "no_missing_zalo_zalouser_manifest": false,
+    "no_provider_model_shadow_call": true,
+    "no_route_fallback_config_mutation": true,
+    "no_unknown_telegram_channel": false,
+    "post_restart_pid_differs_or_explained": true,
+    "post_restart_pid_valid": true,
+    "queue_depth_at_rest": true,
+    "telegram_accounts_1_of_1": true,
+    "telegram_on_ok": true
+  },
+  "classification": "NARROW_REPAIR_CHECK_FAILED",
+  "exact_next_phase": "STOP_PRESERVE_EVIDENCE_REPAIR_M3N_POST_RESTART_HEALTH",
+  "gateway_health_summary": "PASS reachable/RPC OK",
+  "generated_utc": "2026-07-14T07:27:57Z",
+  "hard_boundaries_observed": {
+    "context_bridge_mutation": false,
+    "enforcement_started": false,
+    "external_send": false,
+    "m3l_resumed": false,
+    "m3o_started": false,
+    "m4_started": false,
+    "memory_mutation": false,
+    "provider_model_shadow_call": false,
+    "route_fallback_config_mutation": false,
+    "telegram_send_probe": false
+  },
+  "queue_depth": {
+    "queued": 0,
+    "resting": true,
+    "running": 0
+  },
+  "repair_check_artifact": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_REPAIR_CHECK.json",
+  "restart_result_dependency": "PASS_M3N_GATEWAY_RESTART_COMPLETED",
+  "safety_counters": {
+    "context_bridge_mutation_count": 0,
+    "external_send_count": 0,
+    "memory_mutation_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_fallback_config_mutation_count": 0,
+    "telegram_send_count": 0
+  },
+  "schema": "umc.v1.m3n.post_restart_health.v1",
+  "service_state_after_restart": {
+    "post_restart_pid": 122580,
+    "pre_restart_pid": 104307,
+    "tcp_loopback": {
+      "error": null,
+      "latency_ms": 0.12,
+      "ok": true
+    }
+  },
+  "status": "FAIL_M3N_POST_RESTART_HEALTH",
+  "telegram_health_summary": "PASS ON/OK accounts 1/1"
+}

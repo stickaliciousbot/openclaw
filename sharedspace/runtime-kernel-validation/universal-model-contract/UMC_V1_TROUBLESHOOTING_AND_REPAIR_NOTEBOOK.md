@@ -302,3 +302,20 @@ m3m_r2_installed_shadow_soak/M3M_R2_INSTALLED_SHADOW_SOAK_EVIDENCE_MANIFEST.json
 ```
 
 **Result:** R2 preflight passed and launched a fresh 12h/24-checkpoint observe-only/no-send soak, but checkpoint 0001 aborted fail-closed with `FAIL_M3M_R2_ROUTE_PROVIDER_FALLBACK_DRIFT`. Gateway, Telegram, queue, installed hashes, manifest hashes, logs, safety counters, and rollback readiness were clean. Production config hash was unchanged; the route/fallback drift was classified as observer/preflight route-fingerprint shape mismatch, so this is a validation implementation abort, not a PASS. M3N remains locked. Next safe action: repair route fingerprint parity and rerun M3M R2 fresh.
+
+## 2026-07-14T07:45:34Z — M3N post-restart health failure preserved
+
+**Closeout:** `FAIL_M3N_CURRENT_HEALTH_UNSTABLE_AFTER_N3_FAILURE`
+
+**Evidence:**
+
+```text
+m3n_restart_persistence_no_send/M3N_N3_FAILURE_REHYDRATION_RESULT.json
+m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_FAIL_CLOSED_CLOSEOUT.json
+m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_SIGNAL_CLASSIFICATION.json
+m3n_restart_persistence_no_send/M3N_CURRENT_HEALTH_RECHECK_AFTER_N3_FAILURE.json
+m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_ROOT_CAUSE_CLASSIFICATION.json
+m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_REPAIR_AND_RETRY_PLAN.json
+```
+
+**Result:** M3N Gateway restart passed, but N3 post-restart health failed closed. Scanner false positives were separated from real Gateway log liveness/Telegram instability. Current health recheck remains unstable, so M3N persistence verification, M3O, M4 and enforcement remain locked. No restart, probe send, provider/model shadow call, route/config/memory/Context Bridge mutation, or production authority change occurred in this preservation pass. Next milestone: `M3N_POST_RESTART_HEALTH_SCANNER_AND_LIVENESS_REPAIR_THEN_N2_N3_RETRY`.

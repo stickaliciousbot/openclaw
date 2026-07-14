@@ -1,0 +1,87 @@
+{
+  "artifacts": [
+    {
+      "bytes": 1583,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_N3_FAILURE_REHYDRATION_RESULT.json",
+      "sha256": "2629274f0fdefff85a9cc63ecc216c5dc6f053be0a1acbf24638a3fd6c084d92"
+    },
+    {
+      "bytes": 457,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_N3_FAILURE_REHYDRATION_SUMMARY.md",
+      "sha256": "183d14cbc35a01b26605e02dbde1793b5e3fa95ecdf33776449511a8b1b089bd"
+    },
+    {
+      "bytes": 1052,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_FAIL_CLOSED_CLOSEOUT.json",
+      "sha256": "ce9276e35fd9f6c230623fa9ef65f650097c130f2f8bbff0b04d88e7ef76c697"
+    },
+    {
+      "bytes": 350,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_FAIL_CLOSED_SUMMARY.md",
+      "sha256": "8169fdc82a834067688ae4bd8f5b1dd60add0faedc045eecd79aea3737c75f9d"
+    },
+    {
+      "bytes": 6067,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_SIGNAL_CLASSIFICATION.json",
+      "sha256": "0022277e270913c75bc7048431d5dda1d1bb197d5e7cf58f05f92eb612549759"
+    },
+    {
+      "bytes": 396,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_SIGNAL_CLASSIFICATION.md",
+      "sha256": "f77e92f390831c6d674a89172f6df3736fa96991bc85ec92099cc43255ec6aa3"
+    },
+    {
+      "bytes": 2817,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CURRENT_HEALTH_RECHECK_AFTER_N3_FAILURE.json",
+      "sha256": "fcd55424adf7a202e4bf1beb8fcbd5ba6ad0ece48b8f575ad2777e1625d25299"
+    },
+    {
+      "bytes": 433,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CURRENT_HEALTH_RECHECK_AFTER_N3_FAILURE.md",
+      "sha256": "a7ba023cfbbd1cfb4925a94a9e28d20a1824f68ffb6a6f496bd7a34906b7b6d7"
+    },
+    {
+      "bytes": 1135,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_ROOT_CAUSE_CLASSIFICATION.json",
+      "sha256": "f1c601f712b1d768f26627c14ceddd5898a8c8fca15f33e7f084039782ca72ab"
+    },
+    {
+      "bytes": 679,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_ROOT_CAUSE_CLASSIFICATION.md",
+      "sha256": "cac843059da42ca2a0ce6e6725113759044a00d783fe0888521999c71a974bd1"
+    },
+    {
+      "bytes": 2029,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_REPAIR_AND_RETRY_PLAN.json",
+      "sha256": "1a2c6e9ce922b4dbbc006ecb94a2b3c0180cb462ff6ad51429df02ff307eac8b"
+    },
+    {
+      "bytes": 593,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_REPAIR_AND_RETRY_PLAN.md",
+      "sha256": "a66cf2343c0c8d862a2f76bd0f5e3e196f90862462948f8956d91589f2c35250"
+    },
+    {
+      "bytes": 1188,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_N3_FAILURE_PRESERVATION_VALIDATION.json",
+      "sha256": "a54e68129d692565634a06a92c33a3b51c3605d053a5467ff56c98192220c074"
+    },
+    {
+      "bytes": 525,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_N3_FAILURE_PRESERVATION_VALIDATION.md",
+      "sha256": "ce987cb1a53f4435394d89656a19a92f1bbce0678edd9022e9c5fc227fc7265d"
+    }
+  ],
+  "final_status": "FAIL_M3N_CURRENT_HEALTH_UNSTABLE_AFTER_N3_FAILURE",
+  "generated_utc": "2026-07-14T07:45:34Z",
+  "schema": "umc.v1.m3n.post_restart_health_fail_closed_evidence_manifest.v1",
+  "source_artifacts": [
+    "M3N_RESTART_PERSISTENCE_PREFLIGHT.json",
+    "M3N_PRE_RESTART_BASELINE.json",
+    "M3N_GATEWAY_RESTART_RESULT.json",
+    "M3N_POST_RESTART_HEALTH.json",
+    "M3N_POST_RESTART_HEALTH_REPAIR_CHECK.json",
+    "M3N_POST_RESTART_HEALTH_ADJUDICATION.json"
+  ],
+  "status": "PASS_M3N_POST_RESTART_HEALTH_FAILURE_PRESERVED",
+  "validation_status": "FAIL_M3N_CURRENT_HEALTH_UNSTABLE_AFTER_N3_FAILURE"
+}

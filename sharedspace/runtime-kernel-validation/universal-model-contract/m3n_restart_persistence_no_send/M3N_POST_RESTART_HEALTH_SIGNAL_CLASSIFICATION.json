@@ -1,0 +1,125 @@
+{
+  "conclusion": "N3 was not scanner-only; scanner had false positives, but real post-restart/current Gateway liveness/Telegram instability remains.",
+  "duplicate_scanner_signal_count": 0,
+  "generated_utc": "2026-07-14T07:45:34Z",
+  "post_restart_only_signals": [
+    [
+      "2026-07-14T17:22:08+10:00",
+      "diagnostic liveness warning: event_loop_delay; phase=channels.telegram.start-account; queued telegram direct item"
+    ],
+    [
+      "2026-07-14T17:28:38+10:00",
+      "context overflow detected for agent:main:telegram:direct:8495203551 during tool loop"
+    ],
+    [
+      "2026-07-14T17:29:02+10:00",
+      "Telegram getMe fetch timeout with event-loop starvation hint"
+    ],
+    [
+      "2026-07-14T17:29:02+10:00",
+      "exec approval followup dispatch failed due gateway timeout"
+    ],
+    [
+      "2026-07-14T17:42:08+10:00",
+      "fresh current diagnostic liveness warning: event_loop_delay; phase=channels.telegram.start-account; active/queued telegram direct work"
+    ]
+  ],
+  "pre_restart_stale_signal_count": 0,
+  "real_gateway_log_signal_count": 5,
+  "scanner_false_positive_count": 10,
+  "schema": "umc.v1.m3n.post_restart_health_signal_classification.v1",
+  "signals": [
+    {
+      "classification": "TRANSCRIPT_FALSE_POSITIVE",
+      "file": "/home/stickai/.openclaw/agents/main/sessions/aa69dcbd-56b4-48b7-a79b-0b5e8909421f.jsonl",
+      "reason": "scanner matched checker source text in agent session/trajectory transcript, not Gateway runtime log output",
+      "term": "ERR_MODULE_NOT_FOUND"
+    },
+    {
+      "classification": "TRANSCRIPT_FALSE_POSITIVE",
+      "file": "/home/stickai/.openclaw/agents/main/sessions/aa69dcbd-56b4-48b7-a79b-0b5e8909421f.jsonl",
+      "reason": "scanner matched checker source text in agent session/trajectory transcript, not Gateway runtime log output",
+      "term": "missing pi-embedded"
+    },
+    {
+      "classification": "TRANSCRIPT_FALSE_POSITIVE",
+      "file": "/home/stickai/.openclaw/agents/main/sessions/aa69dcbd-56b4-48b7-a79b-0b5e8909421f.jsonl",
+      "reason": "scanner matched checker source text in agent session/trajectory transcript, not Gateway runtime log output",
+      "term": "missing Zalo"
+    },
+    {
+      "classification": "TRANSCRIPT_FALSE_POSITIVE",
+      "file": "/home/stickai/.openclaw/agents/main/sessions/aa69dcbd-56b4-48b7-a79b-0b5e8909421f.jsonl",
+      "reason": "scanner matched checker source text in agent session/trajectory transcript, not Gateway runtime log output",
+      "term": "missing Zalouser"
+    },
+    {
+      "classification": "TRANSCRIPT_FALSE_POSITIVE",
+      "file": "/home/stickai/.openclaw/agents/main/sessions/aa69dcbd-56b4-48b7-a79b-0b5e8909421f.jsonl",
+      "reason": "scanner matched checker source text in agent session/trajectory transcript, not Gateway runtime log output",
+      "term": "channels.telegram: unknown channel id"
+    },
+    {
+      "classification": "TRANSCRIPT_FALSE_POSITIVE",
+      "file": "/home/stickai/.openclaw/agents/main/sessions/aa69dcbd-56b4-48b7-a79b-0b5e8909421f.trajectory.jsonl",
+      "reason": "scanner matched checker source text in agent session/trajectory transcript, not Gateway runtime log output",
+      "term": "ERR_MODULE_NOT_FOUND"
+    },
+    {
+      "classification": "TRANSCRIPT_FALSE_POSITIVE",
+      "file": "/home/stickai/.openclaw/agents/main/sessions/aa69dcbd-56b4-48b7-a79b-0b5e8909421f.trajectory.jsonl",
+      "reason": "scanner matched checker source text in agent session/trajectory transcript, not Gateway runtime log output",
+      "term": "missing pi-embedded"
+    },
+    {
+      "classification": "TRANSCRIPT_FALSE_POSITIVE",
+      "file": "/home/stickai/.openclaw/agents/main/sessions/aa69dcbd-56b4-48b7-a79b-0b5e8909421f.trajectory.jsonl",
+      "reason": "scanner matched checker source text in agent session/trajectory transcript, not Gateway runtime log output",
+      "term": "missing Zalo"
+    },
+    {
+      "classification": "TRANSCRIPT_FALSE_POSITIVE",
+      "file": "/home/stickai/.openclaw/agents/main/sessions/aa69dcbd-56b4-48b7-a79b-0b5e8909421f.trajectory.jsonl",
+      "reason": "scanner matched checker source text in agent session/trajectory transcript, not Gateway runtime log output",
+      "term": "missing Zalouser"
+    },
+    {
+      "classification": "TRANSCRIPT_FALSE_POSITIVE",
+      "file": "/home/stickai/.openclaw/agents/main/sessions/aa69dcbd-56b4-48b7-a79b-0b5e8909421f.trajectory.jsonl",
+      "reason": "scanner matched checker source text in agent session/trajectory transcript, not Gateway runtime log output",
+      "term": "channels.telegram: unknown channel id"
+    },
+    {
+      "classification": "REAL_GATEWAY_LOG_SIGNAL",
+      "signal": "diagnostic liveness warning: event_loop_delay; phase=channels.telegram.start-account; queued telegram direct item",
+      "source": "/tmp/openclaw/openclaw-2026-07-14.log",
+      "time": "2026-07-14T17:22:08+10:00"
+    },
+    {
+      "classification": "REAL_GATEWAY_LOG_SIGNAL",
+      "signal": "context overflow detected for agent:main:telegram:direct:8495203551 during tool loop",
+      "source": "/tmp/openclaw/openclaw-2026-07-14.log",
+      "time": "2026-07-14T17:28:38+10:00"
+    },
+    {
+      "classification": "REAL_GATEWAY_LOG_SIGNAL",
+      "signal": "Telegram getMe fetch timeout with event-loop starvation hint",
+      "source": "/tmp/openclaw/openclaw-2026-07-14.log",
+      "time": "2026-07-14T17:29:02+10:00"
+    },
+    {
+      "classification": "REAL_GATEWAY_LOG_SIGNAL",
+      "signal": "exec approval followup dispatch failed due gateway timeout",
+      "source": "/tmp/openclaw/openclaw-2026-07-14.log",
+      "time": "2026-07-14T17:29:02+10:00"
+    },
+    {
+      "classification": "REAL_GATEWAY_LOG_SIGNAL",
+      "signal": "fresh current diagnostic liveness warning: event_loop_delay; phase=channels.telegram.start-account; active/queued telegram direct work",
+      "source": "/tmp/openclaw/openclaw-2026-07-14.log",
+      "time": "2026-07-14T17:42:08+10:00"
+    }
+  ],
+  "status": "PASS_M3N_N3_REAL_INSTABILITY_CLASSIFIED",
+  "unclassified_signal_count": 0
+}

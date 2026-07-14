@@ -1,0 +1,31 @@
+{
+  "checks": {
+    "abort_artifact_absent": true,
+    "checkpoint_24_of_24": true,
+    "context_bridge_mutation_zero": true,
+    "enforcement_not_started": true,
+    "external_send_zero": true,
+    "gateway_r2b_pass": true,
+    "m3n_not_already_started": true,
+    "m4_not_started": true,
+    "memory_mutation_zero": true,
+    "missed_checkpoints_zero": true,
+    "production_config_drift_zero": true,
+    "provider_live_shadow_zero": true,
+    "r2b_closeout_exists": true,
+    "r2b_status_exact": true,
+    "route_provider_fallback_drift_zero": true,
+    "runtime_mutation_zero": true,
+    "stale_status_non_authoritative": true,
+    "telegram_r2b_pass": true,
+    "telegram_send_zero": true
+  },
+  "failures": [],
+  "generated_utc": "2026-07-14T06:25:08Z",
+  "hard_boundaries": "observe-only/no-send/no-authority; M4/enforcement not started",
+  "schema": "umc.v1.m3n.restart_persistence.preflight.v1",
+  "source_closeout": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3m_r2b_installed_shadow_soak/M3M_R2B_INSTALLED_SHADOW_SOAK_CLOSEOUT.json",
+  "source_closeout_status": "PASS_M3M_INSTALLED_OBSERVE_ONLY_SHADOW_SOAK_NO_SEND_RETRY_R2B",
+  "stale_status_json_classification": "NON_AUTHORITATIVE_TERMINAL_CLOSEOUT_PRESENT",
+  "status": "PASS_M3N_RESTART_PERSISTENCE_PREFLIGHT"
+}

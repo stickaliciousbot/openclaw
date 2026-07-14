@@ -1,0 +1,150 @@
+{
+  "schema": "umc.v1.m3n.pre_restart_baseline.v1",
+  "status": "PASS_M3N_PRE_RESTART_BASELINE_CAPTURED",
+  "generated_utc": "2026-07-14T06:33:59Z",
+  "capture_scope": "M3N_PRE_RESTART_BASELINE_CAPTURE_ONLY",
+  "n0_dependency": {
+    "artifact": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_RESTART_PERSISTENCE_PREFLIGHT.json",
+    "status": "PASS_M3N_RESTART_PERSISTENCE_PREFLIGHT",
+    "validated": true
+  },
+  "m3m_r2b_closeout_status": "PASS_M3M_INSTALLED_OBSERVE_ONLY_SHADOW_SOAK_NO_SEND_RETRY_R2B",
+  "stale_status_json_classification": "NON_AUTHORITATIVE_TERMINAL_CLOSEOUT_PRESENT",
+  "gateway_pid": 3063179,
+  "gateway_pid_correction": {
+    "initial_collector_artifact_pid": 104070,
+    "classification": "COLLECTOR_SHELL_PID_NOT_GATEWAY",
+    "correct_gateway_pid_source": "same N1 process scan plus M3M_R2B_CHECKPOINT_0024.gateway.pid",
+    "correct_gateway_pid": 3063179
+  },
+  "gateway_health_result": {
+    "reachable": true,
+    "rpc_ok": true,
+    "tcp_loopback": {
+      "ok": true,
+      "latency_ms": 0.1
+    },
+    "source": "N1 read-only collector plus accepted M3M R2B checkpoint evidence; no restart performed in N1"
+  },
+  "telegram_status": {
+    "healthy": true,
+    "accounts_1_of_1": true,
+    "status_latency_ms": 15259.73
+  },
+  "telegram_account_count": "1/1",
+  "queue_depth": {
+    "queued": 0,
+    "resting": true,
+    "running": 0
+  },
+  "installed_package_hash_fingerprint": {
+    "dist_dir": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist",
+    "runtime_files": {
+      "old_runner": {
+        "path": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/agent-runner.runtime-a09vVD0N.js",
+        "present": true,
+        "sha256": "6567099cf446f8675a00dd6a800b786013d0effbaae5c1b633d528272c0ab014",
+        "size": 206768
+      },
+      "required_chunk": {
+        "path": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/pi-embedded-CHyx9q9Z.js",
+        "present": true,
+        "sha256": "e6ebc69bea65beefb20b3e118748ff1badcab76058816b11c5fe7ad35cfa4cf4",
+        "size": 166867
+      }
+    },
+    "required_manifests": {
+      "zalo_manifest": {
+        "present": true,
+        "sha256": "635c83aa3b28d07c85cf55257e084dd678fcbe9808bc2b76db19edadcc43dcb1",
+        "source": "M3M_R2B_CHECKPOINT_0024.installed.hashes.zalo_manifest"
+      },
+      "zalouser_manifest": {
+        "present": true,
+        "sha256": "03874c85b9a212217e25b55aeb75eed46f9252e56246d0b9b178176ccf823fae",
+        "source": "M3M_R2B_CHECKPOINT_0024.installed.hashes.zalouser_manifest"
+      }
+    },
+    "path_probe_correction": "Initial collector guessed /dist/zalo/manifest.json and /dist/zalouser/manifest.json; those guessed paths were non-authoritative. Canonical R2B installed manifest presence/hash readback is used for N1 baseline."
+  },
+  "canonical_route_provider_fallback_fingerprint": {
+    "schema": "umc.v1.route_provider_fallback_fingerprint.v1",
+    "default_model": "openai-codex/gpt-5.5",
+    "fallback_models": [
+      "ollama/deepseek-v4-pro:cloud"
+    ],
+    "route_model_config_sha256": "c488219281e8dc95e361e9bcdfabc786b4b7d4c546307dcd89092931ba98911b"
+  },
+  "canonical_route_provider_fallback_sha256": "0489015c7c22264b5d607ae18b88a2391a0bca8b4923b238a746d7087fd7e30c",
+  "production_config_hash": "a4f0aac75704eb7d171e528c0486fd8baa95260450d38653aea5ba3226e2d859",
+  "observe_only_hook_state": {
+    "disabled_by_default": true,
+    "fixture_active": false,
+    "fixture_env": {
+      "UMC_SHADOW_DELIVERY": null,
+      "UMC_SHADOW_MODE": null,
+      "UMC_SHADOW_MUTATION": null,
+      "UMC_SHADOW_OWNER_SCOPE": null,
+      "UMC_SHADOW_PROVIDER": null
+    }
+  },
+  "hook_disabled_by_default": true,
+  "rollback_readiness": {
+    "backups_present": true,
+    "backups": [
+      "agent-runner.runtime-a09vVD0N.js.bak-umc-m2q-20260711T0538Z",
+      "get-reply-DGnDV9U-.js.bak-umc-m2-20260711T025241Z",
+      "get-reply-DGnDV9U-.js.bak-umc-m2-reapply-20260711T0448Z",
+      "pi-embedded-CHyx9q9Z.js.bak-forced-memory-prefetch-20260711T0942"
+    ]
+  },
+  "bounded_fresh_log_scan": {
+    "ok": true,
+    "hits": [],
+    "scanned_files": 60
+  },
+  "safety_counters": {
+    "context_bridge_mutation": 0,
+    "external_sends": 0,
+    "memory_mutation": 0,
+    "production_config_mutation": 0,
+    "provider_model_live_execution_caused_by_shadow": 0,
+    "real_write_tools": 0,
+    "route_fallback_mutation": 0,
+    "shadow_receipt_count": 0,
+    "telegram_sends_caused_by_shadow": 0,
+    "terminal_closeout_count": 0,
+    "would_be_fail_count": 0,
+    "would_be_hold_count": 0
+  },
+  "validation": {
+    "async_validation_session": "dawn-atlas",
+    "async_validation_gateway_id": "93a7dd87-548d-4525-8c58-dd20c46ca83a",
+    "json_validation": "PASS",
+    "markdown_sanity": "PASS",
+    "git_diff_check": "PASS_CODE_0_NO_OUTPUT",
+    "changed_file_scope_validation": "PASS_N1_BASELINE_ARTIFACTS_ONLY",
+    "n0_dependency_validation": "PASS",
+    "baseline_completeness_validation": "PASS",
+    "safety_counter_validation": "PASS_ZERO_COUNTERS",
+    "no_send_validation": "PASS",
+    "no_authority_validation": "PASS",
+    "runtime_config_mutation_validation": "PASS_NO_RESTART_IN_N1"
+  },
+  "hard_boundaries_observed": {
+    "gateway_restart": false,
+    "telegram_send": false,
+    "external_send": false,
+    "provider_model_shadow_call": false,
+    "package_install": false,
+    "tarball_apply": false,
+    "runtime_mutation": false,
+    "route_fallback_config_mutation": false,
+    "memory_mutation": false,
+    "context_bridge_mutation": false,
+    "m3o_started": false,
+    "m4_started": false,
+    "enforcement_started": false
+  },
+  "exact_next_phase": "M3N_GATEWAY_RESTART_RESULT"
+}

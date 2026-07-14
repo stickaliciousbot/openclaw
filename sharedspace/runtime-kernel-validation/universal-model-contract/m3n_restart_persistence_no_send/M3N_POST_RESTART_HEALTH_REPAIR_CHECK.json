@@ -1,0 +1,133 @@
+{
+  "bounded_log_scan": {
+    "hits": [
+      {
+        "file": "/home/stickai/.openclaw/agents/main/sessions/aa69dcbd-56b4-48b7-a79b-0b5e8909421f.jsonl",
+        "snippet": "unt_count')=='1/1','queue_depth_at_rest':queue_at_rest,'bounded_startup_logs_clean':logscan.get('ok') is True,'no_err_module_not_found':not any(h.get('term')=='ERR_MODULE_NOT_FOUND' for h in logscan.get('hits',[])),'no_missing_pi_embedded':not any(h.get('term')=='missing pi-embedded' for h in logscan.get('hits',[])),'no_missing_zalo_zalouser_manifest':not any(h.get('term') in ['missing Zalo','miss",
+        "term": "ERR_MODULE_NOT_FOUND"
+      },
+      {
+        "file": "/home/stickai/.openclaw/agents/main/sessions/aa69dcbd-56b4-48b7-a79b-0b5e8909421f.jsonl",
+        "snippet": " True,'no_err_module_not_found':not any(h.get('term')=='ERR_MODULE_NOT_FOUND' for h in logscan.get('hits',[])),'no_missing_pi_embedded':not any(h.get('term')=='missing pi-embedded' for h in logscan.get('hits',[])),'no_missing_zalo_zalouser_manifest':not any(h.get('term') in ['missing Zalo','missing Zalouser'] for h in logscan.get('hits',[])),'no_unknown_telegram_channel':not any(h.get('term')=='ch",
+        "term": "missing pi-embedded"
+      },
+      {
+        "file": "/home/stickai/.openclaw/agents/main/sessions/aa69dcbd-56b4-48b7-a79b-0b5e8909421f.jsonl",
+        "snippet": "ed':not any(h.get('term')=='missing pi-embedded' for h in logscan.get('hits',[])),'no_missing_zalo_zalouser_manifest':not any(h.get('term') in ['missing Zalo','missing Zalouser'] for h in logscan.get('hits',[])),'no_unknown_telegram_channel':not any(h.get('term')=='channels.telegram: unknown channel id' for h in logscan.get('hits',[])),'no_live_telegram_send':True,'no_external_send':True,'no_provi",
+        "term": "missing Zalo"
+      },
+      {
+        "file": "/home/stickai/.openclaw/agents/main/sessions/aa69dcbd-56b4-48b7-a79b-0b5e8909421f.jsonl",
+        "snippet": "ed':not any(h.get('term')=='missing pi-embedded' for h in logscan.get('hits',[])),'no_missing_zalo_zalouser_manifest':not any(h.get('term') in ['missing Zalo','missing Zalouser'] for h in logscan.get('hits',[])),'no_unknown_telegram_channel':not any(h.get('term')=='channels.telegram: unknown channel id' for h in logscan.get('hits',[])),'no_live_telegram_send':True,'no_external_send':True,'no_provi",
+        "term": "missing Zalouser"
+      },
+      {
+        "file": "/home/stickai/.openclaw/agents/main/sessions/aa69dcbd-56b4-48b7-a79b-0b5e8909421f.jsonl",
+        "snippet": "r_manifest':not any(h.get('term') in ['missing Zalo','missing Zalouser'] for h in logscan.get('hits',[])),'no_unknown_telegram_channel':not any(h.get('term')=='channels.telegram: unknown channel id' for h in logscan.get('hits',[])),'no_live_telegram_send':True,'no_external_send':True,'no_provider_model_shadow_call':True,'no_route_fallback_config_mutation':True,'no_memory_mutation':True,'no_context",
+        "term": "channels.telegram: unknown channel id"
+      },
+      {
+        "file": "/home/stickai/.openclaw/agents/main/sessions/aa69dcbd-56b4-48b7-a79b-0b5e8909421f.trajectory.jsonl",
+        "snippet": "**/*.log','/home/stickai/.npm-global/lib/node_modules/openclaw/**/*.log']:\\n        candidates += glob.glob(pat, recursive=True)[:50]\\n    hits=[]\\n    terms=['ERR_MODULE_NOT_FOUND','missing pi-embedded','pi-embedded','missing Zalo','missing Zalouser','channels.telegram: unknown channel id']\\n    for fp in candidates[-80:]:\\n        try:\\n            data=Path(fp).read_text(errors='ignore')[-20000",
+        "term": "ERR_MODULE_NOT_FOUND"
+      },
+      {
+        "file": "/home/stickai/.openclaw/agents/main/sessions/aa69dcbd-56b4-48b7-a79b-0b5e8909421f.trajectory.jsonl",
+        "snippet": "i/.npm-global/lib/node_modules/openclaw/**/*.log']:\\n        candidates += glob.glob(pat, recursive=True)[:50]\\n    hits=[]\\n    terms=['ERR_MODULE_NOT_FOUND','missing pi-embedded','pi-embedded','missing Zalo','missing Zalouser','channels.telegram: unknown channel id']\\n    for fp in candidates[-80:]:\\n        try:\\n            data=Path(fp).read_text(errors='ignore')[-20000:]\\n            for ter",
+        "term": "missing pi-embedded"
+      },
+      {
+        "file": "/home/stickai/.openclaw/agents/main/sessions/aa69dcbd-56b4-48b7-a79b-0b5e8909421f.trajectory.jsonl",
+        "snippet": "\\n        candidates += glob.glob(pat, recursive=True)[:50]\\n    hits=[]\\n    terms=['ERR_MODULE_NOT_FOUND','missing pi-embedded','pi-embedded','missing Zalo','missing Zalouser','channels.telegram: unknown channel id']\\n    for fp in candidates[-80:]:\\n        try:\\n            data=Path(fp).read_text(errors='ignore')[-20000:]\\n            for term in terms:\\n                if term in data:\\n    ",
+        "term": "missing Zalo"
+      },
+      {
+        "file": "/home/stickai/.openclaw/agents/main/sessions/aa69dcbd-56b4-48b7-a79b-0b5e8909421f.trajectory.jsonl",
+        "snippet": "\\n        candidates += glob.glob(pat, recursive=True)[:50]\\n    hits=[]\\n    terms=['ERR_MODULE_NOT_FOUND','missing pi-embedded','pi-embedded','missing Zalo','missing Zalouser','channels.telegram: unknown channel id']\\n    for fp in candidates[-80:]:\\n        try:\\n            data=Path(fp).read_text(errors='ignore')[-20000:]\\n            for term in terms:\\n                if term in data:\\n    ",
+        "term": "missing Zalouser"
+      },
+      {
+        "file": "/home/stickai/.openclaw/agents/main/sessions/aa69dcbd-56b4-48b7-a79b-0b5e8909421f.trajectory.jsonl",
+        "snippet": "s += glob.glob(pat, recursive=True)[:50]\\n    hits=[]\\n    terms=['ERR_MODULE_NOT_FOUND','missing pi-embedded','pi-embedded','missing Zalo','missing Zalouser','channels.telegram: unknown channel id']\\n    for fp in candidates[-80:]:\\n        try:\\n            data=Path(fp).read_text(errors='ignore')[-20000:]\\n            for term in terms:\\n                if term in data:\\n                    # o",
+        "term": "channels.telegram: unknown channel id"
+      }
+    ],
+    "ok": false,
+    "scanned_files": 54,
+    "scope": "recent <=2h logs/jsonl under .openclaw/agents,.openclaw/sessions,.openclaw/logs; workspace/temp_validation pruned",
+    "skipped_count": 0
+  },
+  "checks": {
+    "bounded_startup_logs_clean": false,
+    "gateway_reachable": true,
+    "gateway_rpc_ok": true,
+    "no_context_bridge_mutation": true,
+    "no_err_module_not_found": false,
+    "no_external_send": true,
+    "no_live_telegram_send": true,
+    "no_memory_mutation": true,
+    "no_missing_pi_embedded": false,
+    "no_missing_zalo_zalouser_manifest": false,
+    "no_provider_model_shadow_call": true,
+    "no_route_fallback_config_mutation": true,
+    "no_unknown_telegram_channel": false,
+    "post_restart_pid_differs_or_explained": true,
+    "post_restart_pid_valid": true,
+    "queue_depth_at_rest": true,
+    "telegram_accounts_1_of_1": true,
+    "telegram_on_ok": true
+  },
+  "gateway_status_json": {
+    "cmd": "openclaw gateway status --json",
+    "duration_ms": 1853.16,
+    "rc": 0,
+    "stderr": "",
+    "stdout": "{\n  \"logFile\": \"/tmp/openclaw/openclaw-2026-07-14.log\",\n  \"service\": {\n    \"label\": \"systemd user\",\n    \"loaded\": true,\n    \"loadedText\": \"enabled\",\n    \"notLoadedText\": \"disabled\",\n    \"command\": {\n      \"programArguments\": [\n        \"/usr/bin/node\",\n        \"/home/stickai/.npm-global/lib/node_modules/openclaw/dist/index.js\",\n        \"gateway\",\n        \"--port\",\n        \"18789\"\n      ],\n      \"environment\": {\n        \"OPENCLAW_GATEWAY_PORT\": \"18789\"\n      },\n      \"environmentValueSources\": {\n        \"HOME\": \"inline\",\n        \"TMPDIR\": \"inline\",\n        \"PATH\": \"inline\",\n        \"OPENCLAW_GATEWAY_PORT\": \"inline\",\n        \"OPENCLAW_SYSTEMD_UNIT\": \"inline\",\n        \"OPENCLAW_WINDOWS_TASK_NAME\": \"inline\",\n        \"OPENCLAW_SERVICE_MARKER\": \"inline\",\n        \"OPENCLAW_SERVICE_KIND\": \"inline\",\n        \"OPENCLAW_SERVICE_VERSION\": \"inline\"\n      },\n      \"sourcePath\": \"/home/stickai/.config/systemd/user/openclaw-gateway.service\"\n    },\n    \"runtime\": {\n      \"status\": \"running\",\n      \"state\": \"active\",\n      \"subState\": \"running\",\n      \"pid\": 122580,\n      \"lastExitStatus\": 0,\n      \"lastExitReason\": \"0\"\n    },\n    \"configAudit\": {\n      \"ok\": false,\n      \"issues\": [\n        {\n          \"code\": \"gateway-path-missing-dirs\",\n          \"message\": \"Gateway service PATH missing required dirs: /home/stickai/.local/share/pnpm\",\n          \"level\": \"recommended\"\n        }\n      ]\n    }\n  },\n  \"config\": {\n    \"cli\": {\n      \"path\": \"/home/stickai/.openclaw/openclaw.json\",\n      \"exists\": true,\n      \"valid\": true,\n      \"controlUi\": {\n        \"allowInsecureAuth\": true,\n        \"allowedOrigins\": [\n          \"http://localhost:18789\",\n          \"http://127.0.0.1:18789\"\n        ]\n      }\n    },\n    \"daemon\": {\n      \"path\": \"/home/stickai/.openclaw/openclaw.json\",\n      \"exists\": true,\n      \"valid\": true,\n      \"controlUi\": {\n        \"allowInsecureAuth\": true,\n        \"allowedOrigins\": [\n          \"http://localhost:18789\",\n          \"http://127.0.0.1:18789\"\n        ]\n      }\n    }\n  },\n  \"gateway\": {\n    \"bindMode\": \"lan\",\n    \"bindHost\": \"0.0.0.0\",\n    \"port\": 18789,\n    \"portSource\": \"service args\",\n    \"probeUrl\": \"ws://127.0.0.1:18789\",\n    \"probeNote\": \"bind=lan listens on 0.0.0.0 (all interfaces); probing via 127.0.0.1.\"\n  },\n  \"port\": {\n    \"port\": 18789,\n    \"status\": \"busy\",\n    \"listeners\": [\n      {\n        \"pid\": 122580,\n        \"command\": \"node\",\n        \"address\": \"*:18789\",\n        \"commandLine\": \"/usr/bin/node /home/stickai/.npm-global/lib/node_modules/openclaw/dist/index.js gateway --port 18789\",\n        \"user\": \"stickai\",\n        \"ppid\": 639\n      }\n    ],\n    \"hints\": [\n      \"Gateway already running locally. Stop it (openclaw gateway stop) or use a different port.\"\n    ]\n  },\n  \"rpc\": {\n    \"ok\": true,\n    \"kind\": \"connect\",\n    \"capability\": \"admin_capable\",\n    \"auth\": {\n      \"role\": \"operator\",\n      \"scopes\": [\n        \"operator.admin\"\n      ],\n      \"capability\": \"admin_capable\"\n    },\n    \"url\": \"ws://127.0.0.1:18789\"\n  },\n  \"extraServices\": []\n}\n"
+  },
+  "generated_utc": "2026-07-14T07:27:57Z",
+  "hard_boundaries_observed": {
+    "context_bridge_mutation": false,
+    "enforcement_started": false,
+    "external_send": false,
+    "m3l_resumed": false,
+    "m3o_started": false,
+    "m4_started": false,
+    "memory_mutation": false,
+    "provider_model_shadow_call": false,
+    "route_fallback_config_mutation": false,
+    "telegram_send_probe": false
+  },
+  "openclaw_status_json": {
+    "cmd": "openclaw status --json",
+    "duration_ms": 15754.99,
+    "rc": 0,
+    "stderr": "",
+    "stdout": "       },\n          {\n            \"agentId\": \"main\",\n            \"key\": \"agent:main:main\",\n            \"kind\": \"direct\",\n            \"sessionId\": \"9025a6b5-2014-459d-8bf7-c9a32c46f194\",\n            \"updatedAt\": 1784013604957,\n            \"age\": 460256,\n            \"systemSent\": true,\n            \"abortedLastRun\": false,\n            \"inputTokens\": 28,\n            \"outputTokens\": 24,\n            \"cacheRead\": 0,\n            \"cacheWrite\": 0,\n            \"totalTokens\": 28,\n            \"totalTokensFresh\": true,\n            \"remainingTokens\": 271972,\n            \"percentUsed\": 0,\n            \"model\": \"gpt-5.5\",\n            \"runtime\": \"OpenClaw Pi Default\",\n            \"contextTokens\": 272000,\n            \"flags\": [\n              \"system\",\n              \"id:9025a6b5-2014-459d-8bf7-c9a32c46f194\"\n            ]\n          },\n          {\n            \"agentId\": \"main\",\n            \"key\": \"agent:main:cron:0d7d143c-5ed5-4a2d-886c-cbee8666c5c0\",\n            \"kind\": \"cron\",\n            \"sessionId\": \"e97afa1e-e5eb-4f90-b31d-75a1528f0191\",\n            \"updatedAt\": 1784011750569,\n            \"age\": 2314644,\n            \"systemSent\": true,\n            \"inputTokens\": 4350,\n            \"outputTokens\": 139,\n            \"cacheRead\": 0,\n            \"cacheWrite\": 0,\n            \"totalTokens\": 2223,\n            \"totalTokensFresh\": true,\n            \"remainingTokens\": 997777,\n            \"percentUsed\": 0,\n            \"model\": \"deepseek-v4-pro:cloud\",\n            \"runtime\": \"OpenClaw Pi Default\",\n            \"contextTokens\": 1000000,\n            \"flags\": [\n              \"system\",\n              \"id:e97afa1e-e5eb-4f90-b31d-75a1528f0191\"\n            ]\n          },\n          {\n            \"agentId\": \"main\",\n            \"key\": \"agent:main:cron:13adb9c2-9ce5-41eb-be54-16a99e1ea9b9\",\n            \"kind\": \"cron\",\n            \"sessionId\": \"754eac4e-440e-46ab-91ca-da91a8e7cab7\",\n            \"updatedAt\": 1783981800818,\n            \"age\": 32264395,\n            \"systemSent\": true,\n            \"inputTokens\": 3943,\n            \"outputTokens\": 163,\n            \"cacheRead\": 3584,\n            \"cacheWrite\": 0,\n            \"totalTokens\": 3848,\n            \"totalTokensFresh\": true,\n            \"remainingTokens\": 196152,\n            \"percentUsed\": 2,\n            \"model\": \"gpt-5.5\",\n            \"runtime\": \"OpenClaw Pi Default\",\n            \"contextTokens\": 200000,\n            \"flags\": [\n              \"system\",\n              \"id:754eac4e-440e-46ab-91ca-da91a8e7cab7\"\n            ]\n          },\n          {\n            \"agentId\": \"main\",\n            \"key\": \"agent:main:cron:486bc9e0-b5d4-4046-bd57-acd6b2e9f5ed:run:f1adb1d6-a976-42a8-96e8-d46b18d7dd30\",\n            \"kind\": \"cron\",\n            \"sessionId\": \"ae0f6990-ea47-464a-ab04-15ca4d18a8ae\",\n            \"updatedAt\": 1783977723400,\n            \"age\": 36341813,\n            \"abortedLastRun\": false,\n            \"inputTokens\": 16712,\n            \"outputTokens\": 526,\n            \"cacheRead\": 30208,\n            \"cacheWrite\": 0,\n            \"totalTokens\": 15966,\n            \"totalTokensFresh\": true,\n            \"remainingTokens\": 256034,\n            \"percentUsed\": 6,\n            \"model\": \"gpt-5.5\",\n            \"runtime\": \"OpenClaw Pi Default\",\n            \"contextTokens\": 272000,\n            \"flags\": [\n              \"id:ae0f6990-ea47-464a-ab04-15ca4d18a8ae\"\n            ]\n          },\n          {\n            \"agentId\": \"main\",\n            \"key\": \"agent:main:cron:395199ad-5da5-4e66-a4ec-a5a462771914:run:d7679370-037c-4ac2-9a98-fd7a59910924\",\n            \"kind\": \"cron\",\n            \"sessionId\": \"9567c68a-8437-48c2-827b-ebb6c0634e99\",\n            \"updatedAt\": 1783977092612,\n            \"age\": 36972601,\n            \"abortedLastRun\": false,\n            \"inputTokens\": 23543,\n            \"outputTokens\": 615,\n            \"cacheRead\": 14848,\n            \"cacheWrite\": 0,\n            \"totalTokens\": 38391,\n            \"totalTokensFresh\": true,\n            \"remainingTokens\": 233609,\n            \"percentUsed\": 14,\n            \"model\": \"gpt-5.5\",\n            \"runtime\": \"OpenClaw Pi Default\",\n            \"contextTokens\": 272000,\n            \"flags\": [\n              \"id:9567c68a-8437-48c2-827b-ebb6c0634e99\"\n            ]\n          },\n          {\n            \"agentId\": \"main\",\n            \"key\": \"agent:main:cron:486bc9e0-b5d4-4046-bd57-acd6b2e9f5ed\",\n            \"kind\": \"cron\",\n            \"sessionId\": \"f1adb1d6-a976-42a8-96e8-d46b18d7dd30\",\n            \"updatedAt\": 1783977000844,\n            \"age\": 37064369,\n            \"systemSent\": true,\n            \"inputTokens\": 11400,\n            \"outputTokens\": 698,\n            \"cacheRead\": 8192,\n            \"cacheWrite\": 0,\n            \"totalTokens\": 6119,\n            \"totalTokensFresh\": true,\n            \"remainingTokens\": 193881,\n            \"percentUsed\": 3,\n            \"model\": \"gpt-5.5\",\n            \"runtime\": \"OpenClaw Pi Default\",\n            \"contextTokens\": 200000,\n            \"flags\": [\n              \"system\",\n              \"id:f1adb1d6-a976-42a8-96e8-d46b18d7dd30\"\n            ]\n          },\n          {\n            \"agentId\": \"main\",\n            \"key\": \"agent:main:cron:0f59aead-684e-47ca-bfca-6a63df11d85d\",\n            \"kind\": \"cron\",\n            \"sessionId\": \"dc791cfe-8357-43b3-9a4d-1efd7b17c835\",\n            \"updatedAt\": 1783976400824,\n            \"age\": 37664389,\n            \"systemSent\": true,\n            \"inputTokens\": 5159,\n            \"outputTokens\": 184,\n            \"cacheRead\": 0,\n            \"cacheWrite\": 0,\n            \"totalTokens\": 2672,\n            \"totalTokensFresh\": true,\n            \"remainingTokens\": 197328,\n            \"percentUsed\": 1,\n            \"model\": \"gpt-5.5\",\n            \"runtime\": \"OpenClaw Pi Default\",\n            \"contextTokens\": 200000,\n            \"flags\": [\n              \"system\",\n              \"id:dc791cfe-8357-43b3-9a4d-1efd7b17c835\"\n            ]\n          },\n          {\n            \"agentId\": \"main\",\n            \"key\": \"agent:main:cron:bb4b1687-68ce-4735-b548-4ca2de076148\",\n            \"kind\": \"cron\",\n            \"sessionId\": \"4c15f7fb-6be9-49e6-a977-f9e34ee93e00\",\n            \"updatedAt\": 1783975800732,\n            \"age\": 38264481,\n            \"systemSent\": true,\n            \"inputTokens\": 9732,\n            \"outputTokens\": 1111,\n            \"cacheRead\": 3584,\n            \"cacheWrite\": 0,\n            \"totalTokens\": 5210,\n            \"totalTokensFresh\": true,\n            \"remainingTokens\": 194790,\n            \"percentUsed\": 3,\n            \"model\": \"gpt-5.5\",\n            \"runtime\": \"OpenClaw Pi Default\",\n            \"contextTokens\": 200000,\n            \"flags\": [\n              \"system\",\n              \"id:4c15f7fb-6be9-49e6-a977-f9e34ee93e00\"\n            ]\n          }\n        ]\n      },\n      {\n        \"agentId\": \"claude-code\",\n        \"path\": \"/home/stickai/.openclaw/agents/claude-code/sessions/sessions.json\",\n        \"count\": 0,\n        \"recent\": []\n      },\n      {\n        \"agentId\": \"codex\",\n        \"path\": \"/home/stickai/.openclaw/agents/codex/sessions/sessions.json\",\n        \"count\": 0,\n        \"recent\": []\n      },\n      {\n        \"agentId\": \"cursor\",\n        \"path\": \"/home/stickai/.openclaw/agents/cursor/sessions/sessions.json\",\n        \"count\": 0,\n        \"recent\": []\n      },\n      {\n        \"agentId\": \"gemini-cli\",\n        \"path\": \"/home/stickai/.openclaw/agents/gemini-cli/sessions/sessions.json\",\n        \"count\": 0,\n        \"recent\": []\n      }\n    ]\n  },\n  \"os\": {\n    \"platform\": \"linux\",\n    \"arch\": \"x64\",\n    \"release\": \"6.18.33.2-microsoft-standard-WSL2\",\n    \"label\": \"linux 6.18.33.2-microsoft-standard-WSL2 (x64)\"\n  },\n  \"update\": {\n    \"root\": \"/home/stickai/.npm-global/lib/node_modules/openclaw\",\n    \"installKind\": \"package\",\n    \"packageManager\": \"pnpm\",\n    \"deps\": {\n      \"manager\": \"pnpm\",\n      \"status\": \"unknown\",\n      \"lockfilePath\": \"/home/stickai/.npm-global/lib/node_modules/openclaw/pnpm-lock.yaml\",\n      \"markerPath\": \"/home/stickai/.npm-global/lib/node_modules/openclaw/node_modules/.modules.yaml\",\n      \"reason\": \"lockfile missing\"\n    },\n    \"registry\": {\n      \"latestVersion\": \"2026.7.1\",\n      \"tag\": \"latest\"\n    }\n  },\n  \"updateChannel\": \"stable\",\n  \"updateChannelSource\": \"default\",\n  \"memory\": null,\n  \"memoryPlugin\": {\n    \"enabled\": true,\n    \"slot\": \"memory-core\"\n  },\n  \"gateway\": {\n    \"mode\": \"local\",\n    \"url\": \"ws://127.0.0.1:18789\",\n    \"urlSource\": \"local loopback\",\n    \"misconfigured\": false,\n    \"reachable\": true,\n    \"connectLatencyMs\": 156,\n    \"self\": {\n      \"host\": \"Susie-Dell-Inspiron\",\n      \"ip\": \"172.24.168.46\",\n      \"version\": \"2026.5.7\",\n      \"platform\": \"linux 6.18.33.2-microsoft-standard-WSL2\"\n    },\n    \"error\": null,\n    \"authWarning\": null\n  },\n  \"gatewayService\": {\n    \"label\": \"systemd user\",\n    \"installed\": true,\n    \"loaded\": true,\n    \"managedByOpenClaw\": true,\n    \"externallyManaged\": false,\n    \"loadedText\": \"enabled\",\n    \"runtime\": {\n      \"status\": \"running\",\n      \"state\": \"active\",\n      \"subState\": \"running\",\n      \"pid\": 122580,\n      \"lastExitStatus\": 0,\n      \"lastExitReason\": \"0\"\n    },\n    \"runtimeShort\": \"running (pid 122580, state active)\",\n    \"layout\": {\n      \"execStart\": \"/usr/bin/node /home/stickai/.npm-global/lib/node_modules/openclaw/dist/index.js gateway --port 18789\",\n      \"sourcePath\": \"/home/stickai/.config/systemd/user/openclaw-gateway.service\",\n      \"sourcePathReal\": \"/home/stickai/.config/systemd/user/openclaw-gateway.service\",\n      \"sourceScope\": \"user\",\n      \"entrypoint\": \"/home/stickai/.npm-global/lib/node_modules/openclaw/dist/index.js\",\n      \"entrypointReal\": \"/home/stickai/.npm-global/lib/node_modules/openclaw/dist/index.js\",\n      \"packageRoot\": \"/home/stickai/.npm-global/lib/node_modules/openclaw\",\n      \"packageRootReal\": \"/home/stickai/.npm-global/lib/node_modules/openclaw\",\n      \"packageVersion\": \"2026.5.7\",\n      \"entrypointSourceCheckout\": false\n    }\n  },\n  \"nodeService\": {\n    \"label\": \"systemd user\",\n    \"installed\": false,\n    \"loaded\": false,\n    \"managedByOpenClaw\": false,\n    \"externallyManaged\": false,\n    \"loadedText\": \"disabled\",\n    \"runtime\": {\n      \"status\": \"stopped\",\n      \"state\": \"inactive\",\n      \"subState\": \"dead\",\n      \"lastExitStatus\": 0,\n      \"lastExitReason\": \"0\"\n    },\n    \"runtimeShort\": \"stopped (state inactive)\"\n  },\n  \"agents\": {\n    \"defaultId\": \"main\",\n    \"agents\": [\n      {\n        \"id\": \"main\",\n        \"workspaceDir\": \"/home/stickai/.openclaw/workspace\",\n        \"bootstrapPending\": false,\n        \"sessionsPath\": \"/home/stickai/.openclaw/agents/main/sessions/sessions.json\",\n        \"sessionsCount\": 64,\n        \"lastUpdatedAt\": 1784014020651,\n        \"lastActiveAgeMs\": 41587\n      },\n      {\n        \"id\": \"claude-code\",\n        \"workspaceDir\": \"/home/stickai/.openclaw/workspace/claude-code\",\n        \"bootstrapPending\": false,\n        \"sessionsPath\": \"/home/stickai/.openclaw/agents/claude-code/sessions/sessions.json\",\n        \"sessionsCount\": 0,\n        \"lastUpdatedAt\": null,\n        \"lastActiveAgeMs\": null\n      },\n      {\n        \"id\": \"codex\",\n        \"workspaceDir\": \"/home/stickai/.openclaw/workspace/codex\",\n        \"bootstrapPending\": false,\n        \"sessionsPath\": \"/home/stickai/.openclaw/agents/codex/sessions/sessions.json\",\n        \"sessionsCount\": 0,\n        \"lastUpdatedAt\": null,\n        \"lastActiveAgeMs\": null\n      },\n      {\n        \"id\": \"cursor\",\n        \"workspaceDir\": \"/home/stickai/.openclaw/workspace/cursor\",\n        \"bootstrapPending\": false,\n        \"sessionsPath\": \"/home/stickai/.openclaw/agents/cursor/sessions/sessions.json\",\n        \"sessionsCount\": 0,\n        \"lastUpdatedAt\": null,\n        \"lastActiveAgeMs\": null\n      },\n      {\n        \"id\": \"gemini-cli\",\n        \"workspaceDir\": \"/home/stickai/.openclaw/workspace/gemini-cli\",\n        \"bootstrapPending\": false,\n        \"sessionsPath\": \"/home/stickai/.openclaw/agents/gemini-cli/sessions/sessions.json\",\n        \"sessionsCount\": 0,\n        \"lastUpdatedAt\": null,\n        \"lastActiveAgeMs\": null\n      }\n    ],\n    \"totalSessions\": 64,\n    \"bootstrapPendingCount\": 0\n  },\n  \"secretDiagnostics\": []\n}\n"
+  },
+  "pids": {
+    "found": [
+      {
+        "cmd": "/usr/bin/node /home/stickai/.npm-global/lib/node_modules/openclaw/dist/index.js gateway --port 18789",
+        "pid": 122580
+      }
+    ],
+    "primary_pid": 122580,
+    "scan_rc": 0
+  },
+  "repair_reason": "narrow repair after previous scans failed on recursive path / timed out",
+  "safety_counters": {
+    "context_bridge_mutation_count": 0,
+    "external_send_count": 0,
+    "memory_mutation_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_fallback_config_mutation_count": 0,
+    "telegram_send_count": 0
+  },
+  "schema": "umc.v1.m3n.post_restart_health_repair_check.v1",
+  "status": "FAIL_M3N_POST_RESTART_HEALTH",
+  "tcp_loopback": {
+    "error": null,
+    "latency_ms": 0.12,
+    "ok": true
+  }
+}
