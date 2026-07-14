@@ -1,0 +1,37 @@
+{
+  "current_liveness_state": "UNSTABLE",
+  "current_pid": 122580,
+  "fresh_bounded_log_signals": [
+    {
+      "classification": "REAL_GATEWAY_LOG_SIGNAL",
+      "snippet": "e\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:52:08.447+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"liveness warning: reasons=event_loop_delay interval=30s eventLoopDelayP99Ms=32.6 eventLoopDelayMaxMs=3739.2 eventLoopUtilization=0.252 cpuCoreRatio=0.318 active=2 waiting=0 queued=1 phase=channels.telegram.start-account recentPhases=sidecars.subagent-recovery:",
+      "term": "liveness warning"
+    },
+    {
+      "classification": "REAL_GATEWAY_LOG_SIGNAL",
+      "snippet": " warning: reasons=event_loop_delay interval=30s eventLoopDelayP99Ms=32.6 eventLoopDelayMaxMs=3739.2 eventLoopUtilization=0.252 cpuCoreRatio=0.318 active=2 waiting=0 queued=1 phase=channels.telegram.start-account recentPhases=sidecars.subagent-recovery:12ms,sidecars.main-session-recovery:18ms,sidecars.model-prewarm:2114ms,post-attach.update-sentinel:65ms,sidecars.session-locks:156ms,post-ready.maintenance:11ms work=[active=agent:main:tel",
+      "term": "channels.telegram.start-account"
+    }
+  ],
+  "gateway_reachable_rpc_ok": true,
+  "generated_utc": "2026-07-14T07:53:27Z",
+  "installed_hashes_stable": true,
+  "no_authority_mutation": true,
+  "no_sends": true,
+  "production_config_hash_stable": true,
+  "queue_depth": "0 expected from status/session readback; openclaw status command completed rc=0",
+  "rollback_ready": true,
+  "route_provider_fallback_fingerprint_stable": true,
+  "safety_counters": {
+    "context_bridge_mutation_count": 0,
+    "external_send_count": 0,
+    "memory_mutation_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_config_mutation_count": 0,
+    "telegram_send_count": 0
+  },
+  "schema": "umc.v1.m3n.post_repair_production_recheck.v1",
+  "status": "FAIL_M3N_POST_REPAIR_PRODUCTION_HEALTH_UNSTABLE",
+  "telegram_readback_account_1_of_1": "OK from latest preservation artifact; no Telegram send performed",
+  "zalo_zalouser_manifest_hashes_stable": true
+}

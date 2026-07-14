@@ -1,0 +1,207 @@
+{
+  "fixtures": [
+    {
+      "counts": {
+        "real": 0,
+        "stale": 0,
+        "total": 1,
+        "transcript": 1
+      },
+      "name": "transcript false positives excluded",
+      "pass": true,
+      "signals": [
+        {
+          "classification": "TRANSCRIPT_FALSE_POSITIVE",
+          "message": "no_err_module_not_found checks ERR_MODULE_NOT_FOUND missing pi-embedded missing Zalo missing Zalouser channels.telegram: unknown channel id",
+          "path": "/home/stickai/.openclaw/agents/main/sessions/x.jsonl",
+          "terms": [
+            "ERR_MODULE_NOT_FOUND",
+            "missing pi-embedded",
+            "missing Zalo",
+            "missing Zalouser",
+            "channels.telegram: unknown channel id"
+          ]
+        }
+      ],
+      "status": "PASS_HEALTH"
+    },
+    {
+      "counts": {
+        "real": 1,
+        "stale": 0,
+        "total": 1,
+        "transcript": 0
+      },
+      "name": "real Gateway liveness detected",
+      "pass": true,
+      "signals": [
+        {
+          "classification": "REAL_GATEWAY_LOG_SIGNAL",
+          "message": "liveness warning phase=channels.telegram.start-account event_loop_delay",
+          "path": "/tmp/openclaw/openclaw.log",
+          "terms": [
+            "liveness warning",
+            "channels.telegram.start-account"
+          ]
+        }
+      ],
+      "status": "FAIL_REAL_LIVENESS_SIGNAL"
+    },
+    {
+      "counts": {
+        "real": 0,
+        "stale": 1,
+        "total": 1,
+        "transcript": 0
+      },
+      "name": "stale pre-restart excluded",
+      "pass": true,
+      "signals": [
+        {
+          "classification": "STALE_PRE_RESTART_LOG_SIGNAL",
+          "message": "liveness warning phase=channels.telegram.start-account before restart",
+          "path": "/tmp/openclaw/openclaw.log",
+          "terms": [
+            "liveness warning",
+            "channels.telegram.start-account"
+          ]
+        }
+      ],
+      "status": "PASS_HEALTH"
+    },
+    {
+      "counts": {
+        "real": 1,
+        "stale": 0,
+        "total": 1,
+        "transcript": 0
+      },
+      "name": "bounded post-restart included",
+      "pass": true,
+      "signals": [
+        {
+          "classification": "REAL_GATEWAY_LOG_SIGNAL",
+          "message": "fetch timeout reached getMe event-loop starvation",
+          "path": "/tmp/openclaw/openclaw.log",
+          "terms": [
+            "fetch timeout reached",
+            "getMe",
+            "event-loop starvation"
+          ]
+        }
+      ],
+      "status": "FAIL_REAL_LIVENESS_SIGNAL"
+    },
+    {
+      "counts": {
+        "real": 1,
+        "stale": 0,
+        "total": 1,
+        "transcript": 0
+      },
+      "name": "duplicate scanner hits dedup",
+      "pass": true,
+      "signals": [
+        {
+          "classification": "REAL_GATEWAY_LOG_SIGNAL",
+          "message": "liveness warning phase=channels.telegram.start-account",
+          "path": "/tmp/openclaw/openclaw.log",
+          "terms": [
+            "liveness warning",
+            "channels.telegram.start-account"
+          ]
+        }
+      ],
+      "status": "FAIL_REAL_LIVENESS_SIGNAL"
+    },
+    {
+      "counts": {
+        "real": 1,
+        "stale": 0,
+        "total": 1,
+        "transcript": 0
+      },
+      "name": "readback OK persistent liveness fails",
+      "pass": true,
+      "signals": [
+        {
+          "classification": "REAL_GATEWAY_LOG_SIGNAL",
+          "message": "liveness warning phase=channels.telegram.start-account",
+          "path": "/tmp/openclaw/openclaw.log",
+          "terms": [
+            "liveness warning",
+            "channels.telegram.start-account"
+          ]
+        }
+      ],
+      "status": "FAIL_REAL_LIVENESS_SIGNAL"
+    },
+    {
+      "counts": {
+        "real": 1,
+        "stale": 0,
+        "total": 1,
+        "transcript": 0
+      },
+      "name": "readback OK transient then clean passes",
+      "pass": true,
+      "signals": [
+        {
+          "classification": "REAL_GATEWAY_LOG_SIGNAL",
+          "message": "liveness warning phase=channels.telegram.start-account",
+          "path": "/tmp/openclaw/openclaw.log",
+          "terms": [
+            "liveness warning",
+            "channels.telegram.start-account"
+          ]
+        }
+      ],
+      "status": "PASS_HEALTH"
+    },
+    {
+      "counts": {
+        "real": 0,
+        "stale": 0,
+        "total": 0,
+        "transcript": 0
+      },
+      "name": "Gateway RPC failure fails",
+      "pass": true,
+      "signals": [],
+      "status": "FAIL_GATEWAY_RPC"
+    },
+    {
+      "counts": {
+        "real": 0,
+        "stale": 0,
+        "total": 0,
+        "transcript": 0
+      },
+      "name": "Telegram readback failure fails",
+      "pass": true,
+      "signals": [],
+      "status": "FAIL_TELEGRAM_READBACK"
+    },
+    {
+      "counts": {
+        "real": 0,
+        "stale": 0,
+        "total": 0,
+        "transcript": 0
+      },
+      "name": "no sends performed by validator",
+      "pass": true,
+      "signals": [],
+      "status": "PASS_HEALTH"
+    }
+  ],
+  "generated_utc": "2026-07-14T07:53:27Z",
+  "no_authority_mutation": true,
+  "no_sends_performed": true,
+  "schema": "umc.v1.m3n.post_restart_health_repair_fixture_results.v1",
+  "status": "PASS_M3N_POST_RESTART_HEALTH_REPAIR_FIXTURES",
+  "summary": {
+    "passed": 10,
+    "total": 10
+  }
+}

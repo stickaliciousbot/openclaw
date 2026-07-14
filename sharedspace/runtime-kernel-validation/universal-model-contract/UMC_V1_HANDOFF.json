@@ -1,25 +1,25 @@
 {
   "activeLane": "observe-only-shadow-no-send",
   "activeProviderModel": "none; no provider/model shadow calls caused by M3N preservation",
-  "blocker": "M3N N3 post-restart health remains fail-closed/current health unstable due real Telegram/liveness instability.",
-  "closeoutStatus": "FAIL_M3N_CURRENT_HEALTH_UNSTABLE_AFTER_N3_FAILURE",
+  "blocker": "Post-repair production health remains unstable.",
+  "closeoutStatus": "FAIL_M3N_POST_REPAIR_PRODUCTION_HEALTH_UNSTABLE",
   "contractVersion": "umc.v1",
   "directBypass": false,
   "evidence": [
-    "m3n_restart_persistence_no_send/M3N_N3_FAILURE_REHYDRATION_RESULT.json",
-    "m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_FAIL_CLOSED_CLOSEOUT.json",
-    "m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_SIGNAL_CLASSIFICATION.json",
-    "m3n_restart_persistence_no_send/M3N_CURRENT_HEALTH_RECHECK_AFTER_N3_FAILURE.json",
-    "m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_ROOT_CAUSE_CLASSIFICATION.json",
-    "m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_REPAIR_AND_RETRY_PLAN.json",
-    "m3n_restart_persistence_no_send/M3N_N3_FAILURE_PRESERVATION_VALIDATION.json"
+    "m3n_restart_persistence_no_send/M3N_N3_FAILURE_PRESERVATION_BRANCH_SCOPE_VALIDATION.json",
+    "m3n_restart_persistence_no_send/M3N_N3_FAILURE_PRESERVATION_TARGET_DECISION.json",
+    "m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_SCANNER_REPAIR_RESULT.json",
+    "m3n_restart_persistence_no_send/M3N_POST_RESTART_LIVENESS_REPAIR_RESULT.json",
+    "m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_REPAIR_FIXTURE_RESULTS.json",
+    "m3n_restart_persistence_no_send/M3N_POST_REPAIR_PRODUCTION_RECHECK.json",
+    "m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_REPAIR_EVIDENCE_MANIFEST.json"
   ],
   "executionAuthority": "legacy_direct_plus_m2_route_intent_interceptor_plus_m2q_queue_admission_guard; no authority promotion",
   "manifestStatus": "shadow_only",
-  "milestone": "M3N_INSTALLED_SHADOW_OBSERVE_ONLY_RESTART_PERSISTENCE_NO_SEND",
-  "mutation": "documentation/artifact preservation only; memory update skipped due explicit no-memory-mutation boundary; no runtime/config/route/fallback/provider/model/Context Bridge authority mutation",
-  "nextGate": "M3N_POST_RESTART_HEALTH_SCANNER_AND_LIVENESS_REPAIR_THEN_N2_N3_RETRY",
-  "nextSafeAction": "Repair health validator scanner/log-window and liveness stabilization checks, then retry N2/N3 only after explicit approval for any Gateway restart. Do not proceed to persistence verification.",
+  "milestone": "M3N_POST_RESTART_HEALTH_SCANNER_AND_LIVENESS_REPAIR_THEN_N2_N3_RETRY",
+  "mutation": "documentation/artifact preservation only; no runtime/config/route/fallback/provider/model/memory/Context Bridge authority mutation",
+  "nextGate": "HOLD_REPAIR_CURRENT_TELEGRAM_LIVENESS_BEFORE_N2_N3_RETRY",
+  "nextSafeAction": "Investigate current Telegram/liveness instability read-only or repair underlying plugin/event-loop issue under a separate approved milestone. Do not request N2/N3 retry restart until production recheck passes.",
   "project": "universal-model-contract",
   "requiredCapabilities": [
     "installed_observe_only_shadow_restart_persistence_no_send",
@@ -29,5 +29,5 @@
     "no_send_no_authority"
   ],
   "rollback": "PASS backups present; no runtime/config mutation made by preservation pass",
-  "timestamp": "2026-07-14T07:45:34Z"
+  "timestamp": "2026-07-14T07:54:34Z"
 }

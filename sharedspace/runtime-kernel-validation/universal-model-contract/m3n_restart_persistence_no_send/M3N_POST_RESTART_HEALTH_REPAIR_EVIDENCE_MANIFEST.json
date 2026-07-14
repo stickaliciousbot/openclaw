@@ -1,0 +1,87 @@
+{
+  "artifacts": [
+    {
+      "bytes": 9258,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_N3_FAILURE_PRESERVATION_BRANCH_SCOPE_VALIDATION.json",
+      "sha256": "6f1d7d0fab333d2980598397f82b907c7ca97b8d43c3eada0c309870529742f0"
+    },
+    {
+      "bytes": 478,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_N3_FAILURE_PRESERVATION_BRANCH_SCOPE_VALIDATION.md",
+      "sha256": "efda7740a7a90f2a912b99130b8d2f43f8deed4677946132ca8749e18abf6371"
+    },
+    {
+      "bytes": 653,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_N3_FAILURE_PRESERVATION_TARGET_DECISION.json",
+      "sha256": "36d79ad15a3d40df4abed8c8d06e85dde1fe5caa4bfcc633b744b7861ea90b34"
+    },
+    {
+      "bytes": 371,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_N3_FAILURE_REMOTE_PRESERVATION_RESULT.json",
+      "sha256": "81adab91c3a04b7d00f5613e943633955b4e7989f4d853e7326fe730ddae47d6"
+    },
+    {
+      "bytes": 2130,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/m3n_post_restart_health_validator.py",
+      "sha256": "7bb6c7da050ab3ed81a8d4559f47bf668c8ba13a7966887ebaf297db322620b1"
+    },
+    {
+      "bytes": 615,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_SCANNER_REPAIR_RESULT.json",
+      "sha256": "02d3d853faf825f7e5cc13bef3e5d2fd408b26ca55a883c960312111d8836fe2"
+    },
+    {
+      "bytes": 797,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_POST_RESTART_LIVENESS_REPAIR_RESULT.json",
+      "sha256": "05ea7b4bf6c67d63f9c4d86fb98406aaba3cd12737ec72a90e14a724fbb71e77"
+    },
+    {
+      "bytes": 441,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_POST_RESTART_LIVENESS_REPAIR_POLICY.md",
+      "sha256": "f55b8ce8ed6bab28dd425ad0fdcfe24cc69affd7eacf1004d0bc4cf47bd80ab4"
+    },
+    {
+      "bytes": 5324,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_REPAIR_FIXTURE_RESULTS.json",
+      "sha256": "9ba87efeed285045b18ed9e5ce6449fc8bf71f2d1c6e0cfd710b3abde99c6849"
+    },
+    {
+      "bytes": 2154,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_POST_REPAIR_PRODUCTION_RECHECK.json",
+      "sha256": "e380ff8bee4966e8669984ece01ca56a5784499735dcf34d300123bfd97d983b"
+    },
+    {
+      "bytes": 845,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_REPAIR_VALIDATION.json",
+      "sha256": "68d973a91a0d4a43ccf81b4b08eb1e63a87bfa147d63f1c5555587f08e9d2696"
+    },
+    {
+      "bytes": 2085,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/UMC_V1_HANDOFF.json",
+      "sha256": "b9d00aca224f1ccafbcc35fa231eab1828630618d9ed67c7990dd420d9334360"
+    },
+    {
+      "bytes": 13897,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/UMC_V1_MILESTONE_LEDGER.md",
+      "sha256": "4dac45efbba322412a92fa43b1ce52ad55f6d5fdc64818ff64942858e4b8aef8"
+    },
+    {
+      "bytes": 19925,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/UMC_V1_REHYDRATOR.md",
+      "sha256": "b07f77c634466fb427e52a89c39fac5ba3c74624bd3aab749f352386a725ce3b"
+    },
+    {
+      "bytes": 28171,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/UMC_V1_IMPLEMENTATION_NOTEBOOK.md",
+      "sha256": "ca10a47f3b96c2056f5ede332c2439a7c3c1b210cbd96c11734d97f1a0f4bd90"
+    },
+    {
+      "bytes": 24442,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/UMC_V1_TROUBLESHOOTING_AND_REPAIR_NOTEBOOK.md",
+      "sha256": "c70bf1b21063785ba4086ce54b7db4845a830f8b355b6b6e817e882ee98e00d4"
+    }
+  ],
+  "generated_utc": "2026-07-14T07:53:27Z",
+  "schema": "umc.v1.m3n.post_restart_health_repair_evidence_manifest.v1",
+  "status": "FAIL_M3N_POST_REPAIR_PRODUCTION_HEALTH_UNSTABLE"
+}

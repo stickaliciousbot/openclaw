@@ -1,0 +1,21 @@
+{
+  "allowed": {
+    "bounded_grace_window": true,
+    "distinguish_transient_vs_persistent": true,
+    "fail_closed_if_warning_persists": true,
+    "read_only_liveness_readback": true
+  },
+  "does_not_weaken_health_gate": true,
+  "forbidden": {
+    "disable_telegram_health_gate": false,
+    "ignore_telegram_liveness_warnings": false,
+    "mutate_telegram_config": false,
+    "readback_ok_sufficient_with_liveness_warning": false,
+    "repeat_restart_without_approval": false,
+    "send_telegram_probes": false
+  },
+  "generated_utc": "2026-07-14T07:53:27Z",
+  "policy": "bounded stabilization window with read-only readbacks; persistent liveness warning fails closed",
+  "schema": "umc.v1.m3n.post_restart_liveness_repair_result.v1",
+  "status": "PASS_M3N_POST_RESTART_LIVENESS_REPAIR_READY"
+}

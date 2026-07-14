@@ -1,0 +1,14 @@
+{
+  "blocker": null,
+  "current_branch": "evidence/umc-m3n-post-restart-health-failclosed-20260713",
+  "current_head": "abd51ba992159e2a797cc314a573149bb4ee1646",
+  "decision": "Already on preferred target branch at preservation commit.",
+  "force_push_allowed": false,
+  "generated_utc": "2026-07-14T07:53:27Z",
+  "preferred_target_branch": "evidence/umc-m3n-post-restart-health-failclosed-20260713",
+  "preservation_commit": "abd51ba992159e2a797cc314a573149bb4ee1646",
+  "push_allowed": true,
+  "rebase_allowed": false,
+  "schema": "umc.v1.m3n.n3_failure_preservation_target_decision.v1",
+  "status": "PASS_M3N_N3_FAILURE_PRESERVATION_TARGET_READY"
+}

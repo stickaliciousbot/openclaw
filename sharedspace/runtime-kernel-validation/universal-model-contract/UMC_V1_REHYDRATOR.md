@@ -311,3 +311,23 @@ m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_REPAIR_AND_RETRY_PLAN.js
 ```
 
 **Result:** M3N Gateway restart passed, but N3 post-restart health failed closed. Scanner false positives were separated from real Gateway log liveness/Telegram instability. Current health recheck remains unstable, so M3N persistence verification, M3O, M4 and enforcement remain locked. No restart, probe send, provider/model shadow call, route/config/memory/Context Bridge mutation, or production authority change occurred in this preservation pass. Next milestone: `M3N_POST_RESTART_HEALTH_SCANNER_AND_LIVENESS_REPAIR_THEN_N2_N3_RETRY`.
+
+## 2026-07-14T07:54:34Z — M3N post-restart health scanner/liveness repair attempt
+
+**Closeout:** `FAIL_M3N_POST_REPAIR_PRODUCTION_HEALTH_UNSTABLE`
+
+**Milestone:** `M3N_POST_RESTART_HEALTH_SCANNER_AND_LIVENESS_REPAIR_THEN_N2_N3_RETRY`
+
+**Evidence:**
+
+```text
+m3n_restart_persistence_no_send/M3N_N3_FAILURE_PRESERVATION_BRANCH_SCOPE_VALIDATION.json
+m3n_restart_persistence_no_send/M3N_N3_FAILURE_PRESERVATION_TARGET_DECISION.json
+m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_SCANNER_REPAIR_RESULT.json
+m3n_restart_persistence_no_send/M3N_POST_RESTART_LIVENESS_REPAIR_RESULT.json
+m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_REPAIR_FIXTURE_RESULTS.json
+m3n_restart_persistence_no_send/M3N_POST_REPAIR_PRODUCTION_RECHECK.json
+m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_REPAIR_EVIDENCE_MANIFEST.json
+```
+
+**Result:** Preservation branch target was corrected to `evidence/umc-m3n-post-restart-health-failclosed-20260713`; scanner repair and liveness policy fixtures passed without sends or authority mutation. Read-only production recheck failed because fresh bounded runtime-log evidence still showed Telegram/liveness instability, so no N2/N3 retry approval was requested and no Gateway restart occurred. M3N persistence verification, M3O, M4 and enforcement remain locked.

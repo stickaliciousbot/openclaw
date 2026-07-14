@@ -1,0 +1,8 @@
+{
+  "generated_utc": "2026-07-14T07:53:27Z",
+  "pushed": false,
+  "reason": "No explicit push authorization; additionally target branch unresolved until correct UMC M3N evidence branch is active.",
+  "remote_head_verified": false,
+  "schema": "umc.v1.m3n.n3_failure_remote_preservation_result.v1",
+  "status": "SKIP_M3N_N3_FAILURE_REMOTE_PRESERVATION_NO_AUTHORIZATION"
+}

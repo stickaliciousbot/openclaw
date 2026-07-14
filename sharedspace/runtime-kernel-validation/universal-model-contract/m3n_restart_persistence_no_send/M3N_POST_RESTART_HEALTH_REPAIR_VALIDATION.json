@@ -1,0 +1,18 @@
+{
+  "changed_file_scope_validation": "PENDING_EXTERNAL",
+  "commit_status": "PENDING",
+  "generated_utc": "2026-07-14T07:53:27Z",
+  "git_diff_check": "PENDING_EXTERNAL",
+  "json_validation": "PASS",
+  "liveness_fixture_validation": "PASS_M3N_POST_RESTART_HEALTH_REPAIR_FIXTURES",
+  "markdown_sanity": "PASS",
+  "no_authority_validation": "PASS",
+  "no_send_validation": "PASS",
+  "production_recheck_validation": "FAIL_M3N_POST_REPAIR_PRODUCTION_HEALTH_UNSTABLE",
+  "push_status": "SKIP_NO_AUTHORIZATION",
+  "runtime_config_mutation_validation": "PASS_NO_RUNTIME_CONFIG_MUTATION",
+  "safety_counter_validation": "PASS_ZERO_COUNTERS",
+  "scanner_fixture_validation": "PASS_M3N_POST_RESTART_HEALTH_REPAIR_FIXTURES",
+  "schema": "umc.v1.m3n.post_restart_health_repair_validation.v1",
+  "status": "FAIL_M3N_POST_REPAIR_PRODUCTION_HEALTH_UNSTABLE"
+}

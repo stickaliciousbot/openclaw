@@ -1,0 +1,17 @@
+{
+  "generated_utc": "2026-07-14T07:53:27Z",
+  "no_authority_mutation": true,
+  "no_sends": true,
+  "properties": {
+    "deduplicate_repeated_signals": true,
+    "does_not_weaken_health_gate": true,
+    "exclude_evidence_summaries_by_default": true,
+    "exclude_stale_pre_restart_windows": true,
+    "exclude_transcripts": true,
+    "preserve_real_gateway_instability_detection": true,
+    "runtime_log_only": true
+  },
+  "repair_artifact": "m3n_post_restart_health_validator.py",
+  "schema": "umc.v1.m3n.post_restart_health_scanner_repair_result.v1",
+  "status": "PASS_M3N_POST_RESTART_HEALTH_SCANNER_REPAIRED"
+}
