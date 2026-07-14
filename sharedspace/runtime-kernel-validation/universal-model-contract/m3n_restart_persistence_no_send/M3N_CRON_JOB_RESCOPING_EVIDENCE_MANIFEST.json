@@ -1,0 +1,113 @@
+{
+  "artifacts": [
+    {
+      "bytes": 1610,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CRON_JOB_RESCOPING_PREFLIGHT.json",
+      "sha256": "42d78b90a64969f716f523fe8ddcf7b2b3fa9df1801ca282f8904990a214700b"
+    },
+    {
+      "bytes": 390,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CRON_JOB_RESCOPING_SUMMARY.md",
+      "sha256": "99ebaa2c493d8ecb6522fa1bfc6324bd9c412ef4936f2121f0da440f504174b6"
+    },
+    {
+      "bytes": 62348,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CRON_AGENT_JOB_SOURCE_INVENTORY.json",
+      "sha256": "a24bb7fa934a4b0864aa0f571f29d6662b69bbb9cdb5a8fdba43320d9bb7846f"
+    },
+    {
+      "bytes": 12998,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CRON_AGENT_JOB_SOURCE_INVENTORY.md",
+      "sha256": "7f523617d954c76209052bd2d09c1ab0ae2d9c8e444ff62ce4e22adc9efe0999"
+    },
+    {
+      "bytes": 14816,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CRON_JOB_EVENT_LOOP_CORRELATION.json",
+      "sha256": "ee5efc5af5cb1acd1f52a11fcaa3cf62ebc3f74a4ec8a458e73330f9e39efead"
+    },
+    {
+      "bytes": 2434,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CRON_JOB_EVENT_LOOP_CORRELATION.md",
+      "sha256": "00ae4e70ea59270f6fb0c9a9a7e7df9408227997045cd6d65bad29d2c0ea027b"
+    },
+    {
+      "bytes": 10834,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CRON_JOB_RECOVERY_OPTION_ANALYSIS.json",
+      "sha256": "7050b9838e5e9ebcc035e0b2c18a11fcac862cba5cbe2a257aa8197e27716b62"
+    },
+    {
+      "bytes": 971,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CRON_JOB_RECOVERY_OPTION_ANALYSIS.md",
+      "sha256": "1a449d76aeec575ee8cdeb0fbed6fcf4e740fc51263b31a83b8a22a6c90930ae"
+    },
+    {
+      "bytes": 3161,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CRON_JOB_RECOVERY_APPROVAL_CARD.json",
+      "sha256": "1940403899b60ebf9eff24fa5db7f32da61bf016380109ab29a2fcf99761dc2e"
+    },
+    {
+      "bytes": 897,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CRON_JOB_RECOVERY_APPROVAL_CARD.md",
+      "sha256": "639224669db0fb02a5334e30c4460871a6428af18aafdee09b85f51040b84e64"
+    },
+    {
+      "bytes": 1667,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CRON_JOB_RESCOPING_VALIDATION.json",
+      "sha256": "64ce24ba29cb1219c41ef657d1f9389a06ab512e205e1588eef336aaef876c8b"
+    },
+    {
+      "bytes": 4086,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/UMC_V1_HANDOFF.json",
+      "sha256": "f3a0e2a95fae305a268a29bdda601af3cc6f9ffb1ffda064128c1dc5e85988b2"
+    },
+    {
+      "bytes": 17255,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/UMC_V1_MILESTONE_LEDGER.md",
+      "sha256": "791bceccd152e225e8c641bf30cb8faffceacb279e363e64c439f1ea01ebc476"
+    },
+    {
+      "bytes": 31529,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/UMC_V1_IMPLEMENTATION_NOTEBOOK.md",
+      "sha256": "ba51e0ec5637edc25cb3e228de2af686b7671515bd901d58e97e3960266d55b9"
+    },
+    {
+      "bytes": 27800,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/UMC_V1_TROUBLESHOOTING_AND_REPAIR_NOTEBOOK.md",
+      "sha256": "659f43bed8c74763d0b4a7a879157e0607d2c281a6a2069e0641df214a40d38a"
+    },
+    {
+      "bytes": 23283,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/UMC_V1_REHYDRATOR.md",
+      "sha256": "afccfb0b7dc0e4f5db90daab529d25213796cb750c305aa65f3d07262b5db256"
+    }
+  ],
+  "cleanup_executed": false,
+  "gateway_restart_executed": false,
+  "generated_utc": "2026-07-14T10:37:42Z",
+  "push_status": "SKIP_M3N_CRON_JOB_RESCOPING_REMOTE_PRESERVATION_NO_AUTHORIZATION",
+  "safety_counters": {
+    "context_bridge_mutation_count": 0,
+    "cron_edit_count": 0,
+    "enforcement_started_count": 0,
+    "external_send_count": 0,
+    "gateway_restart_count": 0,
+    "m3n_persistence_verification_count": 0,
+    "m3o_started_count": 0,
+    "m4_started_count": 0,
+    "memory_mutation_count": 0,
+    "n2_n3_retry_count": 0,
+    "package_install_count": 0,
+    "process_kill_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_fallback_config_mutation_count": 0,
+    "tarball_apply_count": 0,
+    "telegram_probe_send_count": 0,
+    "telegram_send_count": 0,
+    "timer_disable_count": 0
+  },
+  "schema": "umc.v1.m3n.cron_job_rescoping_evidence_manifest.v1",
+  "status": "HOLD_M3N_CRON_JOB_RECOVERY_AWAITING_OPERATOR_APPROVAL",
+  "telegram_send_probe_executed": false,
+  "timer_or_cron_mutation_executed": false
+}

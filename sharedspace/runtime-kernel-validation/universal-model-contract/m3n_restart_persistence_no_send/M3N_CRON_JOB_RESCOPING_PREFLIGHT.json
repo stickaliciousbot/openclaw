@@ -1,0 +1,47 @@
+{
+  "checks": {
+    "final_status_blocked": true,
+    "gateway_pid_122580_not_targeted": true,
+    "n2_n3_retry_not_run": true,
+    "no_cleanup_executed": true,
+    "no_config_mutation": true,
+    "no_restart_executed": true,
+    "no_send_probe_executed": true,
+    "safe_pid_cleanup_candidates_zero": true,
+    "safety_counters_zero": true
+  },
+  "generated_utc": "2026-07-14T10:37:42Z",
+  "missing": [],
+  "phase": "IDENTIFY_EXACT_STALE_OBSERVER_PID_OR_RESCOPE_TO_CRON_JOB_CLEANUP",
+  "required_artifacts": [
+    "M3N_TARGETED_CLEANUP_APPROVAL_PREFLIGHT.json",
+    "M3N_STALE_OBSERVER_JOB_CANDIDATE_MAP.json",
+    "M3N_TARGETED_CLEANUP_EVIDENCE_SAFETY_CHECK.json",
+    "M3N_TARGETED_CLEANUP_APPROVAL_CARD.json",
+    "M3N_TARGETED_CLEANUP_APPROVAL_VALIDATION.json",
+    "M3N_TARGETED_CLEANUP_APPROVAL_EVIDENCE_MANIFEST.json"
+  ],
+  "safety_counters": {
+    "context_bridge_mutation_count": 0,
+    "cron_edit_count": 0,
+    "enforcement_started_count": 0,
+    "external_send_count": 0,
+    "gateway_restart_count": 0,
+    "m3n_persistence_verification_count": 0,
+    "m3o_started_count": 0,
+    "m4_started_count": 0,
+    "memory_mutation_count": 0,
+    "n2_n3_retry_count": 0,
+    "package_install_count": 0,
+    "process_kill_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_fallback_config_mutation_count": 0,
+    "tarball_apply_count": 0,
+    "telegram_probe_send_count": 0,
+    "telegram_send_count": 0,
+    "timer_disable_count": 0
+  },
+  "schema": "umc.v1.m3n.cron_job_rescoping_preflight.v1",
+  "status": "PASS_M3N_CRON_JOB_RESCOPING_PREFLIGHT"
+}

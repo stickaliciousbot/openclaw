@@ -373,3 +373,19 @@ m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_REPAIR_EVIDENCE_MANIFEST
 No cleanup, Gateway restart, Telegram send/probe, config/route/fallback/memory/Context Bridge mutation, provider/model shadow call, N2/N3 retry, persistence verification, M3O, M4, or enforcement was run.
 
 **Next phase:** `IDENTIFY_EXACT_STALE_OBSERVER_PID_OR_RESCOPE_TO_CRON_JOB_CLEANUP`.
+
+## 2026-07-14T10:37:42Z — M3N cron/job pressure-source rescoping
+
+**Closeout:** `HOLD_M3N_CRON_JOB_RECOVERY_AWAITING_OPERATOR_APPROVAL`
+
+**Preflight:** `PASS_M3N_CRON_JOB_RESCOPING_PREFLIGHT`
+
+**Inventory:** `26` OpenClaw scheduler jobs inventoried plus read-only systemd/crontab/log sources.
+
+**Correlation:** likely `3`, possible `1`. Selected job `context-plus-semantic-shadow-pass-watch` / `b29e6275-9bad-4622-8a56-041e5a2dc864` if approved.
+
+**Recovery option:** `PAUSE_OR_DISABLE_TIMER_REQUIRES_APPROVAL`. Exact proposed tool call: `{"action": "update", "jobId": "b29e6275-9bad-4622-8a56-041e5a2dc864", "patch": {"enabled": false}}`.
+
+No cleanup, Gateway restart, Telegram send/probe, timer disable, cron edit, config/route/fallback/memory/Context Bridge mutation, provider/model shadow call, N2/N3 retry, persistence verification, M3O, M4, or enforcement was executed.
+
+**Next phase:** `APPROVE_M3N_CRON_JOB_RECOVERY_ACTION`.

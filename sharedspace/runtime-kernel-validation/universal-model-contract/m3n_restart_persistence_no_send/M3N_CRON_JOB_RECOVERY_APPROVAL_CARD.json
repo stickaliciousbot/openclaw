@@ -1,0 +1,77 @@
+{
+  "action_kind": "pause/disable OpenClaw cron job",
+  "approval_requested": true,
+  "approval_text_required_from_operator": "APPROVE_M3N_CRON_JOB_RECOVERY_ACTION: cron.update jobId=b29e6275-9bad-4622-8a56-041e5a2dc864 patch.enabled=false",
+  "evidence_linking_job_to_issue": {
+    "classification": "LIKELY_EVENT_LOOP_PRESSURE_SOURCE",
+    "context_overflow_count_context": 1,
+    "event_loop_delay_count_context": 10,
+    "gateway_timeout_count_context": 3,
+    "getme_timeout_count_context": 1,
+    "job_id": "b29e6275-9bad-4622-8a56-041e5a2dc864",
+    "job_name": "context-plus-semantic-shadow-pass-watch",
+    "last_duration_ms": null,
+    "last_status": null,
+    "overlap_hit_count": 12,
+    "reasons": [
+      "job id appears as active agent:main:cron in Telegram liveness warning windows",
+      "logs correlate with event_loop_delay/liveness warning",
+      "5-minute cadence matches repeated warning spacing"
+    ],
+    "score": 9
+  },
+  "exact_command_or_tool_call": {
+    "action": "update",
+    "jobId": "b29e6275-9bad-4622-8a56-041e5a2dc864",
+    "patch": {
+      "enabled": false
+    }
+  },
+  "expected_effect": "Stop the every-5-minute shadow watcher from launching isolated agent/model work while M3N Telegram liveness recovery is validated.",
+  "generated_utc": "2026-07-14T10:37:42Z",
+  "next_phase": "APPROVE_M3N_CRON_JOB_RECOVERY_ACTION",
+  "no_gateway_restart_included": true,
+  "no_route_fallback_config_memory_context_bridge_mutation_authorized": true,
+  "no_telegram_send_probe_authorized": true,
+  "post_action_validation_plan": [
+    "verify job disabled state by cron.list read-only",
+    "run no-send bounded log watch for event_loop_delay/getMe/gateway timeout/context overflow",
+    "verify Gateway PID/RPC unchanged",
+    "only after clean liveness/transport evidence request N2/N3 retry approval separately"
+  ],
+  "pre_action_gateway_pid": 122580,
+  "pre_action_telegram_state": "Prior Telegram readback/account not OK during liveness probes; no Telegram probe/send in this phase.",
+  "recovery_action_executed": false,
+  "rollback_reenable_command_or_tool_call": {
+    "action": "update",
+    "jobId": "b29e6275-9bad-4622-8a56-041e5a2dc864",
+    "patch": {
+      "enabled": true
+    }
+  },
+  "safety_counters": {
+    "context_bridge_mutation_count": 0,
+    "cron_edit_count": 0,
+    "enforcement_started_count": 0,
+    "external_send_count": 0,
+    "gateway_restart_count": 0,
+    "m3n_persistence_verification_count": 0,
+    "m3o_started_count": 0,
+    "m4_started_count": 0,
+    "memory_mutation_count": 0,
+    "n2_n3_retry_count": 0,
+    "package_install_count": 0,
+    "process_kill_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_fallback_config_mutation_count": 0,
+    "tarball_apply_count": 0,
+    "telegram_probe_send_count": 0,
+    "telegram_send_count": 0,
+    "timer_disable_count": 0
+  },
+  "schema": "umc.v1.m3n.cron_job_recovery_approval_card.v1",
+  "selected_job_id": "b29e6275-9bad-4622-8a56-041e5a2dc864",
+  "selected_job_timer_service": "context-plus-semantic-shadow-pass-watch",
+  "status": "HOLD_M3N_CRON_JOB_RECOVERY_AWAITING_OPERATOR_APPROVAL"
+}

@@ -1,0 +1,443 @@
+{
+  "context_counts": {
+    "context_overflow_count": 1,
+    "event_loop_delay_count": 10,
+    "gateway_timeout_count": 3,
+    "getme_timeout_count": 1
+  },
+  "correlations": [
+    {
+      "classification": "UNLIKELY_EVENT_LOOP_PRESSURE_SOURCE",
+      "context_overflow_count_context": 1,
+      "event_loop_delay_count_context": 10,
+      "gateway_timeout_count_context": 3,
+      "getme_timeout_count_context": 1,
+      "job_id": "c8499a92-ed1e-43cf-bd34-0e8cb1547104",
+      "job_name": "context-bridge:daily-2am-reconcile",
+      "last_duration_ms": null,
+      "last_status": null,
+      "overlap_hit_count": 0,
+      "reasons": [],
+      "score": 0
+    },
+    {
+      "classification": "UNLIKELY_EVENT_LOOP_PRESSURE_SOURCE",
+      "context_overflow_count_context": 1,
+      "event_loop_delay_count_context": 10,
+      "gateway_timeout_count_context": 3,
+      "getme_timeout_count_context": 1,
+      "job_id": "0f59aead-684e-47ca-bfca-6a63df11d85d",
+      "job_name": "gmail-auth:daily-7am-status",
+      "last_duration_ms": null,
+      "last_status": null,
+      "overlap_hit_count": 0,
+      "reasons": [],
+      "score": 0
+    },
+    {
+      "classification": "UNRELATED_JOB",
+      "context_overflow_count_context": 1,
+      "event_loop_delay_count_context": 10,
+      "gateway_timeout_count_context": 3,
+      "getme_timeout_count_context": 1,
+      "job_id": "cb301445-7936-40ac-814e-6be606782f51",
+      "job_name": "Gmail hourly triage + fast follow-up",
+      "last_duration_ms": null,
+      "last_status": null,
+      "overlap_hit_count": 0,
+      "reasons": [
+        "job disabled"
+      ],
+      "score": -3
+    },
+    {
+      "classification": "POSSIBLE_EVENT_LOOP_PRESSURE_SOURCE",
+      "context_overflow_count_context": 1,
+      "event_loop_delay_count_context": 10,
+      "gateway_timeout_count_context": 3,
+      "getme_timeout_count_context": 1,
+      "job_id": "395199ad-5da5-4e66-a4ec-a5a462771914",
+      "job_name": "context-bridge:morning-sync-check",
+      "last_duration_ms": null,
+      "last_status": null,
+      "overlap_hit_count": 2,
+      "reasons": [
+        "job id appears as active agent:main:cron in Telegram liveness warning windows"
+      ],
+      "score": 5
+    },
+    {
+      "classification": "LIKELY_EVENT_LOOP_PRESSURE_SOURCE",
+      "context_overflow_count_context": 1,
+      "event_loop_delay_count_context": 10,
+      "gateway_timeout_count_context": 3,
+      "getme_timeout_count_context": 1,
+      "job_id": "187cdfa9-7fd2-4bb7-8148-811247569066",
+      "job_name": "Daily Gmail action summary (7pm Sydney)",
+      "last_duration_ms": null,
+      "last_status": null,
+      "overlap_hit_count": 1,
+      "reasons": [
+        "job id appears as active agent:main:cron in Telegram liveness warning windows",
+        "logs correlate with event_loop_delay/liveness warning"
+      ],
+      "score": 8
+    },
+    {
+      "classification": "UNLIKELY_EVENT_LOOP_PRESSURE_SOURCE",
+      "context_overflow_count_context": 1,
+      "event_loop_delay_count_context": 10,
+      "gateway_timeout_count_context": 3,
+      "getme_timeout_count_context": 1,
+      "job_id": "f31a76fb-1a4e-43a3-b32d-222bed3d9046",
+      "job_name": "Daily shared-state sync summary (dashboard + memory)",
+      "last_duration_ms": null,
+      "last_status": null,
+      "overlap_hit_count": 0,
+      "reasons": [],
+      "score": 0
+    },
+    {
+      "classification": "UNRELATED_JOB",
+      "context_overflow_count_context": 1,
+      "event_loop_delay_count_context": 10,
+      "gateway_timeout_count_context": 3,
+      "getme_timeout_count_context": 1,
+      "job_id": "28f44861-c79e-473f-8ce8-e210c98a43ae",
+      "job_name": "Nightly backup integrity check (post-backup)",
+      "last_duration_ms": null,
+      "last_status": null,
+      "overlap_hit_count": 0,
+      "reasons": [
+        "job disabled"
+      ],
+      "score": -3
+    },
+    {
+      "classification": "UNLIKELY_EVENT_LOOP_PRESSURE_SOURCE",
+      "context_overflow_count_context": 1,
+      "event_loop_delay_count_context": 10,
+      "gateway_timeout_count_context": 3,
+      "getme_timeout_count_context": 1,
+      "job_id": "461cecb7-1b1c-41d5-a40d-33a66af0ca04",
+      "job_name": "memory-integrity:daily-silent-rollup",
+      "last_duration_ms": null,
+      "last_status": null,
+      "overlap_hit_count": 0,
+      "reasons": [],
+      "score": 0
+    },
+    {
+      "classification": "UNRELATED_JOB",
+      "context_overflow_count_context": 1,
+      "event_loop_delay_count_context": 10,
+      "gateway_timeout_count_context": 3,
+      "getme_timeout_count_context": 1,
+      "job_id": "db9b80ca-92de-4af9-ba32-c2677c198df5",
+      "job_name": "token-solver:fleet-auto-heal",
+      "last_duration_ms": null,
+      "last_status": null,
+      "overlap_hit_count": 0,
+      "reasons": [
+        "job disabled"
+      ],
+      "score": -3
+    },
+    {
+      "classification": "UNLIKELY_EVENT_LOOP_PRESSURE_SOURCE",
+      "context_overflow_count_context": 1,
+      "event_loop_delay_count_context": 10,
+      "gateway_timeout_count_context": 3,
+      "getme_timeout_count_context": 1,
+      "job_id": "fadf5630-c432-4614-a85d-3a8849ec21ec",
+      "job_name": "monthly-recall-eval-thinmem-vs-openclaw",
+      "last_duration_ms": null,
+      "last_status": null,
+      "overlap_hit_count": 0,
+      "reasons": [],
+      "score": 0
+    },
+    {
+      "classification": "LIKELY_EVENT_LOOP_PRESSURE_SOURCE",
+      "context_overflow_count_context": 1,
+      "event_loop_delay_count_context": 10,
+      "gateway_timeout_count_context": 3,
+      "getme_timeout_count_context": 1,
+      "job_id": "bb4b1687-68ce-4735-b548-4ca2de076148",
+      "job_name": "memory-drift:daily-reconcile-plus-one-compact",
+      "last_duration_ms": null,
+      "last_status": null,
+      "overlap_hit_count": 1,
+      "reasons": [
+        "job id appears as active agent:main:cron in Telegram liveness warning windows",
+        "logs correlate with event_loop_delay/liveness warning"
+      ],
+      "score": 8
+    },
+    {
+      "classification": "UNLIKELY_EVENT_LOOP_PRESSURE_SOURCE",
+      "context_overflow_count_context": 1,
+      "event_loop_delay_count_context": 10,
+      "gateway_timeout_count_context": 3,
+      "getme_timeout_count_context": 1,
+      "job_id": "486bc9e0-b5d4-4046-bd57-acd6b2e9f5ed",
+      "job_name": "memory-drift:post-compact-watchdog-main-escalator",
+      "last_duration_ms": null,
+      "last_status": null,
+      "overlap_hit_count": 0,
+      "reasons": [],
+      "score": 0
+    },
+    {
+      "classification": "UNRELATED_JOB",
+      "context_overflow_count_context": 1,
+      "event_loop_delay_count_context": 10,
+      "gateway_timeout_count_context": 3,
+      "getme_timeout_count_context": 1,
+      "job_id": "1666ec17-27dc-484b-bca7-77a48dcfb1fc",
+      "job_name": "live-app-runtime-codex-completion-monitor",
+      "last_duration_ms": null,
+      "last_status": null,
+      "overlap_hit_count": 0,
+      "reasons": [
+        "job disabled"
+      ],
+      "score": -3
+    },
+    {
+      "classification": "UNLIKELY_EVENT_LOOP_PRESSURE_SOURCE",
+      "context_overflow_count_context": 1,
+      "event_loop_delay_count_context": 10,
+      "gateway_timeout_count_context": 3,
+      "getme_timeout_count_context": 1,
+      "job_id": "0d7d143c-5ed5-4a2d-886c-cbee8666c5c0",
+      "job_name": "long-process-watch:every-50m",
+      "last_duration_ms": null,
+      "last_status": null,
+      "overlap_hit_count": 0,
+      "reasons": [],
+      "score": 0
+    },
+    {
+      "classification": "UNRELATED_JOB",
+      "context_overflow_count_context": 1,
+      "event_loop_delay_count_context": 10,
+      "gateway_timeout_count_context": 3,
+      "getme_timeout_count_context": 1,
+      "job_id": "128cd026-8809-41e3-8eeb-84ab5b962740",
+      "job_name": "XR coordination watcher tick 17:34 AEST",
+      "last_duration_ms": null,
+      "last_status": null,
+      "overlap_hit_count": 0,
+      "reasons": [
+        "job disabled"
+      ],
+      "score": -3
+    },
+    {
+      "classification": "UNRELATED_JOB",
+      "context_overflow_count_context": 1,
+      "event_loop_delay_count_context": 10,
+      "gateway_timeout_count_context": 3,
+      "getme_timeout_count_context": 1,
+      "job_id": "39a9e6c7-bcac-4f50-b544-5f2f21c82d53",
+      "job_name": "shadow-soak:long-process-watch:deepseek-v4-pro:24h:2026-06-12",
+      "last_duration_ms": null,
+      "last_status": null,
+      "overlap_hit_count": 0,
+      "reasons": [
+        "job disabled"
+      ],
+      "score": -3
+    },
+    {
+      "classification": "UNRELATED_JOB",
+      "context_overflow_count_context": 1,
+      "event_loop_delay_count_context": 10,
+      "gateway_timeout_count_context": 3,
+      "getme_timeout_count_context": 1,
+      "job_id": "fc7cdc5c-6301-472b-bead-9429d1b1d8c4",
+      "job_name": "recommendation-check:shadow-long-process-watch-deepseek:2026-06-13-0818",
+      "last_duration_ms": null,
+      "last_status": null,
+      "overlap_hit_count": 0,
+      "reasons": [
+        "job disabled"
+      ],
+      "score": -3
+    },
+    {
+      "classification": "UNRELATED_JOB",
+      "context_overflow_count_context": 1,
+      "event_loop_delay_count_context": 10,
+      "gateway_timeout_count_context": 3,
+      "getme_timeout_count_context": 1,
+      "job_id": "f018a5c6-ea4f-4021-bfce-eccfa738692e",
+      "job_name": "Morning Fabric DTB API diagnostics summary",
+      "last_duration_ms": null,
+      "last_status": null,
+      "overlap_hit_count": 0,
+      "reasons": [
+        "job disabled"
+      ],
+      "score": -3
+    },
+    {
+      "classification": "UNLIKELY_EVENT_LOOP_PRESSURE_SOURCE",
+      "context_overflow_count_context": 1,
+      "event_loop_delay_count_context": 10,
+      "gateway_timeout_count_context": 3,
+      "getme_timeout_count_context": 1,
+      "job_id": "203069e0-3109-4ef2-bf01-baa97bb2f211",
+      "job_name": "Daily 6am repin Stickbot to gpt-5.5 for vNext-Mesh Semantic Gate",
+      "last_duration_ms": null,
+      "last_status": null,
+      "overlap_hit_count": 0,
+      "reasons": [],
+      "score": 0
+    },
+    {
+      "classification": "LIKELY_EVENT_LOOP_PRESSURE_SOURCE",
+      "context_overflow_count_context": 1,
+      "event_loop_delay_count_context": 10,
+      "gateway_timeout_count_context": 3,
+      "getme_timeout_count_context": 1,
+      "job_id": "b29e6275-9bad-4622-8a56-041e5a2dc864",
+      "job_name": "context-plus-semantic-shadow-pass-watch",
+      "last_duration_ms": null,
+      "last_status": null,
+      "overlap_hit_count": 12,
+      "reasons": [
+        "job id appears as active agent:main:cron in Telegram liveness warning windows",
+        "logs correlate with event_loop_delay/liveness warning",
+        "5-minute cadence matches repeated warning spacing"
+      ],
+      "score": 9
+    },
+    {
+      "classification": "UNRELATED_JOB",
+      "context_overflow_count_context": 1,
+      "event_loop_delay_count_context": 10,
+      "gateway_timeout_count_context": 3,
+      "getme_timeout_count_context": 1,
+      "job_id": "e02852f1-d885-410f-8159-bb310377a51f",
+      "job_name": "verify final-mile closeout append smoke after current Telegram turn",
+      "last_duration_ms": null,
+      "last_status": null,
+      "overlap_hit_count": 0,
+      "reasons": [
+        "job disabled"
+      ],
+      "score": -3
+    },
+    {
+      "classification": "UNLIKELY_EVENT_LOOP_PRESSURE_SOURCE",
+      "context_overflow_count_context": 1,
+      "event_loop_delay_count_context": 10,
+      "gateway_timeout_count_context": 3,
+      "getme_timeout_count_context": 1,
+      "job_id": "13adb9c2-9ce5-41eb-be54-16a99e1ea9b9",
+      "job_name": "codex-cowork:morning-memory-watch",
+      "last_duration_ms": null,
+      "last_status": null,
+      "overlap_hit_count": 0,
+      "reasons": [],
+      "score": 0
+    },
+    {
+      "classification": "UNRELATED_JOB",
+      "context_overflow_count_context": 1,
+      "event_loop_delay_count_context": 10,
+      "gateway_timeout_count_context": 3,
+      "getme_timeout_count_context": 1,
+      "job_id": "8980885e-fc62-44e7-897f-ccc84e2f673c",
+      "job_name": "M20 post-production observation T+2h checkpoint",
+      "last_duration_ms": null,
+      "last_status": null,
+      "overlap_hit_count": 0,
+      "reasons": [
+        "job disabled"
+      ],
+      "score": -3
+    },
+    {
+      "classification": "UNRELATED_JOB",
+      "context_overflow_count_context": 1,
+      "event_loop_delay_count_context": 10,
+      "gateway_timeout_count_context": 3,
+      "getme_timeout_count_context": 1,
+      "job_id": "4334fb16-e319-4ef2-a804-bb83c1eef22b",
+      "job_name": "M20 post-production observation T+8h checkpoint",
+      "last_duration_ms": null,
+      "last_status": null,
+      "overlap_hit_count": 0,
+      "reasons": [
+        "job disabled"
+      ],
+      "score": -3
+    },
+    {
+      "classification": "UNRELATED_JOB",
+      "context_overflow_count_context": 1,
+      "event_loop_delay_count_context": 10,
+      "gateway_timeout_count_context": 3,
+      "getme_timeout_count_context": 1,
+      "job_id": "72b92d09-602f-4649-9bd8-df7b91d3d4ce",
+      "job_name": "M20 post-production observation T+24h final closeout",
+      "last_duration_ms": null,
+      "last_status": null,
+      "overlap_hit_count": 0,
+      "reasons": [
+        "job disabled"
+      ],
+      "score": -3
+    },
+    {
+      "classification": "UNLIKELY_EVENT_LOOP_PRESSURE_SOURCE",
+      "context_overflow_count_context": 1,
+      "event_loop_delay_count_context": 10,
+      "gateway_timeout_count_context": 3,
+      "getme_timeout_count_context": 1,
+      "job_id": "5bd9c18f-98b0-44d4-a169-33e1f1af33de",
+      "job_name": "m3m-r2b-early-abort-sentinel",
+      "last_duration_ms": null,
+      "last_status": null,
+      "overlap_hit_count": 0,
+      "reasons": [],
+      "score": 0
+    }
+  ],
+  "generated_utc": "2026-07-14T10:37:42Z",
+  "likely_pressure_source_count": 3,
+  "possible_pressure_source_count": 1,
+  "safety_counters": {
+    "context_bridge_mutation_count": 0,
+    "cron_edit_count": 0,
+    "enforcement_started_count": 0,
+    "external_send_count": 0,
+    "gateway_restart_count": 0,
+    "m3n_persistence_verification_count": 0,
+    "m3o_started_count": 0,
+    "m4_started_count": 0,
+    "memory_mutation_count": 0,
+    "n2_n3_retry_count": 0,
+    "package_install_count": 0,
+    "process_kill_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_fallback_config_mutation_count": 0,
+    "tarball_apply_count": 0,
+    "telegram_probe_send_count": 0,
+    "telegram_send_count": 0,
+    "timer_disable_count": 0
+  },
+  "schema": "umc.v1.m3n.cron_job_event_loop_correlation.v1",
+  "status": "PASS_M3N_CRON_JOB_EVENT_LOOP_CORRELATION_READY",
+  "telegram_liveness_warning_windows": [
+    "2026-07-14T17:22",
+    "2026-07-14T17:42",
+    "2026-07-14T17:47",
+    "2026-07-14T17:52",
+    "2026-07-14T17:29"
+  ]
+}
