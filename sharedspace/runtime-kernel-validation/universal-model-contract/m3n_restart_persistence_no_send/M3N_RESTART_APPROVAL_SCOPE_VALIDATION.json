@@ -1,0 +1,49 @@
+{
+  "allowed_scope": [
+    "one controlled Gateway restart via gateway.restart",
+    "post-restart read-only Gateway health validation",
+    "post-restart Telegram readback no-send verification using channels.status probe=false",
+    "post-restart liveness stability watch without send/probe"
+  ],
+  "explicitly_not_authorized": [
+    "Telegram send/probe",
+    "external send",
+    "provider/model shadow call",
+    "package install",
+    "tarball apply",
+    "route/fallback/config mutation",
+    "memory mutation",
+    "Context Bridge mutation",
+    "production authority change",
+    "N2/N3 retry",
+    "persistence verification",
+    "M3O",
+    "M4",
+    "enforcement"
+  ],
+  "gateway_restart_executed": false,
+  "generated_utc": "2026-07-14T12:21:19Z",
+  "n2_n3_retry_run": false,
+  "phase": "M3N_TELEGRAM_READBACK_RECOVERY_RESTART_APPROVAL_CARD_REHYDRATION",
+  "requested_action": {
+    "arguments": {
+      "continuationMessage": "Continue M3N after approved restart: verify Gateway PID changed/active, run Telegram channels.status probe=false readback, run 20-minute/4-probe no-send stability watch, keep cron context-plus-semantic-shadow-pass-watch disabled, and do not run N2/N3 unless readback and stability pass.",
+      "note": "M3N Telegram readback restart requested: no-send readback passed but stability watch failed; after boot verify Telegram readback/account health before N2/N3 retry.",
+      "reason": "M3N Telegram readback stability failed after safe no-send verification; restart requested before any N2/N3 retry."
+    },
+    "tool": "gateway.restart"
+  },
+  "safety_counters_clean": true,
+  "schema": "umc.v1.m3n.restart_approval_scope_validation.v1",
+  "scope_checks": {
+    "disabled_cron_preserved": true,
+    "n2_n3_not_approved_by_card": true,
+    "no_disallowed_action_field_present": true,
+    "one_controlled_restart_only": true,
+    "post_restart_validation_plan_present": true,
+    "requested_tool_is_gateway_restart": true
+  },
+  "source_restart_card": "M3N_TELEGRAM_READBACK_RESTART_APPROVAL_CARD.json",
+  "status": "PASS_M3N_RESTART_APPROVAL_SCOPE_VALIDATED",
+  "telegram_send_or_probe_executed": false
+}

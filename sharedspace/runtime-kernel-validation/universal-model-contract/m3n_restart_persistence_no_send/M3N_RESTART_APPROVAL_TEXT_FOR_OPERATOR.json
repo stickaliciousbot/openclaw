@@ -1,0 +1,34 @@
+{
+  "approval_text": "APPROVE_M3N_TELEGRAM_READBACK_RECOVERY_RESTART\n\nI approve exactly one controlled Gateway restart for M3N Telegram readback recovery, using this exact OpenClaw tool call and no other mutation:\n\ngateway.restart(\n  reason=\"M3N Telegram readback stability failed after safe no-send verification; restart requested before any N2/N3 retry.\",\n  note=\"M3N Telegram readback restart approved: no-send readback passed but stability watch failed; after boot verify Telegram readback/account health before N2/N3 retry.\",\n  continuationMessage=\"Continue M3N after approved restart: verify Gateway PID changed from pre-restart PID 122580 and Gateway is active; run Telegram channels.status probe=false readback; run 20-minute/4-probe no-send stability watch; keep cron context-plus-semantic-shadow-pass-watch (b29e6275-9bad-4622-8a56-041e5a2dc864) disabled; do not run N2/N3 unless readback and stability pass.\"\n)\n\nRestart reason:\n- Closed M3N status is FAIL_M3N_TELEGRAM_READBACK_STABILITY at commit ca67140db7b8.\n- Safe readback method channels.status probe=false passed.\n- Stability watch failed due a fresh Telegram getMe timeout during probe 3.\n\nPre-restart Gateway PID:\n- 122580\n\nArtifacts to write after restart:\n- M3N_TELEGRAM_READBACK_POST_RESTART_GATEWAY_HEALTH.json/.md\n- M3N_TELEGRAM_READBACK_POST_RESTART_NO_SEND_VERIFICATION.json/.md\n- M3N_TELEGRAM_READBACK_POST_RESTART_STABILITY_WATCH_PROBE_0001.json through 0004.json\n- M3N_TELEGRAM_READBACK_POST_RESTART_STABILITY_WATCH_SUMMARY.json/.md\n- M3N_TELEGRAM_READBACK_POST_RESTART_RECOVERY_DECISION.json/.md\n- M3N_TELEGRAM_READBACK_POST_RESTART_EVIDENCE_MANIFEST.json\n\nPost-restart validation plan:\n1. Verify Gateway PID changed from 122580, Gateway is active/running, and local connectivity is OK.\n2. Verify disabled cron state remains context-plus-semantic-shadow-pass-watch / b29e6275-9bad-4622-8a56-041e5a2dc864 enabled=false.\n3. Run only Telegram readback via channels.status probe=false.\n4. Run 20-minute / 4-probe stability watch using read-only local/Gateway status and logs.\n5. If and only if readback and stability pass, prepare a separate N2/N3 approval/readiness gate; do not run N2/N3 under this approval.\n\nNo-send/no-probe boundary:\n- This approval does not authorize Telegram sendMessage, sendTyping, message tool sends, Telegram Bot API getMe/getWebhookInfo probes, channels.status probe=true, or any external send/probe.\n\nNo-authority/no-mutation boundary:\n- This approval does not authorize provider/model shadow calls, package install, tarball apply, route/fallback/config mutation, memory mutation, Context Bridge mutation, production authority change, persistence verification, M3O, M4, or enforcement.\n\nN2/N3 boundary:\n- N2/N3 retry is explicitly not approved by this restart approval.\n",
+  "disabled_cron_state": {
+    "enabled_from_schedule_identity": false,
+    "job_id": "b29e6275-9bad-4622-8a56-041e5a2dc864",
+    "job_name": "context-plus-semantic-shadow-pass-watch",
+    "schedule_identity": {
+      "enabled": false,
+      "schedule": {
+        "anchorMs": 1782091608871,
+        "everyMs": 300000,
+        "kind": "every"
+      },
+      "version": 1
+    },
+    "state": {
+      "consecutiveErrors": 0,
+      "consecutiveSkipped": 0,
+      "lastDeliveryStatus": "not-requested",
+      "lastDurationMs": 21495,
+      "lastRunAtMs": 1784025708903,
+      "lastRunStatus": "ok",
+      "lastStatus": "ok"
+    },
+    "updatedAtMs": 1784025745922
+  },
+  "gateway_restart_executed": false,
+  "generated_utc": "2026-07-14T12:21:19Z",
+  "n2_n3_retry_approved": false,
+  "pre_restart_gateway_pid": 122580,
+  "schema": "umc.v1.m3n.restart_approval_text_for_operator.v1",
+  "status": "HOLD_M3N_RESTART_APPROVAL_TEXT_READY",
+  "telegram_send_or_probe_executed": false
+}

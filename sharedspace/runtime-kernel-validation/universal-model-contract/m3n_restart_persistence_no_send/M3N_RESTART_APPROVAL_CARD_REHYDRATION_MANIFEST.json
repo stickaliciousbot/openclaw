@@ -1,0 +1,33 @@
+{
+  "artifacts": [
+    {
+      "bytes": 5801,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_RESTART_APPROVAL_CARD_REHYDRATION_RESULT.json",
+      "sha256": "bc11e3cc8587e846ea18caf8bea29ef7281bfdd11746a01b00a68e97a4a0d3dd"
+    },
+    {
+      "bytes": 2145,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_RESTART_APPROVAL_SCOPE_VALIDATION.json",
+      "sha256": "4936bdcb5c652be5f1cd31cc977d7d9fb8bc9ccd39bbf390f3a1f5e84511ae27"
+    },
+    {
+      "bytes": 2958,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_RESTART_APPROVAL_TEXT_FOR_OPERATOR.md",
+      "sha256": "a3193d2018f92cc2ca678f71171e79ac91bb6356e29335bd53556733805733a5"
+    },
+    {
+      "bytes": 3802,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_RESTART_APPROVAL_TEXT_FOR_OPERATOR.json",
+      "sha256": "da05efac83044c6140efc96349e2a5f356868bf76f15d38f4105f7b0e30a1aea"
+    }
+  ],
+  "gateway_restart_executed": false,
+  "generated_utc": "2026-07-14T12:21:19Z",
+  "n2_n3_retry_run": false,
+  "phase": "M3N_TELEGRAM_READBACK_RECOVERY_RESTART_APPROVAL_CARD_REHYDRATION",
+  "pre_restart_gateway_pid": 122580,
+  "schema": "umc.v1.m3n.restart_approval_card_rehydration_manifest.v1",
+  "source_commit": "ca67140db7b8",
+  "status": "HOLD_M3N_RESTART_APPROVAL_TEXT_READY",
+  "telegram_send_or_probe_executed": false
+}

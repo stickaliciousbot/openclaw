@@ -1,0 +1,78 @@
+{
+  "checks": {
+    "active_probe_methods_rejected": true,
+    "commit_contains_closeout": true,
+    "final_status_is_fail_stability": true,
+    "gateway_restart_not_run": true,
+    "n2_n3_retry_not_run": true,
+    "readback_verification_passed": true,
+    "restart_approval_card_exists": true,
+    "safe_readback_probe_false": true,
+    "safety_counters_clean": true,
+    "stability_failed_on_getme_timeout": true,
+    "telegram_send_probe_not_run": true
+  },
+  "commit": "ca67140db7b8",
+  "commit_show": {
+    "args": [
+      "git",
+      "show",
+      "--name-only",
+      "--oneline",
+      "ca67140db7b8",
+      "--",
+      "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send"
+    ],
+    "rc": 0,
+    "stderr": "",
+    "stdout": "ca67140db docs(umc): verify M3N Telegram readback stability\nsharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CURRENT_TELEGRAM_LIVENESS_DIAGNOSTIC.json\nsharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_TELEGRAM_READBACK_EVIDENCE_MANIFEST.json\nsharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_TELEGRAM_READBACK_METHOD_INVENTORY.json\nsharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_TELEGRAM_READBACK_METHOD_INVENTORY.md\nsharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_TELEGRAM_READBACK_NO_SEND_VERIFICATION.json\nsharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_TELEGRAM_READBACK_NO_SEND_VERIFICATION.md\nsharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_TELEGRAM_READBACK_RECOVERY_DECISION.json\nsharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_TELEGRAM_READBACK_RECOVERY_DECISION.md\nsharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_TELEGRAM_READBACK_RESCOPING_PREFLIGHT.json\nsharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_TELEGRAM_READBACK_RESCOPING_PREFLIGHT.md\nsharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_TELEGRAM_READBACK_RESCOPING_VALIDATION.json\nsharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_TELEGRAM_READBACK_RESTART_APPROVAL_CARD.json\nsharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_TELEGRAM_READBACK_RESTART_APPROVAL_CARD.md\nsharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_TELEGRAM_READBACK_STABILITY_WATCH_PROBE_0001.json\nsharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_TELEGRAM_READBACK_STABILITY_WATCH_PROBE_0002.json\nsharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_TELEGRAM_READBACK_STABILITY_WATCH_PROBE_0003.json\nsharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_TELEGRAM_READBACK_STABILITY_WATCH_PROBE_0004.json\nsharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_TELEGRAM_READBACK_STABILITY_WATCH_SUMMARY.json\nsharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_TELEGRAM_READBACK_STABILITY_WATCH_SUMMARY.md\n"
+  },
+  "current_gateway_pid": 122580,
+  "disabled_cron_state": {
+    "enabled_from_schedule_identity": false,
+    "job_id": "b29e6275-9bad-4622-8a56-041e5a2dc864",
+    "job_name": "context-plus-semantic-shadow-pass-watch",
+    "schedule_identity": {
+      "enabled": false,
+      "schedule": {
+        "anchorMs": 1782091608871,
+        "everyMs": 300000,
+        "kind": "every"
+      },
+      "version": 1
+    },
+    "state": {
+      "consecutiveErrors": 0,
+      "consecutiveSkipped": 0,
+      "lastDeliveryStatus": "not-requested",
+      "lastDurationMs": 21495,
+      "lastRunAtMs": 1784025708903,
+      "lastRunStatus": "ok",
+      "lastStatus": "ok"
+    },
+    "updatedAtMs": 1784025745922
+  },
+  "evidence_root": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send",
+  "failure_reason": "fresh Telegram getMe timeout during stability watch",
+  "final_status": "FAIL_M3N_TELEGRAM_READBACK_STABILITY",
+  "gateway_restart_executed": false,
+  "generated_utc": "2026-07-14T12:21:19Z",
+  "n2_n3_retry_run": false,
+  "phase": "M3N_TELEGRAM_READBACK_RECOVERY_RESTART_APPROVAL_CARD_REHYDRATION",
+  "pre_restart_gateway_pid": 122580,
+  "required_evidence_files": {
+    "card_json": "M3N_TELEGRAM_READBACK_RESTART_APPROVAL_CARD.json",
+    "card_md": "M3N_TELEGRAM_READBACK_RESTART_APPROVAL_CARD.md",
+    "decision": "M3N_TELEGRAM_READBACK_RECOVERY_DECISION.json",
+    "manifest": "M3N_TELEGRAM_READBACK_EVIDENCE_MANIFEST.json",
+    "stability": "M3N_TELEGRAM_READBACK_STABILITY_WATCH_SUMMARY.json",
+    "verification": "M3N_TELEGRAM_READBACK_NO_SEND_VERIFICATION.json"
+  },
+  "restart_approval_card_status": "HOLD_M3N_TELEGRAM_READBACK_RESTART_AWAITING_APPROVAL",
+  "restart_approval_phrase": "APPROVE_M3N_TELEGRAM_READBACK_RECOVERY_RESTART",
+  "safe_readback_method": "channels.status probe=false",
+  "schema": "umc.v1.m3n.restart_approval_card_rehydration_result.v1",
+  "stability_summary_alias_note": "Prompt requested M3N_TELEGRAM_READBACK_STABILITY_SUMMARY.json; committed artifact is M3N_TELEGRAM_READBACK_STABILITY_WATCH_SUMMARY.json and is used as the stability summary.",
+  "status": "PASS_M3N_RESTART_APPROVAL_CARD_REHYDRATED",
+  "telegram_send_or_probe_executed": false
+}
