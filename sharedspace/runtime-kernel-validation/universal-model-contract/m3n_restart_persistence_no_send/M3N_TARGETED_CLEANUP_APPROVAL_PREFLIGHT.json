@@ -1,0 +1,42 @@
+{
+  "branch": "evidence/umc-m3n-post-restart-health-failclosed-20260713",
+  "checks": {
+    "branch_ok": true,
+    "event_loop_classification_ok": true,
+    "final_status_hold": true,
+    "head_is_latest_commit": true,
+    "latest_commit_exists": true,
+    "n2_n3_retry_not_run": true,
+    "persistence_verification_not_started": true,
+    "recovery_path_ok": true,
+    "safety_counters_zero": true,
+    "telegram_transport_classification_ok": true
+  },
+  "cleanup_executed": false,
+  "gateway_restart_executed": false,
+  "generated_utc": "2026-07-14T10:02:40Z",
+  "head": "bb6134553",
+  "missing": [],
+  "phase": "M3N_EVENT_LOOP_TRANSPORT_TARGETED_CLEANUP_APPROVAL_CARD",
+  "safety_counters": {
+    "config_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "enforcement_started_count": 0,
+    "external_send_count": 0,
+    "gateway_restart_count": 0,
+    "m3n_persistence_verification_count": 0,
+    "m3o_started_count": 0,
+    "m4_started_count": 0,
+    "memory_mutation_count": 0,
+    "message_tool_send_count": 0,
+    "n2_n3_retry_count": 0,
+    "provider_model_shadow_calls": 0,
+    "recovery_action_count": 0,
+    "route_fallback_mutation_count": 0,
+    "telegram_probe_send_count": 0,
+    "telegram_send_count": 0
+  },
+  "schema": "umc.v1.m3n.targeted_cleanup_approval_preflight.v1",
+  "status": "PASS_M3N_TARGETED_CLEANUP_APPROVAL_PREFLIGHT",
+  "telegram_send_probe_executed": false
+}

@@ -1,0 +1,29 @@
+{
+  "blocked_reason": "No exact live PID classified as SAFE_STALE_OBSERVER_CLEANUP_CANDIDATE; no PID-specific cleanup card can be safely prepared.",
+  "checks": [],
+  "cleanup_executed": false,
+  "gateway_restart_executed": false,
+  "generated_utc": "2026-07-14T10:02:40Z",
+  "safe_candidate_count": 0,
+  "safety_counters": {
+    "config_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "enforcement_started_count": 0,
+    "external_send_count": 0,
+    "gateway_restart_count": 0,
+    "m3n_persistence_verification_count": 0,
+    "m3o_started_count": 0,
+    "m4_started_count": 0,
+    "memory_mutation_count": 0,
+    "message_tool_send_count": 0,
+    "n2_n3_retry_count": 0,
+    "provider_model_shadow_calls": 0,
+    "recovery_action_count": 0,
+    "route_fallback_mutation_count": 0,
+    "telegram_probe_send_count": 0,
+    "telegram_send_count": 0
+  },
+  "schema": "umc.v1.m3n.targeted_cleanup_evidence_safety_check.v1",
+  "status": "BLOCKED_M3N_TARGETED_CLEANUP_NO_SAFE_TARGET",
+  "telegram_send_probe_executed": false
+}

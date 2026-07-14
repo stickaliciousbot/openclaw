@@ -240,3 +240,19 @@ m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_REPAIR_EVIDENCE_MANIFEST
 **Recovery path:** `PATH_C_TARGETED_STALE_OBSERVER_OR_JOB_CLEANUP_REQUIRES_APPROVAL`. Approval required: `True`. No Telegram probe/send, external send, provider/model shadow call, config mutation, route/fallback mutation, memory mutation, Context Bridge mutation, production authority change, Gateway restart, N2/N3 retry, persistence verification, M3O, M4, or enforcement was run by the repair lane.
 
 **Next phase:** `APPROVE_M3N_EVENT_LOOP_TRANSPORT_RECOVERY_ACTION`.
+
+## 2026-07-14T10:02:40Z — M3N targeted cleanup approval preflight
+
+**Closeout:** `BLOCKED_M3N_TARGETED_CLEANUP_NO_SAFE_TARGET`
+
+**Preflight:** `PASS_M3N_TARGETED_CLEANUP_APPROVAL_PREFLIGHT`
+
+**Candidate map:** `BLOCKED_M3N_TARGETED_CLEANUP_NO_SAFE_TARGET`; candidates `18`, safe cleanup candidates `0`.
+
+**Evidence safety:** `BLOCKED_M3N_TARGETED_CLEANUP_NO_SAFE_TARGET`.
+
+**Cleanup command:** `NO_CLEANUP_COMMAND_PREPARED_NO_SAFE_EXACT_PID_TARGET`
+
+No cleanup, Gateway restart, Telegram send/probe, config/route/fallback/memory/Context Bridge mutation, provider/model shadow call, N2/N3 retry, persistence verification, M3O, M4, or enforcement was run.
+
+**Next phase:** `IDENTIFY_EXACT_STALE_OBSERVER_PID_OR_RESCOPE_TO_CRON_JOB_CLEANUP`.

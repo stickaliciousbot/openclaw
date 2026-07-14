@@ -1,0 +1,89 @@
+{
+  "artifacts": [
+    {
+      "bytes": 1407,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_TARGETED_CLEANUP_APPROVAL_PREFLIGHT.json",
+      "sha256": "a0ae4b43d7c4506113da5b012172b36ed10e2c7d351ec6574d215724fb9eb63e"
+    },
+    {
+      "bytes": 29452,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_STALE_OBSERVER_JOB_CANDIDATE_MAP.json",
+      "sha256": "d958a05a48fc12d7902b0a2575646c2c0de0776910643d53de68e1875710cbb0"
+    },
+    {
+      "bytes": 5793,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_STALE_OBSERVER_JOB_CANDIDATE_MAP.md",
+      "sha256": "6c10afc3bf1142a2587bc0b91d3063f22adc8d0127c5c5f603e460f05970e002"
+    },
+    {
+      "bytes": 1039,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_TARGETED_CLEANUP_EVIDENCE_SAFETY_CHECK.json",
+      "sha256": "a6a858cc31422ba9d2c774bfc66b0a61b54947eecc8fb59d244d0ab72e5a9e00"
+    },
+    {
+      "bytes": 2022,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_TARGETED_CLEANUP_APPROVAL_CARD.json",
+      "sha256": "8c9c9047cb823d82130177b29b065a5e5bf3ac698494492b74871727f64c8fbc"
+    },
+    {
+      "bytes": 536,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_TARGETED_CLEANUP_APPROVAL_CARD.md",
+      "sha256": "1b7af12702673672096d75524a4813b224a98a9f8c71aa2b97de1789f32b7959"
+    },
+    {
+      "bytes": 1479,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_TARGETED_CLEANUP_APPROVAL_VALIDATION.json",
+      "sha256": "bf51522223bbd4fe3f01030562e7636ca60506c72379e80ae02f5b40fbc15a6a"
+    },
+    {
+      "bytes": 3577,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/UMC_V1_HANDOFF.json",
+      "sha256": "ec0d662f5bcacc11608de9675e9b8b03b9b71d63387131573ae48a11b609fab9"
+    },
+    {
+      "bytes": 16319,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/UMC_V1_MILESTONE_LEDGER.md",
+      "sha256": "4ca0e24cb84b48617a19debd130ee68f2213b54a9f2a734b24e10efa93daeeb7"
+    },
+    {
+      "bytes": 30593,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/UMC_V1_IMPLEMENTATION_NOTEBOOK.md",
+      "sha256": "23c22e6525048d952de9a59795a0a786628773a2780e6b8c3e27784e3f283105"
+    },
+    {
+      "bytes": 26864,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/UMC_V1_TROUBLESHOOTING_AND_REPAIR_NOTEBOOK.md",
+      "sha256": "ca923d8223a1868681b0f11abf59c02a41544e890d1487dfc2c8dcefe59d4bd0"
+    },
+    {
+      "bytes": 22347,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/UMC_V1_REHYDRATOR.md",
+      "sha256": "ed771bc953155d0b2f002e93acd2b39957af0cf9bf511e460046244ab071ff86"
+    }
+  ],
+  "cleanup_executed": false,
+  "gateway_restart_executed": false,
+  "generated_utc": "2026-07-14T10:02:40Z",
+  "push_status": "SKIP_M3N_TARGETED_CLEANUP_REMOTE_PRESERVATION_NO_AUTHORIZATION",
+  "safety_counters": {
+    "config_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "enforcement_started_count": 0,
+    "external_send_count": 0,
+    "gateway_restart_count": 0,
+    "m3n_persistence_verification_count": 0,
+    "m3o_started_count": 0,
+    "m4_started_count": 0,
+    "memory_mutation_count": 0,
+    "message_tool_send_count": 0,
+    "n2_n3_retry_count": 0,
+    "provider_model_shadow_calls": 0,
+    "recovery_action_count": 0,
+    "route_fallback_mutation_count": 0,
+    "telegram_probe_send_count": 0,
+    "telegram_send_count": 0
+  },
+  "schema": "umc.v1.m3n.targeted_cleanup_approval_evidence_manifest.v1",
+  "status": "BLOCKED_M3N_TARGETED_CLEANUP_NO_SAFE_TARGET",
+  "telegram_send_probe_executed": false
+}

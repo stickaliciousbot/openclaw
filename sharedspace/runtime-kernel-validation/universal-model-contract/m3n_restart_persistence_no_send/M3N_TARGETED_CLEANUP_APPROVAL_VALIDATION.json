@@ -1,0 +1,26 @@
+{
+  "approval_card_completeness_validation": "PASS_BLOCKED_NO_COMMAND",
+  "candidate_map_validation": "PASS",
+  "cleanup_executed": false,
+  "evidence_safety_validation": "BLOCKED_M3N_TARGETED_CLEANUP_NO_SAFE_TARGET",
+  "final_status": "BLOCKED_M3N_TARGETED_CLEANUP_NO_SAFE_TARGET",
+  "gateway_restart_executed": false,
+  "generated_utc": "2026-07-14T10:02:40Z",
+  "git_diff_check": "PASS",
+  "git_diff_check_output": {
+    "cmd": "git diff --check -- sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send sharedspace/runtime-kernel-validation/universal-model-contract/UMC_V1_HANDOFF.json sharedspace/runtime-kernel-validation/universal-model-contract/UMC_V1_MILESTONE_LEDGER.md sharedspace/runtime-kernel-validation/universal-model-contract/UMC_V1_IMPLEMENTATION_NOTEBOOK.md sharedspace/runtime-kernel-validation/universal-model-contract/UMC_V1_TROUBLESHOOTING_AND_REPAIR_NOTEBOOK.md sharedspace/runtime-kernel-validation/universal-model-contract/UMC_V1_REHYDRATOR.md",
+    "rc": 0,
+    "stderr": "",
+    "stdout": ""
+  },
+  "json_errors": [],
+  "json_validation": "PASS",
+  "markdown_sanity": "PASS",
+  "no_authority_validation": "PASS",
+  "no_send_validation": "PASS",
+  "runtime_config_mutation_validation": "PASS",
+  "safety_counter_validation": "PASS_ZERO",
+  "schema": "umc.v1.m3n.targeted_cleanup_approval_validation.v1",
+  "status": "PASS_M3N_TARGETED_CLEANUP_APPROVAL_CARD_VALIDATION",
+  "telegram_send_probe_executed": false
+}
