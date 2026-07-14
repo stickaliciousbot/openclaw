@@ -1,0 +1,61 @@
+{
+  "actual_probes": 4,
+  "aggregate_counts": {
+    "context_overflow": 0,
+    "event_loop_delay": 0,
+    "gateway_timeout": 0,
+    "getme_timeout": 0,
+    "liveness_warning": 0,
+    "selected_job_active_log_hits": 0,
+    "telegram_send_log_hits_not_probe": 3
+  },
+  "cleanup_executed": false,
+  "config_route_fallback_memory_context_bridge_mutation_executed": false,
+  "duration_seconds": 900.036,
+  "expected_probes": 4,
+  "final_status": "FAIL_M3N_CRON_JOB_RECOVERY_TELEGRAM_LIVENESS_NOT_FULLY_PROVEN",
+  "gateway_pid_values": [
+    122580,
+    122580,
+    122580,
+    122580
+  ],
+  "gateway_restart_executed": false,
+  "generated_utc": "2026-07-14T10:59:14Z",
+  "m3o_m4_enforcement_started": false,
+  "n2_n3_retry_ready": false,
+  "n2_n3_retry_run": false,
+  "persistence_verification_started": false,
+  "probe_statuses": [
+    "PASS_M3N_CRON_JOB_RECOVERY_WATCH_PROBE_CLEAN",
+    "PASS_M3N_CRON_JOB_RECOVERY_WATCH_PROBE_CLEAN",
+    "PASS_M3N_CRON_JOB_RECOVERY_WATCH_PROBE_CLEAN",
+    "PASS_M3N_CRON_JOB_RECOVERY_WATCH_PROBE_CLEAN"
+  ],
+  "reason_n2_n3_not_ready": "No fresh runtime/liveness signals during watch may be clean, but Telegram readback/account OK was not actively verified under no-send/no-probe boundary.",
+  "safety_counters": {
+    "approved_cron_enabled_false_patch_count": 1,
+    "context_bridge_mutation_count": 0,
+    "enforcement_started_count": 0,
+    "external_send_count": 0,
+    "gateway_restart_count": 0,
+    "m3n_persistence_verification_count": 0,
+    "m3o_started_count": 0,
+    "m4_started_count": 0,
+    "memory_mutation_count": 0,
+    "n2_n3_retry_count": 0,
+    "package_install_count": 0,
+    "process_kill_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_fallback_config_mutation_count": 0,
+    "tarball_apply_count": 0,
+    "telegram_probe_send_count": 0,
+    "telegram_send_count": 0,
+    "unapproved_timer_or_cron_mutation_count": 0
+  },
+  "schema": "umc.v1.m3n.cron_job_recovery_watch_summary.v1",
+  "status": "PASS_M3N_CRON_JOB_RECOVERY_WATCH_CLEAN_BUT_TELEGRAM_READBACK_UNPROVEN",
+  "telegram_readback_account_state": "NOT_ACTIVELY_PROBED_NO_SEND_BOUNDARY; prior readback/account not OK remains unproven clean",
+  "telegram_send_probe_executed": false
+}

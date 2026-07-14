@@ -1,0 +1,129 @@
+{
+  "approved_tool_call": {
+    "action": "update",
+    "jobId": "b29e6275-9bad-4622-8a56-041e5a2dc864",
+    "patch": {
+      "enabled": false
+    }
+  },
+  "cleanup_executed": false,
+  "gateway": {
+    "pid": 122580,
+    "process": {
+      "cmdline": "/usr/bin/node /home/stickai/.npm-global/lib/node_modules/openclaw/dist/index.js gateway --port 18789",
+      "exists": true,
+      "pid": 122580,
+      "ps": "PID    PPID     ELAPSED %CPU %MEM STAT COMMAND\n 122580     639    03:27:42  8.0  4.1 Rsl  /usr/bin/node /home/stickai/.npm-global/lib/node_modules/openclaw/dist/index.js gateway --port 18789",
+      "ps_rc": 0
+    },
+    "rpc_ok_inferred_from_tcp": true
+  },
+  "gateway_restart_executed": false,
+  "generated_utc": "2026-07-14T10:44:14Z",
+  "job_id": "b29e6275-9bad-4622-8a56-041e5a2dc864",
+  "job_name": "context-plus-semantic-shadow-pass-watch",
+  "m3o_m4_enforcement_started": false,
+  "n2_n3_retry_run": false,
+  "persistence_verification_started": false,
+  "phase": "APPROVE_M3N_CRON_JOB_RECOVERY_ACTION",
+  "pre_watch_log_counts": {
+    "context_overflow": 0,
+    "event_loop_delay": 2,
+    "fresh_liveness_warning": 2,
+    "gateway_timeout": 0,
+    "getme_timeout": 0,
+    "selected_job_active_log_hits": 8,
+    "telegram_send_log_hits_not_probe": 25
+  },
+  "readback_enabled": false,
+  "readback_state": {
+    "enabled": false,
+    "job": {
+      "agentId": "main",
+      "createdAtMs": 1782091608871,
+      "delivery": {
+        "bestEffort": true,
+        "channel": "telegram",
+        "mode": "none",
+        "to": "8495203551"
+      },
+      "description": "Silent context+ semantic shadow PASS watcher. Deterministic one-line script avoids exec background stdout-capture races. Routine no-pass stays silent; PASS sends one message-tool alert and removes the cron; hard failures use the failure/anomaly notification contract.",
+      "enabled": false,
+      "failureAlert": {
+        "after": 1,
+        "channel": "telegram",
+        "cooldownMs": 900000,
+        "includeSkipped": true,
+        "mode": "announce",
+        "to": "8495203551"
+      },
+      "id": "b29e6275-9bad-4622-8a56-041e5a2dc864",
+      "name": "context-plus-semantic-shadow-pass-watch",
+      "payload": {
+        "fallbacks": [],
+        "kind": "agentTurn",
+        "lightContext": true,
+        "message": "Run this silently. If it fails, treat it as a failure/anomaly notification contract.\n\nTask:\n1) Execute exactly once with exec:\n   `python3 /home/stickai/.openclaw/workspace/scripts/context_plus_semantic_shadow_pass_watch_quiet.py`\n2) The script emits exactly one stdout line:\n   - `NO_PASS_FOUND`\n   - `PASS_FOUND <path>`\n   - `WATCHER_CHECK_ERROR <details>`\n\nSuccess checks:\n- If stdout is exactly `NO_PASS_FOUND`, this is successful routine quiet state.\n- If stdout starts with `PASS_FOUND `, this is a real PASS event.\n\nReal PASS event handling:\n- Use the message tool with action=send, channel=telegram, target=8495203551, message exactly:\n  `CONTEXT_PLUS_SEMANTIC_SHADOW_PASS_FOUND <path>`\n  where `<path>` is copied from stdout.\n- Then remove cron job `b29e6275-9bad-4622-8a56-041e5a2dc864`.\n- Final output exactly `NO_REPLY`.\n\nFailure handling:\n- If stdout starts with `WATCHER_CHECK_ERROR`, append a concise failure note to today's Australia/Sydney daily memory file and final output exactly `NO_REPLY` unless user action is required.\n- If exec output is unavailable/backgrounded, final output exactly `NO_REPLY`; rely on this job's failureAlert/escalation rather than producing routine Telegram noise.\n- If the command exits nonzero, append a concise failure note to today's Australia/Sydney daily memory file and final output exactly `NO_REPLY` unless user action is required.\n\nFinal output policy:\n- If no PASS is found, final output exactly `NO_REPLY`.\n- If a PASS alert is handled by message tool, final output exactly `NO_REPLY`.\n- If handled without user action required, final output exactly `NO_REPLY`.\n- Do not send routine Telegram messages or briefings.\n\nObservation-lane safety:\n- Mandatory lane: openai-codex/gpt-5.5 only; no fallbacks.\n- Never call or request token-solver lanes.\n- Never mutate model selector/default route/fallback chain/Gateway config/memory route/live runtime services.\n- Never ask for /approve from cron context.",
+        "model": "openai-codex/gpt-5.5",
+        "timeoutSeconds": 300,
+        "toolsAllow": [
+          "exec",
+          "read",
+          "write",
+          "message",
+          "cron"
+        ]
+      },
+      "schedule": {
+        "anchorMs": 1782091608871,
+        "everyMs": 300000,
+        "kind": "every"
+      },
+      "sessionKey": "agent:main:telegram:direct:8495203551",
+      "sessionTarget": "isolated",
+      "state": {},
+      "wakeMode": "now"
+    },
+    "jobs_state": {
+      "scheduleIdentity": "{\"version\":1,\"enabled\":false,\"schedule\":{\"kind\":\"every\",\"everyMs\":300000,\"anchorMs\":1782091608871}}",
+      "state": {
+        "consecutiveErrors": 0,
+        "consecutiveSkipped": 0,
+        "lastDeliveryStatus": "not-requested",
+        "lastDurationMs": 21495,
+        "lastRunAtMs": 1784025708903,
+        "lastRunStatus": "ok",
+        "lastStatus": "ok"
+      },
+      "updatedAtMs": 1784025745922
+    },
+    "lastDurationMs": 21495,
+    "lastRunAtMs": 1784025708903,
+    "lastStatus": "ok",
+    "nextRunAtMs": null
+  },
+  "safety_counters": {
+    "approved_cron_enabled_false_patch_count": 1,
+    "context_bridge_mutation_count": 0,
+    "enforcement_started_count": 0,
+    "external_send_count": 0,
+    "gateway_restart_count": 0,
+    "m3n_persistence_verification_count": 0,
+    "m3o_started_count": 0,
+    "m4_started_count": 0,
+    "memory_mutation_count": 0,
+    "n2_n3_retry_count": 0,
+    "package_install_count": 0,
+    "process_kill_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_fallback_config_mutation_count": 0,
+    "tarball_apply_count": 0,
+    "telegram_probe_send_count": 0,
+    "telegram_send_count": 0,
+    "unapproved_timer_or_cron_mutation_count": 0
+  },
+  "schema": "umc.v1.m3n.cron_job_recovery_execution.v1",
+  "status": "PASS_M3N_CRON_JOB_RECOVERY_ACTION_EXECUTED",
+  "telegram_send_probe_executed": false
+}

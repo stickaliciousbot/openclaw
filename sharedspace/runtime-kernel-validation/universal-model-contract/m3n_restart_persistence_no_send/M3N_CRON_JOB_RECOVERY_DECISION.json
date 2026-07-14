@@ -1,0 +1,40 @@
+{
+  "approved_recovery_executed": "PASS_M3N_CRON_JOB_RECOVERY_ACTION_EXECUTED",
+  "generated_utc": "2026-07-14T10:59:14Z",
+  "n2_n3_retry_can_be_requested": false,
+  "next_phase": "RESCOPE_M3N_TELEGRAM_READBACK_NO_SEND_VERIFICATION_OR_RESTART_APPROVAL",
+  "post_action_recheck_status": "PASS_M3N_CRON_JOB_RECOVERY_RECHECK_NO_FRESH_RUNTIME_SIGNALS",
+  "rollback_reenable_tool_call": {
+    "action": "update",
+    "jobId": "b29e6275-9bad-4622-8a56-041e5a2dc864",
+    "patch": {
+      "enabled": true
+    }
+  },
+  "safety_counters": {
+    "approved_cron_enabled_false_patch_count": 1,
+    "context_bridge_mutation_count": 0,
+    "enforcement_started_count": 0,
+    "external_send_count": 0,
+    "gateway_restart_count": 0,
+    "m3n_persistence_verification_count": 0,
+    "m3o_started_count": 0,
+    "m4_started_count": 0,
+    "memory_mutation_count": 0,
+    "n2_n3_retry_count": 0,
+    "package_install_count": 0,
+    "process_kill_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_fallback_config_mutation_count": 0,
+    "tarball_apply_count": 0,
+    "telegram_probe_send_count": 0,
+    "telegram_send_count": 0,
+    "unapproved_timer_or_cron_mutation_count": 0
+  },
+  "schema": "umc.v1.m3n.cron_job_recovery_decision.v1",
+  "selected_job_id": "b29e6275-9bad-4622-8a56-041e5a2dc864",
+  "selected_job_name": "context-plus-semantic-shadow-pass-watch",
+  "status": "FAIL_M3N_CRON_JOB_RECOVERY_TELEGRAM_LIVENESS_NOT_FULLY_PROVEN",
+  "watch_status": "PASS_M3N_CRON_JOB_RECOVERY_WATCH_CLEAN_BUT_TELEGRAM_READBACK_UNPROVEN"
+}

@@ -1,0 +1,41 @@
+{
+  "fresh_counts_since_action": {
+    "context_overflow": 0,
+    "event_loop_delay": 0,
+    "gateway_timeout": 0,
+    "getme_timeout": 0,
+    "liveness_warning": 0,
+    "selected_job_active_log_hits": 0
+  },
+  "fresh_signals": [],
+  "gateway_pid": 122580,
+  "gateway_rpc_ok_inferred_from_tcp": true,
+  "generated_utc": "2026-07-14T10:44:14Z",
+  "no_gateway_restart": true,
+  "no_telegram_probe_send": true,
+  "queue_depth": "not available without active gateway status probe; no queue warning in bounded logs",
+  "safety_counters": {
+    "approved_cron_enabled_false_patch_count": 1,
+    "context_bridge_mutation_count": 0,
+    "enforcement_started_count": 0,
+    "external_send_count": 0,
+    "gateway_restart_count": 0,
+    "m3n_persistence_verification_count": 0,
+    "m3o_started_count": 0,
+    "m4_started_count": 0,
+    "memory_mutation_count": 0,
+    "n2_n3_retry_count": 0,
+    "package_install_count": 0,
+    "process_kill_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_fallback_config_mutation_count": 0,
+    "tarball_apply_count": 0,
+    "telegram_probe_send_count": 0,
+    "telegram_send_count": 0,
+    "unapproved_timer_or_cron_mutation_count": 0
+  },
+  "schema": "umc.v1.m3n.cron_job_recovery_liveness_transport_recheck.v1",
+  "status": "PASS_M3N_CRON_JOB_RECOVERY_RECHECK_NO_FRESH_RUNTIME_SIGNALS",
+  "telegram_readback_account_state": "NOT_ACTIVELY_PROBED_NO_SEND_BOUNDARY; prior readback/account not OK remains unproven clean"
+}

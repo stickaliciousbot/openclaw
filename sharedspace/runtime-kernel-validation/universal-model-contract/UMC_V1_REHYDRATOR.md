@@ -389,3 +389,17 @@ No cleanup, Gateway restart, Telegram send/probe, config/route/fallback/memory/C
 No cleanup, Gateway restart, Telegram send/probe, timer disable, cron edit, config/route/fallback/memory/Context Bridge mutation, provider/model shadow call, N2/N3 retry, persistence verification, M3O, M4, or enforcement was executed.
 
 **Next phase:** `APPROVE_M3N_CRON_JOB_RECOVERY_ACTION`.
+
+## 2026-07-14T10:59:14Z — M3N approved cron job recovery action
+
+**Closeout:** `FAIL_M3N_CRON_JOB_RECOVERY_TELEGRAM_LIVENESS_NOT_FULLY_PROVEN`
+
+Approved action executed: `cron.update jobId=b29e6275-9bad-4622-8a56-041e5a2dc864 patch.enabled=false`; readback enabled=`False`.
+
+Watch status: `PASS_M3N_CRON_JOB_RECOVERY_WATCH_CLEAN_BUT_TELEGRAM_READBACK_UNPROVEN`; aggregate counts `{"context_overflow": 0, "event_loop_delay": 0, "gateway_timeout": 0, "getme_timeout": 0, "liveness_warning": 0, "selected_job_active_log_hits": 0, "telegram_send_log_hits_not_probe": 3}`.
+
+N2/N3 retry ready: `False` because Telegram readback/account OK was not actively proven under the no-send/no-probe boundary.
+
+No Gateway restart, Telegram send/probe, external send, provider/model shadow call, process kill, package install, tarball apply, route/fallback/config mutation beyond approved cron enabled=false patch, memory mutation, Context Bridge mutation, production authority change, N2/N3 retry, persistence verification, M3O, M4, or enforcement executed.
+
+**Next phase:** `RESCOPE_M3N_TELEGRAM_READBACK_NO_SEND_VERIFICATION_OR_RESTART_APPROVAL`.

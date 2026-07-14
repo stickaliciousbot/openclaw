@@ -4,7 +4,7 @@
   "blocker": "Post-repair production health remains unstable.",
   "candidateCount": 18,
   "cleanupExecuted": false,
-  "closeoutStatus": "HOLD_M3N_CRON_JOB_RECOVERY_AWAITING_OPERATOR_APPROVAL",
+  "closeoutStatus": "FAIL_M3N_CRON_JOB_RECOVERY_TELEGRAM_LIVENESS_NOT_FULLY_PROVEN",
   "contractVersion": "umc.v1",
   "diagnosticClassification": "LIVENESS_NETWORK_OR_TRANSPORT_PROBLEM",
   "directBypass": false,
@@ -34,11 +34,12 @@
   "manifestStatus": "shadow_only",
   "milestone": "M3N_INSTALLED_SHADOW_OBSERVE_ONLY_RESTART_PERSISTENCE_NO_SEND",
   "mutation": "documentation/artifact preservation only; no runtime/config/route/fallback/provider/model/memory/Context Bridge authority mutation",
+  "n2N3RetryReady": false,
   "n2N3RetryRun": false,
-  "nextGate": "APPROVE_M3N_CRON_JOB_RECOVERY_ACTION",
+  "nextGate": "RESCOPE_M3N_TELEGRAM_READBACK_NO_SEND_VERIFICATION_OR_RESTART_APPROVAL",
   "nextSafeAction": "Investigate current Telegram/liveness instability read-only or repair underlying plugin/event-loop issue under a separate approved milestone. Do not request N2/N3 retry restart until production recheck passes.",
   "persistenceVerificationStarted": false,
-  "phase": "IDENTIFY_EXACT_STALE_OBSERVER_PID_OR_RESCOPE_TO_CRON_JOB_CLEANUP",
+  "phase": "APPROVE_M3N_CRON_JOB_RECOVERY_ACTION",
   "possiblePressureSourceCount": 1,
   "preflightStatus": "PASS_M3N_CRON_JOB_RESCOPING_PREFLIGHT",
   "project": "universal-model-contract",
@@ -53,8 +54,8 @@
   "rollback": "PASS backups present; no runtime/config mutation made by preservation pass",
   "safeCleanupCandidateCount": 0,
   "safetyCounters": {
+    "approved_cron_enabled_false_patch_count": 1,
     "context_bridge_mutation_count": 0,
-    "cron_edit_count": 0,
     "enforcement_started_count": 0,
     "external_send_count": 0,
     "gateway_restart_count": 0,
@@ -71,14 +72,24 @@
     "tarball_apply_count": 0,
     "telegram_probe_send_count": 0,
     "telegram_send_count": 0,
-    "timer_disable_count": 0
+    "unapproved_timer_or_cron_mutation_count": 0
   },
   "selectedCleanupPids": [],
   "selectedJob": "context-plus-semantic-shadow-pass-watch",
+  "selectedJobEnabled": false,
   "selectedJobId": "b29e6275-9bad-4622-8a56-041e5a2dc864",
   "telegramSendProbeExecuted": false,
   "telegramTransportDiagnosticClassification": "TELEGRAM_TRANSPORT_TIMEOUT_CORRELATED_WITH_EVENT_LOOP_DELAY",
   "timerOrCronMutationExecuted": false,
-  "timestamp": "2026-07-14T10:37:42Z",
-  "watchStatus": "FAIL_M3N_EVENT_LOOP_TRANSPORT_STILL_UNSTABLE"
+  "timestamp": "2026-07-14T10:59:14Z",
+  "watchCounts": {
+    "context_overflow": 0,
+    "event_loop_delay": 0,
+    "gateway_timeout": 0,
+    "getme_timeout": 0,
+    "liveness_warning": 0,
+    "selected_job_active_log_hits": 0,
+    "telegram_send_log_hits_not_probe": 3
+  },
+  "watchStatus": "PASS_M3N_CRON_JOB_RECOVERY_WATCH_CLEAN_BUT_TELEGRAM_READBACK_UNPROVEN"
 }
