@@ -1,0 +1,32 @@
+{
+  "checks": {
+    "fixtures_passed": true,
+    "fresh_liveness_warning_remains": true,
+    "liveness_repair_policy_passed": true,
+    "n2_n3_retry_was_not_run": true,
+    "production_recheck_failed": true,
+    "safety_counters_zero": true,
+    "scanner_repair_passed": true
+  },
+  "fresh_liveness_signal_count": 2,
+  "generated_utc": "2026-07-14T08:21:08Z",
+  "m3o_m4_enforcement_started": false,
+  "n2_n3_retry_run": false,
+  "persistence_verification_started": false,
+  "phase": "HOLD_REPAIR_CURRENT_TELEGRAM_LIVENESS_BEFORE_N2_N3_RETRY",
+  "safety_counters": {
+    "context_bridge_mutation_count": 0,
+    "external_send_count": 0,
+    "memory_mutation_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_config_mutation_count": 0,
+    "telegram_send_count": 0
+  },
+  "schema": "umc.v1.m3n.current_telegram_liveness_blocker_rehydration.v1",
+  "source_statuses": {
+    "fixtures": "PASS_M3N_POST_RESTART_HEALTH_REPAIR_FIXTURES",
+    "manifest": "FAIL_M3N_POST_REPAIR_PRODUCTION_HEALTH_UNSTABLE",
+    "production_recheck": "FAIL_M3N_POST_REPAIR_PRODUCTION_HEALTH_UNSTABLE"
+  },
+  "status": "PASS_M3N_CURRENT_TELEGRAM_LIVENESS_BLOCKER_REHYDRATED"
+}

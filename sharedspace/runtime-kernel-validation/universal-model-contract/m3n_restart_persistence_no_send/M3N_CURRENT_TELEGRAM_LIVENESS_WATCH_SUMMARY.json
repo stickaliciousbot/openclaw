@@ -1,0 +1,41 @@
+{
+  "actual_probes": 6,
+  "cadence_seconds": 300,
+  "duration_seconds": 1516.445,
+  "expected_probes": 6,
+  "fresh_liveness_warning_count_total": 1,
+  "fresh_module_manifest_channel_error_count_total": 0,
+  "gateway_pid_baseline": 122580,
+  "gateway_pid_values": [
+    122580,
+    122580,
+    122580,
+    122580,
+    122580,
+    122580
+  ],
+  "generated_utc": "2026-07-14T08:46:40Z",
+  "no_authority_mutation": true,
+  "no_config_mutation": true,
+  "no_restart": true,
+  "no_sends": true,
+  "probe_statuses": [
+    "FAIL_M3N_CURRENT_TELEGRAM_LIVENESS_WATCH_PROBE_UNSTABLE",
+    "FAIL_M3N_CURRENT_TELEGRAM_LIVENESS_WATCH_PROBE_UNSTABLE",
+    "FAIL_M3N_CURRENT_TELEGRAM_LIVENESS_WATCH_PROBE_UNSTABLE",
+    "FAIL_M3N_CURRENT_TELEGRAM_LIVENESS_WATCH_PROBE_UNSTABLE",
+    "FAIL_M3N_CURRENT_TELEGRAM_LIVENESS_WATCH_PROBE_UNSTABLE",
+    "FAIL_M3N_CURRENT_TELEGRAM_LIVENESS_WATCH_PROBE_UNSTABLE"
+  ],
+  "safety_counters": {
+    "context_bridge_mutation_count": 0,
+    "external_send_count": 0,
+    "memory_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_config_mutation_count": 0,
+    "telegram_send_count": 0
+  },
+  "schema": "umc.v1.m3n.current_telegram_liveness_watch_summary.v1",
+  "status": "FAIL_M3N_CURRENT_TELEGRAM_LIVENESS_STILL_UNSTABLE"
+}

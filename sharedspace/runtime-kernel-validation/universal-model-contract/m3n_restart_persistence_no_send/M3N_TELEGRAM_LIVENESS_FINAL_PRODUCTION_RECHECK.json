@@ -1,0 +1,30 @@
+{
+  "gateway": {
+    "pid": 122580,
+    "queue_depth_zero": true,
+    "rpc_ok": true
+  },
+  "generated_utc": "2026-07-14T08:46:57Z",
+  "m3o_m4_enforcement_started": false,
+  "n2_n3_retry_run": false,
+  "no_config_mutation": true,
+  "no_restart": true,
+  "no_sends": true,
+  "persistence_verification_started": false,
+  "safety_counters": {
+    "context_bridge_mutation_count": 0,
+    "external_send_count": 0,
+    "memory_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_config_mutation_count": 0,
+    "telegram_send_count": 0
+  },
+  "schema": "umc.v1.m3n.telegram_liveness_final_production_recheck.v1",
+  "status": "FAIL_M3N_TELEGRAM_LIVENESS_FINAL_PRODUCTION_RECHECK",
+  "telegram": {
+    "fresh_liveness_warning_count": 0,
+    "readback_account_1_of_1_or_status_ok": false,
+    "signals": []
+  }
+}

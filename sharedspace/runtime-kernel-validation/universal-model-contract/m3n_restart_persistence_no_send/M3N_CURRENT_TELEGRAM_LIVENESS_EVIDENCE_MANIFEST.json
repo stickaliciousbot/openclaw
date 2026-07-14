@@ -1,0 +1,117 @@
+{
+  "artifacts": [
+    {
+      "bytes": 2740,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/UMC_V1_HANDOFF.json",
+      "sha256": "b5183002c5beb4f3d1e3f9aeb5e785a475158af95a21c3f8077acee259987f02"
+    },
+    {
+      "bytes": 28883,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/UMC_V1_IMPLEMENTATION_NOTEBOOK.md",
+      "sha256": "aacf11f203ab33608e28521e52813a70acac6dc66c5a30d54e53095830195340"
+    },
+    {
+      "bytes": 14609,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/UMC_V1_MILESTONE_LEDGER.md",
+      "sha256": "eca97f1dd83a05dce8390061150d5c6bedb884c0bfdaffd467fb96b1915e531b"
+    },
+    {
+      "bytes": 20637,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/UMC_V1_REHYDRATOR.md",
+      "sha256": "9ad859fc131803f803f2dea1941c59feb2f822955a63b2820761ae3728f9f988"
+    },
+    {
+      "bytes": 25154,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/UMC_V1_TROUBLESHOOTING_AND_REPAIR_NOTEBOOK.md",
+      "sha256": "75ec784c791a75ff18b01276abe460390d5982197815e89f3c672bf80e4f144c"
+    },
+    {
+      "bytes": 1158,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CURRENT_TELEGRAM_LIVENESS_BLOCKER_REHYDRATION.json",
+      "sha256": "4f6c44a9e759e6bb2eec942b9efe213a0b806c75f4d09c6c37c7d5b5b72f0c70"
+    },
+    {
+      "bytes": 304,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CURRENT_TELEGRAM_LIVENESS_BLOCKER_SUMMARY.md",
+      "sha256": "d01d5d2a03286afd9a2d722f8a57836002e995444c773026c85104af634f4dfc"
+    },
+    {
+      "bytes": 14132,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CURRENT_TELEGRAM_LIVENESS_DIAGNOSTIC.json",
+      "sha256": "e2390af25b808df89343c6a2c173366907c4c35d539a0fb20b62c0095c437656"
+    },
+    {
+      "bytes": 449,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CURRENT_TELEGRAM_LIVENESS_DIAGNOSTIC.md",
+      "sha256": "9a3f760322ebea50e96bd580b9c41a86b874524f6e07a491f4adabf7e3cc348d"
+    },
+    {
+      "bytes": 1047,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CURRENT_TELEGRAM_LIVENESS_RECOVERY_DECISION.json",
+      "sha256": "9fd0f2a999ccd45903ce4b1846ccc67f7004221f02a450aeff07a6dfabab8244"
+    },
+    {
+      "bytes": 475,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CURRENT_TELEGRAM_LIVENESS_RECOVERY_DECISION.md",
+      "sha256": "f785b0dde58e843ad0b217714ddf2071448814623e86bd446091a98edd070171"
+    },
+    {
+      "bytes": 1136,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CURRENT_TELEGRAM_LIVENESS_WATCH_PROBE_0001.json",
+      "sha256": "0869edf10471e0d60db119db74b8b5a4f9b2de1ad9c9b049467af0abb521f395"
+    },
+    {
+      "bytes": 2600,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CURRENT_TELEGRAM_LIVENESS_WATCH_PROBE_0002.json",
+      "sha256": "f8a29fb91a21252f9a9188840d56523d36b3f7332231ea0789e0e6f817031800"
+    },
+    {
+      "bytes": 1135,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CURRENT_TELEGRAM_LIVENESS_WATCH_PROBE_0003.json",
+      "sha256": "053cf9776fa78a501c7434953caf1656a0ff87429c89d007e85af4ed834f61b9"
+    },
+    {
+      "bytes": 1136,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CURRENT_TELEGRAM_LIVENESS_WATCH_PROBE_0004.json",
+      "sha256": "460cb6ac154cb3c5e79aed27cf49ddb92fd34108aae71835d3346118ee4892a9"
+    },
+    {
+      "bytes": 1136,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CURRENT_TELEGRAM_LIVENESS_WATCH_PROBE_0005.json",
+      "sha256": "fb085b695c7c37ae21958d95f5a560262cd23b7f4fa88e308c527d9ff8a6d862"
+    },
+    {
+      "bytes": 1136,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CURRENT_TELEGRAM_LIVENESS_WATCH_PROBE_0006.json",
+      "sha256": "faad37d514640b913ec9b3f6dc2ac42e25e8b9946f75304b88a966ddfa373774"
+    },
+    {
+      "bytes": 1307,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CURRENT_TELEGRAM_LIVENESS_WATCH_SUMMARY.json",
+      "sha256": "96149728895c589f1ab82b20eb7f4f801613f275dad65371fe8c02ff42331e2b"
+    },
+    {
+      "bytes": 865,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_TELEGRAM_LIVENESS_FINAL_PRODUCTION_RECHECK.json",
+      "sha256": "d2acb0585aebf3a8b1c3ccd4132fb0fbb02a61dd2f7abd5f802e8cec385c2c92"
+    },
+    {
+      "bytes": 845,
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_TELEGRAM_LIVENESS_PHASE_VALIDATION.json",
+      "sha256": "e0000971e79d805bfb18436b83e911542559a74deba557dcb593516107702a3c"
+    }
+  ],
+  "generated_utc": "2026-07-14T08:46:57Z",
+  "push_status": "NOT_ATTEMPTED_NO_AUTHORIZATION",
+  "safety_counters": {
+    "context_bridge_mutation_count": 0,
+    "external_send_count": 0,
+    "memory_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_config_mutation_count": 0,
+    "telegram_send_count": 0
+  },
+  "schema": "umc.v1.m3n.telegram_liveness_diagnosis_evidence_manifest.v1",
+  "status": "FAIL_M3N_CURRENT_TELEGRAM_LIVENESS_STILL_UNSTABLE"
+}

@@ -1,0 +1,31 @@
+{
+  "external_send_performed": false,
+  "fresh_liveness_warning_count": 0,
+  "fresh_module_manifest_channel_error_count": 0,
+  "fresh_signals": [],
+  "gateway_pid": 122580,
+  "gateway_pid_stable_from_baseline": true,
+  "gateway_reachable_rpc_ok": true,
+  "generated_utc": "2026-07-14T08:41:40Z",
+  "probe_index": 5,
+  "production_config_hash_stable": true,
+  "provider_model_shadow_call_performed": false,
+  "queue_depth_zero": true,
+  "rollback_ready": true,
+  "route_config_memory_context_bridge_mutation_performed": false,
+  "route_provider_fallback_fingerprint_stable": true,
+  "safety_counters": {
+    "context_bridge_mutation_count": 0,
+    "external_send_count": 0,
+    "memory_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_config_mutation_count": 0,
+    "telegram_send_count": 0
+  },
+  "schema": "umc.v1.m3n.current_telegram_liveness_watch_probe.v1",
+  "status": "FAIL_M3N_CURRENT_TELEGRAM_LIVENESS_WATCH_PROBE_UNSTABLE",
+  "telegram_readback_account_1_of_1_or_status_ok": false,
+  "telegram_send_performed": false,
+  "window_since_epoch": 1784018198.7577682
+}

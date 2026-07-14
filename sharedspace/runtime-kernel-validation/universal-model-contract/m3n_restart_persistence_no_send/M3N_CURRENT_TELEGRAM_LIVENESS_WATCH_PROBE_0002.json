@@ -1,0 +1,41 @@
+{
+  "external_send_performed": false,
+  "fresh_liveness_warning_count": 1,
+  "fresh_module_manifest_channel_error_count": 0,
+  "fresh_signals": [
+    {
+      "message": "07-14T08:22:24.677Z\",\"logLevelId\":4,\"logLevelName\":\"WARN\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T18:22:24.678+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"liveness warning: reasons=event_loop_delay interval=30s eventLoopDelayP99Ms=29.9 eventLoopDelayMaxMs=3726.6 eventLoopUtilization=0.195 cpuCoreRatio=0.227 active=1 waiting=0 queued=1 phase=channels.telegram.start-account recentPhases=sidecars.subagent-recovery:12ms,sidecars.main-session-recovery:18ms,sidecars.model-prewarm:2114ms,post-attach.update-sentinel:65ms,sidecars.session-locks:156ms,post-ready.maintenance:11ms work=[active=agent:main:telegram:direct:8495203551(processing/tool_call,q=1,age=77s last=tool:exec:started) queued=agent:main:telegram:direct:8495203551(processing/tool_call,q=1,age=77s last=tool:exec:started)]\"}",
+      "terms": [
+        "channels.telegram.start-account",
+        "event_loop_delay",
+        "liveness warning"
+      ],
+      "timestamp": "2026-07-14T18:22:24.678+10:00"
+    }
+  ],
+  "gateway_pid": 122580,
+  "gateway_pid_stable_from_baseline": true,
+  "gateway_reachable_rpc_ok": true,
+  "generated_utc": "2026-07-14T08:26:41Z",
+  "probe_index": 2,
+  "production_config_hash_stable": true,
+  "provider_model_shadow_call_performed": false,
+  "queue_depth_zero": true,
+  "rollback_ready": true,
+  "route_config_memory_context_bridge_mutation_performed": false,
+  "route_provider_fallback_fingerprint_stable": true,
+  "safety_counters": {
+    "context_bridge_mutation_count": 0,
+    "external_send_count": 0,
+    "memory_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_config_mutation_count": 0,
+    "telegram_send_count": 0
+  },
+  "schema": "umc.v1.m3n.current_telegram_liveness_watch_probe.v1",
+  "status": "FAIL_M3N_CURRENT_TELEGRAM_LIVENESS_WATCH_PROBE_UNSTABLE",
+  "telegram_readback_account_1_of_1_or_status_ok": false,
+  "telegram_send_performed": false,
+  "window_since_epoch": 1784017299.1722636
+}

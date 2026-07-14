@@ -2,8 +2,9 @@
   "activeLane": "observe-only-shadow-no-send",
   "activeProviderModel": "none; no provider/model shadow calls caused by M3N preservation",
   "blocker": "Post-repair production health remains unstable.",
-  "closeoutStatus": "FAIL_M3N_POST_REPAIR_PRODUCTION_HEALTH_UNSTABLE",
+  "closeoutStatus": "FAIL_M3N_CURRENT_TELEGRAM_LIVENESS_STILL_UNSTABLE",
   "contractVersion": "umc.v1",
+  "diagnosticClassification": "LIVENESS_NETWORK_OR_TRANSPORT_PROBLEM",
   "directBypass": false,
   "evidence": [
     "m3n_restart_persistence_no_send/M3N_N3_FAILURE_PRESERVATION_BRANCH_SCOPE_VALIDATION.json",
@@ -15,12 +16,17 @@
     "m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_REPAIR_EVIDENCE_MANIFEST.json"
   ],
   "executionAuthority": "legacy_direct_plus_m2_route_intent_interceptor_plus_m2q_queue_admission_guard; no authority promotion",
+  "m3oM4EnforcementStarted": false,
   "manifestStatus": "shadow_only",
-  "milestone": "M3N_POST_RESTART_HEALTH_SCANNER_AND_LIVENESS_REPAIR_THEN_N2_N3_RETRY",
+  "milestone": "M3N_INSTALLED_SHADOW_OBSERVE_ONLY_RESTART_PERSISTENCE_NO_SEND",
   "mutation": "documentation/artifact preservation only; no runtime/config/route/fallback/provider/model/memory/Context Bridge authority mutation",
+  "n2N3RetryRun": false,
   "nextGate": "HOLD_REPAIR_CURRENT_TELEGRAM_LIVENESS_BEFORE_N2_N3_RETRY",
   "nextSafeAction": "Investigate current Telegram/liveness instability read-only or repair underlying plugin/event-loop issue under a separate approved milestone. Do not request N2/N3 retry restart until production recheck passes.",
+  "persistenceVerificationStarted": false,
+  "phase": "HOLD_REPAIR_CURRENT_TELEGRAM_LIVENESS_BEFORE_N2_N3_RETRY",
   "project": "universal-model-contract",
+  "recoveryPath": "PATH_F_BLOCKED_PERSISTENT_PLUGIN_INSTABILITY",
   "requiredCapabilities": [
     "installed_observe_only_shadow_restart_persistence_no_send",
     "fail_closed_health_preservation",
@@ -29,5 +35,15 @@
     "no_send_no_authority"
   ],
   "rollback": "PASS backups present; no runtime/config mutation made by preservation pass",
-  "timestamp": "2026-07-14T07:54:34Z"
+  "safetyCounters": {
+    "context_bridge_mutation_count": 0,
+    "external_send_count": 0,
+    "memory_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_config_mutation_count": 0,
+    "telegram_send_count": 0
+  },
+  "timestamp": "2026-07-14T08:46:57Z",
+  "watchStatus": "FAIL_M3N_CURRENT_TELEGRAM_LIVENESS_STILL_UNSTABLE"
 }

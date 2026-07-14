@@ -1,0 +1,113 @@
+{
+  "auth_signal_count": 0,
+  "classification": "LIVENESS_NETWORK_OR_TRANSPORT_PROBLEM",
+  "fresh_bounded_log_window": {
+    "liveness_warning_count": 4,
+    "signal_count": 9,
+    "signals": [
+      {
+        "message": "ogLevelName\":\"WARN\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:22:08.424+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"liveness warning: reasons=event_loop_delay interval=30s eventLoopDelayP99Ms=21.9 eventLoopDelayMaxMs=4064.3 eventLoopUtilization=0.191 cpuCoreRatio=0.221 active=1 waiting=0 queued=1 phase=channels.telegram.start-account recentPhases=sidecars.subagent-recovery:12ms,sidecars.main-session-recovery:18ms,sidecars.model-prewarm:2114ms,post-attach.update-sentinel:65ms,sidecars.session-locks:156ms,post-ready.maintenance:11ms work=[active=agent:main:cron:b29e6275-9bad-4622-8a56-041e5a2dc864:run:c1c88869-2085-4625-a89d-85562ee43fba(processing/model_call,q=0,age=3s last=model_call:started) queued=agent:main:telegram:direct:8495203551(idle,q=1,age=125s last=run:completed)]\"}",
+        "terms": [
+          "channels.telegram.start-account",
+          "event_loop_delay",
+          "liveness warning"
+        ],
+        "timestamp": "2026-07-14T17:22:08.424+10:00"
+      },
+      {
+        "message": "{\"0\":\"exec approval followup dispatch failed (id=b9c26073-5adb-427f-8952-ca3f56a611c2): Session followup failed: gateway timeout after 60000ms\\nGateway target: ws://127.0.0.1:18789\\nSource: local loopback\\nConfig: /home/stickai/.openclaw/openclaw.json\\nBind: lan\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"openclaw\",\"date\":\"2026-07-14T07:23:08.102Z\",\"logLevelId\":4,\"logLevelName\":\"WARN\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/logger-DksTYIAF.js:23:34\",\"fileName\":\"logger-DksTYIAF.js\",\"fileNameWithLine\":\"logger-DksTYIAF.js:23\",\"fileColumn\":\"34\",\"fileLine\":\"23\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/logger-DksTYIAF.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/logger-DksTYIAF.js:23\",\"method\":\"logWithSubsystem\"}},\"time\":\"2026-07-14T17:23:08.103+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"exec approval followup dispatch failed (id=b9c26073-5adb-427f-8952-ca3f56a611c2): Session followup failed: gateway timeout after 60000ms\\nGateway target: ws://127.0.0.1:18789\\nSource: local loopback\\nConfig: /home/stickai/.openclaw/openclaw.json\\nBind: lan\"}",
+        "terms": [
+          "gateway timeout"
+        ],
+        "timestamp": "2026-07-14T17:23:08.103+10:00"
+      },
+      {
+        "message": "8d5c6537239a): Session followup failed: gateway timeout after 60000ms\\nGateway target: ws://127.0.0.1:18789\\nSource: local loopback\\nConfig: /home/stickai/.openclaw/openclaw.json\\nBind: lan\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"openclaw\",\"date\":\"2026-07-14T07:26:30.036Z\",\"logLevelId\":4,\"logLevelName\":\"WARN\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/logger-DksTYIAF.js:23:34\",\"fileName\":\"logger-DksTYIAF.js\",\"fileNameWithLine\":\"logger-DksTYIAF.js:23\",\"fileColumn\":\"34\",\"fileLine\":\"23\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/logger-DksTYIAF.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/logger-DksTYIAF.js:23\",\"method\":\"logWithSubsystem\"}},\"time\":\"2026-07-14T17:26:30.037+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"exec approval followup dispatch failed (id=10515f48-2f72-4e16-a036-8d5c6537239a): Session followup failed: gateway timeout after 60000ms\\nGateway target: ws://127.0.0.1:18789\\nSource: local loopback\\nConfig: /home/stickai/.openclaw/openclaw.json\\nBind: lan\",\"traceId\":\"43e908d8630b357de3efe02c8e1ec359\",\"spanId\":\"bf91e633dabed9cf\",\"traceFlags\":\"01\"}",
+        "terms": [
+          "gateway timeout"
+        ],
+        "timestamp": "2026-07-14T17:26:30.037+10:00"
+      },
+      {
+        "message": "{\"0\":\"{\\\"subsystem\\\":\\\"agent/embedded\\\"}\",\"1\":\"context overflow detected (attempt 1/3); attempting auto-compaction for openai-codex/gpt-5.5\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"agent/embedded\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:28:38.961Z\",\"logLevelId\":4,\"logLevelName\":\"WARN\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:28:38.961+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"context overflow detected (attempt 1/3); attempting auto-compaction for openai-codex/gpt-5.5\",\"traceId\":\"a810b58a9d29f2274494591a9a029393\",\"spanId\":\"798248c53f7ab7b4\",\"traceFlags\":\"01\"}",
+        "terms": [
+          "context overflow detected"
+        ],
+        "timestamp": "2026-07-14T17:28:38.961+10:00"
+      },
+      {
+        "message": "{\"0\":\"{\\\"subsystem\\\":\\\"fetch-timeout\\\"}\",\"1\":{\"timeoutMs\":10000,\"elapsedMs\":15941,\"timerDelayMs\":5941,\"eventLoopDelayHint\":\"timer delayed 5941ms, likely event-loop starvation\",\"operation\":\"fetchWithTimeout\",\"url\":\"https://api.telegram.org/bot820077\u2026fksI/getMe\"},\"2\":\"fetch timeout reached; aborting operation\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"fetch-timeout\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T07:29:02.748Z\",\"logLevelId\":4,\"logLevelName\":\"WARN\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:149:51\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:149\",\"fileColumn\":\"51\",\"fileLine\":\"149\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:149\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:29:02.748+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"fetch timeout reached; aborting operation\"}",
+        "terms": [
+          "event-loop starvation",
+          "fetch timeout reached",
+          "getMe"
+        ],
+        "timestamp": "2026-07-14T17:29:02.748+10:00"
+      },
+      {
+        "message": "0d4379a466b7): Session followup failed: gateway timeout after 60000ms\\nGateway target: ws://127.0.0.1:18789\\nSource: local loopback\\nConfig: /home/stickai/.openclaw/openclaw.json\\nBind: lan\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"openclaw\",\"date\":\"2026-07-14T07:29:02.762Z\",\"logLevelId\":4,\"logLevelName\":\"WARN\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/logger-DksTYIAF.js:23:34\",\"fileName\":\"logger-DksTYIAF.js\",\"fileNameWithLine\":\"logger-DksTYIAF.js:23\",\"fileColumn\":\"34\",\"fileLine\":\"23\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/logger-DksTYIAF.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/logger-DksTYIAF.js:23\",\"method\":\"logWithSubsystem\"}},\"time\":\"2026-07-14T17:29:02.762+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"exec approval followup dispatch failed (id=e5961795-f2d1-400d-9225-0d4379a466b7): Session followup failed: gateway timeout after 60000ms\\nGateway target: ws://127.0.0.1:18789\\nSource: local loopback\\nConfig: /home/stickai/.openclaw/openclaw.json\\nBind: lan\",\"traceId\":\"aca25ae7a2814c2c817137576765e2cc\",\"spanId\":\"bd6c9d4cf1701590\",\"traceFlags\":\"01\"}",
+        "terms": [
+          "gateway timeout"
+        ],
+        "timestamp": "2026-07-14T17:29:02.762+10:00"
+      },
+      {
+        "message": "m-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:42:08.439+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"liveness warning: reasons=event_loop_delay interval=30s eventLoopDelayP99Ms=22.7 eventLoopDelayMaxMs=3779.1 eventLoopUtilization=0.185 cpuCoreRatio=0.221 active=2 waiting=0 queued=1 phase=channels.telegram.start-account recentPhases=sidecars.subagent-recovery:12ms,sidecars.main-session-recovery:18ms,sidecars.model-prewarm:2114ms,post-attach.update-sentinel:65ms,sidecars.session-locks:156ms,post-ready.maintenance:11ms work=[active=agent:main:telegram:direct:8495203551(processing/model_call,q=1,age=1s last=model_call:started)|agent:main:cron:b29e6275-9bad-4622-8a56-041e5a2dc864:run:cef37989-ccd0-468f-ac32-47aeadc2138c(processing/model_call,q=0,age=4s last=model_call:started) queued=agent:main:telegram:direct:8495203551(processing/model_call,q=1,age=1s last=model_call:started)]\"}",
+        "terms": [
+          "channels.telegram.start-account",
+          "event_loop_delay",
+          "liveness warning"
+        ],
+        "timestamp": "2026-07-14T17:42:08.439+10:00"
+      },
+      {
+        "message": "m-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:47:08.443+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"liveness warning: reasons=event_loop_delay interval=30s eventLoopDelayP99Ms=60.7 eventLoopDelayMaxMs=3806.3 eventLoopUtilization=0.252 cpuCoreRatio=0.332 active=2 waiting=0 queued=1 phase=channels.telegram.start-account recentPhases=sidecars.subagent-recovery:12ms,sidecars.main-session-recovery:18ms,sidecars.model-prewarm:2114ms,post-attach.update-sentinel:65ms,sidecars.session-locks:156ms,post-ready.maintenance:11ms work=[active=agent:main:telegram:direct:8495203551(processing/model_call,q=1,age=4s last=model_call:started)|agent:main:cron:b29e6275-9bad-4622-8a56-041e5a2dc864:run:784e987d-8b0a-4b19-bdc5-9d8410ed8c96(processing/model_call,q=0,age=3s last=model_call:started) queued=agent:main:telegram:direct:8495203551(processing/model_call,q=1,age=4s last=model_call:started)]\"}",
+        "terms": [
+          "channels.telegram.start-account",
+          "event_loop_delay",
+          "liveness warning"
+        ],
+        "timestamp": "2026-07-14T17:47:08.443+10:00"
+      },
+      {
+        "message": "CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T17:52:08.447+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"liveness warning: reasons=event_loop_delay interval=30s eventLoopDelayP99Ms=32.6 eventLoopDelayMaxMs=3739.2 eventLoopUtilization=0.252 cpuCoreRatio=0.318 active=2 waiting=0 queued=1 phase=channels.telegram.start-account recentPhases=sidecars.subagent-recovery:12ms,sidecars.main-session-recovery:18ms,sidecars.model-prewarm:2114ms,post-attach.update-sentinel:65ms,sidecars.session-locks:156ms,post-ready.maintenance:11ms work=[active=agent:main:telegram:direct:8495203551(processing/model_call,q=1,age=30s last=model_call:started)|agent:main:cron:b29e6275-9bad-4622-8a56-041e5a2dc864:run:1da39a29-b50c-43a6-bff1-460f4468b5fd(processing/model_call,q=0,age=4s last=model_call:started) queued=agent:main:telegram:direct:8495203551(processing/model_call,q=1,age=30s last=model_call:started)]\"}",
+        "terms": [
+          "channels.telegram.start-account",
+          "event_loop_delay",
+          "liveness warning"
+        ],
+        "timestamp": "2026-07-14T17:52:08.447+10:00"
+      }
+    ],
+    "since_epoch": 1784013668.1936865
+  },
+  "gateway": {
+    "pid": 122580,
+    "queue_depth_zero": true,
+    "rpc_ok": true,
+    "runtime_status": "running"
+  },
+  "generated_utc": "2026-07-14T08:21:24Z",
+  "network_or_transport_signal_count": 4,
+  "no_config_mutation": true,
+  "no_restart": true,
+  "no_sends": true,
+  "phase": "HOLD_REPAIR_CURRENT_TELEGRAM_LIVENESS_BEFORE_N2_N3_RETRY",
+  "runtime_pid_continuity_baseline": 122580,
+  "safety_counters": {
+    "context_bridge_mutation_count": 0,
+    "external_send_count": 0,
+    "memory_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_config_mutation_count": 0,
+    "telegram_send_count": 0
+  },
+  "schema": "umc.v1.m3n.current_telegram_liveness_diagnostic.v1",
+  "status": "PASS_M3N_CURRENT_TELEGRAM_LIVENESS_DIAGNOSTIC_COMPLETED",
+  "telegram": {
+    "config_mutation_performed": false,
+    "probe_send_performed": false,
+    "readback_account_1_of_1_or_status_ok": false
+  }
+}

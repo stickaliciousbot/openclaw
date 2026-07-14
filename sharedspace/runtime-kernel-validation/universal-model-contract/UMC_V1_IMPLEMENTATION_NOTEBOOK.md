@@ -463,3 +463,15 @@ m3n_restart_persistence_no_send/M3N_POST_RESTART_HEALTH_REPAIR_EVIDENCE_MANIFEST
 ```
 
 **Result:** Preservation branch target was corrected to `evidence/umc-m3n-post-restart-health-failclosed-20260713`; scanner repair and liveness policy fixtures passed without sends or authority mutation. Read-only production recheck failed because fresh bounded runtime-log evidence still showed Telegram/liveness instability, so no N2/N3 retry approval was requested and no Gateway restart occurred. M3N persistence verification, M3O, M4 and enforcement remain locked.
+
+## 2026-07-14T08:46:57Z — M3N current Telegram liveness blocker diagnosis/watch
+
+**Closeout:** `FAIL_M3N_CURRENT_TELEGRAM_LIVENESS_STILL_UNSTABLE`
+
+**Diagnostic classification:** `LIVENESS_NETWORK_OR_TRANSPORT_PROBLEM`
+
+**Watch:** `FAIL_M3N_CURRENT_TELEGRAM_LIVENESS_STILL_UNSTABLE` across `6` probes. Fresh liveness warnings: `1`.
+
+**Recovery decision:** `PATH_F_BLOCKED_PERSISTENT_PLUGIN_INSTABILITY`. No recovery action executed; no Telegram send, Gateway restart, config mutation, route/fallback mutation, memory mutation, Context Bridge mutation, provider/model call, N2/N3 retry, persistence verification, M3O/M4/enforcement.
+
+**Next phase:** `HOLD_REPAIR_CURRENT_TELEGRAM_LIVENESS_BEFORE_N2_N3_RETRY`.

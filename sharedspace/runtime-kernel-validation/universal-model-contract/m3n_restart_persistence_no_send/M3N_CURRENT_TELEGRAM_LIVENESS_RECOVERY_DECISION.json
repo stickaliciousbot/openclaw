@@ -1,0 +1,25 @@
+{
+  "approval_requested": false,
+  "approval_required": false,
+  "diagnostic_classification": "LIVENESS_NETWORK_OR_TRANSPORT_PROBLEM",
+  "generated_utc": "2026-07-14T08:46:40Z",
+  "next_phase": "HOLD_REPAIR_CURRENT_TELEGRAM_LIVENESS_BEFORE_N2_N3_RETRY",
+  "no_config_mutation": true,
+  "no_restart": true,
+  "no_sends": true,
+  "reason": "Current liveness watch did not pass cleanly; no safe no-approval recovery is executed under this phase.",
+  "recovery_action_executed": false,
+  "safety_counters": {
+    "context_bridge_mutation_count": 0,
+    "external_send_count": 0,
+    "memory_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_config_mutation_count": 0,
+    "telegram_send_count": 0
+  },
+  "schema": "umc.v1.m3n.current_telegram_liveness_recovery_decision.v1",
+  "selected_path": "PATH_F_BLOCKED_PERSISTENT_PLUGIN_INSTABILITY",
+  "status": "PASS_M3N_CURRENT_TELEGRAM_LIVENESS_RECOVERY_DECISION_READY",
+  "watch_status": "FAIL_M3N_CURRENT_TELEGRAM_LIVENESS_STILL_UNSTABLE"
+}

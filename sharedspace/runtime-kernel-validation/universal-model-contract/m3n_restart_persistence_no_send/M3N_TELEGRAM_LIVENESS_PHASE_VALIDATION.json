@@ -1,0 +1,17 @@
+{
+  "changed_file_scope_validation": "PASS_SCOPED_UMC_DOCS_AND_M3N_LIVENESS_EVIDENCE_ONLY_FOR_COMMIT",
+  "diagnostic_validation": "PASS_M3N_CURRENT_TELEGRAM_LIVENESS_DIAGNOSTIC_COMPLETED",
+  "final_status": "FAIL_M3N_CURRENT_TELEGRAM_LIVENESS_STILL_UNSTABLE",
+  "generated_utc": "2026-07-14T08:46:57Z",
+  "git_diff_check": "PASS",
+  "json_validation": "PASS",
+  "liveness_watch_validation": "FAIL_M3N_CURRENT_TELEGRAM_LIVENESS_STILL_UNSTABLE",
+  "markdown_sanity": "PASS",
+  "no_authority_validation": "PASS",
+  "no_send_validation": "PASS",
+  "push_status": "NOT_ATTEMPTED_NO_AUTHORIZATION",
+  "runtime_config_mutation_validation": "PASS_NO_RUNTIME_CONFIG_MUTATION",
+  "safety_counter_validation": "PASS_ZERO_COUNTERS",
+  "schema": "umc.v1.m3n.telegram_liveness_phase_validation.v1",
+  "status": "PASS_M3N_TELEGRAM_LIVENESS_PHASE_VALIDATION"
+}
