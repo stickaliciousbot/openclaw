@@ -1,0 +1,112 @@
+{
+  "aggregate_log_counts": {
+    "context_overflow": 0,
+    "event_loop_delay_or_starvation": 0,
+    "gateway_restart_log_hits": 0,
+    "gateway_timeout": 0,
+    "getme_timeout": 1,
+    "liveness_warning": 0,
+    "selected_cron_active_hits": 0
+  },
+  "cron_readback_last": {
+    "enabled_from_schedule_identity": false,
+    "job_id": "b29e6275-9bad-4622-8a56-041e5a2dc864",
+    "job_name": "context-plus-semantic-shadow-pass-watch",
+    "schedule_identity": {
+      "enabled": false,
+      "schedule": {
+        "anchorMs": 1782091608871,
+        "everyMs": 300000,
+        "kind": "every"
+      },
+      "version": 1
+    },
+    "state": {
+      "consecutiveErrors": 0,
+      "consecutiveSkipped": 0,
+      "lastDeliveryStatus": "not-requested",
+      "lastDurationMs": 21495,
+      "lastRunAtMs": 1784025708903,
+      "lastRunStatus": "ok",
+      "lastStatus": "ok"
+    },
+    "updatedAtMs": 1784025745922
+  },
+  "duration_seconds_target": 1200,
+  "gateway_pid_initial": 122580,
+  "gateway_pid_values": [
+    122580,
+    122580,
+    122580,
+    122580
+  ],
+  "gateway_restart_executed": false,
+  "generated_utc": "2026-07-14T12:10:57Z",
+  "n2_n3_retry_run": false,
+  "probe_count": 4,
+  "probe_statuses": [
+    "PASS_M3N_TELEGRAM_READBACK_STABILITY_PROBE",
+    "PASS_M3N_TELEGRAM_READBACK_STABILITY_PROBE",
+    "FAIL_M3N_TELEGRAM_READBACK_STABILITY_PROBE",
+    "PASS_M3N_TELEGRAM_READBACK_STABILITY_PROBE"
+  ],
+  "run_id": "m3n-telegram-readback-no-send-20260714T115026Z",
+  "safety_counters": {
+    "approved_cron_enabled_false_patch_count": 1,
+    "context_bridge_mutation_count": 0,
+    "enforcement_started_count": 0,
+    "external_send_count": 0,
+    "gateway_restart_count": 0,
+    "m3n_persistence_verification_count": 0,
+    "m3o_started_count": 0,
+    "m4_started_count": 0,
+    "memory_mutation_count": 0,
+    "n2_n3_retry_count": 0,
+    "package_install_count": 0,
+    "process_kill_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_fallback_config_mutation_count": 0,
+    "tarball_apply_count": 0,
+    "telegram_bot_api_probe_count": 0,
+    "telegram_explicit_send_tool_count": 0,
+    "telegram_probe_send_count": 0,
+    "unapproved_timer_or_cron_mutation_count": 0
+  },
+  "schema": "umc.v1.m3n.telegram_readback_stability_watch_summary.v1",
+  "status": "FAIL_M3N_TELEGRAM_READBACK_STABILITY",
+  "telegram_account_state_last": {
+    "accountId": "default",
+    "allowUnmentionedGroups": false,
+    "configured": true,
+    "connected": true,
+    "enabled": true,
+    "lastConnectedAt": 1784031035985,
+    "lastError": null,
+    "lastEventAt": 1784031035985,
+    "lastInboundAt": 1784029282667,
+    "lastOutboundAt": 1784030976684,
+    "lastStartAt": 1784013398241,
+    "lastStopAt": null,
+    "lastTransportActivityAt": 1784031035985,
+    "mode": "polling",
+    "reconnectAttempts": 0,
+    "restartPending": false,
+    "running": true,
+    "tokenSource": "config",
+    "tokenStatus": "available"
+  },
+  "telegram_event_loop_last": {
+    "cpuCoreRatio": 1.014,
+    "degraded": true,
+    "delayMaxMs": 0,
+    "delayP99Ms": 0,
+    "intervalMs": 523,
+    "reasons": [
+      "event_loop_utilization",
+      "cpu"
+    ],
+    "utilization": 1
+  },
+  "telegram_send_or_probe_executed": false
+}

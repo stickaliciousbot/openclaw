@@ -1,0 +1,79 @@
+{
+  "generated_utc": "2026-07-14T11:50:28Z",
+  "methods": [
+    {
+      "classification": "SAFE_READ_ONLY_NO_SEND",
+      "method": "Gateway channels.status with probe=false via local gateway RPC",
+      "reason": "server-methods channels.status only calls plugin.status.probeAccount when params.probe === true; probe=false builds snapshot from Gateway runtime/account activity and local config state.",
+      "selected": true
+    },
+    {
+      "classification": "SAFE_READ_ONLY_NO_SEND",
+      "method": "Current Telegram direct inbound metadata + channel activity lastInboundAt",
+      "reason": "uses already-received inbound conversation and Gateway activity snapshot; no outbound message or provider probe is initiated.",
+      "selected": true
+    },
+    {
+      "classification": "SAFE_READ_ONLY_NO_SEND_SUPPORTING_ONLY",
+      "method": "openclaw gateway status / local service state",
+      "reason": "proves Gateway process/connectivity only; not sufficient alone for Telegram account health.",
+      "selected": false
+    },
+    {
+      "classification": "AMBIGUOUS_COULD_BE_PROBE",
+      "method": "openclaw channels status --probe or Gateway channels.status probe=true",
+      "reason": "Telegram plugin probeAccount calls Telegram Bot API getMe and may include getWebhookInfo; no send, but it is an external provider probe and outside the no-probe boundary.",
+      "selected": false
+    },
+    {
+      "classification": "AMBIGUOUS_COULD_BE_PROBE",
+      "method": "Direct Telegram Bot API getMe/getWebhookInfo",
+      "reason": "read-only provider API but still an active Telegram probe; not selected without explicit approval.",
+      "selected": false
+    },
+    {
+      "classification": "UNSAFE_SEND_OR_PROBE",
+      "method": "Telegram sendMessage/sendTyping/test reply",
+      "reason": "would create outbound Telegram traffic or visible/near-visible probe; explicitly disallowed.",
+      "selected": false
+    },
+    {
+      "classification": "UNAVAILABLE_AS_HEALTH_SIGNAL",
+      "method": "sessions_list/OpenClaw session rows",
+      "reason": "OpenClaw docs state session rows are not provider socket-health signals.",
+      "selected": false
+    },
+    {
+      "classification": "SAFE_READ_ONLY_NO_SEND_SUPPORTING_ONLY",
+      "method": "Local log grep only",
+      "reason": "safe for negative signal checks but not sufficient alone for current account health.",
+      "selected": false
+    }
+  ],
+  "run_id": "m3n-telegram-readback-no-send-20260714T115026Z",
+  "safety_counters": {
+    "approved_cron_enabled_false_patch_count": 1,
+    "context_bridge_mutation_count": 0,
+    "enforcement_started_count": 0,
+    "external_send_count": 0,
+    "gateway_restart_count": 0,
+    "m3n_persistence_verification_count": 0,
+    "m3o_started_count": 0,
+    "m4_started_count": 0,
+    "memory_mutation_count": 0,
+    "n2_n3_retry_count": 0,
+    "package_install_count": 0,
+    "process_kill_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_fallback_config_mutation_count": 0,
+    "tarball_apply_count": 0,
+    "telegram_bot_api_probe_count": 0,
+    "telegram_explicit_send_tool_count": 0,
+    "telegram_probe_send_count": 0,
+    "unapproved_timer_or_cron_mutation_count": 0
+  },
+  "schema": "umc.v1.m3n.telegram_readback_method_inventory.v1",
+  "selected_method": "Gateway channels.status probe=false + current Telegram direct inbound/activity readback",
+  "status": "PASS_M3N_TELEGRAM_READBACK_SAFE_METHOD_IDENTIFIED"
+}

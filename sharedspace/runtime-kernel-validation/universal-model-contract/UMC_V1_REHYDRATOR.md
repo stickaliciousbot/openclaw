@@ -403,3 +403,14 @@ N2/N3 retry ready: `False` because Telegram readback/account OK was not actively
 No Gateway restart, Telegram send/probe, external send, provider/model shadow call, process kill, package install, tarball apply, route/fallback/config mutation beyond approved cron enabled=false patch, memory mutation, Context Bridge mutation, production authority change, N2/N3 retry, persistence verification, M3O, M4, or enforcement executed.
 
 **Next phase:** `RESCOPE_M3N_TELEGRAM_READBACK_NO_SEND_VERIFICATION_OR_RESTART_APPROVAL`.
+
+## 2026-07-14T12:10:59Z — M3N Telegram no-send readback verification
+
+**Closeout:** `FAIL_M3N_TELEGRAM_READBACK_STABILITY`
+
+Method: Gateway `channels.status` with `probe=false` plus current Telegram direct inbound/activity readback. `probe=true`, getMe/getWebhookInfo, sendMessage/sendTyping, and session rows were rejected as unsafe/ambiguous/not-health-signal surfaces.
+
+Verification: `PASS_M3N_TELEGRAM_READBACK_NO_SEND_VERIFIED`. Stability watch: `FAIL_M3N_TELEGRAM_READBACK_STABILITY`. Gateway restart executed: `False`. Telegram send/probe executed: `False`. N2/N3 retry run: `False`. Disabled cron `context-plus-semantic-shadow-pass-watch` remains enabled=`False`.
+
+**Next phase:** `APPROVE_M3N_TELEGRAM_READBACK_RECOVERY_RESTART`.
+Restart approval artifact prepared: `M3N_TELEGRAM_READBACK_RESTART_APPROVAL_CARD.json` / `.md`; Gateway restart not executed. Token-bearing Telegram API log URLs in scoped artifacts were sanitized before commit.

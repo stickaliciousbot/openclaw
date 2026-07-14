@@ -1,0 +1,42 @@
+{
+  "approval_phrase": "APPROVE_M3N_TELEGRAM_READBACK_RECOVERY_RESTART",
+  "explicitly_not_executed": true,
+  "gateway_restart_executed": false,
+  "generated_utc": "2026-07-14T12:12:34Z",
+  "n2_n3_retry_run": false,
+  "next_phase_if_approved": "APPROVE_M3N_TELEGRAM_READBACK_RECOVERY_RESTART",
+  "reason": "Safe no-send Telegram readback verified account health, but the 20-minute/4-probe stability watch failed because a fresh Telegram getMe timeout appeared in Gateway logs during probe 3. N2/N3 retry remains blocked until restart is explicitly approved and post-restart no-send stability passes.",
+  "requested_action": {
+    "arguments": {
+      "continuationMessage": "Continue M3N after approved restart: verify Gateway PID changed/active, run Telegram channels.status probe=false readback, run 20-minute/4-probe no-send stability watch, keep cron context-plus-semantic-shadow-pass-watch disabled, and do not run N2/N3 unless readback and stability pass.",
+      "note": "M3N Telegram readback restart requested: no-send readback passed but stability watch failed; after boot verify Telegram readback/account health before N2/N3 retry.",
+      "reason": "M3N Telegram readback stability failed after safe no-send verification; restart requested before any N2/N3 retry."
+    },
+    "tool": "gateway.restart"
+  },
+  "safety_counters": {
+    "approved_cron_enabled_false_patch_count": 1,
+    "context_bridge_mutation_count": 0,
+    "enforcement_started_count": 0,
+    "external_send_count": 0,
+    "gateway_restart_count": 0,
+    "m3n_persistence_verification_count": 0,
+    "m3o_started_count": 0,
+    "m4_started_count": 0,
+    "memory_mutation_count": 0,
+    "n2_n3_retry_count": 0,
+    "package_install_count": 0,
+    "process_kill_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_fallback_config_mutation_count": 0,
+    "tarball_apply_count": 0,
+    "telegram_bot_api_probe_count": 0,
+    "telegram_explicit_send_tool_count": 0,
+    "telegram_probe_send_count": 0,
+    "unapproved_timer_or_cron_mutation_count": 0
+  },
+  "schema": "umc.v1.m3n.telegram_readback_restart_approval_card.v1",
+  "status": "HOLD_M3N_TELEGRAM_READBACK_RESTART_AWAITING_APPROVAL",
+  "telegram_send_or_probe_executed": false
+}

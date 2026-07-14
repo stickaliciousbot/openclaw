@@ -1,0 +1,55 @@
+{
+  "final_status": "FAIL_M3N_TELEGRAM_READBACK_STABILITY",
+  "generated_utc": "2026-07-14T12:13:09Z",
+  "git_diff_check": "PASS",
+  "git_diff_check_output": {
+    "args": [
+      "git",
+      "diff",
+      "--check",
+      "--",
+      "sharedspace/runtime-kernel-validation/universal-model-contract"
+    ],
+    "rc": 0,
+    "stderr_tail": "",
+    "stdout_tail": ""
+  },
+  "inventory_status": "PASS_M3N_TELEGRAM_READBACK_SAFE_METHOD_IDENTIFIED",
+  "json_errors": [],
+  "json_validation": "PASS",
+  "preflight_status": "PASS_M3N_TELEGRAM_READBACK_PREFLIGHT_READY",
+  "redacted_paths": [
+    "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CURRENT_TELEGRAM_LIVENESS_DIAGNOSTIC.json",
+    "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_TELEGRAM_READBACK_STABILITY_WATCH_PROBE_0003.json"
+  ],
+  "restart_approval_card_created": true,
+  "restart_approval_card_status": "HOLD_M3N_TELEGRAM_READBACK_RESTART_AWAITING_APPROVAL",
+  "run_id": "m3n-telegram-readback-no-send-20260714T115026Z",
+  "safety_counters": {
+    "approved_cron_enabled_false_patch_count": 1,
+    "context_bridge_mutation_count": 0,
+    "enforcement_started_count": 0,
+    "external_send_count": 0,
+    "gateway_restart_count": 0,
+    "m3n_persistence_verification_count": 0,
+    "m3o_started_count": 0,
+    "m4_started_count": 0,
+    "memory_mutation_count": 0,
+    "n2_n3_retry_count": 0,
+    "package_install_count": 0,
+    "process_kill_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_fallback_config_mutation_count": 0,
+    "tarball_apply_count": 0,
+    "telegram_bot_api_probe_count": 0,
+    "telegram_explicit_send_tool_count": 0,
+    "telegram_probe_send_count": 0,
+    "unapproved_timer_or_cron_mutation_count": 0
+  },
+  "schema": "umc.v1.m3n.telegram_readback_rescoping_validation.v1",
+  "secret_redaction_status": "PASS",
+  "stability_status": "FAIL_M3N_TELEGRAM_READBACK_STABILITY",
+  "status": "PASS_M3N_TELEGRAM_READBACK_RESCOPING_VALIDATION",
+  "verification_status": "PASS_M3N_TELEGRAM_READBACK_NO_SEND_VERIFIED"
+}

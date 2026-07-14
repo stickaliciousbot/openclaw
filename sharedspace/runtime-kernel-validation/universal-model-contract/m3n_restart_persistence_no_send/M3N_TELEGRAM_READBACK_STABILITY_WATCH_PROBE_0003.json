@@ -1,0 +1,157 @@
+{
+  "channels_status_probe_param": false,
+  "cron_readback": {
+    "enabled_from_schedule_identity": false,
+    "job_id": "b29e6275-9bad-4622-8a56-041e5a2dc864",
+    "job_name": "context-plus-semantic-shadow-pass-watch",
+    "schedule_identity": {
+      "enabled": false,
+      "schedule": {
+        "anchorMs": 1782091608871,
+        "everyMs": 300000,
+        "kind": "every"
+      },
+      "version": 1
+    },
+    "state": {
+      "consecutiveErrors": 0,
+      "consecutiveSkipped": 0,
+      "lastDeliveryStatus": "not-requested",
+      "lastDurationMs": 21495,
+      "lastRunAtMs": 1784025708903,
+      "lastRunStatus": "ok",
+      "lastStatus": "ok"
+    },
+    "updatedAtMs": 1784025745922
+  },
+  "evaluation": {
+    "account": {
+      "accountId": "default",
+      "allowUnmentionedGroups": false,
+      "configured": true,
+      "connected": true,
+      "enabled": true,
+      "lastConnectedAt": 1784030724440,
+      "lastError": null,
+      "lastEventAt": 1784030724440,
+      "lastInboundAt": 1784029282667,
+      "lastOutboundAt": 1784029754069,
+      "lastStartAt": 1784013398241,
+      "lastStopAt": null,
+      "lastTransportActivityAt": 1784030724440,
+      "mode": "polling",
+      "reconnectAttempts": 0,
+      "restartPending": false,
+      "running": true,
+      "tokenSource": "config",
+      "tokenStatus": "available"
+    },
+    "checks": {
+      "configured": true,
+      "connected": true,
+      "enabled": true,
+      "mode_polling_or_webhook": true,
+      "no_last_error": true,
+      "restart_pending_false": true,
+      "running": true,
+      "token_available": true
+    },
+    "eventLoop": {
+      "cpuCoreRatio": 1.032,
+      "degraded": true,
+      "delayMaxMs": 0,
+      "delayP99Ms": 0,
+      "intervalMs": 494,
+      "reasons": [
+        "event_loop_utilization",
+        "cpu"
+      ],
+      "utilization": 1
+    },
+    "event_loop_delay_threshold_failed": false,
+    "freshness": {
+      "lastConnectedAt": {
+        "age_ms": 27166,
+        "iso": "2026-07-14T12:05:24.440000Z",
+        "ms": 1784030724440
+      },
+      "lastEventAt": {
+        "age_ms": 27166,
+        "iso": "2026-07-14T12:05:24.440000Z",
+        "ms": 1784030724440
+      },
+      "lastInboundAt": {
+        "age_ms": 1468939,
+        "iso": "2026-07-14T11:41:22.667000Z",
+        "ms": 1784029282667
+      },
+      "lastOutboundAt": {
+        "age_ms": 997537,
+        "iso": "2026-07-14T11:49:14.069000Z",
+        "ms": 1784029754069
+      },
+      "lastTransportActivityAt": {
+        "age_ms": 27166,
+        "iso": "2026-07-14T12:05:24.440000Z",
+        "ms": 1784030724440
+      }
+    },
+    "healthy": true,
+    "reasons": [],
+    "timestamp_iso": "2026-07-14T12:05:51.606000Z",
+    "timestamp_ms": 1784030751606
+  },
+  "gateway": {
+    "pid": 122580,
+    "raw_tail": "Service: systemd user (enabled)\nFile logs: /tmp/openclaw/openclaw-2026-07-14.log\nCommand: /usr/bin/node /home/stickai/.npm-global/lib/node_modules/openclaw/dist/index.js gateway --port 18789\nService file: ~/.config/systemd/user/openclaw-gateway.service\nService env: OPENCLAW_GATEWAY_PORT=18789\n\nConfig (cli): ~/.openclaw/openclaw.json\nConfig (service): ~/.openclaw/openclaw.json\n\nGateway: bind=lan (0.0.0.0), port=18789 (service args)\nProbe target: ws://127.0.0.1:18789\nDashboard: http://172.24.168.46:18789/\nProbe note: bind=lan listens on 0.0.0.0 (all interfaces); probing via 127.0.0.1.\n\nRuntime: running (pid 122580, state active, sub running, last exit 0, reason 0)\nConnectivity probe: ok\nCapability: admin-capable\n\nListening: *:18789\nTroubles: run openclaw status\nTroubleshooting: https://docs.openclaw.ai/troubleshooting\nService config looks out of date or non-standard.\nService config issue: Gateway service PATH missing required dirs: /home/stickai/.local/share/pnpm\nRecommendation: run \"openclaw doctor\" (or \"openclaw doctor --repair\").\n",
+    "rc": 0,
+    "state": "active",
+    "sub_state": "running"
+  },
+  "generated_utc": "2026-07-14T12:05:51Z",
+  "log_counts_since_previous_probe": {
+    "context_overflow": 0,
+    "event_loop_delay_or_starvation": 0,
+    "gateway_restart_log_hits": 0,
+    "gateway_timeout": 0,
+    "getme_timeout": 1,
+    "liveness_warning": 0,
+    "selected_cron_active_hits": 0
+  },
+  "log_signal_tail": [
+    {
+      "hits": [
+        "fetch timeout reached",
+        "getMe"
+      ],
+      "line_tail": "{\"0\":\"{\\\"subsystem\\\":\\\"fetch-timeout\\\"}\",\"1\":{\"timeoutMs\":10000,\"elapsedMs\":10001,\"operation\":\"fetchWithTimeout\",\"url\":\"https://api.telegram.org/bot[REDACTED]/getMe\"},\"2\":\"fetch timeout reached; aborting operation\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"fetch-timeout\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-14T12:00:52.772Z\",\"logLevelId\":4,\"logLevelName\":\"WARN\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:149:51\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:149\",\"fileColumn\":\"51\",\"fileLine\":\"149\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:149\",\"method\":\"logToFile\"}},\"time\":\"2026-07-14T22:00:52.773+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"fetch timeout reached; aborting operation\",\"traceId\":\"2000afef33ee5d3f707cd40dc1165323\",\"spanId\":\"a09855227cc515a1\",\"traceFlags\":\"01\"}",
+      "timestamp_epoch": 1784030452.773
+    }
+  ],
+  "probe_index": 3,
+  "run_id": "m3n-telegram-readback-no-send-20260714T115026Z",
+  "safety_counters": {
+    "approved_cron_enabled_false_patch_count": 1,
+    "context_bridge_mutation_count": 0,
+    "enforcement_started_count": 0,
+    "external_send_count": 0,
+    "gateway_restart_count": 0,
+    "m3n_persistence_verification_count": 0,
+    "m3o_started_count": 0,
+    "m4_started_count": 0,
+    "memory_mutation_count": 0,
+    "n2_n3_retry_count": 0,
+    "package_install_count": 0,
+    "process_kill_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_fallback_config_mutation_count": 0,
+    "tarball_apply_count": 0,
+    "telegram_bot_api_probe_count": 0,
+    "telegram_explicit_send_tool_count": 0,
+    "telegram_probe_send_count": 0,
+    "unapproved_timer_or_cron_mutation_count": 0
+  },
+  "schema": "umc.v1.m3n.telegram_readback_stability_probe.v1",
+  "status": "FAIL_M3N_TELEGRAM_READBACK_STABILITY_PROBE"
+}
