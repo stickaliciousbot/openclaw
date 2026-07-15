@@ -1,0 +1,83 @@
+{
+  "ambient_global_telegram_delivery_count": 0,
+  "context_bridge_mutation_count": 0,
+  "context_overflow_count": 0,
+  "context_overflow_diag_count": 0,
+  "context_overflow_repair_source_closeout": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CONTEXT_OVERFLOW_REPAIR_CLOSEOUT.json",
+  "disabled_cron_state": {
+    "enabled": false,
+    "id": "b29e6275-9bad-4622-8a56-041e5a2dc864",
+    "name": "context-plus-semantic-shadow-pass-watch",
+    "state": {}
+  },
+  "durable_memory_mutation_count": 0,
+  "enforcement_started": false,
+  "exact_next_milestone": "M3O_OWNER_TURN_SHADOW_OBSERVATION_NO_SEND",
+  "external_send_count": 0,
+  "final_stability_result": "PASS_M3N_PERSISTENCE_STABILITY_CONFIRMED",
+  "final_status": "PASS_M3N_INSTALLED_SHADOW_OBSERVE_ONLY_RESTART_PERSISTENCE_NO_SEND",
+  "gateway_state": {
+    "last_exit": "0",
+    "pid": 795787,
+    "reason": "0",
+    "state": "active",
+    "sub_state": "running"
+  },
+  "generated_utc": "2026-07-15T14:35:14.049365Z",
+  "m3o_started": false,
+  "m4_started": false,
+  "n2_n3_retry_source_closeout": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_N2_N3_RETRY_CLOSEOUT.json",
+  "optional_fixture_result": "SKIP_M3N_POST_RESTART_NO_SEND_FIXTURE_NOT_REQUIRED_OR_UNSAFE",
+  "persistence_state_comparison_result": "PASS_M3N_POST_RESTART_PERSISTENCE_STATE_VERIFIED",
+  "post_restart_health_result": "PASS_M3N_N3_RETRY_POST_RESTART_HEALTH_CLASSIFIED",
+  "production_authority_change_count": 0,
+  "provider_model_shadow_call_count": 0,
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "recommendation_for_next_milestone": "M3O_OWNER_TURN_SHADOW_OBSERVATION_NO_SEND",
+  "restart_result": "PASS_M3N_N2_RETRY_GATEWAY_RESTART_COMPLETED",
+  "rollback_readiness": {
+    "basis": "Precompact backup and scoped evidence branch commits exist; no production authority/enforcement enabled.",
+    "ready": true
+  },
+  "route_config_mutation_count": 0,
+  "schema": "umc.v1.m3n.post_restart_persistence_verification_closeout.v1",
+  "stability_probe_6_note": "NOT_RUN_AFTER_SUBAGENT_TIMEOUT",
+  "telegram_repair_lane_send_probe_count": 0,
+  "telegram_state": {
+    "account": {
+      "accountId": "default",
+      "allowUnmentionedGroups": false,
+      "configured": true,
+      "connected": true,
+      "enabled": true,
+      "lastConnectedAt": 1784126112699,
+      "lastError": null,
+      "lastEventAt": 1784126112699,
+      "lastInboundAt": 1784126052071,
+      "lastOutboundAt": 1784126086874,
+      "lastStartAt": 1784113922371,
+      "lastStopAt": null,
+      "lastTransportActivityAt": 1784126112699,
+      "mode": "polling",
+      "reconnectAttempts": 0,
+      "restartPending": false,
+      "running": true,
+      "tokenSource": "config",
+      "tokenStatus": "available"
+    },
+    "account_count": 1,
+    "account_ok": true,
+    "channel": {
+      "configured": true,
+      "lastError": null,
+      "lastProbeAt": null,
+      "lastStartAt": 1784113922371,
+      "lastStopAt": null,
+      "mode": "polling",
+      "running": true,
+      "tokenSource": "config"
+    },
+    "method": "channels.status probe=false",
+    "returncode": 0
+  }
+}

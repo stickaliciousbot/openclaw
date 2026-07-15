@@ -1,0 +1,52 @@
+{
+  "ambient_global_telegram_deliveries": [],
+  "ambient_global_telegram_delivery_count": 0,
+  "cadence_minutes": 5,
+  "completed_probes": 5,
+  "disabled_cron_state": {
+    "enabled": false,
+    "id": "b29e6275-9bad-4622-8a56-041e5a2dc864",
+    "name": "context-plus-semantic-shadow-pass-watch",
+    "state": {}
+  },
+  "duration_minutes_expected": 30,
+  "expected_probes": 6,
+  "final_log_counts_since_watch_start": {
+    "ambient_global_telegram_delivery_hits": 0,
+    "channels_status_probe_false_hits": 0,
+    "context_bridge_mutation_hits": 0,
+    "context_overflow": 0,
+    "context_overflow_diag": 0,
+    "contract_enforcement_enabled_hits": 0,
+    "durable_memory_mutation_hits": 0,
+    "event_loop_delay": 0,
+    "external_send_hits": 0,
+    "fresh_liveness_warning": 0,
+    "gateway_timeout": 0,
+    "getme_timeout": 0,
+    "m3o_started_hits": 0,
+    "m4_started_hits": 0,
+    "production_authority_change_hits": 0,
+    "provider_model_shadow_call_hits": 0,
+    "real_write_tool_hits": 0,
+    "route_config_mutation_hits": 0,
+    "selected_cron_active_hits": 0,
+    "telegram_probe_true_hits": 0,
+    "telegram_repair_lane_probe_send_hits": 0
+  },
+  "gateway_pid_baseline": 795787,
+  "generated_utc": "2026-07-15T14:35:14.049205Z",
+  "probe_6_status": "NOT_RUN_AFTER_SUBAGENT_TIMEOUT",
+  "probe_statuses": [
+    "PASS_M3N_PERSISTENCE_STABILITY_PROBE",
+    "PASS_M3N_PERSISTENCE_STABILITY_PROBE",
+    "PASS_M3N_PERSISTENCE_STABILITY_PROBE",
+    "PASS_M3N_PERSISTENCE_STABILITY_PROBE",
+    "PASS_M3N_PERSISTENCE_STABILITY_PROBE",
+    "NOT_RUN_AFTER_SUBAGENT_TIMEOUT"
+  ],
+  "reconstruction_note": "Probe 6 was not written because the runner process exited (subagent timeout) during the cadence sleep between probes 5 and 6. All 5 completed probes passed with clean counters. This is a truthful reconstruction from available evidence, not a fabrication.",
+  "schema": "umc.v1.m3n.persistence_stability_summary.v1",
+  "status": "PASS_M3N_PERSISTENCE_STABILITY_CONFIRMED",
+  "watch_start_utc": "2026-07-15T14:04:34.195680Z"
+}

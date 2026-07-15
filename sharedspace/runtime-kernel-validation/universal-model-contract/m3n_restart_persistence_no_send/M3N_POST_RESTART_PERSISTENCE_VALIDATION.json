@@ -1,0 +1,20 @@
+{
+  "checks": {
+    "disabled_cron_validation": true,
+    "durable_memory_context_bridge_nonmutation_validation": true,
+    "json_validation": true,
+    "markdown_sanity": true,
+    "n2_n3_retry_closeout_validation": true,
+    "no_authority_validation": true,
+    "optional_fixture_validation": true,
+    "persistence_state_validation": true,
+    "readback_validation": true,
+    "runtime_config_mutation_validation": true,
+    "safety_counter_validation": true,
+    "send_probe_classification_validation": true,
+    "stability_validation": true
+  },
+  "generated_utc": "2026-07-15T14:35:14.066642Z",
+  "schema": "umc.v1.m3n.post_restart_persistence_validation.v1",
+  "status": "PASS_M3N_POST_RESTART_PERSISTENCE_VALIDATION"
+}
