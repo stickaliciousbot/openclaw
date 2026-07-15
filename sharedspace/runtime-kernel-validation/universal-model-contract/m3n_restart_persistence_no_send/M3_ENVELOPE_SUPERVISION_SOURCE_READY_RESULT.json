@@ -1,0 +1,76 @@
+{
+  "schema": "umc.v1.m3.envelope_supervision_source_ready_result.v1",
+  "generated_utc": "2026-07-15T15:44:00Z",
+  "status": "PASS_M3_ENVELOPE_TOOLS_DELIVERY_SUPERVISION_SOURCE_READY_NO_APPLY",
+  "phase_results": {
+    "preflight": "PASS_M3_ENVELOPE_SUPERVISION_PREFLIGHT",
+    "source_seam_map": "PASS_M3_ENVELOPE_SUPERVISION_SOURCE_SEAMS_MAPPED",
+    "contract_schema": "PASS_M3_ENVELOPE_CONTRACT_SCHEMA_DEFINED",
+    "supervisor_implementation": "PASS_M3_ENVELOPE_SUPERVISOR_IMPLEMENTED",
+    "fixtures": "PASS_M3_ENVELOPE_SUPERVISION_FIXTURES",
+    "no_apply_build_validation": "PASS_M3_ENVELOPE_SUPERVISION_NO_APPLY_BUILD_VALIDATION",
+    "staged_install_plan": "PASS_M3_ENVELOPE_SUPERVISION_STAGED_INSTALL_PLAN_READY"
+  },
+  "commits": {
+    "source_and_a_to_f_evidence": "70ccd82feb4e80a77d54c38caac8e2502c370359",
+    "staged_install_plan": "0b9dda06110d75edf6fefb96b30404bfaee1497b"
+  },
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "source_files_changed": [
+    "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/umc_m3_envelope_supervision.mjs"
+  ],
+  "tests_fixtures_changed": [
+    "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/run_m3_envelope_supervision_fixtures.mjs",
+    "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3_ENVELOPE_SUPERVISION_FIXTURE_RESULTS.json",
+    "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3_ENVELOPE_SUPERVISION_FIXTURE_RECEIPTS.jsonl"
+  ],
+  "evidence_artifacts_sha256": {
+    "M3_ENVELOPE_SUPERVISION_PREFLIGHT.json": "c5c43fd8390c3001b89f08e8330e81a2fed899318747163f61ede152a4a26f05",
+    "M3_ENVELOPE_SUPERVISION_SOURCE_SEAM_MAP.json": "baefe4133d439c8289f5664e018b70af4f4112d20fe858ac3272f18561233f18",
+    "M3_ENVELOPE_SUPERVISION_SOURCE_SEAM_MAP.md": "9d48a91f474a580c555c9f9834933c04d8d8c2b6f01a5f3a3fb660d8ae7cc377",
+    "M3_ENVELOPE_CONTRACT_SCHEMA_RESULT.json": "5a1176b3990087cc95dacd7a0092ffe98848d741e3b0fbfb3b5380d4fd274549",
+    "M3_ENVELOPE_SUPERVISOR_IMPLEMENTATION_RESULT.json": "9730787febdef5a8774c19b96f10e9c0005bb60db6caffd53255bfb43c11ca1d",
+    "M3_ENVELOPE_SUPERVISION_FIXTURE_RESULTS.json": "d53943355512054f44e42b7e43c279b7385e6934df302fc3a841b1969bfc98d0",
+    "M3_ENVELOPE_SUPERVISION_FIXTURE_RECEIPTS.jsonl": "ad87c278088ef44a7130efb89c3f4777a4b6cead87384007e9389bc4e60e599f",
+    "M3_ENVELOPE_SUPERVISION_NO_APPLY_BUILD_VALIDATION.json": "0b7ad06b47568aeb471230c38d301926e8b43061433b245a607aa7b051de574f",
+    "M3_ENVELOPE_SUPERVISION_STAGED_INSTALL_PLAN.json": "a288363b25e6ddc7c38718b00b02b27e923d79b0bf177f4a535ff3b0f728d69f",
+    "M3_ENVELOPE_SUPERVISION_STAGED_INSTALL_PLAN.md": "2771914b34999590b301d10a2bc7d49a973a5b66e66a22468285a7955624d643",
+    "umc_m3_envelope_supervision.mjs": "6e41dff1e274bc84338aeffb3fe251be47193694a7ef5178928f05a6d582ca97",
+    "run_m3_envelope_supervision_fixtures.mjs": "f8b69e0607eec8c8324e4887fe7af85f42ad3eee1be16cbe5beed67e1795b8f3"
+  },
+  "validation_summary": {
+    "json_validation": "PASS_BY_READ_TOOL_PARSE_AND_NODE_FIXTURE_OUTPUT",
+    "markdown_sanity": "PASS_BY_READBACK",
+    "git_diff_check": "PASS",
+    "schema_validation": "PASS_REQUIRED_FIELDS_PRESENT_IN_CONTRACT_SCHEMA_RESULT",
+    "fixture_validation": "PASS_M3_ENVELOPE_SUPERVISION_FIXTURES",
+    "no_apply_build_validation": "PASS_M3_ENVELOPE_SUPERVISION_NO_APPLY_BUILD_VALIDATION",
+    "staged_install_plan_validation": "PASS_M3_ENVELOPE_SUPERVISION_STAGED_INSTALL_PLAN_READY",
+    "no_send_validation": "PASS_ALL_SEND_COUNTERS_ZERO",
+    "no_authority_validation": "PASS_PRODUCTION_AUTHORITY_CHANGE_COUNT_ZERO",
+    "runtime_config_non_mutation_validation": "PASS_NO_RUNTIME_CONFIG_MUTATION_DECLARED_OR_EXECUTED",
+    "durable_memory_context_bridge_non_mutation_validation": "PASS_NO_DURABLE_MEMORY_OR_CONTEXT_BRIDGE_MUTATION"
+  },
+  "safety_counters": {
+    "installed_runtime_mutation_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_shadow_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "package_install_count": 0,
+    "tarball_apply_count": 0,
+    "gateway_restart_count": 0,
+    "m3o_rerun_count": 0,
+    "m3p_started": false,
+    "m4_started": false,
+    "enforcement_started": false
+  },
+  "rollback_readiness": {
+    "ready": true,
+    "basis": "No installed runtime mutation occurred; rollback for this phase is simply use prior commit or do not install. Staged install plan includes runtime rollback path for future approved install."
+  },
+  "exact_next_milestone": "M3_ENVELOPE_SUPERVISION_STAGED_INSTALL_AND_M3O_RERUN"
+}
