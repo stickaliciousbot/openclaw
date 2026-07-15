@@ -1,0 +1,98 @@
+{
+  "authoritative_repaired_stability_artifacts": [
+    {
+      "bytes": 1493,
+      "exists": true,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_POST_COMPACTION_REPAIRED_STABILITY_PROBE_0001.json",
+      "sha256": "7904fe34defc7137a62b233efbd46c71dcb3b8152d7df990d6f52e00c7da3817"
+    },
+    {
+      "bytes": 1871,
+      "exists": true,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_POST_COMPACTION_REPAIRED_STABILITY_PROBE_0002.json",
+      "sha256": "9f6c3afafa8ae6d72e850b95721c70bf5b2b6d829e91eb8d1a25b2da73f8b0f3"
+    },
+    {
+      "bytes": 1782,
+      "exists": true,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_POST_COMPACTION_REPAIRED_STABILITY_SUMMARY.json",
+      "sha256": "ec57f58f1dbf16c984be115333fce088b9962e692da472b6a339af3c609fe2d3"
+    },
+    {
+      "bytes": 1220,
+      "exists": true,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_POST_COMPACTION_REPAIRED_STABILITY_CLOSEOUT.json",
+      "sha256": "b20e36f2234105c2e4ec64ee3ad66b564b57fa38e26dcc27825d6463bbb79950"
+    }
+  ],
+  "backup_snapshot_exists": true,
+  "compaction_executed_successfully": true,
+  "context_bridge_mutation_count": 0,
+  "context_overflow_count": 0,
+  "context_overflow_diag_count": 0,
+  "disabled_cron_state": {
+    "enabled": false,
+    "id": "b29e6275-9bad-4622-8a56-041e5a2dc864",
+    "name": "context-plus-semantic-shadow-pass-watch",
+    "state": {}
+  },
+  "generated_utc": "2026-07-15T10:39:33.460788Z",
+  "memory_mutation_count": 0,
+  "nominal_stability_artifacts_missing_because_original_watch_not_rerun": [
+    {
+      "bytes": null,
+      "exists": false,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CONTEXT_OVERFLOW_POST_COMPACTION_STABILITY_PROBE_0001.json",
+      "sha256": null
+    },
+    {
+      "bytes": null,
+      "exists": false,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CONTEXT_OVERFLOW_POST_COMPACTION_STABILITY_PROBE_0002.json",
+      "sha256": null
+    },
+    {
+      "bytes": null,
+      "exists": false,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CONTEXT_OVERFLOW_POST_COMPACTION_STABILITY_SUMMARY.json",
+      "sha256": null
+    }
+  ],
+  "phase": "M3N_POST_COMPACTION_STABILITY_SEND_HIT_CLASSIFICATION_AND_CLOSEOUT",
+  "post_compaction_readback_passed_after_send_false_positive_classification": true,
+  "probe_true_calls": 0,
+  "production_authority_change_count": 0,
+  "provider_model_shadow_calls": 0,
+  "raw_post_compaction_readback_status": "FAIL_M3N_CONTEXT_OVERFLOW_POST_COMPACTION_READBACK",
+  "required_nominal_artifacts": [
+    {
+      "bytes": 1787,
+      "exists": true,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CONTEXT_OVERFLOW_COMPACTION_PREFLIGHT.json",
+      "sha256": "83bad786fa1b36c794877337bba8e496664546f804fde356f0070648466b5d0b"
+    },
+    {
+      "bytes": 5339,
+      "exists": true,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CONTEXT_OVERFLOW_PRECOMPACT_BACKUP_RESULT.json",
+      "sha256": "a07c2599d240daa50d960e492b76f188bcf439a49e035be6c1a78a9eebe0927c"
+    },
+    {
+      "bytes": 55294,
+      "exists": true,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CONTEXT_OVERFLOW_COMPACTION_EXECUTION_RESULT.json",
+      "sha256": "33e161edf29c1c21d9c7c6c8dab59b711d7d987809d48a5c3d628280c112e806"
+    },
+    {
+      "bytes": 2972,
+      "exists": true,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CONTEXT_OVERFLOW_POST_COMPACTION_READBACK.json",
+      "sha256": "4c507004b5e2127db2a01de04882f4ef562d23d6a5ebed6f7962275c7a1b7ccc"
+    }
+  ],
+  "route_config_mutation_count": 0,
+  "schema": "umc.v1.m3n.post_compaction_send_hit_rehydration.v1",
+  "source_failure_reason": "2 global Telegram owner-chat delivery log hits counted as prohibited send hits by over-broad global log counter",
+  "source_failure_status": "FAIL_M3N_POST_COMPACTION_REPAIRED_STABILITY",
+  "status": "PASS_M3N_POST_COMPACTION_SEND_HIT_REHYDRATED"
+}

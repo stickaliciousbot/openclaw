@@ -1,0 +1,18 @@
+{
+  "checks": {
+    "context_overflow_validation": true,
+    "counter_reconciliation_validation": true,
+    "disabled_cron_validation": true,
+    "durable_memory_context_bridge_nonmutation_validation": true,
+    "json_validation": true,
+    "markdown_sanity": true,
+    "no_authority_validation": true,
+    "readback_validation": true,
+    "runtime_config_mutation_validation": true,
+    "safety_counter_validation": true,
+    "send_hit_classification_validation": true
+  },
+  "generated_utc": "2026-07-15T10:39:33.474713Z",
+  "schema": "umc.v1.m3n.post_compaction_closeout_validation.v1",
+  "status": "PASS_M3N_POST_COMPACTION_CLOSEOUT_VALIDATION"
+}

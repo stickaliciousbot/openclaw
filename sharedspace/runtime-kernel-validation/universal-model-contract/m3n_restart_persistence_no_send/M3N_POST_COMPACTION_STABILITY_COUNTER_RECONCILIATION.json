@@ -1,0 +1,21 @@
+{
+  "classified_false_positive_hit_ids": [
+    "38510",
+    "38511"
+  ],
+  "counter_semantics": "Global Telegram owner-chat deliveries observed in the shared log are tracked separately and do not count as repair-lane probe/send, message-tool send, UMC shadow-caused send, external send, or production authority mutation.",
+  "external_send_count": 0,
+  "generated_utc": "2026-07-15T10:39:33.470423Z",
+  "global_telegram_owner_chat_deliveries_observed": 2,
+  "message_tool_send_count": 0,
+  "no_route_fallback_config_changed": true,
+  "no_runtime_behavior_changed": true,
+  "no_telegram_config_changed": true,
+  "production_authority_mutation_count_from_send_hits": 0,
+  "raw_counter_source": "M3N_POST_COMPACTION_REPAIRED_STABILITY_PROBE_0002.json",
+  "raw_telegram_prohibited_send_hits": 2,
+  "repair_lane_telegram_probe_send_count": 0,
+  "schema": "umc.v1.m3n.post_compaction_stability_counter_reconciliation.v1",
+  "status": "PASS_M3N_POST_COMPACTION_STABILITY_COUNTERS_RECONCILED",
+  "umc_shadow_caused_send_count": 0
+}
