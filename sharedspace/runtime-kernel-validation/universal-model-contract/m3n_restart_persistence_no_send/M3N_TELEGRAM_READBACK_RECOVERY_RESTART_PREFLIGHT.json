@@ -1,0 +1,102 @@
+{
+  "schema": "umc.v1.m3n.telegram_readback_recovery_restart_preflight.v1",
+  "phase": "M3N_TELEGRAM_READBACK_RECOVERY_RESTART_EXECUTION",
+  "generated_utc": "2026-07-15T07:49:11Z",
+  "status": "PASS_M3N_TELEGRAM_READBACK_RECOVERY_RESTART_PREFLIGHT",
+  "active_milestone": "M3N_INSTALLED_SHADOW_OBSERVE_ONLY_RESTART_PERSISTENCE_NO_SEND",
+  "authoritative_state_before_restart": "FAIL_M3N_TELEGRAM_READBACK_STABILITY",
+  "approved_restart_reason": "M3N Telegram readback recovery after cron liveness stabilization no-send",
+  "checks": {
+    "current_state_is_fail_m3n_telegram_readback_stability": true,
+    "restart_approval_exists": true,
+    "selected_cron_artifact_enabled_false": true,
+    "selected_cron_live_enabled_false": true,
+    "selected_job_id_matches": true,
+    "gateway_current_state_captured": true,
+    "gateway_currently_reachable": true,
+    "gateway_connectivity_probe_ok": true,
+    "current_gateway_pid_captured": true,
+    "queue_depth_captured": true,
+    "safe_readback_method_channels_status_probe_false": true,
+    "no_telegram_send_probe_approval_exists": true,
+    "n2_n3_retry_not_approved": true,
+    "persistence_verification_not_approved": true,
+    "safety_counters_clean_except_prior_authorized_cron_disable": true
+  },
+  "pre_restart_gateway_pid": 122580,
+  "gateway_state": {
+    "service": "systemd user enabled",
+    "runtime": "running",
+    "state": "active",
+    "sub_state": "running",
+    "connectivity_probe": "ok",
+    "capability": "admin-capable",
+    "listening": "*:18789",
+    "status_command": "openclaw gateway status"
+  },
+  "queue_depth": {
+    "value": 0,
+    "source": "sessions_list observed only the current active/running Telegram direct session and no queued sessions in visible session list",
+    "raw_session_count": 1
+  },
+  "safe_readback_method": "channels.status probe=false",
+  "telegram_readback_pre_restart": {
+    "command": "openclaw gateway call channels.status --params {\"probe\":false,\"timeoutMs\":5000} --json",
+    "telegram_account_count": 1,
+    "telegram_account_expected_count": 1,
+    "configured": true,
+    "enabled": true,
+    "running": true,
+    "connected": true,
+    "last_error": null,
+    "token_status": "available",
+    "mode": "polling",
+    "probe_param": false
+  },
+  "disabled_cron_state": {
+    "job_name": "context-plus-semantic-shadow-pass-watch",
+    "job_id": "b29e6275-9bad-4622-8a56-041e5a2dc864",
+    "enabled": false,
+    "live_readback_source": "cron.list includeDisabled=true"
+  },
+  "safety_counters": {
+    "approved_cron_enabled_false_patch_count": 1,
+    "gateway_restart_count_before_phase_b": 0,
+    "telegram_send_count": 0,
+    "telegram_probe_send_count": 0,
+    "telegram_bot_api_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_shadow_calls": 0,
+    "route_fallback_config_mutation_count": 0,
+    "memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "n2_n3_retry_count": 0,
+    "m3n_persistence_verification_count": 0,
+    "m3o_started_count": 0,
+    "m4_started_count": 0,
+    "enforcement_started_count": 0
+  },
+  "not_approved": [
+    "Telegram send/probe",
+    "external send",
+    "provider/model shadow call",
+    "package install",
+    "tarball apply",
+    "route/fallback/config mutation",
+    "memory mutation",
+    "Context Bridge mutation",
+    "production authority change",
+    "cron re-enable",
+    "N2/N3 retry",
+    "persistence verification",
+    "M3O",
+    "M4",
+    "enforcement"
+  ],
+  "notes": [
+    "Earlier broad heredoc preflight command requested approval and was abandoned as stale; this artifact is built from direct reads, cron.list, gateway status, channels.status probe=false, and sessions_list.",
+    "No cron.update, Gateway restart, Telegram send/probe, N2/N3, persistence verification, M3O, M4, or enforcement occurred during preflight."
+  ]
+}

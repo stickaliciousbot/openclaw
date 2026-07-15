@@ -1,0 +1,106 @@
+{
+  "disabled_cron_state": {
+    "enabled": false,
+    "id": "b29e6275-9bad-4622-8a56-041e5a2dc864",
+    "name": "context-plus-semantic-shadow-pass-watch",
+    "state": {}
+  },
+  "event_loop": {
+    "cpuCoreRatio": 1.021,
+    "degraded": true,
+    "delayMaxMs": 0,
+    "delayP99Ms": 0,
+    "intervalMs": 542,
+    "reasons": [
+      "event_loop_utilization",
+      "cpu"
+    ],
+    "utilization": 1
+  },
+  "gateway_rpc_ok": true,
+  "generated_utc": "2026-07-15T07:54:09.855301Z",
+  "log_counts_since_restart_request": {
+    "context_bridge_mutation_log_hits": 0,
+    "context_overflow": 6,
+    "err_module_not_found": 0,
+    "event_loop_delay": 0,
+    "external_send_log_hits": 0,
+    "fresh_liveness_warning": 0,
+    "gateway_timeout": 0,
+    "getme_timeout": 0,
+    "memory_mutation_log_hits": 0,
+    "missing_pi_embedded": 0,
+    "missing_zalo_manifest": 0,
+    "production_authority_change_log_hits": 0,
+    "provider_shadow_call_log_hits": 0,
+    "route_config_mutation_log_hits": 0,
+    "selected_cron_active_hits": 0,
+    "telegram_send_probe_log_hits": 0,
+    "telegram_unknown_channel_id": 0
+  },
+  "method": "channels.status probe=false",
+  "no_event_loop_delay": true,
+  "no_gateway_timeout": true,
+  "no_getme_timeout": true,
+  "no_liveness_warning": true,
+  "phase": "M3N_TELEGRAM_READBACK_RECOVERY_RESTART_EXECUTION",
+  "queue_depth": {
+    "basis": "No additional visible queued sessions are part of the UMC validation. The current owner turn may be active while validation tools execute and is excluded from queue-depth safety counters.",
+    "expected_resting_state": true,
+    "visible_queued_sessions": 0
+  },
+  "raw_commands": {
+    "channels_status_rc": 0,
+    "gateway_status_rc": 0
+  },
+  "safety_counters": {
+    "context_bridge_mutation_count": 0,
+    "cron_reenable_count": 0,
+    "enforcement_started_count": 0,
+    "external_send_count": 0,
+    "m3o_started_count": 0,
+    "m4_started_count": 0,
+    "memory_mutation_count": 0,
+    "n2_n3_retry_count": 0,
+    "persistence_verification_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_call_count": 0,
+    "route_config_mutation_count": 0,
+    "telegram_tool_send_or_probe_count": 0
+  },
+  "schema": "umc.v1.m3n.telegram_readback_recovery_no_send_verification.v1",
+  "status": "PASS_M3N_TELEGRAM_READBACK_RECOVERY_NO_SEND_VERIFIED",
+  "telegram_account": {
+    "accountId": "default",
+    "allowUnmentionedGroups": false,
+    "configured": true,
+    "connected": true,
+    "enabled": true,
+    "lastConnectedAt": 1784102036523,
+    "lastError": null,
+    "lastEventAt": 1784102036523,
+    "lastInboundAt": 1784101600635,
+    "lastOutboundAt": 1784101986674,
+    "lastStartAt": 1784013398241,
+    "lastStopAt": null,
+    "lastTransportActivityAt": 1784102036523,
+    "mode": "polling",
+    "reconnectAttempts": 0,
+    "restartPending": false,
+    "running": true,
+    "tokenSource": "config",
+    "tokenStatus": "available"
+  },
+  "telegram_account_count": 1,
+  "telegram_account_expected_count": 1,
+  "telegram_channel": {
+    "configured": true,
+    "lastError": null,
+    "lastProbeAt": null,
+    "lastStartAt": 1784013398241,
+    "lastStopAt": null,
+    "mode": "polling",
+    "running": true,
+    "tokenSource": "config"
+  }
+}

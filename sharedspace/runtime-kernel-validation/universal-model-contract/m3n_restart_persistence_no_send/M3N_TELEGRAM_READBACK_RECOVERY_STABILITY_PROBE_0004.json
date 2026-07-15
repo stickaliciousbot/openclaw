@@ -1,0 +1,23 @@
+{
+  "expected_probe_count": 4,
+  "generated_utc": "2026-07-15T07:56:07.367418Z",
+  "not_run_reason": "Probe 0001 failed Phase E hard criterion context overflow 0; stopped to preserve evidence as instructed.",
+  "probe_index": 4,
+  "safety_counters": {
+    "context_bridge_mutation_count": 0,
+    "cron_reenable_count": 0,
+    "enforcement_started_count": 0,
+    "external_send_count": 0,
+    "m3o_started_count": 0,
+    "m4_started_count": 0,
+    "memory_mutation_count": 0,
+    "n2_n3_retry_count": 0,
+    "persistence_verification_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_call_count": 0,
+    "route_config_mutation_count": 0,
+    "telegram_tool_send_or_probe_count": 0
+  },
+  "schema": "umc.v1.m3n.telegram_readback_recovery_stability_probe.v1",
+  "status": "NOT_RUN_AFTER_FAIL_FAST_M3N_TELEGRAM_READBACK_RECOVERY_STABILITY"
+}

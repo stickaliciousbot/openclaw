@@ -1,0 +1,161 @@
+{
+  "schema": "umc.v1.m3n.state_authority_reconciliation.v1",
+  "phase": "M3N_STATE_AUTHORITY_RECONCILIATION_NO_MUTATION",
+  "generated_utc": "2026-07-15T07:40:44Z",
+  "status": "CURRENT_STATE_CONFIRMED_TELEGRAM_READBACK_STABILITY_FAILED_RESTART_CARD_READY",
+  "classification": "CURRENT_STATE_CONFIRMED_TELEGRAM_READBACK_STABILITY_FAILED_RESTART_CARD_READY",
+  "authority_policy": {
+    "primary_authority": "direct committed artifacts and M3N branch commit history",
+    "memory_cache_search_authority": "rejected_when_superseded_by_later_direct_artifacts",
+    "broad_memory_dream_cache_search_run": false
+  },
+  "evidence_root": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send",
+  "branch": "evidence/umc-m3n-post-restart-health-failclosed-20260713",
+  "head_commit_observed": {
+    "sha": "fdd86736cad2e02b96badd584445ec833211163f",
+    "subject": "docs(umc): rehydrate M3N restart approval card",
+    "timestamp": "2026-07-14T22:22:14+10:00"
+  },
+  "commit_order_verified": [
+    {
+      "sha": "81ad0910271f2da8c5e5e890a203dc777daa10b3",
+      "short": "81ad09102",
+      "timestamp": "2026-07-14T20:38:44+10:00",
+      "subject": "docs(umc): identify M3N cron job pressure source for Telegram liveness",
+      "state": "HOLD_M3N_CRON_JOB_RECOVERY_AWAITING_OPERATOR_APPROVAL"
+    },
+    {
+      "sha": "5cfa4e19951dca35e09e46835fb54fef3a1d6e85",
+      "short": "5cfa4e199",
+      "timestamp": "2026-07-14T21:35:34+10:00",
+      "subject": "docs(umc): execute M3N cron job recovery and watch liveness",
+      "state": "PASS_M3N_CRON_JOB_RECOVERY_ACTION_EXECUTED"
+    },
+    {
+      "sha": "ca67140db7b8754bf94513f9823732749dd47b8b",
+      "short": "ca67140db7b8",
+      "timestamp": "2026-07-14T22:14:13+10:00",
+      "subject": "docs(umc): verify M3N Telegram readback stability",
+      "state": "FAIL_M3N_TELEGRAM_READBACK_STABILITY"
+    },
+    {
+      "sha": "fdd86736cad2e02b96badd584445ec833211163f",
+      "short": "fdd86736c",
+      "timestamp": "2026-07-14T22:22:14+10:00",
+      "subject": "docs(umc): rehydrate M3N restart approval card",
+      "state": "HOLD_M3N_RESTART_APPROVAL_TEXT_READY"
+    }
+  ],
+  "direct_artifact_findings": {
+    "cron_rescoping_manifest": {
+      "path": "M3N_CRON_JOB_RESCOPING_EVIDENCE_MANIFEST.json",
+      "status": "HOLD_M3N_CRON_JOB_RECOVERY_AWAITING_OPERATOR_APPROVAL",
+      "superseded_by": "5cfa4e199"
+    },
+    "cron_recovery_execution": {
+      "path": "M3N_CRON_JOB_RECOVERY_EXECUTION.json",
+      "status": "PASS_M3N_CRON_JOB_RECOVERY_ACTION_EXECUTED",
+      "approved_tool_call": {
+        "action": "update",
+        "jobId": "b29e6275-9bad-4622-8a56-041e5a2dc864",
+        "patch": {
+          "enabled": false
+        }
+      },
+      "cron_readback_enabled": false,
+      "gateway_restart_executed": false,
+      "telegram_send_probe_executed": false
+    },
+    "cron_recovery_watch": {
+      "path": "M3N_CRON_JOB_RECOVERY_WATCH_SUMMARY.json",
+      "status": "PASS_M3N_CRON_JOB_RECOVERY_WATCH_CLEAN_BUT_TELEGRAM_READBACK_UNPROVEN",
+      "final_status": "FAIL_M3N_CRON_JOB_RECOVERY_TELEGRAM_LIVENESS_NOT_FULLY_PROVEN"
+    },
+    "telegram_no_send_verification": {
+      "path": "M3N_TELEGRAM_READBACK_NO_SEND_VERIFICATION.json",
+      "status": "PASS_M3N_TELEGRAM_READBACK_NO_SEND_VERIFIED",
+      "method": "Gateway channels.status probe=false + current Telegram direct inbound/activity readback",
+      "channels_status_probe_param": false,
+      "telegram_send_executed": false
+    },
+    "telegram_stability_summary": {
+      "path": "M3N_TELEGRAM_READBACK_STABILITY_WATCH_SUMMARY.json",
+      "requested_alias": "M3N_TELEGRAM_READBACK_STABILITY_SUMMARY.json",
+      "status": "FAIL_M3N_TELEGRAM_READBACK_STABILITY",
+      "failure_signal": "fresh Telegram getMe timeout during probe 3",
+      "getme_timeout_count": 1,
+      "gateway_restart_executed": false,
+      "telegram_send_or_probe_executed": false
+    },
+    "telegram_recovery_decision": {
+      "path": "M3N_TELEGRAM_READBACK_RECOVERY_DECISION.json",
+      "status": "FAIL_M3N_TELEGRAM_READBACK_STABILITY",
+      "next_phase": "APPROVE_M3N_TELEGRAM_READBACK_RECOVERY_RESTART",
+      "restart_approval_requested": true,
+      "gateway_restart_executed": false,
+      "n2_n3_retry_run": false
+    },
+    "telegram_restart_approval_card": {
+      "path": "M3N_TELEGRAM_READBACK_RESTART_APPROVAL_CARD.json",
+      "status": "HOLD_M3N_TELEGRAM_READBACK_RESTART_AWAITING_APPROVAL",
+      "requested_tool": "gateway.restart",
+      "explicitly_not_executed": true,
+      "gateway_restart_executed": false,
+      "n2_n3_retry_run": false
+    },
+    "telegram_evidence_manifest": {
+      "path": "M3N_TELEGRAM_READBACK_EVIDENCE_MANIFEST.json",
+      "status": "FAIL_M3N_TELEGRAM_READBACK_STABILITY",
+      "restart_approval_card_created": true,
+      "restart_approval_requested": true,
+      "gateway_restart_executed": false,
+      "n2_n3_retry_run": false,
+      "telegram_send_or_probe_executed": false
+    },
+    "current_handoff": {
+      "path": "../UMC_V1_HANDOFF.json",
+      "closeoutStatus": "FAIL_M3N_TELEGRAM_READBACK_STABILITY",
+      "nextGate": "APPROVE_M3N_TELEGRAM_READBACK_RECOVERY_RESTART",
+      "selectedJobEnabled": false,
+      "restartApprovalCardCreated": true,
+      "restartApprovalRequested": true
+    }
+  },
+  "current_authoritative_state": {
+    "milestone": "M3N_INSTALLED_SHADOW_OBSERVE_ONLY_RESTART_PERSISTENCE_NO_SEND",
+    "closeout": "FAIL_M3N_TELEGRAM_READBACK_STABILITY",
+    "restart_approval_card": "prepared_only",
+    "restart_executed": false,
+    "telegram_send_or_probe_executed": false,
+    "n2_n3_retry_run": false,
+    "persistence_verification_started": false,
+    "m3o_started": false,
+    "m4_started": false,
+    "enforcement_started": false,
+    "disabled_cron_job": {
+      "name": "context-plus-semantic-shadow-pass-watch",
+      "job_id": "b29e6275-9bad-4622-8a56-041e5a2dc864",
+      "enabled": false
+    },
+    "pre_restart_gateway_pid_from_artifacts": 122580
+  },
+  "safety_counters_reconciled": {
+    "approved_cron_enabled_false_patch_count": 1,
+    "gateway_restart_count": 0,
+    "telegram_send_count": 0,
+    "telegram_probe_send_count": 0,
+    "telegram_bot_api_probe_count": 0,
+    "n2_n3_retry_count": 0,
+    "m3n_persistence_verification_count": 0,
+    "m3o_started_count": 0,
+    "m4_started_count": 0,
+    "enforcement_started_count": 0,
+    "route_fallback_config_mutation_count": 0,
+    "provider_model_shadow_calls": 0,
+    "memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0
+  },
+  "contradictions": [],
+  "blocked": false
+}

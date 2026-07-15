@@ -1,0 +1,78 @@
+{
+  "bounded_startup_log_counts": {
+    "context_bridge_mutation_log_hits": 0,
+    "context_overflow": 6,
+    "err_module_not_found": 0,
+    "event_loop_delay": 0,
+    "external_send_log_hits": 0,
+    "fresh_liveness_warning": 0,
+    "gateway_timeout": 0,
+    "getme_timeout": 0,
+    "memory_mutation_log_hits": 0,
+    "missing_pi_embedded": 0,
+    "missing_zalo_manifest": 0,
+    "production_authority_change_log_hits": 0,
+    "provider_shadow_call_log_hits": 0,
+    "route_config_mutation_log_hits": 0,
+    "selected_cron_active_hits": 0,
+    "telegram_send_probe_log_hits": 0,
+    "telegram_unknown_channel_id": 0
+  },
+  "bounded_startup_logs_clean": true,
+  "disabled_cron_state_after_restart": {
+    "enabled": false,
+    "id": "b29e6275-9bad-4622-8a56-041e5a2dc864",
+    "name": "context-plus-semantic-shadow-pass-watch",
+    "state": {}
+  },
+  "gateway_connectivity_probe_ok": true,
+  "gateway_status_returncode": 0,
+  "gateway_tool_result": {
+    "coalesced": false,
+    "cooldownMsApplied": 0,
+    "delayMs": 2000,
+    "mode": "emit",
+    "ok": true,
+    "pid": 122580,
+    "signal": "SIGUSR1"
+  },
+  "generated_utc": "2026-07-15T07:54:09.854821Z",
+  "notes": [
+    "Exactly one gateway.restart tool call was executed for this phase.",
+    "This script did not run gateway.restart.",
+    "The abandoned heredoc approval request is stale and was not executed."
+  ],
+  "phase": "M3N_TELEGRAM_READBACK_RECOVERY_RESTART_EXECUTION",
+  "pid_change_required": false,
+  "pid_changed": false,
+  "pid_interpretation": "Gateway restart used SIGUSR1 emit/hot-reload mode; same PID is acceptable when RPC/service/readback health passes.",
+  "post_restart_gateway_pid": 122580,
+  "pre_restart_gateway_pid": 122580,
+  "restart_method": "gateway.restart tool; SIGUSR1 emit/hot-reload style restart accepted by Gateway",
+  "restart_reason": "M3N Telegram readback recovery after cron liveness stabilization no-send",
+  "safety_counters": {
+    "context_bridge_mutation_count": 0,
+    "cron_reenable_count": 0,
+    "enforcement_started_count": 0,
+    "external_send_count": 0,
+    "m3o_started_count": 0,
+    "m4_started_count": 0,
+    "memory_mutation_count": 0,
+    "n2_n3_retry_count": 0,
+    "persistence_verification_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_call_count": 0,
+    "route_config_mutation_count": 0,
+    "telegram_tool_send_or_probe_count": 0
+  },
+  "schema": "umc.v1.m3n.telegram_readback_recovery_restart_result.v1",
+  "service_state_after_restart": {
+    "last_exit": "0",
+    "pid": 122580,
+    "reason": "0",
+    "state": "active",
+    "sub_state": "running"
+  },
+  "startup_duration_ms": 2000,
+  "status": "PASS_M3N_TELEGRAM_READBACK_RECOVERY_RESTART_COMPLETED"
+}

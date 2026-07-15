@@ -1,0 +1,63 @@
+{
+  "bounded_startup_log_counts": {
+    "context_bridge_mutation_log_hits": 0,
+    "context_overflow": 6,
+    "err_module_not_found": 0,
+    "event_loop_delay": 0,
+    "external_send_log_hits": 0,
+    "fresh_liveness_warning": 0,
+    "gateway_timeout": 0,
+    "getme_timeout": 0,
+    "memory_mutation_log_hits": 0,
+    "missing_pi_embedded": 0,
+    "missing_zalo_manifest": 0,
+    "production_authority_change_log_hits": 0,
+    "provider_shadow_call_log_hits": 0,
+    "route_config_mutation_log_hits": 0,
+    "selected_cron_active_hits": 0,
+    "telegram_send_probe_log_hits": 0,
+    "telegram_unknown_channel_id": 0
+  },
+  "bounded_startup_logs_clean": true,
+  "disabled_cron_state_after_restart": {
+    "enabled": false,
+    "id": "b29e6275-9bad-4622-8a56-041e5a2dc864",
+    "name": "context-plus-semantic-shadow-pass-watch",
+    "state": {}
+  },
+  "gateway_reachable": true,
+  "gateway_rpc_ok": true,
+  "gateway_status_excerpt": "Service: systemd user (enabled)\nFile logs: /tmp/openclaw/openclaw-2026-07-15.log\nCommand: /usr/bin/node /home/stickai/.npm-global/lib/node_modules/openclaw/dist/index.js gateway --port 18789\nService file: ~/.config/systemd/user/openclaw-gateway.service\nService env: OPENCLAW_GATEWAY_PORT=18789\n\nConfig (cli): ~/.openclaw/openclaw.json\nConfig (service): ~/.openclaw/openclaw.json\n\nGateway: bind=lan (0.0.0.0), port=18789 (service args)\nProbe target: ws://127.0.0.1:18789\nDashboard: http://172.24.168.46:18789/\nProbe note: bind=lan listens on 0.0.0.0 (all interfaces); probing via 127.0.0.1.\n\nRuntime: running (pid 122580, state active, sub running, last exit 0, reason 0)\nConnectivity probe: ok\nCapability: admin-capable\n\nListening: *:18789\nTroubles: run openclaw status",
+  "generated_utc": "2026-07-15T07:54:09.855118Z",
+  "phase": "M3N_TELEGRAM_READBACK_RECOVERY_RESTART_EXECUTION",
+  "post_restart_gateway_pid": 122580,
+  "post_restart_pid_valid": true,
+  "queue_depth": {
+    "basis": "No additional visible queued sessions are part of the UMC validation. The current owner turn may be active while validation tools execute and is excluded from queue-depth safety counters.",
+    "expected_resting_state": true,
+    "visible_queued_sessions": 0
+  },
+  "required_absent": {
+    "err_module_not_found": true,
+    "missing_pi_embedded": true,
+    "missing_zalo_manifest": true,
+    "telegram_unknown_channel_id": true
+  },
+  "safety_counters": {
+    "context_bridge_mutation_count": 0,
+    "cron_reenable_count": 0,
+    "enforcement_started_count": 0,
+    "external_send_count": 0,
+    "m3o_started_count": 0,
+    "m4_started_count": 0,
+    "memory_mutation_count": 0,
+    "n2_n3_retry_count": 0,
+    "persistence_verification_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_call_count": 0,
+    "route_config_mutation_count": 0,
+    "telegram_tool_send_or_probe_count": 0
+  },
+  "schema": "umc.v1.m3n.telegram_readback_recovery_post_restart_health.v1",
+  "status": "PASS_M3N_TELEGRAM_READBACK_RECOVERY_POST_RESTART_HEALTH"
+}

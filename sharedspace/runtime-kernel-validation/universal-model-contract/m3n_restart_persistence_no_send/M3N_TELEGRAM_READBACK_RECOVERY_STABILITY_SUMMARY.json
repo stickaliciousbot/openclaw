@@ -1,0 +1,48 @@
+{
+  "cadence_requested_minutes": 5,
+  "completed_probes": 1,
+  "context_overflow_count": 6,
+  "context_overflow_evidence_lines": [
+    "{\"0\":\"{\\\"subsystem\\\":\\\"agent/embedded\\\"}\",\"1\":\"[context-overflow-diag] sessionKey=agent:main:telegram:direct:8495203551 provider=openai-codex/gpt-5.5 source=assistantError messages=128 sessionFile=/home/stickai/.openclaw/agents/main/sessions/412b53c8-9047-4878-aeae-9040aaac5b05.jsonl diagId=ovf-mrls5zsl-U1yPmA compactionAttempts=0 observedTokens=unknown error=Context overflow: estimated context size exceeds safe threshold during tool loop.\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"agent/embedded\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-15T07:50:31.798Z\",\"logLevelId\":4,\"logLevelName\":\"WARN\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-15T17:50:31.800+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"[context-overflow-diag] sessionKey=agent:main:telegram:direct:8495203551 provider=openai-codex/gpt-5.5 source=assistantError messages=128 sessionFile=/home/stickai/.openclaw/agents/main/sessions/412b53c8-9047-4878-aeae-9040aaac5b05.jsonl diagId=ovf-mrls5zsl-U1yPmA compactionAttempts=0 observedTokens=unknown error=Context overflow: estimated context size exceeds safe threshold during tool loop.\"}",
+    "{\"0\":\"{\\\"subsystem\\\":\\\"agent/embedded\\\"}\",\"1\":\"context overflow detected (attempt 1/3); attempting auto-compaction for openai-codex/gpt-5.5\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"agent/embedded\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-15T07:50:31.803Z\",\"logLevelId\":4,\"logLevelName\":\"WARN\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-15T17:50:31.803+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"context overflow detected (attempt 1/3); attempting auto-compaction for openai-codex/gpt-5.5\"}"
+  ],
+  "disabled_cron_state": {
+    "enabled": false,
+    "id": "b29e6275-9bad-4622-8a56-041e5a2dc864",
+    "name": "context-plus-semantic-shadow-pass-watch",
+    "state": {}
+  },
+  "duration_requested_minutes": 20,
+  "expected_probes": 4,
+  "fail_fast": true,
+  "failure_reason": "context_overflow_count_after_restart_nonzero",
+  "gateway_pid": 122580,
+  "gateway_pid_stable": true,
+  "gateway_rpc_ok": true,
+  "generated_utc": "2026-07-15T07:56:07.373203Z",
+  "not_run_probes": [
+    2,
+    3,
+    4
+  ],
+  "recommendation": "Repair/compact the active Telegram owner session context-overflow condition before approving N2/N3 retry.",
+  "safety_counters": {
+    "context_bridge_mutation_count": 0,
+    "cron_reenable_count": 0,
+    "enforcement_started_count": 0,
+    "external_send_count": 0,
+    "m3o_started_count": 0,
+    "m4_started_count": 0,
+    "memory_mutation_count": 0,
+    "n2_n3_retry_count": 0,
+    "persistence_verification_count": 0,
+    "production_authority_change_count": 0,
+    "provider_model_shadow_call_count": 0,
+    "route_config_mutation_count": 0,
+    "telegram_tool_send_or_probe_count": 0
+  },
+  "schema": "umc.v1.m3n.telegram_readback_recovery_stability_summary.v1",
+  "status": "FAIL_M3N_TELEGRAM_READBACK_RECOVERY_STABILITY",
+  "telegram_account_count": 1,
+  "telegram_account_ok": true
+}

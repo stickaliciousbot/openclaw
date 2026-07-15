@@ -1,0 +1,57 @@
+{
+  "schema": "umc.v1.m3n.stale_memory_search_result_classification.v1",
+  "phase": "M3N_STATE_AUTHORITY_RECONCILIATION_NO_MUTATION",
+  "generated_utc": "2026-07-15T07:40:44Z",
+  "status": "PASS_M3N_STALE_MEMORY_SEARCH_RESULT_SUPERSEDED_BY_DIRECT_ARTIFACTS",
+  "stale_memory_claim": {
+    "source": "memory/2026-07-14.md lines 94-105 and derivative memory/cache search hits",
+    "claim": "HOLD_M3N_CRON_JOB_RECOVERY_AWAITING_OPERATOR_APPROVAL",
+    "also_claimed": "cron.update jobId=b29e6275-9bad-4622-8a56-041e5a2dc864 patch.enabled=false proposed but not executed",
+    "classification": "STALE_SUPERSEDED_STATE"
+  },
+  "superseding_direct_evidence": [
+    {
+      "commit": "5cfa4e19951dca35e09e46835fb54fef3a1d6e85",
+      "short": "5cfa4e199",
+      "subject": "docs(umc): execute M3N cron job recovery and watch liveness",
+      "artifact": "M3N_CRON_JOB_RECOVERY_EXECUTION.json",
+      "status": "PASS_M3N_CRON_JOB_RECOVERY_ACTION_EXECUTED",
+      "approved_tool_call": {
+        "action": "update",
+        "jobId": "b29e6275-9bad-4622-8a56-041e5a2dc864",
+        "patch": {
+          "enabled": false
+        }
+      },
+      "cron_enabled_readback": false
+    },
+    {
+      "commit": "ca67140db7b8754bf94513f9823732749dd47b8b",
+      "short": "ca67140db7b8",
+      "subject": "docs(umc): verify M3N Telegram readback stability",
+      "artifact": "M3N_TELEGRAM_READBACK_STABILITY_WATCH_SUMMARY.json",
+      "status": "FAIL_M3N_TELEGRAM_READBACK_STABILITY",
+      "readback_verification_artifact": "M3N_TELEGRAM_READBACK_NO_SEND_VERIFICATION.json",
+      "readback_verification_status": "PASS_M3N_TELEGRAM_READBACK_NO_SEND_VERIFIED",
+      "safe_readback_method": "channels.status probe=false"
+    },
+    {
+      "commit": "fdd86736cad2e02b96badd584445ec833211163f",
+      "short": "fdd86736c",
+      "subject": "docs(umc): rehydrate M3N restart approval card",
+      "artifact": "M3N_RESTART_APPROVAL_TEXT_FOR_OPERATOR.md",
+      "status": "HOLD_M3N_RESTART_APPROVAL_TEXT_READY"
+    }
+  ],
+  "current_authoritative_state": "FAIL_M3N_TELEGRAM_READBACK_STABILITY",
+  "restart_state": "restart approval card prepared only; no restart executed",
+  "safety_boundaries": {
+    "cron_update_executed_count": 1,
+    "cron_update_was_authorized": true,
+    "gateway_restart_executed": false,
+    "telegram_send_or_probe_executed": false,
+    "n2_n3_retry_run": false,
+    "persistence_verification_started": false,
+    "authority_mutation_executed": false
+  }
+}

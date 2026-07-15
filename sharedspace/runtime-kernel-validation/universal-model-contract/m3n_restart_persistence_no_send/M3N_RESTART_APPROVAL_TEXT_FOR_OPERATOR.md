@@ -38,6 +38,11 @@ Post-restart validation plan:
 4. Run 20-minute / 4-probe stability watch using read-only local/Gateway status and logs.
 5. If and only if readback and stability pass, prepare a separate N2/N3 approval/readiness gate; do not run N2/N3 under this approval.
 
+Disabled cron state:
+- Job: context-plus-semantic-shadow-pass-watch
+- Job ID: b29e6275-9bad-4622-8a56-041e5a2dc864
+- Required state across restart: enabled=false
+
 No-send/no-probe boundary:
 - This approval does not authorize Telegram sendMessage, sendTyping, message tool sends, Telegram Bot API getMe/getWebhookInfo probes, channels.status probe=true, or any external send/probe.
 

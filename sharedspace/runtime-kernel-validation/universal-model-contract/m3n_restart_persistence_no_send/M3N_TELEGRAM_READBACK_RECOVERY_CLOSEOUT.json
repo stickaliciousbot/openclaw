@@ -1,0 +1,50 @@
+{
+  "changed_files_planned": [
+    "M3N_TELEGRAM_READBACK_RECOVERY_RESTART_PREFLIGHT.json",
+    "M3N_TELEGRAM_READBACK_RECOVERY_RESTART_RESULT.json",
+    "M3N_TELEGRAM_READBACK_RECOVERY_POST_RESTART_HEALTH.json",
+    "M3N_TELEGRAM_READBACK_RECOVERY_NO_SEND_VERIFICATION.json",
+    "M3N_TELEGRAM_READBACK_RECOVERY_STABILITY_PROBE_0001.json",
+    "M3N_TELEGRAM_READBACK_RECOVERY_STABILITY_PROBE_0002.json",
+    "M3N_TELEGRAM_READBACK_RECOVERY_STABILITY_PROBE_0003.json",
+    "M3N_TELEGRAM_READBACK_RECOVERY_STABILITY_PROBE_0004.json",
+    "M3N_TELEGRAM_READBACK_RECOVERY_STABILITY_SUMMARY.json",
+    "M3N_TELEGRAM_READBACK_RECOVERY_CLOSEOUT.json",
+    "M3N_TELEGRAM_READBACK_RECOVERY_SUMMARY.md",
+    "M3N_TELEGRAM_READBACK_RECOVERY_EVIDENCE_MANIFEST.json"
+  ],
+  "context_bridge_mutation_count": 0,
+  "disabled_cron_state": {
+    "enabled": false,
+    "id": "b29e6275-9bad-4622-8a56-041e5a2dc864",
+    "name": "context-plus-semantic-shadow-pass-watch",
+    "state": {}
+  },
+  "enforcement_started": false,
+  "external_send_count": 0,
+  "final_status": "FAIL_M3N_TELEGRAM_READBACK_RECOVERY_STABILITY",
+  "generated_utc": "2026-07-15T07:56:07.376418Z",
+  "m3o_started": false,
+  "m4_started": false,
+  "memory_mutation_count": 0,
+  "n2_n3_retry_was_run": false,
+  "notes": [
+    "Restart, health, and no-send readback recovered successfully.",
+    "Bounded stability watch failed fast because post-restart context overflow occurred in the active Telegram owner session.",
+    "No Telegram probe/send tool, external send tool, provider shadow call, config mutation, memory mutation, Context Bridge mutation, authority change, cron re-enable, N2/N3 retry, persistence verification, M3O, M4, or enforcement was run."
+  ],
+  "persistence_verification_started": false,
+  "post_restart_gateway_pid": 122580,
+  "post_restart_health_result": "PASS_M3N_TELEGRAM_READBACK_RECOVERY_POST_RESTART_HEALTH",
+  "pre_restart_gateway_pid": 122580,
+  "production_authority_change_count": 0,
+  "provider_model_shadow_call_count": 0,
+  "readback_verification_result": "PASS_M3N_TELEGRAM_READBACK_RECOVERY_NO_SEND_VERIFIED",
+  "recommendation_for_next_phase": "REPAIR_CONTEXT_OVERFLOW_BEFORE_APPROVE_M3N_N2_N3_RETRY_AFTER_TELEGRAM_READBACK_RECOVERY",
+  "restart_reason": "M3N Telegram readback recovery after cron liveness stabilization no-send",
+  "restart_result": "PASS_M3N_TELEGRAM_READBACK_RECOVERY_RESTART_COMPLETED",
+  "route_config_mutation_count": 0,
+  "schema": "umc.v1.m3n.telegram_readback_recovery_closeout.v1",
+  "stability_watch_result": "FAIL_M3N_TELEGRAM_READBACK_RECOVERY_STABILITY",
+  "telegram_send_probe_count": 0
+}
