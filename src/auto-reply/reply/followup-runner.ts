@@ -631,7 +631,7 @@ export function createFollowupRunner(params: {
       });
       if (queueAdmission.reply) {
         replyOperation.fail(
-          "umc_queue_route_unavailable",
+          "run_failed",
           new Error(queueAdmission.reply.text ?? "UMC queued route unavailable"),
         );
         defaultRuntime.error?.(queueAdmission.reply.text ?? "HOLD_UMC_QUEUE_ROUTE_UNAVAILABLE");

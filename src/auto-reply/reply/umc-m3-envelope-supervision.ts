@@ -67,7 +67,7 @@ export type M3BaseReceipt = {
   postcondition_policy: {
     delivery_mode: typeof DELIVERY_MODE;
     production_path: typeof PRODUCTION_PATH;
-    required_receipts: string[];
+    required_receipts: readonly string[];
     required_zero_counters: readonly string[];
   };
   safety_counters: M3SafetyCounters;
