@@ -1,0 +1,51 @@
+{
+  "schema": "umc.v1.m3.source_build_implementation_apply_result.v1",
+  "generated_utc": "2026-07-15T16:05:00Z",
+  "status": "PASS_M3_SOURCE_BUILD_IMPLEMENTATION_APPLIED",
+  "selected_source_path": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+  "source_branch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+  "base_head_before_apply": "eab76f8d027fb974c03ca5b8e407136a413836b1",
+  "source_commit_after_apply": "a65a4ee34ef2322b441c0c579cb89666e3db0ce4",
+  "source_worktree_status_after_commit": "clean",
+  "implementation_files_changed": [
+    "src/auto-reply/reply/followup-runner.ts",
+    "src/auto-reply/reply/followup-runner.test.ts",
+    "src/auto-reply/reply/umc-m3-envelope-supervision.ts"
+  ],
+  "source_support_checks": {
+    "ContractEnvelope": "present in source",
+    "ShadowObservationReceipt": "present in source",
+    "UniversalContractReceipt": "present in source",
+    "DeliveryReceipt_mode_no_send": "present in source",
+    "TerminalContractCloseout": "present in source",
+    "production_path": "unchanged",
+    "m2_route_admission_hook": "preserved in followup-runner.ts",
+    "authority_enforcement_enabled": false
+  },
+  "legacy_hook_preservation": {
+    "fixture_gate": "UMC_SHADOW_MODE=observe_no_send, UMC_SHADOW_OWNER_SCOPE=fixture_only, UMC_SHADOW_DELIVERY=no_send, UMC_SHADOW_PROVIDER=mock_only, UMC_SHADOW_MUTATION=forbidden",
+    "legacy_no_send_receipt_fields_preserved": true,
+    "m3_receipts_added_to_existing_observe_only_receipt": true
+  },
+  "static_validation": {
+    "git_diff_check": "PASS",
+    "grep_contract_terms": "PASS"
+  },
+  "hard_boundaries_observed": {
+    "installed_runtime_mutation_count": 0,
+    "direct_dist_hotpatch_count": 0,
+    "package_install_count": 0,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_shadow_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "m3o_rerun_count": 0,
+    "m3p_started": false,
+    "m4_started": false,
+    "enforcement_started": false
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "schema": "umc.v1.m3.source_build_clean_worktree_result.v1",
+  "generated_utc": "2026-07-15T15:58:00Z",
+  "status": "PASS_M3_SOURCE_BUILD_CLEAN_WORKTREE_READY",
+  "selected_worktree": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+  "selected_branch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+  "selected_head_before_m3_apply": "eab76f8d027fb974c03ca5b8e407136a413836b1",
+  "selected_worktree_status_before_m3_apply": "clean",
+  "selected_reason": "Existing clean OpenClaw 2026.5.7 source worktree already contains the M2 queued route-admission hook source; avoids dirty backport and avoids direct installed-dist patching.",
+  "additional_worktree_created_for_discovery": {
+    "path": "/home/stickai/.openclaw/worktrees/umc-m3-envelope-supervision-source-build-20260716",
+    "branch": "evidence/umc-m3-envelope-supervision-source-build-20260716",
+    "head": "9338825836c9989062dfcf7e6231fc5b56bf44a5",
+    "status": "clean but not selected because it lacks active M2 hook source"
+  },
+  "dirty_worktrees_not_overwritten": [
+    "/home/stickai/.openclaw/workspace/tmp/openclaw-2026-5-7-closeout-backport"
+  ],
+  "unrelated_files_discarded": false,
+  "force_checkout_used": false,
+  "installed_runtime_mutation_count": 0,
+  "direct_dist_hotpatch_count": 0
+}

@@ -1,0 +1,37 @@
+{
+  "schema": "umc.v1.m3.source_build_path_discovery_preflight.v1",
+  "generated_utc": "2026-07-15T15:54:30Z",
+  "status": "PASS_M3_SOURCE_BUILD_PATH_DISCOVERY_PREFLIGHT",
+  "held_state": {
+    "install_status": "HOLD_M3_ENVELOPE_SUPERVISION_INSTALL_AWAITING_OPERATOR_APPROVAL",
+    "staged_install_preflight": "PASS_M3_ENVELOPE_SUPERVISION_STAGED_INSTALL_PREFLIGHT",
+    "held_commit": "2f655d6c615faba2ff3d7c9d4a91ec39537ea4b1",
+    "install_executed": false,
+    "runtime_mutation_count": 0,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "m3o_rerun_count": 0,
+    "m3p_started": false,
+    "m4_started": false,
+    "enforcement_started": false
+  },
+  "operator_decision": {
+    "accepted": "AUTHORIZE_SOURCE_BUILD_INSTALL_CARD_PREPARATION",
+    "rejected": "DIRECT_INSTALLED_DIST_HOTPATCH_CARD"
+  },
+  "gateway_read_only_rpc": "cron.status ok enabled=true jobs=26",
+  "hard_boundaries_observed": {
+    "installed_runtime_mutation_count": 0,
+    "direct_dist_hotpatch_count": 0,
+    "package_install_count": 0,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_shadow_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "m3o_rerun_count": 0
+  }
+}

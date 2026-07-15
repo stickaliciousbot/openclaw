@@ -1,0 +1,66 @@
+{
+  "schema": "umc.v1.m3.source_build_package_validation.v1",
+  "generated_utc": "2026-07-15T16:07:00Z",
+  "status": "HOLD_M3_SOURCE_BUILD_DEPENDENCY_HYDRATION_AWAITING_APPROVAL",
+  "selected_source_path": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+  "documented_package_manager": "pnpm@10.33.2+sha512.a90faf6feeab71ad6c6e57f94e0fe1a12f5dcc22cd754db40ae9593eb6a3e0b6b12e3540218bb37ae083404b1f2ce6db2a4121e979829b4aff94b99f49da1cf8",
+  "documented_build_command": "pnpm build",
+  "documented_package_command": "mkdir -p .artifacts/umc-m3-source-build-package && pnpm pack --pack-destination .artifacts/umc-m3-source-build-package",
+  "attempted_validation": [
+    {
+      "command": "pnpm exec vitest run src/auto-reply/reply/followup-runner.test.ts --testNamePattern \"UMC M3G editable-source observe-only hook\"",
+      "result": "FAILED_BEFORE_TEST_EXECUTION",
+      "stderr": "/bin/bash: line 1: pnpm: command not found",
+      "classification": "PACKAGE_MANAGER_MISSING_FROM_EXEC_PATH"
+    },
+    {
+      "command": "pnpm build && mkdir -p .artifacts/umc-m3-source-build-package && pnpm pack --pack-destination .artifacts/umc-m3-source-build-package",
+      "result": "FAILED_BEFORE_BUILD_EXECUTION",
+      "stderr": "/bin/bash: line 1: pnpm: command not found",
+      "classification": "PACKAGE_MANAGER_MISSING_FROM_EXEC_PATH"
+    }
+  ],
+  "completed_validation": {
+    "static_contract_symbol_check": "PASS",
+    "git_diff_check": "PASS",
+    "typecheck_build_passes": "NOT_RUN_PACKAGE_MANAGER_MISSING",
+    "focused_m3_fixtures_pass": "NOT_RUN_PACKAGE_MANAGER_MISSING",
+    "package_or_tarball_can_be_produced": "NOT_RUN_PACKAGE_MANAGER_MISSING",
+    "plugin_manifests_included": "NOT_VERIFIED_PACKAGE_NOT_PRODUCED",
+    "installed_package_topology_represented": "NOT_VERIFIED_PACKAGE_NOT_PRODUCED",
+    "runner_chunk_topology_known": "NOT_VERIFIED_BUILD_NOT_PRODUCED",
+    "rollback_path_can_be_constructed": "PARTIAL_PENDING_PACKAGE_ARTIFACT"
+  },
+  "dependency_hydration_required": true,
+  "hydration_needed": {
+    "package_manager_or_build_tool": "pnpm 10.33.2 is required by package.json and absent from current exec PATH",
+    "approval_required_before_action": true,
+    "not_attempted": [
+      "corepack enable/prepare",
+      "pnpm install",
+      "any dependency install or network hydration"
+    ]
+  },
+  "tarball": {
+    "produced": false,
+    "path": null,
+    "sha256": null
+  },
+  "hard_boundaries_observed": {
+    "installed_runtime_mutation_count": 0,
+    "direct_dist_hotpatch_count": 0,
+    "package_install_count": 0,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_shadow_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "m3o_rerun_count": 0,
+    "m3p_started": false,
+    "m4_started": false,
+    "enforcement_started": false
+  }
+}

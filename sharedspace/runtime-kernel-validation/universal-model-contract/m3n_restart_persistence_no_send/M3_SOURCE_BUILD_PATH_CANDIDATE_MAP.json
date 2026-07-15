@@ -1,0 +1,71 @@
+{
+  "schema": "umc.v1.m3.source_build_path_candidate_map.v1",
+  "generated_utc": "2026-07-15T15:56:00Z",
+  "status": "PASS_M3_SOURCE_BUILD_PATH_CANDIDATES_MAPPED",
+  "candidates": [
+    {
+      "path": "/home/stickai/.openclaw/workspace/tmp/openclaw-2026-5-7-closeout-backport",
+      "package": "openclaw@2026.5.7",
+      "git_branch": "closeout-delivery-2026-5-7-backport",
+      "git_head": "9338825836c9989062dfcf7e6231fc5b56bf44a5",
+      "git_status": "dirty; many existing closeout/backport modified and untracked files",
+      "lockfile_presence": "pnpm-lock.yaml",
+      "node_modules_state": "present",
+      "source_matches_installed_openclaw_version_2026_5_7": true,
+      "m2_hook_source_exists": false,
+      "m3_source_implementation_can_be_applied_cleanly": "not selected directly because dirty",
+      "build_package_command_available": "pnpm build / pnpm pack available by package scripts, but worktree dirty",
+      "package_output_can_preserve_plugin_manifests_topology": "likely, but not selected because dirty",
+      "classification": "SOURCE_BUILD_PATH_DIRTY_REQUIRES_CLEAN_WORKTREE"
+    },
+    {
+      "path": "/home/stickai/.openclaw/workspace/tmp/openclaw-source-start-ack-backport-2026-5-7",
+      "package": "openclaw@2026.6.10",
+      "git_head": "964ffd83e5ac7d8e0bf12a4224dd6775b66fcc4e",
+      "source_matches_installed_openclaw_version_2026_5_7": false,
+      "classification": "SOURCE_BUILD_PATH_VERSION_MISMATCH"
+    },
+    {
+      "path": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+      "package": "openclaw@2026.5.7",
+      "git_branch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+      "git_head_before_m3_apply": "eab76f8d027fb974c03ca5b8e407136a413836b1",
+      "git_status_before_m3_apply": "clean",
+      "lockfile_presence": "pnpm-lock.yaml",
+      "node_modules_state": "present",
+      "source_matches_installed_openclaw_version_2026_5_7": true,
+      "m2_hook_source_exists": true,
+      "m2_hook_source_file": "src/auto-reply/reply/followup-runner.ts",
+      "m2_hook_terms": [
+        "resolveUmcV1DefaultRouteFromConfig",
+        "isUmcV1QueuedOwnerScope",
+        "applyUmcV1QueuedRouteAdmission",
+        "umcV1QueuedRouteIntent"
+      ],
+      "m3_source_implementation_can_be_applied_cleanly": true,
+      "build_package_command_available": "pnpm build; pnpm pack/package scripts available",
+      "package_output_can_preserve_plugin_manifests_topology": "candidate selected for validation",
+      "classification": "SOURCE_BUILD_PATH_READY"
+    },
+    {
+      "path": "/home/stickai/.openclaw/worktrees/umc-m3-envelope-supervision-source-build-20260716",
+      "package": "openclaw@2026.5.7",
+      "git_branch": "evidence/umc-m3-envelope-supervision-source-build-20260716",
+      "git_head": "9338825836c9989062dfcf7e6231fc5b56bf44a5",
+      "git_status": "clean newly created linked worktree",
+      "source_matches_installed_openclaw_version_2026_5_7": true,
+      "m2_hook_source_exists": false,
+      "classification": "SOURCE_BUILD_PATH_UNUSABLE",
+      "reason": "Clean baseline 2026.5.7 source lacks the active M2 queued route-admission source hook present in the M3G source branch and installed runtime."
+    },
+    {
+      "path": "/home/stickai/.openclaw/workspace",
+      "package": null,
+      "source_matches_installed_openclaw_version_2026_5_7": false,
+      "classification": "SOURCE_BUILD_PATH_UNUSABLE",
+      "reason": "Global workspace, not OpenClaw package source root; also broadly dirty."
+    }
+  ],
+  "selected_source_build_path": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+  "selected_reason": "Clean OpenClaw 2026.5.7 source worktree with existing M2 route-admission hook source and node_modules/lockfile present; avoids dirty backport and direct installed dist hotpatch."
+}

@@ -1,0 +1,96 @@
+{
+  "schema": "umc.v1.m3.source_build_install_approval_card.v1",
+  "generated_utc": "2026-07-15T16:12:00Z",
+  "status": "HOLD_M3_SOURCE_BUILD_DEPENDENCY_HYDRATION_AWAITING_APPROVAL",
+  "actionability": "NOT_ACTIONABLE_AS_INSTALL_CARD_UNTIL_PACKAGE_VALIDATION_PASSES",
+  "reason": "Documented pnpm package manager is missing from exec PATH; build, focused fixtures, package/tarball production, plugin manifest verification, installed-package topology representation, runner/chunk topology, and package SHA256 are not complete.",
+  "selected_source_path": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+  "source_branch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+  "source_head": "a65a4ee34ef2322b441c0c579cb89666e3db0ce4",
+  "source_commit_to_install": "a65a4ee34ef2322b441c0c579cb89666e3db0ce4",
+  "build_command": "pnpm build",
+  "package_command": "mkdir -p .artifacts/umc-m3-source-build-package && pnpm pack --pack-destination .artifacts/umc-m3-source-build-package",
+  "package_tarball": {
+    "produced": false,
+    "path": null,
+    "sha256": null,
+    "blocker": "pnpm command not found; dependency/package-manager hydration approval required"
+  },
+  "exact_installed_package_root": "/home/stickai/.npm-global/lib/node_modules/openclaw",
+  "exact_files_expected_to_change": {
+    "status": "NOT_FINAL_UNTIL_TARBALL_PRODUCED_AND_DIFFED",
+    "source_intended_changes": [
+      "src/auto-reply/reply/followup-runner.ts",
+      "src/auto-reply/reply/followup-runner.test.ts",
+      "src/auto-reply/reply/umc-m3-envelope-supervision.ts"
+    ],
+    "installed_expected_classes": [
+      "dist auto-reply followup-runner chunk containing M2 queued route admission plus M3 receipt wiring",
+      "dist chunk/file containing M3 envelope supervisor symbols",
+      "package metadata and plugin manifest files preserved exactly by package install topology"
+    ]
+  },
+  "plugin_manifest_preservation_checks": {
+    "status": "PENDING_PACKAGE_PRODUCTION",
+    "required_checks_after_tarball": [
+      "tar -tf <package.tgz> | grep openclaw.plugin.json",
+      "compare packaged plugin manifest list against installed package manifest list",
+      "verify package.json files required by bundled plugins are preserved"
+    ]
+  },
+  "backup_path": {
+    "status": "PLANNED_NOT_CREATED",
+    "path_template": "/home/stickai/.openclaw/backups/openclaw-m3-source-build-install-<UTC>/openclaw-installed-package/"
+  },
+  "rollback_command": {
+    "status": "PLANNED_NOT_EXECUTABLE_UNTIL_BACKUP_EXISTS",
+    "command_template": "openclaw gateway status && rsync -a --delete <backup_path>/ /home/stickai/.npm-global/lib/node_modules/openclaw/ && openclaw gateway restart",
+    "requires_gateway_restart": true
+  },
+  "gateway_restart_requirement": {
+    "for_install": true,
+    "performed_now": false
+  },
+  "gateway_telegram_read_only_health_checks": [
+    "openclaw gateway status",
+    "channels.status probe=false for Telegram readback only",
+    "no Telegram send/probe"
+  ],
+  "installed_runtime_m3_verification_checks_after_install": [
+    "grep installed dist for ContractEnvelope, ShadowObservationReceipt, ToolSupervisionReceipt, DeliveryReceipt, UniversalContractReceipt, TerminalContractCloseout",
+    "verify DeliveryReceipt mode no_send",
+    "verify production_path unchanged",
+    "verify M2 route-admission hook terms still present",
+    "run installed-runtime no-send fixture with fixture-only env",
+    "verify zero provider/model shadow call, zero Telegram send, zero external send, zero write-tool execution"
+  ],
+  "m3o_rerun_plan_after_install": {
+    "status": "PLANNED_AFTER_EXPLICIT_INSTALL_APPROVAL_AND_RESTART_ONLY",
+    "mode": "owner-turn shadow observation no_send",
+    "boundaries": [
+      "no shadow Telegram sends",
+      "no external sends",
+      "no provider/model live shadow calls",
+      "no production authority change"
+    ]
+  },
+  "no_send_no_authority_boundary": {
+    "installed_runtime_mutation_now": 0,
+    "direct_dist_hotpatch_now": 0,
+    "package_install_now": 0,
+    "gateway_restart_now": 0,
+    "telegram_send_probe_now": 0,
+    "external_send_now": 0,
+    "provider_model_shadow_call_now": 0,
+    "route_config_mutation_now": 0,
+    "durable_memory_mutation_now": 0,
+    "context_bridge_mutation_now": 0,
+    "production_authority_change_now": 0,
+    "m3o_rerun_now": 0,
+    "m3p_started": false,
+    "m4_started": false,
+    "enforcement_started": false
+  },
+  "next_required_approval_before_install_card_can_be_actionable": "APPROVE_M3_SOURCE_BUILD_DEPENDENCY_HYDRATION",
+  "expected_later_install_phase_after_package_validation_passes": "APPROVE_M3_SOURCE_BUILD_STAGED_INSTALL"
+}
