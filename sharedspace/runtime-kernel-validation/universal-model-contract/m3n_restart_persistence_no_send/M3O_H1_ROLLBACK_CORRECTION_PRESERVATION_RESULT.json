@@ -1,0 +1,48 @@
+{
+  "schema": "umc.v1.m3o_h1.rollback_correction_preservation_result.v1",
+  "generated_utc": "2026-07-15T15:28:30Z",
+  "status": "PASS_M3O_H1_ROLLBACK_CORRECTION_PRESERVED",
+  "preservation_commit": {
+    "hash": "6976fa6a3b4078b1fcd70b08e49c17fd831372a3",
+    "branch": "evidence/umc-m3n-post-restart-health-failclosed-20260713",
+    "message": "docs(umc): correct M3O diagnosis and preserve H1 rollback",
+    "changed_files": [
+      "MEMORY.md",
+      "scripts/long_running_cron_observer_harness.py",
+      "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3O_H1_CORRECTED_DIAGNOSIS_VALIDATION.json",
+      "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3O_H1_REDUNDANT_PATCH_ROLLBACK_AND_DIAGNOSIS_CORRECTION.json",
+      "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3O_H1_ROLLBACK_CORRECTION_REHYDRATION.json",
+      "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3O_H1_ROLLBACK_CORRECTION_SCOPE_CHECK.json",
+      "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3_ENVELOPE_TOOLS_DELIVERY_SUPERVISION_HANDOFF.md",
+      "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3_ENVELOPE_TOOLS_DELIVERY_SUPERVISION_PLAN.json"
+    ]
+  },
+  "post_commit_targeted_status_short": [
+    " M MEMORY.md",
+    "?? memory/2026-07-15.md"
+  ],
+  "post_commit_status_interpretation": {
+    "memory_md": "working tree still has unrelated top-level memory additions deliberately left unstaged; preservation commit staged only the M3O durable lesson via index-only patch",
+    "daily_memory_2026_07_15": "left unstaged because the untracked file contains mixed unrelated daily/context-bridge material plus the incident note"
+  },
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "hard_boundaries_observed": {
+    "no_telegram_send_or_probe": true,
+    "no_external_send": true,
+    "no_provider_model_shadow_call": true,
+    "no_package_install": true,
+    "no_tarball_apply": true,
+    "no_runtime_dist_mutation": true,
+    "no_route_fallback_config_production_mutation": true,
+    "no_context_bridge_mutation": true,
+    "no_production_authority_change": true,
+    "no_cron_reenable": true,
+    "no_m3_implementation": true,
+    "no_m3o_rerun": true,
+    "no_m3p": true,
+    "no_m4": true,
+    "no_enforcement": true,
+    "no_push": true
+  },
+  "next_milestone": "M3_ENVELOPE_TOOLS_DELIVERY_SUPERVISION"
+}
