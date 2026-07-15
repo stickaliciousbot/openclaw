@@ -33,6 +33,11 @@
     "basis": "M3N preserved state; no production authority/enforcement enabled; no runtime mutation occurred during M3O"
   },
   "recommended_next_milestone": "M3O_PRE_HOOK_INSTALL_DECISION_OR_M3P_SKIP",
-  "root_cause": "The UMC v1 shadow hook is not installed in the production OpenClaw runtime at /home/stickai/.npm-global/lib/node_modules/openclaw/dist/. The shadow hook exists only as a contract specification in workspace artifacts. Without the hook installed, no owner turn can produce shadow receipts, and M3O cannot observe shadow behavior.",
+  "root_cause": "The UMC v1 shadow hook is not installed in the production OpenClaw runtime at /home/stickai/.npm-global/lib/node_modules/openclaw/dist/. A grep of the runtime dist for ContractEnvelope, UniversalContractReceipt, DeliveryReceipt, umc.shadow, and UMC_SHADOW returned one match: route-reply-D6Nvzk_V.js, which is the standard production reply router with an onDeliveryReceipt callback parameter for normal outbound delivery tracking — a false positive. The shadow hook exists only as a contract specification in workspace artifacts. Without the hook installed, no owner turn can produce shadow receipts, and M3O cannot observe shadow behavior.",
+  "runtime_dist_grep_classification": {
+    "matched_file": "route-reply-D6Nvzk_V.js",
+    "classification": "FALSE_POSITIVE_STANDARD_PRODUCTION_REPLY_ROUTER",
+    "umc_shadow_hook_present": false
+  },
   "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION"
 }
