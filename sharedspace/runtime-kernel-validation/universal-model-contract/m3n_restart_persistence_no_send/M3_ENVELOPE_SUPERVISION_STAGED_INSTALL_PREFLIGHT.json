@@ -1,0 +1,59 @@
+{
+  "schema": "umc.v1.m3.envelope_supervision_staged_install_preflight.v1",
+  "generated_utc": "2026-07-15T15:43:30Z",
+  "status": "PASS_M3_ENVELOPE_SUPERVISION_STAGED_INSTALL_PREFLIGHT",
+  "milestone": "M3_ENVELOPE_SUPERVISION_STAGED_INSTALL_AND_M3O_RERUN",
+  "inputs_verified": {
+    "staged_install_plan_json_read": true,
+    "staged_install_plan_md_read": true,
+    "source_ready_final_status": "PASS_M3_ENVELOPE_TOOLS_DELIVERY_SUPERVISION_SOURCE_READY_NO_APPLY",
+    "source_commits_exist": [
+      "70ccd82feb4e80a77d54c38caac8e2502c370359",
+      "0b9dda06110d75edf6fefb96b30404bfaee1497b",
+      "09994af8814377e34d8711ad10e75d2d6a3e0280"
+    ],
+    "fixture_results_passed": "PASS_M3_ENVELOPE_SUPERVISION_FIXTURES",
+    "no_apply_build_validation_passed": "PASS_M3_ENVELOPE_SUPERVISION_NO_APPLY_BUILD_VALIDATION",
+    "rollback_path_defined": true,
+    "gateway_read_only_rpc_ok": "cron.status ok enabled=true jobs=26",
+    "telegram_read_only_health": "not probed in this pre-approval phase; current inbound owner turn and prior probe=false state indicate surface continuity",
+    "disabled_cron_state_known": {
+      "id": "b29e6275-9bad-4622-8a56-041e5a2dc864",
+      "name": "context-plus-semantic-shadow-pass-watch",
+      "enabled": false
+    },
+    "stale_approval_cards_not_used": [
+      "ef586101",
+      "45e83439"
+    ],
+    "installed_runtime_mutation_has_not_occurred_in_this_phase": true
+  },
+  "install_exactness_check": {
+    "installed_package_has_source_tree": false,
+    "installed_package_has_tsup_config": false,
+    "package_json_read": "/home/stickai/.npm-global/lib/node_modules/openclaw/package.json",
+    "source_paths_checked_missing": [
+      "/home/stickai/.npm-global/lib/node_modules/openclaw/src/auto-reply/reply/agent-runner.runtime.ts",
+      "/home/stickai/.npm-global/lib/node_modules/openclaw/src/agent-runner.runtime.ts",
+      "/home/stickai/.npm-global/lib/node_modules/openclaw/tsup.config.ts"
+    ],
+    "conclusion": "The source-ready milestone produced a source-only UMC module and staged plan, but the installed npm package does not contain the source/build topology needed to produce an exact source-build runtime install command from the installed package alone."
+  },
+  "hard_boundaries_observed": {
+    "installed_runtime_mutation_count": 0,
+    "package_install_count": 0,
+    "tarball_apply_count": 0,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_shadow_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "m3o_rerun_count": 0,
+    "m3p_started": false,
+    "m4_started": false,
+    "enforcement_started": false
+  }
+}

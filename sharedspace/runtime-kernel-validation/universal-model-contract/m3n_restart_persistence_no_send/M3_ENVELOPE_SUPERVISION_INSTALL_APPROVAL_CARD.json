@@ -1,0 +1,79 @@
+{
+  "schema": "umc.v1.m3.envelope_supervision_install_approval_card.v1",
+  "generated_utc": "2026-07-15T15:46:00Z",
+  "status": "HOLD_M3_ENVELOPE_SUPERVISION_INSTALL_AWAITING_OPERATOR_APPROVAL",
+  "approval_card_type": "install_approval_boundary_with_exactness_gap",
+  "source_commit_to_install": "70ccd82feb4e80a77d54c38caac8e2502c370359",
+  "staged_install_plan_commit": "0b9dda06110d75edf6fefb96b30404bfaee1497b",
+  "source_ready_result_commit": "09994af8814377e34d8711ad10e75d2d6a3e0280",
+  "exact_build_package_command": null,
+  "exact_artifact_path": null,
+  "exact_installed_files_expected_to_change": null,
+  "exact_backup_path": null,
+  "exact_rollback_command": null,
+  "why_exact_install_card_is_not_executable_yet": [
+    "The source-ready milestone created a source-only M3 module under the workspace UMC evidence folder, not an integrated OpenClaw source-tree patch.",
+    "The installed npm package at /home/stickai/.npm-global/lib/node_modules/openclaw contains dist/docs/patches/skills but no src tree or tsup/build config paths needed to produce a source-build artifact from the installed package.",
+    "The existing staged install plan explicitly says the exact build command must be resolved from a clean source checkout during the approved install phase.",
+    "Preparing an approval card that mutates dist directly would violate the staged install plan's source-build intent unless Stick explicitly chooses a direct installed-dist hotpatch path."
+  ],
+  "operator_decision_required": {
+    "recommended_path": {
+      "id": "A_CLEAN_SOURCE_BUILD_INSTALL",
+      "request": "Provide/authorize a clean OpenClaw source checkout or source worktree mapping for commit-equivalent integration, then prepare a new exact approval card with build command, artifact path, installed file list, backup path, rollback command, and post-install checks.",
+      "why_recommended": "Matches the staged install plan and avoids another fragile installed-dist patch."
+    },
+    "alternative_path": {
+      "id": "B_EXPLICIT_DIRECT_DIST_HOTPATCH",
+      "request": "Explicitly authorize preparing a direct installed-dist hotpatch approval card that copies the source module into dist and patches agent-runner.runtime-a09vVD0N.js with backups and rollback.",
+      "why_not_default": "Direct dist patching was the class of risk just corrected during H1 rollback; it should not be inferred from the current approval request."
+    }
+  },
+  "approval_boundaries_reaffirmed": {
+    "no_telegram_send_or_probe_authorized": true,
+    "no_external_send_authorized": true,
+    "no_provider_model_shadow_live_call_authorized": true,
+    "no_route_fallback_config_production_mutation_authorized_except_exact_staged_runtime_install": true,
+    "no_durable_memory_mutation_authorized": true,
+    "no_context_bridge_mutation_authorized": true,
+    "no_production_authority_change_authorized": true,
+    "no_m3p_m4_enforcement_authorized": true
+  },
+  "plugin_manifest_preservation_checks_required_for_future_exact_card": [
+    "Snapshot plugin manifests and channel plugin registry files before install.",
+    "Compare manifest paths/hashes after build/package/install.",
+    "Unexpected plugin manifest deletion/change must HOLD, not repair opportunistically.",
+    "Telegram health validation must use channels.status probe=false only."
+  ],
+  "gateway_telegram_health_checks_required_for_future_exact_card": [
+    "Gateway RPC via cron.status or equivalent read-only first-class RPC.",
+    "Telegram read-only status via channels.status probe=false only after approved install/restart.",
+    "Confirm umc-owner-turn-shadow-hook-H1.js remains absent.",
+    "Confirm M2 route-admission vocabulary remains present.",
+    "Confirm M3 receipt vocabulary/path is installed."
+  ],
+  "installed_runtime_m3_verification_checks_required_for_future_exact_card": [
+    "ContractEnvelope emitted in controlled no-send path.",
+    "ShadowObservationReceipt emitted.",
+    "UniversalContractReceipt emitted.",
+    "DeliveryReceipt emitted with mode no_send.",
+    "TerminalContractCloseout emitted.",
+    "Production path unchanged.",
+    "All shadow send/provider/write/memory/Context Bridge/route/config/authority counters are zero."
+  ],
+  "m3o_rerun_plan_required_for_future_exact_card": [
+    "Run only after installed-runtime M3 verification passes.",
+    "Use one controlled owner turn.",
+    "Require production response path normal and all M3 receipts present with delivery_mode no_send.",
+    "Stop with FAIL on missing receipts or safety violation; do not start M3P/M4."
+  ],
+  "execution_in_this_phase": {
+    "install_executed": false,
+    "gateway_restart_executed": false,
+    "telegram_probe_send_executed": false,
+    "m3o_rerun_executed": false
+  },
+  "next_status_if_operator_approves_path_a": "PREPARE_EXACT_SOURCE_BUILD_INSTALL_CARD",
+  "next_status_if_operator_approves_path_b": "PREPARE_EXACT_DIRECT_DIST_HOTPATCH_CARD_WITH_BACKUP_ROLLBACK",
+  "safe_stop_status": "HOLD_M3_ENVELOPE_SUPERVISION_INSTALL_AWAITING_OPERATOR_APPROVAL"
+}
