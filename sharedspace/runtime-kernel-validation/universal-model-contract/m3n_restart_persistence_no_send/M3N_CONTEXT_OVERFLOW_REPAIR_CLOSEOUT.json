@@ -1,0 +1,73 @@
+{
+  "schema": "umc.v1.m3n.context_overflow_repair_closeout.v1",
+  "phase": "M3N_TELEGRAM_OWNER_SESSION_CONTEXT_OVERFLOW_REPAIR_THEN_READBACK_STABILITY_NO_SEND",
+  "generated_utc": "2026-07-15T08:31:54Z",
+  "final_status": "HOLD_M3N_CONTEXT_OVERFLOW_COMPACTION_AWAITING_OPERATOR_APPROVAL",
+  "blocker_rehydration_result": "PASS_M3N_CONTEXT_OVERFLOW_BLOCKER_REHYDRATED",
+  "overflowing_session_identification_result": "ACTIVE_TELEGRAM_OWNER_SESSION_OVERFLOW_SOURCE",
+  "selected_session_id": "412b53c8-9047-4878-aeae-9040aaac5b05",
+  "selected_session_key": "agent:main:telegram:direct:8495203551",
+  "selected_session_path": "/home/stickai/.openclaw/agents/main/sessions/412b53c8-9047-4878-aeae-9040aaac5b05.jsonl",
+  "compaction_method_analysis_result": "PASS_M3N_CONTEXT_OVERFLOW_SAFE_COMPACTION_METHOD_IDENTIFIED",
+  "selected_compaction_method": "runtime-supported sessions.compact with explicit pre-backup/snapshot",
+  "approval_requested": true,
+  "approval_phrase": "APPROVE_M3N_CONTEXT_OVERFLOW_COMPACTION",
+  "exact_compaction_command_tool_call": "openclaw gateway call sessions.compact --json --timeout 600000 --params '{\"key\":\"agent:main:telegram:direct:8495203551\"}'",
+  "backup_snapshot_path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/backups/m3n-context-overflow-precompact-20260715T083154Z",
+  "compaction_execution_result": "NOT_RUN_AWAITING_OPERATOR_APPROVAL",
+  "post_compaction_readback_result": "NOT_RUN_AWAITING_OPERATOR_APPROVAL",
+  "post_compaction_stability_result": "NOT_RUN_AWAITING_OPERATOR_APPROVAL",
+  "disabled_cron_state": {
+    "id": "b29e6275-9bad-4622-8a56-041e5a2dc864",
+    "name": "context-plus-semantic-shadow-pass-watch",
+    "enabled": false
+  },
+  "gateway_state": {
+    "last_known_pid": 122580,
+    "last_known_rpc_ok": true,
+    "source": "prior committed M3N recovery restart evidence plus read-only session mapping"
+  },
+  "telegram_state": {
+    "last_known_readback_method": "channels.status probe=false",
+    "last_known_readback_status": "PASS_M3N_TELEGRAM_READBACK_RECOVERY_NO_SEND_VERIFIED",
+    "last_known_account_count": "1/1",
+    "live_telegram_probe_or_send_in_this_phase": false
+  },
+  "context_overflow_count": 6,
+  "telegram_send_probe_count": 0,
+  "external_send_count": 0,
+  "provider_model_shadow_call_count": 0,
+  "route_config_mutation_count": 0,
+  "memory_mutation_count": 0,
+  "context_bridge_mutation_count": 0,
+  "production_authority_change_count": 0,
+  "cron_reenable_count": 0,
+  "n2_n3_retry_was_run": false,
+  "persistence_verification_started": false,
+  "m3o_started": false,
+  "m4_started": false,
+  "enforcement_started": false,
+  "session_compaction_executed": false,
+  "files_changed_planned": [
+    "M3N_CONTEXT_OVERFLOW_BLOCKER_REHYDRATION.json",
+    "M3N_CONTEXT_OVERFLOW_BLOCKER_SUMMARY.md",
+    "M3N_CONTEXT_OVERFLOW_SESSION_MAP.json",
+    "M3N_CONTEXT_OVERFLOW_SESSION_MAP.md",
+    "M3N_CONTEXT_OVERFLOW_COMPACTION_METHOD_ANALYSIS.json",
+    "M3N_CONTEXT_OVERFLOW_COMPACTION_METHOD_ANALYSIS.md",
+    "M3N_CONTEXT_OVERFLOW_COMPACTION_APPROVAL_CARD.json",
+    "M3N_CONTEXT_OVERFLOW_COMPACTION_APPROVAL_CARD.md",
+    "M3N_CONTEXT_OVERFLOW_REPAIR_CLOSEOUT.json",
+    "M3N_CONTEXT_OVERFLOW_REPAIR_SUMMARY.md",
+    "M3N_CONTEXT_OVERFLOW_REPAIR_EVIDENCE_MANIFEST.json"
+  ],
+  "push_authorized": false,
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "exact_next_phase": "APPROVE_M3N_CONTEXT_OVERFLOW_COMPACTION",
+  "notes": [
+    "Default diagnose + prepare approval card mode completed.",
+    "No compaction/truncation/snapshot mutation was executed.",
+    "The selected method is runtime-supported sessions.compact, but it requires explicit approval because it mutates the active Telegram owner session production response path.",
+    "No Telegram send/probe, external send, provider/model shadow call, package install, tarball apply, Gateway restart, route/fallback/config mutation, memory mutation, Context Bridge mutation, production authority change, cron re-enable, N2/N3 retry, persistence verification, M3O, M4, or enforcement was run."
+  ]
+}

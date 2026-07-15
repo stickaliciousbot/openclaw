@@ -1,0 +1,61 @@
+{
+  "schema": "umc.v1.m3n.context_overflow_compaction_approval_card.v1",
+  "phase": "M3N_TELEGRAM_OWNER_SESSION_CONTEXT_OVERFLOW_REPAIR_THEN_READBACK_STABILITY_NO_SEND",
+  "generated_utc": "2026-07-15T08:31:54Z",
+  "status": "HOLD_M3N_CONTEXT_OVERFLOW_COMPACTION_AWAITING_OPERATOR_APPROVAL",
+  "approval_phrase": "APPROVE_M3N_CONTEXT_OVERFLOW_COMPACTION",
+  "selected_session": {
+    "session_key": "agent:main:telegram:direct:8495203551",
+    "session_id": "412b53c8-9047-4878-aeae-9040aaac5b05",
+    "session_path": "/home/stickai/.openclaw/agents/main/sessions/412b53c8-9047-4878-aeae-9040aaac5b05.jsonl",
+    "trajectory_path": "/home/stickai/.openclaw/agents/main/sessions/412b53c8-9047-4878-aeae-9040aaac5b05.trajectory.jsonl",
+    "trajectory_path_sidecar": "/home/stickai/.openclaw/agents/main/sessions/412b53c8-9047-4878-aeae-9040aaac5b05.trajectory-path.json",
+    "lock_path": "/home/stickai/.openclaw/agents/main/sessions/412b53c8-9047-4878-aeae-9040aaac5b05.jsonl.lock"
+  },
+  "selected_compaction_method": "runtime-supported sessions.compact with explicit pre-backup/snapshot",
+  "pre_compaction_backup_snapshot_path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/backups/m3n-context-overflow-precompact-20260715T083154Z",
+  "exact_command_to_approve": "bash -lc 'set -euo pipefail; BACKUP=/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/backups/m3n-context-overflow-precompact-20260715T083154Z; SESSION=/home/stickai/.openclaw/agents/main/sessions/412b53c8-9047-4878-aeae-9040aaac5b05; mkdir -p \"$BACKUP\"; cp -a \"$SESSION.jsonl\" \"$BACKUP/\"; cp -a \"$SESSION.trajectory.jsonl\" \"$BACKUP/\"; cp -a \"$SESSION.trajectory-path.json\" \"$BACKUP/\" 2>/dev/null || true; cp -a \"$SESSION.jsonl.lock\" \"$BACKUP/\" 2>/dev/null || true; cp -a /home/stickai/.openclaw/agents/main/sessions/412b53c8-9047-4878-aeae-9040aaac5b05.checkpoint.*.jsonl \"$BACKUP/\" 2>/dev/null || true; sha256sum \"$BACKUP\"/* > \"$BACKUP/SHA256SUMS.txt\"; openclaw gateway call sessions.compact --json --timeout 600000 --params \"{\\\"key\\\":\\\"agent:main:telegram:direct:8495203551\\\"}\" | tee \"$BACKUP/sessions.compact.result.json\"'",
+
+  "exact_compaction_tool_call_only": "openclaw gateway call sessions.compact --json --timeout 600000 --params '{\"key\":\"agent:main:telegram:direct:8495203551\"}'",
+  "expected_files_modified": [
+    "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/backups/m3n-context-overflow-precompact-20260715T083154Z/*",
+    "/home/stickai/.openclaw/agents/main/sessions/412b53c8-9047-4878-aeae-9040aaac5b05.jsonl",
+    "/home/stickai/.openclaw/agents/main/sessions/412b53c8-9047-4878-aeae-9040aaac5b05.trajectory.jsonl",
+    "/home/stickai/.openclaw/agents/main/sessions/412b53c8-9047-4878-aeae-9040aaac5b05.trajectory-path.json",
+    "/home/stickai/.openclaw/agents/main/sessions/412b53c8-9047-4878-aeae-9040aaac5b05.checkpoint.*.jsonl"
+  ],
+  "expected_files_not_modified": [
+    "MEMORY.md",
+    "memory/*.md",
+    "sharedspace/context-bridge/events.jsonl",
+    "sharedspace/context-bridge/actions.json",
+    "~/.openclaw/openclaw.json",
+    "Gateway route/fallback/default model config",
+    "cron job b29e6275-9bad-4622-8a56-041e5a2dc864 enabled state",
+    "production authority controls"
+  ],
+  "rollback_restore_command": "bash -lc 'set -euo pipefail; BACKUP=/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/backups/m3n-context-overflow-precompact-20260715T083154Z; SESSION=/home/stickai/.openclaw/agents/main/sessions/412b53c8-9047-4878-aeae-9040aaac5b05; cp -a \"$BACKUP/412b53c8-9047-4878-aeae-9040aaac5b05.jsonl\" \"$SESSION.jsonl\"; cp -a \"$BACKUP/412b53c8-9047-4878-aeae-9040aaac5b05.trajectory.jsonl\" \"$SESSION.trajectory.jsonl\"; if [ -f \"$BACKUP/412b53c8-9047-4878-aeae-9040aaac5b05.trajectory-path.json\" ]; then cp -a \"$BACKUP/412b53c8-9047-4878-aeae-9040aaac5b05.trajectory-path.json\" \"$SESSION.trajectory-path.json\"; fi; sha256sum -c \"$BACKUP/SHA256SUMS.txt\" --ignore-missing'",
+  "post_compaction_validation_plan": [
+    "Verify backup directory exists and SHA256SUMS.txt validates expected backed-up files.",
+    "Verify Gateway RPC OK with openclaw gateway status; do not restart Gateway.",
+    "Verify Telegram readback only with channels.status probe=false if Phase E approval includes that readback.",
+    "Verify active session context-overflow-diag count is zero after the approved compaction window.",
+    "Verify selected cron b29e6275-9bad-4622-8a56-041e5a2dc864 remains enabled=false.",
+    "Verify safety counters remain zero for Telegram send/probe, external send, provider/model shadow call, route/config mutation, memory mutation, Context Bridge mutation, production authority change, N2/N3 retry, persistence verification, M3O, M4, enforcement.",
+    "Write M3N_CONTEXT_OVERFLOW_COMPACTION_EXECUTION_RESULT.json before any stability watch."
+  ],
+  "explicit_non_authorizations": {
+    "telegram_send_probe_authorized": false,
+    "gateway_restart_authorized": false,
+    "route_fallback_config_mutation_authorized": false,
+    "memory_mutation_authorized": false,
+    "context_bridge_mutation_authorized": false,
+    "cron_reenable_authorized": false,
+    "n2_n3_retry_authorized": false,
+    "persistence_verification_authorized": false,
+    "m3o_authorized": false,
+    "m4_authorized": false,
+    "enforcement_authorized": false
+  },
+  "approval_instruction": "If and only if the operator approves, execute exactly the command in exact_command_to_approve once, then run Phase E validation. Do not execute from this approval-card generation phase."
+}

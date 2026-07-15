@@ -1,0 +1,71 @@
+{
+  "schema": "umc.v1.m3n.context_overflow_repair_evidence_manifest.v1",
+  "generated_utc": "2026-07-15T08:31:54Z",
+  "final_status": "HOLD_M3N_CONTEXT_OVERFLOW_COMPACTION_AWAITING_OPERATOR_APPROVAL",
+  "base_dir": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send",
+  "artifacts": [
+    {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CONTEXT_OVERFLOW_BLOCKER_REHYDRATION.json",
+      "sha256": "7851c0de833ab2ce261d334d9bcc858a75f69b5ca626933f4a5bcb232ff587e5"
+    },
+    {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CONTEXT_OVERFLOW_BLOCKER_SUMMARY.md",
+      "sha256": "ab7f9990722fb35e0f48bd9e558509d93a814cda538cd815991fafab8ad03099"
+    },
+    {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CONTEXT_OVERFLOW_SESSION_MAP.json",
+      "sha256": "d8808d6c820b8afa3466201666b9a51fc51409d186a22792ef37fa5efb6a01c2"
+    },
+    {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CONTEXT_OVERFLOW_SESSION_MAP.md",
+      "sha256": "0f83c0d53138bc1a62685bc12681c60f73b0bb0e7c1b7072149cce6c54845ad3"
+    },
+    {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CONTEXT_OVERFLOW_COMPACTION_METHOD_ANALYSIS.json",
+      "sha256": "e8c130268da24d36c1ce6da4c69365a5a1a7f2ab56687774e241392bb02f9587"
+    },
+    {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CONTEXT_OVERFLOW_COMPACTION_METHOD_ANALYSIS.md",
+      "sha256": "7472798c365402f5572345c4c41bac0bc262b48971a822a2cf47b15b28d9f6da"
+    },
+    {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CONTEXT_OVERFLOW_COMPACTION_APPROVAL_CARD.json",
+      "sha256": "d418c375aa332031bcf7156405292984260aa0e5cbf15faf873f7130e20c5812"
+    },
+    {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CONTEXT_OVERFLOW_COMPACTION_APPROVAL_CARD.md",
+      "sha256": "4c5b5067143e96a372a57aaa28a56955556cd11c25ddc3adad9651ad5da974b5"
+    },
+    {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CONTEXT_OVERFLOW_REPAIR_CLOSEOUT.json",
+      "sha256": "34fe2be800889f29a697b691e722401b386d5000c6017aaac36536e87bd25e1c"
+    },
+    {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CONTEXT_OVERFLOW_REPAIR_SUMMARY.md",
+      "sha256": "5877e6996ff128de3eb423eacea4331fb68418bccdbce98effc9764d9366015e"
+    },
+    {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_CONTEXT_OVERFLOW_REPAIR_EVIDENCE_MANIFEST.json",
+      "sha256": "SELF_REFERENTIAL_SEE_FINAL_SHA256SUM_OUTPUT",
+      "sha256_note": "A manifest cannot contain its own stable final hash; authoritative final sha256 is reported after commit."
+    }
+  ],
+  "validation_status": "PASS_LOCAL_VALIDATION",
+  "commit_status": "COMMITTED_LOCAL_AFTER_VALIDATION",
+  "push_authorized": false,
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "branch_target_if_push_authorized": "evidence/umc-m3n-post-restart-health-failclosed-20260713",
+  "safety_summary": {
+    "compaction_executed": false,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_shadow_call_count": 0,
+    "route_config_mutation_count": 0,
+    "memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "n2_n3_retry_count": 0,
+    "persistence_verification_count": 0
+  }
+}

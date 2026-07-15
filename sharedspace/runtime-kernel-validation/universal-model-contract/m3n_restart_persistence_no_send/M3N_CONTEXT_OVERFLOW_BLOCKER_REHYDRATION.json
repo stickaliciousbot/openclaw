@@ -1,0 +1,72 @@
+{
+  "schema": "umc.v1.m3n.context_overflow_blocker_rehydration.v1",
+  "phase": "M3N_TELEGRAM_OWNER_SESSION_CONTEXT_OVERFLOW_REPAIR_THEN_READBACK_STABILITY_NO_SEND",
+  "generated_utc": "2026-07-15T08:31:54Z",
+  "status": "PASS_M3N_CONTEXT_OVERFLOW_BLOCKER_REHYDRATED",
+  "active_milestone": "M3N_INSTALLED_SHADOW_OBSERVE_ONLY_RESTART_PERSISTENCE_NO_SEND",
+  "latest_attempted_phase": "M3N_TELEGRAM_READBACK_RECOVERY_RESTART_EXECUTION",
+  "latest_final_status": "FAIL_M3N_TELEGRAM_READBACK_RECOVERY_STABILITY",
+  "authoritative_commit": {
+    "sha": "22b71697f129451141abb27cc8622030d4a569b2",
+    "exists": true,
+    "branch_contains": "evidence/umc-m3n-post-restart-health-failclosed-20260713"
+  },
+  "source_artifacts": {
+    "restart_result": "M3N_TELEGRAM_READBACK_RECOVERY_RESTART_RESULT.json",
+    "post_restart_health": "M3N_TELEGRAM_READBACK_RECOVERY_POST_RESTART_HEALTH.json",
+    "no_send_verification": "M3N_TELEGRAM_READBACK_RECOVERY_NO_SEND_VERIFICATION.json",
+    "stability_summary": "M3N_TELEGRAM_READBACK_RECOVERY_STABILITY_SUMMARY.json",
+    "closeout": "M3N_TELEGRAM_READBACK_RECOVERY_CLOSEOUT.json",
+    "evidence_manifest": "M3N_TELEGRAM_READBACK_RECOVERY_EVIDENCE_MANIFEST.json"
+  },
+  "verified": {
+    "restart_completed": true,
+    "restart_status": "PASS_M3N_TELEGRAM_READBACK_RECOVERY_RESTART_COMPLETED",
+    "approved_restart_reason_matched": true,
+    "gateway_rpc_ok_after_restart": true,
+    "post_restart_gateway_pid": 122580,
+    "pid_change_required": false,
+    "telegram_readback_passed": true,
+    "telegram_readback_method": "channels.status probe=false",
+    "disabled_cron_enabled_false": true,
+    "disabled_cron_id": "b29e6275-9bad-4622-8a56-041e5a2dc864",
+    "disabled_cron_name": "context-plus-semantic-shadow-pass-watch",
+    "stability_failed_on_context_overflow_diag": true,
+    "context_overflow_count": 6,
+    "n2_n3_retry_was_not_run": true,
+    "persistence_verification_was_not_started": true,
+    "safety_counters_clean": true
+  },
+  "safety_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_shadow_call_count": 0,
+    "route_config_mutation_count": 0,
+    "memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "n2_n3_retry_count": 0,
+    "persistence_verification_count": 0,
+    "m3o_started_count": 0,
+    "m4_started_count": 0,
+    "enforcement_started_count": 0
+  },
+  "context_overflow_evidence": {
+    "session_key": "agent:main:telegram:direct:8495203551",
+    "provider": "openai-codex/gpt-5.5",
+    "session_file": "/home/stickai/.openclaw/agents/main/sessions/412b53c8-9047-4878-aeae-9040aaac5b05.jsonl",
+    "diag_id": "ovf-mrls5zsl-U1yPmA",
+    "message_count_at_diag": 128,
+    "log_time_local": "2026-07-15T17:50:31.800+10:00",
+    "error": "Context overflow: estimated context size exceeds safe threshold during tool loop."
+  },
+  "scope_decision": {
+    "default_mode": "diagnose_and_prepare_exact_approval_card",
+    "compaction_executed": false,
+    "telegram_send_probe_executed": false,
+    "gateway_restart_executed": false,
+    "n2_n3_retry_executed": false,
+    "persistence_verification_started": false
+  }
+}

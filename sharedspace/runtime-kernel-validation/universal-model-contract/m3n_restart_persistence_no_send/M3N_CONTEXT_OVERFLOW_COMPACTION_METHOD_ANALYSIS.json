@@ -1,0 +1,91 @@
+{
+  "schema": "umc.v1.m3n.context_overflow_compaction_method_analysis.v1",
+  "phase": "M3N_TELEGRAM_OWNER_SESSION_CONTEXT_OVERFLOW_REPAIR_THEN_READBACK_STABILITY_NO_SEND",
+  "generated_utc": "2026-07-15T08:31:54Z",
+  "status": "PASS_M3N_CONTEXT_OVERFLOW_SAFE_COMPACTION_METHOD_IDENTIFIED",
+  "selected_method_id": "runtime_sessions_compact_with_pre_backup",
+  "selected_method_classification": "SAFE_WITH_APPROVAL",
+  "selected_session_key": "agent:main:telegram:direct:8495203551",
+  "selected_session_id": "412b53c8-9047-4878-aeae-9040aaac5b05",
+  "methods": [
+    {
+      "method_id": "runtime_supported_sessions_compact_command",
+      "description": "Call OpenClaw Gateway RPC sessions.compact for key agent:main:telegram:direct:8495203551.",
+      "evidence": "Existing local script scripts/daily_memory_drift_reconcile_then_compact.sh uses: openclaw gateway call sessions.compact --json --timeout 600000 --params {\"key\":\"$SESSION_KEY\"}.",
+      "classification": "SAFE_WITH_APPROVAL",
+      "selected": true,
+      "approval_required": true,
+      "preconditions": [
+        "Create a pre-compaction backup/snapshot of the active transcript, trajectory, trajectory-path sidecar, lock if present, and adjacent checkpoints.",
+        "Run only sessions.compact for the exact selected session key.",
+        "Do not run the daily drift wrapper because it mutates memory and unrelated artifacts.",
+        "Post-validate without Telegram send/probe; use channels.status probe=false only after approval/compaction if permitted by Phase E."
+      ],
+      "expected_memory_mutation": false,
+      "expected_context_bridge_mutation": false,
+      "expected_route_config_mutation": false,
+      "expected_production_authority_mutation": false
+    },
+    {
+      "method_id": "daily_memory_drift_reconcile_then_compact_wrapper",
+      "description": "Run scripts/daily_memory_drift_reconcile_then_compact.sh.",
+      "classification": "UNSAFE_MEMORY_OR_CONTEXT_BRIDGE_MUTATION",
+      "selected": false,
+      "reason": "The wrapper runs drift resolution, writes state/daily-post-drift-compaction artifacts, and appends to today's daily memory file; this violates the no durable memory mutation boundary for this M3N repair phase."
+    },
+    {
+      "method_id": "session_transcript_snapshot_plus_bounded_truncation",
+      "description": "Manually copy the transcript then truncate/summarize old JSONL entries.",
+      "classification": "UNKNOWN_DO_NOT_USE",
+      "selected": false,
+      "reason": "Manual truncation risks corrupting live session state, dropping approval/evidence messages, and bypassing runtime session-store invariants."
+    },
+    {
+      "method_id": "session_summarization_artifact_plus_reset_active_context",
+      "description": "Write a summary/handoff artifact and reset active owner session context.",
+      "classification": "UNKNOWN_DO_NOT_USE",
+      "selected": false,
+      "reason": "Reset semantics are not proven for the Telegram direct session, and reset may change production response path more broadly than required."
+    },
+    {
+      "method_id": "owner_session_rehydrator_handoff",
+      "description": "Create a rehydrator artifact and force future work to use it instead of live transcript history.",
+      "classification": "UNKNOWN_DO_NOT_USE",
+      "selected": false,
+      "reason": "Could be useful after compaction but is not itself a proven runtime compaction/repair mechanism."
+    },
+    {
+      "method_id": "new_telegram_owner_session_after_preserving_current_session",
+      "description": "Move/rename current session to force OpenClaw to create a new Telegram owner session.",
+      "classification": "UNSAFE_PRODUCTION_AUTHORITY_MUTATION",
+      "selected": false,
+      "reason": "Would alter active production response-path identity and continuity; not selected for this targeted repair."
+    },
+    {
+      "method_id": "manual_stale_transcript_trim",
+      "description": "Edit the JSONL transcript manually to remove older entries.",
+      "classification": "UNKNOWN_DO_NOT_USE",
+      "selected": false,
+      "reason": "Manual edits risk JSONL corruption, evidence loss, and runtime/session index mismatch."
+    }
+  ],
+  "selected_approval_card": {
+    "approval_status": "HOLD_M3N_CONTEXT_OVERFLOW_COMPACTION_AWAITING_OPERATOR_APPROVAL",
+    "exact_compaction_tool_call": "openclaw gateway call sessions.compact --json --timeout 600000 --params '{\"key\":\"agent:main:telegram:direct:8495203551\"}'",
+    "backup_snapshot_path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/backups/m3n-context-overflow-precompact-20260715T083154Z",
+    "rollback_command": "cp -a /home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/backups/m3n-context-overflow-precompact-20260715T083154Z/412b53c8-9047-4878-aeae-9040aaac5b05.jsonl /home/stickai/.openclaw/agents/main/sessions/412b53c8-9047-4878-aeae-9040aaac5b05.jsonl && cp -a /home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/backups/m3n-context-overflow-precompact-20260715T083154Z/412b53c8-9047-4878-aeae-9040aaac5b05.trajectory.jsonl /home/stickai/.openclaw/agents/main/sessions/412b53c8-9047-4878-aeae-9040aaac5b05.trajectory.jsonl"
+  },
+  "safety_counters": {
+    "compaction_executed": false,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_shadow_call_count": 0,
+    "route_config_mutation_count": 0,
+    "memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "gateway_restart_count": 0,
+    "n2_n3_retry_count": 0,
+    "persistence_verification_count": 0
+  }
+}

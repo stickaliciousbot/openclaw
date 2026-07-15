@@ -1,0 +1,126 @@
+{
+  "schema": "umc.v1.m3n.context_overflow_session_map.v1",
+  "phase": "M3N_TELEGRAM_OWNER_SESSION_CONTEXT_OVERFLOW_REPAIR_THEN_READBACK_STABILITY_NO_SEND",
+  "generated_utc": "2026-07-15T08:31:54Z",
+  "status": "PASS_M3N_CONTEXT_OVERFLOW_SESSION_IDENTIFIED",
+  "identification_result": "ACTIVE_TELEGRAM_OWNER_SESSION_OVERFLOW_SOURCE",
+  "exact_session_identified": true,
+  "source_evidence": {
+    "log_diag_session_key": "agent:main:telegram:direct:8495203551",
+    "log_diag_session_file": "/home/stickai/.openclaw/agents/main/sessions/412b53c8-9047-4878-aeae-9040aaac5b05.jsonl",
+    "log_diag_provider": "openai-codex/gpt-5.5",
+    "log_diag_id": "ovf-mrls5zsl-U1yPmA",
+    "log_diag_message_count": 128,
+    "log_diag_time_local": "2026-07-15T17:50:31.800+10:00"
+  },
+  "candidate_sessions": [
+    {
+      "classification": "ACTIVE_TELEGRAM_OWNER_SESSION_OVERFLOW_SOURCE",
+      "session_key": "agent:main:telegram:direct:8495203551",
+      "session_id": "412b53c8-9047-4878-aeae-9040aaac5b05",
+      "channel": "telegram",
+      "owner_user_scope": "telegram direct owner chat 8495203551",
+      "agent": "main",
+      "model_lane": "openai-codex/gpt-5.5",
+      "sessions_list_model": "gpt-5.5",
+      "last_activity_timestamp_ms": 1784104160155,
+      "last_activity_source": "sessions_list updatedAt during read-only map",
+      "context_token_cap": 272000,
+      "context_token_estimate": 272000,
+      "context_token_estimate_source": "sessions_list contextTokens",
+      "total_tokens_reported": 83149,
+      "transcript_path": "/home/stickai/.openclaw/agents/main/sessions/412b53c8-9047-4878-aeae-9040aaac5b05.jsonl",
+      "transcript_size_bytes_observed": 1027727,
+      "trajectory_path": "/home/stickai/.openclaw/agents/main/sessions/412b53c8-9047-4878-aeae-9040aaac5b05.trajectory.jsonl",
+      "trajectory_size_bytes_observed": 4809123,
+      "trajectory_path_sidecar": "/home/stickai/.openclaw/agents/main/sessions/412b53c8-9047-4878-aeae-9040aaac5b05.trajectory-path.json",
+      "lock_path": "/home/stickai/.openclaw/agents/main/sessions/412b53c8-9047-4878-aeae-9040aaac5b05.jsonl.lock",
+      "adjacent_checkpoints": [
+        {
+          "path": "/home/stickai/.openclaw/agents/main/sessions/412b53c8-9047-4878-aeae-9040aaac5b05.checkpoint.d80d6f4a-4db9-4ec1-83a3-4a6cd7ab5ba8.jsonl",
+          "bytes": 609902,
+          "mtime_local": "2026-07-15T17:50:58.4759983020+10:00",
+          "note": "runtime-created checkpoint adjacent to the context-overflow/auto-compaction attempt window"
+        },
+        {
+          "path": "/home/stickai/.openclaw/agents/main/sessions/412b53c8-9047-4878-aeae-9040aaac5b05.checkpoint.1d39c519-1bbf-442b-9bb0-b9d844f2eed1.jsonl",
+          "bytes": 43912,
+          "mtime_local": "2026-07-15T06:51:28.0357292480+10:00"
+        }
+      ],
+      "is_active_telegram_owner_session": true,
+      "safe_to_compact_without_approval": false,
+      "safe_to_compact_with_exact_approval": true,
+      "contains_current_m3n_evidence_or_approval_messages": true,
+      "targeted_transcript_m3n_count": 135,
+      "targeted_transcript_approval_or_m3n_telegram_or_context_overflow_count": 83,
+      "compaction_would_affect_production_response_path": true,
+      "compaction_would_mutate_memory": false,
+      "compaction_would_mutate_context_bridge": false,
+      "risk_notes": [
+        "This is the live Telegram owner direct session and current production response path.",
+        "The transcript contains current M3N evidence/approval content.",
+        "Compaction/truncation/snapshotting is not approved until an exact operator approval card is accepted."
+      ]
+    },
+    {
+      "classification": "UNRELATED_SESSION",
+      "session_key": "agent:main:main",
+      "session_id": "9025a6b5-2014-459d-8bf7-c9a32c46f194",
+      "channel": "main/web or local",
+      "owner_user_scope": "non-Telegram direct main session",
+      "agent": "main",
+      "model_lane": "openai-codex/gpt-5.5",
+      "last_activity_timestamp_ms": 1784103588262,
+      "context_token_cap": 272000,
+      "transcript_path": "/home/stickai/.openclaw/agents/main/sessions/9025a6b5-2014-459d-8bf7-c9a32c46f194.jsonl",
+      "is_active_telegram_owner_session": false,
+      "safe_to_compact_without_approval": false,
+      "safe_to_compact_with_exact_approval": false,
+      "contains_current_m3n_evidence_or_approval_messages": "unknown_not_required",
+      "compaction_would_affect_production_response_path": false,
+      "compaction_would_mutate_memory": false,
+      "compaction_would_mutate_context_bridge": false
+    },
+    {
+      "classification": "UNRELATED_SESSION",
+      "session_key": "agent:main:cron:0d7d143c-5ed5-4a2d-886c-cbee8666c5c0",
+      "session_id": "71fdd4a0-03ff-4dd2-acc4-705d7bf4cef2",
+      "channel": "cron",
+      "owner_user_scope": "isolated cron session",
+      "agent": "main",
+      "model_lane": "ollama/deepseek-v4-pro:cloud",
+      "last_activity_timestamp_ms": 1784101752006,
+      "context_token_cap": 1000000,
+      "transcript_path": "/home/stickai/.openclaw/agents/main/sessions/71fdd4a0-03ff-4dd2-acc4-705d7bf4cef2.jsonl",
+      "is_active_telegram_owner_session": false,
+      "safe_to_compact_without_approval": false,
+      "safe_to_compact_with_exact_approval": false,
+      "contains_current_m3n_evidence_or_approval_messages": false,
+      "compaction_would_affect_production_response_path": false,
+      "compaction_would_mutate_memory": false,
+      "compaction_would_mutate_context_bridge": false
+    }
+  ],
+  "decision": {
+    "selected_session_id": "412b53c8-9047-4878-aeae-9040aaac5b05",
+    "selected_session_key": "agent:main:telegram:direct:8495203551",
+    "selected_session_path": "/home/stickai/.openclaw/agents/main/sessions/412b53c8-9047-4878-aeae-9040aaac5b05.jsonl",
+    "safe_to_compact_now": false,
+    "approval_required": true,
+    "blocked_status_if_not_approved": "HOLD_M3N_CONTEXT_OVERFLOW_COMPACTION_AWAITING_OPERATOR_APPROVAL"
+  },
+  "safety": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_shadow_call_count": 0,
+    "route_config_mutation_count": 0,
+    "memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "n2_n3_retry_count": 0,
+    "persistence_verification_count": 0,
+    "compaction_executed": false
+  }
+}
