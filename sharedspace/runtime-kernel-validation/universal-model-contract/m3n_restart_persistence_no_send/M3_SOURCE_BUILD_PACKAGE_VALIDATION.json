@@ -1,55 +1,124 @@
 {
   "schema": "umc.v1.m3.source_build_package_validation.v1",
-  "generated_utc": "2026-07-15T16:07:00Z",
-  "status": "HOLD_M3_SOURCE_BUILD_DEPENDENCY_HYDRATION_AWAITING_APPROVAL",
+  "generated_utc": "2026-07-15T16:28:00Z",
+  "status": "PASS_M3_SOURCE_BUILD_PACKAGE_VALIDATION",
   "selected_source_path": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
-  "documented_package_manager": "pnpm@10.33.2+sha512.a90faf6feeab71ad6c6e57f94e0fe1a12f5dcc22cd754db40ae9593eb6a3e0b6b12e3540218bb37ae083404b1f2ce6db2a4121e979829b4aff94b99f49da1cf8",
-  "documented_build_command": "pnpm build",
-  "documented_package_command": "mkdir -p .artifacts/umc-m3-source-build-package && pnpm pack --pack-destination .artifacts/umc-m3-source-build-package",
-  "attempted_validation": [
-    {
-      "command": "pnpm exec vitest run src/auto-reply/reply/followup-runner.test.ts --testNamePattern \"UMC M3G editable-source observe-only hook\"",
-      "result": "FAILED_BEFORE_TEST_EXECUTION",
-      "stderr": "/bin/bash: line 1: pnpm: command not found",
-      "classification": "PACKAGE_MANAGER_MISSING_FROM_EXEC_PATH"
-    },
-    {
-      "command": "pnpm build && mkdir -p .artifacts/umc-m3-source-build-package && pnpm pack --pack-destination .artifacts/umc-m3-source-build-package",
-      "result": "FAILED_BEFORE_BUILD_EXECUTION",
-      "stderr": "/bin/bash: line 1: pnpm: command not found",
-      "classification": "PACKAGE_MANAGER_MISSING_FROM_EXEC_PATH"
+  "source_branch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+  "source_commit": "31a06c6cb64d52097e51f23b27898eff88e419ba",
+  "previous_source_commit": "a65a4ee34ef2322b441c0c579cb89666e3db0ce4",
+  "hydration": {
+    "status": "PASS",
+    "command": "corepack pnpm install --frozen-lockfile --store-dir \"$PWD/.pnpm-store\"",
+    "package_manager": "pnpm v10.33.2 via corepack",
+    "duration_reported": "2m 7.8s",
+    "package_install_into_runtime": false
+  },
+  "focused_vitest": {
+    "status": "PASS",
+    "command": "corepack pnpm exec vitest run src/auto-reply/reply/followup-runner.test.ts --testNamePattern \"UMC M3G editable-source observe-only hook\"",
+    "result": "1 file passed; 6 tests passed; 30 skipped; duration 5.74s"
+  },
+  "source_build": {
+    "status": "PASS",
+    "command": "corepack pnpm build",
+    "notes": [
+      "Initial build attempt failed on two type issues; source-only fixes were applied and committed.",
+      "Final build completed through check-plugin-sdk-exports, canvas-a2ui-copy, copy-hook-metadata, copy-export-html-templates, write-build-info, write-cli-startup-metadata, and write-cli-compat."
+    ],
+    "source_fix_commit": "31a06c6cb64d52097e51f23b27898eff88e419ba"
+  },
+  "package": {
+    "status": "PASS",
+    "command": "PATH=\"$PWD/.artifacts/bin:$PATH\" corepack pnpm pack --pack-destination .artifacts/umc-m3-source-build-package",
+    "package_manager_shim": ".artifacts/bin/pnpm -> corepack pnpm \"$@\" for prepack only",
+    "tarball_path": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711/.artifacts/umc-m3-source-build-package/openclaw-2026.5.7.tgz",
+    "tarball_sha256": "85baafd1b82e8e3aba6d4e11a5a3231dddc6b2cf8820ce74c31e8e2e71855801",
+    "tarball_size_bytes": 24530808,
+    "entry_count": 9715
+  },
+  "tarball_topology_validation": {
+    "status": "PASS",
+    "plugin_manifest_count": 94,
+    "installed_plugin_manifest_count": 94,
+    "plugin_manifest_missing_from_tarball_vs_installed": [],
+    "plugin_manifest_extra_in_tarball_vs_installed": [],
+    "plugin_package_json_count": 93,
+    "installed_plugin_package_json_count": 91,
+    "plugin_package_json_missing_from_tarball_vs_installed": [],
+    "plugin_package_json_extra_in_tarball_vs_installed": [
+      "dist/extensions/zalo/package.json",
+      "dist/extensions/zalouser/package.json"
+    ],
+    "tarball_agent_runner_runtime_files": [
+      "dist/agent-runner.runtime-DESbFJnG.js",
+      "dist/agent-runner.runtime.js"
+    ],
+    "installed_agent_runner_runtime_files": [
+      "dist/agent-runner.runtime-a09vVD0N.js",
+      "dist/agent-runner.runtime.js"
+    ],
+    "m3_runner_file": "dist/agent-runner.runtime-DESbFJnG.js",
+    "m3_symbols": {
+      "ContractEnvelope": true,
+      "ShadowObservationReceipt": true,
+      "ToolSupervisionReceipt": true,
+      "DeliveryReceipt": true,
+      "UniversalContractReceipt": true,
+      "TerminalContractCloseout": true,
+      "PASS_M3_TERMINAL_CONTRACT_CLOSEOUT_EMITTED": true,
+      "mode: \"no_send\"": true,
+      "production_path": true,
+      "resolveUmcV1DefaultRouteFromConfig": true,
+      "applyUmcV1QueuedRouteAdmission": true,
+      "umcV1QueuedRouteIntent": true
     }
-  ],
+  },
+  "tarball_to_installed_diff_manifest": {
+    "status": "PASS_BOUNDED_COMPARE",
+    "path": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711/.artifacts/umc-m3-source-build-package/tarball_to_installed_diff_bounded.json",
+    "sha256": "e794fc9b2f68b6769f5bd06e72b16fa0cc4ee0a3bc8a034fd6d4a07e5fee134e",
+    "tarball_file_count": 9715,
+    "same_count": 5631,
+    "changed_count": 1152,
+    "added_count": 2932,
+    "removed_count_bounded_package_dirs": 2942,
+    "key_added_files": [
+      "dist/agent-runner.runtime-DESbFJnG.js",
+      "dist/extensions/zalo/package.json",
+      "dist/extensions/zalouser/package.json",
+      "dist/plugin-sdk/src/auto-reply/reply/umc-m3-envelope-supervision.d.ts"
+    ],
+    "key_removed_files": [
+      "dist/agent-runner.runtime-a09vVD0N.js",
+      "dist/agent-runner.runtime-a09vVD0N.js.bak-umc-m2q-20260711T0538Z"
+    ],
+    "runner_runtime_transition": {
+      "installed": [
+        "dist/agent-runner.runtime-a09vVD0N.js",
+        "dist/agent-runner.runtime.js"
+      ],
+      "tarball": [
+        "dist/agent-runner.runtime-DESbFJnG.js",
+        "dist/agent-runner.runtime.js"
+      ]
+    }
+  },
   "completed_validation": {
-    "static_contract_symbol_check": "PASS",
-    "git_diff_check": "PASS",
-    "typecheck_build_passes": "NOT_RUN_PACKAGE_MANAGER_MISSING",
-    "focused_m3_fixtures_pass": "NOT_RUN_PACKAGE_MANAGER_MISSING",
-    "package_or_tarball_can_be_produced": "NOT_RUN_PACKAGE_MANAGER_MISSING",
-    "plugin_manifests_included": "NOT_VERIFIED_PACKAGE_NOT_PRODUCED",
-    "installed_package_topology_represented": "NOT_VERIFIED_PACKAGE_NOT_PRODUCED",
-    "runner_chunk_topology_known": "NOT_VERIFIED_BUILD_NOT_PRODUCED",
-    "rollback_path_can_be_constructed": "PARTIAL_PENDING_PACKAGE_ARTIFACT"
-  },
-  "dependency_hydration_required": true,
-  "hydration_needed": {
-    "package_manager_or_build_tool": "pnpm 10.33.2 is required by package.json and absent from current exec PATH",
-    "approval_required_before_action": true,
-    "not_attempted": [
-      "corepack enable/prepare",
-      "pnpm install",
-      "any dependency install or network hydration"
-    ]
-  },
-  "tarball": {
-    "produced": false,
-    "path": null,
-    "sha256": null
+    "dependency_hydration": "PASS",
+    "focused_m3_vitest": "PASS",
+    "build": "PASS",
+    "pack": "PASS",
+    "sha256_generation": "PASS",
+    "plugin_manifest_topology": "PASS",
+    "m3_symbols_in_tarball": "PASS",
+    "m2_route_admission_terms_preserved_in_tarball": "PASS",
+    "package_or_tarball_can_be_produced": "PASS",
+    "runner_chunk_topology_known": "PASS"
   },
   "hard_boundaries_observed": {
     "installed_runtime_mutation_count": 0,
     "direct_dist_hotpatch_count": 0,
-    "package_install_count": 0,
+    "package_install_into_npm_global_count": 0,
     "gateway_restart_count": 0,
     "telegram_send_probe_count": 0,
     "external_send_count": 0,
@@ -62,5 +131,6 @@
     "m3p_started": false,
     "m4_started": false,
     "enforcement_started": false
-  }
+  },
+  "next_required_approval": "APPROVE_M3_SOURCE_BUILD_STAGED_INSTALL"
 }

@@ -1,0 +1,143 @@
+{
+  "schema": "umc.v1.m3.source_build_staged_install_approval_card.v1",
+  "generated_utc": "2026-07-15T16:31:00Z",
+  "status": "HOLD_M3_SOURCE_BUILD_STAGED_INSTALL_AWAITING_OPERATOR_APPROVAL",
+  "approval_token": "APPROVE_M3_SOURCE_BUILD_STAGED_INSTALL",
+  "selected_source_path": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+  "source_branch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+  "source_head": "31a06c6cb64d52097e51f23b27898eff88e419ba",
+  "source_commits": [
+    "a65a4ee34ef2322b441c0c579cb89666e3db0ce4",
+    "31a06c6cb64d52097e51f23b27898eff88e419ba"
+  ],
+  "validation_status": "PASS_M3_SOURCE_BUILD_PACKAGE_VALIDATION",
+  "build_command_already_validated": "corepack pnpm build",
+  "pack_command_already_validated": "PATH=\"$PWD/.artifacts/bin:$PATH\" corepack pnpm pack --pack-destination .artifacts/umc-m3-source-build-package",
+  "package_tarball": {
+    "path": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711/.artifacts/umc-m3-source-build-package/openclaw-2026.5.7.tgz",
+    "sha256": "85baafd1b82e8e3aba6d4e11a5a3231dddc6b2cf8820ce74c31e8e2e71855801",
+    "size_bytes": 24530808,
+    "entry_count": 9715
+  },
+  "exact_installed_package_root": "/home/stickai/.npm-global/lib/node_modules/openclaw",
+  "exact_installed_files_expected_to_change": {
+    "diff_manifest_path": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711/.artifacts/umc-m3-source-build-package/tarball_to_installed_diff_bounded.json",
+    "diff_manifest_sha256": "e794fc9b2f68b6769f5bd06e72b16fa0cc4ee0a3bc8a034fd6d4a07e5fee134e",
+    "summary": {
+      "tarball_file_count": 9715,
+      "same_count": 5631,
+      "changed_count": 1152,
+      "added_count": 2932,
+      "removed_count_bounded_package_dirs": 2942
+    },
+    "runner_runtime_transition": {
+      "installed_before": [
+        "dist/agent-runner.runtime-a09vVD0N.js",
+        "dist/agent-runner.runtime.js"
+      ],
+      "expected_after_from_tarball": [
+        "dist/agent-runner.runtime-DESbFJnG.js",
+        "dist/agent-runner.runtime.js"
+      ]
+    },
+    "key_added_files": [
+      "dist/agent-runner.runtime-DESbFJnG.js",
+      "dist/extensions/zalo/package.json",
+      "dist/extensions/zalouser/package.json",
+      "dist/plugin-sdk/src/auto-reply/reply/umc-m3-envelope-supervision.d.ts"
+    ],
+    "key_removed_files_if_package_root_is_replaced_from_tarball": [
+      "dist/agent-runner.runtime-a09vVD0N.js",
+      "dist/agent-runner.runtime-a09vVD0N.js.bak-umc-m2q-20260711T0538Z"
+    ],
+    "key_changed_files_include": [
+      "dist/agent-runner.runtime.js",
+      "dist/plugin-sdk/src/auto-reply/reply/followup-runner.d.ts",
+      "package.json"
+    ],
+    "note": "The full exact path list is in diff_manifest_path; it is bounded to tarball-relative package paths and common package topology dirs, not unrelated installed node_modules/cache."
+  },
+  "plugin_manifest_preservation_checks": {
+    "status": "PASS_PREINSTALL_TARBALL_VALIDATION",
+    "tarball_plugin_manifest_count": 94,
+    "installed_plugin_manifest_count": 94,
+    "missing_from_tarball_vs_installed": [],
+    "extra_in_tarball_vs_installed": [],
+    "tarball_plugin_package_json_count": 93,
+    "installed_plugin_package_json_count": 91,
+    "extra_package_json_in_tarball_vs_installed": [
+      "dist/extensions/zalo/package.json",
+      "dist/extensions/zalouser/package.json"
+    ],
+    "missing_package_json_from_tarball_vs_installed": []
+  },
+  "m3_tarball_verification": {
+    "status": "PASS",
+    "runner_file": "dist/agent-runner.runtime-DESbFJnG.js",
+    "required_symbols_present": [
+      "ContractEnvelope",
+      "ShadowObservationReceipt",
+      "ToolSupervisionReceipt",
+      "DeliveryReceipt",
+      "UniversalContractReceipt",
+      "TerminalContractCloseout",
+      "PASS_M3_TERMINAL_CONTRACT_CLOSEOUT_EMITTED",
+      "mode: \"no_send\"",
+      "production_path",
+      "resolveUmcV1DefaultRouteFromConfig",
+      "applyUmcV1QueuedRouteAdmission",
+      "umcV1QueuedRouteIntent"
+    ]
+  },
+  "backup_path": "/home/stickai/.openclaw/backups/openclaw-m3-source-build-install-20260715T163100Z/openclaw-installed-package",
+  "staged_install_command_for_later_approval_only": "set -euo pipefail\nSRC_TARBALL='/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711/.artifacts/umc-m3-source-build-package/openclaw-2026.5.7.tgz'\nEXPECTED_SHA='85baafd1b82e8e3aba6d4e11a5a3231dddc6b2cf8820ce74c31e8e2e71855801'\nINSTALL_ROOT='/home/stickai/.npm-global/lib/node_modules/openclaw'\nBACKUP_ROOT='/home/stickai/.openclaw/backups/openclaw-m3-source-build-install-20260715T163100Z/openclaw-installed-package'\nsha256sum \"$SRC_TARBALL\" | grep -F \"$EXPECTED_SHA\"\nmkdir -p \"$(dirname \"$BACKUP_ROOT\")\"\nrsync -a --delete \"$INSTALL_ROOT/\" \"$BACKUP_ROOT/\"\nnpm install -g \"$SRC_TARBALL\"\nopenclaw gateway restart\nopenclaw gateway status",
+  "rollback_command_for_later_approval_only": "set -euo pipefail\nINSTALL_ROOT='/home/stickai/.npm-global/lib/node_modules/openclaw'\nBACKUP_ROOT='/home/stickai/.openclaw/backups/openclaw-m3-source-build-install-20260715T163100Z/openclaw-installed-package'\ntest -d \"$BACKUP_ROOT\"\nrsync -a --delete \"$BACKUP_ROOT/\" \"$INSTALL_ROOT/\"\nopenclaw gateway restart\nopenclaw gateway status",
+  "gateway_telegram_read_only_health_checks_after_install": [
+    "openclaw gateway status",
+    "channels.status with probe=false for Telegram readback only; no Telegram send/probe",
+    "grep installed dist for M3 symbols and M2 route admission symbols"
+  ],
+  "installed_runtime_m3_verification_checks_after_install": [
+    "Verify /home/stickai/.npm-global/lib/node_modules/openclaw/dist/agent-runner.runtime-DESbFJnG.js exists or map the installed runtime chunk if npm rewrites names.",
+    "grep installed dist for ContractEnvelope, ShadowObservationReceipt, ToolSupervisionReceipt, DeliveryReceipt, UniversalContractReceipt, TerminalContractCloseout.",
+    "grep installed dist for mode: \"no_send\" and production_path.",
+    "grep installed dist for resolveUmcV1DefaultRouteFromConfig, applyUmcV1QueuedRouteAdmission, and umcV1QueuedRouteIntent.",
+    "Run installed-runtime no-send fixture only; verify zero provider/model shadow call, zero Telegram send, zero external send, zero write-tool execution.",
+    "Run channels.status probe=false only for Telegram readback; no Telegram send/probe."
+  ],
+  "m3o_rerun_plan_after_install_verification": {
+    "status": "PLANNED_NOT_APPROVED_NOW",
+    "mode": "owner-turn shadow observation no_send",
+    "preconditions": [
+      "staged install approved and completed",
+      "Gateway restart approved and completed",
+      "installed-runtime M3 verification PASS",
+      "Telegram readback probe=false PASS"
+    ],
+    "forbidden": [
+      "shadow Telegram sends",
+      "external sends",
+      "provider/model live shadow calls",
+      "real write tools",
+      "route/fallback/config production mutation",
+      "production authority change"
+    ]
+  },
+  "no_send_no_authority_boundary_now": {
+    "installed_runtime_mutation_count": 0,
+    "direct_dist_hotpatch_count": 0,
+    "package_install_into_npm_global_count": 0,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_shadow_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "m3o_rerun_count": 0,
+    "m3p_started": false,
+    "m4_started": false,
+    "enforcement_started": false
+  }
+}
