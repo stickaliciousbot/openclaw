@@ -1,0 +1,50 @@
+{
+  "ambient_global_telegram_deliveries": [],
+  "ambient_global_telegram_delivery_count": 0,
+  "cadence_minutes": 5,
+  "completed_probes": 4,
+  "disabled_cron_state": {
+    "enabled": false,
+    "id": "b29e6275-9bad-4622-8a56-041e5a2dc864",
+    "name": "context-plus-semantic-shadow-pass-watch",
+    "state": {}
+  },
+  "duration_minutes_expected": 20,
+  "expected_probes": 4,
+  "final_log_counts_since_watch_start": {
+    "ambient_global_telegram_delivery_hits": 0,
+    "channels_status_probe_false_hits": 0,
+    "channels_telegram_unknown_channel_id": 0,
+    "context_bridge_mutation_hits": 0,
+    "context_overflow": 0,
+    "context_overflow_diag": 0,
+    "durable_memory_mutation_hits": 0,
+    "err_module_not_found": 0,
+    "event_loop_delay": 0,
+    "external_send_hits": 0,
+    "fresh_liveness_warning": 0,
+    "gateway_timeout": 0,
+    "getme_timeout": 0,
+    "missing_pi_embedded": 0,
+    "missing_zalo_manifest": 0,
+    "production_authority_change_hits": 0,
+    "provider_model_shadow_call_hits": 0,
+    "route_config_mutation_hits": 0,
+    "selected_cron_active_hits": 0,
+    "telegram_probe_true_hits": 0,
+    "telegram_repair_lane_probe_send_hits": 0
+  },
+  "gateway_pid_baseline": 795787,
+  "generated_utc": "2026-07-15T11:31:44.590933Z",
+  "n2_n3_retry_was_run": true,
+  "persistence_verification_started": false,
+  "probe_statuses": [
+    "PASS_M3N_N3_RETRY_STABILITY_PROBE",
+    "PASS_M3N_N3_RETRY_STABILITY_PROBE",
+    "PASS_M3N_N3_RETRY_STABILITY_PROBE",
+    "PASS_M3N_N3_RETRY_STABILITY_PROBE"
+  ],
+  "schema": "umc.v1.m3n.n3_retry_stability_summary.v1",
+  "status": "PASS_M3N_N3_RETRY_STABILITY_CONFIRMED",
+  "watch_start_utc": "2026-07-15T11:16:22.832206Z"
+}

@@ -1,0 +1,109 @@
+{
+  "artifacts": [
+    {
+      "bytes": 1539,
+      "exists": true,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_N3_RETRY_POST_RESTART_HEALTH_FALSE_POSITIVE_CLASSIFICATION.json",
+      "sha256": "bb3ee2cec24a3088b7f1037ceeee379942bfc4b194a50bf9aca868c62e372ff2"
+    },
+    {
+      "bytes": 985,
+      "exists": true,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_N3_RETRY_POST_RESTART_HEALTH_FALSE_POSITIVE_CLASSIFICATION.md",
+      "sha256": "44015049ce7000479b37e803ff6f6a44e80514cfecdfc66fce033d2917501de9"
+    },
+    {
+      "bytes": 3506,
+      "exists": true,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_N3_RETRY_STABILITY_PROBE_0001.json",
+      "sha256": "d3ed234ddb9ba0397282547d8432bae45b4ae75b97d4d5f7e54d7fc6c76f3cd4"
+    },
+    {
+      "bytes": 3506,
+      "exists": true,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_N3_RETRY_STABILITY_PROBE_0002.json",
+      "sha256": "8f5c813fafa16d5a2cbc7744d4a1bea4d96b1e0dfe787c17c6f54e2eccb308a6"
+    },
+    {
+      "bytes": 3506,
+      "exists": true,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_N3_RETRY_STABILITY_PROBE_0003.json",
+      "sha256": "3525b5021e684aaa48b505bc001183db83fc1bdee42a9d09d508ebbce93bec5b"
+    },
+    {
+      "bytes": 3506,
+      "exists": true,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_N3_RETRY_STABILITY_PROBE_0004.json",
+      "sha256": "054f877dfd0f976611b57488c37ab0167217f37bf2cdf6f2053cccb09a4539b5"
+    },
+    {
+      "bytes": 1681,
+      "exists": true,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_N3_RETRY_STABILITY_SUMMARY.json",
+      "sha256": "957f2ceca132b67e100b9b4fe1cc565d8e07dc6e299dfea7195f3446db7ddc83"
+    },
+    {
+      "bytes": 3375,
+      "exists": true,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_N2_N3_RETRY_CLOSEOUT.json",
+      "sha256": "e23f27b85cfd136f3f6c4c3185acb15d24120f6b9eadfd7bb3d8dbfff4a0b465"
+    },
+    {
+      "bytes": 1519,
+      "exists": true,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_N2_N3_RETRY_SUMMARY.md",
+      "sha256": "996311cfd5c4c2fe175669da6ac454ed1a18ac7876bfbf1db54d0ded81803c46"
+    },
+    {
+      "bytes": 601,
+      "exists": true,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_N2_N3_RETRY_EVIDENCE_MANIFEST.json",
+      "sha256": "SELF_REFERENTIAL_SEE_FINAL_SHA256SUM_OUTPUT",
+      "sha256_note": "A manifest cannot contain its own stable final hash; use post-commit sha256sum output."
+    },
+    {
+      "bytes": 708,
+      "exists": true,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_N2_N3_RETRY_VALIDATION.json",
+      "sha256": "e82f7c1c3824f9379e7df9f486f6ec6b97d6057d32398b887a6cc050aeb6c540"
+    },
+    {
+      "bytes": 4694,
+      "exists": true,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_N2_N3_RETRY_PREFLIGHT_AFTER_CONTEXT_REPAIR.json",
+      "sha256": "c1a57929c341661832c9e83fc3a976f646c4ba807cba4029f8bcaac048a10e7e"
+    },
+    {
+      "bytes": 1977,
+      "exists": true,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_N2_RETRY_GATEWAY_RESTART_RESULT.json",
+      "sha256": "213bc480ca16feaf71263cbe0ef6fc5da951d25f5219534439f2d2cd40469f2e"
+    },
+    {
+      "bytes": 5063,
+      "exists": true,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_N3_RETRY_POST_RESTART_HEALTH.json",
+      "sha256": "924dd44be29af3bcf753f110552b0022aa26b36fdedeceb5da3b488276b5c77f"
+    },
+    {
+      "bytes": 27464,
+      "exists": true,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/run_m3n_n2_n3_retry_after_context_repair.py",
+      "sha256": "c69d96f86bc2540d36efa5d9bd3a97cee743c5bdcd32d378a7cbd3a505c27bbc"
+    },
+    {
+      "bytes": 24369,
+      "exists": true,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/run_m3n_n2_n3_retry_stability_after_classification.py",
+      "sha256": "a309d3e4df8281a0f911f8229031ec711734dd6c6acb2581639a3e9b830843df"
+    }
+  ],
+  "base_dir": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send",
+  "branch_target_if_push_authorized": "evidence/umc-m3n-post-restart-health-failclosed-20260713",
+  "exact_next_phase": "M3N_POST_RESTART_PERSISTENCE_VERIFICATION",
+  "final_status": "PASS_M3N_N2_N3_RETRY_AFTER_CONTEXT_OVERFLOW_REPAIRED",
+  "generated_utc": "2026-07-15T11:31:49.977128Z",
+  "push_authorized": false,
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "schema": "umc.v1.m3n.n2_n3_retry_evidence_manifest.v2"
+}

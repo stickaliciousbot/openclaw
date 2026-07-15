@@ -1,0 +1,22 @@
+{
+  "basis": "The over-broad regex matches the literal word \"context_overflow\" in session transcript summary text loaded during the pre-restart window. No context-overflow-diag entries exist. The restart completed successfully (full process restart, gateway ready at 21:12:04 AEST). This is the same false-positive class as the ambient Telegram send hits classified earlier.",
+  "classification": "LOG_SCANNER_REGEX_FALSE_POSITIVE_SESSION_TRANSCRIPT_TEXT",
+  "context_overflow_diag_count": 0,
+  "generated_utc": "2026-07-15T11:16:15.010628Z",
+  "overflow_log_lines": [
+    {
+      "date": "2026-07-15T11:11:05.981Z",
+      "message": "gateway tool: restart requested (delayMs=default, reason=M3N N2/N3 retry after context-overflow repair no-send)",
+      "subsystem": "{\"subsystem\":\"gateway-tool\"}"
+    }
+  ],
+  "post_restart_gateway_ready_utc": "2026-07-15T11:12:04.586Z",
+  "post_restart_telegram_started_utc": "2026-07-15T11:12:07.481Z",
+  "raw_context_overflow_count": 1,
+  "restart_mode_actual": "full process restart (supervisor restart)",
+  "restart_mode_tool_reported": "SIGUSR1",
+  "restart_note": "The gateway.restart tool reported SIGUSR1 but the log shows \"restart mode: full process restart (supervisor restart)\" with shutdown+reload. PID changed from 716259 to a new value.",
+  "schema": "umc.v1.m3n.n3_retry_post_restart_health_false_positive_classification.v1",
+  "source_health_artifact": "M3N_N3_RETRY_POST_RESTART_HEALTH.json",
+  "status": "PASS_M3N_N3_RETRY_HEALTH_CONTEXT_OVERFLOW_CLASSIFIED_FALSE_POSITIVE"
+}
