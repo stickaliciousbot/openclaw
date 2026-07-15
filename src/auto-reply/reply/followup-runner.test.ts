@@ -1726,6 +1726,73 @@ describe("UMC M3G editable-source observe-only hook", () => {
     expect(receiptSpy).toHaveBeenCalledTimes(1);
   });
 
+  it("emits M3 envelope receipts in explicit fixture mode without sends or authority", async () => {
+    const queued = createQueuedRun({
+      originatingChannel: "telegram",
+      originatingChatType: "direct",
+    });
+    const result = await maybeRunUmcV1ShadowObserveOnly({
+      admittedTurn: {
+        ...queued.run,
+        provider: "token-broker-vmesh",
+        model: "auto",
+        senderIsOwner: true,
+      },
+      queued,
+      routeObservation: {
+        provider: "token-broker-vmesh",
+        model: "auto",
+        scoped: true,
+        intercepted: false,
+        intent: {
+          contractVersion: "umc.v1",
+          milestone: "M2Q_QUEUE_RESUME_ROUTE_ADMISSION",
+          source: "queued_followup",
+          hardPreference: false,
+          requested: { provider: "token-broker-vmesh", model: "auto" },
+          executable: { provider: "token-broker-vmesh", model: "auto" },
+          directBypass: false,
+          status: "DEFAULT_BROKER_ROUTE",
+          updatedAt: new Date().toISOString(),
+        },
+      },
+      noSend: true,
+      mockProviderOnly: true,
+      mutationForbidden: true,
+      env: shadowEnv,
+    });
+
+    expect(result.enabled).toBe(true);
+    expect(result.receipt?.contractEnvelope?.artifact_type).toBe("ContractEnvelope");
+    expect(result.receipt?.shadowObservationReceipt?.artifact_type).toBe(
+      "ShadowObservationReceipt",
+    );
+    expect(result.receipt?.m3DeliveryReceipt?.artifact_type).toBe("DeliveryReceipt");
+    expect(result.receipt?.m3DeliveryReceipt?.mode).toBe("no_send");
+    expect(result.receipt?.m3DeliveryReceipt?.telegram_send).toBe(false);
+    expect(result.receipt?.m3DeliveryReceipt?.external_send).toBe(false);
+    expect(result.receipt?.universalContractReceiptV2?.artifact_type).toBe(
+      "UniversalContractReceipt",
+    );
+    expect(result.receipt?.terminalContractCloseout?.artifact_type).toBe(
+      "TerminalContractCloseout",
+    );
+    expect(result.receipt?.terminalContractCloseout?.result_status).toBe(
+      "PASS_M3_TERMINAL_CONTRACT_CLOSEOUT_EMITTED",
+    );
+    expect(result.receipt?.terminalContractCloseout?.safety_counters).toMatchObject({
+      shadow_telegram_send_count: 0,
+      shadow_external_send_count: 0,
+      shadow_provider_model_live_call_count: 0,
+      shadow_real_write_tool_count: 0,
+      shadow_durable_memory_mutation_count: 0,
+      shadow_context_bridge_mutation_count: 0,
+      shadow_route_config_mutation_count: 0,
+      production_authority_change_count: 0,
+    });
+    expect(result.receipt?.terminalContractCloseout?.production_path).toBe("unchanged");
+  });
+
   it("surfaces would-be HOLD without returning a production route decision", async () => {
     const result = await maybeRunUmcV1ShadowObserveOnly({
       admittedTurn: createQueuedRun().run,

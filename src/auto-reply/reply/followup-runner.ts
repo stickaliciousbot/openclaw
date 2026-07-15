@@ -43,6 +43,15 @@ import { isRoutableChannel, routeReply } from "./route-reply.js";
 import { incrementRunCompactionCount, persistRunSessionUsage } from "./session-run-accounting.js";
 import { createTypingSignaler } from "./typing-mode.js";
 import type { TypingController } from "./typing.js";
+import {
+  runM3EnvelopeSupervisor,
+  type ContractEnvelope,
+  type DeliveryReceipt,
+  type ShadowObservationReceipt,
+  type TerminalContractCloseout,
+  type ToolSupervisionReceipt,
+  type UniversalContractReceipt,
+} from "./umc-m3-envelope-supervision.js";
 
 type EmbeddedAgentRunResult = Awaited<ReturnType<typeof runEmbeddedPiAgent>>;
 
@@ -107,6 +116,12 @@ type UmcV1ShadowObserveReceipt = {
       | "FAIL_SHADOW_OBSERVE_NO_SEND";
     productionPathContinues: true;
   };
+  contractEnvelope?: ContractEnvelope;
+  shadowObservationReceipt?: ShadowObservationReceipt;
+  toolSupervisionReceipt?: ToolSupervisionReceipt;
+  m3DeliveryReceipt?: DeliveryReceipt;
+  universalContractReceiptV2?: UniversalContractReceipt;
+  terminalContractCloseout?: TerminalContractCloseout;
   createdAt: string;
 };
 
@@ -268,6 +283,32 @@ function isUmcV1ShadowObserveOnlyEnabled(env: NodeJS.ProcessEnv = process.env): 
   );
 }
 
+function runM3EnvelopeSupervisorForFollowup(params: {
+  admittedTurn: FollowupRun["run"];
+  queued?: FollowupRun;
+  routeObservation?: UmcV1QueuedRouteAdmissionResult;
+}) {
+  return runM3EnvelopeSupervisor({
+    turn_id: params.admittedTurn.sessionKey,
+    session_id: params.admittedTurn.sessionKey,
+    channel: params.queued?.originatingChannel ?? params.admittedTurn.messageProvider,
+    owner_scope: "owner_turn",
+    route_intent:
+      params.routeObservation?.intent ??
+      ({
+        contractVersion: "umc.v1",
+        milestone: "M2Q_QUEUE_RESUME_ROUTE_ADMISSION",
+        source: "queued_followup",
+        status:
+          params.routeObservation?.hold === true
+            ? "HOLD_ROUTE_OBSERVATION"
+            : "DEFAULT_BROKER_ROUTE",
+      } as const),
+    ambient_owner_chat_delivery_count: 0,
+    evidence_refs: ["M3_SOURCE_BUILD_PATH_DISCOVERY_AND_INSTALL_CARD_PREPARATION"],
+  });
+}
+
 export async function maybeRunUmcV1ShadowObserveOnly(params: {
   admittedTurn: FollowupRun["run"];
   queued?: FollowupRun;
@@ -288,6 +329,7 @@ export async function maybeRunUmcV1ShadowObserveOnly(params: {
       throw new Error("simulated M3G shadow fixture failure");
     }
     const wouldHold = params.simulateHold === true || params.routeObservation?.hold === true;
+    const m3 = runM3EnvelopeSupervisorForFollowup(params);
     const receipt: UmcV1ShadowObserveReceipt = {
       contractVersion: "umc.v1",
       milestone: "M3G_EDITABLE_SOURCE_OBSERVE_ONLY_HOOK_NO_SEND_IMPLEMENTATION",
@@ -320,11 +362,18 @@ export async function maybeRunUmcV1ShadowObserveOnly(params: {
         status: wouldHold ? "HOLD_SHADOW_OBSERVE_NO_SEND" : "PASS_SHADOW_OBSERVE_NO_SEND",
         productionPathContinues: true,
       },
+      contractEnvelope: m3.receipts.envelope,
+      shadowObservationReceipt: m3.receipts.shadowObservationReceipt,
+      toolSupervisionReceipt: m3.receipts.toolSupervisionReceipt,
+      m3DeliveryReceipt: m3.receipts.deliveryReceipt,
+      universalContractReceiptV2: m3.receipts.universalContractReceipt,
+      terminalContractCloseout: m3.receipts.terminalCloseout,
       createdAt: new Date().toISOString(),
     };
     await params.onReceipt?.(receipt);
     return { enabled: true, receipt };
   } catch (err) {
+    const m3 = runM3EnvelopeSupervisorForFollowup(params);
     const receipt: UmcV1ShadowObserveReceipt = {
       contractVersion: "umc.v1",
       milestone: "M3G_EDITABLE_SOURCE_OBSERVE_ONLY_HOOK_NO_SEND_IMPLEMENTATION",
@@ -357,6 +406,12 @@ export async function maybeRunUmcV1ShadowObserveOnly(params: {
         status: "FAIL_SHADOW_OBSERVE_NO_SEND",
         productionPathContinues: true,
       },
+      contractEnvelope: m3.receipts.envelope,
+      shadowObservationReceipt: m3.receipts.shadowObservationReceipt,
+      toolSupervisionReceipt: m3.receipts.toolSupervisionReceipt,
+      m3DeliveryReceipt: m3.receipts.deliveryReceipt,
+      universalContractReceiptV2: m3.receipts.universalContractReceipt,
+      terminalContractCloseout: m3.receipts.terminalCloseout,
       createdAt: new Date().toISOString(),
     };
     await Promise.resolve(params.onReceipt?.(receipt)).catch(() => undefined);
