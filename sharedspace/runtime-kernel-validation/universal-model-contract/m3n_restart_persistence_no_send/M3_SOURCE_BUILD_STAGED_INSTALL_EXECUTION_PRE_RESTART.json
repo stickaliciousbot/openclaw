@@ -1,0 +1,15 @@
+{
+  "schema": "umc.v1.m3.source_build_staged_install_execution_pre_restart.v1",
+  "generated_utc": "2026-07-15T16:36:24.140Z",
+  "status": "PASS_M3_SOURCE_BUILD_STAGED_INSTALL_PRE_RESTART",
+  "tarball_path": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711/.artifacts/umc-m3-source-build-package/openclaw-2026.5.7.tgz",
+  "tarball_sha256": "85baafd1b82e8e3aba6d4e11a5a3231dddc6b2cf8820ce74c31e8e2e71855801",
+  "install_root": "/home/stickai/.npm-global/lib/node_modules/openclaw",
+  "backup_root": "/home/stickai/.openclaw/backups/openclaw-m3-source-build-install-20260715T163100Z/openclaw-installed-package",
+  "backup_created": true,
+  "npm_install_global_completed": true,
+  "gateway_restart_completed": false,
+  "telegram_send_probe_count": 0,
+  "direct_dist_hotpatch_count": 0,
+  "m3o_rerun_count": 0
+}

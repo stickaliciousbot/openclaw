@@ -1,0 +1,79 @@
+{
+  "schema": "umc.v1.m3.source_build_staged_install_verification_result.v1",
+  "generated_utc": "2026-07-15T16:46:00Z",
+  "status": "PASS_M3_SOURCE_BUILD_STAGED_INSTALL_VERIFIED_NO_SEND_NO_AUTHORITY",
+  "install": {
+    "tarball_path": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711/.artifacts/umc-m3-source-build-package/openclaw-2026.5.7.tgz",
+    "tarball_sha256": "85baafd1b82e8e3aba6d4e11a5a3231dddc6b2cf8820ce74c31e8e2e71855801",
+    "install_root": "/home/stickai/.npm-global/lib/node_modules/openclaw",
+    "backup_root": "/home/stickai/.openclaw/backups/openclaw-m3-source-build-install-20260715T163100Z/openclaw-installed-package",
+    "backup_created": true,
+    "npm_install_global_completed": true,
+    "pre_restart_artifact": "M3_SOURCE_BUILD_STAGED_INSTALL_EXECUTION_PRE_RESTART.json"
+  },
+  "restart": {
+    "status": "PASS_GATEWAY_READY_AFTER_RESTART",
+    "notes": [
+      "Initial restart command was interrupted by SIGTERM while Gateway drained/restarted; logs show restart continued.",
+      "Gateway log shows loading configuration, starting HTTP server, health monitor started, gateway ready, heartbeat started, cron started.",
+      "openclaw gateway status later reported runtime running pid 927551, state active, connectivity probe ok.",
+      "openclaw status reported Gateway reachable and Telegram channel ON/OK."
+    ]
+  },
+  "gateway_status_evidence": {
+    "runtime": "running pid 927551 state active sub running last exit 0 reason 0",
+    "connectivity_probe": "ok",
+    "capability": "admin-capable",
+    "gateway_reachable_ms": 355,
+    "gateway_version": "2026.5.7",
+    "telegram_channel": "ON/OK token config accounts 1/1",
+    "service_warning": "Gateway service PATH missing required dirs: /home/stickai/.local/share/pnpm; non-blocking for runtime health, recorded for later service hygiene."
+  },
+  "installed_runtime_verification": {
+    "status": "PASS",
+    "installed_runner_file": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/agent-runner.runtime-DESbFJnG.js",
+    "m3_symbols_present": [
+      "ContractEnvelope",
+      "ShadowObservationReceipt",
+      "ToolSupervisionReceipt",
+      "DeliveryReceipt",
+      "UniversalContractReceipt",
+      "TerminalContractCloseout",
+      "PASS_M3_TERMINAL_CONTRACT_CLOSEOUT_EMITTED",
+      "mode: no_send",
+      "production_path"
+    ],
+    "m2_route_admission_symbols_present": [
+      "resolveUmcV1DefaultRouteFromConfig",
+      "isUmcV1QueuedOwnerScope",
+      "applyUmcV1QueuedRouteAdmission",
+      "umcV1QueuedRouteIntent"
+    ],
+    "no_send_policy_present": true,
+    "zero_forbidden_counters_present": true,
+    "delivery_receipt_sent_false_present": true,
+    "provider_model_live_call_false_present": true
+  },
+  "read_only_checks": {
+    "openclaw_gateway_status": "PASS",
+    "openclaw_status": "PASS",
+    "telegram_status_readback": "PASS via openclaw status Channels table; no Telegram probe/send command was run",
+    "log_tail": "PASS gateway ready at 2026-07-16T02:37:32+10:00"
+  },
+  "forbidden_actions_after_install": {
+    "direct_dist_hotpatch_count": 0,
+    "telegram_probe_send_count": 0,
+    "external_send_probe_count": 0,
+    "provider_model_shadow_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "m3o_rerun_count": 0,
+    "m3p_started": false,
+    "m4_started": false,
+    "enforcement_started": false
+  },
+  "classification": "M3_SOURCE_BUILD_STAGED_INSTALL_COMPLETE_M3O_READY_BUT_NOT_STARTED",
+  "next_step_requires_explicit_approval": "APPROVE_M3O_OWNER_TURN_SHADOW_OBSERVATION_NO_SEND"
+}
