@@ -1,23 +1,52 @@
 {
   "schema": "umc.v1.m3o.owner_turn_shadow_observation_evidence_manifest.v1",
-  "generated_utc": "2026-07-15T14:45:00Z",
-  "final_status": "BLOCKED_M3O_OWNER_TURN_SHADOW_HOOK_NOT_INSTALLED_IN_RUNTIME",
-  "base_dir": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send",
-  "artifacts": [
-    {"path": "M3O_OWNER_TURN_SHADOW_PREFLIGHT.json", "status": "written"},
-    {"path": "M3O_OWNER_TURN_SHADOW_OBSERVATION_CONTRACT.json", "status": "written"},
-    {"path": "M3O_OWNER_TURN_SHADOW_OBSERVATION_CONTRACT.md", "status": "written"},
-    {"path": "M3O_OWNER_TURN_OBSERVATION_METHOD_DECISION.json", "status": "written"},
-    {"path": "M3O_OWNER_TURN_OBSERVATION_METHOD_DECISION.md", "status": "written"},
-    {"path": "M3O_OWNER_TURN_SHADOW_OBSERVATION_RESULT.json", "status": "written"},
-    {"path": "M3O_OWNER_TURN_SHADOW_OBSERVATION_RESULT.md", "status": "written"},
-    {"path": "M3O_OWNER_TURN_SHADOW_RECEIPT_VALIDATION.json", "status": "written"},
-    {"path": "M3O_OWNER_TURN_SHADOW_OBSERVATION_CLOSEOUT.json", "status": "written"},
-    {"path": "M3O_OWNER_TURN_SHADOW_OBSERVATION_SUMMARY.md", "status": "written"},
-    {"path": "M3O_OWNER_TURN_SHADOW_OBSERVATION_EVIDENCE_MANIFEST.json", "status": "self_referential"}
-  ],
-  "push_authorized": false,
-  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
-  "branch_target_if_push_authorized": "evidence/umc-m3n-post-restart-health-failclosed-20260713",
-  "exact_next_milestone": "M3O_PRE_HOOK_INSTALL_DECISION_OR_M3P_SKIP"
+  "generated_utc": "2026-07-15T16:54:51.252Z",
+  "status": "PASS_M3O_OWNER_TURN_SHADOW_OBSERVATION_NO_SEND",
+  "owner_turn_id": "m3o-owner-turn-telegram-38915-20260715165412Z",
+  "artifacts": {
+    "M3O_OWNER_TURN_SHADOW_OBSERVATION_PREFLIGHT.json": {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3O_OWNER_TURN_SHADOW_OBSERVATION_PREFLIGHT.json",
+      "sha256": "99e9e04b676674145c794c481b6beb198a545459b4eb92521c43b4be8e7ed102",
+      "bytes": 1418
+    },
+    "M3O_OWNER_TURN_SHADOW_OBSERVATION_RESULT.json": {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3O_OWNER_TURN_SHADOW_OBSERVATION_RESULT.json",
+      "sha256": "bffb7b1fd2cf6f64d6445e3f4b3de3fd22f5db95b5bea1a64ba211322f49b30a",
+      "bytes": 20185
+    },
+    "M3O_OWNER_TURN_SHADOW_RECEIPT_VALIDATION.json": {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3O_OWNER_TURN_SHADOW_RECEIPT_VALIDATION.json",
+      "sha256": "d83ce538c81f0bd25d18e9c7d85bc079fc992a0310e57a6ed8480e8a9a46a2de",
+      "bytes": 991
+    },
+    "M3O_OWNER_TURN_SHADOW_OBSERVATION_CLOSEOUT.json": {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3O_OWNER_TURN_SHADOW_OBSERVATION_CLOSEOUT.json",
+      "sha256": "f5159a5d5cf4ee6d64e0399233207dbf39fc101da5c2f0f53bd69c539a8ffde6",
+      "bytes": 2129
+    },
+    "M3O_OWNER_TURN_SHADOW_OBSERVATION_SUMMARY.md": {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3O_OWNER_TURN_SHADOW_OBSERVATION_SUMMARY.md",
+      "sha256": "5f805be65b6e4949093950e5b26b285509256b5005b0bee9da9e2c9e920f4164",
+      "bytes": 1198
+    },
+    "M3O_OWNER_TURN_SHADOW_OBSERVATION_EVIDENCE_MANIFEST.json": {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3O_OWNER_TURN_SHADOW_OBSERVATION_EVIDENCE_MANIFEST.json",
+      "sha256": "6c0710245dfb28c5e7660601ed974a04f1fb9f83a24d2eafec587f7a86b13527",
+      "bytes": 3026
+    }
+  },
+  "runtime_loader": {
+    "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/m3o_runtime_export_loader.mjs",
+    "sha256": "ff16b0c7ae10fa33bc037b38c38b427978527e9dc4649ff51a71f8be0777595f",
+    "note": "temporary Node loader appends exports in memory only; installed runtime file unchanged"
+  },
+  "runner_script": {
+    "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/run_m3o_owner_turn_shadow_observation.mjs",
+    "sha256": "0b3bd3a14dce481521c5022d8810578d93f4ce195295da155f8308aefe73ebbd"
+  },
+  "installed_runtime": {
+    "path": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/agent-runner.runtime-DESbFJnG.js",
+    "sha256": "690c5cbca5e2525e47495555627e049102b7e7344a152b8ae9316691572c8118"
+  },
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION"
 }

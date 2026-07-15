@@ -1,23 +1,27 @@
 # M3O Owner-Turn Shadow Observation Summary
 
-Final status: `BLOCKED_M3O_OWNER_TURN_SHADOW_HOOK_NOT_INSTALLED_IN_RUNTIME`
+Status: `PASS_M3O_OWNER_TURN_SHADOW_OBSERVATION_NO_SEND`
 
-## What happened
+- Owner turn id: `m3o-owner-turn-telegram-38915-20260715165412Z`
+- Session/channel: `agent:main:telegram:direct:8495203551` / telegram direct
+- Production path result: production_path_continues_normal_owner_chat_reply_separate_from_shadow_observation
+- Ambient production delivery count: 1
+- ContractEnvelope count: 1
+- ShadowObservationReceipt count: 1
+- UniversalContractReceipt count: 1
+- DeliveryReceipt count/mode: 1 / no_send
+- TerminalContractCloseout count: 1
+- Would-be result: WOULD_PASS
+- Shadow Telegram send count: 0
+- Shadow provider/model live call count: 0
+- Shadow external send count: 0
+- Shadow write-tool count: 0
+- Durable memory mutation count: 0
+- Context Bridge mutation count: 0
+- Shadow route/config mutation count: 0
+- Production authority change count: 0
+- Post-observation stability: PASS
+- Gateway/Telegram health: gateway=OK, telegram=OK
+- Rollback readiness: backup_exists=true (/home/stickai/.openclaw/backups/openclaw-m3-source-build-install-20260715T163100Z/openclaw-installed-package)
 
-M3O attempted to observe a real owner turn (Stick's "Banana please begin" request) with the UMC v1 shadow path in observe-only/no-send mode. The production path handled the turn normally and delivered a reply. The UMC shadow path produced zero receipts.
-
-## Root cause
-
-The UMC v1 shadow hook is not installed in the production OpenClaw runtime at `/home/stickai/.npm-global/lib/node_modules/openclaw/dist/`. A grep of the runtime dist for `ContractEnvelope`, `UniversalContractReceipt`, `DeliveryReceipt`, `umc.shadow`, and `UMC_SHADOW` returned zero matches. The shadow hook exists only as a contract specification in workspace artifacts; it was never deployed into the runtime.
-
-## Safety
-
-All shadow safety counters are zero — no shadow path was active to cause any violation. The production path was unchanged. No sends, provider calls, mutations, or authority changes occurred.
-
-## Recommendation
-
-M3O is blocked until the UMC v1 shadow hook is installed into the production runtime in observe-only/no-send mode. The next milestone should be installing the shadow hook, or a decision point about whether to install it.
-
-## Next milestone
-
-`M3O_PRE_HOOK_INSTALL_DECISION_OR_M3P_SKIP`
+Next milestone after PASS: `M3P_OWNER_TURN_SHADOW_COVERAGE_SOAK_NO_SEND`

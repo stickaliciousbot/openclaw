@@ -1,0 +1,34 @@
+{
+  "schema": "umc.v1.m3o.owner_turn_shadow_observation_preflight.v1",
+  "generated_utc": "2026-07-15T16:54:12.920Z",
+  "status": "PASS_M3O_OWNER_TURN_SHADOW_PREFLIGHT",
+  "owner_turn_id": "m3o-owner-turn-telegram-38915-20260715165412Z",
+  "session_id": "agent:main:telegram:direct:8495203551",
+  "checks": {
+    "staged_install_pass_exists": true,
+    "staged_install_sha": "2226db17c959c4a366bf3299c9829fbb6bf4fc33f40d095cebba2b4c36df69d2",
+    "installed_runtime_exists": true,
+    "installed_runtime_contains_m3_receipt_symbols": true,
+    "installed_runtime_contains_m2_route_symbols": true,
+    "gateway_reachable_rpc_ok": true,
+    "telegram_on_ok": true,
+    "m3p_started": false,
+    "m4_started": false,
+    "enforcement_started": false,
+    "safety_counters_clean": true,
+    "rollback_backup_exists": true,
+    "config_hash_before": "a4f0aac75704eb7d171e528c0486fd8baa95260450d38653aea5ba3226e2d859",
+    "route_provider_fallback_fingerprint_before": "1e50db0e95a941c8cdee9a25bc9bebb75786eb74487a22aa7703281da64557ae"
+  },
+  "boundaries": {
+    "no_shadow_telegram_send": true,
+    "no_telegram_probe_send_command": true,
+    "no_shadow_external_send": true,
+    "no_shadow_provider_model_live_call": true,
+    "no_real_write_tool": true,
+    "no_route_config_mutation": true,
+    "no_durable_memory_mutation": true,
+    "no_context_bridge_mutation": true,
+    "no_production_authority_change": true
+  }
+}

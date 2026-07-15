@@ -1,45 +1,552 @@
 {
   "schema": "umc.v1.m3o.owner_turn_shadow_observation_result.v1",
-  "generated_utc": "2026-07-15T14:45:00Z",
-  "status": "BLOCKED_M3O_OWNER_TURN_SHADOW_HOOK_NOT_INSTALLED_IN_RUNTIME",
-  "owner_turn_id": "telegram:8495203551:38576",
+  "generated_utc": "2026-07-15T16:54:34.227Z",
+  "status": "PASS_M3O_OWNER_TURN_SHADOW_OBSERVATION_EXECUTED",
+  "owner_turn_id": "m3o-owner-turn-telegram-38915-20260715165412Z",
   "channel": "telegram",
   "session_id": "agent:main:telegram:direct:8495203551",
-  "timestamp_utc": "2026-07-15T14:34:00Z",
-  "production_path_result": "normal_production_reply_delivered",
+  "production_path_result": "production_path_continues_normal_owner_chat_reply_separate_from_shadow_observation",
   "ambient_production_delivery_count": 1,
-  "ambient_production_delivery_classification": "ambient_production_delivery_not_umc_shadow_send",
-  "umc_shadow_admission_result": "NOT_ADMITTED_HOOK_NOT_INSTALLED",
-  "shadow_contract_envelope_emitted": false,
-  "shadow_receipt_emitted": false,
-  "universal_contract_receipt_emitted": false,
-  "delivery_receipt_emitted": false,
-  "delivery_receipt_mode": null,
-  "terminal_closeout_emitted": false,
-  "would_be_result": "HOLD_HOOK_NOT_INSTALLED",
-  "postcondition_result": "BLOCKED",
-  "tool_proposal_result": null,
-  "provider_model_calls_caused_by_shadow": 0,
-  "telegram_sends_caused_by_shadow": 0,
-  "external_sends_caused_by_shadow": 0,
-  "memory_mutation_caused_by_shadow": 0,
-  "context_bridge_mutation_caused_by_shadow": 0,
-  "route_config_mutation_caused_by_shadow": 0,
-  "production_authority_change_count": 0,
-  "root_cause": "The UMC v1 shadow hook is not installed in the production OpenClaw runtime at /home/stickai/.npm-global/lib/node_modules/openclaw/dist/. A grep of the runtime dist for ContractEnvelope, UniversalContractReceipt, DeliveryReceipt, umc.shadow, and UMC_SHADOW returned zero matches. The shadow hook exists only as a contract specification in workspace artifacts; it was never deployed into the runtime. Without the hook installed, no owner turn can produce shadow receipts.",
-  "evidence": {
-    "log_tail_grep_contract_envelope": 0,
-    "log_tail_grep_universal_contract_receipt": 0,
-    "log_tail_grep_delivery_receipt": 0,
-    "log_tail_grep_umc_shadow": 0,
-    "log_tail_grep_shadow_hook": 0,
-    "log_tail_grep_observe_only": 0,
-    "runtime_dist_grep_result": {
-      "matched_file": "route-reply-D6Nvzk_V.js",
-      "classification": "FALSE_POSITIVE_STANDARD_PRODUCTION_REPLY_ROUTER",
-      "classification_basis": "route-reply-D6Nvzk_V.js is the standard production reply router with an onDeliveryReceipt callback parameter for normal outbound delivery tracking. It does not contain ContractEnvelope, UniversalContractReceipt, umc.shadow, or UMC_SHADOW. The grep matched on the word 'DeliveryReceipt' in the callback parameter name, not on a UMC shadow receipt emission.",
-      "umc_shadow_hook_present": false
-    }
+  "receipt": {
+    "contractVersion": "umc.v1",
+    "milestone": "M3G_EDITABLE_SOURCE_OBSERVE_ONLY_HOOK_NO_SEND_IMPLEMENTATION",
+    "mode": "observe_no_send",
+    "source": "queued_followup_source_hook",
+    "admittedTurn": {
+      "sessionKey": "agent:main:telegram:direct:8495203551",
+      "provider": "token-broker-vmesh",
+      "model": "auto",
+      "messageProvider": "telegram",
+      "originatingChannel": "telegram",
+      "originatingChatType": "direct",
+      "senderIsOwner": true
+    },
+    "deliveryReceipt": {
+      "channel": "shadow",
+      "mode": "no_send",
+      "sent": false,
+      "providerExecutionCount": 0,
+      "telegramSendCount": 0,
+      "externalSendCount": 0,
+      "realWriteToolCount": 0
+    },
+    "universalContractReceipt": {
+      "status": "WOULD_PASS",
+      "productionDecisionReturned": false,
+      "routeProviderFallbackChanged": false
+    },
+    "terminalCloseout": {
+      "status": "PASS_SHADOW_OBSERVE_NO_SEND",
+      "productionPathContinues": true
+    },
+    "contractEnvelope": {
+      "artifact_type": "ContractEnvelope",
+      "contract_version": "umc.v1.m3",
+      "turn_id": "agent:main:telegram:direct:8495203551",
+      "session_id": "agent:main:telegram:direct:8495203551",
+      "channel": "telegram",
+      "owner_scope": "owner_turn",
+      "route_intent": {
+        "contractVersion": "umc.v1",
+        "milestone": "M2Q_QUEUE_RESUME_ROUTE_ADMISSION",
+        "source": "queued_followup",
+        "hardPreference": false,
+        "requested": {
+          "provider": "token-broker-vmesh",
+          "model": "auto"
+        },
+        "executable": {
+          "provider": "token-broker-vmesh",
+          "model": "auto"
+        },
+        "directBypass": false,
+        "status": "DEFAULT_BROKER_ROUTE",
+        "updatedAt": "2026-07-15T16:54:12.920Z"
+      },
+      "authority_mode": "observe_only",
+      "delivery_mode": "no_send",
+      "tool_policy": {
+        "mode": "observe_only",
+        "real_write_tools": "blocked",
+        "provider_model_calls": "forbidden",
+        "external_sends": "forbidden"
+      },
+      "postcondition_policy": {
+        "delivery_mode": "no_send",
+        "production_path": "unchanged",
+        "required_receipts": [
+          "ContractEnvelope",
+          "ShadowObservationReceipt",
+          "ToolSupervisionReceipt",
+          "DeliveryReceipt",
+          "UniversalContractReceipt",
+          "TerminalContractCloseout"
+        ],
+        "required_zero_counters": [
+          "shadow_telegram_send_count",
+          "shadow_external_send_count",
+          "shadow_provider_model_live_call_count",
+          "shadow_real_write_tool_count",
+          "shadow_durable_memory_mutation_count",
+          "shadow_context_bridge_mutation_count",
+          "shadow_route_config_mutation_count",
+          "production_authority_change_count"
+        ]
+      },
+      "safety_counters": {
+        "shadow_telegram_send_count": 0,
+        "shadow_external_send_count": 0,
+        "shadow_provider_model_live_call_count": 0,
+        "shadow_real_write_tool_count": 0,
+        "shadow_durable_memory_mutation_count": 0,
+        "shadow_context_bridge_mutation_count": 0,
+        "shadow_route_config_mutation_count": 0,
+        "production_authority_change_count": 0,
+        "ambient_owner_chat_delivery_count": 0
+      },
+      "timestamps": {
+        "observed_at": "2026-07-15T16:54:34.226Z",
+        "emitted_at": "2026-07-15T16:54:34.226Z",
+        "closed_at": "2026-07-15T16:54:34.226Z"
+      },
+      "result_status": "PASS_M3_CONTRACT_ENVELOPE_EMITTED",
+      "reason": "eligible owner turn with M2 route intent",
+      "evidence_refs": [
+        "M3_SOURCE_BUILD_PATH_DISCOVERY_AND_INSTALL_CARD_PREPARATION"
+      ],
+      "production_path": "unchanged",
+      "m2_route_admission_hook_terms": [
+        "resolveUmcV1DefaultRouteFromConfig",
+        "isUmcV1QueuedOwnerScope",
+        "applyUmcV1QueuedRouteAdmission",
+        "umcV1QueuedRouteIntent"
+      ]
+    },
+    "shadowObservationReceipt": {
+      "artifact_type": "ShadowObservationReceipt",
+      "contract_version": "umc.v1.m3",
+      "turn_id": "agent:main:telegram:direct:8495203551",
+      "session_id": "agent:main:telegram:direct:8495203551",
+      "channel": "telegram",
+      "owner_scope": "owner_turn",
+      "route_intent": {
+        "contractVersion": "umc.v1",
+        "milestone": "M2Q_QUEUE_RESUME_ROUTE_ADMISSION",
+        "source": "queued_followup",
+        "hardPreference": false,
+        "requested": {
+          "provider": "token-broker-vmesh",
+          "model": "auto"
+        },
+        "executable": {
+          "provider": "token-broker-vmesh",
+          "model": "auto"
+        },
+        "directBypass": false,
+        "status": "DEFAULT_BROKER_ROUTE",
+        "updatedAt": "2026-07-15T16:54:12.920Z"
+      },
+      "authority_mode": "observe_only",
+      "delivery_mode": "no_send",
+      "tool_policy": {
+        "mode": "observe_only",
+        "real_write_tools": "blocked",
+        "provider_model_calls": "forbidden",
+        "external_sends": "forbidden"
+      },
+      "postcondition_policy": {
+        "delivery_mode": "no_send",
+        "production_path": "unchanged",
+        "required_receipts": [
+          "ContractEnvelope",
+          "ShadowObservationReceipt",
+          "ToolSupervisionReceipt",
+          "DeliveryReceipt",
+          "UniversalContractReceipt",
+          "TerminalContractCloseout"
+        ],
+        "required_zero_counters": [
+          "shadow_telegram_send_count",
+          "shadow_external_send_count",
+          "shadow_provider_model_live_call_count",
+          "shadow_real_write_tool_count",
+          "shadow_durable_memory_mutation_count",
+          "shadow_context_bridge_mutation_count",
+          "shadow_route_config_mutation_count",
+          "production_authority_change_count"
+        ]
+      },
+      "safety_counters": {
+        "shadow_telegram_send_count": 0,
+        "shadow_external_send_count": 0,
+        "shadow_provider_model_live_call_count": 0,
+        "shadow_real_write_tool_count": 0,
+        "shadow_durable_memory_mutation_count": 0,
+        "shadow_context_bridge_mutation_count": 0,
+        "shadow_route_config_mutation_count": 0,
+        "production_authority_change_count": 0,
+        "ambient_owner_chat_delivery_count": 0
+      },
+      "timestamps": {
+        "observed_at": "2026-07-15T16:54:34.226Z",
+        "emitted_at": "2026-07-15T16:54:34.226Z",
+        "closed_at": "2026-07-15T16:54:34.226Z"
+      },
+      "result_status": "PASS_M3_SHADOW_OBSERVATION_RECEIPT_EMITTED",
+      "reason": "shadow observation captured without authority or send side effects",
+      "evidence_refs": [
+        "M3_SOURCE_BUILD_PATH_DISCOVERY_AND_INSTALL_CARD_PREPARATION"
+      ],
+      "production_path": "unchanged",
+      "envelope_ref": "agent:main:telegram:direct:8495203551",
+      "observation_mode": "shadow_observe_only",
+      "provider_model_live_call": false
+    },
+    "toolSupervisionReceipt": {
+      "artifact_type": "ToolSupervisionReceipt",
+      "contract_version": "umc.v1.m3",
+      "turn_id": "agent:main:telegram:direct:8495203551",
+      "session_id": "agent:main:telegram:direct:8495203551",
+      "channel": "telegram",
+      "owner_scope": "owner_turn",
+      "route_intent": {
+        "contractVersion": "umc.v1",
+        "milestone": "M2Q_QUEUE_RESUME_ROUTE_ADMISSION",
+        "source": "queued_followup",
+        "hardPreference": false,
+        "requested": {
+          "provider": "token-broker-vmesh",
+          "model": "auto"
+        },
+        "executable": {
+          "provider": "token-broker-vmesh",
+          "model": "auto"
+        },
+        "directBypass": false,
+        "status": "DEFAULT_BROKER_ROUTE",
+        "updatedAt": "2026-07-15T16:54:12.920Z"
+      },
+      "authority_mode": "observe_only",
+      "delivery_mode": "no_send",
+      "tool_policy": {
+        "mode": "observe_only",
+        "real_write_tools": "blocked",
+        "provider_model_calls": "forbidden",
+        "external_sends": "forbidden"
+      },
+      "postcondition_policy": {
+        "delivery_mode": "no_send",
+        "production_path": "unchanged",
+        "required_receipts": [
+          "ContractEnvelope",
+          "ShadowObservationReceipt",
+          "ToolSupervisionReceipt",
+          "DeliveryReceipt",
+          "UniversalContractReceipt",
+          "TerminalContractCloseout"
+        ],
+        "required_zero_counters": [
+          "shadow_telegram_send_count",
+          "shadow_external_send_count",
+          "shadow_provider_model_live_call_count",
+          "shadow_real_write_tool_count",
+          "shadow_durable_memory_mutation_count",
+          "shadow_context_bridge_mutation_count",
+          "shadow_route_config_mutation_count",
+          "production_authority_change_count"
+        ]
+      },
+      "safety_counters": {
+        "shadow_telegram_send_count": 0,
+        "shadow_external_send_count": 0,
+        "shadow_provider_model_live_call_count": 0,
+        "shadow_real_write_tool_count": 0,
+        "shadow_durable_memory_mutation_count": 0,
+        "shadow_context_bridge_mutation_count": 0,
+        "shadow_route_config_mutation_count": 0,
+        "production_authority_change_count": 0,
+        "ambient_owner_chat_delivery_count": 0
+      },
+      "timestamps": {
+        "observed_at": "2026-07-15T16:54:34.226Z",
+        "emitted_at": "2026-07-15T16:54:34.226Z",
+        "closed_at": "2026-07-15T16:54:34.226Z"
+      },
+      "result_status": "PASS_M3_TOOL_SUPERVISION_RECEIPT_EMITTED",
+      "reason": "tool proposals supervised without execution",
+      "evidence_refs": [
+        "M3_SOURCE_BUILD_PATH_DISCOVERY_AND_INSTALL_CARD_PREPARATION"
+      ],
+      "production_path": "unchanged",
+      "envelope_ref": "agent:main:telegram:direct:8495203551",
+      "proposals": [],
+      "real_write_tool_execution_count": 0,
+      "provider_model_live_call_count": 0,
+      "external_send_count": 0
+    },
+    "m3DeliveryReceipt": {
+      "artifact_type": "DeliveryReceipt",
+      "contract_version": "umc.v1.m3",
+      "turn_id": "agent:main:telegram:direct:8495203551",
+      "session_id": "agent:main:telegram:direct:8495203551",
+      "channel": "telegram",
+      "owner_scope": "owner_turn",
+      "route_intent": {
+        "contractVersion": "umc.v1",
+        "milestone": "M2Q_QUEUE_RESUME_ROUTE_ADMISSION",
+        "source": "queued_followup",
+        "hardPreference": false,
+        "requested": {
+          "provider": "token-broker-vmesh",
+          "model": "auto"
+        },
+        "executable": {
+          "provider": "token-broker-vmesh",
+          "model": "auto"
+        },
+        "directBypass": false,
+        "status": "DEFAULT_BROKER_ROUTE",
+        "updatedAt": "2026-07-15T16:54:12.920Z"
+      },
+      "authority_mode": "observe_only",
+      "delivery_mode": "no_send",
+      "tool_policy": {
+        "mode": "observe_only",
+        "real_write_tools": "blocked",
+        "provider_model_calls": "forbidden",
+        "external_sends": "forbidden"
+      },
+      "postcondition_policy": {
+        "delivery_mode": "no_send",
+        "production_path": "unchanged",
+        "required_receipts": [
+          "ContractEnvelope",
+          "ShadowObservationReceipt",
+          "ToolSupervisionReceipt",
+          "DeliveryReceipt",
+          "UniversalContractReceipt",
+          "TerminalContractCloseout"
+        ],
+        "required_zero_counters": [
+          "shadow_telegram_send_count",
+          "shadow_external_send_count",
+          "shadow_provider_model_live_call_count",
+          "shadow_real_write_tool_count",
+          "shadow_durable_memory_mutation_count",
+          "shadow_context_bridge_mutation_count",
+          "shadow_route_config_mutation_count",
+          "production_authority_change_count"
+        ]
+      },
+      "safety_counters": {
+        "shadow_telegram_send_count": 0,
+        "shadow_external_send_count": 0,
+        "shadow_provider_model_live_call_count": 0,
+        "shadow_real_write_tool_count": 0,
+        "shadow_durable_memory_mutation_count": 0,
+        "shadow_context_bridge_mutation_count": 0,
+        "shadow_route_config_mutation_count": 0,
+        "production_authority_change_count": 0,
+        "ambient_owner_chat_delivery_count": 0
+      },
+      "timestamps": {
+        "observed_at": "2026-07-15T16:54:34.226Z",
+        "emitted_at": "2026-07-15T16:54:34.226Z",
+        "closed_at": "2026-07-15T16:54:34.226Z"
+      },
+      "result_status": "PASS_M3_DELIVERY_RECEIPT_NO_SEND_EMITTED",
+      "reason": "delivery receipt emitted in no_send mode",
+      "evidence_refs": [
+        "M3_SOURCE_BUILD_PATH_DISCOVERY_AND_INSTALL_CARD_PREPARATION"
+      ],
+      "production_path": "unchanged",
+      "envelope_ref": "agent:main:telegram:direct:8495203551",
+      "mode": "no_send",
+      "delivered": false,
+      "telegram_send": false,
+      "external_send": false,
+      "production_delivery_classification": "AMBIENT_OWNER_CHAT_DELIVERY_SEPARATE_FROM_SHADOW_NO_SEND",
+      "ambient_owner_chat_delivery_count": 0
+    },
+    "universalContractReceiptV2": {
+      "artifact_type": "UniversalContractReceipt",
+      "contract_version": "umc.v1.m3",
+      "turn_id": "agent:main:telegram:direct:8495203551",
+      "session_id": "agent:main:telegram:direct:8495203551",
+      "channel": "telegram",
+      "owner_scope": "owner_turn",
+      "route_intent": {
+        "contractVersion": "umc.v1",
+        "milestone": "M2Q_QUEUE_RESUME_ROUTE_ADMISSION",
+        "source": "queued_followup",
+        "hardPreference": false,
+        "requested": {
+          "provider": "token-broker-vmesh",
+          "model": "auto"
+        },
+        "executable": {
+          "provider": "token-broker-vmesh",
+          "model": "auto"
+        },
+        "directBypass": false,
+        "status": "DEFAULT_BROKER_ROUTE",
+        "updatedAt": "2026-07-15T16:54:12.920Z"
+      },
+      "authority_mode": "observe_only",
+      "delivery_mode": "no_send",
+      "tool_policy": {
+        "mode": "observe_only",
+        "real_write_tools": "blocked",
+        "provider_model_calls": "forbidden",
+        "external_sends": "forbidden"
+      },
+      "postcondition_policy": {
+        "delivery_mode": "no_send",
+        "production_path": "unchanged",
+        "required_receipts": [
+          "ContractEnvelope",
+          "ShadowObservationReceipt",
+          "ToolSupervisionReceipt",
+          "DeliveryReceipt",
+          "UniversalContractReceipt",
+          "TerminalContractCloseout"
+        ],
+        "required_zero_counters": [
+          "shadow_telegram_send_count",
+          "shadow_external_send_count",
+          "shadow_provider_model_live_call_count",
+          "shadow_real_write_tool_count",
+          "shadow_durable_memory_mutation_count",
+          "shadow_context_bridge_mutation_count",
+          "shadow_route_config_mutation_count",
+          "production_authority_change_count"
+        ]
+      },
+      "safety_counters": {
+        "shadow_telegram_send_count": 0,
+        "shadow_external_send_count": 0,
+        "shadow_provider_model_live_call_count": 0,
+        "shadow_real_write_tool_count": 0,
+        "shadow_durable_memory_mutation_count": 0,
+        "shadow_context_bridge_mutation_count": 0,
+        "shadow_route_config_mutation_count": 0,
+        "production_authority_change_count": 0,
+        "ambient_owner_chat_delivery_count": 0
+      },
+      "timestamps": {
+        "observed_at": "2026-07-15T16:54:34.226Z",
+        "emitted_at": "2026-07-15T16:54:34.226Z",
+        "closed_at": "2026-07-15T16:54:34.226Z"
+      },
+      "result_status": "PASS_M3_UNIVERSAL_CONTRACT_RECEIPT_EMITTED",
+      "reason": "all required M3 observe-only receipts bound",
+      "evidence_refs": [
+        "M3_SOURCE_BUILD_PATH_DISCOVERY_AND_INSTALL_CARD_PREPARATION"
+      ],
+      "production_path": "unchanged",
+      "envelope_ref": "agent:main:telegram:direct:8495203551",
+      "receipt_refs": {
+        "contract_envelope": "ContractEnvelope",
+        "shadow_observation_receipt": "ShadowObservationReceipt",
+        "tool_supervision_receipt": "ToolSupervisionReceipt",
+        "delivery_receipt": "DeliveryReceipt"
+      },
+      "delivery_mode_verified": true
+    },
+    "terminalContractCloseout": {
+      "artifact_type": "TerminalContractCloseout",
+      "contract_version": "umc.v1.m3",
+      "turn_id": "agent:main:telegram:direct:8495203551",
+      "session_id": "agent:main:telegram:direct:8495203551",
+      "channel": "telegram",
+      "owner_scope": "owner_turn",
+      "route_intent": {
+        "contractVersion": "umc.v1",
+        "milestone": "M2Q_QUEUE_RESUME_ROUTE_ADMISSION",
+        "source": "queued_followup",
+        "hardPreference": false,
+        "requested": {
+          "provider": "token-broker-vmesh",
+          "model": "auto"
+        },
+        "executable": {
+          "provider": "token-broker-vmesh",
+          "model": "auto"
+        },
+        "directBypass": false,
+        "status": "DEFAULT_BROKER_ROUTE",
+        "updatedAt": "2026-07-15T16:54:12.920Z"
+      },
+      "authority_mode": "observe_only",
+      "delivery_mode": "no_send",
+      "tool_policy": {
+        "mode": "observe_only",
+        "real_write_tools": "blocked",
+        "provider_model_calls": "forbidden",
+        "external_sends": "forbidden"
+      },
+      "postcondition_policy": {
+        "delivery_mode": "no_send",
+        "production_path": "unchanged",
+        "required_receipts": [
+          "ContractEnvelope",
+          "ShadowObservationReceipt",
+          "ToolSupervisionReceipt",
+          "DeliveryReceipt",
+          "UniversalContractReceipt",
+          "TerminalContractCloseout"
+        ],
+        "required_zero_counters": [
+          "shadow_telegram_send_count",
+          "shadow_external_send_count",
+          "shadow_provider_model_live_call_count",
+          "shadow_real_write_tool_count",
+          "shadow_durable_memory_mutation_count",
+          "shadow_context_bridge_mutation_count",
+          "shadow_route_config_mutation_count",
+          "production_authority_change_count"
+        ]
+      },
+      "safety_counters": {
+        "shadow_telegram_send_count": 0,
+        "shadow_external_send_count": 0,
+        "shadow_provider_model_live_call_count": 0,
+        "shadow_real_write_tool_count": 0,
+        "shadow_durable_memory_mutation_count": 0,
+        "shadow_context_bridge_mutation_count": 0,
+        "shadow_route_config_mutation_count": 0,
+        "production_authority_change_count": 0,
+        "ambient_owner_chat_delivery_count": 0
+      },
+      "timestamps": {
+        "observed_at": "2026-07-15T16:54:34.226Z",
+        "emitted_at": "2026-07-15T16:54:34.226Z",
+        "closed_at": "2026-07-15T16:54:34.226Z"
+      },
+      "result_status": "PASS_M3_TERMINAL_CONTRACT_CLOSEOUT_EMITTED",
+      "reason": "all required M3 observe-only receipts emitted with zero forbidden counters",
+      "evidence_refs": [
+        "M3_SOURCE_BUILD_PATH_DISCOVERY_AND_INSTALL_CARD_PREPARATION"
+      ],
+      "production_path": "unchanged",
+      "receipt_validation": {
+        "ok": true,
+        "missing": []
+      },
+      "forbidden_counter_nonzero": false
+    },
+    "createdAt": "2026-07-15T16:54:34.227Z"
   },
-  "recommendation": "M3O is blocked until the UMC v1 shadow hook is installed into the production runtime. The next milestone should be installing the shadow hook in observe-only/no-send mode, or a decision point about whether to install it."
+  "would_be_result": "WOULD_PASS",
+  "shadow_telegram_send_count": 0,
+  "shadow_provider_model_live_call_count": 0,
+  "shadow_external_send_count": 0,
+  "shadow_write_tool_count": 0,
+  "shadow_durable_memory_mutation_count": 0,
+  "shadow_context_bridge_mutation_count": 0,
+  "shadow_route_config_mutation_count": 0,
+  "production_authority_change_count": 0,
+  "notes": [
+    "Observation invoked installed runtime shadow function via temporary in-memory loader export; installed runtime file was not modified."
+  ]
 }
