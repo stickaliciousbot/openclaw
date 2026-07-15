@@ -1,9 +1,24 @@
 {
   "schema": "umc.v1.m3o.owner_turn_shadow_observation_closeout.v1",
-  "generated_utc": "2026-07-15T14:45:00Z",
-  "final_status": "BLOCKED_M3O_OWNER_TURN_SHADOW_HOOK_NOT_INSTALLED_IN_RUNTIME",
+  "generated_utc": "2026-07-15T15:05:00Z",
+  "final_status": "BLOCKED_M3O_OWNER_TURN_SHADOW_M3_ENVELOPE_RECEIPTS_NOT_IMPLEMENTED",
+  "corrected_from": "BLOCKED_M3O_OWNER_TURN_SHADOW_HOOK_NOT_INSTALLED_IN_RUNTIME",
+  "correction_reason": "The UMC v1 production hook IS installed — it is the M2 admission and route interceptor in agent-runner.runtime-a09vVD0N.js (resolveUmcV1DefaultRouteFromConfig, isUmcV1QueuedOwnerScope, applyUmcV1QueuedRouteAdmission, umcV1QueuedRouteIntent). The assistant's original grep searched for M3-level contract vocabulary (ContractEnvelope, UniversalContractReceipt, DeliveryReceipt) which does not exist because M3 envelope/receipt/delivery supervision has not been implemented yet. The hook is present at M2 level; M3O is blocked because M3 must be implemented first.",
   "m3n_source_closeout": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_FINAL_CLOSEOUT.json",
   "m3n_final_status": "PASS_M3N_INSTALLED_SHADOW_OBSERVE_ONLY_RESTART_PERSISTENCE_NO_SEND",
+  "installed_hook": {
+    "present": true,
+    "file": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/agent-runner.runtime-a09vVD0N.js",
+    "milestone_level": "M2",
+    "functions": [
+      "resolveUmcV1DefaultRouteFromConfig",
+      "isUmcV1QueuedOwnerScope",
+      "applyUmcV1QueuedRouteAdmission",
+      "umcV1QueuedRouteIntent"
+    ],
+    "capability": "route admission and interception for queued owner turns",
+    "missing_for_m3o": "M3 envelope/receipt/delivery supervision (ContractEnvelope, UniversalContractReceipt, DeliveryReceipt, terminal closeout)"
+  },
   "owner_turn_id": "telegram:8495203551:38576",
   "observation_method": "operator_provided_controlled_owner_turn_current_request_with_log_receipt_verification",
   "production_path_result": "normal_production_reply_delivered",
@@ -14,7 +29,7 @@
   "delivery_receipt_count": 0,
   "delivery_receipt_mode": null,
   "terminal_closeout_count": 0,
-  "would_be_result": "HOLD_HOOK_NOT_INSTALLED",
+  "would_be_result": "HOLD_M3_NOT_IMPLEMENTED",
   "shadow_telegram_send_count": 0,
   "shadow_provider_model_live_call_count": 0,
   "shadow_external_send_count": 0,
@@ -32,12 +47,8 @@
     "ready": true,
     "basis": "M3N preserved state; no production authority/enforcement enabled; no runtime mutation occurred during M3O"
   },
-  "recommended_next_milestone": "M3O_PRE_HOOK_INSTALL_DECISION_OR_M3P_SKIP",
-  "root_cause": "The UMC v1 shadow hook is not installed in the production OpenClaw runtime at /home/stickai/.npm-global/lib/node_modules/openclaw/dist/. A grep of the runtime dist for ContractEnvelope, UniversalContractReceipt, DeliveryReceipt, umc.shadow, and UMC_SHADOW returned one match: route-reply-D6Nvzk_V.js, which is the standard production reply router with an onDeliveryReceipt callback parameter for normal outbound delivery tracking — a false positive. The shadow hook exists only as a contract specification in workspace artifacts. Without the hook installed, no owner turn can produce shadow receipts, and M3O cannot observe shadow behavior.",
-  "runtime_dist_grep_classification": {
-    "matched_file": "route-reply-D6Nvzk_V.js",
-    "classification": "FALSE_POSITIVE_STANDARD_PRODUCTION_REPLY_ROUTER",
-    "umc_shadow_hook_present": false
-  },
+  "recommended_next_milestone": "M3_ENVELOPE_TOOLS_DELIVERY_SUPERVISION",
+  "root_cause": "The UMC v1 production hook IS installed at M2 level (route admission/interception in agent-runner.runtime-a09vVD0N.js). M3O requires M3-level artifacts (ContractEnvelope, UniversalContractReceipt, DeliveryReceipt, terminal closeout) which have not been implemented yet. M3 envelope/tools/delivery supervision must be implemented before M3O can observe owner-turn shadow receipts.",
+  "lesson": "memory/lessons-learned-m3o-shadow-hook-false-negative-vocabulary-mismatch-2026-07-16.md",
   "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION"
 }
