@@ -1,0 +1,95 @@
+{
+  "schema": "umc.v1.m4.model_execution_path_map.v1",
+  "generated_utc": "2026-07-15T22:56:53.761Z",
+  "status": "PASS_M4_MODEL_EXECUTION_PATHS_MAPPED",
+  "paths": [
+    {
+      "source_file": "src/auto-reply/reply/agent-runner-execution.ts",
+      "function_name": "runAgentTurnWithFallback",
+      "current_authority_source": "resolved followup run provider/model plus configured fallback chain",
+      "accepts_raw_provider_model": true,
+      "already_uses_route_intent": false,
+      "emits_or_receives_m3_envelope_context": false,
+      "can_bypass_m3": true,
+      "can_bypass_m2_admission": true,
+      "required_verified_route_insertion_point": "Immediately before runWithModelFallback and carry VerifiedRoute into each embedded/CLI candidate attempt."
+    },
+    {
+      "source_file": "src/auto-reply/reply/agent-runner-execution.ts",
+      "function_name": "runWithModelFallback callback in runAgentTurnWithFallback",
+      "current_authority_source": "fallback candidate provider/model chosen by runWithModelFallback",
+      "accepts_raw_provider_model": true,
+      "already_uses_route_intent": false,
+      "emits_or_receives_m3_envelope_context": false,
+      "can_bypass_m3": true,
+      "can_bypass_m2_admission": true,
+      "required_verified_route_insertion_point": "Firewall every candidate before runCliAgent/runEmbeddedPiAgent; fallback candidate must preserve contract_version and authority_mode."
+    },
+    {
+      "source_file": "src/auto-reply/reply/followup-runner.ts",
+      "function_name": "applyUmcV1QueuedRouteAdmission",
+      "current_authority_source": "M2 queued route admission intercepts owner queued raw selection to default route",
+      "accepts_raw_provider_model": true,
+      "already_uses_route_intent": true,
+      "emits_or_receives_m3_envelope_context": true,
+      "can_bypass_m3": false,
+      "can_bypass_m2_admission": false,
+      "required_verified_route_insertion_point": "Brand queueAdmission.intent after M2 admission and before queued runWithModelFallback."
+    },
+    {
+      "source_file": "src/auto-reply/reply/followup-runner.ts",
+      "function_name": "createFollowupRunner",
+      "current_authority_source": "queueAdmission provider/model or original queued run provider/model",
+      "accepts_raw_provider_model": true,
+      "already_uses_route_intent": true,
+      "emits_or_receives_m3_envelope_context": true,
+      "can_bypass_m3": false,
+      "can_bypass_m2_admission": false,
+      "required_verified_route_insertion_point": "Pass branded VerifiedRoute from queueAdmission into fallback loop and embedded execution parameters."
+    },
+    {
+      "source_file": "src/auto-reply/reply/model-selection.ts",
+      "function_name": "createModelSelectionState",
+      "current_authority_source": "session/parent stored override, heartbeat override, directive/catalog allowlist",
+      "accepts_raw_provider_model": true,
+      "already_uses_route_intent": false,
+      "emits_or_receives_m3_envelope_context": false,
+      "can_bypass_m3": true,
+      "can_bypass_m2_admission": true,
+      "required_verified_route_insertion_point": "Convert session/channel/model directive selections into route intent only; do not mark as route authority until verifier brands it."
+    },
+    {
+      "source_file": "src/agents/model-fallback.ts",
+      "function_name": "runWithModelFallback",
+      "current_authority_source": "primary provider/model plus configured fallbacks/allowlist",
+      "accepts_raw_provider_model": true,
+      "already_uses_route_intent": false,
+      "emits_or_receives_m3_envelope_context": false,
+      "can_bypass_m3": true,
+      "can_bypass_m2_admission": true,
+      "required_verified_route_insertion_point": "API contract should require VerifiedRoute or verified candidate callback metadata before invoking run(provider, model)."
+    },
+    {
+      "source_file": "src/agents/pi-embedded-runner/run/setup.ts",
+      "function_name": "resolveHookModelSelection",
+      "current_authority_source": "before_model_resolve / before_agent_start hook overrides",
+      "accepts_raw_provider_model": true,
+      "already_uses_route_intent": false,
+      "emits_or_receives_m3_envelope_context": false,
+      "can_bypass_m3": true,
+      "can_bypass_m2_admission": true,
+      "required_verified_route_insertion_point": "Treat hook overrides as route intent; require verifier before effective runtime model use."
+    },
+    {
+      "source_file": "src/agents/agent-command.ts",
+      "function_name": "runAgentCommand fallback loop",
+      "current_authority_source": "direct CLI/subagent command model override plus fallback chain",
+      "accepts_raw_provider_model": true,
+      "already_uses_route_intent": false,
+      "emits_or_receives_m3_envelope_context": false,
+      "can_bypass_m3": true,
+      "can_bypass_m2_admission": true,
+      "required_verified_route_insertion_point": "When owner-chat surfaced, require VerifiedRoute before attemptExecutionRuntime.runAgentAttempt."
+    }
+  ]
+}

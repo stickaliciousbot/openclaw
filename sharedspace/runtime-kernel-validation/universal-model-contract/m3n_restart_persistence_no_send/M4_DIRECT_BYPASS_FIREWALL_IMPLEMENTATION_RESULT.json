@@ -1,0 +1,17 @@
+{
+  "schema": "umc.v1.m4.direct_bypass_firewall_implementation_result.v1",
+  "generated_utc": "2026-07-15T22:56:53.764Z",
+  "status": "PASS_M4_DIRECT_BYPASS_FIREWALL_IMPLEMENTED",
+  "source_file": "src/auto-reply/reply/umc-m4-verified-route.ts",
+  "implemented_behaviors": {
+    "runWithModelFallback_requires_verified_route": true,
+    "runEmbeddedPiAgent_requires_verified_route": true,
+    "fallback_path_requires_verified_route": true,
+    "queued_owner_turn_execution_requires_verified_route": true,
+    "raw_provider_model_execution_blocked": true,
+    "forged_verified_route_blocked": true,
+    "missing_verified_route_typed_hold": true,
+    "fixture_mock_factory_explicit_only": true,
+    "production_enforcement_enabled": false
+  }
+}

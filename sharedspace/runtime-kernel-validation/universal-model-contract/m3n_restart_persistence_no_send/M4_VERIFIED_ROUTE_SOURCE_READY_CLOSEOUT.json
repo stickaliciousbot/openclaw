@@ -1,0 +1,35 @@
+{
+  "schema": "umc.v1.m4.source_ready_closeout.v1",
+  "generated_utc": "2026-07-15T22:57:56.113Z",
+  "status": "PASS_M4_VERIFIED_ROUTE_BRANDING_AND_DIRECT_BYPASS_FIREWALL_SOURCE_READY_NO_APPLY",
+  "preflight_result": "PASS_M4_VERIFIED_ROUTE_PREFLIGHT",
+  "execution_path_map_result": "PASS_M4_MODEL_EXECUTION_PATHS_MAPPED",
+  "verified_route_brand_result": "PASS_M4_VERIFIED_ROUTE_BRAND_DEFINED",
+  "route_brander_implementation_result": "PASS_M4_VERIFIED_ROUTE_BRANDER_IMPLEMENTED",
+  "direct_bypass_firewall_implementation_result": "PASS_M4_DIRECT_BYPASS_FIREWALL_IMPLEMENTED",
+  "m3_compatibility_fixture_result": "PASS_M4_M3_COMPATIBILITY_FIXTURES",
+  "bypass_rejection_fixture_result": "PASS_M4_DIRECT_BYPASS_FIREWALL_FIXTURES",
+  "no_apply_build_validation_result": "PASS_M4_VERIFIED_ROUTE_NO_APPLY_BUILD_VALIDATION",
+  "staged_install_plan_result": "PASS_M4_VERIFIED_ROUTE_STAGED_INSTALL_PLAN_READY",
+  "raw_provider_model_bypass_count": 0,
+  "forged_route_rejection_result": "HOLD_M4_FORGED_OR_DESERIALIZED_VERIFIED_ROUTE",
+  "fallback_contract_preservation_result": "PASS_M4_FALLBACK_CONTRACT_PRESERVED",
+  "source_files_changed": [
+    "src/auto-reply/reply/umc-m4-verified-route.ts",
+    "scripts/run-m4-verified-route-fixtures.mjs",
+    "scripts/write-m4-verified-route-evidence.mjs",
+    "scripts/validate-m4-verified-route-evidence.mjs"
+  ],
+  "tests_fixtures_changed": [
+    "src/auto-reply/reply/umc-m4-verified-route.test.ts"
+  ],
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "installed_runtime_mutation_count": 0,
+  "telegram_send_probe_count": 0,
+  "provider_model_live_call_count": 0,
+  "route_config_mutation_count": 0,
+  "durable_memory_mutation_count": 0,
+  "context_bridge_mutation_count": 0,
+  "production_authority_change_count": 0,
+  "exact_next_milestone": "M4_VERIFIED_ROUTE_STAGED_INSTALL_AND_REGRESSION"
+}

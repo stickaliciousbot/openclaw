@@ -1,0 +1,21 @@
+{
+  "schema": "umc.v1.m4.m3_compatibility_fixture_results.v1",
+  "generated_utc": "2026-07-15T22:56:53.765Z",
+  "status": "PASS_M4_M3_COMPATIBILITY_FIXTURES",
+  "checks": {
+    "eligible_owner_turn_with_verified_route_emits_contract_envelope": true,
+    "shadow_observation_receipt_emitted": true,
+    "universal_contract_receipt_emitted": true,
+    "delivery_receipt_no_send_emitted": true,
+    "terminal_contract_closeout_emitted": true,
+    "production_path_unchanged": true,
+    "shadow_telegram_send_count": 0,
+    "shadow_provider_model_live_call_count": 0,
+    "shadow_external_send_count": 0,
+    "shadow_write_tool_count": 0,
+    "shadow_durable_memory_mutation_count": 0,
+    "shadow_context_bridge_mutation_count": 0,
+    "shadow_route_config_mutation_count": 0,
+    "production_authority_change_count": 0
+  }
+}

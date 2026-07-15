@@ -1,0 +1,30 @@
+# M4 VerifiedRoute Staged Install Plan
+
+Status: PASS_M4_VERIFIED_ROUTE_STAGED_INSTALL_PLAN_READY
+
+- Source path: `/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711`
+- Source branch: `evidence/umc-m3g-observe-only-hook-source-20260711`
+- Source head: `e9b3f0ff7b99cb98c70ad303d58d15b71d26d9c5`
+- Source commit: e9b3f0ff7b99cb98c70ad303d58d15b71d26d9c5
+- Build/package command: `pnpm build && pnpm pack --pack-destination /home/stickai/.openclaw/workspace/tmp/umc-m4-package`
+- Package/tarball path if produced: `/home/stickai/.openclaw/workspace/tmp/umc-m4-package/openclaw-2026.5.7.tgz`
+- Backup path: `/home/stickai/.openclaw/backups/openclaw-m4-verified-route-install-<UTC>/openclaw-installed-package`
+- Rollback command: restore backup package directory, then use first-class gateway.restart after explicit approval
+
+## Expected installed files changed
+
+- dist/auto-reply/reply/umc-m4-verified-route*.js
+- dist/auto-reply/reply/agent-runner-execution*.js only if enforcement wiring is approved in later milestone
+- dist/auto-reply/reply/followup-runner*.js only if queue wiring is approved in later milestone
+
+## Validation plan
+
+- gateway_telegram_health_validation: openclaw gateway status plus no-send Telegram health/readback; no live send unless explicitly approved
+- m3_receipt_no_send_validation: rerun M3/M4 fixture runner and verify DeliveryReceipt mode no_send plus zero shadow send/provider/write counters
+- m4_verified_route_validation: verify non-serializable brand, reverify deserialized route, and check source firewall PASS/HOLD matrix
+- direct_bypass_firewall_validation: run M4_DIRECT_BYPASS_FIREWALL_FIXTURE_RESULTS and require raw_provider_model_bypass_count=0
+- m3p_regression_check_plan: compare M3P closeout coverage and ensure M4 does not reduce ContractEnvelope/ShadowObservationReceipt/UniversalContractReceipt/DeliveryReceipt/TerminalCloseout emission
+
+## Approval boundary
+
+Plan only. Do not install, mutate installed runtime, restart Gateway, send Telegram probes, call providers, or enable production enforcement without explicit M4 staged-install approval.

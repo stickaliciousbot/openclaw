@@ -1,0 +1,25 @@
+{
+  "schema": "umc.v1.m4.verified_route_no_apply_build_validation.v1",
+  "generated_utc": "2026-07-15T22:57:56.113Z",
+  "status": "PASS_M4_VERIFIED_ROUTE_NO_APPLY_BUILD_VALIDATION",
+  "validations": {
+    "focused_fixture_runner": "PASS_M4_FIXTURE_RUNNER",
+    "m3_compatibility": "PASS_M4_M3_COMPATIBILITY_FIXTURES",
+    "bypass_firewall": "PASS_M4_DIRECT_BYPASS_FIREWALL_FIXTURES",
+    "brander": "PASS_M4_VERIFIED_ROUTE_BRANDER_IMPLEMENTED",
+    "firewall_implementation": "PASS_M4_DIRECT_BYPASS_FIREWALL_IMPLEMENTED",
+    "git_diff_check": "PASS",
+    "json_validation": "PASS",
+    "markdown_sanity": "PASS",
+    "evidence_validator": "PASS_M4_EVIDENCE_VALIDATION",
+    "installed_runtime_mutation_count": 0,
+    "package_install_count": 0,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0
+  }
+}

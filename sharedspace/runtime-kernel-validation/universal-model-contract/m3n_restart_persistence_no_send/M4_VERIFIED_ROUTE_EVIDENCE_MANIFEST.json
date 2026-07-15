@@ -1,0 +1,77 @@
+{
+  "schema": "umc.v1.m4.evidence_manifest.v1",
+  "generated_utc": "2026-07-15T22:57:56.113Z",
+  "status": "PASS_M4_EVIDENCE_MANIFEST_READY",
+  "artifacts": [
+    {
+      "name": "M4_VERIFIED_ROUTE_PREFLIGHT.json",
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M4_VERIFIED_ROUTE_PREFLIGHT.json",
+      "sha256": "3183e4753d9fb11d7a7da85e47cc8616fae803f2b240faa580384d344d3caa78"
+    },
+    {
+      "name": "M4_MODEL_EXECUTION_PATH_MAP.json",
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M4_MODEL_EXECUTION_PATH_MAP.json",
+      "sha256": "b68f0ab5ef681b14a1e7e4300bab8c5e98e87655129b9ce98f8a8add54dbfbcb"
+    },
+    {
+      "name": "M4_MODEL_EXECUTION_PATH_MAP.md",
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M4_MODEL_EXECUTION_PATH_MAP.md",
+      "sha256": "eba7d0d44043668b0eb5ffbc7cacc514307a88f611f888bbe3e6445080c25477"
+    },
+    {
+      "name": "M4_VERIFIED_ROUTE_BRAND_SCHEMA.json",
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M4_VERIFIED_ROUTE_BRAND_SCHEMA.json",
+      "sha256": "9dbfa5e6eda608cc8c1a570d6b319259e531fb373af9090a06ea0cb269007b1a"
+    },
+    {
+      "name": "M4_VERIFIED_ROUTE_BRAND_SCHEMA.md",
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M4_VERIFIED_ROUTE_BRAND_SCHEMA.md",
+      "sha256": "5d97db48eb66d84e632af7ca7a80664753460fb2bb74dd391ed506e491f1e0a8"
+    },
+    {
+      "name": "M4_VERIFIED_ROUTE_BRANDER_IMPLEMENTATION_RESULT.json",
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M4_VERIFIED_ROUTE_BRANDER_IMPLEMENTATION_RESULT.json",
+      "sha256": "d8812f17c309be24f10717d06475f50a5eb3e1665c6d676152f762fd97ec9740"
+    },
+    {
+      "name": "M4_DIRECT_BYPASS_FIREWALL_IMPLEMENTATION_RESULT.json",
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M4_DIRECT_BYPASS_FIREWALL_IMPLEMENTATION_RESULT.json",
+      "sha256": "19da4f79c92bef2c63a6e9765247cc0db22714ffadbcb6342eb9d50b47c2683d"
+    },
+    {
+      "name": "M4_M3_COMPATIBILITY_FIXTURE_RESULTS.json",
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M4_M3_COMPATIBILITY_FIXTURE_RESULTS.json",
+      "sha256": "6eaf6dc6deb87e7fc23a80383e6c2b225a7523d5dafc88bdb551d05a1784b3a1"
+    },
+    {
+      "name": "M4_DIRECT_BYPASS_FIREWALL_FIXTURE_RESULTS.json",
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M4_DIRECT_BYPASS_FIREWALL_FIXTURE_RESULTS.json",
+      "sha256": "348949cdd1478d6c5c52cbc93482913d6a05d54e045c3742567157dcb019f8d1"
+    },
+    {
+      "name": "M4_VERIFIED_ROUTE_NO_APPLY_BUILD_VALIDATION.json",
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M4_VERIFIED_ROUTE_NO_APPLY_BUILD_VALIDATION.json",
+      "sha256": "771c7f971904e2794124f9fc1c618e1ff7ebba0894a8dcc673c17ec06a1c9263"
+    },
+    {
+      "name": "M4_VERIFIED_ROUTE_STAGED_INSTALL_PLAN.json",
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M4_VERIFIED_ROUTE_STAGED_INSTALL_PLAN.json",
+      "sha256": "edc5504214f3e3b62596e2729da0a8b8150725bde5ddb36fa63b319ecf959724"
+    },
+    {
+      "name": "M4_VERIFIED_ROUTE_STAGED_INSTALL_PLAN.md",
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M4_VERIFIED_ROUTE_STAGED_INSTALL_PLAN.md",
+      "sha256": "ce7d96fd3d5b7c30bce7200eb41163903aeafde5bd440bb072d8d2d7b9542809"
+    },
+    {
+      "name": "M4_VERIFIED_ROUTE_SOURCE_READY_CLOSEOUT.json",
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M4_VERIFIED_ROUTE_SOURCE_READY_CLOSEOUT.json",
+      "sha256": "bafa531b953fbb5eedf2503ca6aa0189c72cd64194bad7f196a6c836cacb4165"
+    },
+    {
+      "name": "M4_VERIFIED_ROUTE_SOURCE_READY_CLOSEOUT.md",
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M4_VERIFIED_ROUTE_SOURCE_READY_CLOSEOUT.md",
+      "sha256": "aae0ce535b53fff80cec72b9bb63b94d0f9a97ce1434ec61b9cd71810b7a467b"
+    }
+  ]
+}

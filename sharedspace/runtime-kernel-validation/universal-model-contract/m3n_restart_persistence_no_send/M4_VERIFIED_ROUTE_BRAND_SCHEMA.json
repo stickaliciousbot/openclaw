@@ -1,0 +1,68 @@
+{
+  "schema": "umc.v1.m4.verified_route_brand_schema.v1",
+  "generated_utc": "2026-07-15T22:56:53.763Z",
+  "status": "PASS_M4_VERIFIED_ROUTE_BRAND_DEFINED",
+  "required_fields": [
+    "verified_route_version",
+    "route_id",
+    "turn_id",
+    "session_id",
+    "channel",
+    "owner_scope",
+    "provider",
+    "model",
+    "fallback_chain",
+    "capability_manifest_ref",
+    "contract_version",
+    "contract_envelope_ref",
+    "authority_mode",
+    "created_by",
+    "created_at",
+    "verification_reason",
+    "signature_or_brand_token",
+    "non_forgeable_brand",
+    "source",
+    "no_apply",
+    "production_enforcement"
+  ],
+  "exemplar": {
+    "verified_route_version": "umc.v1.m4.verified_route.v1",
+    "route_id": "m4vr_890557005b5dbf739e611af5",
+    "turn_id": "m4-fixture-turn",
+    "session_id": "m4-fixture-session",
+    "channel": "telegram",
+    "owner_scope": "owner_turn",
+    "provider": "token-broker-vmesh",
+    "model": "auto",
+    "fallback_chain": [
+      {
+        "provider": "token-broker-vmesh",
+        "model": "auto"
+      },
+      {
+        "provider": "token-solver-v4",
+        "model": "auto"
+      }
+    ],
+    "capability_manifest_ref": "fixture:model-catalog",
+    "contract_version": "umc.v1",
+    "contract_envelope_ref": "ContractEnvelope:m3-fixture",
+    "authority_mode": "observe_only_no_send",
+    "created_by": "umc_v1_m4_route_verifier",
+    "created_at": "2026-07-16T00:00:00.000Z",
+    "verification_reason": "M4 fixture route verified after M2 admission",
+    "signature_or_brand_token": "VERIFIED_ROUTE_UMC_V1_M4",
+    "non_forgeable_brand": false,
+    "source": "m2_queued_route_admission",
+    "no_apply": true,
+    "production_enforcement": false
+  },
+  "invariants": {
+    "created_only_by_route_verifier_broker_code": true,
+    "raw_object_literals_cannot_satisfy_brand": true,
+    "brand_not_serializable_as_trusted_authority": true,
+    "deserialized_route_requires_reverify": true,
+    "session_channel_pins_are_route_intent_not_authority": true,
+    "fallback_routes_preserve_contract_version_and_authority_mode": true
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "schema": "umc.v1.m4.direct_bypass_firewall_fixture_results.v1",
+  "generated_utc": "2026-07-15T22:56:53.764Z",
+  "status": "PASS_M4_DIRECT_BYPASS_FIREWALL_FIXTURES",
+  "fixtures": [
+    {
+      "name": "default route brand passes runWithModelFallback",
+      "status": "PASS_M4_VERIFIED_ROUTE_FIREWALL",
+      "ok": true
+    },
+    {
+      "name": "queued raw request intercepted to default broker passes once verified",
+      "status": "PASS_M4_VERIFIED_ROUTE_FIREWALL",
+      "ok": true
+    },
+    {
+      "name": "raw provider/model call is rejected",
+      "status": "HOLD_M4_MISSING_VERIFIED_ROUTE",
+      "ok": false
+    },
+    {
+      "name": "missing VerifiedRoute is rejected",
+      "status": "HOLD_M4_MISSING_VERIFIED_ROUTE",
+      "ok": false
+    },
+    {
+      "name": "forged VerifiedRoute is rejected",
+      "status": "HOLD_M4_FORGED_OR_DESERIALIZED_VERIFIED_ROUTE",
+      "ok": false
+    },
+    {
+      "name": "deserialized route is rejected until reverified",
+      "status": "HOLD_M4_FORGED_OR_DESERIALIZED_VERIFIED_ROUTE",
+      "ok": false
+    },
+    {
+      "name": "fallback without VerifiedRoute is rejected",
+      "status": "HOLD_M4_MISSING_VERIFIED_ROUTE",
+      "ok": false
+    },
+    {
+      "name": "session model pin cannot directly authorize execution",
+      "status": "HOLD_M4_ROUTE_INTENT_UNSUPPORTED_SOURCE",
+      "ok": false
+    },
+    {
+      "name": "channel model pin cannot directly authorize execution",
+      "status": "HOLD_M4_ROUTE_INTENT_UNSUPPORTED_SOURCE",
+      "ok": false
+    },
+    {
+      "name": "route intent without verifier emits typed HOLD",
+      "status": "HOLD_M4_ROUTE_INTENT_UNAVAILABLE",
+      "ok": false
+    },
+    {
+      "name": "unsupported provider/model emits typed HOLD",
+      "status": "HOLD_M4_ROUTE_INTENT_UNSUPPORTED_PROVIDER_MODEL",
+      "ok": false
+    },
+    {
+      "name": "fallback chain preserves contract and no-send authority",
+      "status": "PASS_M4_VERIFIED_ROUTE_FIREWALL",
+      "ok": true
+    }
+  ],
+  "raw_provider_model_bypass_count": 0,
+  "raw_provider_model_reaches_execution": false,
+  "fallback_contract_preserved": true
+}

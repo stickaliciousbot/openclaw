@@ -1,0 +1,19 @@
+{
+  "schema": "umc.v1.m4.verified_route_brander_implementation_result.v1",
+  "generated_utc": "2026-07-15T22:56:53.763Z",
+  "status": "PASS_M4_VERIFIED_ROUTE_BRANDER_IMPLEMENTED",
+  "source_file": "src/auto-reply/reply/umc-m4-verified-route.ts",
+  "implemented_behaviors": {
+    "accepts_route_intent_from_m2_admission": true,
+    "validates_provider_model_fallback_eligibility": true,
+    "attaches_verified_route_brand": true,
+    "carries_m3_contract_envelope_reference": true,
+    "preserves_observe_only_no_send_authority_mode": true,
+    "rejects_unsupported_route_intent": true,
+    "rejects_missing_provider_model_after_normalization": true,
+    "rejects_forged_brand": true,
+    "rejects_stale_deserialized_brand_without_reverify": true,
+    "emits_typed_hold_for_unavailable_route": true,
+    "emits_typed_fail_for_malformed_route": true
+  }
+}
