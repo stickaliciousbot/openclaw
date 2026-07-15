@@ -1,0 +1,98 @@
+{
+  "schema": "umc.v1.m3p.coverage_evidence_manifest.v1",
+  "generated_utc": "2026-07-15T18:52:33.795Z",
+  "status": "PASS_M3P_OWNER_TURN_SHADOW_COVERAGE_SOAK_NO_SEND",
+  "artifacts": {
+    "M3P_OWNER_TURN_SHADOW_COVERAGE_PREFLIGHT.json": {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3P_OWNER_TURN_SHADOW_COVERAGE_PREFLIGHT.json",
+      "sha256": "346cf24ff87b981bd8c12022ba128b4c7cf67908d195bae539147870c9eb1fa0",
+      "bytes": 1184
+    },
+    "M3P_OWNER_TURN_SHADOW_COVERAGE_CONTRACT.json": {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3P_OWNER_TURN_SHADOW_COVERAGE_CONTRACT.json",
+      "sha256": "0bf1e7ad1c972dace2b2c8fecc8e37eff7f59f4d07d72cfab28a5dafa97d3c98",
+      "bytes": 728
+    },
+    "M3P_OWNER_TURN_SHADOW_COVERAGE_CONTRACT.md": {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3P_OWNER_TURN_SHADOW_COVERAGE_CONTRACT.md",
+      "sha256": "287b6c4a850caeefd80bf5639e001822e447859d888e4bb07140502b8f6195a8",
+      "bytes": 219
+    },
+    "M3P_OWNER_TURN_SHADOW_COVERAGE_METHOD_DECISION.json": {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3P_OWNER_TURN_SHADOW_COVERAGE_METHOD_DECISION.json",
+      "sha256": "016825b1aebaa94492ca450b09f99e70965d8ead7b9d4757c5af911ff1db8443",
+      "bytes": 1185
+    },
+    "M3P_OWNER_TURN_SHADOW_COVERAGE_METHOD_DECISION.md": {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3P_OWNER_TURN_SHADOW_COVERAGE_METHOD_DECISION.md",
+      "sha256": "c17d20623640428ba699910f958da75ff025a7fa69f45cf04b232fda9b524a78",
+      "bytes": 340
+    },
+    "M3P_COVERAGE_CHECKPOINT_0001.json": {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3P_COVERAGE_CHECKPOINT_0001.json",
+      "sha256": "309c971e59f55fd92bdb8a0cd7e380ca3710ceab41b26aa73bd29e768c370820",
+      "bytes": 5372
+    },
+    "M3P_COVERAGE_CHECKPOINT_0002.json": {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3P_COVERAGE_CHECKPOINT_0002.json",
+      "sha256": "b03389ac419b1f494a76b05c602af763dc0712b5d33cf93dc12fd5a69e52665c",
+      "bytes": 5372
+    },
+    "M3P_COVERAGE_CHECKPOINT_0003.json": {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3P_COVERAGE_CHECKPOINT_0003.json",
+      "sha256": "a01be45fa1b7d3a4b5c2f99db30b8abe02bd5e66f84bddaf87f62e7245728ad3",
+      "bytes": 5372
+    },
+    "M3P_COVERAGE_CHECKPOINT_0004.json": {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3P_COVERAGE_CHECKPOINT_0004.json",
+      "sha256": "ff04f22865b4c6fea8a975de399f77d22cfa656861d628ced95393625e14b946",
+      "bytes": 5372
+    },
+    "M3P_COVERAGE_CHECKPOINT_0005.json": {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3P_COVERAGE_CHECKPOINT_0005.json",
+      "sha256": "c9c4e63463345bd58a5a960d6b5e0436db9e5a2446b26f72492133bf7e975e43",
+      "bytes": 5372
+    },
+    "M3P_COVERAGE_CHECKPOINT_0006.json": {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3P_COVERAGE_CHECKPOINT_0006.json",
+      "sha256": "bd340b145184f0fe64b61176911d207db788e9b3642cadfa56ec11376f8694a9",
+      "bytes": 5372
+    },
+    "M3P_COVERAGE_CHECKPOINT_0007.json": {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3P_COVERAGE_CHECKPOINT_0007.json",
+      "sha256": "e1a039919bb07c740b2d933d3b6fe7a88f8ee63c0e532f3a628814eb734c34fa",
+      "bytes": 5372
+    },
+    "M3P_COVERAGE_CHECKPOINT_0008.json": {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3P_COVERAGE_CHECKPOINT_0008.json",
+      "sha256": "b71f54a9f799ef45e7bb536ed40ef505cc667351f635a6f45523098f51da2294",
+      "bytes": 5372
+    },
+    "M3P_OWNER_TURN_COVERAGE_MATRIX.json": {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3P_OWNER_TURN_COVERAGE_MATRIX.json",
+      "sha256": "ee8654b434588fc4bcfd8deef6d1f6e6cbe53d2bd8f2fd72cbbb1b06904d8f98",
+      "bytes": 3876
+    },
+    "M3P_OWNER_TURN_COVERAGE_MATRIX.md": {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3P_OWNER_TURN_COVERAGE_MATRIX.md",
+      "sha256": "22a22e6bbab7f36f1536c8535a77aabe37ecba03c8ca94565756c4c05ec121e5",
+      "bytes": 640
+    },
+    "M3P_OWNER_TURN_SHADOW_COVERAGE_SOAK_CLOSEOUT.json": {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3P_OWNER_TURN_SHADOW_COVERAGE_SOAK_CLOSEOUT.json",
+      "sha256": "23143161734cbcbd02f53d97b8c274b9574b87e7905fcef9aa2fc1d762563707",
+      "bytes": 1865
+    },
+    "M3P_OWNER_TURN_SHADOW_COVERAGE_SOAK_SUMMARY.md": {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3P_OWNER_TURN_SHADOW_COVERAGE_SOAK_SUMMARY.md",
+      "sha256": "7355b9e20483216decd28cc03be77f5d3cd54aaf06cee75bf40638bcae65fb7b",
+      "bytes": 752
+    },
+    "M3P_OWNER_TURN_SHADOW_COVERAGE_SOAK_EVIDENCE_MANIFEST.json": {
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3P_OWNER_TURN_SHADOW_COVERAGE_SOAK_EVIDENCE_MANIFEST.json",
+      "sha256": "49d96affb1ce56793d3875f9ea3399605967f963ca497b3002a1478f06d630d3",
+      "bytes": 6115
+    }
+  },
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION"
+}

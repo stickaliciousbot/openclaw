@@ -1,0 +1,28 @@
+{
+  "schema": "umc.v1.m3p.coverage_method_decision.v1",
+  "generated_utc": "2026-07-15T17:07:17.605Z",
+  "status": "PASS_M3P_OWNER_TURN_SHADOW_COVERAGE_METHOD_SELECTED",
+  "selected_method": "replay_already_captured_owner_turns_through_installed_m3_runtime_function_plus_bounded_health_soak",
+  "observation_path_classification": "installed runtime implementation exercised via temporary in-memory loader export; not production authority/enforcement",
+  "owner_turns": [
+    {
+      "owner_turn_id": "m3o-owner-turn-telegram-38915-20260715165412Z",
+      "source": "already-captured-m3o-owner-turn",
+      "channel": "telegram",
+      "session_id": "agent:main:telegram:direct:8495203551"
+    },
+    {
+      "owner_turn_id": "m3p-owner-turn-telegram-38932-coverage-request",
+      "source": "already-captured-m3p-owner-request",
+      "channel": "telegram",
+      "session_id": "agent:main:telegram:direct:8495203551"
+    },
+    {
+      "owner_turn_id": "m3p-owner-turn-telegram-banana-begin",
+      "source": "already-captured-m3p-banana-begin",
+      "channel": "telegram",
+      "session_id": "agent:main:telegram:direct:8495203551"
+    }
+  ],
+  "blocked_wiring_ambiguous": false
+}

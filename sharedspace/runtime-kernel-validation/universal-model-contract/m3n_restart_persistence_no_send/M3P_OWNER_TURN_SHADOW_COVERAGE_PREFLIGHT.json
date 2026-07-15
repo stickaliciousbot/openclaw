@@ -1,0 +1,36 @@
+{
+  "schema": "umc.v1.m3p.coverage_preflight.v1",
+  "generated_utc": "2026-07-15T17:07:17.584Z",
+  "status": "PASS_M3P_OWNER_TURN_SHADOW_COVERAGE_PREFLIGHT",
+  "checks": {
+    "m3o_final_closeout_exists": true,
+    "m3o_final_status_pass": true,
+    "m3o_commit_known": true,
+    "m3_source_build_staged_install_pass_exists": true,
+    "installed_runtime_contains_m3_receipt_no_send_symbols": true,
+    "gateway_rpc_ok": true,
+    "telegram_on_ok": true,
+    "queue_depth_resting": true,
+    "context_overflow": 0,
+    "context_overflow_diag": 0,
+    "m3p_not_already_started": true,
+    "m4_not_started": true,
+    "enforcement_not_started": true,
+    "rollback_backup_exists": true,
+    "m3o_loader_note_preserved": true
+  },
+  "bounds": {
+    "duration_hours": 2,
+    "duration_ms": 7200000,
+    "checkpoint_cadence_minutes": 15,
+    "checkpoint_cadence_ms": 900000,
+    "expected_checkpoints": 8,
+    "hard_stop": true,
+    "minimum_observed_owner_turns": 3
+  },
+  "loader_export_note": {
+    "installed_runtime_contains_m3_implementation": true,
+    "observation_harness_may_use_temporary_in_memory_loader": true,
+    "no_production_authority_or_enforcement_implied": true
+  }
+}

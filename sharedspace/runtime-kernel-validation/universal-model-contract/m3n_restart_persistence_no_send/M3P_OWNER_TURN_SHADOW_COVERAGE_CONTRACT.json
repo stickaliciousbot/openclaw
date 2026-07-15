@@ -1,0 +1,23 @@
+{
+  "schema": "umc.v1.m3p.coverage_contract.v1",
+  "generated_utc": "2026-07-15T17:07:17.603Z",
+  "status": "PASS_M3P_OWNER_TURN_SHADOW_COVERAGE_CONTRACT_WRITTEN",
+  "per_eligible_turn_requires": [
+    "ContractEnvelope",
+    "ShadowObservationReceipt",
+    "UniversalContractReceipt",
+    "DeliveryReceipt mode no_send",
+    "TerminalContractCloseout",
+    "production path unchanged",
+    "ambient delivery separate",
+    "would-be result",
+    "zero shadow/provider/tool/mutation/authority counters"
+  ],
+  "distinctions": [
+    "coverage-eligible owner turn",
+    "ambient production owner-chat delivery",
+    "shadow observation event",
+    "observation harness import/export mechanism",
+    "production enforcement"
+  ]
+}

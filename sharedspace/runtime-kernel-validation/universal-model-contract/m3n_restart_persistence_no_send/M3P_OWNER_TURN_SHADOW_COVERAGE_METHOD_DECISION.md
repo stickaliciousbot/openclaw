@@ -1,0 +1,7 @@
+# M3P Coverage Method Decision
+
+Status: `PASS_M3P_OWNER_TURN_SHADOW_COVERAGE_METHOD_SELECTED`
+
+Selected: replay_already_captured_owner_turns_through_installed_m3_runtime_function_plus_bounded_health_soak
+
+Classification: installed runtime implementation exercised via temporary in-memory loader export; not production authority/enforcement

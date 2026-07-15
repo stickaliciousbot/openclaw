@@ -1,0 +1,52 @@
+{
+  "schema": "umc.v1.m3p.coverage_soak_closeout.v1",
+  "generated_utc": "2026-07-15T18:52:33.792Z",
+  "status": "PASS_M3P_OWNER_TURN_SHADOW_COVERAGE_SOAK_NO_SEND",
+  "configured_bounds": {
+    "duration_hours": 2,
+    "duration_ms": 7200000,
+    "checkpoint_cadence_minutes": 15,
+    "checkpoint_cadence_ms": 900000,
+    "expected_checkpoints": 8,
+    "hard_stop": true,
+    "minimum_observed_owner_turns": 3
+  },
+  "actual_duration_ms": 6316208,
+  "checkpoint_count": 8,
+  "owner_turns_observed": 3,
+  "eligible_owner_turns": 3,
+  "covered_owner_turns": 3,
+  "receipt_complete_owner_turns": 3,
+  "receipt_missing_owner_turns": 0,
+  "coverage_percentage": 100,
+  "would_be_PASS_count": 3,
+  "would_be_HOLD_count": 0,
+  "would_be_FAIL_count": 0,
+  "ContractEnvelope_count": 3,
+  "ShadowObservationReceipt_count": 3,
+  "UniversalContractReceipt_count": 3,
+  "DeliveryReceipt_count": 3,
+  "DeliveryReceipt_modes": [
+    "no_send"
+  ],
+  "TerminalContractCloseout_count": 3,
+  "shadow_telegram_send_count": 0,
+  "shadow_provider_model_live_call_count": 0,
+  "shadow_external_send_count": 0,
+  "shadow_write_tool_count": 0,
+  "shadow_durable_memory_mutation_count": 0,
+  "shadow_context_bridge_mutation_count": 0,
+  "shadow_route_config_mutation_count": 0,
+  "production_authority_change_count": 0,
+  "ambient_production_delivery_count": 3,
+  "observation_path_classification": "installed runtime implementation exercised via temporary in-memory loader export; not production authority/enforcement",
+  "gateway_telegram_health": {
+    "gateway_rpc_ok": true,
+    "telegram_on_ok": true
+  },
+  "rollback_readiness": {
+    "backup_exists": true,
+    "backup_path": "/home/stickai/.openclaw/backups/openclaw-m3-source-build-install-20260715T163100Z/openclaw-installed-package"
+  },
+  "recommended_next_milestone": "M4_VERIFIED_ROUTE_BRANDING_AND_DIRECT_BYPASS_FIREWALL"
+}
