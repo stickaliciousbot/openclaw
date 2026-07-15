@@ -1,0 +1,44 @@
+{
+  "schema": "umc.v1.m3o.owner_turn_shadow_observation_contract.v1",
+  "generated_utc": "2026-07-15T14:42:30Z",
+  "status": "PASS_M3O_OWNER_TURN_SHADOW_CONTRACT_DEFINED",
+  "milestone": "M3O_OWNER_TURN_SHADOW_OBSERVATION_NO_SEND",
+  "mode": "observe-only",
+  "delivery": "no-send for UMC shadow path",
+  "authority": "non-authoritative",
+  "scope": "owner turns only",
+  "production_response_path": "unchanged",
+  "shadow_receipts_required": true,
+  "required_receipts": {
+    "ContractEnvelope": true,
+    "shadow_receipt": true,
+    "UniversalContractReceipt": true,
+    "DeliveryReceipt": true,
+    "DeliveryReceipt_mode": "no_send",
+    "terminal_closeout": true
+  },
+  "required_zero_counts": {
+    "provider_model_live_calls_caused_by_shadow": 0,
+    "telegram_sends_caused_by_shadow": 0,
+    "external_sends_caused_by_shadow": 0,
+    "real_write_tools_caused_by_shadow": 0,
+    "memory_mutation_caused_by_shadow": 0,
+    "context_bridge_mutation_caused_by_shadow": 0,
+    "route_config_mutation_caused_by_shadow": 0,
+    "production_authority_change": 0
+  },
+  "classification_rule": "Normal production owner-chat replies are ambient production deliveries and must be classified separately from UMC shadow sends. They do not count as UMC shadow sends unless directly caused by the shadow path.",
+  "hard_boundaries": [
+    "No UMC shadow send",
+    "No external send caused by shadow",
+    "No provider/model live call caused by shadow",
+    "No real write tool caused by shadow",
+    "No route/fallback/config mutation",
+    "No durable memory mutation",
+    "No Context Bridge mutation",
+    "No production authority change",
+    "No M4",
+    "No VerifiedRoute enforcement",
+    "No contract enforcement"
+  ]
+}

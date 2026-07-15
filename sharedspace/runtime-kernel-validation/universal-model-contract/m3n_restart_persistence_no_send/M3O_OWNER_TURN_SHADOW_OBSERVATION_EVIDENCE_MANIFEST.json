@@ -1,0 +1,23 @@
+{
+  "schema": "umc.v1.m3o.owner_turn_shadow_observation_evidence_manifest.v1",
+  "generated_utc": "2026-07-15T14:45:00Z",
+  "final_status": "BLOCKED_M3O_OWNER_TURN_SHADOW_HOOK_NOT_INSTALLED_IN_RUNTIME",
+  "base_dir": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send",
+  "artifacts": [
+    {"path": "M3O_OWNER_TURN_SHADOW_PREFLIGHT.json", "status": "written"},
+    {"path": "M3O_OWNER_TURN_SHADOW_OBSERVATION_CONTRACT.json", "status": "written"},
+    {"path": "M3O_OWNER_TURN_SHADOW_OBSERVATION_CONTRACT.md", "status": "written"},
+    {"path": "M3O_OWNER_TURN_OBSERVATION_METHOD_DECISION.json", "status": "written"},
+    {"path": "M3O_OWNER_TURN_OBSERVATION_METHOD_DECISION.md", "status": "written"},
+    {"path": "M3O_OWNER_TURN_SHADOW_OBSERVATION_RESULT.json", "status": "written"},
+    {"path": "M3O_OWNER_TURN_SHADOW_OBSERVATION_RESULT.md", "status": "written"},
+    {"path": "M3O_OWNER_TURN_SHADOW_RECEIPT_VALIDATION.json", "status": "written"},
+    {"path": "M3O_OWNER_TURN_SHADOW_OBSERVATION_CLOSEOUT.json", "status": "written"},
+    {"path": "M3O_OWNER_TURN_SHADOW_OBSERVATION_SUMMARY.md", "status": "written"},
+    {"path": "M3O_OWNER_TURN_SHADOW_OBSERVATION_EVIDENCE_MANIFEST.json", "status": "self_referential"}
+  ],
+  "push_authorized": false,
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "branch_target_if_push_authorized": "evidence/umc-m3n-post-restart-health-failclosed-20260713",
+  "exact_next_milestone": "M3O_PRE_HOOK_INSTALL_DECISION_OR_M3P_SKIP"
+}

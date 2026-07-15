@@ -1,0 +1,25 @@
+{
+  "schema": "umc.v1.m3o.owner_turn_shadow_receipt_validation.v1",
+  "generated_utc": "2026-07-15T14:45:00Z",
+  "status": "BLOCKED_M3O_OWNER_TURN_SHADOW_RECEIPTS_NOT_EMITTED_HOOK_NOT_INSTALLED",
+  "checks": {
+    "contract_envelope_present": false,
+    "shadow_receipt_present": false,
+    "universal_contract_receipt_present": false,
+    "delivery_receipt_present": false,
+    "delivery_receipt_mode_no_send": false,
+    "terminal_closeout_present": false,
+    "production_path_unchanged": true,
+    "ambient_owner_chat_deliveries_classified_separately": true,
+    "shadow_telegram_send_count_zero": true,
+    "shadow_external_send_count_zero": true,
+    "shadow_provider_model_live_execution_count_zero": true,
+    "shadow_real_write_tool_count_zero": true,
+    "shadow_memory_mutation_count_zero": true,
+    "shadow_context_bridge_mutation_count_zero": true,
+    "shadow_route_config_mutation_count_zero": true,
+    "production_authority_change_count_zero": true
+  },
+  "root_cause": "UMC v1 shadow hook is not installed in the production runtime. No receipts can be emitted by a hook that does not exist in the runtime dist.",
+  "recommendation": "Install the UMC v1 shadow hook into the production runtime in observe-only/no-send mode before retrying M3O."
+}

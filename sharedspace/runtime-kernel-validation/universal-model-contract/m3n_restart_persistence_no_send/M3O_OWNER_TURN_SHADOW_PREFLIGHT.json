@@ -1,0 +1,20 @@
+{
+  "schema": "umc.v1.m3o.owner_turn_shadow_preflight.v1",
+  "generated_utc": "2026-07-15T14:41:00Z",
+  "status": "PASS_M3O_OWNER_TURN_SHADOW_PREFLIGHT",
+  "checks": {
+    "m3n_final_closeout_exists": true,
+    "m3n_final_status": "PASS_M3N_INSTALLED_SHADOW_OBSERVE_ONLY_RESTART_PERSISTENCE_NO_SEND",
+    "commit_44699890bb2bc79677c0a865878cc84063170a9d_exists": true,
+    "branch": "evidence/umc-m3n-post-restart-health-failclosed-20260713",
+    "head": "44699890bb2bc79677c0a865878cc84063170a9d",
+    "m3n_validation_status": "PASS_M3N_POST_RESTART_PERSISTENCE_VALIDATION",
+    "m3n_stability_caveat_classification": "M3N final stability closeout is authoritative; probe 6 not run due to subagent timeout is already accounted for in the preserved M3N closeout; do not reopen M3N",
+    "m3o_not_already_started": true,
+    "m4_not_started": true,
+    "enforcement_not_started": true,
+    "rollback_readiness_known": true
+  },
+  "m3n_source_closeout": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_FINAL_CLOSEOUT.json",
+  "m3n_source_validation": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_POST_RESTART_PERSISTENCE_VALIDATION.json"
+}

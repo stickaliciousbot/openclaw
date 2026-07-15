@@ -1,0 +1,44 @@
+{
+  "schema": "umc.v1.m3o.owner_turn_observation_method_decision.v1",
+  "generated_utc": "2026-07-15T14:42:30Z",
+  "status": "PASS_M3O_OWNER_TURN_OBSERVATION_METHOD_SELECTED",
+  "selected_method": "operator_provided_controlled_owner_turn_current_request_with_log_receipt_verification",
+  "method_class": "operator-provided controlled owner turn",
+  "owner_turn_candidate": {
+    "channel": "telegram",
+    "chat_type": "direct",
+    "sender": "Stick",
+    "message_intent": "Banana please begin M3O",
+    "turn_source": "current owner request in this transcript"
+  },
+  "why_safe": [
+    "The operator explicitly requested M3O begin and supplied the milestone contract in the owner direct Telegram session.",
+    "The method observes ordinary production handling of this owner turn; it does not send a Telegram probe and does not manufacture a tool send.",
+    "The UMC shadow path must remain observe-only/no-send/non-authoritative and will be validated only from receipts/logs/artifacts.",
+    "Normal assistant reply delivery, if any, is classified as ambient production delivery, not a UMC shadow send."
+  ],
+  "approval_requested": false,
+  "approval_basis": "The current owner request explicitly authorizes beginning M3O and is itself the controlled owner turn candidate; no separate Telegram probe or additional live-send request is required.",
+  "normal_production_reply_may_occur": true,
+  "ambient_owner_chat_delivery_classification": "ambient_production_delivery_not_umc_shadow_send_unless_directly_caused_by_shadow",
+  "shadow_no_send_boundary": true,
+  "provider_model_shadow_call_boundary": "provider/model live calls caused by shadow must remain 0",
+  "artifacts_to_write": [
+    "M3O_OWNER_TURN_SHADOW_PREFLIGHT.json",
+    "M3O_OWNER_TURN_SHADOW_OBSERVATION_CONTRACT.json",
+    "M3O_OWNER_TURN_SHADOW_OBSERVATION_CONTRACT.md",
+    "M3O_OWNER_TURN_OBSERVATION_METHOD_DECISION.json",
+    "M3O_OWNER_TURN_OBSERVATION_METHOD_DECISION.md",
+    "M3O_OWNER_TURN_SHADOW_OBSERVATION_RESULT.json",
+    "M3O_OWNER_TURN_SHADOW_OBSERVATION_RESULT.md",
+    "M3O_OWNER_TURN_SHADOW_RECEIPT_VALIDATION.json",
+    "M3O_POST_OBSERVATION_STABILITY_PROBE_0001.json",
+    "M3O_POST_OBSERVATION_STABILITY_PROBE_0002.json",
+    "M3O_POST_OBSERVATION_STABILITY_PROBE_0003.json",
+    "M3O_POST_OBSERVATION_STABILITY_SUMMARY.json",
+    "M3O_OWNER_TURN_SHADOW_OBSERVATION_CLOSEOUT.json",
+    "M3O_OWNER_TURN_SHADOW_OBSERVATION_SUMMARY.md",
+    "M3O_OWNER_TURN_SHADOW_OBSERVATION_EVIDENCE_MANIFEST.json"
+  ],
+  "rollback_no_authority_statement": "No production authority, enforcement, route/config mutation, memory mutation, Context Bridge mutation, or shadow delivery is authorized by this method decision. Rollback readiness remains the M3N preserved state and no-authority boundary."
+}

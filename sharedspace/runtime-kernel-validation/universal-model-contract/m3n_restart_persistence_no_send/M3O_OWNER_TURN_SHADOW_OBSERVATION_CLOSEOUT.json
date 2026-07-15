@@ -1,0 +1,38 @@
+{
+  "schema": "umc.v1.m3o.owner_turn_shadow_observation_closeout.v1",
+  "generated_utc": "2026-07-15T14:45:00Z",
+  "final_status": "BLOCKED_M3O_OWNER_TURN_SHADOW_HOOK_NOT_INSTALLED_IN_RUNTIME",
+  "m3n_source_closeout": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3N_FINAL_CLOSEOUT.json",
+  "m3n_final_status": "PASS_M3N_INSTALLED_SHADOW_OBSERVE_ONLY_RESTART_PERSISTENCE_NO_SEND",
+  "owner_turn_id": "telegram:8495203551:38576",
+  "observation_method": "operator_provided_controlled_owner_turn_current_request_with_log_receipt_verification",
+  "production_path_result": "normal_production_reply_delivered",
+  "ambient_production_delivery_count": 1,
+  "shadow_contract_envelope_count": 0,
+  "shadow_receipt_count": 0,
+  "universal_contract_receipt_count": 0,
+  "delivery_receipt_count": 0,
+  "delivery_receipt_mode": null,
+  "terminal_closeout_count": 0,
+  "would_be_result": "HOLD_HOOK_NOT_INSTALLED",
+  "shadow_telegram_send_count": 0,
+  "shadow_provider_model_live_call_count": 0,
+  "shadow_external_send_count": 0,
+  "shadow_memory_mutation_count": 0,
+  "shadow_context_bridge_mutation_count": 0,
+  "shadow_route_config_mutation_count": 0,
+  "production_authority_change_count": 0,
+  "post_observation_stability_result": "NOT_RUN_M3O_BLOCKED",
+  "disabled_cron_state": {
+    "id": "b29e6275-9bad-4622-8a56-041e5a2dc864",
+    "name": "context-plus-semantic-shadow-pass-watch",
+    "enabled": false
+  },
+  "rollback_readiness": {
+    "ready": true,
+    "basis": "M3N preserved state; no production authority/enforcement enabled; no runtime mutation occurred during M3O"
+  },
+  "recommended_next_milestone": "M3O_PRE_HOOK_INSTALL_DECISION_OR_M3P_SKIP",
+  "root_cause": "The UMC v1 shadow hook is not installed in the production OpenClaw runtime at /home/stickai/.npm-global/lib/node_modules/openclaw/dist/. The shadow hook exists only as a contract specification in workspace artifacts. Without the hook installed, no owner turn can produce shadow receipts, and M3O cannot observe shadow behavior.",
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION"
+}
