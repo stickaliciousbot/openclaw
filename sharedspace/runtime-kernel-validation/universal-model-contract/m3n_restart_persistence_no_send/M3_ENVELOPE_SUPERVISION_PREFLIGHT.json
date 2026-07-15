@@ -1,0 +1,67 @@
+{
+  "schema": "umc.v1.m3.envelope_supervision_preflight.v1",
+  "generated_utc": "2026-07-15T15:26:30Z",
+  "status": "PASS_M3_ENVELOPE_SUPERVISION_PREFLIGHT",
+  "source_phase": "M3_ENVELOPE_TOOLS_DELIVERY_SUPERVISION_SOURCE_IMPLEMENTATION_NO_APPLY",
+  "authoritative_state": {
+    "m3n_final_status": "PASS_M3N_INSTALLED_SHADOW_OBSERVE_ONLY_RESTART_PERSISTENCE_NO_SEND",
+    "m3o_current_status": "BLOCKED_M3O_OWNER_TURN_SHADOW_M3_ENVELOPE_RECEIPTS_NOT_IMPLEMENTED",
+    "rollback_corrected_diagnosis_status": "PASS_M3O_H1_ROLLBACK_DIAGNOSIS_CORRECTION_PRESERVED_M3_HANDOFF_READY",
+    "preservation_commit": "6976fa6a3b4078b1fcd70b08e49c17fd831372a3",
+    "preservation_result_commit": "dee9547c53b2d2dec0f4c667f75d5ae4f70528c3"
+  },
+  "inputs_verified": {
+    "m3n_final_pass_exists": true,
+    "m3o_corrected_blocked_closeout_exists": true,
+    "rollback_corrected_diagnosis_preservation_exists": true,
+    "m3_handoff_md_exists": true,
+    "m3_handoff_plan_json_exists": true,
+    "m2_route_admission_hook_present": true,
+    "m2_hook_terms_present": [
+      "resolveUmcV1DefaultRouteFromConfig",
+      "isUmcV1QueuedOwnerScope",
+      "applyUmcV1QueuedRouteAdmission",
+      "umcV1QueuedRouteIntent"
+    ],
+    "m3_envelope_receipt_delivery_supervision_not_implemented_yet": true,
+    "m3o_receipt_counts_from_corrected_closeout": {
+      "shadow_contract_envelope_count": 0,
+      "shadow_receipt_count": 0,
+      "universal_contract_receipt_count": 0,
+      "delivery_receipt_count": 0,
+      "terminal_closeout_count": 0
+    }
+  },
+  "health_state": {
+    "gateway_read_only_status": "cron.status ok enabled=true jobs=26",
+    "telegram_read_only_status": "not probed in this phase; prior channels.status probe=false in M3N final was healthy and current inbound owner turn proves surface continuity",
+    "disabled_cron_state_known": {
+      "id": "b29e6275-9bad-4622-8a56-041e5a2dc864",
+      "name": "context-plus-semantic-shadow-pass-watch",
+      "enabled": false
+    }
+  },
+  "workspace_scope": {
+    "unrelated_dirty_files_present": true,
+    "unrelated_dirty_files_not_staged_for_this_phase": true,
+    "implementation_scope": "source/fixtures/evidence under sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send only"
+  },
+  "hard_boundaries": {
+    "installed_runtime_mutation_count": 0,
+    "package_install_count": 0,
+    "tarball_apply_count": 0,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_shadow_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "m3o_rerun_count": 0,
+    "m3p_started": false,
+    "m4_started": false,
+    "enforcement_started": false
+  }
+}

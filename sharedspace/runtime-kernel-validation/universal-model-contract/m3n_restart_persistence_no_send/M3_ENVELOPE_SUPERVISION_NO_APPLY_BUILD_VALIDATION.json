@@ -1,0 +1,42 @@
+{
+  "schema": "umc.v1.m3.envelope_supervision_no_apply_build_validation.v1",
+  "generated_utc": "2026-07-15T15:36:30Z",
+  "status": "PASS_M3_ENVELOPE_SUPERVISION_NO_APPLY_BUILD_VALIDATION",
+  "validation_commands": [
+    "node --check umc_m3_envelope_supervision.mjs",
+    "node --check run_m3_envelope_supervision_fixtures.mjs",
+    "node run_m3_envelope_supervision_fixtures.mjs",
+    "git diff --check"
+  ],
+  "validation_results": {
+    "source_node_check": "PASS",
+    "fixture_node_check": "PASS",
+    "focused_fixtures": "PASS_M3_ENVELOPE_SUPERVISION_FIXTURES",
+    "git_diff_check": "PASS"
+  },
+  "no_apply_boundary": {
+    "installed_runtime_mutation_count": 0,
+    "package_install_count": 0,
+    "tarball_apply_count": 0,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_shadow_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "m3o_rerun_count": 0,
+    "m3p_started": false,
+    "m4_started": false,
+    "enforcement_started": false
+  },
+  "source_static_validation": {
+    "source_files": [
+      "umc_m3_envelope_supervision.mjs",
+      "run_m3_envelope_supervision_fixtures.mjs"
+    ],
+    "edited_installed_runtime_files": [],
+    "build_artifacts_applied_to_runtime": []
+  }
+}

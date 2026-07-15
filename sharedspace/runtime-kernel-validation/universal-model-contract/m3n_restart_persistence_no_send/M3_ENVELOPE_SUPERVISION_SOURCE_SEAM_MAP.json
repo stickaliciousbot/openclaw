@@ -1,0 +1,79 @@
+{
+  "schema": "umc.v1.m3.envelope_supervision_source_seam_map.v1",
+  "generated_utc": "2026-07-15T15:28:00Z",
+  "status": "PASS_M3_ENVELOPE_SUPERVISION_SOURCE_SEAMS_MAPPED",
+  "source_phase": "SOURCE_IMPLEMENTATION_NO_APPLY",
+  "seams": {
+    "owner_turn_admission_from_m2_hook": {
+      "existing_runtime_terms": [
+        "resolveUmcV1DefaultRouteFromConfig",
+        "isUmcV1QueuedOwnerScope",
+        "applyUmcV1QueuedRouteAdmission",
+        "umcV1QueuedRouteIntent"
+      ],
+      "m3_source_entrypoint": "runM3EnvelopeSupervisor(input)",
+      "handoff_contract": "Consumes route_intent from M2 admission; does not replace or reinstall M2 hook."
+    },
+    "contract_envelope_construction": {
+      "source_function": "buildContractEnvelope(input, timestamps)",
+      "artifact_type": "ContractEnvelope",
+      "authority_mode": "observe_only",
+      "delivery_mode": "no_send",
+      "production_path": "unchanged"
+    },
+    "shadow_observation_receipt_emission": {
+      "source_function": "buildShadowObservationReceipt(envelope, input, safetyCounters, timestamps)",
+      "artifact_type": "ShadowObservationReceipt",
+      "side_effects": "none"
+    },
+    "tool_proposal_supervision_boundary": {
+      "source_function": "buildToolSupervisionReceipt(envelope, input, safetyCounters, timestamps)",
+      "artifact_type": "ToolSupervisionReceipt",
+      "policy": "observe proposals, block real write execution, do not call provider/model"
+    },
+    "delivery_receipt_no_send_emission": {
+      "source_function": "buildDeliveryReceipt(envelope, input, safetyCounters, timestamps)",
+      "artifact_type": "DeliveryReceipt",
+      "delivery_mode": "no_send",
+      "side_effects": "no Telegram/external delivery"
+    },
+    "universal_contract_receipt_emission": {
+      "source_function": "buildUniversalContractReceipt(parts, timestamps)",
+      "artifact_type": "UniversalContractReceipt",
+      "binding": "route_intent + envelope + shadow observation + tool supervision + delivery receipt"
+    },
+    "terminal_closeout_emission": {
+      "source_function": "buildTerminalContractCloseout(parts, status, reason, timestamps)",
+      "artifact_type": "TerminalContractCloseout",
+      "explicit_status_required": true
+    },
+    "production_reply_path_separation": {
+      "source_field": "production_path.unchanged",
+      "requirement": "Supervisor is pure observe-only and returns receipts; it does not alter production reply routing or payload."
+    },
+    "ambient_owner_chat_delivery_classification": {
+      "source_field": "ambient_delivery_classification",
+      "classification": "AMBIENT_OWNER_CHAT_DELIVERY_SEPARATE_FROM_SHADOW_NO_SEND",
+      "requirement": "Production deliveries are counted separately from shadow delivery receipts."
+    },
+    "safety_counter_collection": {
+      "source_function": "createZeroSafetyCounters(overrides)",
+      "required_zero_counters": [
+        "shadow_telegram_send_count",
+        "shadow_external_send_count",
+        "shadow_provider_model_live_call_count",
+        "shadow_real_write_tool_count",
+        "shadow_durable_memory_mutation_count",
+        "shadow_context_bridge_mutation_count",
+        "shadow_route_config_mutation_count",
+        "production_authority_change_count"
+      ]
+    }
+  },
+  "source_files_planned": [
+    "umc_m3_envelope_supervision.mjs",
+    "run_m3_envelope_supervision_fixtures.mjs"
+  ],
+  "installed_runtime_mutation": false,
+  "gateway_restart_required": false
+}

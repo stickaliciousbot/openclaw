@@ -1,0 +1,56 @@
+{
+  "schema": "umc.v1.m3.envelope_contract_schema_result.v1",
+  "generated_utc": "2026-07-15T15:31:30Z",
+  "status": "PASS_M3_ENVELOPE_CONTRACT_SCHEMA_DEFINED",
+  "source_file": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/umc_m3_envelope_supervision.mjs",
+  "contract_structures_defined": [
+    "ContractEnvelope",
+    "ShadowObservationReceipt",
+    "ToolSupervisionReceipt",
+    "DeliveryReceipt",
+    "UniversalContractReceipt",
+    "TerminalContractCloseout"
+  ],
+  "minimum_required_fields": {
+    "contract_version": true,
+    "turn_id": true,
+    "session_id": true,
+    "channel": true,
+    "owner_scope": true,
+    "route_intent": true,
+    "authority_mode": true,
+    "delivery_mode": true,
+    "tool_policy": true,
+    "postcondition_policy": true,
+    "safety_counters": true,
+    "timestamps": true,
+    "result_status": true,
+    "reason": true,
+    "evidence_refs": true
+  },
+  "required_modes": {
+    "authority_mode": "observe_only",
+    "delivery_mode": "no_send",
+    "owner_scope": "owner_turn",
+    "production_path": "unchanged"
+  },
+  "required_zero_safety_counters": [
+    "shadow_telegram_send_count",
+    "shadow_external_send_count",
+    "shadow_provider_model_live_call_count",
+    "shadow_real_write_tool_count",
+    "shadow_durable_memory_mutation_count",
+    "shadow_context_bridge_mutation_count",
+    "shadow_route_config_mutation_count",
+    "production_authority_change_count"
+  ],
+  "typed_non_pass_statuses": {
+    "non_owner_or_ungated": "SKIP_M3_SUPERVISOR_NOT_OWNER_OR_UNGATED",
+    "missing_route_intent": "HOLD_M3_ROUTE_INTENT_MISSING",
+    "missing_required_receipt": "FAIL_M3_REQUIRED_RECEIPT_MISSING",
+    "nonzero_forbidden_counter": "FAIL_M3_SAFETY_COUNTER_NONZERO"
+  },
+  "installed_runtime_mutation": false,
+  "gateway_restart_required": false,
+  "telegram_send_probe_required": false
+}

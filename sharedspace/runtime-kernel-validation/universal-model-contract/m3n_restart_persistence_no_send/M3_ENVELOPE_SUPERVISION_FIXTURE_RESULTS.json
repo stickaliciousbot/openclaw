@@ -1,0 +1,125 @@
+{
+  "schema": "umc.v1.m3.envelope_supervision_fixture_results.v1",
+  "generated_utc": "2026-07-15T15:33:00Z",
+  "status": "PASS_M3_ENVELOPE_SUPERVISION_FIXTURES",
+  "source_files": [
+    "umc_m3_envelope_supervision.mjs",
+    "run_m3_envelope_supervision_fixtures.mjs"
+  ],
+  "cases": [
+    {
+      "name": "eligible_owner_turn_emits_all_m3_receipts_no_send",
+      "status": "PASS",
+      "result_status": "PASS_M3_TERMINAL_CONTRACT_CLOSEOUT_EMITTED",
+      "checks": {
+        "supervisor_active": true,
+        "emits_contract_envelope": true,
+        "emits_shadow_observation_receipt": true,
+        "emits_tool_supervision_receipt": true,
+        "emits_delivery_receipt_no_send": true,
+        "emits_universal_contract_receipt": true,
+        "emits_terminal_closeout": true,
+        "terminal_status_pass": true,
+        "production_response_path_unchanged": true,
+        "ambient_owner_chat_delivery_classified_separately": true,
+        "shadow_telegram_send_count_zero": true,
+        "shadow_external_send_count_zero": true,
+        "shadow_provider_model_live_call_count_zero": true,
+        "shadow_real_write_tool_count_zero": true,
+        "shadow_durable_memory_mutation_count_zero": true,
+        "shadow_context_bridge_mutation_count_zero": true,
+        "shadow_route_config_mutation_count_zero": true,
+        "production_authority_change_count_zero": true,
+        "all_forbidden_counters_zero": true,
+        "write_tool_proposal_not_executed": true
+      }
+    },
+    {
+      "name": "non_owner_or_ungated_turn_does_not_activate",
+      "status": "PASS",
+      "result_status": "SKIP_M3_SUPERVISOR_NOT_OWNER_OR_UNGATED",
+      "checks": {
+        "supervisor_inactive": true,
+        "skip_status": true,
+        "no_receipts_emitted": true,
+        "production_response_path_unchanged": true,
+        "all_forbidden_counters_zero": true
+      }
+    },
+    {
+      "name": "missing_route_intent_produces_typed_hold_not_pass",
+      "status": "PASS",
+      "result_status": "HOLD_M3_ROUTE_INTENT_MISSING",
+      "checks": {
+        "supervisor_active": true,
+        "hold_status": true,
+        "not_pass": true,
+        "terminal_closeout_emitted": true,
+        "production_response_path_unchanged": true,
+        "all_forbidden_counters_zero": true
+      }
+    },
+    {
+      "name": "missing_required_receipt_produces_fail_not_pass",
+      "status": "PASS",
+      "result_status": "FAIL_M3_REQUIRED_RECEIPT_MISSING",
+      "checks": {
+        "validation_failed": true,
+        "delivery_receipt_missing_detected": true,
+        "fail_status": true,
+        "not_pass": true,
+        "all_forbidden_counters_zero": true
+      }
+    },
+    {
+      "name": "nonzero_forbidden_counter_fails_terminal_closeout",
+      "status": "PASS",
+      "result_status": "FAIL_M3_SAFETY_COUNTER_NONZERO",
+      "checks": {
+        "supervisor_active": true,
+        "fail_status": true,
+        "not_pass": true,
+        "shadow_telegram_send_counter_detected": true,
+        "production_response_path_unchanged": true
+      }
+    }
+  ],
+  "summary_checks": {
+    "eligible_owner_turn_emits_contract_envelope": true,
+    "eligible_owner_turn_emits_shadow_observation_receipt": true,
+    "eligible_owner_turn_emits_delivery_receipt_mode_no_send": true,
+    "eligible_owner_turn_emits_universal_contract_receipt": true,
+    "eligible_owner_turn_emits_terminal_closeout": true,
+    "production_response_path_unchanged": true,
+    "ambient_owner_chat_delivery_classified_separately": true,
+    "shadow_telegram_send_count": 0,
+    "shadow_external_send_count": 0,
+    "shadow_provider_model_live_call_count": 0,
+    "shadow_real_write_tool_count": 0,
+    "shadow_durable_memory_mutation_count": 0,
+    "shadow_context_bridge_mutation_count": 0,
+    "shadow_route_config_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "non_owner_or_ungated_turn_does_not_activate": true,
+    "missing_route_intent_typed_hold_not_pass": true,
+    "missing_required_receipt_fail_not_pass": true,
+    "nonzero_forbidden_counter_fail_not_pass": true
+  },
+  "receipt_jsonl_path": "M3_ENVELOPE_SUPERVISION_FIXTURE_RECEIPTS.jsonl",
+  "receipt_jsonl_sha256": "ad87c278088ef44a7130efb89c3f4777a4b6cead87384007e9389bc4e60e599f",
+  "hard_boundaries_observed": {
+    "installed_runtime_mutation_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_shadow_call_count": 0,
+    "real_write_tool_execution_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "m3o_rerun_count": 0,
+    "m3p_started": false,
+    "m4_started": false,
+    "enforcement_started": false
+  }
+}

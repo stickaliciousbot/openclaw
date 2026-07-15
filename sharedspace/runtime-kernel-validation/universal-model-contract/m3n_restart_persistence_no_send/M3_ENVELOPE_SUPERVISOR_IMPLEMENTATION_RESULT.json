@@ -1,0 +1,40 @@
+{
+  "schema": "umc.v1.m3.envelope_supervisor_implementation_result.v1",
+  "generated_utc": "2026-07-15T15:34:00Z",
+  "status": "PASS_M3_ENVELOPE_SUPERVISOR_IMPLEMENTED",
+  "source_file": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/umc_m3_envelope_supervision.mjs",
+  "fixture_file": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/run_m3_envelope_supervision_fixtures.mjs",
+  "implemented_behaviors": {
+    "eligible_owner_turn_can_emit_contract_envelope": true,
+    "eligible_owner_turn_can_emit_shadow_observation_receipt": true,
+    "eligible_owner_turn_can_emit_tool_supervision_receipt": true,
+    "eligible_owner_turn_can_emit_delivery_receipt_mode_no_send": true,
+    "eligible_owner_turn_can_emit_universal_contract_receipt": true,
+    "eligible_owner_turn_can_emit_terminal_contract_closeout": true,
+    "non_owner_or_ungated_turn_skips_supervisor": true,
+    "missing_route_intent_returns_typed_hold": true,
+    "missing_required_receipt_returns_fail": true,
+    "nonzero_forbidden_counter_returns_fail": true,
+    "ambient_production_delivery_classified_separately": true,
+    "production_reply_path_unchanged": true
+  },
+  "forbidden_behaviors": {
+    "telegram_send": false,
+    "external_send": false,
+    "provider_model_shadow_call": false,
+    "real_write_tool_execution": false,
+    "durable_memory_mutation": false,
+    "context_bridge_mutation": false,
+    "route_fallback_config_mutation": false,
+    "production_authority_change": false,
+    "production_response_path_alteration": false
+  },
+  "implementation_mode": {
+    "source_only": true,
+    "observe_only": true,
+    "no_send": true,
+    "installed_runtime_mutation": false,
+    "gateway_restart_required": false,
+    "m3o_rerun": false
+  }
+}
