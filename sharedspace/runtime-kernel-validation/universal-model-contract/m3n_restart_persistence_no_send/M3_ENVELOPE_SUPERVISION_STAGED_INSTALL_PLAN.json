@@ -1,0 +1,88 @@
+{
+  "schema": "umc.v1.m3.envelope_supervision_staged_install_plan.v1",
+  "generated_utc": "2026-07-15T15:40:00Z",
+  "status": "PASS_M3_ENVELOPE_SUPERVISION_STAGED_INSTALL_PLAN_READY",
+  "source_commit_to_install": "70ccd82feb4e80a77d54c38caac8e2502c370359",
+  "source_branch": "evidence/umc-m3n-post-restart-health-failclosed-20260713",
+  "source_files": [
+    "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/umc_m3_envelope_supervision.mjs",
+    "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/run_m3_envelope_supervision_fixtures.mjs"
+  ],
+  "build_command": "npm run build OR project-equivalent OpenClaw package build from a clean source checkout after mapping the source-only module into src/umc/m3 envelope supervision; do not build from dirty installed dist",
+  "package_or_staged_artifact_path": "TO_BE_CREATED_IN_APPROVED_INSTALL_PHASE_ONLY; no tarball/package was created in source-only milestone",
+  "expected_installed_files_to_change_after_approval": [
+    "dist/agent-runner.runtime-*.js OR its source-owned successor if M3 supervisor is wired at the M2 route-intent admission boundary",
+    "dist/get-reply-*.js OR its source-owned successor if direct owner-turn shadow receipt capture requires reply-path readback",
+    "new dist/source-owned M3 envelope supervision module emitted by build"
+  ],
+  "installed_files_that_must_not_change": [
+    "dist/route-reply-D6Nvzk_V.js unless an explicitly reviewed source diff proves delivery receipt readback requires it",
+    "dist/umc-owner-turn-shadow-hook-H1.js must remain absent; do not reinstall redundant H1 hook"
+  ],
+  "plugin_manifest_preservation_checks": [
+    "Before install, snapshot plugin manifests and channel plugin registry files.",
+    "After build/package, compare plugin manifest paths and hashes; unexpected plugin manifest deletion/change is HOLD.",
+    "Verify Telegram plugin registration and channel status with read-only status/probe=false only after approved install/restart.",
+    "Do not repair plugin manifests opportunistically during this M3 install; stop and preserve evidence on mismatch."
+  ],
+  "gateway_telegram_health_validation_after_approved_install": [
+    "Use first-class gateway.restart only if install approval explicitly includes restart.",
+    "Validate Gateway RPC with cron.status or equivalent first-class read-only RPC.",
+    "Validate Telegram with channels.status probe=false only; no live send/probe.",
+    "Confirm helper umc-owner-turn-shadow-hook-H1.js remains absent.",
+    "Confirm M2 route-admission vocabulary remains present and M3 receipt vocabulary is now source-installed."
+  ],
+  "rollback_path": [
+    "Retain pre-install package/dist snapshot before mutation.",
+    "If build/install fails before runtime mutation, discard staged package and keep current runtime unchanged.",
+    "If installed runtime mutation occurs and post-install validation fails, restore exact pre-install dist/package snapshot and first-class restart if authorized.",
+    "Preserve rollback evidence and do not rerun M3O until rollback state is verified."
+  ],
+  "approval_boundary": {
+    "requires_explicit_user_approval_before": [
+      "package build intended for runtime installation",
+      "tarball/package apply",
+      "installed runtime/dist mutation",
+      "Gateway restart/reload",
+      "Telegram health probe beyond channels.status probe=false",
+      "M3O rerun"
+    ],
+    "this_phase_executed_install": false
+  },
+  "post_install_m3_verification": [
+    "Run source fixture suite unchanged: PASS_M3_ENVELOPE_SUPERVISION_FIXTURES.",
+    "Run installed no-send fixture/readback proving ContractEnvelope, ShadowObservationReceipt, ToolSupervisionReceipt, DeliveryReceipt mode=no_send, UniversalContractReceipt, and TerminalContractCloseout emission.",
+    "Verify safety counters all zero for shadow sends, external sends, provider calls, real write tools, memory mutation, Context Bridge mutation, route/config mutation, and production authority change.",
+    "Verify production response path unchanged.",
+    "Verify ambient production deliveries are classified separately from shadow no_send delivery receipts."
+  ],
+  "m3o_rerun_plan_after_install": [
+    "Only after installed M3 verification passes, run M3O_OWNER_TURN_SHADOW_OBSERVATION_NO_SEND on an approved owner-turn observation method.",
+    "M3O expected pass gate: real owner turn emits all M3 receipts with delivery_mode=no_send and terminal closeout, without Telegram shadow send/provider call/write mutation/authority change.",
+    "If any receipt missing, classify HOLD/FAIL and preserve evidence; do not proceed to M3P/M4."
+  ],
+  "previous_package_topology_failure_controls": [
+    "Do not patch installed dist directly except through an explicit approved emergency rollback/repair path.",
+    "Do not rely on future/spec vocabulary alone to detect hook presence; verify M2 implementation vocabulary and M3 receipt vocabulary separately.",
+    "Keep route-reply H1 helper absent; do not resurrect redundant hook artifacts.",
+    "Use scoped staging and targeted status checks because workspace contains unrelated dirty files."
+  ],
+  "hard_boundaries_observed_in_this_phase": {
+    "installed_runtime_mutation_count": 0,
+    "package_install_count": 0,
+    "tarball_apply_count": 0,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_shadow_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "m3o_rerun_count": 0,
+    "m3p_started": false,
+    "m4_started": false,
+    "enforcement_started": false
+  },
+  "exact_next_milestone_after_pass": "M3_ENVELOPE_SUPERVISION_STAGED_INSTALL_AND_M3O_RERUN"
+}
