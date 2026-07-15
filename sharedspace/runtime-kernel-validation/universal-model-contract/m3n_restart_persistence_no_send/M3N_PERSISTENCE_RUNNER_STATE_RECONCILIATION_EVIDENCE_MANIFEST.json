@@ -1,0 +1,36 @@
+{
+  "schema": "umc.v1.m3n.persistence_runner_state_reconciliation_evidence_manifest.v1",
+  "generated_utc": "2026-07-15T14:29:00Z",
+  "final_status": "HOLD_M3N_PERSISTENCE_RUNNER_ACTIVE_WAITING",
+  "base_dir": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send",
+  "artifacts": [
+    {"path": "M3N_PERSISTENCE_RUNNER_STATE_RECONCILIATION.json", "status": "written"},
+    {"path": "M3N_PERSISTENCE_RUNNER_STATE_RECONCILIATION.md", "status": "written"},
+    {"path": "M3N_PERSISTENCE_ARTIFACT_TIMELINE.json", "status": "written"},
+    {"path": "M3N_PERSISTENCE_ARTIFACT_TIMELINE.md", "status": "written"},
+    {"path": "M3N_PERSISTENCE_UNCERTAIN_RUN_SAFETY_CHECK.json", "status": "written"},
+    {"path": "M3N_PERSISTENCE_RUNNER_RECOVERY_DECISION.json", "status": "written"},
+    {"path": "M3N_PERSISTENCE_RUNNER_RECOVERY_DECISION.md", "status": "written"},
+    {"path": "M3N_PERSISTENCE_RUNNER_STATE_RECONCILIATION_CLOSEOUT.json", "status": "written"},
+    {"path": "M3N_PERSISTENCE_RUNNER_STATE_RECONCILIATION_SUMMARY.md", "status": "written"},
+    {"path": "M3N_PERSISTENCE_RUNNER_STATE_RECONCILIATION_EVIDENCE_MANIFEST.json", "status": "self_referential"}
+  ],
+  "source_evidence": [
+    "/proc/856944/status",
+    "/proc/856944/wchan",
+    "/proc/856944/io",
+    "M3N_POST_RESTART_PERSISTENCE_PREFLIGHT.json",
+    "M3N_POST_RESTART_PERSISTENCE_STATE_COMPARISON.json",
+    "M3N_NO_SEND_NO_AUTHORITY_VERIFICATION.json",
+    "M3N_POST_RESTART_NO_SEND_FIXTURE_RESULT.json",
+    "M3N_PERSISTENCE_STABILITY_PROBE_0001.json",
+    "M3N_PERSISTENCE_STABILITY_PROBE_0002.json",
+    "M3N_PERSISTENCE_STABILITY_PROBE_0003.json",
+    "M3N_PERSISTENCE_STABILITY_PROBE_0004.json",
+    "M3N_PERSISTENCE_STABILITY_PROBE_0005.json"
+  ],
+  "push_authorized": false,
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "branch_target_if_push_authorized": "evidence/umc-m3n-post-restart-health-failclosed-20260713",
+  "exact_next_phase": "WAIT_FOR_M3N_PERSISTENCE_RUNNER_COMPLETION"
+}

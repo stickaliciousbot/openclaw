@@ -1,0 +1,36 @@
+{
+  "schema": "umc.v1.m3n.persistence_runner_state_reconciliation.v1",
+  "generated_utc": "2026-07-15T14:29:00Z",
+  "status": "PASS_M3N_PERSISTENCE_RUNNER_STATE_RECONCILED",
+  "known_pid": 856944,
+  "runner_command": "/usr/bin/python3.12 sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/run_m3n_post_restart_persistence_verification.py",
+  "pid_state": {
+    "pid": 856944,
+    "ppid": 795787,
+    "state": "S (sleeping)",
+    "threads": 1,
+    "wchan": "hrtimer_nanosleep",
+    "io": {
+      "rchar": 287487438,
+      "wchar": 423808,
+      "syscr": 136080,
+      "syscw": 1304,
+      "read_bytes": 971374592,
+      "write_bytes": 446464,
+      "cancelled_write_bytes": 0
+    }
+  },
+  "runner_state_classification": "RUNNER_ACTIVE_PROGRESSING",
+  "classification_basis": [
+    "PID 856944 exists and is python3.12 with the expected M3N persistence verification command.",
+    "Process state is S/sleeping, not D I/O wait, and wchan is hrtimer_nanosleep, consistent with sleeping between timed stability probes.",
+    "Artifacts progressed after earlier HOLD: state comparison exists, no-send/no-authority exists, fixture skip exists, and stability probes 1 through 5 exist and pass.",
+    "Canonical final artifacts are still missing because probe 6/final closeout have not yet completed."
+  ],
+  "artifact_root": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/",
+  "no_rerun": true,
+  "no_restart": true,
+  "no_kill": true,
+  "no_send": true,
+  "no_authority": true
+}

@@ -1,0 +1,46 @@
+{
+  "schema": "umc.v1.m3n.persistence_runner_state_reconciliation_closeout.v1",
+  "generated_utc": "2026-07-15T14:29:00Z",
+  "final_status": "HOLD_M3N_PERSISTENCE_RUNNER_ACTIVE_WAITING",
+  "runner_state_classification": "RUNNER_ACTIVE_PROGRESSING",
+  "pid_state": {
+    "pid": 856944,
+    "state": "S (sleeping)",
+    "wchan": "hrtimer_nanosleep",
+    "classification": "active cadence sleep between probes"
+  },
+  "artifact_timeline_classification": "STABILITY_WATCH_STARTED",
+  "canonical_artifact_presence": {
+    "M3N_POST_RESTART_PERSISTENCE_PREFLIGHT.json": true,
+    "M3N_POST_RESTART_PERSISTENCE_STATE_COMPARISON.json": true,
+    "M3N_NO_SEND_NO_AUTHORITY_VERIFICATION.json": true,
+    "M3N_POST_RESTART_NO_SEND_FIXTURE_RESULT.json": true,
+    "M3N_PERSISTENCE_STABILITY_PROBE_0001.json": true,
+    "M3N_PERSISTENCE_STABILITY_PROBE_0002.json": true,
+    "M3N_PERSISTENCE_STABILITY_PROBE_0003.json": true,
+    "M3N_PERSISTENCE_STABILITY_PROBE_0004.json": true,
+    "M3N_PERSISTENCE_STABILITY_PROBE_0005.json": true,
+    "M3N_PERSISTENCE_STABILITY_PROBE_0006.json": false,
+    "M3N_PERSISTENCE_STABILITY_SUMMARY.json": false,
+    "M3N_POST_RESTART_PERSISTENCE_VERIFICATION_CLOSEOUT.json": false,
+    "M3N_FINAL_CLOSEOUT.json": false
+  },
+  "safety_check_result": "PASS_M3N_PERSISTENCE_UNCERTAIN_RUN_SAFETY_CLEAN",
+  "recovery_decision": "PATH_A_WAIT_FOR_ACTIVE_RUNNER",
+  "approval_requested": false,
+  "proposed_command": null,
+  "files_changed": [
+    "M3N_PERSISTENCE_RUNNER_STATE_RECONCILIATION.json",
+    "M3N_PERSISTENCE_RUNNER_STATE_RECONCILIATION.md",
+    "M3N_PERSISTENCE_ARTIFACT_TIMELINE.json",
+    "M3N_PERSISTENCE_ARTIFACT_TIMELINE.md",
+    "M3N_PERSISTENCE_UNCERTAIN_RUN_SAFETY_CHECK.json",
+    "M3N_PERSISTENCE_RUNNER_RECOVERY_DECISION.json",
+    "M3N_PERSISTENCE_RUNNER_RECOVERY_DECISION.md",
+    "M3N_PERSISTENCE_RUNNER_STATE_RECONCILIATION_CLOSEOUT.json",
+    "M3N_PERSISTENCE_RUNNER_STATE_RECONCILIATION_SUMMARY.md",
+    "M3N_PERSISTENCE_RUNNER_STATE_RECONCILIATION_EVIDENCE_MANIFEST.json"
+  ],
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "exact_next_phase": "WAIT_FOR_M3N_PERSISTENCE_RUNNER_COMPLETION"
+}

@@ -1,0 +1,35 @@
+{
+  "schema": "umc.v1.m3n.persistence_uncertain_run_safety_check.v1",
+  "generated_utc": "2026-07-15T14:29:00Z",
+  "status": "PASS_M3N_PERSISTENCE_UNCERTAIN_RUN_SAFETY_CLEAN",
+  "basis_artifacts": [
+    "M3N_NO_SEND_NO_AUTHORITY_VERIFICATION.json",
+    "M3N_PERSISTENCE_STABILITY_PROBE_0001.json",
+    "M3N_PERSISTENCE_STABILITY_PROBE_0002.json",
+    "M3N_PERSISTENCE_STABILITY_PROBE_0003.json",
+    "M3N_PERSISTENCE_STABILITY_PROBE_0004.json",
+    "M3N_PERSISTENCE_STABILITY_PROBE_0005.json"
+  ],
+  "gateway_restart_count_since_persistence_phase": 0,
+  "telegram_send_probe_count_from_persistence_lane": 0,
+  "external_send_count": 0,
+  "provider_model_shadow_call_count": 0,
+  "route_fallback_config_mutation_count": 0,
+  "durable_memory_mutation_count": 0,
+  "context_bridge_mutation_count": 0,
+  "production_authority_change_count": 0,
+  "cron_reenable_count": 0,
+  "m3o_started": false,
+  "m4_started": false,
+  "enforcement_started": false,
+  "selected_cron_state": {
+    "id": "b29e6275-9bad-4622-8a56-041e5a2dc864",
+    "name": "context-plus-semantic-shadow-pass-watch",
+    "enabled": false
+  },
+  "notes": [
+    "No unauthorized action was found in no-send/no-authority artifact or stability probes 1 through 5.",
+    "Global owner-chat deliveries are tracked separately by the runner and are zero in observed probes.",
+    "No restart, sends, provider shadow calls, route/config mutation, durable memory mutation, Context Bridge mutation, authority change, cron re-enable, M3O, M4, or enforcement was observed."
+  ]
+}

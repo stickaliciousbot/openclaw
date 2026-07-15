@@ -1,0 +1,21 @@
+{
+  "schema": "umc.v1.m3n.persistence_runner_recovery_decision.v1",
+  "generated_utc": "2026-07-15T14:29:00Z",
+  "status": "PASS_M3N_PERSISTENCE_RUNNER_RECOVERY_DECISION_READY",
+  "recovery_path": "PATH_A_WAIT_FOR_ACTIVE_RUNNER",
+  "decision_basis": [
+    "PID 856944 is active and matches the expected persistence verification runner command.",
+    "Process is sleeping in hrtimer_nanosleep, consistent with cadence wait between probes rather than stuck I/O.",
+    "Artifacts show active progress: preflight, state comparison, no-send/no-authority, fixture skip, and probes 1-5 are present; probes 1-5 passed.",
+    "Canonical final closeout artifacts are missing because probe 6 and summary have not completed yet.",
+    "Safety check is clean."
+  ],
+  "approval_requested": false,
+  "proposed_command": null,
+  "next_phase": "WAIT_FOR_M3N_PERSISTENCE_RUNNER_COMPLETION",
+  "do_not_kill": true,
+  "do_not_rerun": true,
+  "do_not_restart": true,
+  "do_not_send": true,
+  "do_not_start_m3o_m4_or_enforcement": true
+}
