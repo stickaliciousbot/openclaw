@@ -1,0 +1,68 @@
+{
+  "schema": "umc.v1.m3.envelope_tools_delivery_supervision_plan.v1",
+  "generated_utc": "2026-07-15T15:20:00Z",
+  "status": "M3_ENVELOPE_TOOLS_DELIVERY_SUPERVISION_HANDOFF_READY_NO_IMPLEMENTATION_STARTED",
+  "exact_next_milestone": "M3_ENVELOPE_TOOLS_DELIVERY_SUPERVISION",
+  "preconditions": {
+    "m3n_final_status": "PASS_M3N_INSTALLED_SHADOW_OBSERVE_ONLY_RESTART_PERSISTENCE_NO_SEND",
+    "m3o_current_status": "BLOCKED_M3O_OWNER_TURN_SHADOW_M3_ENVELOPE_RECEIPTS_NOT_IMPLEMENTED",
+    "h1_redundant_patch_rolled_back": true,
+    "m2_route_admission_hook_exists": true,
+    "m2_route_admission_hook_is_not_missing_piece": true
+  },
+  "existing_m2_hook": {
+    "files": [
+      "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/agent-runner.runtime-a09vVD0N.js",
+      "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/get-reply-DGnDV9U-.js"
+    ],
+    "vocabulary": [
+      "resolveUmcV1DefaultRouteFromConfig",
+      "isUmcV1QueuedOwnerScope",
+      "applyUmcV1QueuedRouteAdmission",
+      "umcV1QueuedRouteIntent"
+    ],
+    "do_not_reinstall_redundant_hook": true
+  },
+  "m3_required_capabilities": [
+    "ContractEnvelope",
+    "observe_only_tool_supervision",
+    "DeliveryReceipt_mode_no_send",
+    "UniversalContractReceipt",
+    "terminal_closeout_with_explicit_status"
+  ],
+  "initial_mode": {
+    "observe_only": true,
+    "no_send": true,
+    "no_production_authority_change": true,
+    "no_enforcement": true
+  },
+  "implementation_sequence_recommended": [
+    "Design M3 envelope and receipt schemas against existing M2 route intent vocabulary.",
+    "Add local no-send fixture seam first; do not mutate runtime dist until fixture contract passes.",
+    "Implement tool supervision and no-send delivery receipt emission.",
+    "Emit UniversalContractReceipt tying route intent, envelope, tool observations, and delivery receipt together.",
+    "Emit terminal closeout with explicit PASS/HOLD/FAIL/ABORT status.",
+    "Only after local no-send fixtures pass, plan an approved install/reload path.",
+    "Rerun M3O only after installed M3 artifacts are verified."
+  ],
+  "rerun_m3o_gate": {
+    "contract_envelope_emitted": true,
+    "delivery_receipt_mode_no_send_emitted": true,
+    "universal_contract_receipt_emitted": true,
+    "terminal_closeout_emitted": true,
+    "m2_hook_still_present": true,
+    "safety_counters_zero": true
+  },
+  "forbidden_in_this_phase": [
+    "m3_implementation",
+    "m3o_rerun",
+    "m3p",
+    "m4",
+    "enforcement",
+    "telegram_probe_or_send",
+    "provider_model_shadow_call",
+    "runtime_dist_mutation",
+    "route_fallback_config_mutation",
+    "production_authority_change"
+  ]
+}

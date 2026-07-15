@@ -17,6 +17,16 @@ Hard guarantees provided by this harness:
 - a durable registry row is updated atomically;
 - stdout emits a stable PASS anchor only after evidence files exist.
 
+Production-hook absence checks
+------------------------------
+For hook/component observers, the child must not declare a production hook absent
+from a single negative search for future/spec vocabulary. The launch evidence now
+records the required rule: first identify the installed milestone level and
+implementation vocabulary from prior checkpoint/observation artifacts, then search
+that implementation vocabulary as well as the future/spec vocabulary. A hook with
+implementation vocabulary present but future receipt vocabulary absent is a
+milestone-level/vocabulary mismatch, not an absence proof.
+
 The child observer command is still responsible for its own semantic checks and
 final closeout. This harness proves only launch/detachment/evidence wiring.
 """
@@ -289,6 +299,13 @@ def launch(args: argparse.Namespace) -> int:
             "evidence_written_before_pass_anchor": True,
             "registry_updated_before_pass_anchor": True,
             "child_semantics_not_certified_by_harness": True,
+            "production_hook_absence_rule": {
+                "required_for_hook_observers": True,
+                "must_identify_installed_milestone_level_first": True,
+                "must_use_prior_checkpoint_implementation_vocabulary": True,
+                "must_not_treat_spec_vocabulary_zero_matches_as_absence": True,
+                "implementation_vocabulary_present_spec_vocabulary_absent_classification": "HOOK_PRESENT_MILESTONE_LEVEL_MISMATCH",
+            },
         },
     }
     write_json_atomic(run_config_path, run_config)
@@ -376,6 +393,7 @@ def launch(args: argparse.Namespace) -> int:
             "status/summary/evidence manifest written by harness",
             "child detached with start_new_session=True",
             "semantic observer PASS remains child responsibility",
+            "hook absence requires milestone-level + implementation-vocabulary check, not spec vocabulary alone",
         ],
     }
     write_json_atomic(summary_path, summary)

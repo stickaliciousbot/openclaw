@@ -1,0 +1,45 @@
+{
+  "schema": "umc.v1.m3o_h1.corrected_diagnosis_validation.v1",
+  "generated_utc": "2026-07-15T15:18:30Z",
+  "status": "PASS_M3O_H1_CORRECTED_DIAGNOSIS_VALIDATED",
+  "validated_artifacts": {
+    "m3o_closeout": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3O_OWNER_TURN_SHADOW_OBSERVATION_CLOSEOUT.json",
+    "lesson": "memory/lessons-learned-m3o-shadow-hook-false-negative-vocabulary-mismatch-2026-07-16.md",
+    "agents": "AGENTS.md",
+    "memory": "MEMORY.md",
+    "observer_harness": "scripts/long_running_cron_observer_harness.py"
+  },
+  "required_claims": {
+    "m2_route_admission_hook_installed": true,
+    "m3_envelope_receipt_delivery_supervision_not_implemented": true,
+    "m3o_cannot_pass_until_m3_implemented": true,
+    "earlier_hook_not_installed_diagnosis_was_vocabulary_milestone_false_negative": true
+  },
+  "m2_hook_terms_validated_in_corrected_closeout": [
+    "resolveUmcV1DefaultRouteFromConfig",
+    "isUmcV1QueuedOwnerScope",
+    "applyUmcV1QueuedRouteAdmission",
+    "umcV1QueuedRouteIntent"
+  ],
+  "m3_missing_terms_validated_in_corrected_closeout": [
+    "ContractEnvelope",
+    "UniversalContractReceipt",
+    "DeliveryReceipt",
+    "terminal closeout"
+  ],
+  "durable_lesson_validation": {
+    "agents_md_contains_production_hook_vocabulary_rule": true,
+    "memory_md_contains_durable_lesson": true,
+    "lessons_learned_file_exists_and_explains_false_negative": true,
+    "observer_harness_contains_launch_time_production_hook_absence_rule": true,
+    "harness_py_compile": "PASS_PREVIOUSLY_RUN_AFTER_HARNESS_EDIT"
+  },
+  "boundaries_observed": {
+    "no_m3_implementation": true,
+    "no_m3o_rerun": true,
+    "no_m3p": true,
+    "no_m4": true,
+    "no_enforcement": true,
+    "no_telegram_probe_or_send": true
+  }
+}

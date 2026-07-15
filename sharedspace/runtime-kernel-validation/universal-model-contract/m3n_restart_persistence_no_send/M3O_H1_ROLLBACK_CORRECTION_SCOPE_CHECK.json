@@ -1,0 +1,47 @@
+{
+  "schema": "umc.v1.m3o_h1.rollback_correction_scope_check.v1",
+  "generated_utc": "2026-07-15T15:24:00Z",
+  "status": "PASS_M3O_H1_ROLLBACK_CORRECTION_SCOPE_CHECK",
+  "checks": {
+    "git_status_short_reviewed": true,
+    "git_diff_check": "PASS",
+    "git_diff_cached_check": "PASS",
+    "route_reply_node_check": "PASS",
+    "harness_py_compile": "PASS",
+    "json_validation": "PASS_BY_READ_TOOL_PARSE_AND_JSON_ARTIFACT_READBACK",
+    "markdown_sanity": "PASS_BY_DIRECT_READBACK_AND_SCOPE_REVIEW"
+  },
+  "staged_files": [
+    "MEMORY.md",
+    "scripts/long_running_cron_observer_harness.py",
+    "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3O_H1_CORRECTED_DIAGNOSIS_VALIDATION.json",
+    "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3O_H1_REDUNDANT_PATCH_ROLLBACK_AND_DIAGNOSIS_CORRECTION.json",
+    "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3O_H1_ROLLBACK_CORRECTION_REHYDRATION.json",
+    "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3_ENVELOPE_TOOLS_DELIVERY_SUPERVISION_HANDOFF.md",
+    "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3_ENVELOPE_TOOLS_DELIVERY_SUPERVISION_PLAN.json"
+  ],
+  "staging_decisions": {
+    "agents_md": "not staged; clean relative to git in targeted status",
+    "lesson_file": "not staged; clean relative to git in targeted status",
+    "memory_md": "index-only partial staging used; staged only the UMC M3O durable lesson, leaving unrelated working-tree memory additions unstaged",
+    "daily_memory_2026_07_15": "not staged; untracked file contains mixed unrelated daily/context-bridge material plus the incident note, so staging wholesale would violate scope",
+    "observer_harness": "staged; change is the launch-time production-hook vocabulary-check contract",
+    "runtime_dist_files": "not staged",
+    "installed_package_files": "not staged",
+    "redundant_h1_staged_code": "not staged; preserved only via rollback/correction artifact, not as active implementation"
+  },
+  "unrelated_dirty_workspace": {
+    "present": true,
+    "summary": "Large pre-existing dirty workspace outside scoped UMC rollback/correction preservation; left unstaged. Includes USER.md, equipmentiq-fabric-dtb, context-bridge state, work-lifecycle state, many untracked memory/project/script/sharedspace files, and mixed untracked daily memory.",
+    "full_git_status_was_observed_in_tool_output": true
+  },
+  "boundaries_observed": {
+    "no_runtime_dist_staged": true,
+    "no_installed_package_staged": true,
+    "no_context_bridge_mutation_staged": true,
+    "no_m3_implementation_staged": true,
+    "no_m3o_rerun": true,
+    "no_m3p_m4_or_enforcement": true,
+    "no_push": true
+  }
+}

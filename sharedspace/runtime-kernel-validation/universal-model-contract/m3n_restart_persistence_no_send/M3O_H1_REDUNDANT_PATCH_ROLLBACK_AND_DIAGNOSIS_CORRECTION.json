@@ -1,0 +1,54 @@
+{
+  "schema": "umc.v1.m3o_h1.redundant_patch_rollback_and_diagnosis_correction.v1",
+  "generated_utc": "2026-07-15T15:09:00Z",
+  "status": "PASS_M3O_H1_REDUNDANT_PATCH_ROLLED_BACK_DIAGNOSIS_CORRECTED",
+  "initial_wrong_diagnosis": "BLOCKED_M3O_OWNER_TURN_SHADOW_HOOK_NOT_INSTALLED_IN_RUNTIME",
+  "corrected_diagnosis": "BLOCKED_M3O_OWNER_TURN_SHADOW_M3_ENVELOPE_RECEIPTS_NOT_IMPLEMENTED",
+  "corrected_basis": {
+    "installed_hook_present": true,
+    "installed_hook_level": "M2_ROUTE_ADMISSION_INTERCEPTOR",
+    "installed_hook_files": [
+      "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/agent-runner.runtime-a09vVD0N.js",
+      "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/get-reply-DGnDV9U-.js"
+    ],
+    "implementation_vocabulary": [
+      "resolveUmcV1DefaultRouteFromConfig",
+      "isUmcV1QueuedOwnerScope",
+      "applyUmcV1QueuedRouteAdmission",
+      "umcV1QueuedRouteIntent",
+      "UMC v1 queued route intent captured",
+      "umc_queue_route_unavailable",
+      "umc_v1_queue_intent"
+    ],
+    "missing_for_m3o": "M3 envelope/receipt/delivery supervision: ContractEnvelope, ShadowObservationReceipt, UniversalContractReceipt, DeliveryReceipt mode no_send, terminal closeout"
+  },
+  "redundant_patch": {
+    "applied": true,
+    "apply_result_status": "PASS_M3O_H1_INSTALLED_RUNTIME_PATCH_APPLIED",
+    "route_path": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/route-reply-D6Nvzk_V.js",
+    "helper_path": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/umc-owner-turn-shadow-hook-H1.js",
+    "backup_path": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/route-reply-D6Nvzk_V.js.bak-m3o-h1-20260715T145539Z",
+    "why_redundant": "The patch attempted to add a new M3O helper based on a false hook-absent diagnosis; the existing UMC production hook was already installed at M2 level."
+  },
+  "rollback": {
+    "executed": true,
+    "status": "ROLLBACK_OK",
+    "route_reply_restored_from_backup": true,
+    "helper_removed": true,
+    "helper_readback": "ENOENT confirmed after rollback",
+    "syntax_check": "node --check route-reply-D6Nvzk_V.js passed",
+    "gateway_restart_signal_after_rollback": "SIGUSR1 accepted via first-class gateway.restart"
+  },
+  "durable_fixes": [
+    "memory/lessons-learned-m3o-shadow-hook-false-negative-vocabulary-mismatch-2026-07-16.md",
+    "AGENTS.md Production Hook Vocabulary Check rule",
+    "MEMORY.md UMC M3O production-hook vocabulary mismatch lesson",
+    "scripts/long_running_cron_observer_harness.py production_hook_absence_rule"
+  ],
+  "validation": {
+    "gateway_rpc_after_restart_signal": "cron.status ok=true equivalent; cron status returned enabled=true and 26 jobs",
+    "telegram_health_after_restart_signal": "not re-probed with Telegram API; inbound Telegram messages continued to arrive after restart signal, indicating direct Telegram surface remained live",
+    "harness_syntax_check": "python3 -m py_compile scripts/long_running_cron_observer_harness.py passed"
+  },
+  "next_safe_action": "Preserve corrected docs/evidence when approval path is available; then plan M3 envelope/receipt/delivery supervision rather than reinstalling a hook."
+}

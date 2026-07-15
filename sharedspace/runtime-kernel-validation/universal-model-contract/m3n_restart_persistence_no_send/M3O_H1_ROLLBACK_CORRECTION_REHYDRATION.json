@@ -1,0 +1,30 @@
+{
+  "schema": "umc.v1.m3o_h1.rollback_correction_rehydration.v1",
+  "generated_utc": "2026-07-15T15:14:30Z",
+  "status": "PASS_M3O_H1_ROLLBACK_CORRECTION_REHYDRATED",
+  "redundant_h1_patch_absent": true,
+  "helper_path": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/umc-owner-turn-shadow-hook-H1.js",
+  "helper_absence_readback": "ENOENT",
+  "route_reply_path": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/route-reply-D6Nvzk_V.js",
+  "route_reply_restored": true,
+  "route_reply_backup_path": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/route-reply-D6Nvzk_V.js.bak-m3o-h1-20260715T145539Z",
+  "route_reply_backup_exists": true,
+  "route_reply_syntax_check": "PASS_NODE_CHECK_AFTER_ROLLBACK",
+  "gateway_rpc": {
+    "method": "cron.status first-class RPC",
+    "ok": true,
+    "cron_enabled": true,
+    "jobs": 26
+  },
+  "telegram_state": {
+    "method": "current inbound Telegram restart-sentinel/owner messages after rollback restart; no Telegram probe/send used",
+    "current_surface_live": true,
+    "probe_false_status": "not re-run in this phase"
+  },
+  "m3n_final_status": "PASS_M3N_INSTALLED_SHADOW_OBSERVE_ONLY_RESTART_PERSISTENCE_NO_SEND",
+  "m3o_corrected_status": "BLOCKED_M3O_OWNER_TURN_SHADOW_M3_ENVELOPE_RECEIPTS_NOT_IMPLEMENTED",
+  "no_runtime_dist_mutation_after_rollback": true,
+  "no_telegram_probe_or_send": true,
+  "no_m3_implementation_started": true,
+  "no_m3p_m4_or_enforcement_started": true
+}
