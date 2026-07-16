@@ -1,0 +1,68 @@
+{
+  "schema": "umc.v1.m8.owner_contract_lane_staged_install_preflight.v1",
+  "generated_utc": "2026-07-16T05:16:00Z",
+  "status": "PASS_M8_OWNER_CONTRACT_LANE_STAGED_INSTALL_PREFLIGHT",
+  "milestone": "M8_OWNER_CONTRACT_LANE_STAGED_INSTALL_AND_REGRESSION",
+  "source_ready": {
+    "final_status_exists": true,
+    "final_status": "PASS_M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_SOURCE_READY_NO_APPLY",
+    "source_commit_exists": true,
+    "source_commit": "e233663c2eed9ced3b97a6dc3bd015c1554f5c10",
+    "evidence_commit_exists": true,
+    "evidence_commit": "2afd76d7079aae4ed14e0370f6e179485e570c33",
+    "fixtures_status": "PASS_M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_FIXTURES",
+    "no_apply_build_validation_status": "PASS_M8_OWNER_CONTRACT_LANE_NO_APPLY_BUILD_VALIDATION",
+    "staged_install_plan_status": "PASS_M8_OWNER_CONTRACT_LANE_STAGED_INSTALL_PLAN_READY_NO_APPLY"
+  },
+  "source": {
+    "path": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+    "branch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+    "head": "e233663c2eed9ced3b97a6dc3bd015c1554f5c10",
+    "worktree_clean": true
+  },
+  "prior_milestones": {
+    "m7_staged_install_regression_status": "PASS_M7_MODEL_ELIGIBILITY_STAGED_INSTALL_AND_REGRESSION",
+    "m6_staged_install_regression_status": "PASS_M6_CONTRACT_BUILD_LANE_STAGED_INSTALL_AND_REGRESSION",
+    "m5_staged_install_regression_status": "PASS_M5_CAPABILITY_MANIFEST_STAGED_INSTALL_AND_REGRESSION",
+    "m4_staged_install_regression_status": "PASS_M4_VERIFIED_ROUTE_STAGED_INSTALL_AND_REGRESSION",
+    "m3p_status": "PASS_M3P_OWNER_TURN_SHADOW_COVERAGE_SOAK_NO_SEND"
+  },
+  "health": {
+    "gateway_read_only_health": "PASS_RUNNING_CONNECTIVITY_OK_ADMIN_CAPABLE",
+    "telegram_read_only_health": "PASS_ENABLED_CONFIGURED_RUNNING_CONNECTED",
+    "event_loop_cpu_watch_item": {
+      "known": true,
+      "blocking": false,
+      "reason": "Known intermittent watch item; current Gateway and Telegram health passed."
+    }
+  },
+  "rollback": {
+    "path_known": true,
+    "trusted_m7_backup": "/home/stickai/.openclaw/backups/openclaw-m7-model-eligibility-install-20260716T041957Z/openclaw-installed-package",
+    "trusted_m7_tarball": "/home/stickai/.openclaw/workspace/tmp/umc-m7-package/openclaw-2026.5.7.tgz",
+    "trusted_m7_tarball_sha256": "8814f2ee8e0cd5a6b7fbf8ba52f80f497a468404513ea865af9a729a8cd37717"
+  },
+  "stale_approval_cards": {
+    "used": false,
+    "note": "No stale approval cards are used for M8 staged install."
+  },
+  "boundary_counters": {
+    "installed_runtime_mutation_count": 0,
+    "package_install_count": 0,
+    "tarball_apply_count": 0,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "live_action_canary_count": 0,
+    "broad_production_enforcement_count": 0,
+    "m9_started": false,
+    "enforcement_enabled": false
+  },
+  "next_required_step": "Build/package exact M8 tarball and prepare install approval card; do not install before explicit operator approval."
+}
