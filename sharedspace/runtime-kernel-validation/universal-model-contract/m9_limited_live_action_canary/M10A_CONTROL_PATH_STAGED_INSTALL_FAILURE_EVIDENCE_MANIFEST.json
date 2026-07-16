@@ -1,0 +1,74 @@
+{
+  "schema": "umc.v1.m10a.control_path_staged_install_failure_evidence_manifest.v1",
+  "generated_utc": "2026-07-16T11:29:16Z",
+  "status": "HOLD_M10A_INSTALL_ROLLED_BACK_PRESERVATION_DRIFT_REPAIR_REQUIRED",
+  "final_status": "HOLD_M10A_INSTALL_ROLLED_BACK_PRESERVATION_DRIFT_REPAIR_REQUIRED",
+  "artifacts": [
+    {
+      "file": "M10A_CONTROL_PATH_STAGED_INSTALL_RESULT.json",
+      "bytes": 3399,
+      "sha256": "e56bad5b4d31583cfea9a6b70db20e94898a26a620299e833430dbbe06d0059a",
+      "status": "FAIL_M10A_CONTROL_PATH_STAGED_INSTALL_FAILED"
+    },
+    {
+      "file": "M10A_CONTROL_PATH_STAGED_INSTALL_ROLLBACK_RESULT.json",
+      "bytes": 1416,
+      "sha256": "2771b5cd631f2b9e2221f6a338bf6a69c284c410e41c47dbc5d645b50f942e15",
+      "status": "PASS_M10A_STAGED_INSTALL_ROLLBACK_DISK_RESTORE"
+    },
+    {
+      "file": "M10A_CONTROL_PATH_STAGED_INSTALL_ROLLBACK_SUMMARY.md",
+      "bytes": 1672,
+      "sha256": "056c87699a90398d06daac53773d42fd9e4ecdb64b9ca085f674412ba4aa8799"
+    },
+    {
+      "file": "M10A_CONTROL_PATH_STAGED_INSTALL_FAILURE_CLOSEOUT.json",
+      "bytes": 2715,
+      "sha256": "57fa429662e4f6882dbba91deb40770f3d84839c56c5753bb738d77b0fd1e479",
+      "status": "HOLD_M10A_INSTALL_ROLLED_BACK_PRESERVATION_DRIFT_REPAIR_REQUIRED"
+    },
+    {
+      "file": "M10A_CONTROL_PATH_STAGED_INSTALL_AND_VALIDATION_CLOSEOUT.json",
+      "bytes": 1704,
+      "sha256": "04e7c3c11e058c1c4c5326aedae4663b5488f734c48636e276e8e2683472faa7",
+      "status": "FAIL_M10A_CONTROL_PATH_STAGED_INSTALL_FAILED"
+    },
+    {
+      "file": "M10A_CONTROL_PATH_STAGED_INSTALL_AND_VALIDATION_SUMMARY.md",
+      "bytes": 1219,
+      "sha256": "177db0a05dc48a3b766ff815bdc6b1f7736df1364a43d3a2487b192d9691d54b"
+    },
+    {
+      "file": "M10A_CONTROL_PATH_STAGED_INSTALL_AND_VALIDATION_EVIDENCE_MANIFEST.json",
+      "bytes": 2455,
+      "sha256": "415cdd9c937abd06313293fcade411fc3a0d4bc167a9f7bd35304eab3f01b54e",
+      "status": "FAIL_M10A_CONTROL_PATH_STAGED_INSTALL_FAILED"
+    }
+  ],
+  "install_result": "FAIL_M10A_CONTROL_PATH_STAGED_INSTALL_FAILED",
+  "rollback_result": "PASS_M10A_STAGED_INSTALL_ROLLBACK_DISK_RESTORE",
+  "failure_closeout_status": "HOLD_M10A_INSTALL_ROLLED_BACK_PRESERVATION_DRIFT_REPAIR_REQUIRED",
+  "source_commit": "7fbb19038154e1b4c8bb2545f4b29547505185d9",
+  "approval_prep_commit": "d5b96db135f50b537b8af74d9a14bb37f7933614",
+  "previous_failure_rollback_commit": "878f3d718",
+  "approved_tarball_sha256": "6c680ce7572099b930ec6c1739f8b93be6b6964f5d25c10978a3714073c24a8c",
+  "approved_m10a_dist_sha256": "be56d6a5105d4d0a03085757483b3bb07374ff96b9db8ea44a1bcb164139e082",
+  "unexpected_m8_after_install_sha256": "753fade05d957fb295dcf33a7beaec7a89d6b977e750c937e26a9cd7ad18b0ef",
+  "restored_m8_sha256": "27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db",
+  "trusted_backup_path": "/home/stickai/.openclaw/backups/openclaw-m10a-control-path-install-20260716T111530Z/openclaw-installed-package",
+  "failed_postinstall_quarantine_path": "/home/stickai/.openclaw/backups/openclaw-m10a-control-path-install-20260716T111530Z/failed-installed-package-postinstall-20260716T112500Z",
+  "gateway_restart_count": 0,
+  "gateway_activation_count": 0,
+  "m10a_activation_count": 0,
+  "m10a_enabled": false,
+  "production_authority_changed": false,
+  "broad_enforcement_enabled": false,
+  "telegram_send_probe_count": 0,
+  "external_send_count": 0,
+  "provider_model_live_call_count": 0,
+  "write_tool_execution_count": 0,
+  "durable_memory_mutation_count": 0,
+  "context_bridge_mutation_count": 0,
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "next_phase": "REPAIR_M10A_PACKAGE_PRESERVATION_DRIFT_SOURCE_READY_NO_APPLY"
+}
