@@ -1,0 +1,37 @@
+{
+  "schema": "umc.v1.m6.contract_build_lane_installed_runtime_verification.v1",
+  "generated_utc": "2026-07-16T03:20:15.299Z",
+  "status": "PASS_M6_CONTRACT_BUILD_LANE_INSTALLED_RUNTIME_VERIFIED",
+  "installed_runtime": "/home/stickai/.npm-global/lib/node_modules/openclaw",
+  "checks": {
+    "lane_present": "token-broker-vmesh/contract-build",
+    "implementation_present": true,
+    "valid_m2_route_intent_builds_contract_qualified_lane": "PASS_M6_CONTRACT_BUILD_LANE_BUILT",
+    "valid_lane_carries_verified_route": true,
+    "valid_lane_carries_contract_envelope": "ContractEnvelope",
+    "valid_lane_checks_m5_capability_manifest": true,
+    "valid_lane_preserves_m3_no_send_delivery_receipt_policy": "no_send",
+    "valid_lane_preserves_terminal_closeout_policy": "PASS_M3_TERMINAL_CONTRACT_CLOSEOUT_EMITTED",
+    "worker_model_is_metadata_only_and_not_route_authority": true,
+    "raw_provider_model_pin_cannot_build_lane": "FAIL_M6_RAW_MODEL_AUTHORITY_BYPASS",
+    "session_channel_model_pin_becomes_route_intent_only": true,
+    "missing_manifest_produces_typed_hold": "HOLD_M6_CAPABILITY_MANIFEST_MISSING",
+    "unsupported_worker_capability_produces_typed_hold": "HOLD_M6_CAPABILITY_MANIFEST_MISSING",
+    "fallback_without_contract_preservation_is_blocked": "HOLD_M6_CAPABILITY_MANIFEST_MISSING",
+    "fallback_preserving_contract_is_eligible": "PASS_M6_CONTRACT_BUILD_LANE_BUILT",
+    "production_authority_remains_disabled": true,
+    "enforcement_remains_disabled": true
+  },
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "m7_started": false,
+    "enforcement_enabled": false
+  }
+}

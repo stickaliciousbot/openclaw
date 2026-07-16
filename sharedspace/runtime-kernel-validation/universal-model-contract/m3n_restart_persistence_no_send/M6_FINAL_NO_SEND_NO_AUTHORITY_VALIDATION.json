@@ -1,0 +1,24 @@
+{
+  "schema": "umc.v1.m6.final_no_send_no_authority_validation.v1",
+  "generated_utc": "2026-07-16T03:45:13.052Z",
+  "status": "PASS_M6_FINAL_NO_SEND_NO_AUTHORITY_VALIDATION",
+  "counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "m7_started": false,
+    "enforcement_enabled": false
+  },
+  "authority": {
+    "production_authority_change_count": 0,
+    "enforcement_enabled": false,
+    "m7_started": false,
+    "raw_model_authority_blocked": "FAIL_M6_RAW_MODEL_AUTHORITY_BYPASS",
+    "worker_model_route_authority": false
+  }
+}

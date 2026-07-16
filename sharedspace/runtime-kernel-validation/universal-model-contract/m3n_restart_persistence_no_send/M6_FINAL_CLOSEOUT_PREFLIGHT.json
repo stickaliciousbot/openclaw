@@ -1,0 +1,33 @@
+{
+  "schema": "umc.v1.m6.final_closeout_preflight.v1",
+  "generated_utc": "2026-07-16T03:45:13.052Z",
+  "status": "PASS_M6_FINAL_CLOSEOUT_PREFLIGHT",
+  "required_artifacts": {
+    "staged_install": "PASS_M6_CONTRACT_BUILD_LANE_STAGED_INSTALL_EXECUTED",
+    "installed_runtime_m6_verification": "PASS_M6_CONTRACT_BUILD_LANE_INSTALLED_RUNTIME_VERIFIED",
+    "m3_m4_m5_regression": "PASS_M6_M3_M4_M5_POST_INSTALL_REGRESSION",
+    "contract_build_lane_installed_regression": "PASS_M6_CONTRACT_BUILD_LANE_INSTALLED_REGRESSION",
+    "post_install_stability": "PASS_M6_POST_INSTALL_STABILITY_CONFIRMED"
+  },
+  "stability": {
+    "expected_probes": 4,
+    "completed_probes": 4,
+    "all_passed": true
+  },
+  "gateway_telegram_health": {
+    "gateway": "PASS_RUNNING_CONNECTIVITY_OK_ADMIN_CAPABLE",
+    "telegram": "PASS_ENABLED_CONFIGURED_RUNNING_CONNECTED"
+  },
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "m7_started": false,
+    "enforcement_enabled": false
+  }
+}

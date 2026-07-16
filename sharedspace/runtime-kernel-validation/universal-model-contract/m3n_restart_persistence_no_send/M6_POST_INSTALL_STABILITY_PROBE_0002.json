@@ -1,0 +1,33 @@
+{
+  "schema": "umc.v1.m6.post_install_stability_probe.v1",
+  "generated_utc": "2026-07-16T03:26:40.671Z",
+  "probe_index": 2,
+  "status": "PASS_M6_POST_INSTALL_STABILITY_PROBE",
+  "checks": {
+    "gateway_rpc_ok": true,
+    "telegram_on_ok": true,
+    "queue_depth_resting": true,
+    "context_overflow": 0,
+    "context_overflow_diag": 0,
+    "event_loop_degradation_watch_item_not_worsening": true,
+    "event_loop_degraded_observed": true,
+    "getMe_timeout": 0,
+    "gateway_timeout": 0,
+    "production_config_hash_stable": true,
+    "production_config_hash": "a4f0aac75704eb7d171e528c0486fd8baa95260450d38653aea5ba3226e2d859",
+    "route_provider_fallback_fingerprint_stable": true,
+    "route_provider_fallback_fingerprint": "a4f0aac75704eb7d171e528c0486fd8baa95260450d38653aea5ba3226e2d859",
+    "m3_receipts_available": true,
+    "m4_verified_route_available": true,
+    "m5_registry_manifests_available": true,
+    "m6_contract_build_lane_available": true,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "enforcement_enabled": false
+  }
+}

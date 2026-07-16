@@ -1,0 +1,43 @@
+{
+  "schema": "umc.v1.m6.post_install_stability_summary.v1",
+  "generated_utc": "2026-07-16T03:36:52.024Z",
+  "status": "PASS_M6_POST_INSTALL_STABILITY_CONFIRMED",
+  "duration_ms_requested": 900000,
+  "cadence_ms": 300000,
+  "expected_probes": 4,
+  "completed_probes": 4,
+  "probes": [
+    {
+      "file": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M6_POST_INSTALL_STABILITY_PROBE_0001.json",
+      "sha256": "04902eab14ad9960b05cfbba1d6a393b88db5036a18fab99fd9dddd33dc44e80",
+      "status": "PASS_M6_POST_INSTALL_STABILITY_PROBE"
+    },
+    {
+      "file": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M6_POST_INSTALL_STABILITY_PROBE_0002.json",
+      "sha256": "5b6ba1b4312aa7f0f56ba4f4aa9d62f529dcfd49800353c3808f10582376f83e",
+      "status": "PASS_M6_POST_INSTALL_STABILITY_PROBE"
+    },
+    {
+      "file": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M6_POST_INSTALL_STABILITY_PROBE_0003.json",
+      "sha256": "a1335eb4ce581fea21a612ac131938a76c9089f59d2da1c5a77bd3ea3cf8b3af",
+      "status": "PASS_M6_POST_INSTALL_STABILITY_PROBE"
+    },
+    {
+      "file": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M6_POST_INSTALL_STABILITY_PROBE_0004.json",
+      "sha256": "037e8961589957e85c664995d386cc27e188dc7f66481847b7f0458d8e63c7ee",
+      "status": "PASS_M6_POST_INSTALL_STABILITY_PROBE"
+    }
+  ],
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "m7_started": false,
+    "enforcement_enabled": false
+  }
+}

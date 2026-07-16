@@ -1,0 +1,31 @@
+{
+  "schema": "umc.v1.m6.installed_behavior_final_validation.v1",
+  "generated_utc": "2026-07-16T03:45:13.052Z",
+  "status": "PASS_M6_INSTALLED_BEHAVIOR_FINAL_VALIDATION",
+  "checks": {
+    "lane_present": "token-broker-vmesh/contract-build",
+    "valid_route_intent_lane_build": "PASS_M6_CONTRACT_BUILD_LANE_BUILT",
+    "raw_provider_model_bypass_blocked": "FAIL_M6_RAW_MODEL_AUTHORITY_BYPASS",
+    "missing_manifest_hold": "HOLD_M6_CAPABILITY_MANIFEST_MISSING",
+    "unsupported_worker_capability_hold": "HOLD_M6_CAPABILITY_MANIFEST_MISSING",
+    "fallback_without_contract_preservation_blocked": "HOLD_M6_CAPABILITY_MANIFEST_MISSING",
+    "fallback_preserving_contract_eligible": "PASS_M6_CONTRACT_BUILD_LANE_BUILT",
+    "worker_model_route_authority": false,
+    "verifiedRoute_preserved": true,
+    "contractEnvelope_preserved": true,
+    "deliveryReceipt_no_send_preserved": "no_send",
+    "terminal_closeout_preserved": "PASS_M3_TERMINAL_CONTRACT_CLOSEOUT_EMITTED"
+  },
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "m7_started": false,
+    "enforcement_enabled": false
+  }
+}

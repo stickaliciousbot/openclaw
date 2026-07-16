@@ -1,0 +1,54 @@
+{
+  "schema": "umc.v1.m6.contract_build_lane_staged_install_and_regression_closeout.v1",
+  "generated_utc": "2026-07-16T03:45:13.052Z",
+  "status": "PASS_M6_CONTRACT_BUILD_LANE_STAGED_INSTALL_AND_REGRESSION",
+  "closeout_status": "PASS_M6_CONTRACT_BUILD_LANE_STAGED_INSTALL_AND_REGRESSION",
+  "milestone": "M6_CONTRACT_BUILD_LANE_STAGED_INSTALL_AND_REGRESSION",
+  "results": {
+    "closeout_preflight": "PASS_M6_FINAL_CLOSEOUT_PREFLIGHT",
+    "install_execution": "PASS_M6_CONTRACT_BUILD_LANE_STAGED_INSTALL_EXECUTED",
+    "tarball_sha_verification": "PASS",
+    "backup_path": "/home/stickai/.openclaw/backups/openclaw-m6-contract-build-lane-install-20260716T030734Z/openclaw-installed-package",
+    "gateway_restart": "PASS_GATEWAY_RESTART_SETTLED_HEALTHY",
+    "installed_runtime_m6_verification": "PASS_M6_CONTRACT_BUILD_LANE_INSTALLED_RUNTIME_VERIFIED",
+    "m3_m4_m5_regression": "PASS_M6_M3_M4_M5_POST_INSTALL_REGRESSION",
+    "contract_build_lane_installed_regression": "PASS_M6_CONTRACT_BUILD_LANE_INSTALLED_REGRESSION",
+    "post_install_stability": "PASS_M6_POST_INSTALL_STABILITY_CONFIRMED",
+    "installed_behavior_final_validation": "PASS_M6_INSTALLED_BEHAVIOR_FINAL_VALIDATION",
+    "no_send_no_authority_validation": "PASS_M6_FINAL_NO_SEND_NO_AUTHORITY_VALIDATION"
+  },
+  "key_outcomes": {
+    "valid_route_intent_lane_build": "PASS_M6_CONTRACT_BUILD_LANE_BUILT",
+    "raw_provider_model_bypass": "FAIL_M6_RAW_MODEL_AUTHORITY_BYPASS",
+    "missing_manifest_hold": "HOLD_M6_CAPABILITY_MANIFEST_MISSING",
+    "fallback_contract_preservation": {
+      "without_preservation": "HOLD_M6_CAPABILITY_MANIFEST_MISSING",
+      "preserving_contract": "PASS_M6_CONTRACT_BUILD_LANE_BUILT"
+    },
+    "worker_model_route_authority": false
+  },
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "m7_started": false,
+    "enforcement_enabled": false
+  },
+  "gateway_telegram_health": {
+    "gateway": "PASS_RUNNING_CONNECTIVITY_OK_ADMIN_CAPABLE",
+    "telegram": "PASS_ENABLED_CONFIGURED_RUNNING_CONNECTED"
+  },
+  "rollback_readiness": {
+    "status": "PASS_BACKUP_CREATED_AFTER_READBACK_VERIFICATION",
+    "backup_path": "/home/stickai/.openclaw/backups/openclaw-m6-contract-build-lane-install-20260716T030734Z/openclaw-installed-package",
+    "rollback_baseline": "/home/stickai/.openclaw/backups/openclaw-m6-contract-build-lane-install-20260716T030734Z/openclaw-installed-package",
+    "m5_rollback_tarball_sha256": "13850f7bd15224e295cc4bee6be184e4df3cd29ab30f191d6a757cd088bdcc06"
+  },
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "recommended_next_milestone": "M7_MODEL_ELIGIBILITY_AND_FALLBACK_EQUIVALENCE_NO_SEND"
+}

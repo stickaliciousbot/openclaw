@@ -1,0 +1,57 @@
+{
+  "schema": "umc.v1.m6.contract_build_lane_staged_install_result.v1",
+  "generated_utc": "2026-07-16T03:18:00Z",
+  "status": "PASS_M6_CONTRACT_BUILD_LANE_STAGED_INSTALL_EXECUTED",
+  "milestone": "M6_CONTRACT_BUILD_LANE_STAGED_INSTALL_AND_REGRESSION",
+  "approval": "APPROVE_M6_CONTRACT_BUILD_LANE_STAGED_INSTALL",
+  "tarball": {
+    "path": "/home/stickai/.openclaw/workspace/tmp/umc-m6-package/openclaw-2026.5.7.tgz",
+    "sha256_expected": "4f3d07373f51a8a302078c9f72a5416775a4983db3486c7a9a14cda5a09b888d",
+    "sha256_check": "PASS",
+    "size_bytes": 23632421
+  },
+  "backup": {
+    "status": "PASS_BACKUP_CREATED_AFTER_READBACK_VERIFICATION",
+    "path": "/home/stickai/.openclaw/backups/openclaw-m6-contract-build-lane-install-20260716T030734Z/openclaw-installed-package",
+    "marker": "/home/stickai/.openclaw/backups/openclaw-m6-contract-build-lane-install-20260716T030734Z/PASS_BACKUP_CREATED",
+    "notes": "Initial backup command timed out after tarball SHA OK and before marker write; backup package was read back directly: package.json, M4, M5, and Telegram plugin present; M6 absent; marker written after verification."
+  },
+  "install": {
+    "command": "npm install -g --ignore-scripts /home/stickai/.openclaw/workspace/tmp/umc-m6-package/openclaw-2026.5.7.tgz",
+    "exit_code": 0,
+    "result": "changed 548 packages in 1m",
+    "installed_package_root": "/home/stickai/.npm-global/lib/node_modules/openclaw"
+  },
+  "installed_file_hashes": {
+    "dist/auto-reply/reply/umc-m6-contract-build-lane.js": "5af495a685bc40fcbd8ebc51eea9d3785f93c76b26c59227981ed305f52ca2ac",
+    "dist/auto-reply/reply/umc-m5-capability-manifest.js": "e5a1d1c32a97ace2fe33cc151d98bd8ff4afed17ae768a7cf351319ef15adfe2",
+    "dist/auto-reply/reply/umc-m4-verified-route.js": "9012c1d9ef5e651dfcf3b0dff533fa33b5ce08f226e21d3a7733b8faef02cff6",
+    "dist/extensions/telegram/openclaw.plugin.json": "a3bd23650c86763689c3c9227d13928ee78d4546e0b8e39864f440d926cc40bd"
+  },
+  "gateway_restart": {
+    "required": true,
+    "method": "openclaw gateway restart",
+    "initial_exit_code": 1,
+    "settled_result": "PASS_GATEWAY_RESTART_SETTLED_HEALTHY",
+    "pid_after_restart": 1189408,
+    "gateway_health": "PASS_RUNNING_CONNECTIVITY_OK_ADMIN_CAPABLE",
+    "telegram_health": "PASS_ENABLED_CONFIGURED_RUNNING_CONNECTED",
+    "note": "CLI restart returned code 1 during transition, but settled Gateway and Telegram read-only health passed."
+  },
+  "plugin_manifest_preservation": {
+    "telegram_plugin_manifest_present_after_install": true,
+    "result": "PASS_PLUGIN_MANIFEST_PRESERVED"
+  },
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "m7_started": false,
+    "enforcement_enabled": false
+  }
+}
