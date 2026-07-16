@@ -1,0 +1,23 @@
+{
+  "schema": "umc.v1.m10a.control_path_staged_install_rollback_result.v1",
+  "generated_utc": "2026-07-16T11:26:20Z",
+  "status": "PASS_M10A_STAGED_INSTALL_ROLLBACK_DISK_RESTORE",
+  "trigger": "UNEXPECTED_M8_DIST_HASH_DRIFT_BEFORE_GATEWAY_RESTART",
+  "backup_path": "/home/stickai/.openclaw/backups/openclaw-m10a-control-path-install-20260716T111530Z/openclaw-installed-package",
+  "failed_postinstall_quarantine_path": "/home/stickai/.openclaw/backups/openclaw-m10a-control-path-install-20260716T111530Z/failed-installed-package-postinstall-20260716T112500Z",
+  "failed_postinstall_quarantine_present": true,
+  "restored_installed_root": "/home/stickai/.npm-global/lib/node_modules/openclaw",
+  "post_rollback_checks": {
+    "m8_dist_sha256_restored": "27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db",
+    "package_json_sha256_restored": "9585403b5d52ef6b56a6faf6b958eb1ae22d14f7a581def93da13b597087b0ad",
+    "telegram_plugin_manifest_sha256_restored": "a3bd23650c86763689c3c9227d13928ee78d4546e0b8e39864f440d926cc40bd",
+    "m10a_dist_absent_after_rollback": true
+  },
+  "gateway_restart_run": false,
+  "gateway_pid_after_rollback": 1285995,
+  "gateway_health_after_rollback": "PASS_GATEWAY_RUNNING_CONNECTIVITY_OK_ADMIN_CAPABLE",
+  "telegram_health_after_rollback": "PASS_TELEGRAM_ON_OK",
+  "m10_enabled": false,
+  "production_authority_changed": false,
+  "broad_enforcement_enabled": false
+}

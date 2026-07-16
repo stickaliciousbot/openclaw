@@ -1,0 +1,58 @@
+{
+  "schema": "umc.v1.m10a.control_path_staged_install_and_validation_evidence_manifest.v1",
+  "generated_utc": "2026-07-16T11:26:20Z",
+  "status": "FAIL_M10A_CONTROL_PATH_STAGED_INSTALL_FAILED",
+  "final_status": "FAIL_M10A_CONTROL_PATH_STAGED_INSTALL_FAILED",
+  "artifacts": [
+    {
+      "file": "M10A_CONTROL_PATH_STAGED_INSTALL_PREFLIGHT.json",
+      "bytes": 1962,
+      "sha256": "26fb913741992c50adfbc2e3a041649a2c45d24c3f09ecc6012f4ba96c1a91f1",
+      "status": "PASS_M10A_CONTROL_PATH_STAGED_INSTALL_PREFLIGHT"
+    },
+    {
+      "file": "M10A_CONTROL_PATH_INSTALL_APPROVAL_CARD.json",
+      "bytes": 5824,
+      "sha256": "0914ead66990a416574d6be2bd61cb83e34df814a28c6f0fe090bae6c9452951",
+      "status": "HOLD_M10A_CONTROL_PATH_INSTALL_AWAITING_OPERATOR_APPROVAL"
+    },
+    {
+      "file": "M10A_CONTROL_PATH_STAGED_INSTALL_RESULT.json",
+      "bytes": 3399,
+      "sha256": "e56bad5b4d31583cfea9a6b70db20e94898a26a620299e833430dbbe06d0059a",
+      "status": "FAIL_M10A_CONTROL_PATH_STAGED_INSTALL_FAILED"
+    },
+    {
+      "file": "M10A_CONTROL_PATH_STAGED_INSTALL_ROLLBACK_RESULT.json",
+      "bytes": 1416,
+      "sha256": "2771b5cd631f2b9e2221f6a338bf6a69c284c410e41c47dbc5d645b50f942e15",
+      "status": "PASS_M10A_STAGED_INSTALL_ROLLBACK_DISK_RESTORE"
+    },
+    {
+      "file": "M10A_CONTROL_PATH_STAGED_INSTALL_AND_VALIDATION_CLOSEOUT.json",
+      "bytes": 1704,
+      "sha256": "04e7c3c11e058c1c4c5326aedae4663b5488f734c48636e276e8e2683472faa7",
+      "status": "FAIL_M10A_CONTROL_PATH_STAGED_INSTALL_FAILED"
+    },
+    {
+      "file": "M10A_CONTROL_PATH_STAGED_INSTALL_AND_VALIDATION_SUMMARY.md",
+      "bytes": 1219,
+      "sha256": "177db0a05dc48a3b766ff815bdc6b1f7736df1364a43d3a2487b192d9691d54b"
+    }
+  ],
+  "install_result": "FAIL_M10A_CONTROL_PATH_STAGED_INSTALL_FAILED",
+  "rollback_result": "PASS_M10A_STAGED_INSTALL_ROLLBACK_DISK_RESTORE",
+  "closeout_status": "FAIL_M10A_CONTROL_PATH_STAGED_INSTALL_FAILED",
+  "m10_enabled": false,
+  "production_authority_changed": false,
+  "broad_enforcement_enabled": false,
+  "telegram_send_probe_count": 0,
+  "external_send_count": 0,
+  "provider_model_live_call_count": 0,
+  "write_tool_execution_count": 0,
+  "durable_memory_mutation_count": 0,
+  "context_bridge_mutation_count": 0,
+  "route_config_mutation_count": 0,
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "next_phase": "REPAIR_M10A_SCOPED_PACKAGE_TO_PRESERVE_M8_OR_EXPLICITLY_REBASE_APPROVAL_BOUNDARY"
+}
