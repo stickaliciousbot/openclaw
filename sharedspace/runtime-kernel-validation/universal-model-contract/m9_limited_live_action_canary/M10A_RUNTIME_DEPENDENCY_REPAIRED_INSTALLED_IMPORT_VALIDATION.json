@@ -1,8 +1,8 @@
 {
   "schema": "umc.v1.m10a.runtime_dependency_repaired_installed_import_validation.v1",
-  "generated_utc": "2026-07-16T12:24:00Z",
+  "generated_utc": "2026-07-16T12:41:11Z",
   "source_commit": "19d1fd367ac179c971b1ccb157659f8c52641c32",
-  "evidence_commit_before_run": "2de771be553467bb072789f640523e9ecfe33a2a",
+  "evidence_commit_before_run": "2fe3e67e82b78a248ab3494a2caab5e38c1fed0c",
   "candidate_tarball_path": "/home/stickai/.openclaw/workspace/tmp/umc-m10a-repaired-scoped-overlay-r2/m10a-control-path-scoped-overlay-r2-20260716T1200Z.tar.gz",
   "candidate_tarball_sha256": "c0fdd546016071cf2cfbcca802bf458261d5e5fac07fd38e7797ceace9aba83d",
   "candidate_m10a_dist_sha256": "be56d6a5105d4d0a03085757483b3bb07374ff96b9db8ea44a1bcb164139e082",

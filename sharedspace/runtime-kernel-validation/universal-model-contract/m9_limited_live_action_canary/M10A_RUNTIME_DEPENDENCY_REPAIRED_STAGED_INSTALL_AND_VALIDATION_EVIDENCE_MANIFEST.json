@@ -1,8 +1,8 @@
 {
   "schema": "umc.v1.m10a.runtime_dependency_repaired_staged_install_and_validation_evidence_manifest.v1",
-  "generated_utc": "2026-07-16T12:24:00Z",
+  "generated_utc": "2026-07-16T12:41:11Z",
   "source_commit": "19d1fd367ac179c971b1ccb157659f8c52641c32",
-  "evidence_commit_before_run": "2de771be553467bb072789f640523e9ecfe33a2a",
+  "evidence_commit_before_run": "2fe3e67e82b78a248ab3494a2caab5e38c1fed0c",
   "candidate_tarball_path": "/home/stickai/.openclaw/workspace/tmp/umc-m10a-repaired-scoped-overlay-r2/m10a-control-path-scoped-overlay-r2-20260716T1200Z.tar.gz",
   "candidate_tarball_sha256": "c0fdd546016071cf2cfbcca802bf458261d5e5fac07fd38e7797ceace9aba83d",
   "candidate_m10a_dist_sha256": "be56d6a5105d4d0a03085757483b3bb07374ff96b9db8ea44a1bcb164139e082",
@@ -12,37 +12,37 @@
   "artifacts": [
     {
       "file": "M10A_RUNTIME_DEPENDENCY_REPAIRED_STAGED_INSTALL_RESULT.json",
-      "sha256": "fb7fca1c300e33455aafda2768b644f201c808e7ecc0141d126cf45aa62a7d5a",
+      "sha256": "3836af46d289fc378df7a4c900254ba9a1364bd6cec76a384f9060531ee467ad",
       "status": "PASS_M10A_RUNTIME_DEPENDENCY_REPAIRED_STAGED_INSTALL"
     },
     {
       "file": "M10A_RUNTIME_DEPENDENCY_REPAIRED_INSTALLED_IMPORT_VALIDATION.json",
-      "sha256": "7032d4e3c6de1c0a22f1e67436966caa618412bf56c54a4f3d419308357a8bec",
+      "sha256": "16de61d07420aacd8267ef68b147df0fb5947f4d8bf5f923dafdfa689fe5ec74",
       "status": "PASS_M10A_RUNTIME_DEPENDENCY_REPAIRED_INSTALLED_IMPORT_VALIDATION"
     },
     {
       "file": "M10A_RUNTIME_DEPENDENCY_REPAIRED_INSTALLED_RUNTIME_VERIFICATION.json",
-      "sha256": "6d1963420b45730cc0902cba8ab48b94db67351ac8601e7b4633233f487af71d",
+      "sha256": "911e2389e505f55051b9456763295b9817da0c8fce7d13685094f1cd20ee705d",
       "status": "PASS_M10A_RUNTIME_DEPENDENCY_REPAIRED_INSTALLED_RUNTIME_VERIFICATION"
     },
     {
       "file": "M10A_RUNTIME_DEPENDENCY_REPAIRED_ENABLE_DISABLE_DRY_RUN_VALIDATION.json",
-      "sha256": "03ebbec162300465142648b6f2a213d5c8fb5daca2e6b1bf7b6dec78e1ce2071",
+      "sha256": "4c9b9c2f2e37b9fa3c9067806f453bb7a239a98d8bbbe0ee5a9f4d9ef0b394b0",
       "status": "PASS_M10A_RUNTIME_DEPENDENCY_REPAIRED_ENABLE_DISABLE_DRY_RUN_VALIDATION"
     },
     {
       "file": "M10A_RUNTIME_DEPENDENCY_REPAIRED_M2_M3_M4_M5_M6_M7_M8_M9_INSTALLED_REGRESSION_RESULTS.json",
-      "sha256": "60a278fd30e4e8feea3b1cc0a656ab28363d62644f9258c7757a694137856fca",
+      "sha256": "1ae27245782c0630fa30412b5398bf749194dc6ffc028a142f42cc315379a7d6",
       "status": "PASS_M10A_RUNTIME_DEPENDENCY_REPAIRED_M2_M9_INSTALLED_REGRESSION"
     },
     {
       "file": "M10A_RUNTIME_DEPENDENCY_REPAIRED_POST_INSTALL_STABILITY_SUMMARY.json",
-      "sha256": "1f3fcbd9060ce7093dbbb2361036fbece4f7da88d140921af5ed6ff8258ff7db",
+      "sha256": "7a37b8286aa10316f6b2c40e5985417c19fc708571452f77a85d2fdaa9f18e81",
       "status": "PASS_M10A_RUNTIME_DEPENDENCY_REPAIRED_POST_INSTALL_STABILITY"
     },
     {
       "file": "M10A_OWNER_TELEGRAM_DIRECT_ENFORCEMENT_APPROVAL_PACKAGE.json",
-      "sha256": "e27663e3f7fd6d627f555d5def0f7b6949f4626e7079b4f7de8589b0e22d0b84",
+      "sha256": "2136647f213043f7e64e0234b403f240b356e45e5aacebb9577c300a11853007",
       "status": "HOLD_M10A_EXACT_APPROVAL_TEXT_READY"
     },
     {
@@ -55,7 +55,7 @@
     },
     {
       "file": "M10A_RUNTIME_DEPENDENCY_REPAIRED_STAGED_INSTALL_AND_VALIDATION_CLOSEOUT.json",
-      "sha256": "8b967364853dca79ae5459d27441abce7b591d2cd512aeddaad1f6cec74e03b9",
+      "sha256": "6b169bed5f68f68fc01ed60e2c4137b4703357ed506a0b7a8982c5027dc0cef6",
       "status": "HOLD_M10A_EXACT_APPROVAL_TEXT_READY"
     }
   ],
