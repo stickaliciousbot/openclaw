@@ -1,0 +1,120 @@
+{
+  "schema": "umc.v1.m6.contract_build_lane_install_approval_card.v1",
+  "generated_utc": "2026-07-16T02:24:00Z",
+  "status": "HOLD_M6_CONTRACT_BUILD_LANE_INSTALL_AWAITING_OPERATOR_APPROVAL",
+  "milestone": "M6_CONTRACT_BUILD_LANE_STAGED_INSTALL_AND_REGRESSION",
+  "approval_phrase": "APPROVE_M6_CONTRACT_BUILD_LANE_STAGED_INSTALL",
+  "approval_required_before_install": true,
+  "selected_source": {
+    "path": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+    "branch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+    "head": "138e91ece8fd83d7e550a891222d8abefb3c75fa",
+    "source_commit_to_install": "138e91ece8fd83d7e550a891222d8abefb3c75fa"
+  },
+  "build": {
+    "build_command": "/home/stickai/.openclaw/workspace/tmp/openclaw-start-ack-pnpm-shim/pnpm build",
+    "package_command_executed": "set -euo pipefail; PKGDIR=/home/stickai/.openclaw/workspace/tmp/umc-m6-package; rm -rf \"$PKGDIR\"; mkdir -p \"$PKGDIR\"; npm pack --ignore-scripts --pack-destination \"$PKGDIR\"",
+    "package_result": "PASS_PACKAGE_CREATED",
+    "package_path": "/home/stickai/.openclaw/workspace/tmp/umc-m6-package/openclaw-2026.5.7.tgz",
+    "package_filename": "openclaw-2026.5.7.tgz",
+    "package_size_bytes": 23632421,
+    "package_unpacked_size": "71.9 MB",
+    "package_total_files": 9680,
+    "package_sha1_from_npm": "1319da6166e31985224b089ea19e1253c94a1aa6",
+    "package_sha256": "4f3d07373f51a8a302078c9f72a5416775a4983db3486c7a9a14cda5a09b888d"
+  },
+  "install": {
+    "installed_package_root": "/home/stickai/.npm-global/lib/node_modules/openclaw",
+    "exact_install_command_after_approval": "npm install -g --ignore-scripts /home/stickai/.openclaw/workspace/tmp/umc-m6-package/openclaw-2026.5.7.tgz",
+    "expected_installed_files_changed": [
+      "dist/auto-reply/reply/umc-m6-contract-build-lane.js"
+    ],
+    "expected_preserved_files": [
+      "dist/auto-reply/reply/umc-m4-verified-route.js",
+      "dist/auto-reply/reply/umc-m5-capability-manifest.js",
+      "dist/auto-reply/reply/umc-m5-capability-manifest.schema.json",
+      "dist/auto-reply/reply/umc-m5-seed-manifests.json",
+      "dist/extensions/telegram/openclaw.plugin.json"
+    ],
+    "tarball_content_presence_check": "PASS_M6_M4_M5_TELEGRAM_PLUGIN_ARTIFACTS_PRESENT_IN_TARBALL"
+  },
+  "backup": {
+    "backup_path_before_install": "/home/stickai/.openclaw/backups/openclaw-m6-contract-build-lane-install-20260716T0224Z/openclaw-installed-package",
+    "backup_marker": "/home/stickai/.openclaw/backups/openclaw-m6-contract-build-lane-install-20260716T0224Z/PASS_BACKUP_CREATED",
+    "known_rollback_baseline": "/home/stickai/.openclaw/backups/openclaw-m5-capability-manifest-install-20260716T0124Z/openclaw-installed-package"
+  },
+  "rollback": {
+    "rollback_readiness": "READY_WITH_PRIOR_M5_TARBALL_AND_BACKUP",
+    "rollback_command_requires_separate_approval_if_needed": "npm install -g --ignore-scripts /home/stickai/.openclaw/workspace/tmp/umc-m5-package/openclaw-2026.5.7.tgz && openclaw gateway restart",
+    "m5_rollback_tarball_sha256": "13850f7bd15224e295cc4bee6be184e4df3cd29ab30f191d6a757cd088bdcc06"
+  },
+  "gateway_restart": {
+    "required_after_install": true,
+    "restart_method": "openclaw gateway restart because first-class gateway.restart tool is not available in this session toolset",
+    "restart_reason": "M6 contract-build lane staged install activation"
+  },
+  "plugin_manifest_preservation_checks": [
+    "Verify dist/extensions/telegram/openclaw.plugin.json exists after install.",
+    "Verify Telegram channel remains enabled/configured/running/connected after restart.",
+    "Verify no Telegram send/probe is performed."
+  ],
+  "gateway_telegram_health_checks": [
+    "openclaw gateway status: running, connectivity ok, admin-capable.",
+    "openclaw channels status: Telegram enabled, configured, running, connected."
+  ],
+  "installed_runtime_m6_verification_checks": [
+    "token-broker-vmesh/contract-build lane present",
+    "M6 contract-build lane implementation present",
+    "valid M2 route intent builds contract-qualified lane",
+    "valid lane carries VerifiedRoute",
+    "valid lane carries ContractEnvelope",
+    "valid lane checks M5 capability manifest",
+    "valid lane preserves M3 no-send DeliveryReceipt policy",
+    "valid lane preserves terminal closeout policy",
+    "worker model is metadata only and not route authority",
+    "raw provider/model pin cannot build lane",
+    "session/channel model pin becomes route intent only",
+    "missing manifest produces typed HOLD",
+    "unsupported worker capability produces typed HOLD",
+    "fallback without contract preservation is blocked",
+    "fallback preserving contract is eligible",
+    "production authority remains disabled",
+    "enforcement remains disabled"
+  ],
+  "m3_m4_m5_regression_plan": [
+    "M3 envelope/no-send receipt path still passes",
+    "M4 raw provider/model rejection still passes",
+    "M4 forged route rejection still passes",
+    "M5 valid manifest eligibility still passes",
+    "M5 missing manifest still HOLDs",
+    "M5 malformed manifest still FAILs",
+    "M5 unsupported capability still HOLDs",
+    "fallback contract preservation still enforced"
+  ],
+  "contract_build_lane_validation_plan": [
+    "valid route intent lane build PASS",
+    "raw provider/model bypass blocked",
+    "missing manifest HOLD",
+    "unsupported worker capability HOLD",
+    "fallback without contract preservation blocked",
+    "fallback preserving contract eligible",
+    "worker model route authority false",
+    "VerifiedRoute preserved",
+    "ContractEnvelope preserved",
+    "DeliveryReceipt no_send preserved",
+    "terminal closeout preserved"
+  ],
+  "no_send_no_authority_boundary": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "m7_started": false,
+    "enforcement_enabled": false
+  },
+  "operator_instruction": "Stop here. Do not install until the operator explicitly replies with APPROVE_M6_CONTRACT_BUILD_LANE_STAGED_INSTALL."
+}

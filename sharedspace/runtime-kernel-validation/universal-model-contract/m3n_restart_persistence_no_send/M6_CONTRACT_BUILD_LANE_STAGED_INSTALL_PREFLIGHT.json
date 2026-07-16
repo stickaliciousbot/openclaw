@@ -1,0 +1,62 @@
+{
+  "schema": "umc.v1.m6.contract_build_lane_staged_install_preflight.v1",
+  "generated_utc": "2026-07-16T02:17:00Z",
+  "status": "PASS_M6_CONTRACT_BUILD_LANE_STAGED_INSTALL_PREFLIGHT",
+  "milestone": "M6_CONTRACT_BUILD_LANE_STAGED_INSTALL_AND_REGRESSION",
+  "source_ready": {
+    "final_status_exists": true,
+    "final_status": "PASS_M6_TOKEN_BROKER_VMESH_CONTRACT_BUILD_LANE_SOURCE_READY_NO_APPLY",
+    "source_commit_exists": true,
+    "source_commit": "138e91ece8fd83d7e550a891222d8abefb3c75fa",
+    "evidence_commit_exists": true,
+    "evidence_commit": "1d1ccef921fc8dd58b4e0b908e425bef5a706fd7",
+    "fixtures_status": "PASS_M6_CONTRACT_BUILD_LANE_FIXTURES",
+    "no_apply_build_validation_status": "PASS_M6_CONTRACT_BUILD_LANE_NO_APPLY_BUILD_VALIDATION",
+    "staged_install_plan_status": "PASS_M6_CONTRACT_BUILD_LANE_STAGED_INSTALL_PLAN_READY"
+  },
+  "prior_milestones": {
+    "m5_staged_install_regression_status": "PASS_M5_CAPABILITY_MANIFEST_STAGED_INSTALL_AND_REGRESSION",
+    "m4_staged_install_regression_status": "PASS_M4_VERIFIED_ROUTE_STAGED_INSTALL_AND_REGRESSION",
+    "m3p_status": "PASS_M3P_OWNER_TURN_SHADOW_COVERAGE_SOAK_NO_SEND"
+  },
+  "source": {
+    "path": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+    "branch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+    "head": "138e91ece8fd83d7e550a891222d8abefb3c75fa",
+    "worktree_clean": true
+  },
+  "health": {
+    "gateway_read_only_health": "PASS_RUNNING_CONNECTIVITY_OK_ADMIN_CAPABLE",
+    "telegram_read_only_health": "PASS_ENABLED_CONFIGURED_RUNNING_CONNECTED",
+    "event_loop_cpu_watch_item": {
+      "known": true,
+      "blocking": false,
+      "reason": "Known intermittent watch item; current Gateway and Telegram health passed."
+    }
+  },
+  "rollback": {
+    "path_known": true,
+    "trusted_m5_backup": "/home/stickai/.openclaw/backups/openclaw-m5-capability-manifest-install-20260716T0124Z/openclaw-installed-package"
+  },
+  "stale_approval_cards": {
+    "used": false,
+    "note": "The stale inline-import approval probe is ignored/not used for M6 staged install."
+  },
+  "boundary_counters": {
+    "installed_runtime_mutation_count": 0,
+    "package_install_count": 0,
+    "tarball_apply_count": 0,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "m7_started": false,
+    "enforcement_enabled": false
+  },
+  "next_required_step": "Build/package exact M6 tarball and prepare install approval card; do not install before explicit operator approval."
+}
