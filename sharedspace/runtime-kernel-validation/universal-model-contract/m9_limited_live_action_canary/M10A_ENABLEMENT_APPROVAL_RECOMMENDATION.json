@@ -1,0 +1,32 @@
+{
+  "schema": "umc.v1.m10a.enablement_approval_recommendation.v1",
+  "generated_utc": "2026-07-16T12:45:00Z",
+  "status": "HOLD_M10A_ENABLEMENT_REQUIRES_COMMAND_REVISION",
+  "decision": "M10A_ENABLEMENT_REQUIRES_COMMAND_REVISION",
+  "rehydration_result": "PASS_M10A_ENABLEMENT_APPROVAL_REHYDRATED",
+  "scope_review_result": "PASS_M10A_ENABLEMENT_SCOPE_REVIEW",
+  "command_off_switch_review_result": "HOLD_M10A_ENABLEMENT_COMMAND_OR_OFF_SWITCH_INCOMPLETE",
+  "abort_observation_review_result": "HOLD_M10A_ENABLEMENT_ABORT_OR_OBSERVATION_INCOMPLETE",
+  "approval_ready": false,
+  "final_operator_approval_text_produced": false,
+  "final_operator_approval_text_path": null,
+  "blocking_findings": [
+    "Exact enable/disable/status/rollback/observation/operator-stop commands are missing from the package.",
+    "Abort thresholds and observation plan are missing from the package."
+  ],
+  "primary_revision_required": "COMMAND_REVISION_FIRST_THEN_OBSERVATION_REVISION",
+  "exact_next_phase": "REVISE_M10A_OWNER_TELEGRAM_DIRECT_ENABLEMENT_COMMANDS_AND_OBSERVATION_PLAN",
+  "side_effect_counters": {
+    "m10a_enablement_executed": false,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "write_tool_execution_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0,
+    "production_authority_changed": false,
+    "broad_enforcement_enabled": false
+  }
+}

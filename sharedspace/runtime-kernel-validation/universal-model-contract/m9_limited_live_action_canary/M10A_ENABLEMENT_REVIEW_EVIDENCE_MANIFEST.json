@@ -1,0 +1,49 @@
+{
+  "schema": "umc.v1.m10a.enablement_review_evidence_manifest.v1",
+  "generated_utc": "2026-07-16T12:45:00Z",
+  "status": "HOLD_M10A_ENABLEMENT_REQUIRES_COMMAND_REVISION",
+  "final_status": "HOLD_M10A_ENABLEMENT_REQUIRES_COMMAND_REVISION",
+  "artifacts": [
+    "M10A_ENABLEMENT_APPROVAL_REHYDRATION.json",
+    "M10A_ENABLEMENT_SCOPE_REVIEW.json",
+    "M10A_ENABLEMENT_SCOPE_REVIEW.md",
+    "M10A_ENABLEMENT_COMMAND_AND_OFF_SWITCH_REVIEW.json",
+    "M10A_ENABLEMENT_COMMAND_AND_OFF_SWITCH_REVIEW.md",
+    "M10A_ENABLEMENT_ABORT_AND_OBSERVATION_REVIEW.json",
+    "M10A_ENABLEMENT_ABORT_AND_OBSERVATION_REVIEW.md",
+    "M10A_ENABLEMENT_APPROVAL_RECOMMENDATION.json",
+    "M10A_ENABLEMENT_APPROVAL_RECOMMENDATION.md"
+  ],
+  "validations": {
+    "json_validation": "PASS",
+    "markdown_sanity": "PASS",
+    "rehydration_validation": "PASS_M10A_ENABLEMENT_APPROVAL_REHYDRATED",
+    "scope_review_validation": "PASS_M10A_ENABLEMENT_SCOPE_REVIEW",
+    "command_off_switch_review_validation": "HOLD_M10A_ENABLEMENT_COMMAND_OR_OFF_SWITCH_INCOMPLETE",
+    "abort_observation_review_validation": "HOLD_M10A_ENABLEMENT_ABORT_OR_OBSERVATION_INCOMPLETE",
+    "approval_recommendation_validation": "HOLD_M10A_ENABLEMENT_REQUIRES_COMMAND_REVISION",
+    "operator_approval_text_validation": "NOT_PRODUCED_NOT_APPROVAL_READY",
+    "no_execution_validation": "PASS_NO_M10A_ENABLEMENT_EXECUTED",
+    "no_send_validation": "PASS_ZERO_SEND_OR_PROBE",
+    "no_provider_call_validation": "PASS_ZERO_PROVIDER_MODEL_LIVE_CALL",
+    "no_write_tool_validation": "PASS_ZERO_RUNTIME_WRITE_TOOL_EXECUTION",
+    "no_memory_mutation_validation": "PASS_ZERO_DURABLE_MEMORY_MUTATION",
+    "no_context_bridge_mutation_validation": "PASS_ZERO_CONTEXT_BRIDGE_MUTATION",
+    "no_production_authority_change_validation": "PASS_PRODUCTION_AUTHORITY_UNCHANGED_FALSE"
+  },
+  "side_effect_counters": {
+    "m10a_enablement_executed": false,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "write_tool_execution_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0,
+    "production_authority_changed": false,
+    "broad_enforcement_enabled": false
+  },
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "exact_next_phase": "REVISE_M10A_OWNER_TELEGRAM_DIRECT_ENABLEMENT_COMMANDS_AND_OBSERVATION_PLAN"
+}

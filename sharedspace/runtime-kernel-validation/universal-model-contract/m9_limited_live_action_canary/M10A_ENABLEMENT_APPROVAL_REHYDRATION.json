@@ -1,0 +1,36 @@
+{
+  "schema": "umc.v1.m10a.enablement_approval_rehydration.v1",
+  "generated_utc": "2026-07-16T12:45:00Z",
+  "review_phase": "APPROVE_OR_REVISE_M10A_OWNER_TELEGRAM_DIRECT_ENFORCEMENT",
+  "status": "PASS_M10A_ENABLEMENT_APPROVAL_REHYDRATED",
+  "prior_validation_commit": "b700e9c7493892b3ee9def54189c4262c2196eda",
+  "candidate_m10a_dist_sha256": "be56d6a5105d4d0a03085757483b3bb07374ff96b9db8ea44a1bcb164139e082",
+  "expected_m8_preserved_sha256": "27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db",
+  "checks": {
+    "final_install_status": true,
+    "installed_m10a_sha": true,
+    "preserved_m8_sha": true,
+    "gateway_health_pass": true,
+    "telegram_health_pass": true,
+    "m10a_disabled_by_default": true,
+    "production_authority_false": true,
+    "broad_enforcement_false": true,
+    "dry_run_enable_disable_pass": true,
+    "m2_m9_regression_pass": true,
+    "post_install_stability_pass": true,
+    "m10a_not_currently_enabled": true
+  },
+  "side_effect_counters": {
+    "m10a_enablement_executed": false,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "write_tool_execution_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0,
+    "production_authority_changed": false,
+    "broad_enforcement_enabled": false
+  }
+}

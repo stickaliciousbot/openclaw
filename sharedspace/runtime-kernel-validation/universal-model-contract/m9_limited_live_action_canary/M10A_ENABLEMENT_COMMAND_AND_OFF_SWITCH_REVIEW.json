@@ -1,0 +1,38 @@
+{
+  "schema": "umc.v1.m10a.enablement_command_and_off_switch_review.v1",
+  "generated_utc": "2026-07-16T12:45:00Z",
+  "status": "HOLD_M10A_ENABLEMENT_COMMAND_OR_OFF_SWITCH_INCOMPLETE",
+  "required_commands": [
+    "enable M10A exact command/tool call",
+    "disable M10A/off-switch exact command/tool call",
+    "status/readback exact command/tool call",
+    "rollback if disable fails",
+    "post-enable observation command/plan",
+    "operator stop behavior",
+    "Gateway restart requirement"
+  ],
+  "checks": {
+    "enable_command_present": false,
+    "disable_off_switch_command_present": false,
+    "status_readback_command_present": false,
+    "rollback_if_disable_fails_present": false,
+    "post_enable_observation_command_present": false,
+    "operator_stop_behavior_present": false,
+    "gateway_restart_requirement_explicit": false,
+    "dry_run_proved_functions_exist_but_not_operator_commands": true
+  },
+  "finding": "Installed dry-run validates enable/disable functions, but the approval package itself does not include directly pasteable exact enable, disable/off-switch, status/readback, rollback, observation, Gateway restart, or operator-stop commands. Review must not surface final enablement approval text until these are specified.",
+  "side_effect_counters": {
+    "m10a_enablement_executed": false,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "write_tool_execution_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0,
+    "production_authority_changed": false,
+    "broad_enforcement_enabled": false
+  }
+}

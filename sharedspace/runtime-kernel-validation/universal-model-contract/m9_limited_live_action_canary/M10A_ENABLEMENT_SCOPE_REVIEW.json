@@ -1,0 +1,44 @@
+{
+  "schema": "umc.v1.m10a.enablement_scope_review.v1",
+  "generated_utc": "2026-07-16T12:45:00Z",
+  "status": "PASS_M10A_ENABLEMENT_SCOPE_REVIEW",
+  "required_scope": {
+    "scope_name": "M10A_OWNER_TELEGRAM_DIRECT_CONTRACT_ENFORCEMENT_ONLY",
+    "owner_chat_id": "8495203551",
+    "channel": "telegram_direct",
+    "agent_id": "main"
+  },
+  "included": [
+    "UMC contract decision enforcement only"
+  ],
+  "excluded": [
+    "Web UI",
+    "LAN/browser clients",
+    "Gmail",
+    "Drive",
+    "Calendar",
+    "external sends",
+    "provider/model policy expansion",
+    "general write tools",
+    "durable memory mutation",
+    "Context Bridge mutation",
+    "cron/job mutation",
+    "Gateway/config broad mutation",
+    "broad production enforcement",
+    "M10B/M10C future surfaces"
+  ],
+  "finding": "The package scope is narrow and owner Telegram direct only; it does not broaden production authority.",
+  "side_effect_counters": {
+    "m10a_enablement_executed": false,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "write_tool_execution_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0,
+    "production_authority_changed": false,
+    "broad_enforcement_enabled": false
+  }
+}

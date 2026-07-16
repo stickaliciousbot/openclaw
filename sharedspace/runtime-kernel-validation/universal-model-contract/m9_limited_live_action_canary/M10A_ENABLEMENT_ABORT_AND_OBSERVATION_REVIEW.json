@@ -1,0 +1,51 @@
+{
+  "schema": "umc.v1.m10a.enablement_abort_and_observation_review.v1",
+  "generated_utc": "2026-07-16T12:45:00Z",
+  "status": "HOLD_M10A_ENABLEMENT_ABORT_OR_OBSERVATION_INCOMPLETE",
+  "abort_triggers_required": [
+    "Gateway unhealthy",
+    "Telegram unhealthy",
+    "queue backlog persists",
+    "context overflow returns",
+    "event-loop degradation worsens and correlates with health failure",
+    "unexpected Telegram send/probe",
+    "external send attempt",
+    "provider/model call outside allowed production path",
+    "write-tool execution outside approved scope",
+    "durable memory mutation",
+    "Context Bridge mutation",
+    "route/config drift",
+    "production authority outside M10A scope",
+    "fallback drops contract",
+    "missing receipt passes",
+    "raw provider/model bypass accepted",
+    "operator stop requested"
+  ],
+  "observation_plan_required": [
+    "duration",
+    "cadence",
+    "health probes",
+    "status/readback verification",
+    "receipt validation",
+    "PASS/HOLD/FAIL counters",
+    "excluded-surface checks",
+    "off-switch readiness checks",
+    "rollback readiness checks",
+    "operator notification",
+    "final closeout criteria"
+  ],
+  "finding": "The current approval package contains a boundary statement and exact short approval text, but no explicit abort thresholds or post-enable observation plan. This must be revised before production enablement approval is approval-ready.",
+  "side_effect_counters": {
+    "m10a_enablement_executed": false,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "write_tool_execution_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0,
+    "production_authority_changed": false,
+    "broad_enforcement_enabled": false
+  }
+}
