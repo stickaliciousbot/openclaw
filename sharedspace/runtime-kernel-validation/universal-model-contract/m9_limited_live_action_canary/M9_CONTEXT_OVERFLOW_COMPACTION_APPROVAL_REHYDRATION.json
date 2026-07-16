@@ -1,0 +1,45 @@
+{
+  "schema": "umc.v1.m9.context_overflow_compaction_approval_rehydration.v1",
+  "generated_utc": "2026-07-16T09:15:00.000Z",
+  "status": "PASS_M9_CONTEXT_OVERFLOW_COMPACTION_APPROVAL_REHYDRATED",
+  "final_status": "HOLD_M9_CONTEXT_OVERFLOW_COMPACTION_APPROVAL_TEXT_READY",
+  "source_plan": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_CONTEXT_OVERFLOW_COMPACTION_PLAN.json",
+  "source_plan_status": "HOLD_M9_CONTEXT_OVERFLOW_COMPACTION_PLAN_READY",
+  "plan_type": "approval_card_prep_only",
+  "governing_rule": "M9 canary passed, but M10 is blocked by owner-session context overflow. Surface exact compaction approval first. No blind approval. No M10 until compaction and clean observation pass.",
+  "rehydration_result": "READY_WITH_RUNTIME_DERIVED_EXACT_SCOPE",
+  "saved_plan_gap_handling": {
+    "saved_plan_contains_selected_session": true,
+    "saved_plan_contains_explicit_approval_phrase": true,
+    "saved_plan_contains_exact_compaction_command": false,
+    "saved_plan_contains_exact_backup_snapshot_path": false,
+    "saved_plan_contains_exact_rollback_restore_command": false,
+    "resolution": "Exact command, backup path, and rollback command were derived from installed runtime sessions.compact/sessions.compaction.restore support and the current target session-store entry without executing compaction. This avoids blind approval while preserving the saved plan's selected session and approval gate."
+  },
+  "selected_session": {
+    "key": "agent:main:telegram:direct:8495203551",
+    "session_id": "a54ab0f2-fb7e-4640-ae12-bf37c5e5b2f4",
+    "session_file": "/home/stickai/.openclaw/agents/main/sessions/a54ab0f2-fb7e-4640-ae12-bf37c5e5b2f4.jsonl",
+    "session_store": "/home/stickai/.openclaw/agents/main/sessions/sessions.json",
+    "provider": "openai-codex",
+    "model": "gpt-5.5",
+    "observed_messages_at_investigation": 503
+  },
+  "selected_compaction_method": "manual_gateway_semantic_session_compaction_via_sessions.compact_without_maxLines",
+  "exact_compaction_command": "BACKUP_DIR='/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/backups/m9-context-overflow-owner-session-precompact-approved' && SESSION_STORE='/home/stickai/.openclaw/agents/main/sessions/sessions.json' && SESSION_FILE='/home/stickai/.openclaw/agents/main/sessions/a54ab0f2-fb7e-4640-ae12-bf37c5e5b2f4.jsonl' && mkdir -p \"$BACKUP_DIR\" && test ! -e \"$BACKUP_DIR/sessions.json.precompact\" && test ! -e \"$BACKUP_DIR/a54ab0f2-fb7e-4640-ae12-bf37c5e5b2f4.jsonl.precompact\" && cp -p \"$SESSION_STORE\" \"$BACKUP_DIR/sessions.json.precompact\" && cp -p \"$SESSION_FILE\" \"$BACKUP_DIR/a54ab0f2-fb7e-4640-ae12-bf37c5e5b2f4.jsonl.precompact\" && sha256sum \"$BACKUP_DIR/sessions.json.precompact\" \"$BACKUP_DIR/a54ab0f2-fb7e-4640-ae12-bf37c5e5b2f4.jsonl.precompact\" > \"$BACKUP_DIR/SHA256SUMS\" && openclaw gateway call --json --timeout 600000 --params '{\"key\":\"agent:main:telegram:direct:8495203551\"}' sessions.compact",
+  "exact_gateway_tool_call": {
+    "method": "sessions.compact",
+    "params": {
+      "key": "agent:main:telegram:direct:8495203551"
+    },
+    "timeout_ms": 600000,
+    "maxLines": null,
+    "trigger": "manual",
+    "does_not_use_tail_truncation": true
+  },
+  "backup_snapshot_path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/backups/m9-context-overflow-owner-session-precompact-approved",
+  "rollback_restore_command": "BACKUP_DIR='/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/backups/m9-context-overflow-owner-session-precompact-approved' && SESSION_STORE='/home/stickai/.openclaw/agents/main/sessions/sessions.json' && SESSION_FILE='/home/stickai/.openclaw/agents/main/sessions/a54ab0f2-fb7e-4640-ae12-bf37c5e5b2f4.jsonl' && sha256sum -c \"$BACKUP_DIR/SHA256SUMS\" && cp -p \"$BACKUP_DIR/sessions.json.precompact\" \"$SESSION_STORE\" && cp -p \"$BACKUP_DIR/a54ab0f2-fb7e-4640-ae12-bf37c5e5b2f4.jsonl.precompact\" \"$SESSION_FILE\"",
+  "operator_approval_text": "APPROVE_M9_CONTEXT_OVERFLOW_OWNER_SESSION_COMPACTION",
+  "next_phase_after_operator_approval": "APPROVE_M9_CONTEXT_OVERFLOW_COMPACTION_EXECUTION",
+  "executed_now": false
+}

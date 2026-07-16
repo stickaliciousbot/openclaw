@@ -1,0 +1,58 @@
+{
+  "schema": "umc.v1.m9.limited_live_action_canary_post_compaction_closeout.v1",
+  "generated_utc": "2026-07-16T10:08:51.641Z",
+  "status": "HOLD_M9_POST_COMPACTION_QUEUE_NOT_RESTING_OVERFLOW_CLEAN",
+  "final_status": "HOLD_M9_POST_COMPACTION_QUEUE_NOT_RESTING_OVERFLOW_CLEAN",
+  "original_canary_execution_result": "PASS_M9_LIMITED_LIVE_ACTION_CANARY_LOCAL_ARTIFACT_WRITE",
+  "original_observation_failure_result": "FAIL_M9_POST_CANARY_OBSERVATION_REGRESSION",
+  "compaction_execution_result": "PASS_M9_CONTEXT_OVERFLOW_COMPACTION_EXECUTION",
+  "post_compaction_recheck_result": "HOLD_M9_POST_COMPACTION_QUEUE_NOT_RESTING_OVERFLOW_CLEAN",
+  "m9_sufficiency_decision": "M9_BLOCKED_QUEUE_NOT_RESTING",
+  "target_file_path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LOCAL_ARTIFACT_CANARY_TARGET.txt",
+  "target_sha256": "1908d9158dc06e6c7127b86cde923361c3f86a13ba084c4f03746d4af49ff0cf",
+  "expected_target_sha256": "1908d9158dc06e6c7127b86cde923361c3f86a13ba084c4f03746d4af49ff0cf",
+  "action_count": {
+    "original_canary": 1,
+    "maximum_approved": 1,
+    "additional_live_actions": 0,
+    "duplicate_write_count": 0
+  },
+  "duplicate_write_count": 0,
+  "receipt_summary": {
+    "write_receipt": "PASS_M9_LOCAL_ARTIFACT_WRITE_RECEIPT",
+    "delivery_receipt": "PASS_M9_DELIVERY_RECEIPT_LOCAL_ARTIFACT_WRITE",
+    "terminal_contract_closeout": "PASS_M9_LIMITED_LIVE_ACTION_CANARY_LOCAL_ARTIFACT_WRITE",
+    "write_receipt_unchanged": true,
+    "delivery_receipt_unchanged": true,
+    "terminal_contract_closeout_unchanged": true
+  },
+  "postcondition_summary": {
+    "file_exists": true,
+    "sha256_matches": true,
+    "no_duplicate_canary_write": true,
+    "context_overflow_clean": true
+  },
+  "safety_counters": {
+    "context_overflow_count": 0,
+    "context_overflow_diag_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "additional_write_tool_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "broad_enforcement_enabled": false,
+    "m10_started": false
+  },
+  "gateway_telegram_health": {
+    "gateway_rpc_ok": true,
+    "telegram_on_ok": true,
+    "queue_depth_resting": false
+  },
+  "production_authority_state": "unchanged/no production authority change",
+  "broad_enforcement_enabled": false,
+  "m10_started": false,
+  "recommendation_for_next_phase": "REPAIR_OR_RECHECK_M9_POST_COMPACTION_BLOCKER"
+}

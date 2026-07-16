@@ -1,0 +1,21 @@
+{
+  "schema": "umc.v1.m9.context_overflow_late_readonly_postcheck_completion.v1",
+  "generated_utc": "2026-07-16T09:26:00Z",
+  "status": "PASS_M9_LATE_READONLY_POSTCHECK_COMPLETED_NO_NEW_ACTION_REQUIRED",
+  "source_event": {
+    "type": "approved_async_command_completion",
+    "gateway_id": "b79c0ea0-b3ef-4024-bba8-51145f49693e",
+    "session": "oceanic-glade",
+    "exit_code": 0
+  },
+  "command_classification": "stale_readonly_postcheck_heredoc",
+  "rerun_performed": false,
+  "stdout_recorded_by_process_tool": false,
+  "material_state_change_detected": false,
+  "authoritative_prior_artifacts": [
+    "M9_CONTEXT_OVERFLOW_COMPACTION_EXECUTION_RESULT.json",
+    "M9_CONTEXT_OVERFLOW_COMPACTION_SCOPE_VALIDATION.json"
+  ],
+  "result_interpretation": "The late-approved read-only verification command exited successfully but produced no recorded stdout in the process log. Existing independently verified compaction evidence remains authoritative; no compaction rerun or further live action was performed.",
+  "final_status": "PASS_M9_CONTEXT_OVERFLOW_COMPACTION_EXECUTION_M10_STILL_BLOCKED_PENDING_CLEAN_RECHECK"
+}

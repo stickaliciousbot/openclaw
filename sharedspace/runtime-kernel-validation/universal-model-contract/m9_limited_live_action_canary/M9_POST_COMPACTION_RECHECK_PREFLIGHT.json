@@ -1,0 +1,58 @@
+{
+  "schema": "umc.v1.m9.post_compaction_recheck_preflight.v1",
+  "generated_utc": "2026-07-16T09:37:09.175Z",
+  "status": "PASS_M9_POST_COMPACTION_RECHECK_PREFLIGHT",
+  "failures": [],
+  "current_authoritative_status": "PASS_M9_CONTEXT_OVERFLOW_COMPACTION_EXECUTION_M10_STILL_BLOCKED_PENDING_CLEAN_RECHECK",
+  "compaction_rehydration": {
+    "status": "PASS_M9_CONTEXT_OVERFLOW_COMPACTION_EXECUTION",
+    "session_key": "agent:main:telegram:direct:8495203551",
+    "compacted": true,
+    "checkpoint_id": "1b9a82a9-1d82-46c9-8851-cd89002d4df9",
+    "tokens_before": 84742,
+    "tokens_after": 11155,
+    "snapshot_path": "/home/stickai/.openclaw/agents/main/sessions/a54ab0f2-fb7e-4640-ae12-bf37c5e5b2f4.checkpoint.daa74f5b-3dfc-4416-b8e5-1992692f8887.jsonl",
+    "snapshot_path_exists": true
+  },
+  "canary_rehydration": {
+    "target_path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LOCAL_ARTIFACT_CANARY_TARGET.txt",
+    "target_sha256_expected": "1908d9158dc06e6c7127b86cde923361c3f86a13ba084c4f03746d4af49ff0cf",
+    "target_sha256_actual": "1908d9158dc06e6c7127b86cde923361c3f86a13ba084c4f03746d4af49ff0cf",
+    "target_sha256_ok": true,
+    "action_count": {
+      "original_canary": 1,
+      "maximum_approved": 1,
+      "additional_live_actions": 0,
+      "duplicate_write_count": 0
+    },
+    "write_receipt_status": "PASS_M9_LOCAL_ARTIFACT_WRITE_RECEIPT",
+    "delivery_receipt_status": "PASS_M9_DELIVERY_RECEIPT_LOCAL_ARTIFACT_WRITE",
+    "terminal_contract_closeout_status": "PASS_M9_LIMITED_LIVE_ACTION_CANARY_LOCAL_ARTIFACT_WRITE"
+  },
+  "safety_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "additional_write_tool_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "broad_enforcement_enabled": false,
+    "m10_started": false,
+    "duplicate_write_count": 0
+  },
+  "baseline": {
+    "generated_utc": "2026-07-16T09:37:09.113Z",
+    "log_offset": 3646976,
+    "config_sha256": "a4f0aac75704eb7d171e528c0486fd8baa95260450d38653aea5ba3226e2d859",
+    "route_provider_fallback_fingerprint_sha256": "a4f0aac75704eb7d171e528c0486fd8baa95260450d38653aea5ba3226e2d859",
+    "target_sha256": "1908d9158dc06e6c7127b86cde923361c3f86a13ba084c4f03746d4af49ff0cf",
+    "target_mtime_ms": 1784189684560.4978,
+    "target_ctime_ms": 1784189684560.4978,
+    "write_receipt_sha256": "e82616727b8e0ed91ea497e5d8d1f244dbc5f28ed7208e3ae07e63a62f2cebdc",
+    "delivery_receipt_sha256": "b64044149fd74b6aa9ca8a2f7073843255c9831bc7a83ea5d30677ab9cc87752",
+    "terminal_closeout_sha256": "1ed01840e64fcef087a27ca2eeca4dd265b43e11d87f9eb5667a226b19fd8348",
+    "session_line_count": 3023
+  }
+}

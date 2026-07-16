@@ -1,0 +1,49 @@
+{
+  "schema": "umc.v1.m9.context_overflow_compaction_scope_validation.v1",
+  "generated_utc": "2026-07-16T09:25:00Z",
+  "status": "PASS_M9_CONTEXT_OVERFLOW_COMPACTION_SCOPE_VALIDATED_EXECUTED",
+  "validated_against": [
+    "M9_CONTEXT_OVERFLOW_COMPACTION_PLAN.json",
+    "M9_CONTEXT_OVERFLOW_RECOVERY_DECISION.json",
+    "M9_CONTEXT_OVERFLOW_SIGNAL_SOURCE_MAP.json",
+    "sessions.compaction.list checkpoint registry",
+    "M9_LOCAL_ARTIFACT_CANARY_TARGET.txt sha256"
+  ],
+  "approved_async_command_completed": true,
+  "compaction_rerun": false,
+  "scope": {
+    "only_session_key_compacted": "agent:main:telegram:direct:8495203551",
+    "session_file": "/home/stickai/.openclaw/agents/main/sessions/a54ab0f2-fb7e-4640-ae12-bf37c5e5b2f4.jsonl",
+    "checkpoint_file": "/home/stickai/.openclaw/agents/main/sessions/a54ab0f2-fb7e-4640-ae12-bf37c5e5b2f4.checkpoint.daa74f5b-3dfc-4416-b8e5-1992692f8887.jsonl",
+    "checkpoint_id": "1b9a82a9-1d82-46c9-8851-cd89002d4df9"
+  },
+  "approved_action_result": {
+    "ok": true,
+    "compacted": true,
+    "tokens_before": 84742,
+    "tokens_after": 11155
+  },
+  "blocked_actions_preserved": {
+    "m10_prep_allowed": false,
+    "m10_started": false,
+    "canary_rerun": false,
+    "telegram_send_probe": false,
+    "external_send": false,
+    "provider_model_live_call": false,
+    "durable_memory_mutation": false,
+    "context_bridge_mutation": false,
+    "route_config_mutation": false,
+    "production_authority_change": false,
+    "broad_enforcement": false,
+    "push": false
+  },
+  "rollback_reference": {
+    "restore_method": "sessions.compaction.restore",
+    "restore_params": {
+      "key": "agent:main:telegram:direct:8495203551",
+      "checkpointId": "1b9a82a9-1d82-46c9-8851-cd89002d4df9"
+    },
+    "restore_requires_separate_explicit_approval": true
+  },
+  "final_status": "PASS_M9_CONTEXT_OVERFLOW_COMPACTION_EXECUTION_M10_STILL_BLOCKED_PENDING_CLEAN_RECHECK"
+}

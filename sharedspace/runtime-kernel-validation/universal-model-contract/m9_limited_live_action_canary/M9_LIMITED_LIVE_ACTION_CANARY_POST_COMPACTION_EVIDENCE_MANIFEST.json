@@ -1,0 +1,100 @@
+{
+  "schema": "umc.v1.m9.post_compaction_evidence_manifest.v1",
+  "generated_utc": "2026-07-16T10:08:51.642Z",
+  "status": "HOLD_M9_POST_COMPACTION_QUEUE_NOT_RESTING_OVERFLOW_CLEAN",
+  "final_status": "HOLD_M9_POST_COMPACTION_QUEUE_NOT_RESTING_OVERFLOW_CLEAN",
+  "artifacts": [
+    {
+      "file": "M9_POST_COMPACTION_RECHECK_PREFLIGHT.json",
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_COMPACTION_RECHECK_PREFLIGHT.json",
+      "sha256": "68afd3dcd871a24f912c2ea45c18763e6abbc6cf10cabbf14231db0d74631bc5",
+      "status": "PASS_M9_POST_COMPACTION_RECHECK_PREFLIGHT"
+    },
+    {
+      "file": "M9_POST_COMPACTION_RECHECK_PROBE_0001.json",
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_COMPACTION_RECHECK_PROBE_0001.json",
+      "sha256": "7057075c7995a151942f6676d4666c9551a406cbfa564d6dd540dd4080ea2f0f",
+      "status": "HOLD_M9_POST_COMPACTION_QUEUE_NOT_RESTING_OVERFLOW_CLEAN"
+    },
+    {
+      "file": "M9_POST_COMPACTION_RECHECK_PROBE_0002.json",
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_COMPACTION_RECHECK_PROBE_0002.json",
+      "sha256": "736a7882ad7a7bdd0d215316bc4b99764050b3f9f7e1a47d25ee5866c3f5936c",
+      "status": "PASS_M9_POST_COMPACTION_RECHECK_PROBE_CLEAN"
+    },
+    {
+      "file": "M9_POST_COMPACTION_RECHECK_PROBE_0003.json",
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_COMPACTION_RECHECK_PROBE_0003.json",
+      "sha256": "0fe627e3d6f2bbed01a524f6772a30a223f33e388e62f68f471ed5d52de1b19b",
+      "status": "PASS_M9_POST_COMPACTION_RECHECK_PROBE_CLEAN"
+    },
+    {
+      "file": "M9_POST_COMPACTION_RECHECK_PROBE_0004.json",
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_COMPACTION_RECHECK_PROBE_0004.json",
+      "sha256": "59be60bb525f8b48c94181a51e4a2c837bdfa3cd69e8034574cdd8926eff71e4",
+      "status": "PASS_M9_POST_COMPACTION_RECHECK_PROBE_CLEAN"
+    },
+    {
+      "file": "M9_POST_COMPACTION_RECHECK_PROBE_0005.json",
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_COMPACTION_RECHECK_PROBE_0005.json",
+      "sha256": "28db7ec6b6f7b3894cf7e17a6de2a13ae898ab39356401f6c5009483dcc8508d",
+      "status": "PASS_M9_POST_COMPACTION_RECHECK_PROBE_CLEAN"
+    },
+    {
+      "file": "M9_POST_COMPACTION_RECHECK_PROBE_0006.json",
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_COMPACTION_RECHECK_PROBE_0006.json",
+      "sha256": "8dfc47b64385e6cc921d9ba50c76d6f5020880b5df9d881fdf2f0e9dfbc851c7",
+      "status": "PASS_M9_POST_COMPACTION_RECHECK_PROBE_CLEAN"
+    },
+    {
+      "file": "M9_POST_COMPACTION_RECHECK_SUMMARY.json",
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_COMPACTION_RECHECK_SUMMARY.json",
+      "sha256": "b8e24e7ddaee25707c4994596889eadda353d77120cbe643d7d6360deaf6e7ea",
+      "status": "HOLD_M9_POST_COMPACTION_QUEUE_NOT_RESTING_OVERFLOW_CLEAN"
+    },
+    {
+      "file": "M9_POST_COMPACTION_EVIDENCE_SUFFICIENCY_DECISION.json",
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_COMPACTION_EVIDENCE_SUFFICIENCY_DECISION.json",
+      "sha256": "a3bd6600a59be6c23f3d954aac599b48e8af3319133a4618b4acf3951c591011",
+      "status": "HOLD_M9_BLOCKED_QUEUE_NOT_RESTING"
+    },
+    {
+      "file": "M9_POST_COMPACTION_EVIDENCE_SUFFICIENCY_DECISION.md",
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_COMPACTION_EVIDENCE_SUFFICIENCY_DECISION.md",
+      "sha256": "f2091c2eb6fbbf613674e98d1a3acce45cc28f43834651b5816f6d386b3f6c99",
+      "status": null
+    },
+    {
+      "file": "M9_LIMITED_LIVE_ACTION_CANARY_POST_COMPACTION_CLOSEOUT.json",
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LIMITED_LIVE_ACTION_CANARY_POST_COMPACTION_CLOSEOUT.json",
+      "sha256": "0baef6f01980a585dca399f814949a2e7dc15d52f36d694e14984e253c02bd5a",
+      "status": "HOLD_M9_POST_COMPACTION_QUEUE_NOT_RESTING_OVERFLOW_CLEAN"
+    },
+    {
+      "file": "M9_LIMITED_LIVE_ACTION_CANARY_POST_COMPACTION_SUMMARY.md",
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LIMITED_LIVE_ACTION_CANARY_POST_COMPACTION_SUMMARY.md",
+      "sha256": "f1abf8d5a43507343cc9464e89f634e84a041231bd2f2c17b22ca506885e1d3c",
+      "status": null
+    }
+  ],
+  "validation": {
+    "json_written": true,
+    "markdown_written": true,
+    "target_sha_validation": true,
+    "receipt_validation": {
+      "write_receipt": "PASS_M9_LOCAL_ARTIFACT_WRITE_RECEIPT",
+      "delivery_receipt": "PASS_M9_DELIVERY_RECEIPT_LOCAL_ARTIFACT_WRITE",
+      "terminal_contract_closeout": "PASS_M9_LIMITED_LIVE_ACTION_CANARY_LOCAL_ARTIFACT_WRITE",
+      "write_receipt_unchanged": true,
+      "delivery_receipt_unchanged": true,
+      "terminal_contract_closeout_unchanged": true
+    },
+    "no_duplicate_write_validation": true,
+    "no_send_validation": true,
+    "no_authority_validation": true,
+    "runtime_config_drift_validation": true,
+    "durable_memory_context_bridge_non_mutation_validation": true
+  },
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "next_phase": "REPAIR_OR_RECHECK_M9_POST_COMPACTION_BLOCKER"
+}

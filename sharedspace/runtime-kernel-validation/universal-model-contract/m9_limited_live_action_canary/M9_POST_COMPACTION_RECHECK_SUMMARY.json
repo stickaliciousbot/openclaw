@@ -1,0 +1,83 @@
+{
+  "schema": "umc.v1.m9.post_compaction_recheck_summary.v1",
+  "generated_utc": "2026-07-16T10:08:51.638Z",
+  "start_utc": "2026-07-16T09:37:09.177Z",
+  "duration_minutes_requested": 30,
+  "duration_ms_observed": 1902461,
+  "cadence_minutes": 5,
+  "expected_probes": 6,
+  "actual_probes": 6,
+  "hard_stop": true,
+  "status": "HOLD_M9_POST_COMPACTION_QUEUE_NOT_RESTING_OVERFLOW_CLEAN",
+  "failures": [
+    "queue_not_resting_overflow_clean"
+  ],
+  "probe_artifacts": [
+    {
+      "file": "M9_POST_COMPACTION_RECHECK_PROBE_0001.json",
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_COMPACTION_RECHECK_PROBE_0001.json",
+      "sha256": "7057075c7995a151942f6676d4666c9551a406cbfa564d6dd540dd4080ea2f0f",
+      "status": "HOLD_M9_POST_COMPACTION_QUEUE_NOT_RESTING_OVERFLOW_CLEAN"
+    },
+    {
+      "file": "M9_POST_COMPACTION_RECHECK_PROBE_0002.json",
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_COMPACTION_RECHECK_PROBE_0002.json",
+      "sha256": "736a7882ad7a7bdd0d215316bc4b99764050b3f9f7e1a47d25ee5866c3f5936c",
+      "status": "PASS_M9_POST_COMPACTION_RECHECK_PROBE_CLEAN"
+    },
+    {
+      "file": "M9_POST_COMPACTION_RECHECK_PROBE_0003.json",
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_COMPACTION_RECHECK_PROBE_0003.json",
+      "sha256": "0fe627e3d6f2bbed01a524f6772a30a223f33e388e62f68f471ed5d52de1b19b",
+      "status": "PASS_M9_POST_COMPACTION_RECHECK_PROBE_CLEAN"
+    },
+    {
+      "file": "M9_POST_COMPACTION_RECHECK_PROBE_0004.json",
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_COMPACTION_RECHECK_PROBE_0004.json",
+      "sha256": "59be60bb525f8b48c94181a51e4a2c837bdfa3cd69e8034574cdd8926eff71e4",
+      "status": "PASS_M9_POST_COMPACTION_RECHECK_PROBE_CLEAN"
+    },
+    {
+      "file": "M9_POST_COMPACTION_RECHECK_PROBE_0005.json",
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_COMPACTION_RECHECK_PROBE_0005.json",
+      "sha256": "28db7ec6b6f7b3894cf7e17a6de2a13ae898ab39356401f6c5009483dcc8508d",
+      "status": "PASS_M9_POST_COMPACTION_RECHECK_PROBE_CLEAN"
+    },
+    {
+      "file": "M9_POST_COMPACTION_RECHECK_PROBE_0006.json",
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_COMPACTION_RECHECK_PROBE_0006.json",
+      "sha256": "8dfc47b64385e6cc921d9ba50c76d6f5020880b5df9d881fdf2f0e9dfbc851c7",
+      "status": "PASS_M9_POST_COMPACTION_RECHECK_PROBE_CLEAN"
+    }
+  ],
+  "aggregate_counts": {
+    "context_overflow_count": 0,
+    "context_overflow_diag_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "additional_write_tool_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "broad_enforcement_enabled": false,
+    "m10_started": false
+  },
+  "target_sha256": "1908d9158dc06e6c7127b86cde923361c3f86a13ba084c4f03746d4af49ff0cf",
+  "target_sha256_ok": true,
+  "receipt_summary": {
+    "write_receipt": "PASS_M9_LOCAL_ARTIFACT_WRITE_RECEIPT",
+    "delivery_receipt": "PASS_M9_DELIVERY_RECEIPT_LOCAL_ARTIFACT_WRITE",
+    "terminal_contract_closeout": "PASS_M9_LIMITED_LIVE_ACTION_CANARY_LOCAL_ARTIFACT_WRITE",
+    "write_receipt_unchanged": true,
+    "delivery_receipt_unchanged": true,
+    "terminal_contract_closeout_unchanged": true
+  },
+  "gateway_telegram_health": {
+    "gateway_rpc_ok": true,
+    "telegram_on_ok": true,
+    "queue_depth_resting": false
+  },
+  "m10_started": false
+}

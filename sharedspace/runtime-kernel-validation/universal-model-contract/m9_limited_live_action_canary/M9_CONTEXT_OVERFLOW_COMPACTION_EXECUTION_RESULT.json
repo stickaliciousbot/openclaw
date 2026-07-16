@@ -1,0 +1,60 @@
+{
+  "schema": "umc.v1.m9.context_overflow_compaction_execution_result.v1",
+  "generated_utc": "2026-07-16T09:25:00Z",
+  "status": "PASS_M9_CONTEXT_OVERFLOW_COMPACTION_EXECUTION",
+  "source_event": {
+    "type": "approved_async_command_completion",
+    "gateway_id": "a3634528-3ea7-4765-ac5a-3d75ec500e29",
+    "session": "sharp-ocean",
+    "exit_code": 0,
+    "rerun": false
+  },
+  "rpc_result": {
+    "ok": true,
+    "key": "agent:main:telegram:direct:8495203551",
+    "compacted": true
+  },
+  "target_session": {
+    "key": "agent:main:telegram:direct:8495203551",
+    "session_id": "a54ab0f2-fb7e-4640-ae12-bf37c5e5b2f4",
+    "post_compaction_session_file": "/home/stickai/.openclaw/agents/main/sessions/a54ab0f2-fb7e-4640-ae12-bf37c5e5b2f4.jsonl"
+  },
+  "checkpoint": {
+    "checkpoint_id": "1b9a82a9-1d82-46c9-8851-cd89002d4df9",
+    "created_at_ms": 1784193849140,
+    "created_at_utc": "2026-07-16T09:24:09.140Z",
+    "reason": "manual",
+    "tokens_before": 84742,
+    "tokens_after": 11155,
+    "pre_compaction_session_file": "/home/stickai/.openclaw/agents/main/sessions/a54ab0f2-fb7e-4640-ae12-bf37c5e5b2f4.checkpoint.daa74f5b-3dfc-4416-b8e5-1992692f8887.jsonl",
+    "pre_compaction_session_file_exists": true,
+    "pre_compaction_session_file_size_bytes": 9289344,
+    "pre_compaction_leaf_id": "4296f723",
+    "post_compaction_leaf_id": "b295ff7f",
+    "post_compaction_entry_id": "b295ff7f"
+  },
+  "local_safety_postcheck": {
+    "m9_target_path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LOCAL_ARTIFACT_CANARY_TARGET.txt",
+    "m9_target_sha256_expected": "1908d9158dc06e6c7127b86cde923361c3f86a13ba084c4f03746d4af49ff0cf",
+    "m9_target_sha256_actual": "1908d9158dc06e6c7127b86cde923361c3f86a13ba084c4f03746d4af49ff0cf",
+    "m9_target_sha256_ok": true,
+    "duplicate_canary_write_detected": false,
+    "session_file_line_count_after_compaction": 2959,
+    "m10_started_from_recovery_decision": false,
+    "m10_prep_allowed_from_recovery_decision": false
+  },
+  "not_performed": [
+    "compaction_rerun",
+    "canary_rerun",
+    "telegram_send_or_probe",
+    "external_send",
+    "provider_model_live_call",
+    "durable_memory_mutation",
+    "context_bridge_mutation",
+    "route_or_fallback_config_mutation",
+    "production_authority_change",
+    "m10_start_or_prep"
+  ],
+  "next_required_phase": "M9_POST_COMPACTION_CONTEXT_OVERFLOW_RECHECK_NO_SEND_BEFORE_M10",
+  "m10_status": "BLOCKED_UNTIL_POST_COMPACTION_RECHECK_PASSES"
+}

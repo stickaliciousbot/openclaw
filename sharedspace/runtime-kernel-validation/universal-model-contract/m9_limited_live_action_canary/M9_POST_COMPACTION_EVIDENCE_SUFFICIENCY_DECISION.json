@@ -1,0 +1,27 @@
+{
+  "schema": "umc.v1.m9.post_compaction_evidence_sufficiency_decision.v1",
+  "generated_utc": "2026-07-16T10:08:51.640Z",
+  "status": "HOLD_M9_BLOCKED_QUEUE_NOT_RESTING",
+  "decision": "M9_BLOCKED_QUEUE_NOT_RESTING",
+  "allowed_decisions": [
+    "M9_LOCAL_ARTIFACT_CANARY_SUFFICIENT_FOR_M10_PREP_AFTER_COMPACTION",
+    "M9_ADDITIONAL_OBSERVATION_REQUIRED_AFTER_COMPACTION",
+    "M9_BLOCKED_CONTEXT_OVERFLOW_RECURRED",
+    "M9_BLOCKED_QUEUE_NOT_RESTING"
+  ],
+  "criteria": {
+    "compaction_execution_passed": true,
+    "post_compaction_recheck_passed": false,
+    "canary_target_sha_stable": true,
+    "duplicate_write_occurred": false,
+    "receipts_remained_valid": true,
+    "gateway_telegram_remained_healthy": true,
+    "safety_counters_clean": true,
+    "m10_has_not_started": true
+  },
+  "references": {
+    "compaction": "M9_CONTEXT_OVERFLOW_COMPACTION_EXECUTION_RESULT.json",
+    "recheck_summary": "M9_POST_COMPACTION_RECHECK_SUMMARY.json",
+    "original_closeout": "M9_LIMITED_LIVE_ACTION_CANARY_FINAL_CLOSEOUT.json"
+  }
+}
