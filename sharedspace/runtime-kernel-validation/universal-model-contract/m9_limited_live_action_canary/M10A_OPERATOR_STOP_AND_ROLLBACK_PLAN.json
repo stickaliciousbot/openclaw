@@ -1,0 +1,27 @@
+{
+  "schema": "umc.v1.m10a.operator_stop_and_rollback_plan.v1",
+  "generated_utc": "2026-07-16T12:58:00Z",
+  "status": "BLOCKED_M10A_OPERATOR_STOP_OR_ROLLBACK_COMMAND_MISSING",
+  "operator_stop_phrase_or_command": "not_proven_registered_surface",
+  "disable_off_switch_command": "not_proven_registered_surface",
+  "status_readback_command_after_disable": "not_proven_registered_surface",
+  "rollback_command_if_disable_fails": "not_proven_registered_surface",
+  "backup_path": "/home/stickai/.openclaw/backups/openclaw-m10a-runtime-dependency-repaired-install-20260716T1200Z/openclaw-installed-package",
+  "gateway_restart_requirement": "must be explicit in repaired command surface; no restart is approved in this review",
+  "health_verification_after_stop_or_rollback": [
+    "Gateway connectivity/admin-capable read-only check",
+    "Telegram ON/OK read-only status",
+    "M10A disabled readback",
+    "production_authority false",
+    "broad_enforcement false"
+  ],
+  "evidence_to_preserve": [
+    "operator stop request",
+    "disable/off-switch result",
+    "status/readback after disable",
+    "rollback result if used",
+    "Gateway/Telegram health after stop",
+    "M8 preserved SHA readback"
+  ],
+  "finding": "Module helper supports operator_stop_requested fail-closed behavior, but no exact registered operator stop/rollback command surface is proven."
+}

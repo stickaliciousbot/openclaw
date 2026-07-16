@@ -1,0 +1,55 @@
+{
+  "schema": "umc.v1.m10a.installed_command_surface_discovery.v1",
+  "generated_utc": "2026-07-16T12:58:00Z",
+  "status": "M10A_COMMAND_SURFACE_PARTIAL",
+  "classification": "M10A_COMMAND_SURFACE_PARTIAL",
+  "installed_runtime_module": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/auto-reply/reply/umc-m10a-owner-telegram-direct-control-path.js",
+  "source_runtime_module": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711/src/auto-reply/reply/umc-m10a-owner-telegram-direct-control-path.ts",
+  "proven_surfaces": [
+    {
+      "surface": "module_export",
+      "name": "buildM10ADefaultControlState",
+      "evidence": "Installed/source module export builds disabled default state."
+    },
+    {
+      "surface": "module_export",
+      "name": "readM10AStatus",
+      "evidence": "Installed/source module export returns status path, enabled flag, exact scope, rollback key, and fail_closed=true."
+    },
+    {
+      "surface": "module_export",
+      "name": "applyM10AControlIntent",
+      "evidence": "Installed/source module export accepts in-memory enable/disable/status intents and rejects scope/authority violations."
+    },
+    {
+      "surface": "module_export",
+      "name": "disableM10AControlState",
+      "evidence": "Installed/source module export returns disabled state and readback."
+    },
+    {
+      "surface": "module_export",
+      "name": "evaluateM10AOwnerTelegramDirectContractDecision",
+      "evidence": "Installed/source module export evaluates exact owner Telegram direct runtime scope and fail-closed boundary counters."
+    }
+  ],
+  "not_proven_surfaces": [
+    "Gateway RPC method for enable/disable/status",
+    "OpenClaw CLI command for enable/disable/status",
+    "persistent control-artifact write/read command",
+    "rollback command if disable fails",
+    "post-enable observation runner command",
+    "operator-stop command/handler",
+    "admin control API surface registered in installed command registry"
+  ],
+  "command_requirements": {
+    "ENABLE_M10A_OWNER_TELEGRAM_DIRECT_CONTRACT_ENFORCEMENT": "missing_persisted_operator_surface",
+    "DISABLE_M10A_OWNER_TELEGRAM_DIRECT_CONTRACT_ENFORCEMENT": "missing_persisted_operator_surface",
+    "READ_M10A_OWNER_TELEGRAM_DIRECT_STATUS": "partial_module_readback_only",
+    "VERIFY_M10A_DISABLED": "partial_module_readback_only",
+    "VERIFY_M10A_ENABLED_SCOPE": "partial_module_readback_only",
+    "ROLLBACK_M10A_IF_DISABLE_FAILS": "missing_operator_surface",
+    "START_M10A_POST_ENABLE_OBSERVATION": "missing_operator_surface",
+    "OPERATOR_STOP_M10A": "missing_operator_surface"
+  },
+  "decision": "Do not produce final production enablement approval text from module helpers alone. A registered/persistent command surface is required."
+}

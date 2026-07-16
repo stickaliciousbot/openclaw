@@ -1,0 +1,62 @@
+{
+  "schema": "umc.v1.m10a.exact_command_candidate_validation.v1",
+  "generated_utc": "2026-07-16T12:58:00Z",
+  "status": "BLOCKED_M10A_EXACT_COMMAND_SURFACE_INCOMPLETE",
+  "required_command_set": [
+    "ENABLE_M10A_OWNER_TELEGRAM_DIRECT_CONTRACT_ENFORCEMENT",
+    "DISABLE_M10A_OWNER_TELEGRAM_DIRECT_CONTRACT_ENFORCEMENT",
+    "READ_M10A_OWNER_TELEGRAM_DIRECT_STATUS",
+    "VERIFY_M10A_DISABLED",
+    "VERIFY_M10A_ENABLED_SCOPE",
+    "ROLLBACK_M10A_IF_DISABLE_FAILS",
+    "START_M10A_POST_ENABLE_OBSERVATION",
+    "OPERATOR_STOP_M10A"
+  ],
+  "candidate_validation": [
+    {
+      "command": "ENABLE_M10A_OWNER_TELEGRAM_DIRECT_CONTRACT_ENFORCEMENT",
+      "candidate": "module helper applyM10AControlIntent({request:'enable', exact scope})",
+      "scope_enforced": true,
+      "owner_chat_id_check": "8495203551",
+      "channel_check": "telegram_direct",
+      "expected_state_transition": "in-memory state only",
+      "mutates_production_authority": false,
+      "can_affect_excluded_surfaces": false,
+      "dry_run_available": true,
+      "evidence_source": "M10A control module source/export",
+      "validation": "partial_not_operator_command"
+    },
+    {
+      "command": "DISABLE_M10A_OWNER_TELEGRAM_DIRECT_CONTRACT_ENFORCEMENT",
+      "candidate": "module helper disableM10AControlState/applyM10AControlIntent({request:'disable'})",
+      "expected_state_transition": "in-memory disabled state only",
+      "rollback_off_switch_behavior": "helper returns disabled readback",
+      "dry_run_available": true,
+      "evidence_source": "M10A control module source/export",
+      "validation": "partial_not_operator_command"
+    },
+    {
+      "command": "READ_M10A_OWNER_TELEGRAM_DIRECT_STATUS",
+      "candidate": "module helper readM10AStatus(state)",
+      "expected_readback": "enabled/scope/authority/rollback_key/fail_closed",
+      "evidence_source": "M10A control module source/export",
+      "validation": "partial_not_persisted_status_command"
+    },
+    {
+      "command": "ROLLBACK_M10A_IF_DISABLE_FAILS",
+      "candidate": null,
+      "validation": "missing"
+    },
+    {
+      "command": "START_M10A_POST_ENABLE_OBSERVATION",
+      "candidate": null,
+      "validation": "missing"
+    },
+    {
+      "command": "OPERATOR_STOP_M10A",
+      "candidate": "applyM10AControlIntent operator_stop_requested branch",
+      "validation": "partial_not_registered_operator_command"
+    }
+  ],
+  "decision": "Exact operator command surface incomplete; final approval text blocked."
+}

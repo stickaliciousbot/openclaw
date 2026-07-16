@@ -1,0 +1,41 @@
+{
+  "schema": "umc.v1.m10a.command_surface_repair_plan.v1",
+  "generated_utc": "2026-07-16T12:58:00Z",
+  "status": "HOLD_M10A_COMMAND_SURFACE_REPAIR_REQUIRED",
+  "missing_commands": [
+    "ENABLE_M10A_OWNER_TELEGRAM_DIRECT_CONTRACT_ENFORCEMENT",
+    "DISABLE_M10A_OWNER_TELEGRAM_DIRECT_CONTRACT_ENFORCEMENT",
+    "READ_M10A_OWNER_TELEGRAM_DIRECT_STATUS",
+    "VERIFY_M10A_DISABLED",
+    "VERIFY_M10A_ENABLED_SCOPE",
+    "ROLLBACK_M10A_IF_DISABLE_FAILS",
+    "START_M10A_POST_ENABLE_OBSERVATION",
+    "OPERATOR_STOP_M10A"
+  ],
+  "required_source_files": [
+    "src/auto-reply/reply/umc-m10a-owner-telegram-direct-control-path.ts",
+    "scripts/m10a-owner-telegram-direct-control.mjs",
+    "scripts/m10a-owner-telegram-direct-observe.mjs",
+    "scripts/run-m10a-command-surface-fixtures.mjs"
+  ],
+  "required_tests_and_fixtures": [
+    "default disabled status readback",
+    "exact owner chat enable accepted in dry-run",
+    "wrong owner/channel/agent rejected",
+    "forbidden authority rejected",
+    "persistent control artifact write/read round trip",
+    "disable/off-switch reverses enable",
+    "operator stop disables fail-closed",
+    "rollback-if-disable-fails restores backup or fails closed",
+    "post-enable observation dry-run emits six probe plan and abort gates",
+    "no external send/provider/write/memory/Context Bridge/config mutation"
+  ],
+  "status_readback_behavior": "must read persisted control artifact and return enabled/scope/owner/channel/agent/authority/rollback/fail_closed fields",
+  "enable_behavior": "must write only the M10A control artifact/flag for owner Telegram direct scope 8495203551 with production_authority=false and broad_enforcement=false",
+  "disable_off_switch_behavior": "must set m10a_enabled=false and contract_decision_enforcement=false with exact readback",
+  "operator_stop_behavior": "must map explicit operator stop to disable/off-switch and fail-closed readback",
+  "rollback_behavior": "if disable/readback fails, restore from approved backup path or hold before restart/traffic",
+  "observation_behavior": "must run or schedule six read-only probes at five-minute cadence and emit PASS/HOLD/FAIL closeout",
+  "staged_install_requirement": "source-ready/no-apply first; subsequent staged install requires explicit owner approval; Gateway restart requires separate approval if needed",
+  "approval_boundary": "owner Telegram direct M10A contract-decision enforcement only; no Web UI/LAN/browser/external-send/write-tool/memory/Context Bridge/broad enforcement authority"
+}
