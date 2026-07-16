@@ -794,6 +794,20 @@
       "status": "done",
       "title": "Consolidate ThinMem Paradigm-style cognitive-map/context-pack upgrade through Sprint 9",
       "updatedAt": "2026-05-04T07:18:00+10:00"
+    },
+    {
+      "id": "act-20260717-umc-m10a-owner-telegram-direct-production",
+      "title": "Close UMC M10A owner Telegram direct production enforcement and return to Context Bridge Ledger work",
+      "status": "done",
+      "owner": "assistant",
+      "createdAt": "2026-07-16T14:25:00Z",
+      "updatedAt": "2026-07-16T14:25:00Z",
+      "channelOrigin": "telegram",
+      "notes": [
+        "Final PASS: PASS_M10A_OWNER_TELEGRAM_DIRECT_PRODUCTION_ENFORCEMENT; evidence commit d083acbd19516560e2099238da6dcc7e60286d50.",
+        "Scope only owner Telegram direct chat 8495203551; production authority not expanded; broad enforcement false.",
+        "Next phase RETURN_TO_CONTEXT_BRIDGE_LEDGER_WORK; pause UMC surface expansion until Context Bridge Ledger closes."
+      ]
     }
   ]
 }

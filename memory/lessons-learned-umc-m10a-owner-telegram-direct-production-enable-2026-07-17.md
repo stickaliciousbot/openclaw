@@ -1,0 +1,14 @@
+# Lessons learned — UMC M10A owner Telegram direct production enablement (2026-07-17)
+
+- **Preserve command-surface proof levels.** M10A moved through P1 source fixture, staged install, installed command-surface validation, and finally production enablement. Do not collapse source helper/import proof into live command proof; keep P1/P2/P3-style labels explicit.
+- **Approval packages must contain the whole install contract before apply.** The safe M10A staged install was only approved after exact package path/SHA, backup path, rollback command, expected changed files, preserved runtime artifacts, M8 SHA gate, and post-install validation plan were recorded.
+- **Installed CLI scripts must resolve installed runtime, not source-only paths.** The first source command scripts imported `../src/...ts`, which would have failed in the installed package. The staged-install prep repaired them to load source first and installed `dist` fallback second before packaging.
+- **No-send health parsers must tolerate table formatting.** The first production preflight false-failed Telegram health because `openclaw status` table spacing/wrapping did not match a narrow regex. The hard-stop worked: M10A was not enabled, the disable/off-switch verified disabled, and the parser was corrected to match `Telegram ... ON ... OK ... accounts 1/1` across table wrapping before rerun.
+- **Hard-stop/off-switch wiring is part of success, not just recovery.** The enablement observer auto-disabled on the false preflight failure and verified status readback disabled/authority false/broad false before the corrected rerun. Future production toggles should use the same fail-closed disable-before-debug pattern.
+- **Narrow scope stayed narrow.** Final PASS enabled only `M10A_OWNER_TELEGRAM_DIRECT_CONTRACT_ENFORCEMENT_ONLY` for owner Telegram direct chat `8495203551`, with production authority not expanded, broad enforcement false, no Web/LAN/browser/group/Gmail/Drive/Calendar surfaces, and zero Telegram probes/provider calls/write-tool/memory/Context Bridge mutations during observation.
+- **Post-closeout roadmap decision:** after M10A green, pause UMC surface expansion; return to Context Bridge Ledger work. Future UMC expansion should go through a Surface Service Broker / Runtime Service Broker rather than one-off surface patches.
+
+Key artifacts:
+- Closeout: `sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M10A_OWNER_TELEGRAM_DIRECT_PRODUCTION_CLOSEOUT.json` SHA256 `24c42bda180bdbe52400876cf6e1e5ff5c329d6b0b9f88d57d5fd4bfdfe8e8aa`
+- Evidence manifest: `sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M10A_OWNER_TELEGRAM_DIRECT_PRODUCTION_EVIDENCE_MANIFEST.json` SHA256 `d09553a238881dd0f70f7464e0abca207f0f083eaaa5b66f1746a8e40494071e`
+- Evidence commit: `d083acbd19516560e2099238da6dcc7e60286d50`
