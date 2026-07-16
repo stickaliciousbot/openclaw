@@ -339,6 +339,7 @@ function buildDockerE2eHarnessEntries(): Record<string, string> {
     "agents/pi-embedded-runner/run/runtime-context-prompt":
       "src/agents/pi-embedded-runner/run/runtime-context-prompt.ts",
     "auto-reply/reply/commands-crestodian": "src/auto-reply/reply/commands-crestodian.ts",
+    "auto-reply/reply/umc-m4-verified-route": "src/auto-reply/reply/umc-m4-verified-route.ts",
     "cli/run-main": "src/cli/run-main.ts",
     "commitments/runtime": "src/commitments/runtime.ts",
     "commitments/store": "src/commitments/store.ts",
