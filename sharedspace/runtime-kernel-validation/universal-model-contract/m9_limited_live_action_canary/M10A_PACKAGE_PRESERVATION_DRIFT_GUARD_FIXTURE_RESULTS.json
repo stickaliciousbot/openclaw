@@ -1,0 +1,16 @@
+{
+  "schema": "umc.v1.m10a.package_preservation_drift_guard_fixture_results.v1",
+  "generated_utc": "2026-07-16T11:50:00Z",
+  "status": "PASS_M10A_PACKAGE_PRESERVATION_DRIFT_GUARD_FIXTURES",
+  "source_artifact": "M10A_PACKAGE_DRIFT_GUARD_FIXTURE_RESULTS.json",
+  "m8_sha_preserved": "27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db",
+  "rejects_unexpected_m8_sha_drift": true,
+  "rejects_unexpected_m2_m9_artifact_overwrite": true,
+  "includes_expected_m10a_artifact": true,
+  "preserves_plugin_manifests": true,
+  "rollback_ready": true,
+  "m10a_disabled_by_default": true,
+  "production_authority_false": true,
+  "broad_enforcement_false": true,
+  "underlying_guard_status": "PASS_M10A_PACKAGE_DRIFT_GUARD_FIXTURES"
+}

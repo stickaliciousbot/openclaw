@@ -1,0 +1,45 @@
+{
+  "schema": "umc.v1.m10a.phase_d_g_contract_alignment.v1",
+  "generated_utc": "2026-07-16T11:50:00Z",
+  "status": "PASS_M10A_PHASE_D_G_ARTIFACT_CONTRACT_ALIGNMENT",
+  "final_status_preserved": "HOLD_M10A_REPAIRED_INSTALL_AWAITING_OPERATOR_APPROVAL",
+  "artifacts": [
+    {
+      "file": "M10A_PACKAGE_DRIFT_SOURCE_REPAIR_RESULT.json",
+      "sha256": "aa7925a348728a8af3ff536cd51bce18c9e974288fd45a2d8232b1077ca8ce66",
+      "status": "PASS_M10A_PACKAGE_DRIFT_SOURCE_REPAIRED_NO_APPLY"
+    },
+    {
+      "file": "M10A_PACKAGE_DRIFT_SOURCE_REPAIR.md",
+      "sha256": "5c89a4ecb56988326647233d939847efadfc1a22a27572d4172c0e0abca5909c"
+    },
+    {
+      "file": "M10A_PACKAGE_PRESERVATION_DRIFT_GUARD_FIXTURE_RESULTS.json",
+      "sha256": "d3f0977434ef59340e3817bdac3977344268019b3b02800b140f2aafe6dcbec5",
+      "status": "PASS_M10A_PACKAGE_PRESERVATION_DRIFT_GUARD_FIXTURES"
+    },
+    {
+      "file": "M10A_PACKAGE_DRIFT_REPAIR_CONTROL_PATH_REGRESSION_RESULTS.json",
+      "sha256": "5ca4e52d997342bfcf2aa69498e809e515b0822dfbe2b08d0a4ff9591dc8f3e9",
+      "status": "PASS_M10A_PACKAGE_DRIFT_REPAIR_CONTROL_PATH_REGRESSION"
+    },
+    {
+      "file": "M10A_PACKAGE_DRIFT_REPAIR_PACKAGE_DRY_RUN_RESULT.json",
+      "sha256": "763578a76d98b5da8bf8ec782ebc3abe3e4e5d7e0d828427eecba56ef696e738",
+      "status": "PASS_M10A_PACKAGE_DRIFT_REPAIR_PACKAGE_DRY_RUN"
+    },
+    {
+      "file": "M10A_PACKAGE_DRIFT_REPAIR_PACKAGE_DRY_RUN_MANIFEST.json",
+      "sha256": "d168506d07fd5aab2889d9f79627a0d170d2601cd7fa3097b3ba67ef4137f3e3",
+      "status": "PASS_M10A_PACKAGE_DRIFT_REPAIR_PACKAGE_DRY_RUN"
+    }
+  ],
+  "no_install": true,
+  "no_gateway_restart": true,
+  "no_m10a_enablement": true,
+  "no_production_authority_change": true,
+  "installed_m8_sha256": "27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db",
+  "installed_m10a_absent": true,
+  "source_commit": "32c02611898dca57f8c27982b3a60c087970d0f4",
+  "evidence_commit_before_alignment": "a2f6e275ab126c63605445abac06edfe116f5fba"
+}

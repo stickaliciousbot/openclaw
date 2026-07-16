@@ -1,0 +1,18 @@
+{
+  "schema": "umc.v1.m10a.package_drift_repair_package_dry_run_result.v1",
+  "generated_utc": "2026-07-16T11:50:00Z",
+  "status": "PASS_M10A_PACKAGE_DRIFT_REPAIR_PACKAGE_DRY_RUN",
+  "build_package_command_recorded": "node /home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711/scripts/umc-m10a-preservation-guard.mjs --mode apply --overlay /home/stickai/.openclaw/workspace/tmp/umc-m10a-repaired-scoped-overlay/m10a-control-path-scoped-overlay-20260716T1133Z.tar.gz --installed-root /home/stickai/.npm-global/lib/node_modules/openclaw --expected-overlay-sha256 be66f39008d09e8a04c848a50a3842b8553743a5bd4b0a9541218f3a32204587 --expected-m10a-sha256 be56d6a5105d4d0a03085757483b3bb07374ff96b9db8ea44a1bcb164139e082 --backup-path /home/stickai/.openclaw/backups/openclaw-m10a-repaired-control-path-install-20260716T1133Z/openclaw-installed-package",
+  "candidate_tarball_path": "/home/stickai/.openclaw/workspace/tmp/umc-m10a-repaired-scoped-overlay/m10a-control-path-scoped-overlay-20260716T1133Z.tar.gz",
+  "candidate_tarball_sha256": "be66f39008d09e8a04c848a50a3842b8553743a5bd4b0a9541218f3a32204587",
+  "candidate_m10a_dist_sha256": "be56d6a5105d4d0a03085757483b3bb07374ff96b9db8ea44a1bcb164139e082",
+  "candidate_package_file_list": [
+    "M10A_SCOPED_OVERLAY_MANIFEST.json",
+    "dist/auto-reply/reply/umc-m10a-owner-telegram-direct-control-path.js"
+  ],
+  "preserved_m8_artifact_handling": "excluded from scoped overlay and protected by installed SHA guard",
+  "proof_no_unexpected_m8_overwrite_would_occur": true,
+  "proof_m10a_artifact_is_included": true,
+  "proof_plugin_manifests_preserved": true,
+  "no_install": true
+}

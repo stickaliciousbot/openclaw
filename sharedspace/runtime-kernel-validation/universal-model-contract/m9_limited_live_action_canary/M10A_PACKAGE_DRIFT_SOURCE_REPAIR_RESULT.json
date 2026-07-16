@@ -1,8 +1,28 @@
 {
   "schema": "umc.v1.m10a.package_drift_source_repair_result.v1",
   "generated_utc": "2026-07-16T11:33:00Z",
-  "status": "PASS_M10A_PACKAGE_DRIFT_SOURCE_REPAIR",
+  "status": "PASS_M10A_PACKAGE_DRIFT_SOURCE_REPAIRED_NO_APPLY",
   "source_file": "scripts/umc-m10a-preservation-guard.mjs",
   "repair_summary": "Added scoped overlay preservation guard. The repaired install path validates overlay SHA, rejects overlays containing M8/M2-M9 artifacts, verifies preserved installed hashes before and after, and in apply mode copies only the M10A dist file.",
-  "source_commit_at_run": "32c02611898dca57f8c27982b3a60c087970d0f4"
+  "source_commit_at_run": "32c02611898dca57f8c27982b3a60c087970d0f4",
+  "no_apply": true,
+  "repair_types": [
+    "package file allowlist for M10A staged install",
+    "install scope filter",
+    "preserved artifact SHA guard",
+    "tarball manifest guard",
+    "install validation hard-stop before copy",
+    "fixture for unexpected preserved artifact drift"
+  ],
+  "forbidden_repairs_not_used": [
+    "changing expected M8 SHA to match drift",
+    "loosening preservation guard",
+    "removing M8 preservation check",
+    "installing M10A again",
+    "restarting Gateway",
+    "mutating installed runtime",
+    "enabling M10A"
+  ],
+  "expected_m8_preserved_sha256": "27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db",
+  "source_commit": "32c02611898dca57f8c27982b3a60c087970d0f4"
 }

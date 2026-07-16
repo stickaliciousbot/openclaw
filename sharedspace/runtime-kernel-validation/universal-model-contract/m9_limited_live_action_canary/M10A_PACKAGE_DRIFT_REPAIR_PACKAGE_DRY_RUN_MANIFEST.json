@@ -1,0 +1,33 @@
+{
+  "schema": "umc.v1.m10a.package_drift_repair_package_dry_run_manifest.v1",
+  "generated_utc": "2026-07-16T11:50:00Z",
+  "status": "PASS_M10A_PACKAGE_DRIFT_REPAIR_PACKAGE_DRY_RUN",
+  "candidate_tarball_path": "/home/stickai/.openclaw/workspace/tmp/umc-m10a-repaired-scoped-overlay/m10a-control-path-scoped-overlay-20260716T1133Z.tar.gz",
+  "candidate_tarball_sha256": "be66f39008d09e8a04c848a50a3842b8553743a5bd4b0a9541218f3a32204587",
+  "files": [
+    {
+      "path": "M10A_SCOPED_OVERLAY_MANIFEST.json",
+      "sha256": "b67dba631decc01620e2f99622f8f2e68a09c6586d11e090391f45b984a15b9c"
+    },
+    {
+      "path": "dist/auto-reply/reply/umc-m10a-owner-telegram-direct-control-path.js",
+      "sha256": "be56d6a5105d4d0a03085757483b3bb07374ff96b9db8ea44a1bcb164139e082"
+    }
+  ],
+  "allowlist": [
+    "dist/auto-reply/reply/umc-m10a-owner-telegram-direct-control-path.js",
+    "M10A_SCOPED_OVERLAY_MANIFEST.json"
+  ],
+  "denied_preserved_artifacts": [
+    "dist/auto-reply/reply/umc-m4-verified-route.js",
+    "dist/auto-reply/reply/umc-m5-capability-manifest.js",
+    "dist/auto-reply/reply/umc-m6-contract-build-lane.js",
+    "dist/auto-reply/reply/umc-m7-model-eligibility.js",
+    "dist/auto-reply/reply/umc-m8-owner-contract-lane.js",
+    "dist/extensions/telegram/openclaw.plugin.json"
+  ],
+  "m8_preserved_sha256": "27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db",
+  "plugin_manifest_preservation_checks": {
+    "dist/extensions/telegram/openclaw.plugin.json": "a3bd23650c86763689c3c9227d13928ee78d4546e0b8e39864f440d926cc40bd"
+  }
+}
