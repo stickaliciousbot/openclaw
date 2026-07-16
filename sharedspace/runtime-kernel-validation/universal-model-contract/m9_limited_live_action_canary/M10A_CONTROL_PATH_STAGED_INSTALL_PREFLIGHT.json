@@ -1,0 +1,47 @@
+{
+  "schema": "umc.v1.m10a.control_path_staged_install_preflight.v1",
+  "generated_utc": "2026-07-16T11:15:30Z",
+  "status": "PASS_M10A_CONTROL_PATH_STAGED_INSTALL_PREFLIGHT",
+  "source_ready_evidence_exists": true,
+  "source_commit": "7fbb19038154e1b4c8bb2545f4b29547505185d9",
+  "source_commit_exists": true,
+  "evidence_commit": "51a390162c1d3208b77996981f3b4c9cf3d7edff",
+  "evidence_commit_exists": true,
+  "source_ready_results": {
+    "fixtures": "PASS_M10A_CONTROL_PATH_FIXTURES",
+    "m2_m9_regression": "PASS_M10A_M2_M9_REGRESSION",
+    "no_apply_build_validation": "PASS_M10A_CONTROL_PATH_NO_APPLY_BUILD_VALIDATION",
+    "staged_install_plan": "PASS_M10A_CONTROL_PATH_STAGED_INSTALL_PLAN_READY"
+  },
+  "gateway_read_only_health": {
+    "status": "PASS_GATEWAY_READ_ONLY_HEALTH_OK",
+    "reachable_ms": 220,
+    "service_state": "active",
+    "source": "openclaw status"
+  },
+  "telegram_read_only_health": {
+    "status": "PASS_TELEGRAM_READ_ONLY_HEALTH_OK",
+    "enabled": true,
+    "state": "OK",
+    "source": "openclaw status Channels table"
+  },
+  "m10a_not_enabled": true,
+  "installed_m10a_dist_absent_before_install": true,
+  "production_authority_changed": false,
+  "broad_enforcement_enabled": false,
+  "rollback_path_known": true,
+  "stale_approval_cards_used": false,
+  "no_execution_counters": {
+    "m10_enablement_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "write_tool_execution_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "broad_enforcement_count": 0
+  },
+  "package_build_note": "npm run build failed at canvas:a2ui:bundle due unrelated pnpm PATH issue; scoped gatewayWatch source build passed using temporary npm_execpath pnpm runner, then npm pack --ignore-scripts produced tarball. No install/apply/restart was run."
+}

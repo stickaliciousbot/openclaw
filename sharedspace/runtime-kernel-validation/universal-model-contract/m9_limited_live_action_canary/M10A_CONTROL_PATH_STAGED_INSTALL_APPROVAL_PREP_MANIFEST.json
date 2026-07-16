@@ -1,0 +1,42 @@
+{
+  "schema": "umc.v1.m10a.control_path_staged_install_approval_prep_manifest.v1",
+  "generated_utc": "2026-07-16T11:15:30Z",
+  "status": "HOLD_M10A_CONTROL_PATH_INSTALL_AWAITING_OPERATOR_APPROVAL",
+  "final_status": "HOLD_M10A_CONTROL_PATH_INSTALL_AWAITING_OPERATOR_APPROVAL",
+  "phase_completed": "Phase B — Prepare exact install approval card",
+  "phase_not_started": [
+    "Phase C — Execute staged install after approval only",
+    "Phase D — Installed-runtime M10A control-path verification",
+    "Phase E — Enable/disable dry-run validation installed runtime",
+    "Phase F — M2-M9 installed regression",
+    "Phase G — Short post-install stability",
+    "Phase H — Repair M10 approval package after install verification"
+  ],
+  "artifacts": [
+    "M10A_CONTROL_PATH_STAGED_INSTALL_PREFLIGHT.json",
+    "M10A_CONTROL_PATH_INSTALL_APPROVAL_CARD.json",
+    "M10A_CONTROL_PATH_INSTALL_APPROVAL_CARD.md"
+  ],
+  "source_commit": "7fbb19038154e1b4c8bb2545f4b29547505185d9",
+  "evidence_commit_parent": "51a390162c1d3208b77996981f3b4c9cf3d7edff",
+  "tarball_path": "/home/stickai/.openclaw/workspace/tmp/umc-m10a-package/openclaw-2026.5.7.tgz",
+  "tarball_sha256": "6c680ce7572099b930ec6c1739f8b93be6b6964f5d25c10978a3714073c24a8c",
+  "m10a_dist_entry_sha256": "be56d6a5105d4d0a03085757483b3bb07374ff96b9db8ea44a1bcb164139e082",
+  "m10_enabled": false,
+  "production_authority_changed": false,
+  "broad_enforcement_enabled": false,
+  "no_execution_counters": {
+    "m10_enablement_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "write_tool_execution_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "broad_enforcement_count": 0
+  },
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "next_phase": "APPROVE_OR_DENY_M10A_CONTROL_PATH_STAGED_INSTALL"
+}
