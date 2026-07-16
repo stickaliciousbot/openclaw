@@ -1,0 +1,84 @@
+{
+  "schema": "umc.v1.m10a.command_surface_install_approval_card.v1",
+  "generated_utc": "2026-07-16T13:29:09.134Z",
+  "status": "HOLD_M10A_COMMAND_SURFACE_INSTALL_AWAITING_OPERATOR_APPROVAL",
+  "source_ready_commit": "9aaf679ff760908bdfaf94d0a92aff188e684b8d",
+  "install_prep_source_commit": "1c5e48e9162c990f8e9e4ed933f85acd009b283a",
+  "evidence_commit": "2630f3d0b2c1c26bb6da4b16a8d269e601ba385a",
+  "candidate_package_path": "/home/stickai/.openclaw/workspace/tmp/m10a-command-surface-staged-install-candidate/20260716T1325Z/m10a-command-surface-staged-install-candidate-20260716T1325Z.tar.gz",
+  "candidate_package_sha256": "1c26049fab45d9afbadf3be4a33ef569b03184d65a05b81abdfcde85467ea71d",
+  "script_sha256": {
+    "scripts/m10a-owner-telegram-direct-control.mjs": "02b8d9182d39c040ed22f027da2489c209dc9ea2d569e989ea6149ac25207dd6",
+    "scripts/m10a-owner-telegram-direct-observe.mjs": "98b2f27d751055489c0e8b28ad4ba2b15c6a06adda3701f2217196fc02694c38"
+  },
+  "package_metadata_sha256": {
+    "package.json": "667f202e2a31f1aecb822e1f1bfe91f9412fb2cdb4212c5d9fa0d032918b8778",
+    "M10A_COMMAND_SURFACE_CANDIDATE_OVERLAY_MANIFEST.json": "9a5e614189879b39f30b72ee8395e907b2929cd887471fa4dd906a301c838cbc"
+  },
+  "expected_installed_files_changed": [
+    "package.json",
+    "M10A_COMMAND_SURFACE_CANDIDATE_OVERLAY_MANIFEST.json",
+    "scripts/m10a-owner-telegram-direct-observe.mjs",
+    "scripts/m10a-owner-telegram-direct-control.mjs"
+  ],
+  "expected_preserved_files": [
+    "dist/auto-reply/reply/umc-m4-verified-route.js",
+    "dist/auto-reply/reply/umc-m5-capability-manifest.js",
+    "dist/auto-reply/reply/umc-m5-capability-manifest.schema.json",
+    "dist/auto-reply/reply/umc-m5-seed-manifests.json",
+    "dist/auto-reply/reply/umc-m6-contract-build-lane.js",
+    "dist/auto-reply/reply/umc-m7-model-eligibility.js",
+    "dist/auto-reply/reply/umc-m8-owner-contract-lane.js",
+    "dist/auto-reply/reply/umc-m10a-owner-telegram-direct-control-path.js",
+    "dist/umc-m3-envelope-supervision-CZFFPUFB.js",
+    "dist/umc-m4-verified-route-B8LC1Bgv.js",
+    "dist/umc-m5-capability-manifest-DBUsXqaz.js",
+    "dist/umc-m6-contract-build-lane-B49r9Ao5.js",
+    "dist/umc-m7-model-eligibility-ovqh9OfD.js",
+    "dist/umc-m8-owner-contract-lane-CdxuqyX4.js"
+  ],
+  "m8_preservation_check": {
+    "path": "dist/auto-reply/reply/umc-m8-owner-contract-lane.js",
+    "expected_sha256": "27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db",
+    "current_sha256": "27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db"
+  },
+  "backup_path": "/home/stickai/.openclaw/backups/openclaw-m10a-command-surface-staged-install-20260716T1325Z/openclaw-installed-package",
+  "install_command_for_operator_approval": "set -euo pipefail\nINSTALLED=/home/stickai/.npm-global/lib/node_modules/openclaw\nBACKUP=/home/stickai/.openclaw/backups/openclaw-m10a-command-surface-staged-install-20260716T1325Z/openclaw-installed-package\nCANDIDATE=/home/stickai/.openclaw/workspace/tmp/m10a-command-surface-staged-install-candidate/20260716T1325Z/m10a-command-surface-staged-install-candidate-20260716T1325Z.tar.gz\nmkdir -p \"$(dirname \"$BACKUP\")\"\ncp -a \"$INSTALLED\" \"$BACKUP\"\ntar -xzf \"$CANDIDATE\" -C \"$INSTALLED\"\nsha256sum \"$INSTALLED/scripts/m10a-owner-telegram-direct-control.mjs\" \"$INSTALLED/scripts/m10a-owner-telegram-direct-observe.mjs\" \"$INSTALLED/dist/auto-reply/reply/umc-m8-owner-contract-lane.js\"",
+  "rollback_command": "rm -rf /home/stickai/.npm-global/lib/node_modules/openclaw && cp -a /home/stickai/.openclaw/backups/openclaw-m10a-command-surface-staged-install-20260716T1325Z/openclaw-installed-package /home/stickai/.npm-global/lib/node_modules/openclaw",
+  "gateway_restart_required": false,
+  "gateway_restart_requirement": "Not required for this overlay because it adds persistent package scripts/package metadata only and does not mutate runtime hooks/routes/config. If operator chooses to restart anyway, it requires separate approval.",
+  "gateway_health_validation": "After approved install, run targeted openclaw gateway status/connectivity/admin check only; no restart unless separately approved.",
+  "telegram_health_validation": "After approved install, run targeted Telegram health check only; no Telegram send/probe.",
+  "installed_command_surface_validation_plan": [
+    "script presence/hash readback",
+    "control help/status dry-run",
+    "observe help/dry-run",
+    "M8 SHA preservation",
+    "M10A runtime control-path SHA preservation"
+  ],
+  "enable_disable_status_dry_run_validation_plan": [
+    "enable dry-run exact owner Telegram direct scope",
+    "disable dry-run",
+    "status dry-run",
+    "verify-disabled dry-run",
+    "verify-enabled-scope only after a temp applied state, not production"
+  ],
+  "post_install_no_enablement_validation_plan": [
+    "M10A enabled false",
+    "production authority false",
+    "broad enforcement false",
+    "control artifact unchanged unless operator separately approves enablement"
+  ],
+  "hard_stops": [
+    "M10A becomes enabled",
+    "production authority changes",
+    "broad enforcement becomes true",
+    "M8 SHA mismatch",
+    "M10A runtime control-path artifact overwritten",
+    "Telegram send/probe occurs",
+    "provider/model live call occurs"
+  ],
+  "no_install_performed": true,
+  "no_gateway_restart_performed": true,
+  "no_m10a_enablement_performed": true
+}

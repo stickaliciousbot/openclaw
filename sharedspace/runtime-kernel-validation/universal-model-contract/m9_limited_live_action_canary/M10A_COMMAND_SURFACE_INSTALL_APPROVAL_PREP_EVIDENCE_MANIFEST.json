@@ -1,0 +1,90 @@
+{
+  "schema": "umc.v1.m10a.command_surface_install_approval_prep_evidence_manifest.v1",
+  "generated_utc": "2026-07-16T13:31:06.586Z",
+  "status": "HOLD_M10A_COMMAND_SURFACE_INSTALL_AWAITING_OPERATOR_APPROVAL",
+  "final_status": "HOLD_M10A_COMMAND_SURFACE_INSTALL_AWAITING_OPERATOR_APPROVAL",
+  "artifacts": [
+    {
+      "file": "M10A_COMMAND_SURFACE_INSTALL_PREP_PREFLIGHT.json",
+      "sha256": "a477faa5509ef02d8cd928d512f9b44952705fa338e97f18480573c7b6c46375",
+      "status": "PASS_M10A_COMMAND_SURFACE_INSTALL_PREP_PREFLIGHT"
+    },
+    {
+      "file": "M10A_COMMAND_SURFACE_PACKAGE_CANDIDATE.json",
+      "sha256": "3b8e1f1b25b1b97720b8c43833251dc215a8240f6d1ddc2eacf2d475eb8d62a1",
+      "status": "PASS_M10A_COMMAND_SURFACE_PACKAGE_CANDIDATE_READY"
+    },
+    {
+      "file": "M10A_COMMAND_SURFACE_PACKAGE_CANDIDATE_MANIFEST.json",
+      "sha256": "17282f7d1ba498f3ece899b51af0ca74f46c5da4885cb255a3450214d3a3e0b4",
+      "status": "PASS_M10A_COMMAND_SURFACE_PACKAGE_CANDIDATE_READY"
+    },
+    {
+      "file": "M10A_COMMAND_SURFACE_TEMP_INSTALLED_SHAPE_VALIDATION.json",
+      "sha256": "1e96782bf9d4e64794d9294a1e2ddb1faec2c989c824ff4b4544a37ae0dfb18a",
+      "status": "PASS_M10A_COMMAND_SURFACE_TEMP_INSTALLED_SHAPE_VALIDATION"
+    },
+    {
+      "file": "M10A_COMMAND_SURFACE_PRESERVATION_GUARD_RESULT.json",
+      "sha256": "5b35f390b32c52ef7f606f07bb34b2d4ebbe8515c4bf568a596a9706ca429941",
+      "status": "PASS_M10A_COMMAND_SURFACE_PRESERVATION_GUARD"
+    },
+    {
+      "file": "M10A_COMMAND_SURFACE_INSTALL_APPROVAL_CARD.json",
+      "sha256": "4a9844629b425dfcf1378a3d5c8f1d91abd30db1272d399a5c2112b9d07bece8",
+      "status": "HOLD_M10A_COMMAND_SURFACE_INSTALL_AWAITING_OPERATOR_APPROVAL"
+    },
+    {
+      "file": "M10A_COMMAND_SURFACE_INSTALL_APPROVAL_CARD.md",
+      "sha256": "ce45bc184018cd3db79b23511badf8845a640beae33a6f56158409702f732692"
+    },
+    {
+      "file": "M10A_COMMAND_SURFACE_INSTALL_APPROVAL_PREP_VALIDATION.json",
+      "sha256": "7040fb662741bb9b811f0161ca136b8a7b81179a236239f92fa94519b083b5ae",
+      "status": "PASS_M10A_COMMAND_SURFACE_INSTALL_APPROVAL_PREP_VALIDATION"
+    }
+  ],
+  "candidate_package_path": "/home/stickai/.openclaw/workspace/tmp/m10a-command-surface-staged-install-candidate/20260716T1325Z/m10a-command-surface-staged-install-candidate-20260716T1325Z.tar.gz",
+  "candidate_package_sha256": "1c26049fab45d9afbadf3be4a33ef569b03184d65a05b81abdfcde85467ea71d",
+  "script_sha256": {
+    "scripts/m10a-owner-telegram-direct-control.mjs": "02b8d9182d39c040ed22f027da2489c209dc9ea2d569e989ea6149ac25207dd6",
+    "scripts/m10a-owner-telegram-direct-observe.mjs": "98b2f27d751055489c0e8b28ad4ba2b15c6a06adda3701f2217196fc02694c38"
+  },
+  "expected_installed_files_changed": [
+    "package.json",
+    "M10A_COMMAND_SURFACE_CANDIDATE_OVERLAY_MANIFEST.json",
+    "scripts/m10a-owner-telegram-direct-observe.mjs",
+    "scripts/m10a-owner-telegram-direct-control.mjs"
+  ],
+  "expected_preserved_files": [
+    "dist/auto-reply/reply/umc-m4-verified-route.js",
+    "dist/auto-reply/reply/umc-m5-capability-manifest.js",
+    "dist/auto-reply/reply/umc-m5-capability-manifest.schema.json",
+    "dist/auto-reply/reply/umc-m5-seed-manifests.json",
+    "dist/auto-reply/reply/umc-m6-contract-build-lane.js",
+    "dist/auto-reply/reply/umc-m7-model-eligibility.js",
+    "dist/auto-reply/reply/umc-m8-owner-contract-lane.js",
+    "dist/auto-reply/reply/umc-m10a-owner-telegram-direct-control-path.js",
+    "dist/umc-m3-envelope-supervision-CZFFPUFB.js",
+    "dist/umc-m4-verified-route-B8LC1Bgv.js",
+    "dist/umc-m5-capability-manifest-DBUsXqaz.js",
+    "dist/umc-m6-contract-build-lane-B49r9Ao5.js",
+    "dist/umc-m7-model-eligibility-ovqh9OfD.js",
+    "dist/umc-m8-owner-contract-lane-CdxuqyX4.js"
+  ],
+  "backup_path": "/home/stickai/.openclaw/backups/openclaw-m10a-command-surface-staged-install-20260716T1325Z/openclaw-installed-package",
+  "rollback_command": "rm -rf /home/stickai/.npm-global/lib/node_modules/openclaw && cp -a /home/stickai/.openclaw/backups/openclaw-m10a-command-surface-staged-install-20260716T1325Z/openclaw-installed-package /home/stickai/.npm-global/lib/node_modules/openclaw",
+  "no_install_performed": true,
+  "no_gateway_restart_performed": true,
+  "no_m10a_enablement_performed": true,
+  "no_production_authority_change": true,
+  "no_broad_enforcement": true,
+  "telegram_send_probe_count": 0,
+  "provider_model_live_call_count": 0,
+  "runtime_write_tool_execution_count": 0,
+  "durable_memory_mutation_count": 0,
+  "context_bridge_mutation_count": 0,
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "exact_next_phase": "APPROVE_OR_DENY_M10A_COMMAND_SURFACE_STAGED_INSTALL",
+  "validation_status": "PASS_M10A_COMMAND_SURFACE_INSTALL_APPROVAL_PREP_VALIDATION"
+}

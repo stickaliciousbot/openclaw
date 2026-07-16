@@ -1,0 +1,76 @@
+{
+  "schema": "umc.v1.m10a.command_surface_temp_installed_shape_validation.v1",
+  "generated_utc": "2026-07-16T13:29:09.132Z",
+  "status": "PASS_M10A_COMMAND_SURFACE_TEMP_INSTALLED_SHAPE_VALIDATION",
+  "temp_installed_shape_root": "/home/stickai/.openclaw/workspace/tmp/m10a-command-surface-installed-shape/20260716T1325Z/openclaw-installed-package",
+  "temp_state_root": "/home/stickai/.openclaw/workspace/tmp/m10a-command-surface-installed-shape/20260716T1325Z/state-root",
+  "runs": [
+    {
+      "name": "control_help",
+      "code": 0,
+      "status": "PASS_M10A_COMMAND_HELP",
+      "stderr": ""
+    },
+    {
+      "name": "control_status",
+      "code": 0,
+      "status": "PASS_M10A_COMMAND_STATUS_READBACK",
+      "stderr": ""
+    },
+    {
+      "name": "enable_dry_run_represented_not_live",
+      "code": 0,
+      "status": "PASS_M10A_COMMAND_ENABLE_DRY_RUN",
+      "stderr": ""
+    },
+    {
+      "name": "disable_dry_run_represented_not_live",
+      "code": 0,
+      "status": "PASS_M10A_COMMAND_DISABLE_DRY_RUN",
+      "stderr": ""
+    },
+    {
+      "name": "verify_disabled",
+      "code": 0,
+      "status": "PASS_M10A_COMMAND_VERIFY_DISABLED",
+      "stderr": ""
+    },
+    {
+      "name": "operator_stop_dry_run_represented",
+      "code": 0,
+      "status": "PASS_M10A_COMMAND_OPERATOR_STOP_DRY_RUN",
+      "stderr": ""
+    },
+    {
+      "name": "rollback_not_required_dry_run",
+      "code": 0,
+      "status": "PASS_M10A_COMMAND_ROLLBACK_NOT_REQUIRED",
+      "stderr": ""
+    },
+    {
+      "name": "observe_help",
+      "code": 0,
+      "status": "PASS_M10A_OBSERVATION_COMMAND_HELP",
+      "stderr": ""
+    },
+    {
+      "name": "observe_dry_run",
+      "code": 0,
+      "status": "PASS_M10A_OBSERVATION_COMMAND_DRY_RUN",
+      "stderr": ""
+    }
+  ],
+  "exact_enable_command_represented_not_live": true,
+  "exact_disable_command_represented_not_live": true,
+  "exact_status_readback_command_dry_run_safe": true,
+  "operator_stop_command_represented": true,
+  "post_enable_observation_command_dry_run_safe": true,
+  "m10a_remains_disabled": true,
+  "production_authority_remains_false": true,
+  "broad_enforcement_remains_false": true,
+  "telegram_send_probe_count": 0,
+  "provider_model_live_call_count": 0,
+  "runtime_write_tool_execution_count": 0,
+  "durable_memory_mutation_count": 0,
+  "context_bridge_mutation_count": 0
+}

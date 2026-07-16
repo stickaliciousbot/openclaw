@@ -1,0 +1,34 @@
+{
+  "schema": "umc.v1.m10a.command_surface_install_prep_preflight.v1",
+  "generated_utc": "2026-07-16T13:29:08.530Z",
+  "status": "PASS_M10A_COMMAND_SURFACE_INSTALL_PREP_PREFLIGHT",
+  "checks": {
+    "source_ready_commit_verified": true,
+    "evidence_commit_verified": true,
+    "fixture_suite_passed": true,
+    "source_validation_passed": true,
+    "proof_level_source_only": true,
+    "m10a_not_enabled": true,
+    "installed_runtime_not_mutated": true,
+    "gateway_not_restarted": true,
+    "telegram_send_probe_zero": true,
+    "provider_model_live_call_zero": true,
+    "durable_memory_mutation_zero": true,
+    "context_bridge_mutation_zero": true,
+    "production_authority_change_zero": true
+  },
+  "source_ready_commit": "9aaf679ff760908bdfaf94d0a92aff188e684b8d",
+  "evidence_commit": "2630f3d0b2c1c26bb6da4b16a8d269e601ba385a",
+  "current_install_prep_source_commit": "1c5e48e9162c990f8e9e4ed933f85acd009b283a",
+  "current_workspace_evidence_commit_before_prep": "2630f3d0b2c1c26bb6da4b16a8d269e601ba385a",
+  "source_ready_artifacts": [
+    "M10A_COMMAND_SURFACE_FIXTURE_RESULTS.json",
+    "M10A_COMMAND_SURFACE_SOURCE_REPAIR_RESULT.json",
+    "M10A_COMMAND_SURFACE_SOURCE_REPAIR_RESULT.md",
+    "M10A_COMMAND_SURFACE_EXACT_COMMAND_SPEC.json",
+    "M10A_COMMAND_SURFACE_EXACT_COMMAND_SPEC.md",
+    "M10A_COMMAND_SURFACE_SOURCE_VALIDATION.json",
+    "M10A_COMMAND_SURFACE_SOURCE_READY_CLOSEOUT.json",
+    "M10A_COMMAND_SURFACE_SOURCE_READY_EVIDENCE_MANIFEST.json"
+  ]
+}

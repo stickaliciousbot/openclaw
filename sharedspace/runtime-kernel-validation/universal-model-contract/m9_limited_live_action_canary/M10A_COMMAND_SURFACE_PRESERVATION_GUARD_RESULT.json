@@ -1,0 +1,27 @@
+{
+  "schema": "umc.v1.m10a.command_surface_preservation_guard_result.v1",
+  "generated_utc": "2026-07-16T13:29:09.133Z",
+  "status": "PASS_M10A_COMMAND_SURFACE_PRESERVATION_GUARD",
+  "checks": {
+    "candidate_does_not_overwrite_m10a_runtime_control_path_artifact": true,
+    "candidate_does_not_overwrite_canonical_m2_m9_entry_artifacts": true,
+    "installed_m8_sha_preserved_now": true,
+    "candidate_preserves_plugin_manifests": true,
+    "no_config_route_fallback_memory_context_bridge_cron_entries": true,
+    "rollback_ready": true,
+    "m10a_control_path_sha_preserved_now": true
+  },
+  "candidate_file_list": [
+    "package.json",
+    "M10A_COMMAND_SURFACE_CANDIDATE_OVERLAY_MANIFEST.json",
+    "scripts/m10a-owner-telegram-direct-observe.mjs",
+    "scripts/m10a-owner-telegram-direct-control.mjs"
+  ],
+  "forbidden_candidate_entries": [],
+  "installed_m8_sha256": "27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db",
+  "expected_m8_sha256": "27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db",
+  "installed_m10a_control_path_sha256": "be56d6a5105d4d0a03085757483b3bb07374ff96b9db8ea44a1bcb164139e082",
+  "expected_m10a_control_path_sha256": "be56d6a5105d4d0a03085757483b3bb07374ff96b9db8ea44a1bcb164139e082",
+  "backup_path_for_approved_install": "/home/stickai/.openclaw/backups/openclaw-m10a-command-surface-staged-install-20260716T1325Z/openclaw-installed-package",
+  "rollback_command": "rm -rf /home/stickai/.npm-global/lib/node_modules/openclaw && cp -a /home/stickai/.openclaw/backups/openclaw-m10a-command-surface-staged-install-20260716T1325Z/openclaw-installed-package /home/stickai/.npm-global/lib/node_modules/openclaw"
+}

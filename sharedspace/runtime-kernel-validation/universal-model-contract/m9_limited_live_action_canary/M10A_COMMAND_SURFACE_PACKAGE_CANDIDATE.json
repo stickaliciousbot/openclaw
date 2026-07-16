@@ -1,0 +1,46 @@
+{
+  "schema": "umc.v1.m10a.command_surface_package_candidate.v1",
+  "generated_utc": "2026-07-16T13:29:08.550Z",
+  "status": "PASS_M10A_COMMAND_SURFACE_PACKAGE_CANDIDATE_READY",
+  "candidate_package_path": "/home/stickai/.openclaw/workspace/tmp/m10a-command-surface-staged-install-candidate/20260716T1325Z/m10a-command-surface-staged-install-candidate-20260716T1325Z.tar.gz",
+  "candidate_package_sha256": "1c26049fab45d9afbadf3be4a33ef569b03184d65a05b81abdfcde85467ea71d",
+  "candidate_file_list": [
+    "package.json",
+    "M10A_COMMAND_SURFACE_CANDIDATE_OVERLAY_MANIFEST.json",
+    "scripts/m10a-owner-telegram-direct-observe.mjs",
+    "scripts/m10a-owner-telegram-direct-control.mjs"
+  ],
+  "expected_installed_files_changed": [
+    "package.json",
+    "M10A_COMMAND_SURFACE_CANDIDATE_OVERLAY_MANIFEST.json",
+    "scripts/m10a-owner-telegram-direct-observe.mjs",
+    "scripts/m10a-owner-telegram-direct-control.mjs"
+  ],
+  "expected_preserved_files": [
+    "dist/auto-reply/reply/umc-m4-verified-route.js",
+    "dist/auto-reply/reply/umc-m5-capability-manifest.js",
+    "dist/auto-reply/reply/umc-m5-capability-manifest.schema.json",
+    "dist/auto-reply/reply/umc-m5-seed-manifests.json",
+    "dist/auto-reply/reply/umc-m6-contract-build-lane.js",
+    "dist/auto-reply/reply/umc-m7-model-eligibility.js",
+    "dist/auto-reply/reply/umc-m8-owner-contract-lane.js",
+    "dist/auto-reply/reply/umc-m10a-owner-telegram-direct-control-path.js",
+    "dist/umc-m3-envelope-supervision-CZFFPUFB.js",
+    "dist/umc-m4-verified-route-B8LC1Bgv.js",
+    "dist/umc-m5-capability-manifest-DBUsXqaz.js",
+    "dist/umc-m6-contract-build-lane-B49r9Ao5.js",
+    "dist/umc-m7-model-eligibility-ovqh9OfD.js",
+    "dist/umc-m8-owner-contract-lane-CdxuqyX4.js"
+  ],
+  "script_sha256": {
+    "scripts/m10a-owner-telegram-direct-control.mjs": "02b8d9182d39c040ed22f027da2489c209dc9ea2d569e989ea6149ac25207dd6",
+    "scripts/m10a-owner-telegram-direct-observe.mjs": "98b2f27d751055489c0e8b28ad4ba2b15c6a06adda3701f2217196fc02694c38"
+  },
+  "package_metadata_sha256": {
+    "package.json": "667f202e2a31f1aecb822e1f1bfe91f9412fb2cdb4212c5d9fa0d032918b8778",
+    "M10A_COMMAND_SURFACE_CANDIDATE_OVERLAY_MANIFEST.json": "9a5e614189879b39f30b72ee8395e907b2929cd887471fa4dd906a301c838cbc"
+  },
+  "no_install_performed": true,
+  "gateway_restart_count": 0,
+  "m10a_enablement_executed": false
+}
