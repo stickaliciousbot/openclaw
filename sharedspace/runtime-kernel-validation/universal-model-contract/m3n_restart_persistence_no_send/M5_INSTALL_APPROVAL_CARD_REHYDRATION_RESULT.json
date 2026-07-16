@@ -1,0 +1,52 @@
+{
+  "schema": "umc.v1.m5.install_approval_card_rehydration_result.v1",
+  "generated_utc": "2026-07-16T01:31:00Z",
+  "status": "PASS_M5_INSTALL_APPROVAL_CARD_REHYDRATED",
+  "source_artifacts": {
+    "json": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M5_CAPABILITY_MANIFEST_INSTALL_APPROVAL_CARD.json",
+    "markdown": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M5_CAPABILITY_MANIFEST_INSTALL_APPROVAL_CARD.md"
+  },
+  "approval_card_status": "HOLD_M5_CAPABILITY_MANIFEST_INSTALL_AWAITING_OPERATOR_APPROVAL",
+  "required_field_validation": {
+    "source_branch_head_present": true,
+    "source_commit_present": true,
+    "build_command_used_present": true,
+    "package_tarball_path_present": true,
+    "package_tarball_sha256_present": true,
+    "m5_artifact_presence_validation_present": true,
+    "m3_m4_artifact_preservation_validation_present": true,
+    "plugin_manifest_preservation_validation_present": true,
+    "backup_path_present": true,
+    "rollback_command_present": true,
+    "gateway_telegram_health_validation_plan_present": true,
+    "m3_m4_m5_installed_runtime_regression_plan_present": true,
+    "no_send_no_authority_boundary_present": true,
+    "sha256_verification_before_install_present": true
+  },
+  "card_summary": {
+    "source_branch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+    "source_head": "3a9abe46293294da7c73432d74f6c32e3fd1deaf",
+    "source_commit": "3a9abe46293294da7c73432d74f6c32e3fd1deaf",
+    "build_command_used": "/home/stickai/.openclaw/workspace/tmp/openclaw-start-ack-pnpm-shim/pnpm build",
+    "tarball_path": "/home/stickai/.openclaw/workspace/tmp/umc-m5-package/openclaw-2026.5.7.tgz",
+    "tarball_sha256": "13850f7bd15224e295cc4bee6be184e4df3cd29ab30f191d6a757cd088bdcc06",
+    "backup_path": "/home/stickai/.openclaw/backups/openclaw-m5-capability-manifest-install-20260716T0124Z/openclaw-installed-package",
+    "rollback_command": "npm install -g --ignore-scripts /home/stickai/.openclaw/workspace/tmp/umc-m4-package-r2/openclaw-2026.5.7.tgz && openclaw gateway restart",
+    "gateway_restart_required": true
+  },
+  "hard_boundaries_observed_during_rehydration": {
+    "install_executed": false,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "direct_installed_dist_hotpatch_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "m6_started": false,
+    "enforcement_enabled": false
+  }
+}

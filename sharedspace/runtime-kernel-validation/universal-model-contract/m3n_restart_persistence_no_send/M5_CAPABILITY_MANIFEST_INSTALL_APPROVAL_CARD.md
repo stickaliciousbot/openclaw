@@ -69,13 +69,19 @@ Trusted previous backup:
 mkdir -p /home/stickai/.openclaw/backups/openclaw-m5-capability-manifest-install-20260716T0124Z && cp -a /home/stickai/.npm-global/lib/node_modules/openclaw /home/stickai/.openclaw/backups/openclaw-m5-capability-manifest-install-20260716T0124Z/openclaw-installed-package && test -f /home/stickai/.openclaw/backups/openclaw-m5-capability-manifest-install-20260716T0124Z/openclaw-installed-package/package.json
 ```
 
-### 2. Install package
+### 2. Verify tarball SHA256 before install
+
+```sh
+printf '%s  %s\n' 13850f7bd15224e295cc4bee6be184e4df3cd29ab30f191d6a757cd088bdcc06 /home/stickai/.openclaw/workspace/tmp/umc-m5-package/openclaw-2026.5.7.tgz | sha256sum -c -
+```
+
+### 3. Install package
 
 ```sh
 npm install -g --ignore-scripts /home/stickai/.openclaw/workspace/tmp/umc-m5-package/openclaw-2026.5.7.tgz
 ```
 
-### 3. Restart Gateway for activation
+### 4. Restart Gateway for activation
 
 ```sh
 openclaw gateway restart
