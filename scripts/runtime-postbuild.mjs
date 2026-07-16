@@ -362,6 +362,24 @@ export function writeLegacyCliExitCompatChunks(params = {}) {
   }
 }
 
+export function copyUmcM5CapabilityManifestAssets(params = {}) {
+  const rootDir = params.rootDir ?? ROOT;
+  const fsImpl = params.fs ?? fs;
+  const assets = ["umc-m5-capability-manifest.schema.json", "umc-m5-seed-manifests.json"];
+  const sourceDir = path.join(rootDir, "src", "auto-reply", "reply");
+  const targetDir = path.join(rootDir, "dist", "auto-reply", "reply");
+  fsImpl.mkdirSync(targetDir, { recursive: true });
+  for (const asset of assets) {
+    const source = path.join(sourceDir, asset);
+    const target = path.join(targetDir, asset);
+    if (!fsImpl.existsSync(source)) {
+      continue;
+    }
+    const contents = fsImpl.readFileSync(source, "utf8");
+    writeTextFileIfChanged(target, contents.endsWith("\n") ? contents : `${contents}\n`);
+  }
+}
+
 export function runRuntimePostBuild(params = {}) {
   const timingsEnabled = params.timings ?? process.env.OPENCLAW_RUNTIME_POSTBUILD_TIMINGS !== "0";
   const runPhase = (label, action) => {
@@ -385,6 +403,12 @@ export function runRuntimePostBuild(params = {}) {
   runPhase("legacy CLI exit compat chunks", () => writeLegacyCliExitCompatChunks(params));
   runPhase("static extension assets", () =>
     copyStaticExtensionAssets({
+      rootDir: ROOT,
+      ...params,
+    }),
+  );
+  runPhase("UMC M5 capability manifest assets", () =>
+    copyUmcM5CapabilityManifestAssets({
       rootDir: ROOT,
       ...params,
     }),
