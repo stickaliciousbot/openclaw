@@ -1,0 +1,54 @@
+{
+  "schema": "umc.v1.m6.token_broker_vmesh_contract_build_lane_source_ready_closeout.v1",
+  "generated_utc": "2026-07-16T02:22:00Z",
+  "status": "PASS_M6_TOKEN_BROKER_VMESH_CONTRACT_BUILD_LANE_SOURCE_READY_NO_APPLY",
+  "closeout_status": "PASS_M6_TOKEN_BROKER_VMESH_CONTRACT_BUILD_LANE_SOURCE_READY_NO_APPLY",
+  "milestone": "M6_TOKEN_BROKER_VMESH_CONTRACT_BUILD_LANE_SOURCE_NO_APPLY",
+  "source_commit": "138e91ece8fd83d7e550a891222d8abefb3c75fa",
+  "results": {
+    "preflight": "PASS_M6_CONTRACT_BUILD_LANE_PREFLIGHT",
+    "lane_spec": "PASS_M6_CONTRACT_BUILD_LANE_SPEC_DEFINED",
+    "implementation": "PASS_M6_CONTRACT_BUILD_LANE_IMPLEMENTED",
+    "worker_fallback_policy": "PASS_M6_WORKER_MODEL_AND_FALLBACK_POLICY_DEFINED",
+    "contract_build_fixtures": "PASS_M6_CONTRACT_BUILD_LANE_FIXTURES",
+    "m3_m4_m5_regression_fixtures": "PASS_M6_M3_M4_M5_REGRESSION_FIXTURES",
+    "no_apply_build_validation": "PASS_M6_CONTRACT_BUILD_LANE_NO_APPLY_BUILD_VALIDATION",
+    "staged_install_plan": "PASS_M6_CONTRACT_BUILD_LANE_STAGED_INSTALL_PLAN_READY"
+  },
+  "key_results": {
+    "valid_route_intent_lane_build": "PASS_M6_CONTRACT_BUILD_LANE_BUILT",
+    "raw_provider_model_bypass": "FAIL_M6_RAW_MODEL_AUTHORITY_BYPASS",
+    "missing_manifest_hold": "HOLD_M6_CAPABILITY_MANIFEST_MISSING",
+    "fallback_contract_preservation": "blocked",
+    "worker_model_route_authority": false
+  },
+  "governing_invariants": {
+    "broker_builds_contract_qualified_lanes": true,
+    "worker_model_is_not_route_authority": true,
+    "session_channel_model_pins_are_route_intents_only": true,
+    "no_send_delivery_mode_preserved": true,
+    "observe_only_authority_preserved": true,
+    "verified_route_required": true,
+    "contract_envelope_required": true,
+    "capability_manifest_required": true,
+    "terminal_closeout_required": true
+  },
+  "boundary_counters": {
+    "installed_runtime_mutation_count": 0,
+    "package_install_count": 0,
+    "tarball_apply_count": 0,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "enforcement_enabled": false,
+    "m7_started": false
+  },
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "next_milestone": "M6_CONTRACT_BUILD_LANE_STAGED_INSTALL_AND_REGRESSION"
+}

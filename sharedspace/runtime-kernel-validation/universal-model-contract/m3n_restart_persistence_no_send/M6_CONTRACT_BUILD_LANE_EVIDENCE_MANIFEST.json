@@ -1,0 +1,80 @@
+{
+  "schema": "umc.v1.m6.contract_build_lane_evidence_manifest.v1",
+  "generated_utc": "2026-07-16T02:23:00Z",
+  "status": "PASS_M6_CONTRACT_BUILD_LANE_EVIDENCE_MANIFEST_READY",
+  "final_status": "PASS_M6_TOKEN_BROKER_VMESH_CONTRACT_BUILD_LANE_SOURCE_READY_NO_APPLY",
+  "source_commit": "138e91ece8fd83d7e550a891222d8abefb3c75fa",
+  "evidence_commit": "RECORDED_IN_FINAL_REPORT_AFTER_COMMIT",
+  "artifacts": [
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M6_CONTRACT_BUILD_LANE_PREFLIGHT.json",
+      "sha256": "0181bb2c31df83b6da0b99520b5071e6d711ae24d27bb7df4ca913e5bf3c02ee",
+      "status": "PASS_M6_CONTRACT_BUILD_LANE_PREFLIGHT"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M6_CONTRACT_BUILD_LANE_SPEC.json",
+      "sha256": "e62b3f3ce9a5c0386ccc0d64b87807702144bfade8745b32cfbb581f1bdbf976",
+      "status": "PASS_M6_CONTRACT_BUILD_LANE_SPEC_DEFINED"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M6_CONTRACT_BUILD_LANE_SPEC.md",
+      "sha256": "2848e058674b6f5879e8d04ae9f9d4ffaf65212b0ae8b4449093b5f7652f9ac5"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M6_CONTRACT_BUILD_LANE_IMPLEMENTATION_RESULT.json",
+      "sha256": "1a2476dbe463fde3bbcd05ec27561b16f6dab7ec72c16ca8ab8c71aa4c5a18f3",
+      "status": "PASS_M6_CONTRACT_BUILD_LANE_IMPLEMENTED"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M6_WORKER_MODEL_AND_FALLBACK_POLICY.json",
+      "sha256": "d0e49f309a2e24199714a11c5bcfd168e1537b4aa91693e6c07f1792018c7dbc",
+      "status": "PASS_M6_WORKER_MODEL_AND_FALLBACK_POLICY_DEFINED"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M6_WORKER_MODEL_AND_FALLBACK_POLICY.md",
+      "sha256": "144a78a61410a34f290c563b8ba30f7aec6a317eabfb46c9295c03878f525314"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M6_CONTRACT_BUILD_LANE_FIXTURE_RESULTS.json",
+      "sha256": "8ff53dd0bbf94125d239c7b3d62415879a61d8b5488d1b2b01544ed14f0daa43",
+      "status": "PASS_M6_CONTRACT_BUILD_LANE_FIXTURES"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M6_M3_M4_M5_REGRESSION_FIXTURE_RESULTS.json",
+      "sha256": "e3288c2fcf49a796c1d16769594320c474fbb588f7adffac8ee8ceddc3310638",
+      "status": "PASS_M6_M3_M4_M5_REGRESSION_FIXTURES"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M6_CONTRACT_BUILD_LANE_NO_APPLY_BUILD_VALIDATION.json",
+      "sha256": "3e409f62230d407ea748ac5d5648b45236e044f5c81d40e67a419531b36b6880",
+      "status": "PASS_M6_CONTRACT_BUILD_LANE_NO_APPLY_BUILD_VALIDATION"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M6_CONTRACT_BUILD_LANE_STAGED_INSTALL_PLAN.json",
+      "sha256": "74170f7dd76f76f80f03a4c1407cd37fab95b438d26856b2b6e458f8d6e2a640",
+      "status": "PASS_M6_CONTRACT_BUILD_LANE_STAGED_INSTALL_PLAN_READY"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M6_CONTRACT_BUILD_LANE_STAGED_INSTALL_PLAN.md",
+      "sha256": "c426aa7ba28964c23de9bc14617bc557e24cb41fabae94a1d9f7655c1e57ccf2"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M6_TOKEN_BROKER_VMESH_CONTRACT_BUILD_LANE_SOURCE_READY_CLOSEOUT.json",
+      "sha256": "fb03c5239715650f1ef3cb5a50cf8b82f5a4f70c091f1e7a5e3f86fff8d06a48",
+      "status": "PASS_M6_TOKEN_BROKER_VMESH_CONTRACT_BUILD_LANE_SOURCE_READY_NO_APPLY"
+    }
+  ],
+  "boundary_counters": {
+    "installed_runtime_mutation_count": 0,
+    "telegram_send_probe_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "enforcement_enabled": false,
+    "m7_started": false
+  },
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION"
+}

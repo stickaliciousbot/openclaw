@@ -1,0 +1,69 @@
+{
+  "schema": "umc.v1.m6.contract_build_lane_spec_artifact.v1",
+  "generated_utc": "2026-07-16T02:10:00.000Z",
+  "status": "PASS_M6_CONTRACT_BUILD_LANE_SPEC_DEFINED",
+  "spec": {
+    "lane_id": "token-broker-vmesh/contract-build",
+    "lane_version": "umc.v1.m6.contract_build_lane.v1",
+    "contract_version": "umc.v1.m6",
+    "authority_mode": "observe_only",
+    "verified_route_authority_mode": "observe_only_no_send",
+    "delivery_mode": "no_send",
+    "eligible_owner_scope": "owner_turn",
+    "route_intent_input": "m2_owner_turn_route_admission",
+    "verified_route_requirement": "required_before_execution",
+    "contract_envelope_requirement": "required",
+    "capability_manifest_requirement": "required_for_broker_worker_and_fallbacks",
+    "fallback_chain_requirement": "must_preserve_contract",
+    "worker_model_policy": {
+      "worker_role": "execution_worker",
+      "route_authority": false,
+      "requires_verified_route": true,
+      "requires_capability_manifest": true,
+      "requires_contract_envelope": true,
+      "delivery_mode": "no_send",
+      "authority_mode": "observe_only",
+      "worker": {
+        "provider": "openai-codex",
+        "model": "gpt-5.5"
+      }
+    },
+    "tool_policy": {
+      "real_write_tools": "blocked",
+      "provider_model_live_calls": "forbidden_in_source_fixture",
+      "external_sends": "forbidden"
+    },
+    "postcondition_policy": {
+      "terminal_closeout_required": true,
+      "no_send_delivery_required": true,
+      "zero_forbidden_counters_required": true
+    },
+    "delivery_policy": {
+      "mode": "no_send",
+      "telegram_send_probe_authorized": false,
+      "external_send_authorized": false
+    },
+    "terminal_closeout_policy": {
+      "required": true
+    },
+    "safety_counter_policy": {
+      "telegram_send_probe_count": 0,
+      "external_send_count": 0,
+      "provider_model_live_call_count": 0,
+      "route_config_mutation_count": 0,
+      "durable_memory_mutation_count": 0,
+      "context_bridge_mutation_count": 0,
+      "production_authority_change_count": 0,
+      "enforcement_enabled": false
+    },
+    "explicit_invariants": [
+      "worker model is not route authority",
+      "session/channel pins are route intents only",
+      "fallback cannot drop VerifiedRoute",
+      "fallback cannot drop ContractEnvelope",
+      "fallback cannot drop capability manifest requirements",
+      "fallback cannot change no_send delivery mode",
+      "fallback cannot change observe_only authority mode"
+    ]
+  }
+}

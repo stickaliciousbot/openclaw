@@ -1,0 +1,25 @@
+{
+  "schema": "umc.v1.m6.m3_m4_m5_regression_fixture_results.v1",
+  "generated_utc": "2026-07-16T02:10:00.000Z",
+  "status": "PASS_M6_M3_M4_M5_REGRESSION_FIXTURES",
+  "regression_cases": {
+    "m3_envelope_no_send_receipt_path_still_passes": "PASS_M3_TERMINAL_CONTRACT_CLOSEOUT_EMITTED",
+    "m4_raw_provider_model_rejection_still_passes": "HOLD_M4_MISSING_VERIFIED_ROUTE",
+    "m4_forged_route_rejection_still_passes": "HOLD_M4_FORGED_OR_DESERIALIZED_VERIFIED_ROUTE",
+    "m5_valid_manifest_eligibility_still_passes": "PASS_M5_ROUTE_ELIGIBILITY_VERIFIED",
+    "m5_missing_manifest_still_holds": "HOLD_M6_CAPABILITY_MANIFEST_MISSING",
+    "m5_malformed_manifest_still_fails": "FAIL_M5_CAPABILITY_MANIFEST_INVALID",
+    "m5_unsupported_capability_still_holds": "HOLD_M5_CAPABILITY_UNSUPPORTED",
+    "fallback_contract_preservation_still_enforced": "HOLD_M6_CAPABILITY_MANIFEST_MISSING"
+  },
+  "safety_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "enforcement_enabled": false
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "schema": "umc.v1.m6.contract_build_lane_implementation_result.v1",
+  "generated_utc": "2026-07-16T02:10:00.000Z",
+  "status": "PASS_M6_CONTRACT_BUILD_LANE_IMPLEMENTED",
+  "source_file": "src/auto-reply/reply/umc-m6-contract-build-lane.ts",
+  "behaviors": {
+    "accepts_m2_owner_turn_route_admission": true,
+    "consults_m5_capability_manifest_registry": true,
+    "verifies_route_through_m4_verified_route_brander": true,
+    "constructs_m3_contract_envelope": true,
+    "attaches_no_send_delivery_receipt_policy": true,
+    "attaches_terminal_closeout_policy": true,
+    "preserves_observe_only_authority_mode": true,
+    "preserves_fallback_contract_mode": true,
+    "reject_missing_manifest": "HOLD_M6_CAPABILITY_MANIFEST_MISSING",
+    "reject_missing_verified_route": "HOLD_M4_MISSING_VERIFIED_ROUTE",
+    "reject_unsupported_worker_model_capability": "HOLD_M6_CAPABILITY_MANIFEST_MISSING",
+    "reject_fallback_chain_without_contract_preservation": "HOLD_M6_CAPABILITY_MANIFEST_MISSING"
+  }
+}

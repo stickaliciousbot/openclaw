@@ -1,0 +1,26 @@
+{
+  "schema": "umc.v1.m6.worker_model_and_fallback_policy.v1",
+  "generated_utc": "2026-07-16T02:10:00.000Z",
+  "status": "PASS_M6_WORKER_MODEL_AND_FALLBACK_POLICY_DEFINED",
+  "policy": {
+    "worker_role": "execution_worker",
+    "route_authority": false,
+    "worker": {
+      "provider": "openai-codex",
+      "model": "gpt-5.5"
+    },
+    "requires_verified_route": true,
+    "requires_capability_manifest": true,
+    "requires_contract_envelope": true,
+    "delivery_mode": "no_send",
+    "authority_mode": "observe_only",
+    "fallback_rules": {
+      "fallback_only_if_manifest_supports_required_contract_capabilities": true,
+      "fallback_preserves_contract_version": true,
+      "fallback_preserves_no_send": true,
+      "fallback_preserves_observe_only": true,
+      "fallback_preserves_terminal_closeout_requirement": true,
+      "fallback_emits_typed_hold_if_not_qualified": true
+    }
+  }
+}

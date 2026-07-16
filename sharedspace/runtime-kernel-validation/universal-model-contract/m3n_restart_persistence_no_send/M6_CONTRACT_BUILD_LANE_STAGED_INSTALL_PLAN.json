@@ -1,0 +1,52 @@
+{
+  "schema": "umc.v1.m6.contract_build_lane_staged_install_plan.v1",
+  "generated_utc": "2026-07-16T02:19:00Z",
+  "status": "PASS_M6_CONTRACT_BUILD_LANE_STAGED_INSTALL_PLAN_READY",
+  "milestone": "M6_TOKEN_BROKER_VMESH_CONTRACT_BUILD_LANE_SOURCE_NO_APPLY",
+  "do_not_install_in_this_milestone": true,
+  "source": {
+    "path": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+    "branch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+    "head": "138e91ece8fd83d7e550a891222d8abefb3c75fa",
+    "source_commit": "138e91ece8fd83d7e550a891222d8abefb3c75fa"
+  },
+  "build_package": {
+    "command": "/home/stickai/.openclaw/workspace/tmp/openclaw-start-ack-pnpm-shim/pnpm build && npm pack --ignore-scripts",
+    "package_tarball_path": "TBD_IN_M6_CONTRACT_BUILD_LANE_STAGED_INSTALL_AND_REGRESSION",
+    "tarball_produced_in_m6_source_ready": false
+  },
+  "expected_installed_files_changed": [
+    "dist/auto-reply/reply/umc-m6-contract-build-lane.js"
+  ],
+  "backup": {
+    "trusted_previous_backup": "/home/stickai/.openclaw/backups/openclaw-m5-capability-manifest-install-20260716T0124Z/openclaw-installed-package",
+    "next_staged_install_backup_path_template": "/home/stickai/.openclaw/backups/openclaw-m6-contract-build-lane-install-<UTC>/openclaw-installed-package"
+  },
+  "rollback": {
+    "command": "npm install -g --ignore-scripts /home/stickai/.openclaw/workspace/tmp/umc-m5-package/openclaw-2026.5.7.tgz && openclaw gateway restart",
+    "m5_tarball_sha256": "13850f7bd15224e295cc4bee6be184e4df3cd29ab30f191d6a757cd088bdcc06",
+    "requires_operator_approval": true
+  },
+  "validation_plan": {
+    "gateway_health_validation": "openclaw gateway status must report running/connectivity/admin-capable after restart",
+    "telegram_health_validation": "openclaw channels status must report Telegram enabled/configured/running/connected; no Telegram send/probe unless separately approved",
+    "m3_regression_plan": "Verify no-send receipts, terminal closeout, production path unchanged, and all forbidden counters zero.",
+    "m4_regression_plan": "Verify raw provider/model, missing VerifiedRoute, forged/deserialized route, and fallback without VerifiedRoute reject before execution.",
+    "m5_regression_plan": "Verify valid manifest PASS, missing manifest HOLD, malformed manifest FAIL, unsupported capability HOLD, fallback preservation enforced.",
+    "m6_installed_runtime_validation_plan": "Verify installed M6 contract-build lane artifact; valid M2 owner-turn intent builds lane; raw provider/model bypass fails; worker model is not route authority; contract envelope/no_send/terminal closeout preserved.",
+    "contract_build_lane_validation_plan": "Verify token-broker-vmesh/contract-build route authority with worker model metadata only and no live provider call.",
+    "approval_boundary": "No package install, Gateway restart, Telegram probe, provider/model live call, config mutation, authority/enforcement, or M7 without explicit staged-install approval."
+  },
+  "boundary_counters": {
+    "installed_runtime_mutation_count": 0,
+    "telegram_send_probe_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "enforcement_enabled": false,
+    "m7_started": false
+  }
+}

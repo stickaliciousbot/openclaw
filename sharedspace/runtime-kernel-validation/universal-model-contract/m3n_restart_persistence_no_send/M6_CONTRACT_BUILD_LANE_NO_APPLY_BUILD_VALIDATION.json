@@ -1,0 +1,38 @@
+{
+  "schema": "umc.v1.m6.contract_build_lane_no_apply_build_validation.v1",
+  "generated_utc": "2026-07-16T02:18:00Z",
+  "status": "PASS_M6_CONTRACT_BUILD_LANE_NO_APPLY_BUILD_VALIDATION",
+  "milestone": "M6_TOKEN_BROKER_VMESH_CONTRACT_BUILD_LANE_SOURCE_NO_APPLY",
+  "source_repo": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+  "source_branch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+  "source_commit": "138e91ece8fd83d7e550a891222d8abefb3c75fa",
+  "validation_results": {
+    "m6_fixture_runner": "PASS_M6_CONTRACT_BUILD_LANE_FIXTURE_RUNNER",
+    "script_syntax_run_m6_fixtures": "PASS_node_check",
+    "module_import_via_fixture_runner": "PASS",
+    "json_validation": "PASS_JSON_VALIDATION",
+    "git_diff_check_source": "PASS",
+    "lane_spec_validation": "PASS_M6_CONTRACT_BUILD_LANE_SPEC_DEFINED",
+    "implementation_validation": "PASS_M6_CONTRACT_BUILD_LANE_IMPLEMENTED",
+    "worker_fallback_policy_validation": "PASS_M6_WORKER_MODEL_AND_FALLBACK_POLICY_DEFINED",
+    "contract_build_fixture_validation": "PASS_M6_CONTRACT_BUILD_LANE_FIXTURES",
+    "m3_m4_m5_regression_validation": "PASS_M6_M3_M4_M5_REGRESSION_FIXTURES",
+    "full_build": "NOT_RUN_SOURCE_NO_APPLY_MILESTONE; staged install plan only"
+  },
+  "boundary_validation": {
+    "installed_runtime_mutation_count": 0,
+    "package_install_count": 0,
+    "tarball_apply_count": 0,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "enforcement_enabled": false,
+    "m7_started": false
+  }
+}
