@@ -1,0 +1,27 @@
+{
+  "schema": "umc.v1.m10a.owner_telegram_direct_production_enablement_result.v1",
+  "generated_utc": "2026-07-16T13:48:05.925Z",
+  "status": "PASS_M10A_OWNER_TELEGRAM_DIRECT_PRODUCTION_ENABLEMENT_RESULT",
+  "enable_command": "node scripts/m10a-owner-telegram-direct-control.mjs --action enable --mode apply --state-root /home/stickai/.openclaw --scope-name M10A_OWNER_TELEGRAM_DIRECT_CONTRACT_ENFORCEMENT_ONLY --owner-chat-id 8495203551 --channel telegram_direct --agent-id main --requested-by owner_approval",
+  "enable_result_status": "PASS_M10A_COMMAND_ENABLE_APPLIED",
+  "status_after_enable": {
+    "status_path": "umc.m10a.ownerTelegramDirect.status",
+    "control_artifact_path": "state/umc-v1/m10a-owner-telegram-direct-enforcement/control.json",
+    "enabled": true,
+    "scope_name": "M10A_OWNER_TELEGRAM_DIRECT_CONTRACT_ENFORCEMENT_ONLY",
+    "owner_chat_id": "8495203551",
+    "channel": "telegram_direct",
+    "agent_id": "main",
+    "contract_decision_enforcement": true,
+    "production_authority": false,
+    "broad_enforcement": false,
+    "status_reason": "M10A enabled for owner Telegram direct contract decision enforcement only.",
+    "rollback_key": "M10A_DISABLE_OWNER_TELEGRAM_DIRECT_CONTRACT_ENFORCEMENT",
+    "fail_closed": true
+  },
+  "m10a_enabled": true,
+  "production_authority": false,
+  "broad_enforcement": false,
+  "telegram_send_probe_count": 0,
+  "provider_model_live_call_count": 0
+}

@@ -1,0 +1,21 @@
+{
+  "schema": "umc.v1.m10a.owner_telegram_direct_post_enable_observation_summary.v1",
+  "generated_utc": "2026-07-16T14:14:36.345Z",
+  "status": "PASS_M10A_OWNER_TELEGRAM_DIRECT_POST_ENABLE_OBSERVATION_SUMMARY",
+  "duration_minutes": 30,
+  "cadence_minutes": 5,
+  "expected_probes": 6,
+  "observed_probes": 6,
+  "hard_stop": true,
+  "all_probes_passed": true,
+  "m10a_enabled": true,
+  "owner_chat_id": "8495203551",
+  "production_authority": false,
+  "broad_enforcement": false,
+  "telegram_send_probe_count": 0,
+  "external_send_count": 0,
+  "provider_model_live_call_count": 0,
+  "runtime_write_tool_count": 0,
+  "memory_mutation_count": 0,
+  "context_bridge_mutation_count": 0
+}

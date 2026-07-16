@@ -1,0 +1,27 @@
+{
+  "schema": "umc.v1.m10a.owner_telegram_direct_production_closeout.v1",
+  "generated_utc": "2026-07-16T14:14:36.346Z",
+  "status": "PASS_M10A_OWNER_TELEGRAM_DIRECT_PRODUCTION_ENFORCEMENT",
+  "final_status": "PASS_M10A_OWNER_TELEGRAM_DIRECT_PRODUCTION_ENFORCEMENT",
+  "m10a_enabled": true,
+  "scope_name": "M10A_OWNER_TELEGRAM_DIRECT_CONTRACT_ENFORCEMENT_ONLY",
+  "owner_chat_id": "8495203551",
+  "channel": "telegram_direct",
+  "agent_id": "main",
+  "production_authority_expanded": false,
+  "broad_enforcement_enabled": false,
+  "gateway_health": "PASS",
+  "telegram_health": "PASS_NO_SEND_STATUS_INSPECTION",
+  "observation_summary": {
+    "file": "M10A_OWNER_TELEGRAM_DIRECT_POST_ENABLE_OBSERVATION_SUMMARY.json",
+    "sha256": "98c50f50e91d89e0e81d1540329468f2ed987d1b4c79ae44af4073030a596129",
+    "status": "PASS_M10A_OWNER_TELEGRAM_DIRECT_POST_ENABLE_OBSERVATION_SUMMARY"
+  },
+  "telegram_send_probe_count": 0,
+  "external_send_count": 0,
+  "provider_model_live_call_count": 0,
+  "runtime_write_tool_execution_count": 0,
+  "durable_memory_mutation_count": 0,
+  "context_bridge_mutation_count": 0,
+  "exact_next_phase": "RETURN_TO_CONTEXT_BRIDGE_LEDGER_WORK"
+}
