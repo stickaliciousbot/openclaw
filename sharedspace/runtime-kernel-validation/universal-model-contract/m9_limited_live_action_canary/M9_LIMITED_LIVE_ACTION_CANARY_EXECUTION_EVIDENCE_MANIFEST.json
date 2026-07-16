@@ -1,0 +1,53 @@
+{
+  "schema": "umc.v1.m9.limited_live_action_canary_execution_evidence_manifest.v1",
+  "generated_utc": "2026-07-16T08:16:12.023Z",
+  "status": "PASS_M9_LIMITED_LIVE_ACTION_CANARY_LOCAL_ARTIFACT_WRITE",
+  "final_status": "PASS_M9_LIMITED_LIVE_ACTION_CANARY_LOCAL_ARTIFACT_WRITE",
+  "artifacts": [
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LOCAL_ARTIFACT_WRITE_RECEIPT.json",
+      "sha256": "e82616727b8e0ed91ea497e5d8d1f244dbc5f28ed7208e3ae07e63a62f2cebdc",
+      "status": "PASS_M9_LOCAL_ARTIFACT_WRITE_RECEIPT"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LOCAL_ARTIFACT_DELIVERY_RECEIPT.json",
+      "sha256": "b64044149fd74b6aa9ca8a2f7073843255c9831bc7a83ea5d30677ab9cc87752",
+      "status": "PASS_M9_DELIVERY_RECEIPT_LOCAL_ARTIFACT_WRITE"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LOCAL_ARTIFACT_TERMINAL_CONTRACT_CLOSEOUT.json",
+      "sha256": "1ed01840e64fcef087a27ca2eeca4dd265b43e11d87f9eb5667a226b19fd8348",
+      "status": "PASS_M9_LIMITED_LIVE_ACTION_CANARY_LOCAL_ARTIFACT_WRITE"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LIMITED_LIVE_ACTION_CANARY_EXECUTION_RESULT.json",
+      "sha256": "7271069bb93f38ba555c4c1069282074bef2b82f19134c9492f0675201506fec",
+      "status": "PASS_M9_LIMITED_LIVE_ACTION_CANARY_LOCAL_ARTIFACT_WRITE"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LIMITED_LIVE_ACTION_CANARY_EXECUTION_SUMMARY.md",
+      "sha256": "aa5a66365de5a0e6a39c4f35c2255a5a15863d1ef01641a46056bfe67e0ff224"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LIMITED_LIVE_ACTION_CANARY_EXECUTION_EVIDENCE_MANIFEST.json",
+      "sha256": "d3e009ef69132e2fd16516a0da6e0334ca95f3ea079c8db726566ca12e18eb8a",
+      "status": "PASS_M9_LIMITED_LIVE_ACTION_CANARY_LOCAL_ARTIFACT_WRITE"
+    }
+  ],
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "write_tool_live_execution_count": 1,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "broad_production_enforcement_count": 0,
+    "m10_started": false,
+    "live_action_executed": true
+  },
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "next_milestone": "M9_LIMITED_LIVE_ACTION_CANARY_OBSERVATION_OR_M10_APPROVAL_PREP"
+}

@@ -1,0 +1,5 @@
+M9 local artifact write canary.
+This file proves bounded live write execution under UMC contract control.
+No external send.
+No Telegram send.
+No provider/model live call.

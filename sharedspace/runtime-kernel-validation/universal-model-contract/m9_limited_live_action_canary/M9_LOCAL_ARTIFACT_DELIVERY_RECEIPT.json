@@ -1,0 +1,38 @@
+{
+  "schema": "umc.v1.m9.delivery_receipt.v1",
+  "generated_utc": "2026-07-16T08:16:12.023Z",
+  "status": "PASS_M9_DELIVERY_RECEIPT_LOCAL_ARTIFACT_WRITE",
+  "mode": "local_artifact_write",
+  "bounded_live_action": true,
+  "external_delivery": false,
+  "telegram_delivery": false,
+  "provider_model_live_call": false,
+  "target_path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LOCAL_ARTIFACT_CANARY_TARGET.txt",
+  "target_sha256": "1908d9158dc06e6c7127b86cde923361c3f86a13ba084c4f03746d4af49ff0cf",
+  "postconditions": {
+    "file_exists": true,
+    "path_exact": true,
+    "sha256_matches": true,
+    "no_external_send": true,
+    "no_telegram_send": true,
+    "no_provider_model_live_call": true,
+    "no_durable_memory_mutation": true,
+    "no_context_bridge_mutation": true,
+    "no_route_config_mutation": true,
+    "no_production_authority_change": true
+  },
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "write_tool_live_execution_count": 1,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "broad_production_enforcement_count": 0,
+    "m10_started": false,
+    "live_action_executed": true
+  }
+}

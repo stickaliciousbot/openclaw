@@ -1,0 +1,28 @@
+{
+  "schema": "umc.v1.m9.local_artifact_write_receipt.v1",
+  "generated_utc": "2026-07-16T08:16:12.023Z",
+  "status": "PASS_M9_LOCAL_ARTIFACT_WRITE_RECEIPT",
+  "action_count": 1,
+  "tool": "write",
+  "target_path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LOCAL_ARTIFACT_CANARY_TARGET.txt",
+  "file_exists": true,
+  "path_exact": true,
+  "bytes_written": 171,
+  "sha256": "1908d9158dc06e6c7127b86cde923361c3f86a13ba084c4f03746d4af49ff0cf",
+  "expected_sha256": "1908d9158dc06e6c7127b86cde923361c3f86a13ba084c4f03746d4af49ff0cf",
+  "content_matches": true,
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "write_tool_live_execution_count": 1,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "broad_production_enforcement_count": 0,
+    "m10_started": false,
+    "live_action_executed": true
+  }
+}
