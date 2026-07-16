@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openclaw.local/schemas/umc.v1.m5.capability_manifest.v1.json",
+  "title": "UMC v1 M5 Capability Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "manifest_version",
+    "component_id",
+    "component_type",
+    "supports_verified_route",
+    "supports_contract_envelope",
+    "supports_shadow_observation_receipt",
+    "supports_universal_contract_receipt",
+    "supports_delivery_receipt",
+    "supported_delivery_modes",
+    "supports_terminal_closeout",
+    "supports_tool_supervision",
+    "supports_postcondition_policy",
+    "supports_no_send",
+    "supports_fallback_contract_preservation",
+    "supports_observe_only",
+    "supports_enforcement",
+    "authority_modes",
+    "allowed_tool_classes",
+    "disallowed_tool_classes",
+    "memory_policy",
+    "context_bridge_policy",
+    "external_send_policy",
+    "verified_by",
+    "verified_at",
+    "evidence_refs"
+  ],
+  "properties": {
+    "manifest_version": { "const": "umc.v1.m5.capability_manifest.v1" },
+    "component_id": { "type": "string", "minLength": 1 },
+    "component_type": {
+      "enum": ["model", "provider", "adapter", "lane", "fallback_chain", "tool_runtime"]
+    },
+    "provider": { "type": "string", "minLength": 1 },
+    "model": { "type": "string", "minLength": 1 },
+    "adapter_id": { "type": "string", "minLength": 1 },
+    "lane_id": { "type": "string", "minLength": 1 },
+    "supports_verified_route": { "type": "boolean" },
+    "supports_contract_envelope": { "type": "boolean" },
+    "supports_shadow_observation_receipt": { "type": "boolean" },
+    "supports_universal_contract_receipt": { "type": "boolean" },
+    "supports_delivery_receipt": { "type": "boolean" },
+    "supported_delivery_modes": {
+      "type": "array",
+      "items": { "type": "string" },
+      "contains": { "const": "no_send" },
+      "uniqueItems": true
+    },
+    "supports_terminal_closeout": { "type": "boolean" },
+    "supports_tool_supervision": { "type": "boolean" },
+    "supports_postcondition_policy": { "type": "boolean" },
+    "supports_no_send": { "const": true },
+    "supports_fallback_contract_preservation": { "type": "boolean" },
+    "supports_observe_only": { "const": true },
+    "supports_enforcement": { "const": false },
+    "authority_modes": {
+      "type": "array",
+      "items": { "const": "observe_only_no_send" },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "allowed_tool_classes": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "disallowed_tool_classes": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "memory_policy": { "enum": ["no_durable_mutation", "read_only"] },
+    "context_bridge_policy": { "enum": ["no_mutation", "read_only"] },
+    "external_send_policy": { "const": "denied" },
+    "verified_by": { "type": "string", "minLength": 1 },
+    "verified_at": { "type": "string", "minLength": 1 },
+    "evidence_refs": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "minItems": 1,
+      "uniqueItems": true
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "component_type": { "const": "model" } } },
+      "then": { "required": ["provider", "model"] }
+    }
+  ]
+}
