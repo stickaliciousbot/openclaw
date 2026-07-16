@@ -7,6 +7,20 @@ import path from "node:path";
 
 const M10A_RELATIVE_PATH = "dist/auto-reply/reply/umc-m10a-owner-telegram-direct-control-path.js";
 const MANIFEST_RELATIVE_PATH = "M10A_SCOPED_OVERLAY_MANIFEST.json";
+const REQUIRED_RUNTIME_DEPENDENCIES = Object.freeze({
+  "dist/umc-m8-owner-contract-lane-CdxuqyX4.js":
+    "70e580814a1649068dcd173d979ac31d579b5ef7ae85866753c1503133815ed7",
+  "dist/umc-m7-model-eligibility-ovqh9OfD.js":
+    "e25711e5809835085d4c5450f5b1fb4e479b6f9e29631b538fd1f9908e78b9bd",
+  "dist/umc-m6-contract-build-lane-B49r9Ao5.js":
+    "8416342de89bf8e525f477c4255c59b54f0a5a624d8a1c02dd2e783aa51a397a",
+  "dist/umc-m5-capability-manifest-DBUsXqaz.js":
+    "3f4dc6191a7e4ffced65b95aaeb9113964f2c9c36c1958c634fbdefb5d059745",
+  "dist/umc-m4-verified-route-B8LC1Bgv.js":
+    "8fd34dd344ec074204feb6231127ae0ff9bf7655f5273b864103cf5b457b5cc2",
+  "dist/umc-m3-envelope-supervision-CZFFPUFB.js":
+    "9af1b667eb69a32c7d7f9bd28c3bd72843e331d63cc8bf8e81399479a6a7dfba",
+});
 
 const DEFAULT_PRESERVED = Object.freeze({
   "package.json": "9585403b5d52ef6b56a6faf6b958eb1ae22d14f7a581def93da13b597087b0ad",
@@ -70,17 +84,22 @@ function listOverlay(overlayPath) {
 }
 
 function verifyOverlayEntries(entries) {
-  const allowed = new Set([M10A_RELATIVE_PATH, MANIFEST_RELATIVE_PATH]);
+  const required = [
+    M10A_RELATIVE_PATH,
+    MANIFEST_RELATIVE_PATH,
+    ...Object.keys(REQUIRED_RUNTIME_DEPENDENCIES),
+  ];
+  const allowed = new Set(required);
   const forbidden = entries.filter((entry) => !allowed.has(entry));
   if (forbidden.length > 0) {
     return { ok: false, status: "FAIL_M10A_PACKAGE_PRESERVATION_GUARD_ACCEPTED_DRIFT", forbidden };
   }
-  for (const required of allowed) {
-    if (!entries.includes(required)) {
+  for (const requiredEntry of required) {
+    if (!entries.includes(requiredEntry)) {
       return {
         ok: false,
         status: "FAIL_M10A_PACKAGE_DRIFT_REPAIR_PACKAGE_DRY_RUN",
-        missing: required,
+        missing: requiredEntry,
       };
     }
   }
@@ -157,6 +176,24 @@ function main() {
   if (m10aSha256 !== expectedM10aSha256) {
     throw new Error(`M10A SHA mismatch: expected ${expectedM10aSha256}, got ${m10aSha256}`);
   }
+  const dependencyChecks = {};
+  for (const [relativePath, expectedSha256] of Object.entries(REQUIRED_RUNTIME_DEPENDENCIES)) {
+    const dependencySource = path.join(extractDir, relativePath);
+    if (!fs.existsSync(dependencySource)) {
+      throw new Error(`Required runtime dependency missing from overlay: ${relativePath}`);
+    }
+    const actualSha256 = sha256File(dependencySource);
+    dependencyChecks[relativePath] = {
+      ok: actualSha256 === expectedSha256,
+      expectedSha256,
+      actualSha256,
+    };
+    if (actualSha256 !== expectedSha256) {
+      throw new Error(
+        `Required runtime dependency SHA mismatch for ${relativePath}: expected ${expectedSha256}, got ${actualSha256}`,
+      );
+    }
+  }
 
   const before = verifyPreserved(installedRoot);
   if (!before.ok) {
@@ -174,8 +211,18 @@ function main() {
     process.exit(1);
   }
 
-  const target = path.join(installedRoot, M10A_RELATIVE_PATH);
-  const targetExistsBefore = fs.existsSync(target);
+  const installableEntries = [M10A_RELATIVE_PATH, ...Object.keys(REQUIRED_RUNTIME_DEPENDENCIES)];
+  const expectedInstalledChanges = installableEntries.map((relativePath) => {
+    const target = path.join(installedRoot, relativePath);
+    return {
+      operation: fs.existsSync(target) ? "replace" : "add",
+      path: target,
+      sha256:
+        relativePath === M10A_RELATIVE_PATH
+          ? m10aSha256
+          : dependencyChecks[relativePath].actualSha256,
+    };
+  });
   if (mode === "apply") {
     if (!backupPath) {
       throw new Error("--backup-path is required in apply mode");
@@ -188,7 +235,9 @@ function main() {
         preserveTimestamps: true,
       });
     }
-    copyFileAtomic(m10aSource, target);
+    for (const relativePath of installableEntries) {
+      copyFileAtomic(path.join(extractDir, relativePath), path.join(installedRoot, relativePath));
+    }
   }
 
   const after = verifyPreserved(installedRoot);
@@ -218,11 +267,9 @@ function main() {
     overlay,
     overlaySha256,
     entries,
-    expectedInstalledChange: {
-      operation: targetExistsBefore ? "replace" : "add",
-      path: target,
-      sha256: m10aSha256,
-    },
+    expectedInstalledChange: expectedInstalledChanges[0],
+    expectedInstalledChanges,
+    requiredRuntimeDependencies: dependencyChecks,
     preservedChecksBefore: before.results,
     preservedChecksAfter: after.results,
     m10aEnabled: false,
