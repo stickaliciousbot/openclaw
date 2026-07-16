@@ -1,0 +1,50 @@
+{
+  "schema": "umc.v1.m4.verified_route_staged_install_preflight_approved.v1",
+  "generated_utc": "2026-07-16T00:15:30Z",
+  "status": "PASS_M4_VERIFIED_ROUTE_STAGED_INSTALL_PREFLIGHT_APPROVED",
+  "approved_scope": "APPROVE_M4_VERIFIED_ROUTE_STAGED_INSTALL for R2 tarball only",
+  "approval_message_id": "telegram:8495203551:39103",
+  "approved_tarball": "/home/stickai/.openclaw/workspace/tmp/umc-m4-package-r2/openclaw-2026.5.7.tgz",
+  "approved_sha256": "6a2ec7a2318c8e56a565524f938831ca5d2a2de965e6e16bd2fbc5f4acd2f663",
+  "observed_sha256": "6a2ec7a2318c8e56a565524f938831ca5d2a2de965e6e16bd2fbc5f4acd2f663",
+  "approved_source_repair_commit": "c0bd5adebeb1b2e59406a87fdb2fac33a01a5777",
+  "approved_evidence_commit": "7b63d1ec348ad0ed049bbf088888b82e29881714",
+  "install_card": {
+    "path": "M4_VERIFIED_ROUTE_INSTALL_APPROVAL_CARD_R2.json",
+    "status": "HOLD_M4_VERIFIED_ROUTE_INSTALL_AWAITING_OPERATOR_APPROVAL",
+    "requires_restart_for_activation": true
+  },
+  "pre_install_verification": {
+    "r2_tarball_sha256_exact_match": true,
+    "r2_contains_m4_artifact": true,
+    "r2_contains_m4_symbols": true,
+    "r2_contains_m3_envelope_no_send_artifact": true,
+    "r2_contains_m2_route_admission_symbols": true,
+    "plugin_manifest_count": 95,
+    "telegram_manifest_present": true,
+    "old_invalid_tarball_rejected": true,
+    "installed_m4_absent_before_install": true,
+    "gateway_status_pre_install": "running/connectivity_probe_ok/admin_capable; service PATH warning existed pre-install",
+    "channels_status_pre_install": "telegram enabled/configured/running/connected; event_loop/cpu degraded baseline existed pre-install"
+  },
+  "old_invalid_tarball": {
+    "path": "/home/stickai/.openclaw/workspace/tmp/umc-m4-package/openclaw-2026.5.7.tgz",
+    "sha256": "92634bc0a599a16a687e4ef50575f8ca8ade7d367afc47a16090949c61b1f7e5",
+    "decision": "DO_NOT_INSTALL"
+  },
+  "safety_boundaries": {
+    "no_old_invalid_tarball_install": true,
+    "no_direct_installed_dist_hotpatch": true,
+    "no_manual_tarball_surgery": true,
+    "no_telegram_send_probe": true,
+    "no_external_send": true,
+    "no_provider_model_live_call_outside_no_send_mock_validation": true,
+    "no_route_fallback_config_production_mutation_beyond_install": true,
+    "no_durable_memory_mutation": true,
+    "no_context_bridge_mutation": true,
+    "no_production_authority_change": true,
+    "no_cron_reenable": true,
+    "no_m5": true,
+    "no_enforcement": true
+  }
+}

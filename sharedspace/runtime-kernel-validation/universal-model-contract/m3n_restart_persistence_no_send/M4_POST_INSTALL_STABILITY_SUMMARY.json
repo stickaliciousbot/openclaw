@@ -1,0 +1,41 @@
+{
+  "schema": "umc.v1.m4.post_install_stability_summary.v1",
+  "generated_utc": "2026-07-16T00:32:30Z",
+  "status": "PASS_M4_POST_INSTALL_STABILITY",
+  "samples": [
+    {
+      "phase": "pre_install_baseline",
+      "gateway": "running/connectivity_probe_ok/admin_capable",
+      "channels": "telegram enabled/configured/running/connected; event_loop/cpu degraded baseline present before install",
+      "telegram_send_probe": false
+    },
+    {
+      "phase": "post_restart_settled",
+      "gateway": "running pid 1119605; connectivity_probe_ok; admin_capable",
+      "channels": "telegram enabled/configured/running/connected; no degraded event-loop line in latest channel status",
+      "telegram_send_probe": false
+    }
+  ],
+  "restart_notes": {
+    "restart_command_exit_code": 1,
+    "settled_state": "PASS_RUNNING_REACHABLE_CONNECTED",
+    "classification": "TRANSIENT_RESTART_COMMAND_NONZERO_SETTLED_HEALTH_PASS",
+    "rollback_required": false
+  },
+  "backup": {
+    "trusted_backup_path": "/home/stickai/.openclaw/backups/openclaw-m4-verified-route-install-20260716T0022Z/openclaw-installed-package",
+    "trusted_backup_marker": "PASS_BACKUP_CREATED"
+  },
+  "safety_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "production_enforcement_enabled": false,
+    "cron_reenable_count": 0,
+    "m5_started": false
+  }
+}

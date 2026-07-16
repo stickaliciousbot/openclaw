@@ -1,0 +1,32 @@
+{
+  "schema": "umc.v1.m4.m3_post_install_regression_result.v1",
+  "generated_utc": "2026-07-16T00:32:04.558Z",
+  "status": "PASS_M4_M3_POST_INSTALL_REGRESSION",
+  "checks": {
+    "runtime_files": [
+      "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/agent-runner.runtime-DESbFJnG.js",
+      "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/agent-runner.runtime.js"
+    ],
+    "contract_envelope_present": true,
+    "shadow_observation_receipt_present": true,
+    "universal_contract_receipt_present": true,
+    "delivery_receipt_present": true,
+    "delivery_mode_no_send_present": true,
+    "terminal_contract_closeout_present": true,
+    "m2_default_route_resolver_present": true,
+    "m2_queue_route_admission_present": true,
+    "m2_queue_milestone_present": true
+  },
+  "validation_mode": "installed_runtime_bundle_symbol_and_no_send_receipt_path_check; no live provider/send path exercised",
+  "safety_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "production_enforcement_enabled": false,
+    "m5_started": false
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "schema": "umc.v1.m4.direct_bypass_installed_runtime_regression_result.v1",
+  "generated_utc": "2026-07-16T00:32:04.558Z",
+  "status": "PASS_M4_DIRECT_BYPASS_INSTALLED_RUNTIME_REGRESSION",
+  "checks": {
+    "verified_route_allows_default_execution": true,
+    "raw_provider_model_rejected": true,
+    "forged_route_rejected": true,
+    "deserialized_route_rejected": true,
+    "fallback_without_verified_route_rejected": true,
+    "session_channel_pin_not_authority": true,
+    "unsupported_provider_model_holds": true,
+    "fallback_preserves_contract_version": true,
+    "fallback_preserves_authority_mode": true
+  },
+  "raw_bypass_status": "HOLD_M4_MISSING_VERIFIED_ROUTE",
+  "forged_bypass_status": "HOLD_M4_FORGED_OR_DESERIALIZED_VERIFIED_ROUTE",
+  "fallback_without_verified_route_status": "HOLD_M4_MISSING_VERIFIED_ROUTE",
+  "session_pin_status": "HOLD_M4_ROUTE_INTENT_UNSUPPORTED_SOURCE",
+  "unsupported_provider_status": "HOLD_M4_ROUTE_INTENT_UNSUPPORTED_PROVIDER_MODEL",
+  "safety_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "production_enforcement_enabled": false,
+    "m5_started": false
+  }
+}

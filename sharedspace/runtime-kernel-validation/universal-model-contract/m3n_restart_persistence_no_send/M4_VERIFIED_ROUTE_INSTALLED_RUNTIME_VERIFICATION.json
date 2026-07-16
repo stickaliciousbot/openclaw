@@ -1,0 +1,63 @@
+{
+  "schema": "umc.v1.m4.verified_route_installed_runtime_verification.v1",
+  "generated_utc": "2026-07-16T00:32:04.558Z",
+  "status": "PASS_M4_VERIFIED_ROUTE_INSTALLED_RUNTIME_VERIFICATION",
+  "installed_root": "/home/stickai/.npm-global/lib/node_modules/openclaw",
+  "checks": {
+    "installed_package_name": "openclaw",
+    "installed_package_version": "2026.5.7",
+    "m4_artifact_path": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/auto-reply/reply/umc-m4-verified-route.js",
+    "m4_artifact_sha256": "9de3797b6f7c0786701f09e2514cfffa12921f8574884a3ba749fd31e3944910",
+    "m4_symbols_present": {
+      "M4_VERIFIED_ROUTE_VERSION": true,
+      "VERIFIED_ROUTE_UMC_V1_M4": true,
+      "verifyM4RouteIntent": true,
+      "enforceM4VerifiedRouteFirewall": true
+    },
+    "telegram_manifest_present": true
+  },
+  "brand_result_status": "PASS_M4_VERIFIED_ROUTE_BRANDED",
+  "verified_route_exemplar": {
+    "verified_route_version": "umc.v1.m4.verified_route.v1",
+    "route_id": "m4vr_e55a2c00f20e482fd4e2b5d5",
+    "turn_id": "m4-installed-fixture-turn",
+    "session_id": "m4-installed-fixture-session",
+    "channel": "telegram",
+    "owner_scope": "owner_turn",
+    "provider": "token-broker-vmesh",
+    "model": "auto",
+    "fallback_chain": [
+      {
+        "provider": "token-broker-vmesh",
+        "model": "auto"
+      },
+      {
+        "provider": "token-solver-v4",
+        "model": "auto"
+      }
+    ],
+    "capability_manifest_ref": "installed-fixture:model-catalog",
+    "contract_version": "umc.v1",
+    "contract_envelope_ref": "ContractEnvelope:m3-installed-fixture",
+    "authority_mode": "observe_only_no_send",
+    "created_by": "umc_v1_m4_route_verifier",
+    "created_at": "2026-07-16T00:32:04.558Z",
+    "verification_reason": "M4 installed runtime fixture route verified after M2 admission",
+    "signature_or_brand_token": "VERIFIED_ROUTE_UMC_V1_M4",
+    "non_forgeable_brand": false,
+    "source": "m2_queued_route_admission",
+    "no_apply": true,
+    "production_enforcement": false
+  },
+  "safety_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "production_enforcement_enabled": false,
+    "m5_started": false
+  }
+}

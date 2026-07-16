@@ -1,0 +1,60 @@
+{
+  "schema": "umc.v1.m4.verified_route_staged_install_and_regression_evidence_manifest.v1",
+  "generated_utc": "2026-07-16T00:32:30Z",
+  "status": "PASS_M4_VERIFIED_ROUTE_STAGED_INSTALL_AND_REGRESSION_EVIDENCE_MANIFEST",
+  "final_status": "PASS_M4_VERIFIED_ROUTE_STAGED_INSTALL_AND_REGRESSION",
+  "artifacts": [
+    {
+      "file": "M4_VERIFIED_ROUTE_STAGED_INSTALL_PREFLIGHT_APPROVED.json",
+      "sha256": "54ced105955151859e33695a44cf30f444d82bc82af317c49660bc4b9377b72d",
+      "status": "PASS_M4_VERIFIED_ROUTE_STAGED_INSTALL_PREFLIGHT_APPROVED"
+    },
+    {
+      "file": "M4_VERIFIED_ROUTE_STAGED_INSTALL_RESULT.json",
+      "sha256": "01728ab7179f3233d9f7cf5ed5501d7bee86fa19fbbe35de93e12973e27988e1",
+      "status": "PASS_M4_VERIFIED_ROUTE_STAGED_INSTALL"
+    },
+    {
+      "file": "M4_VERIFIED_ROUTE_INSTALLED_RUNTIME_VERIFICATION.json",
+      "sha256": "bc67ca93ca324a8c4cbfd5e2d7b90781616cc6ee5f0581da1d7d524a6016225b",
+      "status": "PASS_M4_VERIFIED_ROUTE_INSTALLED_RUNTIME_VERIFICATION"
+    },
+    {
+      "file": "M4_M3_POST_INSTALL_REGRESSION_RESULT.json",
+      "sha256": "55beb1c3cdb1abb0376ac2dc9064414380bab2bea4fe00bfca4d16cd78b63933",
+      "status": "PASS_M4_M3_POST_INSTALL_REGRESSION"
+    },
+    {
+      "file": "M4_DIRECT_BYPASS_INSTALLED_RUNTIME_REGRESSION_RESULT.json",
+      "sha256": "04f9068e71834a29dd024c85b64548c92fc9a1551bebbc93062bbaee0da860e8",
+      "status": "PASS_M4_DIRECT_BYPASS_INSTALLED_RUNTIME_REGRESSION"
+    },
+    {
+      "file": "M4_POST_INSTALL_STABILITY_SUMMARY.json",
+      "sha256": "5eb2f6f8c33e47e90b1a16ae0ec08055190ca80c412dc65690b3f26e0a73e965",
+      "status": "PASS_M4_POST_INSTALL_STABILITY"
+    },
+    {
+      "file": "M4_VERIFIED_ROUTE_STAGED_INSTALL_AND_REGRESSION_CLOSEOUT.json",
+      "sha256": "99a5e329f55e0fe5a6f5921582d96d27e31399c48b60e4afc0f52a0d35344278",
+      "status": "PASS_M4_VERIFIED_ROUTE_STAGED_INSTALL_AND_REGRESSION"
+    }
+  ],
+  "approved_tarball": "/home/stickai/.openclaw/workspace/tmp/umc-m4-package-r2/openclaw-2026.5.7.tgz",
+  "approved_sha256": "6a2ec7a2318c8e56a565524f938831ca5d2a2de965e6e16bd2fbc5f4acd2f663",
+  "source_repair_commit": "c0bd5adebeb1b2e59406a87fdb2fac33a01a5777",
+  "trusted_backup_path": "/home/stickai/.openclaw/backups/openclaw-m4-verified-route-install-20260716T0022Z/openclaw-installed-package",
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "safety_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "production_enforcement_enabled": false,
+    "cron_reenable_count": 0,
+    "m5_started": false
+  }
+}
