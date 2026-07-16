@@ -1,0 +1,29 @@
+{
+  "schema": "umc.v1.m10.scope_review.v1",
+  "generated_utc": "2026-07-16T10:40:00Z",
+  "status": "BLOCKED_M10_SCOPE_TOO_BROAD_OR_AMBIGUOUS",
+  "result": "M10_REQUIRES_SCOPE_NARROWING",
+  "checks": {
+    "owner_scope_explicit": { "status": "PASS", "value": ["telegram:8495203551"] },
+    "channel_scope_explicit": { "status": "PASS", "value": ["telegram direct chat with owner Stick only"] },
+    "contract_lane_scope_explicit": { "status": "BLOCKED", "reason": "Prep says owner production UMC enforcement approval gate but does not name the exact contract lane/control artifact to be enabled." },
+    "telegram_direct_in_scope": { "status": "PASS", "value": true },
+    "web_ui_scope_explicit": { "status": "BLOCKED", "reason": "Prep does not explicitly say Web UI is out of scope." },
+    "external_sends_scope_explicit": { "status": "PASS", "value": "out of scope" },
+    "provider_model_live_calls_scope_explicit": { "status": "PASS", "value": "out of scope outside explicit approval" },
+    "write_tools_scope_explicit": { "status": "BLOCKED", "reason": "Prep does not explicitly state write tools are out of scope or define any allowed write-tool boundary." },
+    "memory_mutation_scope_explicit": { "status": "PASS", "value": "out of scope" },
+    "context_bridge_mutation_scope_explicit": { "status": "PASS", "value": "out of scope" },
+    "fallback_behavior_explicit": { "status": "BLOCKED", "reason": "No explicit fallback behavior or fail-closed behavior for M10 enforcement is specified." },
+    "rollback_behavior_explicit": { "status": "PARTIAL", "reason": "Prep names a generic disable/revert but not exact command/tool/config path." },
+    "canary_abort_thresholds_explicit": { "status": "BLOCKED", "reason": "Prep lists health gates but no exact abort thresholds or post-enable observation duration." }
+  },
+  "required_repairs": [
+    "Name exact M10 contract lane/control artifact/config key to be enabled.",
+    "Explicitly exclude Web UI unless intentionally included.",
+    "Explicitly define write-tool scope as blocked or narrowly allowed.",
+    "Define fallback/fail-closed behavior.",
+    "Define exact canary/abort thresholds and observation duration."
+  ],
+  "m10_ready_for_approval_text": false
+}

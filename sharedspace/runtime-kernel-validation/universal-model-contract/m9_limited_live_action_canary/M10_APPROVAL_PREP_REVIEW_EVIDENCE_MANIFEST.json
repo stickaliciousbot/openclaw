@@ -1,0 +1,32 @@
+{
+  "schema": "umc.v1.m10.approval_prep_review_evidence_manifest.v1",
+  "generated_utc": "2026-07-16T10:40:00Z",
+  "status": "HOLD_M10_REQUIRES_SCOPE_NARROWING",
+  "final_status": "HOLD_M10_REQUIRES_SCOPE_NARROWING",
+  "artifacts": [
+    "M10_APPROVAL_PREP_REHYDRATION_RESULT.json",
+    "M10_EVIDENCE_CHAIN_REVIEW.json",
+    "M10_EVIDENCE_CHAIN_REVIEW.md",
+    "M10_SCOPE_REVIEW.json",
+    "M10_SCOPE_REVIEW.md",
+    "M10_ROLLBACK_AND_ABORT_REVIEW.json",
+    "M10_ROLLBACK_AND_ABORT_REVIEW.md",
+    "M10_APPROVAL_READINESS_DECISION.json",
+    "M10_APPROVAL_READINESS_DECISION.md"
+  ],
+  "phase_results": {
+    "prep_rehydration": "PASS_M10_APPROVAL_PREP_REHYDRATED",
+    "evidence_chain_review": "PASS_M10_EVIDENCE_CHAIN_REVIEW",
+    "scope_review": "BLOCKED_M10_SCOPE_TOO_BROAD_OR_AMBIGUOUS",
+    "rollback_and_abort_review": "BLOCKED_M10_ROLLBACK_PLAN_INCOMPLETE",
+    "approval_readiness_decision": "M10_REQUIRES_SCOPE_NARROWING",
+    "exact_approval_text": "NOT_PRODUCED_NOT_READY"
+  },
+  "no_execution_validation": true,
+  "no_send_validation": true,
+  "no_authority_mutation_validation": true,
+  "m10_enabled": false,
+  "production_authority_changed": false,
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "next_phase": "REPAIR_M10_SCOPE_AND_ROLLBACK_APPROVAL_PREP"
+}

@@ -1,0 +1,18 @@
+{
+  "schema": "umc.v1.m10.evidence_chain_review.v1",
+  "generated_utc": "2026-07-16T10:40:00Z",
+  "status": "PASS_M10_EVIDENCE_CHAIN_REVIEW",
+  "links": {
+    "M2_route_admission_owner_turn_route_intent": { "status": "PASS", "evidence": "M10 prep evidence_chain.M2 plus M4 installed runtime verification m2_route_admission_symbols_present=true" },
+    "M3_envelope_receipts_no_send_delivery": { "status": "PASS", "evidence": "M3P closeout PASS with ContractEnvelope/UniversalContractReceipt/DeliveryReceipt no_send coverage" },
+    "M4_verified_route_direct_bypass_firewall": { "status": "PASS", "evidence": "PASS_M4_VERIFIED_ROUTE_STAGED_INSTALL_AND_REGRESSION" },
+    "M5_capability_manifest_registry": { "status": "PASS", "evidence": "PASS_M5_CAPABILITY_MANIFEST_STAGED_INSTALL_AND_REGRESSION" },
+    "M6_token_broker_contract_build_lane": { "status": "PASS", "evidence": "PASS_M6_CONTRACT_BUILD_LANE_STAGED_INSTALL_AND_REGRESSION" },
+    "M7_model_eligibility_fallback_equivalence": { "status": "PASS", "evidence": "PASS_M7_MODEL_ELIGIBILITY_STAGED_INSTALL_AND_REGRESSION" },
+    "M8_enforced_no_send_contract_decisions": { "status": "PASS", "evidence": "PASS_M8_OWNER_CONTRACT_LANE_STAGED_INSTALL_AND_REGRESSION authority_mode=enforced_no_send delivery_mode=no_send" },
+    "M9_limited_live_local_artifact_write_canary": { "status": "PASS", "evidence": "PASS_M9_LIMITED_LIVE_ACTION_CANARY_LOCAL_ARTIFACT_WRITE" },
+    "M9_post_compaction_queue_recheck": { "status": "PASS", "evidence": "PASS_M9_POST_COMPACTION_QUEUE_RECHECK_CLEAN" }
+  },
+  "missing_or_ambiguous_links": [],
+  "evidence_chain_complete_for_review": true
+}

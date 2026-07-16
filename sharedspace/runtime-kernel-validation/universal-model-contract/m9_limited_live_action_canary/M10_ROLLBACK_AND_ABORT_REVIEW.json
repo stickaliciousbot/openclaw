@@ -1,0 +1,38 @@
+{
+  "schema": "umc.v1.m10.rollback_and_abort_review.v1",
+  "generated_utc": "2026-07-16T10:40:00Z",
+  "status": "BLOCKED_M10_ROLLBACK_PLAN_INCOMPLETE",
+  "review": {
+    "current_installed_package_backup_path": {
+      "status": "EXTERNALLY_VERIFIED_NOT_IN_PREP",
+      "value": "/home/stickai/.openclaw/backups/openclaw-m8-r3-authority-mode-install-20260716T0707Z/scoped-installed-files"
+    },
+    "last_known_rollback_tarball_path": {
+      "status": "EXTERNALLY_VERIFIED_NOT_IN_PREP",
+      "value": "/home/stickai/.openclaw/workspace/tmp/umc-m8-r3-package/openclaw-2026.5.7.tgz",
+      "sha256": "1f6bd7fed192b1413f6320a69ca56cc528e807c81c2dae36473e14bc9ddbc9a0"
+    },
+    "emergency_m7_rollback_tarball_path": {
+      "status": "EXTERNALLY_VERIFIED_NOT_IN_PREP",
+      "value": "/home/stickai/.openclaw/workspace/tmp/umc-m7-package/openclaw-2026.5.7.tgz",
+      "sha256": "8814f2ee8e0cd5a6b7fbf8ba52f80f497a468404513ea865af9a729a8cd37717"
+    },
+    "gateway_restart_rollback_method": { "status": "BLOCKED", "reason": "Prep does not specify first-class gateway.restart or exact restart/settle validation after rollback." },
+    "config_rollback_method": { "status": "BLOCKED", "reason": "Prep does not name exact config path/key or config restore method if M10 changes config." },
+    "authority_disable_method": { "status": "BLOCKED", "reason": "Prep says disable/revert but gives no exact command/tool/config patch." },
+    "m10_off_switch": { "status": "BLOCKED", "reason": "No explicit off-switch command or artifact is defined." },
+    "abort_thresholds": { "status": "BLOCKED", "reason": "No exact abort thresholds for sends/provider calls/overflow/queue/config drift are defined." },
+    "health_gates": { "status": "PARTIAL", "value": ["Gateway RPC OK", "Telegram ON/OK no-send status readback", "queue backlog 0", "context overflow 0", "target SHA/receipts stable", "config/fingerprint stable"] },
+    "post_enable_observation_plan": { "status": "BLOCKED", "reason": "No exact duration/cadence/artifacts for post-enable observation are defined." },
+    "operator_notification_plan": { "status": "BLOCKED", "reason": "No PASS/FAIL/HOLD/ABORT notification/close-loop plan is defined." }
+  },
+  "required_repairs": [
+    "Embed current backup path and rollback tarball path/SHA in the M10 approval package.",
+    "Specify exact Gateway restart rollback method and health-settle checks.",
+    "Specify exact config rollback or state that no config changes are made.",
+    "Define exact M10 off-switch/authority disable command.",
+    "Define abort thresholds and post-enable observation plan.",
+    "Define operator notification plan."
+  ],
+  "rollback_ready_for_operator_approval": false
+}

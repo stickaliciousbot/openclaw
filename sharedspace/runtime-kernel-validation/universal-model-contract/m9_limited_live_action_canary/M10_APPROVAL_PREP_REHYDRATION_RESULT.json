@@ -1,0 +1,33 @@
+{
+  "schema": "umc.v1.m10.approval_prep_rehydration_result.v1",
+  "generated_utc": "2026-07-16T10:40:00Z",
+  "status": "PASS_M10_APPROVAL_PREP_REHYDRATED",
+  "m10_prep_status": "HOLD_M10_OWNER_PRODUCTION_ENFORCEMENT_APPROVAL_PREP_READY",
+  "authorization_state": {
+    "m10_authorized_by_this_artifact": false,
+    "production_enforcement_enabled": false,
+    "live_sends_authorized": false,
+    "provider_calls_authorized": false
+  },
+  "m9_closeout": {
+    "status": "PASS_M9_LIMITED_LIVE_ACTION_CANARY_LOCAL_ARTIFACT_WRITE_OBSERVED_AFTER_COMPACTION_AND_QUEUE_RECHECK",
+    "target_sha256": "1908d9158dc06e6c7127b86cde923361c3f86a13ba084c4f03746d4af49ff0cf",
+    "context_overflow_count": 0,
+    "context_overflow_diag_count": 0,
+    "queue_backlog_count": 0,
+    "duplicate_write_count": 0,
+    "receipts_unchanged": true
+  },
+  "safety_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "write_tool_execution_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "broad_enforcement_enabled": false,
+    "m10_started": false
+  }
+}
