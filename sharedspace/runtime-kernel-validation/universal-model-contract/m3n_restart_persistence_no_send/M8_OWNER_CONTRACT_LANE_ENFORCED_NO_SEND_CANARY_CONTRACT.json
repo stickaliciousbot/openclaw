@@ -1,0 +1,93 @@
+{
+  "schema": "umc.v1.m8.owner_contract_lane_enforced_no_send_canary_contract.v1",
+  "generated_utc": "2026-07-16T05:10:00.000Z",
+  "status": "PASS_M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_CONTRACT_DEFINED",
+  "canary_contract": {
+    "contract_version": "umc.v1.m8.owner_contract_lane_enforced_no_send_canary_contract.v1",
+    "enforcement_mode": "fixture_only_enforced_no_send_canary",
+    "enforced_in_source_fixtures_only": true,
+    "allow_decision": "ALLOW_OWNER_CONTRACT_LANE_NO_SEND_ONLY",
+    "deny_decision": "DENY_OR_HOLD_ANY_NON_OWNER_SEND_LIVE_OR_RAW_AUTHORITY",
+    "prerequisites": [
+      "PASS_M7_MODEL_ELIGIBILITY_STAGED_INSTALL_AND_REGRESSION",
+      "PASS_M7_MODEL_ELIGIBILITY_VERIFIED",
+      "PASS_M7_FALLBACK_EQUIVALENCE_INSTALLED_REGRESSION"
+    ],
+    "required_preservations": [
+      "owner_turn scope",
+      "M6 contract-build lane",
+      "M7 model eligibility",
+      "M7 fallback equivalence",
+      "VerifiedRoute",
+      "ContractEnvelope",
+      "DeliveryReceipt mode no_send",
+      "terminal closeout",
+      "observe_only_no_send authority",
+      "worker model route_authority false",
+      "zero send/provider/config/memory/context-bridge counters"
+    ],
+    "forbidden_actions": [
+      "installed runtime mutation in source-ready milestone",
+      "package install",
+      "tarball apply",
+      "Gateway restart",
+      "Telegram send/probe",
+      "external send",
+      "provider/model live call",
+      "route/fallback/config production mutation",
+      "durable memory mutation",
+      "Context Bridge mutation",
+      "production authority change",
+      "M9 start",
+      "live-action canary",
+      "broad production enforcement"
+    ],
+    "terminal_closeout_required": true
+  },
+  "fallback_equivalence_contract": {
+    "contract_version": "umc.v1.m7.fallback_equivalence_contract.v1",
+    "equivalent_only_if_preserves": [
+      "VerifiedRoute",
+      "ContractEnvelope",
+      "capability manifest eligibility",
+      "delivery_mode no_send",
+      "authority_mode observe_only",
+      "terminal closeout",
+      "tool policy",
+      "postcondition policy",
+      "safety counters",
+      "no provider/model route authority"
+    ],
+    "forbidden_changes": [
+      "drop VerifiedRoute",
+      "drop ContractEnvelope",
+      "drop capability manifest requirement",
+      "change delivery_mode",
+      "change authority_mode",
+      "skip terminal closeout",
+      "gain route authority",
+      "send externally",
+      "call live provider by default"
+    ],
+    "no_provider_model_route_authority": true
+  },
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "m8_started": false,
+    "enforcement_enabled": false,
+    "installed_runtime_mutation_count": 0,
+    "package_install_count": 0,
+    "tarball_apply_count": 0,
+    "gateway_restart_count": 0,
+    "live_action_canary_count": 0,
+    "broad_production_enforcement_count": 0,
+    "m9_started": false
+  }
+}

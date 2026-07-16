@@ -1,0 +1,115 @@
+{
+  "schema": "umc.v1.m8.owner_contract_lane_enforced_no_send_canary_policy.v1",
+  "generated_utc": "2026-07-16T05:10:00.000Z",
+  "status": "PASS_M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_POLICY_DEFINED",
+  "policy": {
+    "policy_version": "umc.v1.m8.owner_contract_lane_enforced_no_send_canary_policy.v1",
+    "milestone": "M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY",
+    "enforcement_mode": "fixture_only_enforced_no_send_canary",
+    "source_ready_status": "PASS_M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_SOURCE_READY_NO_APPLY",
+    "eligible_scope": "owner_turn",
+    "forbidden_scope": "broad_production",
+    "lane_id": "token-broker-vmesh/contract-build",
+    "required_route": {
+      "provider": "token-broker-vmesh",
+      "model": "contract-build"
+    },
+    "primary_worker": {
+      "provider": "openai-codex",
+      "model": "gpt-5.5"
+    },
+    "fallback_worker": {
+      "provider": "ollama",
+      "model": "deepseek-v4-pro:cloud"
+    },
+    "required_delivery_mode": "no_send",
+    "required_authority_mode": "observe_only",
+    "m7_prerequisite": "PASS_M7_MODEL_ELIGIBILITY_STAGED_INSTALL_AND_REGRESSION",
+    "source_fixture_only": true,
+    "installed_runtime_mutation_allowed": false,
+    "live_action_canary_allowed": false,
+    "broad_production_enforcement_allowed": false,
+    "production_authority_change_allowed": false,
+    "raw_provider_model_authority_allowed": false,
+    "worker_model_route_authority_allowed": false,
+    "no_send_required": true,
+    "external_send_allowed": false,
+    "provider_model_live_call_allowed": false,
+    "route_config_mutation_allowed": false,
+    "durable_memory_mutation_allowed": false,
+    "context_bridge_mutation_allowed": false,
+    "m9_allowed": false
+  },
+  "m7_policy": {
+    "policy_version": "umc.v1.m7.model_eligibility_policy.v1",
+    "milestone": "M7_MODEL_ELIGIBILITY_AND_FALLBACK_EQUIVALENCE_NO_SEND",
+    "eligible_primary_worker": {
+      "provider": "openai-codex",
+      "model": "gpt-5.5"
+    },
+    "eligible_primary_adapter_id": "adapter:openai-codex/default",
+    "eligible_fallback_worker": {
+      "provider": "ollama",
+      "model": "deepseek-v4-pro:cloud"
+    },
+    "eligible_fallback_adapter_id": "adapter:ollama/default",
+    "worker_policy": {
+      "worker_role": "execution_worker",
+      "route_authority": false,
+      "requires_verified_route": true,
+      "requires_capability_manifest": true,
+      "requires_contract_envelope": true,
+      "delivery_mode": "no_send",
+      "authority_mode": "observe_only"
+    },
+    "required_capability_manifest_fields": [
+      "supports_verified_route",
+      "supports_contract_envelope",
+      "supports_delivery_receipt",
+      "supported_delivery_modes:no_send",
+      "supports_terminal_closeout",
+      "supports_tool_supervision",
+      "supports_postcondition_policy",
+      "supports_no_send",
+      "supports_fallback_contract_preservation",
+      "supports_observe_only",
+      "authority_modes:observe_only",
+      "external_send_policy:denied",
+      "memory_policy:no_durable_mutation",
+      "context_bridge_policy:no_mutation"
+    ],
+    "required_verified_route_behavior": "valid_m4_verified_route_required",
+    "required_contract_envelope_behavior": "contract_envelope_required",
+    "required_delivery_receipt_behavior": "delivery_receipt_no_send_required",
+    "required_terminal_closeout_behavior": "terminal_contract_closeout_required",
+    "fallback_contract_preservation": true,
+    "fallback_authority_preservation": "observe_only",
+    "fallback_no_send_preservation": "no_send",
+    "fallback_observe_only_preservation": true,
+    "ineligible_model_behavior": {
+      "missing_manifest": "HOLD_M7_CAPABILITY_MANIFEST_MISSING",
+      "malformed_manifest": "FAIL_M7_CAPABILITY_MANIFEST_INVALID",
+      "unsupported_capability": "typed_HOLD",
+      "raw_provider_model_authority": "FAIL_M7_RAW_MODEL_AUTHORITY_BYPASS"
+    }
+  },
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "m8_started": false,
+    "enforcement_enabled": false,
+    "installed_runtime_mutation_count": 0,
+    "package_install_count": 0,
+    "tarball_apply_count": 0,
+    "gateway_restart_count": 0,
+    "live_action_canary_count": 0,
+    "broad_production_enforcement_count": 0,
+    "m9_started": false
+  }
+}

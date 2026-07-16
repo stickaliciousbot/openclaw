@@ -1,0 +1,27 @@
+{
+  "schema": "umc.v1.m8.owner_contract_lane_enforced_no_send_canary_preflight.v1",
+  "generated_utc": "2026-07-16T05:10:00.000Z",
+  "status": "PASS_M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_PREFLIGHT",
+  "milestone": "M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY",
+  "m7_prerequisite_status": "PASS_M7_MODEL_ELIGIBILITY_STAGED_INSTALL_AND_REGRESSION",
+  "m7_source_head_installed": "1557ff822e0c9b86eded7c827543bf4866676671",
+  "m7_tarball_sha256": "8814f2ee8e0cd5a6b7fbf8ba52f80f497a468404513ea865af9a729a8cd37717",
+  "m8_not_already_started": true,
+  "m9_not_started": true,
+  "source_fixture_only": true,
+  "no_apply_boundary": {
+    "installed_runtime_mutation_count": 0,
+    "package_install_count": 0,
+    "tarball_apply_count": 0,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "m9_started": false,
+    "enforcement_enabled": false
+  }
+}

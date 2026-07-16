@@ -1,0 +1,25 @@
+{
+  "schema": "umc.v1.m8.live_action_canary_decision.v1",
+  "generated_utc": "2026-07-16T05:10:00.000Z",
+  "status": "SKIP_M8_LIVE_ACTION_CANARY_NOT_APPROVED_SOURCE_READY_ONLY",
+  "reason": "User explicitly requested source/fixture/no-apply only; no live-action canary, no sends/probes, no provider calls, no broad enforcement.",
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "m8_started": false,
+    "enforcement_enabled": false,
+    "installed_runtime_mutation_count": 0,
+    "package_install_count": 0,
+    "tarball_apply_count": 0,
+    "gateway_restart_count": 0,
+    "live_action_canary_count": 0,
+    "broad_production_enforcement_count": 0,
+    "m9_started": false
+  }
+}

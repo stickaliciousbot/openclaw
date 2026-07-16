@@ -1,0 +1,34 @@
+{
+  "schema": "umc.v1.m8.m3_m4_m5_m6_m7_source_regression_results.v1",
+  "generated_utc": "2026-07-16T05:10:00.000Z",
+  "status": "PASS_M8_M3_M4_M5_M6_M7_SOURCE_REGRESSION",
+  "results": {
+    "m3_receipts_preserved_via_m7_m6": "no_send",
+    "m4_verified_route_preserved": true,
+    "m5_manifests_preserved": "model:openai-codex/gpt-5.5",
+    "m6_contract_build_lane_preserved": "PASS_M6_CONTRACT_BUILD_LANE_BUILT",
+    "m7_model_eligibility_preserved": "PASS_M7_MODEL_ELIGIBILITY_VERIFIED",
+    "fallback_equivalence_preserved": true,
+    "raw_provider_model_authority_blocked": "FAIL_M8_RAW_MODEL_AUTHORITY_BYPASS",
+    "worker_model_route_authority": false
+  },
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "m8_started": false,
+    "enforcement_enabled": false,
+    "installed_runtime_mutation_count": 0,
+    "package_install_count": 0,
+    "tarball_apply_count": 0,
+    "gateway_restart_count": 0,
+    "live_action_canary_count": 0,
+    "broad_production_enforcement_count": 0,
+    "m9_started": false
+  }
+}

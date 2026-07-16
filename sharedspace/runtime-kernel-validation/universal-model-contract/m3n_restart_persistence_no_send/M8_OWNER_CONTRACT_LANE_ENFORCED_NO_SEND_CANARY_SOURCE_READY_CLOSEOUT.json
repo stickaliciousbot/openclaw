@@ -1,0 +1,49 @@
+{
+  "schema": "umc.v1.m8.owner_contract_lane_enforced_no_send_canary_source_ready_closeout.v1",
+  "generated_utc": "2026-07-16T05:22:00Z",
+  "status": "PASS_M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_SOURCE_READY_NO_APPLY",
+  "closeout_status": "PASS_M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_SOURCE_READY_NO_APPLY",
+  "milestone": "M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_SOURCE_READY_NO_APPLY",
+  "source_commit": "e233663c2eed9ced3b97a6dc3bd015c1554f5c10",
+  "results": {
+    "preflight": "PASS_M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_PREFLIGHT",
+    "policy": "PASS_M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_POLICY_DEFINED",
+    "canary_contract": "PASS_M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_CONTRACT_DEFINED",
+    "fixtures": "PASS_M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_FIXTURES",
+    "source_regression": "PASS_M8_M3_M4_M5_M6_M7_SOURCE_REGRESSION",
+    "live_action_canary_decision": "SKIP_M8_LIVE_ACTION_CANARY_NOT_APPROVED_SOURCE_READY_ONLY",
+    "no_apply_build_validation": "PASS_M8_OWNER_CONTRACT_LANE_NO_APPLY_BUILD_VALIDATION",
+    "staged_install_plan": "PASS_M8_OWNER_CONTRACT_LANE_STAGED_INSTALL_PLAN_READY_NO_APPLY"
+  },
+  "key_outcomes": {
+    "valid_owner_contract_lane_no_send": "PASS_M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_VERIFIED",
+    "non_owner_scope": "HOLD_M8_OWNER_SCOPE_REQUIRED",
+    "send_delivery_blocked": "HOLD_M8_NO_SEND_REQUIRED",
+    "production_authority_change_blocked": "FAIL_M8_PRODUCTION_AUTHORITY_CHANGE",
+    "broad_production_enforcement_blocked": "FAIL_M8_BROAD_PRODUCTION_ENFORCEMENT_FORBIDDEN",
+    "live_action_canary_blocked": "HOLD_M8_LIVE_ACTION_CANARY_FORBIDDEN",
+    "raw_provider_model_authority": "FAIL_M8_RAW_MODEL_AUTHORITY_BYPASS",
+    "fallback_contract_drop": "HOLD_M8_M7_ELIGIBILITY_NOT_VERIFIED",
+    "worker_model_route_authority": false
+  },
+  "boundary_counters": {
+    "installed_runtime_mutation_count": 0,
+    "package_install_count": 0,
+    "tarball_apply_count": 0,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "live_action_canary_count": 0,
+    "broad_production_enforcement_count": 0,
+    "m9_started": false,
+    "enforcement_enabled": false
+  },
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "next_milestone": "M8_OWNER_CONTRACT_LANE_STAGED_INSTALL_AND_REGRESSION"
+}

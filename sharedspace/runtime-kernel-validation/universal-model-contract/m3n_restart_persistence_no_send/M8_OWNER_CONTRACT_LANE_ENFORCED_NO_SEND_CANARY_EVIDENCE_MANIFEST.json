@@ -1,0 +1,89 @@
+{
+  "schema": "umc.v1.m8.owner_contract_lane_enforced_no_send_canary_evidence_manifest.v1",
+  "generated_utc": "2026-07-16T05:22:00Z",
+  "status": "PASS_M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_EVIDENCE_MANIFEST_READY",
+  "final_status": "PASS_M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_SOURCE_READY_NO_APPLY",
+  "source_commit": "e233663c2eed9ced3b97a6dc3bd015c1554f5c10",
+  "artifacts": [
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_PREFLIGHT.json",
+      "sha256": "75010dfe58963702603c2d6c20a038289dae528b2df308809e84dc44894cff91",
+      "status": "PASS_M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_PREFLIGHT"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_POLICY.json",
+      "sha256": "ac91b521e57a3ef17051fc0f70f9ff69a995c0e60790d9d3c1c2cea3886dc4ea",
+      "status": "PASS_M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_POLICY_DEFINED"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_POLICY.md",
+      "sha256": "e0b578a9a8a3f2da9b1298b826ec793eace671e6dc46fe0e4b719f13bd76cde5"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_CONTRACT.json",
+      "sha256": "893cc6d01c86bbf96c290758cb10be3ceba835acb05c208fb6e06f4e8c34a284",
+      "status": "PASS_M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_CONTRACT_DEFINED"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_CONTRACT.md",
+      "sha256": "f46e17c31763d192530efec2a35b95a23754f22037e4ca9457480b09ee626039"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_FIXTURE_RESULTS.json",
+      "sha256": "8745431a926350f6dea98caa47c4cd7da936bedb98d3dc1cbaa6dbf878795430",
+      "status": "PASS_M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_FIXTURES"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_M3_M4_M5_M6_M7_SOURCE_REGRESSION_RESULTS.json",
+      "sha256": "4ecbfd80c0a11b433f4d887c561d1b77a6279a91ef629409a0bf7e20212fbe4c",
+      "status": "PASS_M8_M3_M4_M5_M6_M7_SOURCE_REGRESSION"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_LIVE_ACTION_CANARY_DECISION.json",
+      "sha256": "75b49a3bae4f48088ed7ab99860782162b31e6ad848b970dc2f94a802a6534a7",
+      "status": "SKIP_M8_LIVE_ACTION_CANARY_NOT_APPROVED_SOURCE_READY_ONLY"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_OWNER_CONTRACT_LANE_NO_APPLY_BUILD_VALIDATION.json",
+      "sha256": "238b1d14e24f0af467b45584060413c647ce22920d3e7999a9883b67097280b0",
+      "status": "PASS_M8_OWNER_CONTRACT_LANE_NO_APPLY_BUILD_VALIDATION"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_OWNER_CONTRACT_LANE_STAGED_INSTALL_PLAN.json",
+      "sha256": "4eb589e92f5c0fe45669bb56f86db0b5558fd910c5b702796f782e25810318f4",
+      "status": "PASS_M8_OWNER_CONTRACT_LANE_STAGED_INSTALL_PLAN_READY_NO_APPLY"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_OWNER_CONTRACT_LANE_STAGED_INSTALL_PLAN.md",
+      "sha256": "f60248edc45bf61b464cc83c422da1c606af63c4c9f7f5b96c360665abf0b22a"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_SOURCE_READY_CLOSEOUT.json",
+      "sha256": "879275b0b43c11bceb6f3e50a34fa5b0eca6b12443cec7dbbde485c2527926b2",
+      "status": "PASS_M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_SOURCE_READY_NO_APPLY"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_SOURCE_READY_SUMMARY.md",
+      "sha256": "3ceef58bf1ee33553a5439a16fb52eaa4568850c59a9e000217197e707efc39d"
+    }
+  ],
+  "boundary_counters": {
+    "installed_runtime_mutation_count": 0,
+    "package_install_count": 0,
+    "tarball_apply_count": 0,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "live_action_canary_count": 0,
+    "broad_production_enforcement_count": 0,
+    "m9_started": false,
+    "enforcement_enabled": false
+  },
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION"
+}

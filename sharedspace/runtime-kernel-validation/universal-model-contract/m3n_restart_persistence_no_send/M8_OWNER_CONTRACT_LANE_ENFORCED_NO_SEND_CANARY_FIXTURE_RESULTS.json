@@ -1,0 +1,43 @@
+{
+  "schema": "umc.v1.m8.owner_contract_lane_enforced_no_send_canary_fixture_results.v1",
+  "generated_utc": "2026-07-16T05:10:00.000Z",
+  "status": "PASS_M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_FIXTURES",
+  "fixture_cases": {
+    "valid_owner_contract_lane_no_send": "PASS_M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_VERIFIED",
+    "non_owner_scope": "HOLD_M8_OWNER_SCOPE_REQUIRED",
+    "send_delivery_blocked": "HOLD_M8_NO_SEND_REQUIRED",
+    "production_authority_change_blocked": "FAIL_M8_PRODUCTION_AUTHORITY_CHANGE",
+    "broad_production_enforcement_blocked": "FAIL_M8_BROAD_PRODUCTION_ENFORCEMENT_FORBIDDEN",
+    "live_action_canary_blocked": "HOLD_M8_LIVE_ACTION_CANARY_FORBIDDEN",
+    "send_probe_boundary_violation_blocked": "FAIL_M8_SEND_OR_PROVIDER_CALL_BOUNDARY_VIOLATION",
+    "raw_provider_executable_blocked_by_m8": "FAIL_M8_RAW_MODEL_AUTHORITY_BYPASS",
+    "raw_provider_requested_blocked_by_m7": "FAIL_M8_RAW_MODEL_AUTHORITY_BYPASS",
+    "missing_manifest_blocks_via_m7": "HOLD_M8_M7_ELIGIBILITY_NOT_VERIFIED",
+    "fallback_contract_drop_blocks_via_m7": "HOLD_M8_M7_ELIGIBILITY_NOT_VERIFIED",
+    "m9_start_blocked": "FAIL_M8_SEND_OR_PROVIDER_CALL_BOUNDARY_VIOLATION",
+    "worker_model_route_authority": false,
+    "delivery_mode": "no_send",
+    "authority_mode": "observe_only"
+  },
+  "source_fixture_only": true,
+  "live_action_canary_executed": false,
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "m8_started": false,
+    "enforcement_enabled": false,
+    "installed_runtime_mutation_count": 0,
+    "package_install_count": 0,
+    "tarball_apply_count": 0,
+    "gateway_restart_count": 0,
+    "live_action_canary_count": 0,
+    "broad_production_enforcement_count": 0,
+    "m9_started": false
+  }
+}
