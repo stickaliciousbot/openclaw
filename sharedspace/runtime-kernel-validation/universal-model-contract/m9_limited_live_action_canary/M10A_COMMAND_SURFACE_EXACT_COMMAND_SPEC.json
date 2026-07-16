@@ -1,0 +1,21 @@
+{
+  "schema": "umc.v1.m10a.command_surface_exact_command_spec.v1",
+  "generated_utc": "2026-07-16T13:12:00Z",
+  "status": "PASS_M10A_SOURCE_EXACT_COMMAND_SPEC_DEFINED",
+  "note": "Commands are source-ready examples for a future staged install; they are not installed command proof yet and do not authorize enablement.",
+  "commands": {
+    "ENABLE_M10A_OWNER_TELEGRAM_DIRECT_CONTRACT_ENFORCEMENT": "node scripts/m10a-owner-telegram-direct-control.mjs --action enable --mode apply --state-root /home/stickai/.openclaw --scope-name M10A_OWNER_TELEGRAM_DIRECT_CONTRACT_ENFORCEMENT_ONLY --owner-chat-id 8495203551 --channel telegram_direct --agent-id main --requested-by owner_approval",
+    "DISABLE_M10A_OWNER_TELEGRAM_DIRECT_CONTRACT_ENFORCEMENT": "node scripts/m10a-owner-telegram-direct-control.mjs --action disable --mode apply --state-root /home/stickai/.openclaw --requested-by owner_off_switch",
+    "READ_M10A_OWNER_TELEGRAM_DIRECT_STATUS": "node scripts/m10a-owner-telegram-direct-control.mjs --action status --mode dry-run --state-root /home/stickai/.openclaw",
+    "VERIFY_M10A_DISABLED": "node scripts/m10a-owner-telegram-direct-control.mjs --action verify-disabled --mode dry-run --state-root /home/stickai/.openclaw",
+    "VERIFY_M10A_ENABLED_SCOPE": "node scripts/m10a-owner-telegram-direct-control.mjs --action verify-enabled-scope --mode dry-run --state-root /home/stickai/.openclaw --scope-name M10A_OWNER_TELEGRAM_DIRECT_CONTRACT_ENFORCEMENT_ONLY --owner-chat-id 8495203551 --channel telegram_direct --agent-id main",
+    "ROLLBACK_M10A_IF_DISABLE_FAILS": "node scripts/m10a-owner-telegram-direct-control.mjs --action rollback-if-disable-fails --mode apply --state-root /home/stickai/.openclaw --backup-path /home/stickai/.openclaw/backups/openclaw-m10a-runtime-dependency-repaired-install-20260716T1200Z/openclaw-installed-package --installed-root /home/stickai/.npm-global/lib/node_modules/openclaw --confirm-rollback M10A_ROLLBACK_IF_DISABLE_FAILS",
+    "START_M10A_POST_ENABLE_OBSERVATION": "node scripts/m10a-owner-telegram-direct-observe.mjs --mode observe --state-root /home/stickai/.openclaw --duration-minutes 30 --cadence-minutes 5 --expected-probes 6",
+    "OPERATOR_STOP_M10A": "node scripts/m10a-owner-telegram-direct-control.mjs --action operator-stop --mode apply --state-root /home/stickai/.openclaw --requested-by operator_stop"
+  },
+  "exact_scope": {
+    "owner_chat_id": "8495203551",
+    "channel": "telegram_direct",
+    "agent_id": "main"
+  }
+}

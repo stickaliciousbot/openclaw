@@ -1,0 +1,28 @@
+{
+  "schema": "umc.v1.m10a.command_surface_source_validation.v1",
+  "generated_utc": "2026-07-16T13:12:00Z",
+  "status": "PASS_M10A_COMMAND_SURFACE_SOURCE_VALIDATION",
+  "fixture_status": "PASS_M10A_COMMAND_SURFACE_FIXTURES",
+  "fixture_artifact": "M10A_COMMAND_SURFACE_FIXTURE_RESULTS.json",
+  "fixture_artifact_sha256": "b8e9ad09f9ad2745bb5dbd5ceaaf0bf01003d9fac0225eb7c255f6f80fe2116b",
+  "package_json_valid": true,
+  "source_scripts_added": [
+    "scripts/m10a-owner-telegram-direct-control.mjs",
+    "scripts/m10a-owner-telegram-direct-observe.mjs",
+    "scripts/run-m10a-command-surface-fixtures.mjs"
+  ],
+  "proof_level": "P1_SOURCE_SCRIPT_FIXTURE_ONLY_NOT_INSTALLED_NOT_LIVE_GATEWAY",
+  "hard_boundaries_preserved": true,
+  "no_apply": true,
+  "installed_runtime_mutation_count": 0,
+  "gateway_restart_count": 0,
+  "m10a_enablement_executed": false,
+  "telegram_send_probe_count": 0,
+  "external_send_count": 0,
+  "provider_model_live_call_count": 0,
+  "runtime_write_tool_execution_count": 0,
+  "durable_memory_mutation_count": 0,
+  "context_bridge_mutation_count": 0,
+  "production_authority_changed": false,
+  "broad_enforcement_enabled": false
+}

@@ -1,0 +1,76 @@
+{
+  "schema": "umc.v1.m10a.command_surface_fixture_results.v1",
+  "generated_utc": "2026-07-16T13:08:00Z",
+  "status": "PASS_M10A_COMMAND_SURFACE_FIXTURES",
+  "proof_level": "P1_SOURCE_SCRIPT_FIXTURE_ONLY_NOT_INSTALLED_NOT_LIVE_GATEWAY",
+  "source_scripts": [
+    "scripts/m10a-owner-telegram-direct-control.mjs",
+    "scripts/m10a-owner-telegram-direct-observe.mjs"
+  ],
+  "temp_state_root": "/tmp/m10a-command-fixture-B1MRK8",
+  "cases": [
+    {
+      "name": "status_default",
+      "code": 0,
+      "status": "PASS_M10A_COMMAND_STATUS_READBACK"
+    },
+    {
+      "name": "verify_disabled_default",
+      "code": 0,
+      "status": "PASS_M10A_COMMAND_VERIFY_DISABLED"
+    },
+    {
+      "name": "enable_dry_run_exact",
+      "code": 0,
+      "status": "PASS_M10A_COMMAND_ENABLE_DRY_RUN"
+    },
+    {
+      "name": "enable_reject_wrong_owner",
+      "code": 1,
+      "status": "FAIL_M10A_COMMAND_SCOPE_MISMATCH"
+    },
+    {
+      "name": "enable_apply_exact_temp_state",
+      "code": 0,
+      "status": "PASS_M10A_COMMAND_ENABLE_APPLIED"
+    },
+    {
+      "name": "verify_enabled_scope",
+      "code": 0,
+      "status": "PASS_M10A_COMMAND_VERIFY_ENABLED_SCOPE"
+    },
+    {
+      "name": "disable_dry_run",
+      "code": 0,
+      "status": "PASS_M10A_COMMAND_DISABLE_DRY_RUN"
+    },
+    {
+      "name": "operator_stop_apply",
+      "code": 0,
+      "status": "PASS_M10A_COMMAND_OPERATOR_STOP_APPLIED"
+    },
+    {
+      "name": "verify_disabled_after_stop",
+      "code": 0,
+      "status": "PASS_M10A_COMMAND_VERIFY_DISABLED"
+    },
+    {
+      "name": "rollback_not_required",
+      "code": 0,
+      "status": "PASS_M10A_COMMAND_ROLLBACK_NOT_REQUIRED"
+    },
+    {
+      "name": "observation_dry_run",
+      "code": 0,
+      "status": "PASS_M10A_OBSERVATION_COMMAND_DRY_RUN"
+    }
+  ],
+  "no_production_enablement": true,
+  "no_gateway_restart": true,
+  "telegram_send_probe_count": 0,
+  "external_send_count": 0,
+  "provider_model_live_call_count": 0,
+  "runtime_write_tool_execution_count": 0,
+  "durable_memory_mutation_count": 0,
+  "context_bridge_mutation_count": 0
+}

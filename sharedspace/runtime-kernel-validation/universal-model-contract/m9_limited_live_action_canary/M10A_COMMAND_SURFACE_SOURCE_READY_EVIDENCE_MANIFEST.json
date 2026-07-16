@@ -1,0 +1,54 @@
+{
+  "schema": "umc.v1.m10a.command_surface_source_ready_evidence_manifest.v1",
+  "generated_utc": "2026-07-16T13:12:00Z",
+  "status": "HOLD_M10A_COMMAND_SURFACE_SOURCE_READY_NO_APPLY",
+  "final_status": "HOLD_M10A_COMMAND_SURFACE_SOURCE_READY_NO_APPLY",
+  "artifacts": [
+    {
+      "file": "M10A_COMMAND_SURFACE_FIXTURE_RESULTS.json",
+      "sha256": "b8e9ad09f9ad2745bb5dbd5ceaaf0bf01003d9fac0225eb7c255f6f80fe2116b",
+      "status": "PASS_M10A_COMMAND_SURFACE_FIXTURES"
+    },
+    {
+      "file": "M10A_COMMAND_SURFACE_SOURCE_REPAIR_RESULT.json",
+      "sha256": "0f276b3f79c259f253a365e26ae7d1ffa0c24bc469ae929039dc869f59ab0597",
+      "status": "PASS_M10A_COMMAND_SURFACE_SOURCE_REPAIR_NO_APPLY"
+    },
+    {
+      "file": "M10A_COMMAND_SURFACE_SOURCE_REPAIR_RESULT.md",
+      "sha256": "1e89a636fff7f21a55e7aeb706ecec8c6c9800d3244406d0745980b3ebf9c5d1"
+    },
+    {
+      "file": "M10A_COMMAND_SURFACE_EXACT_COMMAND_SPEC.json",
+      "sha256": "b3211460707c354b287ab566601fa01a8a794057b33f4313d974ff047f2c88c8",
+      "status": "PASS_M10A_SOURCE_EXACT_COMMAND_SPEC_DEFINED"
+    },
+    {
+      "file": "M10A_COMMAND_SURFACE_EXACT_COMMAND_SPEC.md",
+      "sha256": "12e52dc74b01c818d1db6c593611e0792189f6c64af3eb53eb7a0d0d05b50c67"
+    },
+    {
+      "file": "M10A_COMMAND_SURFACE_SOURCE_VALIDATION.json",
+      "sha256": "f646eb19e6db8a3d0525be57abe7a8b78df5e1034884046276dd4100d9f6a855",
+      "status": "PASS_M10A_COMMAND_SURFACE_SOURCE_VALIDATION"
+    },
+    {
+      "file": "M10A_COMMAND_SURFACE_SOURCE_READY_CLOSEOUT.json",
+      "sha256": "57b6987781d5a359e3eeb5e51e20cfad6ca89c7ef1ee477656de87b985a13c74",
+      "status": "HOLD_M10A_COMMAND_SURFACE_SOURCE_READY_NO_APPLY"
+    }
+  ],
+  "source_files": [
+    "package.json",
+    "scripts/m10a-owner-telegram-direct-control.mjs",
+    "scripts/m10a-owner-telegram-direct-observe.mjs",
+    "scripts/run-m10a-command-surface-fixtures.mjs"
+  ],
+  "proof_ladder": {
+    "P1_source_script_fixture": "PASS",
+    "P2_installed_adapter_fixture": "NOT_RUN_NO_APPLY",
+    "P3_live_gateway_inbound": "NOT_RUN_NO_APPLY"
+  },
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "exact_next_phase": "APPROVE_OR_DENY_M10A_COMMAND_SURFACE_STAGED_INSTALL"
+}

@@ -1,0 +1,47 @@
+{
+  "schema": "umc.v1.m10a.command_surface_source_repair_result.v1",
+  "generated_utc": "2026-07-16T13:12:00Z",
+  "status": "PASS_M10A_COMMAND_SURFACE_SOURCE_REPAIR_NO_APPLY",
+  "classification": "SOURCE_READY_P1_FIXTURE_PROOF_ONLY_NOT_INSTALLED_NOT_LIVE_GATEWAY",
+  "implemented_files": [
+    "package.json",
+    "scripts/m10a-owner-telegram-direct-control.mjs",
+    "scripts/m10a-owner-telegram-direct-observe.mjs",
+    "scripts/run-m10a-command-surface-fixtures.mjs"
+  ],
+  "package_files_inclusion": "package.json files[] now includes scripts/m10a-owner-telegram-direct-control.mjs and scripts/m10a-owner-telegram-direct-observe.mjs",
+  "commands_implemented": [
+    "enable",
+    "disable",
+    "status",
+    "verify-disabled",
+    "verify-enabled-scope",
+    "operator-stop",
+    "rollback-if-disable-fails",
+    "observe dry-run/plan"
+  ],
+  "exact_scope": {
+    "scope_name": "M10A_OWNER_TELEGRAM_DIRECT_CONTRACT_ENFORCEMENT_ONLY",
+    "owner_chat_id": "8495203551",
+    "channel": "telegram_direct",
+    "agent_id": "main"
+  },
+  "proof_ladder": {
+    "P1_source_script_fixture": "PASS",
+    "P2_installed_adapter_fixture": "NOT_RUN_NO_APPLY",
+    "P3_live_gateway_inbound": "NOT_RUN_NO_APPLY"
+  },
+  "no_apply": true,
+  "installed_runtime_mutation_count": 0,
+  "gateway_restart_count": 0,
+  "m10a_enablement_executed": false,
+  "telegram_send_probe_count": 0,
+  "external_send_count": 0,
+  "provider_model_live_call_count": 0,
+  "runtime_write_tool_execution_count": 0,
+  "durable_memory_mutation_count": 0,
+  "context_bridge_mutation_count": 0,
+  "route_config_mutation_count": 0,
+  "production_authority_changed": false,
+  "broad_enforcement_enabled": false
+}
