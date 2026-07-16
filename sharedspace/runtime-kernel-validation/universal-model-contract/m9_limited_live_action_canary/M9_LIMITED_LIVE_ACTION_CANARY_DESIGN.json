@@ -1,0 +1,50 @@
+{
+  "schema": "umc.v1.m9.limited_live_action_canary_design.v1",
+  "generated_utc": "2026-07-16T08:10:38.444Z",
+  "status": "PASS_M9_LIMITED_LIVE_ACTION_CANARY_DESIGNED",
+  "canary_class": "local_artifact_write_only",
+  "action": {
+    "tool": "write",
+    "operation": "create_or_overwrite_single_local_evidence_file",
+    "target_path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LOCAL_ARTIFACT_CANARY_TARGET.txt",
+    "expected_content": "M9 local artifact write canary.\nThis file proves bounded live write execution under UMC contract control.\nNo external send.\nNo Telegram send.\nNo provider/model live call.\n",
+    "expected_sha256": "1908d9158dc06e6c7127b86cde923361c3f86a13ba084c4f03746d4af49ff0cf",
+    "maximum_allowed_action_count": 1,
+    "execution_authorized": false
+  },
+  "required_postconditions": {
+    "file_exists": true,
+    "path_exact": true,
+    "sha256_matches": "1908d9158dc06e6c7127b86cde923361c3f86a13ba084c4f03746d4af49ff0cf",
+    "write_receipt_emitted": true,
+    "delivery_receipt_mode": "local_artifact_write",
+    "terminal_contract_closeout_emitted": true,
+    "no_external_sends": true,
+    "no_telegram_sends": true,
+    "no_provider_model_live_calls": true,
+    "no_memory_mutation": true,
+    "no_context_bridge_mutation": true,
+    "no_route_config_mutation": true,
+    "no_production_authority_change": true
+  },
+  "rollback_cleanup_plan": {
+    "cleanup_action": "remove target file only if operator separately approves cleanup after canary evidence preservation",
+    "target_path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LOCAL_ARTIFACT_CANARY_TARGET.txt",
+    "compensation": "record cleanup receipt and terminal closeout"
+  },
+  "target_file_currently_exists": false,
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "write_tool_live_execution_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "broad_production_enforcement_count": 0,
+    "m10_started": false,
+    "live_action_executed": false
+  }
+}

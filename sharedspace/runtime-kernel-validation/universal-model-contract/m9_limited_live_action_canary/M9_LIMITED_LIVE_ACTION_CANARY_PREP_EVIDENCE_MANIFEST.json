@@ -1,0 +1,75 @@
+{
+  "schema": "umc.v1.m9.limited_live_action_canary_prep_evidence_manifest.v1",
+  "generated_utc": "2026-07-16T08:10:38.444Z",
+  "status": "HOLD_M9_LIMITED_LIVE_ACTION_CANARY_AWAITING_OPERATOR_APPROVAL",
+  "final_status": "HOLD_M9_LIMITED_LIVE_ACTION_CANARY_AWAITING_OPERATOR_APPROVAL",
+  "artifacts": [
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LIMITED_LIVE_ACTION_CANARY_PREFLIGHT.json",
+      "sha256": "e50d7d5bb85fb51425ea5b2d59ae52f62fc7bb910f47ffc48cd751abb32ba00d",
+      "status": "PASS_M9_LIMITED_LIVE_ACTION_CANARY_PREFLIGHT"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LIMITED_LIVE_ACTION_POLICY.json",
+      "sha256": "451ef91a717b3eda68a110edbfa82608d5c303e4b5f68e2436c517812c4e8c3f",
+      "status": "PASS_M9_LIMITED_LIVE_ACTION_POLICY_DEFINED"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LIMITED_LIVE_ACTION_POLICY.md",
+      "sha256": "20242a6b971d802f22aeb40afd1e751a3b83350a3c7cac486f4e9bc53e59c1fd"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LIMITED_LIVE_ACTION_CANARY_CLASS_DECISION.json",
+      "sha256": "31566cd59cbea05ad4718cf9edf690cd6d7e44dd2b51bc13b8e162f4c418cc3b",
+      "status": "PASS_M9_LIMITED_LIVE_ACTION_CANARY_CLASS_SELECTED"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LIMITED_LIVE_ACTION_CANARY_CLASS_DECISION.md",
+      "sha256": "832293031453dd07548a590ae37b7618faaa6b6df3fa07b0c4c06ee57491ada5"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LIMITED_LIVE_ACTION_CANARY_DESIGN.json",
+      "sha256": "b8f718d499e43f6bf005ffd437d2b2dc0c4b5ab21fa027a0c7a39b72a11a3808",
+      "status": "PASS_M9_LIMITED_LIVE_ACTION_CANARY_DESIGNED"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LIMITED_LIVE_ACTION_CANARY_DESIGN.md",
+      "sha256": "b07642f38bd863269e92e0c82faeb3f2072816b76da195ef62a47ea29a502b17"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LIMITED_LIVE_ACTION_CANARY_DRY_RUN_RESULT.json",
+      "sha256": "e0cecb4e88c2fca20af6e659d6803fb437b98084a484ca89ab27bbddb5702f13",
+      "status": "PASS_M9_LIMITED_LIVE_ACTION_CANARY_DRY_RUN"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LIMITED_LIVE_ACTION_CANARY_APPROVAL_CARD.json",
+      "sha256": "aa2bd724e5829e2d7e873f940e7b00cb16aeb576336f0d25fd37c2579360feaa",
+      "status": "HOLD_M9_LIMITED_LIVE_ACTION_CANARY_AWAITING_OPERATOR_APPROVAL"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LIMITED_LIVE_ACTION_CANARY_APPROVAL_CARD.md",
+      "sha256": "cdfe5c6564aa8b9c77611e91916700f389211945ec0faf0f4c7a75a78775b3b8"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LIMITED_LIVE_ACTION_CANARY_PREP_EVIDENCE_MANIFEST.json",
+      "sha256": "ab2611666cdac20441bcc2cfcb003a5b9c79cf4209d1b8daedbf8e64ff0cc2fd",
+      "status": "HOLD_M9_LIMITED_LIVE_ACTION_CANARY_AWAITING_OPERATOR_APPROVAL"
+    }
+  ],
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "write_tool_live_execution_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "broad_production_enforcement_count": 0,
+    "m10_started": false,
+    "live_action_executed": false
+  },
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "exact_next_phase": "APPROVE_M9_LIMITED_LIVE_ACTION_CANARY_EXECUTION"
+}

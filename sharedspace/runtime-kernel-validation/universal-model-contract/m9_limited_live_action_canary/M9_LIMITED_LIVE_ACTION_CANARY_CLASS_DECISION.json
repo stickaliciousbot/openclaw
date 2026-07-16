@@ -1,0 +1,30 @@
+{
+  "schema": "umc.v1.m9.limited_live_action_canary_class_decision.v1",
+  "generated_utc": "2026-07-16T08:10:38.444Z",
+  "status": "PASS_M9_LIMITED_LIVE_ACTION_CANARY_CLASS_SELECTED",
+  "selected_class": "local_artifact_write_only",
+  "recommended": true,
+  "reason": "Safest first M9 action: proves bounded live tool execution and postcondition verification without network delivery or external side effects.",
+  "not_selected": {
+    "draft_only_message_creation": "safe-ish but exercises message surface; defer",
+    "telegram_owner_chat_test_message": "requires external delivery; not first unless operator explicitly insists",
+    "read_only_provider_model_qualification": "may require provider/model live call; defer",
+    "memory_mutation": "forbidden for M9 first canary",
+    "context_bridge_mutation": "forbidden for M9 first canary",
+    "route_config_mutation": "forbidden for M9 first canary"
+  },
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "write_tool_live_execution_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "broad_production_enforcement_count": 0,
+    "m10_started": false,
+    "live_action_executed": false
+  }
+}

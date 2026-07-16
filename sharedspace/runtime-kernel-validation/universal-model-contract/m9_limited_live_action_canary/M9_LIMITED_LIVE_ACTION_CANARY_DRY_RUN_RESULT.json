@@ -1,0 +1,42 @@
+{
+  "schema": "umc.v1.m9.limited_live_action_canary_dry_run_result.v1",
+  "generated_utc": "2026-07-16T08:10:38.444Z",
+  "status": "PASS_M9_LIMITED_LIVE_ACTION_CANARY_DRY_RUN",
+  "failures": [],
+  "checks": {
+    "contract_envelope_present": true,
+    "verified_route_present": true,
+    "capability_manifest_eligibility_present": true,
+    "m7_model_fallback_eligibility_present": true,
+    "m8_contract_decision_enforcement_present": true,
+    "postconditions_defined": true,
+    "would_be_action_classified": true,
+    "would_be_delivery_receipt_generated": {
+      "mode": "local_artifact_write",
+      "generated": true,
+      "dry_run_only": true
+    },
+    "would_be_terminal_contract_closeout_generated": {
+      "generated": true,
+      "dry_run_only": true
+    },
+    "side_effect_executed": false,
+    "target_file_absent_before_approval": true
+  },
+  "side_effect_not_executed": true,
+  "target_file_created": false,
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "write_tool_live_execution_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "broad_production_enforcement_count": 0,
+    "m10_started": false,
+    "live_action_executed": false
+  }
+}

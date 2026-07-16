@@ -1,0 +1,54 @@
+{
+  "schema": "umc.v1.m9.limited_live_action_policy.v1",
+  "generated_utc": "2026-07-16T08:10:38.444Z",
+  "status": "PASS_M9_LIMITED_LIVE_ACTION_POLICY_DEFINED",
+  "definitions": {
+    "no_send_shadow_observation": "observe and classify only; no side effect is authorized",
+    "enforced_no_send_contract_decision": "contract decision is enforced but delivery remains no_send and live action is forbidden",
+    "limited_live_action_canary": "exactly one explicitly approved bounded action with receipts and postconditions",
+    "broad_production_enforcement": "ongoing/non-specific production authority; forbidden in M9",
+    "production_authority": "authority to decide/execute production actions without per-action approval; forbidden in M9"
+  },
+  "rules": {
+    "maximum_approved_canary_actions": 1,
+    "low_risk_required": true,
+    "explicit_postconditions_required": true,
+    "delivery_receipt_required": true,
+    "terminal_contract_closeout_required": true,
+    "broad_authority_granted": false,
+    "m10_production_enforcement_enabled": false,
+    "requires_verified_route": true,
+    "requires_capability_manifest": true,
+    "requires_m7_model_fallback_eligibility": true,
+    "requires_contract_envelope": true,
+    "requires_postcondition_verification": true,
+    "rollback_or_compensation_required": true
+  },
+  "forbidden_before_approval": [
+    "live Telegram send",
+    "external send",
+    "provider/model live call",
+    "write tool execution for target action",
+    "durable memory mutation",
+    "Context Bridge mutation",
+    "route/fallback/config production mutation",
+    "production authority change",
+    "cron re-enable",
+    "broad enforcement",
+    "M10"
+  ],
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "write_tool_live_execution_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "broad_production_enforcement_count": 0,
+    "m10_started": false,
+    "live_action_executed": false
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "schema": "umc.v1.m9.limited_live_action_canary_preflight.v1",
+  "generated_utc": "2026-07-16T08:10:38.444Z",
+  "status": "PASS_M9_LIMITED_LIVE_ACTION_CANARY_PREFLIGHT",
+  "failures": [],
+  "checks": {
+    "m8_final_closeout_exists": true,
+    "m8_final_status": "PASS_M8_OWNER_CONTRACT_LANE_STAGED_INSTALL_AND_REGRESSION",
+    "m8_final_evidence_commit_exists": true,
+    "authority_mode": "enforced_no_send",
+    "delivery_mode": "no_send",
+    "production_authority": false,
+    "live_action_canary": false,
+    "broad_enforcement": false,
+    "m7_m6_m5_m4_m3_regressions_preserved": true,
+    "gateway_health_pass": true,
+    "telegram_health_pass": true,
+    "m9_execution_not_started": true,
+    "m10_not_started": true,
+    "safety_counters_clean": true,
+    "rollback_readiness_known": true,
+    "target_file_absent": true
+  },
+  "m8_evidence_commit": "dab8741a4e1eefbb82be73f5f022669010fdb86e",
+  "m8_manifest_sha256": "3339c669d9d1b107a237208394aedcf0005934c37df71ed714a4c72e24d0d18d",
+  "gateway": {
+    "pid": 1285995,
+    "running": true
+  },
+  "telegram": {
+    "state": "OK"
+  },
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "write_tool_live_execution_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "broad_production_enforcement_count": 0,
+    "m10_started": false,
+    "live_action_executed": false
+  }
+}
