@@ -345,6 +345,8 @@ function buildDockerE2eHarnessEntries(): Record<string, string> {
     "auto-reply/reply/umc-m6-contract-build-lane":
       "src/auto-reply/reply/umc-m6-contract-build-lane.ts",
     "auto-reply/reply/umc-m7-model-eligibility": "src/auto-reply/reply/umc-m7-model-eligibility.ts",
+    "auto-reply/reply/umc-m8-owner-contract-lane":
+      "src/auto-reply/reply/umc-m8-owner-contract-lane.ts",
     "cli/run-main": "src/cli/run-main.ts",
     "commitments/runtime": "src/commitments/runtime.ts",
     "commitments/store": "src/commitments/store.ts",
