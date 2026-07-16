@@ -1,0 +1,21 @@
+{
+  "schema": "umc.v1.m9.context_overflow_investigation_validation.v2",
+  "generated_utc": "2026-07-16T09:05:54.363Z",
+  "status": "PASS_M9_CONTEXT_OVERFLOW_INVESTIGATION_VALIDATION",
+  "failures": [],
+  "checks": {
+    "json_validation": true,
+    "markdown_sanity": true,
+    "rehydration_validation": true,
+    "source_attribution_validation": true,
+    "causal_analysis_validation": true,
+    "current_recheck_validation": true,
+    "recovery_decision_validation": true,
+    "no_duplicate_write_validation": true,
+    "no_send_validation": true,
+    "no_authority_validation": true,
+    "runtime_config_drift_validation": true,
+    "durable_memory_context_bridge_non_mutation_validation": true,
+    "m10_not_started": true
+  }
+}

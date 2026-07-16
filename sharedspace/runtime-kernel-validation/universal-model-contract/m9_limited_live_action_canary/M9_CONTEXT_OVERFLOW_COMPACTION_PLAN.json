@@ -1,0 +1,33 @@
+{
+  "schema": "umc.v1.m9.context_overflow_compaction_plan.v1",
+  "generated_utc": "2026-07-16T09:05:03.198Z",
+  "status": "HOLD_M9_CONTEXT_OVERFLOW_COMPACTION_PLAN_READY",
+  "plan_type": "approval_card_prep_only",
+  "target_session_key": "agent:main:telegram:direct:8495203551",
+  "target_session_file": "/home/stickai/.openclaw/agents/main/sessions/a54ab0f2-fb7e-4640-ae12-bf37c5e5b2f4.jsonl",
+  "observed_messages": 503,
+  "approval_required": true,
+  "approval_text_required": "APPROVE_M9_CONTEXT_OVERFLOW_OWNER_SESSION_COMPACTION",
+  "proposed_action": "Compact the active owner Telegram direct session only, preserving M9 evidence artifacts and current conversation safety boundaries.",
+  "preconditions": [
+    "M9 local artifact canary target SHA still matches.",
+    "No canary rerun.",
+    "No live send/provider call/config route mutation/memory or Context Bridge mutation.",
+    "Owner explicitly approves compaction."
+  ],
+  "postconditions": [
+    "Owner Telegram session context pressure reduced.",
+    "M9 evidence artifacts unchanged.",
+    "Gateway/Telegram health OK.",
+    "No production authority or broad enforcement enabled.",
+    "M10 still not started."
+  ],
+  "non_goals": [
+    "No M10 approval prep in this plan.",
+    "No production enforcement.",
+    "No additional live canary.",
+    "No Telegram test send/probe."
+  ],
+  "rollback_or_recovery": "If compaction causes session continuity loss, use committed M9 evidence artifacts and session history where available; do not mutate production config.",
+  "recommended_after_approval": "Run compaction, then a repaired/idle M9 context-overflow recheck before M10 prep."
+}

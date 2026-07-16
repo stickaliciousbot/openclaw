@@ -1,0 +1,30 @@
+{
+  "schema": "umc.v1.m9.context_overflow_recovery_decision.v2",
+  "generated_utc": "2026-07-16T09:05:54.363Z",
+  "status": "PATH_B_OWNER_SESSION_COMPACTION_REQUIRED_BEFORE_M10_PREP",
+  "final_status": "HOLD_M9_CONTEXT_OVERFLOW_COMPACTION_APPROVAL_REQUIRED",
+  "recovery_decision": "PATH_B_OWNER_SESSION_COMPACTION_REQUIRED_BEFORE_M10_PREP",
+  "source_classification": "ACTIVE_OWNER_SESSION_CONTEXT_OVERFLOW",
+  "causal_classification": "OWNER_SESSION_ACCUMULATION_CAUSAL",
+  "current_recheck_result": "HOLD_M9_CONTEXT_OVERFLOW_RECHECK_QUEUE_NOT_RESTING_OVERFLOW_CLEAN",
+  "current_recheck_context_overflow_clean": true,
+  "current_recheck_blocker": "queue_depth_resting failed because active owner turn/recheck was counted as active=1 running=1; no overflow persisted in recheck probe 1",
+  "m10_prep_allowed": false,
+  "m10_started": false,
+  "reason": "A real context-overflow diagnostic pointed to the active owner Telegram session, not M9. Owner-session compaction approval is required before M10 prep.",
+  "target_path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LOCAL_ARTIFACT_CANARY_TARGET.txt",
+  "target_sha256": "1908d9158dc06e6c7127b86cde923361c3f86a13ba084c4f03746d4af49ff0cf",
+  "safety_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "additional_write_tool_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "m10_started": false,
+    "duplicate_write_count": 0
+  },
+  "next_phase": "APPROVE_M9_CONTEXT_OVERFLOW_COMPACTION"
+}

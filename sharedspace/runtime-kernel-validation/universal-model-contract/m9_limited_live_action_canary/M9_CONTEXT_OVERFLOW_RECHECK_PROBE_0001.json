@@ -1,0 +1,62 @@
+{
+  "schema": "umc.v1.m9.context_overflow_recheck_probe.v1",
+  "generated_utc": "2026-07-16T09:00:46.115Z",
+  "probe_index": 1,
+  "expected_probes": 3,
+  "status": "HOLD_M9_CONTEXT_OVERFLOW_RECHECK_QUEUE_NOT_RESTING_OVERFLOW_CLEAN",
+  "failures": [
+    "queue_depth_resting"
+  ],
+  "checks": {
+    "gateway_rpc_ok": true,
+    "telegram_on_ok": true,
+    "queue_depth_resting": false,
+    "queue_depth": {
+      "active": 1,
+      "queued": 0,
+      "running": 1,
+      "resting": false
+    },
+    "target_file_still_exists": true,
+    "target_file_sha256": "1908d9158dc06e6c7127b86cde923361c3f86a13ba084c4f03746d4af49ff0cf",
+    "target_file_sha256_matches": true,
+    "duplicate_write_count": 0,
+    "no_duplicate_canary_write": true,
+    "context_overflow_count": 0,
+    "context_overflow_diag_count": 0,
+    "raw_context_overflow_text_matches": 0,
+    "raw_context_overflow_diag_text_matches": 0,
+    "classified_runtime_context_overflow_signals": [],
+    "event_loop_degradation_status": "not_worsening",
+    "event_loop_degradation_new_count": 0,
+    "getMe_timeout_count": 0,
+    "gateway_timeout_count": 0,
+    "production_config_hash_stable": true,
+    "route_provider_fallback_fingerprint_stable": true,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "additional_write_tool_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "m10_started": false
+  },
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "additional_write_tool_live_execution_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "broad_production_enforcement_count": 0,
+    "m10_started": false,
+    "duplicate_canary_write_count": 0
+  },
+  "log_bytes_examined": 0,
+  "classified_context_overflow_signals": [],
+  "hold_reason": "queue_depth_resting failed because active owner turn/recheck was counted as active=1 running=1; context overflow counts were clean"
+}

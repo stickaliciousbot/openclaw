@@ -1,0 +1,88 @@
+{
+  "schema": "umc.v1.m9.context_overflow_investigation_evidence_manifest.v2",
+  "generated_utc": "2026-07-16T09:05:54.363Z",
+  "status": "HOLD_M9_CONTEXT_OVERFLOW_COMPACTION_APPROVAL_REQUIRED",
+  "final_status": "HOLD_M9_CONTEXT_OVERFLOW_COMPACTION_APPROVAL_REQUIRED",
+  "recovery_decision": "PATH_B_OWNER_SESSION_COMPACTION_REQUIRED_BEFORE_M10_PREP",
+  "source_classification": "ACTIVE_OWNER_SESSION_CONTEXT_OVERFLOW",
+  "causal_classification": "OWNER_SESSION_ACCUMULATION_CAUSAL",
+  "current_recheck_result": "HOLD_M9_CONTEXT_OVERFLOW_RECHECK_QUEUE_NOT_RESTING_OVERFLOW_CLEAN",
+  "current_recheck_context_overflow_clean": true,
+  "plan_artifact": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_CONTEXT_OVERFLOW_COMPACTION_PLAN.json",
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "next_phase": "APPROVE_M9_CONTEXT_OVERFLOW_COMPACTION",
+  "artifacts": [
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_CONTEXT_OVERFLOW_REGRESSION_REHYDRATION.json",
+      "sha256": "a0761ee73b91464b504065ba21201924ce2f47c4ff10547aba38bc612660a697",
+      "status": "PASS_M9_CONTEXT_OVERFLOW_REGRESSION_REHYDRATED"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_CONTEXT_OVERFLOW_REGRESSION_SUMMARY.md",
+      "sha256": "88051c0cc7a9adc0e71707faeab237b3c4160924041257999515758ad7780496"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_CONTEXT_OVERFLOW_SIGNAL_SOURCE_MAP.json",
+      "sha256": "d7e4cfab9b08f52be11b97347d768215994370d97c6637004241aa64a2be53a0",
+      "status": "PASS_M9_CONTEXT_OVERFLOW_SIGNAL_SOURCE_MAPPED"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_CONTEXT_OVERFLOW_SIGNAL_SOURCE_MAP.md",
+      "sha256": "ef28f82de3a9233664473ce5d5f6750e7215dfc824c47ee06cff263292a7fcdf"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_CONTEXT_OVERFLOW_CAUSAL_ANALYSIS.json",
+      "sha256": "0422d5cbc434c8e7fca5ada8ab1608ad4d21140f9128c125a2e4cf3babf76631",
+      "status": "PASS_M9_CONTEXT_OVERFLOW_CAUSAL_ANALYSIS_COMPLETE"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_CONTEXT_OVERFLOW_CAUSAL_ANALYSIS.md",
+      "sha256": "90037826980809f258fff12d443a178e4f59d89b13bcd98dc459193edea2e76e"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_CONTEXT_OVERFLOW_RECHECK_PROBE_0001.json",
+      "sha256": "0636e628f97ef3f21ed6348b91e34f8b755efbf79f1fdd32496a13ab6f711926",
+      "status": "HOLD_M9_CONTEXT_OVERFLOW_RECHECK_QUEUE_NOT_RESTING_OVERFLOW_CLEAN"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_CONTEXT_OVERFLOW_RECHECK_SUMMARY.json",
+      "sha256": "09daa9cf854d91fd293817f7716a95b78cf4b7ad381ee6c62ca94930ea241445",
+      "status": "HOLD_M9_CONTEXT_OVERFLOW_RECHECK_QUEUE_NOT_RESTING_OVERFLOW_CLEAN"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_CONTEXT_OVERFLOW_RECOVERY_DECISION.json",
+      "sha256": "501d2788e7510ec49c8bd2f557acd3a35d09240a055168d4ec2377ae5e7e17b3",
+      "status": "PATH_B_OWNER_SESSION_COMPACTION_REQUIRED_BEFORE_M10_PREP"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_CONTEXT_OVERFLOW_RECOVERY_DECISION.md",
+      "sha256": "5c7cfd576d5928072cd67d8614b5c95a2fe9eb752b1ad9ac26432c15e491b4d5"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_CONTEXT_OVERFLOW_COMPACTION_PLAN.json",
+      "sha256": "2d8e325d35b716d08b4aaa65fe6a0a36c0eeea7f7bbc0fe6be6fb935b895a4c2",
+      "status": "HOLD_M9_CONTEXT_OVERFLOW_COMPACTION_PLAN_READY"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_CONTEXT_OVERFLOW_COMPACTION_PLAN.md",
+      "sha256": "23ac4c47de67c814a8fe9c26f6a476e77814f09753a070111a7428699ec921bb"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_CONTEXT_OVERFLOW_INVESTIGATION_VALIDATION_RESULT.json",
+      "sha256": "937e43fde04a7d15f66ee8d5bf1d6dd1fedabae460355175404f7feed40004df",
+      "status": "PASS_M9_CONTEXT_OVERFLOW_INVESTIGATION_VALIDATION"
+    }
+  ],
+  "safety_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "additional_write_tool_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "m10_started": false,
+    "duplicate_write_count": 0
+  }
+}

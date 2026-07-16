@@ -1,0 +1,31 @@
+{
+  "schema": "umc.v1.m9.context_overflow_regression_rehydration.v1",
+  "generated_utc": "2026-07-16T08:59:48.531Z",
+  "status": "PASS_M9_CONTEXT_OVERFLOW_REGRESSION_REHYDRATED",
+  "failures": [],
+  "checks": {
+    "canary_execution_passed": true,
+    "target_file_exists": true,
+    "target_sha_still_matches": true,
+    "no_duplicate_write_occurred": true,
+    "probes_1_to_5_passed": true,
+    "probe_6_failed_only_on_context_overflow": true,
+    "send_provider_mutation_authority_counters_clean": true,
+    "m10_not_started": true
+  },
+  "target_path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LOCAL_ARTIFACT_CANARY_TARGET.txt",
+  "target_sha256": "1908d9158dc06e6c7127b86cde923361c3f86a13ba084c4f03746d4af49ff0cf",
+  "observation_failure": {
+    "probe": 6,
+    "failures": [
+      "context_overflow_count",
+      "context_overflow_diag_count"
+    ],
+    "context_overflow_count": 6,
+    "context_overflow_diag_count": 2
+  },
+  "source_commits": {
+    "m9_execution": "dd89874b44ccd495ab83938d1834a656c59f6271",
+    "m9_observation_failure": "88ea08c6827291d2573160a8589fee0eb09c51aa"
+  }
+}

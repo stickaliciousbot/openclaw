@@ -1,0 +1,42 @@
+{
+  "schema": "umc.v1.m9.context_overflow_recheck_summary.v1",
+  "generated_utc": "2026-07-16T09:05:54.363Z",
+  "start_utc": "2026-07-16T09:00:46.114Z",
+  "duration_minutes": 15,
+  "cadence_minutes": 5,
+  "expected_probes": 3,
+  "status": "HOLD_M9_CONTEXT_OVERFLOW_RECHECK_QUEUE_NOT_RESTING_OVERFLOW_CLEAN",
+  "failures": [
+    "queue_depth_resting_self_observer_or_active_owner_turn"
+  ],
+  "probe_artifacts": [
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_CONTEXT_OVERFLOW_RECHECK_PROBE_0001.json",
+      "sha256": "0636e628f97ef3f21ed6348b91e34f8b755efbf79f1fdd32496a13ab6f711926",
+      "status": "HOLD_M9_CONTEXT_OVERFLOW_RECHECK_QUEUE_NOT_RESTING_OVERFLOW_CLEAN"
+    }
+  ],
+  "baseline": {
+    "target_sha": "1908d9158dc06e6c7127b86cde923361c3f86a13ba084c4f03746d4af49ff0cf",
+    "target_mtime_ms": 1784189684560.4978,
+    "target_ctime_ms": 1784189684560.4978,
+    "config_sha": "a4f0aac75704eb7d171e528c0486fd8baa95260450d38653aea5ba3226e2d859",
+    "route_fingerprint_sha": "a4f0aac75704eb7d171e528c0486fd8baa95260450d38653aea5ba3226e2d859",
+    "log_offset": 3502442
+  },
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "additional_write_tool_live_execution_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "broad_production_enforcement_count": 0,
+    "m10_started": false,
+    "duplicate_canary_write_count": 0
+  },
+  "classification_basis": "classified runtime_diagnostic context-overflow signals; raw text matches preserved per probe",
+  "context_overflow_clean": true
+}

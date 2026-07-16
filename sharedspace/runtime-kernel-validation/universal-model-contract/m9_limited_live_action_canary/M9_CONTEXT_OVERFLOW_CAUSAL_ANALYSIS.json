@@ -1,0 +1,25 @@
+{
+  "schema": "umc.v1.m9.context_overflow_causal_analysis.v2",
+  "generated_utc": "2026-07-16T09:05:03.198Z",
+  "status": "PASS_M9_CONTEXT_OVERFLOW_CAUSAL_ANALYSIS_COMPLETE",
+  "causal_classification": "OWNER_SESSION_ACCUMULATION_CAUSAL",
+  "source_classification": "ACTIVE_OWNER_SESSION_CONTEXT_OVERFLOW",
+  "comparison": {
+    "pre_canary_context_signal_count": 22,
+    "canary_execution_window_signal_count": 0,
+    "post_canary_probes_1_to_5_signal_count": 0,
+    "probe6_signal_count": 2,
+    "active_telegram_owner_session_growth": "owner direct session reported 503 messages",
+    "observer_subagent_transcript_growth": "not indicated by probe6 signals",
+    "evidence_artifact_size_bytes": {
+      "target": 171,
+      "probe6": 2088
+    },
+    "gateway_log_volume_probe6_bytes": 7454,
+    "event_loop_degradation_count": 0
+  },
+  "determination": "The M9 local artifact canary did not cause the overflow. The context-overflow diagnostic points to the active owner Telegram direct session with 503 messages and an assistantError during a tool loop; prior context-overflow signals existed before M9.",
+  "canary_causal": false,
+  "canary_contributing": false,
+  "owner_session_causal": true
+}
