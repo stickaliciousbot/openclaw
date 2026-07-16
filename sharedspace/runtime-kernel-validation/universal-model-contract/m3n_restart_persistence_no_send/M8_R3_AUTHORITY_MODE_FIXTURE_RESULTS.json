@@ -1,0 +1,40 @@
+{
+  "schema": "umc.v1.m8.r3.authority_mode_fixture_results.v1",
+  "generated_utc": "2026-07-16T06:52:00Z",
+  "status": "PASS_M8_R3_AUTHORITY_MODE_FIXTURES",
+  "source_commit": "4ead371c40b1aca97059f41255341d57c6d61055",
+  "fixture_cases": {
+    "valid_owner_contract_lane_no_send": "PASS_M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_VERIFIED",
+    "authority_mode": "enforced_no_send",
+    "underlying_lane_authority_mode": "observe_only",
+    "delivery_mode": "no_send",
+    "production_authority_change_blocked": "FAIL_M8_PRODUCTION_AUTHORITY_CHANGE",
+    "broad_production_enforcement_blocked": "FAIL_M8_BROAD_PRODUCTION_ENFORCEMENT_FORBIDDEN",
+    "live_action_canary_blocked": "HOLD_M8_LIVE_ACTION_CANARY_FORBIDDEN",
+    "missing_manifest": "HOLD_M8_M7_ELIGIBILITY_NOT_VERIFIED",
+    "raw_provider_model_authority": "FAIL_M8_RAW_MODEL_AUTHORITY_BYPASS",
+    "fallback_contract_drop": "HOLD_M8_M7_ELIGIBILITY_NOT_VERIFIED",
+    "side_effect_attempt": "FAIL_M8_SEND_OR_PROVIDER_CALL_BOUNDARY_VIOLATION",
+    "missing_verified_route": "HOLD_OR_FAIL_NOT_MODELED_BY_M8_SOURCE_FIXTURE_API",
+    "missing_receipt": "HOLD_OR_FAIL_NOT_MODELED_BY_M8_SOURCE_FIXTURE_API",
+    "delivery_receipt_mode_not_no_send": "HOLD_M8_NO_SEND_REQUIRED"
+  },
+  "boundary_counters": {
+    "installed_runtime_mutation_count": 0,
+    "package_install_count": 0,
+    "tarball_apply_count": 0,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "live_action_canary_count": 0,
+    "broad_production_enforcement_count": 0,
+    "m9_started": false,
+    "enforcement_enabled": false
+  }
+}

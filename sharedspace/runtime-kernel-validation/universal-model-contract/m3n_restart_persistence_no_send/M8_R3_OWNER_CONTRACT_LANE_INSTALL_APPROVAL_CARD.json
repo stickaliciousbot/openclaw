@@ -1,0 +1,97 @@
+{
+  "schema": "umc.v1.m8.r3.owner_contract_lane_install_approval_card.v1",
+  "generated_utc": "2026-07-16T06:52:00Z",
+  "status": "HOLD_M8_R3_OWNER_CONTRACT_LANE_INSTALL_AWAITING_OPERATOR_APPROVAL",
+  "milestone": "M8_OWNER_CONTRACT_LANE_STAGED_INSTALL_AND_REGRESSION_R3",
+  "approval_required_before_install": true,
+  "approved": false,
+  "source": {
+    "path": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+    "branch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+    "commit": "4ead371c40b1aca97059f41255341d57c6d61055"
+  },
+  "build_command": "/home/stickai/.openclaw/workspace/tmp/openclaw-start-ack-pnpm-shim/pnpm build",
+  "package": {
+    "tarball_path": "/home/stickai/.openclaw/workspace/tmp/umc-m8-r3-package/openclaw-2026.5.7.tgz",
+    "tarball_sha256": "1f6bd7fed192b1413f6320a69ca56cc528e807c81c2dae36473e14bc9ddbc9a0",
+    "m8_artifact_sha256": "27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db"
+  },
+  "installed_package_root": "/home/stickai/.npm-global/lib/node_modules/openclaw",
+  "expected_installed_files_changed": [
+    {
+      "path": "dist/auto-reply/reply/umc-m8-owner-contract-lane.js",
+      "operation": "replace",
+      "sha256_before": "ab0b66fb9578f1b99320b46590825a1a956a83152d5c653f0d00ca2386cdb44f",
+      "sha256_after_expected": "27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db"
+    }
+  ],
+  "backup_path": "/home/stickai/.openclaw/backups/openclaw-m8-r3-authority-mode-install-20260716T0652Z/openclaw-installed-package",
+  "install_command": "npm install -g --ignore-scripts /home/stickai/.openclaw/workspace/tmp/umc-m8-r3-package/openclaw-2026.5.7.tgz",
+  "rollback_command": "npm install -g --ignore-scripts /home/stickai/.openclaw/workspace/tmp/umc-m8-package/openclaw-2026.5.7.tgz && openclaw gateway restart",
+  "emergency_m7_rollback_command": "npm install -g --ignore-scripts /home/stickai/.openclaw/workspace/tmp/umc-m7-package/openclaw-2026.5.7.tgz && openclaw gateway restart",
+  "gateway_restart_requirement": "required_after_install_using_gateway.restart_first_class_tool_or_safe_SIGUSR1",
+  "preservation_checks": {
+    "m7_model_eligibility_sha256": "85e80863ee7720453e57c62b5c7955a681a0e8398e80a9ab9d026fcb66c4f996",
+    "m6_contract_build_lane_sha256": "9fb2893b5cc7c7a75c7aa15b93d3cfee53eac164970485ad597d72a47f7e8bbc",
+    "m5_capability_manifest_sha256": "e5a1d1c32a97ace2fe33cc151d98bd8ff4afed17ae768a7cf351319ef15adfe2",
+    "m4_verified_route_sha256": "9012c1d9ef5e651dfcf3b0dff533fa33b5ce08f226e21d3a7733b8faef02cff6",
+    "telegram_plugin_manifest_sha256": "a3bd23650c86763689c3c9227d13928ee78d4546e0b8e39864f440d926cc40bd",
+    "package_json_sha256": "9585403b5d52ef6b56a6faf6b958eb1ae22d14f7a581def93da13b597087b0ad",
+    "m3_envelope_supervision_path": "dist/umc-m3-envelope-supervision-CZFFPUFB.js",
+    "m3_envelope_supervision_sha256": "9af1b667eb69a32c7d7f9bd28c3bd72843e331d63cc8bf8e81399479a6a7dfba"
+  },
+  "health_checks": [
+    "Gateway read-only health after restart",
+    "Telegram read-only health after restart; no Telegram send/probe"
+  ],
+  "installed_runtime_m8_verification_plan": [
+    "M8 authority_mode emits enforced_no_send",
+    "delivery_mode no_send",
+    "production authority false",
+    "broad enforcement false",
+    "live-action canary false",
+    "raw provider/model blocked"
+  ],
+  "installed_canary_regression_plan": [
+    "valid contract PASS no-send",
+    "missing VerifiedRoute HOLD/FAIL",
+    "missing manifest HOLD",
+    "missing receipt HOLD/FAIL",
+    "DeliveryReceipt mode not no_send FAIL",
+    "raw provider/model FAIL/HOLD",
+    "fallback contract drop HOLD/FAIL",
+    "side-effect attempt FAIL"
+  ],
+  "m3_m4_m5_m6_m7_regression_plan": [
+    "M3 receipts pass",
+    "M4 raw bypass blocked",
+    "M5 manifests gate",
+    "M6 contract-build lane pass",
+    "M7 eligibility/fallback pass",
+    "worker model route authority false"
+  ],
+  "post_install_stability_plan": {
+    "duration_minutes": 20,
+    "cadence_minutes": 5,
+    "expected_probes": 4
+  },
+  "no_send_no_authority_boundary": {
+    "installed_runtime_mutation_count": 0,
+    "package_install_count": 0,
+    "tarball_apply_count": 0,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "live_action_canary_count": 0,
+    "broad_production_enforcement_count": 0,
+    "m9_started": false,
+    "enforcement_enabled": false
+  },
+  "operator_decision_required": "Approve or deny exact R3 staged install. No install has been run."
+}

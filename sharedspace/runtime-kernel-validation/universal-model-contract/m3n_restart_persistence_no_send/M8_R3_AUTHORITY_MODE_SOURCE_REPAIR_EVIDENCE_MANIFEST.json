@@ -1,0 +1,87 @@
+{
+  "schema": "umc.v1.m8.r3.authority_mode_source_repair_evidence_manifest.v1",
+  "generated_utc": "2026-07-16T06:52:00Z",
+  "status": "HOLD_M8_R3_OWNER_CONTRACT_LANE_INSTALL_AWAITING_OPERATOR_APPROVAL",
+  "final_status": "HOLD_M8_R3_OWNER_CONTRACT_LANE_INSTALL_AWAITING_OPERATOR_APPROVAL",
+  "source_commit": "4ead371c40b1aca97059f41255341d57c6d61055",
+  "r3_tarball": "/home/stickai/.openclaw/workspace/tmp/umc-m8-r3-package/openclaw-2026.5.7.tgz",
+  "r3_tarball_sha256": "1f6bd7fed192b1413f6320a69ca56cc528e807c81c2dae36473e14bc9ddbc9a0",
+  "artifacts": [
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_R3_AUTHORITY_MODE_REPAIR_PREFLIGHT.json",
+      "sha256": "b439f50d3db1b44dc4eb540ffe81c5da71b1a5f52acc9073031261314070aa0f",
+      "status": "PASS_M8_R3_AUTHORITY_MODE_REPAIR_PREFLIGHT"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_R3_AUTHORITY_MODE_FAILURE_SUMMARY.md",
+      "sha256": "5206bf739be4e81936cb2397d424ff9636a8bd48088b94deebccc7172b381614"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_R3_AUTHORITY_MODE_SOURCE_MISMATCH_ANALYSIS.json",
+      "sha256": "a6940546bbe921c03e94d2f408bc8723703ea3f56492e11341927630bfff8a5f",
+      "status": "SOURCE_EMITS_OBSERVE_ONLY_INSTEAD_OF_ENFORCED_NO_SEND"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_R3_AUTHORITY_MODE_SOURCE_MISMATCH_ANALYSIS.md",
+      "sha256": "98f06d52e5f27e61b5f9a5a5ae10f14c6c2bf931d6f7808088b4d56d63fca422"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_R3_AUTHORITY_MODE_SOURCE_REPAIR_RESULT.json",
+      "sha256": "4fe2d37d856604f3c12506185950912e4055413027eaefa63603e0015f98f7ba",
+      "status": "PASS_M8_R3_AUTHORITY_MODE_SOURCE_REPAIRED"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_R3_AUTHORITY_MODE_FIXTURE_RESULTS.json",
+      "sha256": "c874e414901a3bd78cb71c4a6539f98854d056c457d789c975f257cfb1a1826d",
+      "status": "PASS_M8_R3_AUTHORITY_MODE_FIXTURES"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_R3_M3_M4_M5_M6_M7_SOURCE_REGRESSION_RESULTS.json",
+      "sha256": "b3e2f26aeedb660cceee584b03edd32411ea9e6d45159022cb48867a3636c034",
+      "status": "PASS_M8_R3_M3_M4_M5_M6_M7_SOURCE_REGRESSION"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_R3_AUTHORITY_MODE_NO_APPLY_BUILD_VALIDATION.json",
+      "sha256": "a221fe26d0c62d661503a8bee4f591e3cf7e099fc1a3d37d984742d420a9569e",
+      "status": "PASS_M8_R3_AUTHORITY_MODE_NO_APPLY_BUILD_VALIDATION"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_R3_PACKAGE_VALIDATION.json",
+      "sha256": "9281775e6f0075d5dc6a1dcc632068c5be8dc027fbd2b6ebdfc4824a9528b4b7",
+      "status": "PASS_M8_R3_PACKAGE_VALIDATION"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_R3_OWNER_CONTRACT_LANE_INSTALL_APPROVAL_CARD.json",
+      "sha256": "42078c45e252ae1f579e82ce3bef403b307211dfb4c04ab9f556bce406eef371",
+      "status": "HOLD_M8_R3_OWNER_CONTRACT_LANE_INSTALL_AWAITING_OPERATOR_APPROVAL"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_R3_OWNER_CONTRACT_LANE_INSTALL_APPROVAL_CARD.md",
+      "sha256": "18833dbdbda465f905cdc7f5405a89ab2e28f1c0d08a4b865240028ae70b5dfb"
+    }
+  ],
+  "boundary_counters": {
+    "installed_runtime_mutation_count": 0,
+    "package_install_count": 0,
+    "tarball_apply_count": 0,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "live_action_canary_count": 0,
+    "broad_production_enforcement_count": 0,
+    "m9_started": false,
+    "enforcement_enabled": false
+  },
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "next_phase": "APPROVE_M8_R3_OWNER_CONTRACT_LANE_STAGED_INSTALL",
+  "r3_package_m3_artifact": {
+    "path": "dist/umc-m3-envelope-supervision-CZFFPUFB.js",
+    "sha256": "9af1b667eb69a32c7d7f9bd28c3bd72843e331d63cc8bf8e81399479a6a7dfba"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "schema": "umc.v1.m8.r3.authority_mode_source_mismatch_analysis.v1",
+  "generated_utc": "2026-07-16T06:52:00Z",
+  "status": "SOURCE_EMITS_OBSERVE_ONLY_INSTEAD_OF_ENFORCED_NO_SEND",
+  "classification": "SOURCE_EMITS_OBSERVE_ONLY_INSTEAD_OF_ENFORCED_NO_SEND",
+  "secondary_classification": "SPEC_FIXTURE_RUNTIME_MISMATCH",
+  "findings": [
+    "src/auto-reply/reply/umc-m8-owner-contract-lane.ts reused M6_AUTHORITY_MODE for M8 policy.required_authority_mode, valid intent authority_mode, verifier gate, and valid evidence.",
+    "scripts/run-m8-owner-contract-lane-fixtures.mjs did not assert enforced_no_send and recorded observe_only as passing.",
+    "Installed verification expected enforced_no_send correctly per R2/Phase-D contract.",
+    "Package was not stale: installed M8 hash matched the R2 package artifact and reproduced the source behavior."
+  ],
+  "boundary_counters": {
+    "installed_runtime_mutation_count": 0,
+    "package_install_count": 0,
+    "tarball_apply_count": 0,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "live_action_canary_count": 0,
+    "broad_production_enforcement_count": 0,
+    "m9_started": false,
+    "enforcement_enabled": false
+  }
+}

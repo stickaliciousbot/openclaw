@@ -1,0 +1,36 @@
+{
+  "schema": "umc.v1.m8.r3.authority_mode_repair_preflight.v1",
+  "generated_utc": "2026-07-16T06:52:00Z",
+  "status": "PASS_M8_R3_AUTHORITY_MODE_REPAIR_PREFLIGHT",
+  "milestone": "M8_R3_AUTHORITY_MODE_LITERAL_SOURCE_REPAIR_NO_INSTALL",
+  "failed_m8_r2": {
+    "final_status": "FAIL_M8_OWNER_CONTRACT_LANE_INSTALLED_RUNTIME_VERIFICATION",
+    "verification_status": "FAIL_M8_OWNER_CONTRACT_LANE_INSTALLED_RUNTIME_VERIFICATION",
+    "failure_id": "authority_mode_enforced_no_send_literal_missing",
+    "required_authority_mode": "enforced_no_send",
+    "actual_authority_mode": "observe_only",
+    "installed_canary_regression": "NOT_RUN_STOPPED_AFTER_INSTALLED_RUNTIME_VERIFICATION_FAILURE",
+    "m3_m4_m5_m6_m7_regression": "NOT_RUN_STOPPED_AFTER_INSTALLED_RUNTIME_VERIFICATION_FAILURE",
+    "stability": "NOT_RUN_STOPPED_AFTER_INSTALLED_RUNTIME_VERIFICATION_FAILURE",
+    "m9_started": false,
+    "rollback_ready": true
+  },
+  "boundary_counters": {
+    "installed_runtime_mutation_count": 0,
+    "package_install_count": 0,
+    "tarball_apply_count": 0,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "live_action_canary_count": 0,
+    "broad_production_enforcement_count": 0,
+    "m9_started": false,
+    "enforcement_enabled": false
+  }
+}

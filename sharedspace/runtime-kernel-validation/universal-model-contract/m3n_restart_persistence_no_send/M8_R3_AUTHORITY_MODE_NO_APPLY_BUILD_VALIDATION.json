@@ -1,0 +1,32 @@
+{
+  "schema": "umc.v1.m8.r3.authority_mode_no_apply_build_validation.v1",
+  "generated_utc": "2026-07-16T06:52:00Z",
+  "status": "PASS_M8_R3_AUTHORITY_MODE_NO_APPLY_BUILD_VALIDATION",
+  "source_commit": "4ead371c40b1aca97059f41255341d57c6d61055",
+  "validation_results": {
+    "focused_fixture_runner_temp": "PASS_M8_OWNER_CONTRACT_LANE_FIXTURE_RUNNER",
+    "node_check_fixture_script": "PASS",
+    "full_build": "PASS_PNPM_BUILD_NO_APPLY",
+    "git_diff_check_source": "PASS",
+    "dist_m8_sha256": "27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db",
+    "dist_contains_enforced_no_send": true
+  },
+  "boundary_counters": {
+    "installed_runtime_mutation_count": 0,
+    "package_install_count": 0,
+    "tarball_apply_count": 0,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "live_action_canary_count": 0,
+    "broad_production_enforcement_count": 0,
+    "m9_started": false,
+    "enforcement_enabled": false
+  }
+}
