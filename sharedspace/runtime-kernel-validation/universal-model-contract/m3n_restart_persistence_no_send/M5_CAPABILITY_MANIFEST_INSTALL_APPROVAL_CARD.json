@@ -1,0 +1,119 @@
+{
+  "schema": "umc.v1.m5.capability_manifest_install_approval_card.v1",
+  "generated_utc": "2026-07-16T01:24:00Z",
+  "status": "HOLD_M5_CAPABILITY_MANIFEST_INSTALL_AWAITING_OPERATOR_APPROVAL",
+  "milestone": "M5_CAPABILITY_MANIFEST_STAGED_INSTALL_AND_REGRESSION",
+  "approval_scope": "Install the validated M5 source-build package, restart Gateway for activation, then run installed-runtime no-send/mock regressions and bounded read-only stability checks.",
+  "not_approved_by_this_card_until_operator_approval": {
+    "npm_install_g": true,
+    "installed_runtime_mutation": true,
+    "gateway_restart": true
+  },
+  "selected_source": {
+    "path": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+    "branch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+    "head": "3a9abe46293294da7c73432d74f6c32e3fd1deaf",
+    "source_commit_to_install": "3a9abe46293294da7c73432d74f6c32e3fd1deaf",
+    "source_ready_base_commit": "3aaf216bcfd8beb7988949b655441104e78176f8",
+    "build_inclusion_repair_commit": "3a9abe46293294da7c73432d74f6c32e3fd1deaf",
+    "build_inclusion_reason": "M5 source-ready existed but needed stable tsdown package entry plus postbuild JSON asset copy so installed runtime can contain/verifiably expose M5 registry/schema/seed files."
+  },
+  "build_and_package": {
+    "requested_approved_build_command": "/home/stickai/.local/share/pnpm/pnpm build",
+    "actual_successful_build_command": "/home/stickai/.openclaw/workspace/tmp/openclaw-start-ack-pnpm-shim/pnpm build",
+    "package_command": "npm pack --ignore-scripts",
+    "package_result": "PASS_M5_SOURCE_BUILD_PACKAGE_VALIDATION",
+    "tarball_path": "/home/stickai/.openclaw/workspace/tmp/umc-m5-package/openclaw-2026.5.7.tgz",
+    "tarball_sha256": "13850f7bd15224e295cc4bee6be184e4df3cd29ab30f191d6a757cd088bdcc06",
+    "tarball_size_bytes": 23629030
+  },
+  "installed_package_root": "/home/stickai/.npm-global/lib/node_modules/openclaw",
+  "expected_installed_files_changed_or_added": [
+    "dist/auto-reply/reply/umc-m5-capability-manifest.js",
+    "dist/auto-reply/reply/umc-m5-capability-manifest.schema.json",
+    "dist/auto-reply/reply/umc-m5-seed-manifests.json"
+  ],
+  "artifact_presence_validation_from_tarball": {
+    "m5_registry_artifact_present": true,
+    "m5_schema_present": true,
+    "m5_seed_manifests_present": true,
+    "m4_verified_route_artifact_preserved": true,
+    "telegram_plugin_manifest_present": true,
+    "m5_registry_sha256": "62c71597611586c90a1b54c938ab24cd4b5778cfabad8916552b9f4fd2853a99",
+    "m5_schema_sha256": "4bfd667c7c390d3d53610c923a49a155eed2ebfec6d0f3e7230d5e250ad5384f",
+    "m5_seed_manifests_sha256": "38d3df45abd70322a53fe1f01da9d853ebf943dec68955c3772d7245d6405dd7",
+    "telegram_plugin_manifest_sha256": "a3bd23650c86763689c3c9227d13928ee78d4546e0b8e39864f440d926cc40bd"
+  },
+  "required_backup_before_install": {
+    "backup_path": "/home/stickai/.openclaw/backups/openclaw-m5-capability-manifest-install-20260716T0124Z/openclaw-installed-package",
+    "backup_marker_required": "PASS_BACKUP_CREATED",
+    "trusted_previous_backup": "/home/stickai/.openclaw/backups/openclaw-m4-verified-route-install-20260716T0022Z/openclaw-installed-package"
+  },
+  "approved_install_sequence_if_operator_approves_this_card": [
+    {
+      "step": "backup_installed_package",
+      "command": "mkdir -p /home/stickai/.openclaw/backups/openclaw-m5-capability-manifest-install-20260716T0124Z && cp -a /home/stickai/.npm-global/lib/node_modules/openclaw /home/stickai/.openclaw/backups/openclaw-m5-capability-manifest-install-20260716T0124Z/openclaw-installed-package && test -f /home/stickai/.openclaw/backups/openclaw-m5-capability-manifest-install-20260716T0124Z/openclaw-installed-package/package.json"
+    },
+    {
+      "step": "install_package",
+      "command": "npm install -g --ignore-scripts /home/stickai/.openclaw/workspace/tmp/umc-m5-package/openclaw-2026.5.7.tgz"
+    },
+    {
+      "step": "restart_gateway_for_activation",
+      "command": "openclaw gateway restart"
+    }
+  ],
+  "rollback": {
+    "rollback_readiness": "READY_REQUIRES_OPERATOR_APPROVAL_IF_NEEDED",
+    "rollback_tarball": "/home/stickai/.openclaw/workspace/tmp/umc-m4-package-r2/openclaw-2026.5.7.tgz",
+    "rollback_tarball_sha256": "6a2ec7a2318c8e56a565524f938831ca5d2a2de965e6e16bd2fbc5f4acd2f663",
+    "rollback_command": "npm install -g --ignore-scripts /home/stickai/.openclaw/workspace/tmp/umc-m4-package-r2/openclaw-2026.5.7.tgz && openclaw gateway restart",
+    "rollback_policy": "Roll back only if install/verification failure requires it and operator approval or approved recovery policy covers rollback. Preserve evidence first."
+  },
+  "gateway_restart_requirement": {
+    "required": true,
+    "reason": "Global package replacement requires Gateway restart for active runtime to load new dist artifacts.",
+    "restart_command": "openclaw gateway restart"
+  },
+  "post_install_health_checks": {
+    "gateway": "openclaw gateway status must report running, connectivity ok, admin-capable",
+    "telegram": "openclaw channels status must report Telegram enabled/configured/running/connected; no Telegram send/probe is authorized",
+    "event_loop_cpu_watch": "Record event-loop/cpu degradation as watch item; block only if it worsens, correlates with health/readback failure, or violates gates."
+  },
+  "installed_runtime_m5_verification_plan": [
+    "Verify installed dist/auto-reply/reply/umc-m5-capability-manifest.js exists and exports M5 registry helpers.",
+    "Verify installed M5 schema and seed manifest JSON exist and parse.",
+    "Run installed-runtime fixture: valid manifest PASS, missing manifest HOLD, malformed manifest FAIL, unsupported delivery mode HOLD, unsupported ContractEnvelope HOLD, unsupported DeliveryReceipt no_send HOLD, fallback without contract preservation blocked.",
+    "Verify manifest cannot forge VerifiedRoute, cannot bypass M4 direct-bypass firewall, and cannot enable production authority."
+  ],
+  "m3_m4_regression_plan": {
+    "m3": "No-send/mock regression requiring ContractEnvelope, ShadowObservationReceipt, UniversalContractReceipt, DeliveryReceipt mode no_send, TerminalContractCloseout, production path unchanged, all forbidden counters zero.",
+    "m4": "Direct-bypass/firewall regression requiring raw provider/model, missing VerifiedRoute, forged VerifiedRoute, deserialized/untrusted route, and fallback without VerifiedRoute all reject before execution."
+  },
+  "capability_route_eligibility_plan": {
+    "valid_manifest": "PASS_M5_ROUTE_ELIGIBILITY_VERIFIED",
+    "missing_manifest": "HOLD_M5_CAPABILITY_MANIFEST_MISSING",
+    "malformed_manifest": "FAIL_M5_CAPABILITY_MANIFEST_INVALID",
+    "unsupported_capability": "HOLD_M5_CAPABILITY_UNSUPPORTED",
+    "fallback_without_contract_preservation": "blocked",
+    "production_authority_prevention": "FAIL_M5_CAPABILITY_MANIFEST_INVALID"
+  },
+  "plugin_manifest_preservation_checks": {
+    "telegram_manifest_expected": "dist/extensions/telegram/openclaw.plugin.json",
+    "tarball_presence_verified": true,
+    "tarball_sha256": "a3bd23650c86763689c3c9227d13928ee78d4546e0b8e39864f440d926cc40bd"
+  },
+  "no_send_no_authority_boundary": {
+    "telegram_send_probe_authorized": false,
+    "external_send_authorized": false,
+    "provider_model_live_call_authorized": false,
+    "route_config_mutation_authorized": false,
+    "durable_memory_mutation_authorized": false,
+    "context_bridge_mutation_authorized": false,
+    "production_authority_change_authorized": false,
+    "cron_reenable_authorized": false,
+    "m6_authorized": false,
+    "enforcement_authorized": false
+  },
+  "approval_instruction": "If approved, approve this exact M5 install card/sequence. Do not use stale M4 approval cards."
+}

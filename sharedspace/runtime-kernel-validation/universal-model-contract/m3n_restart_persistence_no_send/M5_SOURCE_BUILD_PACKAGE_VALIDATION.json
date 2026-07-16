@@ -1,0 +1,67 @@
+{
+  "schema": "umc.v1.m5.source_build_package_validation.v1",
+  "generated_utc": "2026-07-16T01:23:00Z",
+  "status": "PASS_M5_SOURCE_BUILD_PACKAGE_VALIDATION",
+  "milestone": "M5_CAPABILITY_MANIFEST_STAGED_INSTALL_AND_REGRESSION",
+  "source": {
+    "path": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+    "branch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+    "head": "3a9abe46293294da7c73432d74f6c32e3fd1deaf",
+    "source_ready_base_commit": "3aaf216bcfd8beb7988949b655441104e78176f8",
+    "source_build_inclusion_repair_commit": "3a9abe46293294da7c73432d74f6c32e3fd1deaf"
+  },
+  "build": {
+    "requested_approved_command": "/home/stickai/.local/share/pnpm/pnpm build",
+    "requested_approved_command_result": "NOT_RERUN_AFTER_APPROVAL; earlier equivalent path check showed /home/stickai/.local/share/pnpm/pnpm missing",
+    "failed_path_dependent_command": "pnpm build",
+    "failed_path_dependent_command_result": "code_127_pnpm_command_not_found",
+    "actual_successful_build_command": "/home/stickai/.openclaw/workspace/tmp/openclaw-start-ack-pnpm-shim/pnpm build",
+    "actual_successful_build_result": "PASS_CODE_0",
+    "postbuild_m5_asset_copy_observed": true,
+    "install_executed": false
+  },
+  "package": {
+    "command": "npm pack --ignore-scripts",
+    "result": "PASS_CODE_0",
+    "source_tarball_path": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711/openclaw-2026.5.7.tgz",
+    "approval_tarball_path": "/home/stickai/.openclaw/workspace/tmp/umc-m5-package/openclaw-2026.5.7.tgz",
+    "sha256": "13850f7bd15224e295cc4bee6be184e4df3cd29ab30f191d6a757cd088bdcc06",
+    "size_bytes": 23629030
+  },
+  "tarball_content_validation": {
+    "m5_registry_artifact_present": true,
+    "m5_schema_present": true,
+    "m5_seed_manifests_present": true,
+    "m4_verified_route_artifact_preserved": true,
+    "telegram_plugin_manifest_present": true,
+    "files": {
+      "package/dist/auto-reply/reply/umc-m5-capability-manifest.js": {
+        "sha256": "62c71597611586c90a1b54c938ab24cd4b5778cfabad8916552b9f4fd2853a99"
+      },
+      "package/dist/auto-reply/reply/umc-m5-capability-manifest.schema.json": {
+        "sha256": "4bfd667c7c390d3d53610c923a49a155eed2ebfec6d0f3e7230d5e250ad5384f"
+      },
+      "package/dist/auto-reply/reply/umc-m5-seed-manifests.json": {
+        "sha256": "38d3df45abd70322a53fe1f01da9d853ebf943dec68955c3772d7245d6405dd7"
+      },
+      "package/dist/extensions/telegram/openclaw.plugin.json": {
+        "sha256": "a3bd23650c86763689c3c9227d13928ee78d4546e0b8e39864f440d926cc40bd"
+      }
+    }
+  },
+  "boundary_counters": {
+    "installed_runtime_mutation_count": 0,
+    "package_install_count": 0,
+    "tarball_apply_count": 0,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "production_enforcement_enabled": false,
+    "m6_started": false
+  }
+}
