@@ -1,7 +1,39 @@
 {
   "schema": "umc.v1.m10a.owner_telegram_direct_enforcement_approval_package.v1",
-  "generated_utc": "2026-07-16T11:55:00Z",
-  "status": "NOT_PRODUCED_M10A_REPAIRED_INSTALL_FAILED",
-  "reason": "Installed-runtime validation did not pass; exact enforcement approval package must not be produced.",
-  "final_status": "FAIL_M10A_REPAIRED_CONTROL_PATH_STAGED_INSTALL_FAILED"
+  "generated_utc": "2026-07-16T12:24:00Z",
+  "source_commit": "19d1fd367ac179c971b1ccb157659f8c52641c32",
+  "evidence_commit_before_run": "2de771be553467bb072789f640523e9ecfe33a2a",
+  "candidate_tarball_path": "/home/stickai/.openclaw/workspace/tmp/umc-m10a-repaired-scoped-overlay-r2/m10a-control-path-scoped-overlay-r2-20260716T1200Z.tar.gz",
+  "candidate_tarball_sha256": "c0fdd546016071cf2cfbcca802bf458261d5e5fac07fd38e7797ceace9aba83d",
+  "candidate_m10a_dist_sha256": "be56d6a5105d4d0a03085757483b3bb07374ff96b9db8ea44a1bcb164139e082",
+  "expected_m8_preserved_sha256": "27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db",
+  "status": "HOLD_M10A_EXACT_APPROVAL_TEXT_READY",
+  "approval_boundary": "Owner Telegram direct contract-decision enforcement only; no external sends/provider calls/write tools/durable memory/Context Bridge/config mutation; M10A enablement still requires explicit next-phase approval.",
+  "required_scope": {
+    "scope_name": "M10A_OWNER_TELEGRAM_DIRECT_CONTRACT_ENFORCEMENT_ONLY",
+    "owner_chat_id": "8495203551",
+    "channel": "telegram_direct",
+    "agent_id": "main"
+  },
+  "prerequisite_validation": {
+    "install": "PASS_M10A_RUNTIME_DEPENDENCY_REPAIRED_STAGED_INSTALL",
+    "import": "PASS_M10A_RUNTIME_DEPENDENCY_REPAIRED_INSTALLED_IMPORT_VALIDATION",
+    "runtime": "PASS_M10A_RUNTIME_DEPENDENCY_REPAIRED_INSTALLED_RUNTIME_VERIFICATION",
+    "dry_run": "PASS_M10A_RUNTIME_DEPENDENCY_REPAIRED_ENABLE_DISABLE_DRY_RUN_VALIDATION",
+    "regression": "PASS_M10A_RUNTIME_DEPENDENCY_REPAIRED_M2_M9_INSTALLED_REGRESSION",
+    "stability": "PASS_M10A_RUNTIME_DEPENDENCY_REPAIRED_POST_INSTALL_STABILITY"
+  },
+  "not_approved_yet": [
+    "M10A enablement",
+    "production authority change",
+    "broad enforcement",
+    "Telegram send/probe",
+    "external send",
+    "provider/model live call",
+    "write tool execution",
+    "durable memory mutation",
+    "Context Bridge mutation",
+    "route/fallback/config production mutation",
+    "M10 execution"
+  ]
 }

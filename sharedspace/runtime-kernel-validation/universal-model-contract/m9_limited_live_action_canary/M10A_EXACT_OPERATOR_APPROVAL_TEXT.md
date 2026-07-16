@@ -1,5 +1,3 @@
-# M10A Exact Operator Approval Text
+APPROVE_M10A_OWNER_TELEGRAM_DIRECT_CONTRACT_DECISION_ENFORCEMENT
 
-Status: NOT_PRODUCED_M10A_REPAIRED_INSTALL_FAILED
-
-The repaired staged install did not pass installed-runtime validation, so exact M10A enforcement approval text is not safe to produce.
+I approve enabling M10A only for owner Telegram direct contract-decision enforcement, scope M10A_OWNER_TELEGRAM_DIRECT_CONTRACT_ENFORCEMENT_ONLY, owner_chat_id 8495203551, channel telegram_direct, agent main. I do not approve production authority change, broad enforcement, Telegram send/probe, external sends, provider/model live calls, write tools, durable memory mutation, Context Bridge mutation, route/fallback/config production mutation, cron re-enable, or M10 execution. Required preserved M8 SHA remains 27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db.
