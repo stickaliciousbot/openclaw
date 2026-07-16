@@ -1,0 +1,55 @@
+{
+  "schema": "umc.v1.m7.model_eligibility_staged_install_and_regression_closeout.v1",
+  "generated_utc": "2026-07-16T04:54:14Z",
+  "status": "PASS_M7_MODEL_ELIGIBILITY_STAGED_INSTALL_AND_REGRESSION",
+  "closeout_status": "PASS_M7_MODEL_ELIGIBILITY_STAGED_INSTALL_AND_REGRESSION",
+  "milestone": "M7_MODEL_ELIGIBILITY_STAGED_INSTALL_AND_REGRESSION",
+  "source_head_installed": "1557ff822e0c9b86eded7c827543bf4866676671",
+  "tarball_sha256": "8814f2ee8e0cd5a6b7fbf8ba52f80f497a468404513ea865af9a729a8cd37717",
+  "results": {
+    "staged_install_preflight": "PASS_M7_MODEL_ELIGIBILITY_STAGED_INSTALL_PREFLIGHT",
+    "install_approval": "APPROVE_M7_MODEL_ELIGIBILITY_STAGED_INSTALL",
+    "staged_install": "PASS_M7_MODEL_ELIGIBILITY_STAGED_INSTALL_EXECUTED",
+    "installed_runtime_m7_verification": "PASS_M7_MODEL_ELIGIBILITY_INSTALLED_RUNTIME_VERIFIED",
+    "m3_m4_m5_m6_post_install_regression": "PASS_M7_M3_M4_M5_M6_POST_INSTALL_REGRESSION",
+    "fallback_equivalence_installed_regression": "PASS_M7_FALLBACK_EQUIVALENCE_INSTALLED_REGRESSION",
+    "post_install_stability": "PASS_M7_POST_INSTALL_STABILITY_CONFIRMED"
+  },
+  "key_outcomes": {
+    "eligible_primary_worker": "PASS_M7_MODEL_ELIGIBILITY_VERIFIED",
+    "eligible_fallback": "PASS_M7_MODEL_ELIGIBILITY_VERIFIED",
+    "missing_manifest": "HOLD_M7_CAPABILITY_MANIFEST_MISSING",
+    "malformed_manifest": "FAIL_M7_CAPABILITY_MANIFEST_INVALID",
+    "fallback_contract_drop": "HOLD_M7_FALLBACK_CONTRACT_DROP",
+    "raw_provider_model_authority": "FAIL_M7_RAW_MODEL_AUTHORITY_BYPASS",
+    "worker_model_route_authority": false
+  },
+  "health": {
+    "gateway": "PASS_RUNNING_CONNECTIVITY_OK_ADMIN_CAPABLE",
+    "telegram": "PASS_ENABLED_CONFIGURED_RUNNING_CONNECTED",
+    "event_loop_cpu_watch_item": {
+      "present": true,
+      "blocking": false
+    }
+  },
+  "rollback": {
+    "readiness": "READY",
+    "backup_path": "/home/stickai/.openclaw/backups/openclaw-m7-model-eligibility-install-20260716T041957Z/openclaw-installed-package",
+    "rollback_command": "npm install -g --ignore-scripts /home/stickai/.openclaw/workspace/tmp/umc-m6-package/openclaw-2026.5.7.tgz && openclaw gateway restart",
+    "trusted_m6_tarball_sha256": "4f3d07373f51a8a302078c9f72a5416775a4983db3486c7a9a14cda5a09b888d"
+  },
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "m8_started": false,
+    "enforcement_enabled": false
+  },
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "next_milestone": "M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY"
+}

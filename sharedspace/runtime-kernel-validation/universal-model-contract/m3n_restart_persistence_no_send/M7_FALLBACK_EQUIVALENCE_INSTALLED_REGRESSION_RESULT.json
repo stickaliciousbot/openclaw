@@ -1,0 +1,32 @@
+{
+  "schema": "umc.v1.m7.fallback_equivalence_installed_regression_result.v1",
+  "generated_utc": "2026-07-16T04:40:00.000Z",
+  "status": "PASS_M7_FALLBACK_EQUIVALENCE_INSTALLED_REGRESSION",
+  "outcomes": {
+    "eligible_primary_worker": "PASS_M7_MODEL_ELIGIBILITY_VERIFIED",
+    "eligible_fallback": "PASS_M7_MODEL_ELIGIBILITY_VERIFIED",
+    "missing_manifest": "HOLD_M7_CAPABILITY_MANIFEST_MISSING",
+    "malformed_manifest": "FAIL_M7_CAPABILITY_MANIFEST_INVALID",
+    "unsupported_no_send": "HOLD_M7_UNSUPPORTED_NO_SEND",
+    "unsupported_contract_envelope": "HOLD_M7_UNSUPPORTED_CONTRACT_ENVELOPE",
+    "unsupported_delivery_receipt": "HOLD_M7_UNSUPPORTED_DELIVERY_RECEIPT",
+    "fallback_dropping_contract_envelope": "HOLD_M7_FALLBACK_CONTRACT_DROP",
+    "fallback_changing_delivery_mode": "HOLD_M7_FALLBACK_DELIVERY_MODE_CHANGED",
+    "fallback_changing_authority_mode": "FAIL_M7_CAPABILITY_MANIFEST_INVALID",
+    "raw_provider_model_authority": "FAIL_M7_RAW_MODEL_AUTHORITY_BYPASS",
+    "worker_model_route_authority": false,
+    "fallback_preserving_contract": "PASS_M7_MODEL_ELIGIBILITY_VERIFIED",
+    "fallback_without_contract_preservation_blocked": "HOLD_M7_FALLBACK_CONTRACT_DROP"
+  },
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "enforcement_enabled": false,
+    "m8_started": false
+  }
+}

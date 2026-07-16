@@ -1,0 +1,32 @@
+{
+  "schema": "umc.v1.m7.m3_m4_m5_m6_post_install_regression_result.v1",
+  "generated_utc": "2026-07-16T04:40:00.000Z",
+  "status": "PASS_M7_M3_M4_M5_M6_POST_INSTALL_REGRESSION",
+  "checks": {
+    "m3_envelope_no_send_receipt_path": "PASS_M3_TERMINAL_CONTRACT_CLOSEOUT_EMITTED_VIA_M6",
+    "m3_delivery_receipt_mode": "no_send",
+    "m4_raw_provider_model_authority_blocked": "HOLD_M4_ROUTE_INTENT_UNAVAILABLE",
+    "m5_manifest_gate_missing_manifest": "HOLD_M5_CAPABILITY_MANIFEST_MISSING",
+    "m6_contract_build_lane": "PASS_M6_CONTRACT_BUILD_LANE_BUILT",
+    "m6_default_no_arg_compatibility": "PASS_M6_CONTRACT_BUILD_LANE_BUILT",
+    "fallback_preservation_enforced": "HOLD_M7_FALLBACK_CONTRACT_DROP",
+    "no_provider_model_live_call_occurred": true,
+    "no_telegram_send_probe_occurred": true,
+    "no_external_send_occurred": true,
+    "no_route_config_mutation_occurred": true,
+    "no_durable_memory_mutation_occurred": true,
+    "no_context_bridge_mutation_occurred": true,
+    "no_production_authority_change_occurred": true
+  },
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "enforcement_enabled": false,
+    "m8_started": false
+  }
+}
