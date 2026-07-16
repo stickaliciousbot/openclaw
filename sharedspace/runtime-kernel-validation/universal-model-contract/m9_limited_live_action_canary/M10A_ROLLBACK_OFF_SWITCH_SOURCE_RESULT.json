@@ -1,0 +1,33 @@
+{
+  "schema": "umc.v1.m10a.rollback_off_switch_source_result.v1",
+  "generated_utc": "2026-07-16T11:20:00.000Z",
+  "status": "PASS_M10A_ROLLBACK_OFF_SWITCH_SOURCE_DEFINED",
+  "rollback_key": "M10A_DISABLE_OWNER_TELEGRAM_DIRECT_CONTRACT_ENFORCEMENT",
+  "disable_behavior": {
+    "command_semantics": "m10a_enabled=false at state/umc-v1/m10a-owner-telegram-direct-enforcement/control.json",
+    "status_readback_path": "umc.m10a.ownerTelegramDirect.status",
+    "fixture_status": "PASS_M10A_CONTROL_DISABLE_ACCEPTED",
+    "disabled_readback": {
+      "status_path": "umc.m10a.ownerTelegramDirect.status",
+      "control_artifact_path": "state/umc-v1/m10a-owner-telegram-direct-enforcement/control.json",
+      "enabled": false,
+      "scope_name": "M10A_OWNER_TELEGRAM_DIRECT_CONTRACT_ENFORCEMENT_ONLY",
+      "owner_chat_id": "8495203551",
+      "channel": "telegram_direct",
+      "agent_id": "main",
+      "contract_decision_enforcement": false,
+      "production_authority": false,
+      "broad_enforcement": false,
+      "status_reason": "M10A disabled by exact off-switch; pre-M10 behavior restored.",
+      "rollback_key": "M10A_DISABLE_OWNER_TELEGRAM_DIRECT_CONTRACT_ENFORCEMENT",
+      "fail_closed": true
+    }
+  },
+  "owner_direct_path_returns_to_pre_m10_behavior": "PASS_M10A_DISABLED_PRE_M10_BEHAVIOR",
+  "excluded_surfaces_remain_unaffected": "PASS_M10A_SCOPE_NOT_APPLICABLE_EXCLUDED_SURFACE_UNAFFECTED",
+  "gateway_health_verification_path": "future staged install: first-class gateway status/readback only; no restart in source-ready phase",
+  "telegram_health_verification_path": "future staged install: no-send Telegram plugin status/readback only; no probe/send in source-ready phase",
+  "rollback_package_path": "future staged install backup path placeholder: /home/stickai/.openclaw/backups/openclaw-m10a-control-path-install-<timestamp>/scoped-installed-files",
+  "operator_stop_request_behavior": "applyM10AControlIntent(... operator_stop_requested=true) disables/holds fail-closed",
+  "abort_threshold_behavior": "applyM10AControlIntent(... abort_threshold_breached=true) disables/holds fail-closed"
+}

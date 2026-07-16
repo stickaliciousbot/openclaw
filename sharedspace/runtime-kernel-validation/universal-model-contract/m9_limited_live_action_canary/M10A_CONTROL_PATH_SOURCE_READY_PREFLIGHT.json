@@ -1,0 +1,24 @@
+{
+  "schema": "umc.v1.m10a.control_path_source_ready_preflight.v1",
+  "generated_utc": "2026-07-16T11:20:00.000Z",
+  "status": "PASS_M10A_CONTROL_PATH_SOURCE_READY_PREFLIGHT",
+  "current_status": "BLOCKED_M10_CONTROL_PATH_GAP",
+  "narrow_scope_status": "PASS_M10_NARROW_SCOPE_DEFINED",
+  "abort_threshold_status": "PASS_M10_ABORT_THRESHOLDS_AND_OBSERVATION_PLAN_DEFINED",
+  "m10_started": false,
+  "production_authority_changed": false,
+  "counters": {
+    "m10_enabled": false,
+    "production_authority_changed": false,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "write_tool_execution_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0
+  },
+  "source_root": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+  "source_branch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+  "source_head_at_fixture_run": "7fbb19038154e1b4c8bb2545f4b29547505185d9"
+}

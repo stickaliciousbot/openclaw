@@ -1,0 +1,30 @@
+{
+  "schema": "umc.v1.m10a.control_path_staged_install_plan.v1",
+  "generated_utc": "2026-07-16T11:20:00.000Z",
+  "status": "PASS_M10A_CONTROL_PATH_STAGED_INSTALL_PLAN_READY",
+  "source_path": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+  "source_branch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+  "source_commit": "7fbb19038154e1b4c8bb2545f4b29547505185d9",
+  "build_package_command": "npm run build && npm pack --pack-destination /home/stickai/.openclaw/workspace/tmp/umc-m10a-package",
+  "package_tarball_path_if_produced": "/home/stickai/.openclaw/workspace/tmp/umc-m10a-package/openclaw-2026.5.7.tgz",
+  "expected_installed_files_changed": [
+    "dist/auto-reply/reply/umc-m10a-owner-telegram-direct-control-path.js",
+    "dist/auto-reply/reply/umc-m8-owner-contract-lane.js only if bundler chunking requires shared update"
+  ],
+  "backup_path": "/home/stickai/.openclaw/backups/openclaw-m10a-control-path-install-<timestamp>/scoped-installed-files",
+  "rollback_command": "restore backup scoped files and set m10a_enabled=false; then verify umc.m10a.ownerTelegramDirect.status disabled",
+  "gateway_telegram_health_validation": [
+    "Gateway status/readback; no restart unless future approval explicitly requires staged install restart",
+    "Telegram plugin status/readback; no Telegram send/probe"
+  ],
+  "m2_m9_regression_plan": "Run M10A_M2_M3_M4_M5_M6_M7_M8_M9_REGRESSION_RESULTS installed-runtime equivalent before any enablement approval.",
+  "m10a_installed_runtime_control_path_validation_plan": [
+    "Import installed dist module",
+    "Read default state and assert m10a_enabled=false",
+    "Assert exact enable accepts only owner telegram direct 8495203551/main scope",
+    "Assert excluded surfaces bypass/unaffected",
+    "Assert off-switch restores disabled state"
+  ],
+  "m10a_enable_disable_dry_run_validation_plan": "Fixture-only enable/disable dry-run against installed dist; no production control artifact write and no Gateway config mutation.",
+  "approval_boundary": "This plan does not install or enable M10A; future staged install requires explicit operator approval."
+}

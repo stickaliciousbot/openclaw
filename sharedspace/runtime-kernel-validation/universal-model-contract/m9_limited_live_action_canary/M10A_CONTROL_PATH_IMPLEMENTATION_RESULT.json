@@ -1,0 +1,25 @@
+{
+  "schema": "umc.v1.m10a.control_path_implementation_result.v1",
+  "generated_utc": "2026-07-16T11:20:00.000Z",
+  "status": "PASS_M10A_CONTROL_PATH_IMPLEMENTED_OR_PROVEN",
+  "implementation_mode": "implemented_source_only",
+  "source_file": "src/auto-reply/reply/umc-m10a-owner-telegram-direct-control-path.ts",
+  "stable_dist_entry_required": "auto-reply/reply/umc-m10a-owner-telegram-direct-control-path",
+  "exact_enable_flag_key": "m10a_enabled",
+  "exact_disable_flag_key": "m10a_enabled=false",
+  "exact_status_readback_path": "umc.m10a.ownerTelegramDirect.status",
+  "exact_runtime_decision_point": "auto-reply/reply/umc-m10a-owner-telegram-direct-control-path.evaluateM10AOwnerTelegramDirectContractDecision",
+  "disabled_by_default": true,
+  "excluded_surfaces_unaffected_fixture": "PASS_M10A_SCOPE_NOT_APPLICABLE_EXCLUDED_SURFACE_UNAFFECTED",
+  "no_execution_counters": {
+    "m10_enabled": false,
+    "production_authority_changed": false,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "write_tool_execution_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0
+  }
+}

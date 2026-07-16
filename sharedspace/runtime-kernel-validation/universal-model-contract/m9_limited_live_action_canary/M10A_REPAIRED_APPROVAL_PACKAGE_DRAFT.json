@@ -1,0 +1,17 @@
+{
+  "schema": "umc.v1.m10a.repaired_approval_package_draft.v1",
+  "generated_utc": "2026-07-16T11:20:00.000Z",
+  "status": "HOLD_M10A_APPROVAL_PACKAGE_REQUIRES_STAGED_INSTALL",
+  "source_control_path_ready": true,
+  "installed_runtime_control_path_verified": false,
+  "final_m10_approval_text_produced": false,
+  "reason": "M10A source control path and off-switch are ready, but M10 approval text cannot be final until staged install and installed-runtime validation prove the control path is real.",
+  "placeholders_required_after_staged_install": [
+    "installed dist import SHA256",
+    "control path status/readback installed-runtime PASS",
+    "off-switch installed-runtime PASS",
+    "Gateway/Telegram no-send health readback PASS",
+    "M2-M9 installed regression PASS"
+  ],
+  "next_phase": "M10A_CONTROL_PATH_STAGED_INSTALL_AND_VALIDATION"
+}

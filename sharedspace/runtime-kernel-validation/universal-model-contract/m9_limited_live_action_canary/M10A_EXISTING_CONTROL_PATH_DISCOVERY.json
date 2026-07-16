@@ -1,0 +1,20 @@
+{
+  "schema": "umc.v1.m10a.existing_control_path_discovery.v1",
+  "generated_utc": "2026-07-16T11:20:00.000Z",
+  "status": "NO_EXISTING_M10A_CONTROL_PATH_FOUND",
+  "classification": "NO_EXISTING_M10A_CONTROL_PATH_FOUND",
+  "searched_before_new_module": true,
+  "searched_for": [
+    "owner Telegram direct enforcement flags",
+    "UMC enforcement mode flags",
+    "contract enforcement status/readback",
+    "Gateway control/config API for UMC authority",
+    "M8 enforced-no-send decision gate",
+    "M9 live-action eligibility gate",
+    "runtime feature flags",
+    "disable/off-switch helpers"
+  ],
+  "finding": "Existing source had M4-M8 UMC modules and M8 enforced-no-send gate, but no M10A-compatible enable flag, disable key, status/readback path, or runtime decision point. M10A source module was therefore implemented rather than duplicated.",
+  "nearest_existing_gate": "src/auto-reply/reply/umc-m8-owner-contract-lane.ts",
+  "implemented_source_path": "src/auto-reply/reply/umc-m10a-owner-telegram-direct-control-path.ts"
+}

@@ -1,0 +1,26 @@
+{
+  "schema": "umc.v1.m10a.control_path_no_apply_build_validation.v1",
+  "generated_utc": "2026-07-16T11:20:00.000Z",
+  "status": "PASS_M10A_CONTROL_PATH_NO_APPLY_BUILD_VALIDATION",
+  "validation_scope": "source/static/focused fixture only; no package install, no tarball apply, no Gateway restart",
+  "checks": {
+    "focused_fixture_runner": "PASS_M10A_CONTROL_PATH_FIXTURES",
+    "m2_m9_regression_fixture": "PASS_M10A_M2_M9_REGRESSION",
+    "json_artifact_validation": "PASS",
+    "markdown_sanity": "PASS",
+    "node_check_script": "PASS",
+    "typescript_module_imported_by_fixture": "PASS",
+    "git_diff_check": "PASS_TO_BE_RECONFIRMED_IN_PRESERVATION"
+  },
+  "counters": {
+    "m10_enabled": false,
+    "production_authority_changed": false,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "write_tool_execution_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0
+  }
+}

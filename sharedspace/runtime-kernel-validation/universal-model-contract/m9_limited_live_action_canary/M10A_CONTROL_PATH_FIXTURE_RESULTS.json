@@ -1,0 +1,33 @@
+{
+  "schema": "umc.v1.m10a.control_path_fixture_results.v1",
+  "generated_utc": "2026-07-16T11:20:00.000Z",
+  "status": "PASS_M10A_CONTROL_PATH_FIXTURES",
+  "cases": {
+    "disabled_by_default": "PASS_M10A_DISABLED_PRE_M10_BEHAVIOR",
+    "status_readback_disabled_by_default": true,
+    "exact_owner_telegram_direct_enable": "PASS_M10A_CONTROL_ENABLE_ACCEPTED",
+    "wrong_owner_id_rejected": "FAIL_M10A_ENABLE_SCOPE_MISMATCH",
+    "web_ui_scope_rejected": "FAIL_M10A_ENABLE_SCOPE_MISMATCH",
+    "external_sends_rejected": "FAIL_M10A_BOUNDARY_VIOLATION",
+    "provider_calls_rejected": "FAIL_M10A_BOUNDARY_VIOLATION",
+    "memory_mutation_rejected": "FAIL_M10A_BOUNDARY_VIOLATION",
+    "context_bridge_mutation_rejected": "FAIL_M10A_BOUNDARY_VIOLATION",
+    "off_switch_returns_disabled": "PASS_M10A_CONTROL_DISABLE_ACCEPTED",
+    "readback_disabled_after_off_switch": true,
+    "contract_decision_without_production_authority": "PASS_M10A_OWNER_TELEGRAM_DIRECT_CONTRACT_DECISION_ENFORCED",
+    "broad_enforcement_remains_false": true,
+    "m2_m9_evidence_chain_compatible": true
+  },
+  "boundary_counters": {
+    "m10a_enabled": false,
+    "production_authority_change_count": 0,
+    "broad_enforcement_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "write_tool_execution_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "schema": "umc.v1.m10a.m2_m9_regression_results.v1",
+  "generated_utc": "2026-07-16T11:20:00.000Z",
+  "status": "PASS_M10A_M2_M9_REGRESSION",
+  "checks": {
+    "m2_route_admission_still_passes": "PASS_M2_ROUTE_ADMISSION_FIXTURE",
+    "m3_envelope_no_send_receipts_still_pass": "PASS_M3_TERMINAL_CONTRACT_CLOSEOUT_EMITTED",
+    "m4_verified_route_firewall_blocks_raw_provider_model_authority": "HOLD_M4_VERIFIED_ROUTE_EXECUTION_MISMATCH",
+    "m5_manifests_gate_route_eligibility": "PASS_M5_CAPABILITY_MANIFEST_REGISTRY_FIXTURE",
+    "m6_contract_build_lane_still_builds_valid_lane": "PASS_M6_CONTRACT_BUILD_LANE_BUILT",
+    "m7_model_fallback_eligibility_still_passes": "PASS_M7_MODEL_ELIGIBILITY_VERIFIED",
+    "m8_enforced_no_send_still_passes": "PASS_M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_VERIFIED",
+    "m9_local_artifact_canary_evidence_remains_valid": "PASS_M9_LIMITED_LIVE_ACTION_CANARY_LOCAL_ARTIFACT_WRITE_OBSERVED_AFTER_COMPACTION_AND_QUEUE_RECHECK"
+  },
+  "counters": {
+    "m10_enabled": false,
+    "production_authority_changed": false,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "write_tool_execution_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0
+  }
+}
