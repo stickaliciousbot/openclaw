@@ -1,0 +1,126 @@
+{
+  "schema": "umc.v1.m8.owner_contract_lane_install_approval_card.v2",
+  "generated_utc": "2026-07-16T05:24:00Z",
+  "status": "HOLD_M8_OWNER_CONTRACT_LANE_INSTALL_R2_AWAITING_OPERATOR_APPROVAL",
+  "milestone": "M8_OWNER_CONTRACT_LANE_STAGED_INSTALL_AND_REGRESSION",
+  "supersedes": "M8_OWNER_CONTRACT_LANE_INSTALL_APPROVAL_CARD.json",
+  "r1_status": "SUPERSEDED_DO_NOT_USE",
+  "supersession_reason": "R1 approval-card expected-file scope was too narrow. Late approved hash comparison proved the exact M8 source-build tarball also replaces dist/auto-reply/reply/umc-m7-model-eligibility.js, so R2 explicitly includes the M7 replacement plus M8 add.",
+  "approval_required_before_install": true,
+  "approved": false,
+  "selected_source_path": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+  "source_branch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+  "source_head": "e233663c2eed9ced3b97a6dc3bd015c1554f5c10",
+  "source_commit_to_install": "e233663c2eed9ced3b97a6dc3bd015c1554f5c10",
+  "build_command": "/home/stickai/.openclaw/workspace/tmp/openclaw-start-ack-pnpm-shim/pnpm build",
+  "package": {
+    "pack_command": "npm pack --ignore-scripts --pack-destination /home/stickai/.openclaw/workspace/tmp/umc-m8-package",
+    "tarball_path": "/home/stickai/.openclaw/workspace/tmp/umc-m8-package/openclaw-2026.5.7.tgz",
+    "tarball_sha256": "c9b71a74644e871b413d1a5f7b1d3110934a99b39ca16758b6f8596483200da7",
+    "npm_shasum": "4cc097ca45bbc8d993b567b3230f5ea16846e240"
+  },
+  "installed_package_root": "/home/stickai/.npm-global/lib/node_modules/openclaw",
+  "exact_files_expected_to_change": [
+    {
+      "path": "dist/auto-reply/reply/umc-m7-model-eligibility.js",
+      "operation": "replace",
+      "sha256_before": "d7de6cb9f6f4dc1006f0062fb77070535eb7198712647a4f152acce876191789",
+      "sha256_after_install_expected": "85e80863ee7720453e57c62b5c7955a681a0e8398e80a9ab9d026fcb66c4f996",
+      "required_regression": "PASS_M7_MODEL_ELIGIBILITY_AND_FALLBACK_EQUIVALENCE_INSTALLED_REGRESSION"
+    },
+    {
+      "path": "dist/auto-reply/reply/umc-m8-owner-contract-lane.js",
+      "operation": "add",
+      "sha256_after_install_expected": "ab0b66fb9578f1b99320b46590825a1a956a83152d5c653f0d00ca2386cdb44f",
+      "required_verification": "PASS_M8_OWNER_CONTRACT_LANE_INSTALLED_RUNTIME_VERIFIED"
+    }
+  ],
+  "preservation_checks_required": {
+    "package_json_sha256_expected": "9585403b5d52ef6b56a6faf6b958eb1ae22d14f7a581def93da13b597087b0ad",
+    "telegram_plugin_manifest_sha256_expected": "a3bd23650c86763689c3c9227d13928ee78d4546e0b8e39864f440d926cc40bd",
+    "m4_dist_sha256_expected": "9012c1d9ef5e651dfcf3b0dff533fa33b5ce08f226e21d3a7733b8faef02cff6",
+    "m5_dist_sha256_expected": "e5a1d1c32a97ace2fe33cc151d98bd8ff4afed17ae768a7cf351319ef15adfe2",
+    "m6_entry_sha256_expected": "9fb2893b5cc7c7a75c7aa15b93d3cfee53eac164970485ad597d72a47f7e8bbc"
+  },
+  "backup": {
+    "backup_path": "/home/stickai/.openclaw/backups/openclaw-m8-owner-contract-lane-install-r2-20260716T0524Z/openclaw-installed-package",
+    "backup_command": "mkdir -p /home/stickai/.openclaw/backups/openclaw-m8-owner-contract-lane-install-r2-20260716T0524Z && cp -a /home/stickai/.npm-global/lib/node_modules/openclaw /home/stickai/.openclaw/backups/openclaw-m8-owner-contract-lane-install-r2-20260716T0524Z/openclaw-installed-package"
+  },
+  "install": {
+    "install_command": "npm install -g --ignore-scripts /home/stickai/.openclaw/workspace/tmp/umc-m8-package/openclaw-2026.5.7.tgz",
+    "sha256_verification_command": "sha256sum /home/stickai/.openclaw/workspace/tmp/umc-m8-package/openclaw-2026.5.7.tgz",
+    "approved_install_only_if_sha256_matches": "c9b71a74644e871b413d1a5f7b1d3110934a99b39ca16758b6f8596483200da7"
+  },
+  "rollback": {
+    "rollback_ready": true,
+    "rollback_source": "/home/stickai/.openclaw/workspace/tmp/umc-m7-package/openclaw-2026.5.7.tgz",
+    "rollback_source_sha256": "8814f2ee8e0cd5a6b7fbf8ba52f80f497a468404513ea865af9a729a8cd37717",
+    "rollback_command": "npm install -g --ignore-scripts /home/stickai/.openclaw/workspace/tmp/umc-m7-package/openclaw-2026.5.7.tgz && openclaw gateway restart",
+    "rollback_backup_available": "/home/stickai/.openclaw/backups/openclaw-m7-model-eligibility-install-20260716T041957Z/openclaw-installed-package"
+  },
+  "gateway_restart_requirement": {
+    "required_after_install": true,
+    "method": "gateway.restart first-class tool / SIGUSR1 safe restart",
+    "reason": "Reload installed runtime after staged package install before installed-runtime verification."
+  },
+  "health_checks": {
+    "gateway_before_install": "PASS_RUNNING_CONNECTIVITY_OK_ADMIN_CAPABLE",
+    "telegram_before_install": "PASS_ENABLED_CONFIGURED_RUNNING_CONNECTED",
+    "gateway_after_restart_required": true,
+    "telegram_after_restart_required": true,
+    "no_telegram_send_probe": true
+  },
+  "installed_runtime_m8_verification_checks": [
+    "M8 enforced no-send owner contract lane present",
+    "contract decisions enforced",
+    "side effects forbidden",
+    "delivery mode remains no_send",
+    "authority mode is enforced_no_send",
+    "production authority remains false",
+    "scope owner-turn contract lane only",
+    "raw provider/model authority blocked",
+    "missing receipt cannot PASS",
+    "missing VerifiedRoute cannot PASS",
+    "missing manifest cannot PASS",
+    "unsupported fallback cannot PASS",
+    "tool/postcondition gaps produce HOLD/FAIL",
+    "live-action canary disabled",
+    "broad production enforcement disabled"
+  ],
+  "m3_m4_m5_m6_m7_regression_plan": [
+    "M3 envelope/no-send receipts still pass",
+    "M4 raw provider/model bypass still blocked",
+    "M5 manifests still gate route eligibility",
+    "M6 contract-build lane still builds valid lane",
+    "M7 model/fallback eligibility still passes after explicit M7 dist replacement",
+    "fallback contract preservation still enforced",
+    "worker model route authority remains false"
+  ],
+  "enforced_no_send_canary_validation_plan": [
+    "valid contract produces enforced PASS no-send",
+    "missing VerifiedRoute produces enforced HOLD/FAIL",
+    "missing manifest produces enforced HOLD",
+    "malformed manifest produces enforced FAIL",
+    "missing ContractEnvelope produces enforced HOLD/FAIL",
+    "missing DeliveryReceipt produces enforced HOLD/FAIL",
+    "DeliveryReceipt mode not no_send produces enforced FAIL",
+    "missing TerminalContractCloseout produces enforced HOLD/FAIL",
+    "raw provider/model authority produces enforced FAIL/HOLD",
+    "fallback contract drop produces enforced HOLD/FAIL",
+    "side-effect attempt produces enforced FAIL",
+    "ambient production delivery classified separately"
+  ],
+  "no_send_no_authority_boundary": {
+    "telegram_send_probe_count_must_remain": 0,
+    "external_send_count_must_remain": 0,
+    "provider_model_live_call_count_must_remain": 0,
+    "route_config_mutation_count_must_remain": 0,
+    "durable_memory_mutation_count_must_remain": 0,
+    "context_bridge_mutation_count_must_remain": 0,
+    "production_authority_change_count_must_remain": 0,
+    "live_action_canary_enabled": false,
+    "broad_production_enforcement_enabled": false,
+    "m9_started": false
+  },
+  "operator_decision_required": "Approve or deny the exact R2 staged install described in this card. Do not use R1. No install has been run."
+}
