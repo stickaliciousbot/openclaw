@@ -27,6 +27,7 @@ export const M8_POLICY_VERSION =
 export const M8_CANARY_CONTRACT_VERSION =
   "umc.v1.m8.owner_contract_lane_enforced_no_send_canary_contract.v1" as const;
 export const M8_ENFORCEMENT_MODE = "fixture_only_enforced_no_send_canary" as const;
+export const M8_AUTHORITY_MODE = "enforced_no_send" as const;
 export const M8_OWNER_SCOPE = "owner_turn" as const;
 export const M8_FORBIDDEN_SCOPE = "broad_production" as const;
 
@@ -34,7 +35,7 @@ export type M8CanaryStatus =
   | "PASS_M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_VERIFIED"
   | "HOLD_M8_OWNER_SCOPE_REQUIRED"
   | "HOLD_M8_NO_SEND_REQUIRED"
-  | "HOLD_M8_OBSERVE_ONLY_REQUIRED"
+  | "HOLD_M8_ENFORCED_NO_SEND_REQUIRED"
   | "HOLD_M8_CONTRACT_LANE_REQUIRED"
   | "HOLD_M8_LIVE_ACTION_CANARY_FORBIDDEN"
   | "HOLD_M8_M7_ELIGIBILITY_NOT_VERIFIED"
@@ -56,7 +57,8 @@ export type M8OwnerContractLanePolicy = {
   primary_worker: M4RouteRef;
   fallback_worker: M4RouteRef;
   required_delivery_mode: typeof M6_DELIVERY_MODE;
-  required_authority_mode: typeof M6_AUTHORITY_MODE;
+  required_authority_mode: typeof M8_AUTHORITY_MODE;
+  underlying_lane_authority_mode: typeof M6_AUTHORITY_MODE;
   m7_prerequisite: "PASS_M7_MODEL_ELIGIBILITY_STAGED_INSTALL_AND_REGRESSION";
   source_fixture_only: true;
   installed_runtime_mutation_allowed: false;
@@ -115,7 +117,8 @@ export type M8CanaryResult =
         owner_scope: typeof M8_OWNER_SCOPE;
         lane_id: typeof M6_LANE_ID;
         delivery_mode: typeof M6_DELIVERY_MODE;
-        authority_mode: typeof M6_AUTHORITY_MODE;
+        authority_mode: typeof M8_AUTHORITY_MODE;
+        underlying_lane_authority_mode: typeof M6_AUTHORITY_MODE;
         enforcement_mode: typeof M8_ENFORCEMENT_MODE;
         source_fixture_only: true;
         verifiedRoute_preserved: true;
@@ -157,7 +160,8 @@ export function buildM8OwnerContractLanePolicy(
     primary_worker: primary,
     fallback_worker: fallback,
     required_delivery_mode: M6_DELIVERY_MODE,
-    required_authority_mode: M6_AUTHORITY_MODE,
+    required_authority_mode: M8_AUTHORITY_MODE,
+    underlying_lane_authority_mode: M6_AUTHORITY_MODE,
     m7_prerequisite: "PASS_M7_MODEL_ELIGIBILITY_STAGED_INSTALL_AND_REGRESSION",
     source_fixture_only: true,
     installed_runtime_mutation_allowed: false,
@@ -197,7 +201,8 @@ export function buildM8OwnerContractLaneCanaryContract(): M8OwnerContractLaneCan
       "ContractEnvelope",
       "DeliveryReceipt mode no_send",
       "terminal closeout",
-      "observe_only_no_send authority",
+      "enforced_no_send canary authority",
+      "underlying M6/M7 lane authority remains observe_only",
       "worker model route_authority false",
       "zero send/provider/config/memory/context-bridge counters",
     ],
@@ -232,7 +237,7 @@ export function buildM8ValidOwnerCanaryIntent(
     }),
     canary_scope: "source_fixture",
     delivery_mode: M6_DELIVERY_MODE,
-    authority_mode: M6_AUTHORITY_MODE,
+    authority_mode: M8_AUTHORITY_MODE,
     production_authority_change: false,
     broad_production_enforcement: false,
     live_action_canary: false,
@@ -334,10 +339,10 @@ export function verifyM8OwnerContractLaneCanary(params: {
   if (intent.delivery_mode !== M6_DELIVERY_MODE) {
     return hold("HOLD_M8_NO_SEND_REQUIRED", "M8 enforced canary requires no_send delivery", intent);
   }
-  if (intent.authority_mode !== M6_AUTHORITY_MODE) {
+  if (intent.authority_mode !== M8_AUTHORITY_MODE) {
     return hold(
-      "HOLD_M8_OBSERVE_ONLY_REQUIRED",
-      "M8 enforced canary requires observe_only_no_send authority",
+      "HOLD_M8_ENFORCED_NO_SEND_REQUIRED",
+      "M8 enforced canary requires enforced_no_send authority",
       intent,
     );
   }
@@ -403,7 +408,8 @@ export function verifyM8OwnerContractLaneCanary(params: {
       owner_scope: M8_OWNER_SCOPE,
       lane_id: M6_LANE_ID,
       delivery_mode: M6_DELIVERY_MODE,
-      authority_mode: M6_AUTHORITY_MODE,
+      authority_mode: M8_AUTHORITY_MODE,
+      underlying_lane_authority_mode: M6_AUTHORITY_MODE,
       enforcement_mode: M8_ENFORCEMENT_MODE,
       source_fixture_only: true,
       verifiedRoute_preserved: true,

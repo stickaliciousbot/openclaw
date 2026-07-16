@@ -18,6 +18,7 @@ import {
   buildM7FallbackEquivalenceContract,
 } from "../src/auto-reply/reply/umc-m7-model-eligibility.ts";
 import {
+  M8_AUTHORITY_MODE,
   M8_ENFORCEMENT_MODE,
   M8_MILESTONE,
   M8_POLICY_BOUNDARY_COUNTERS,
@@ -130,6 +131,8 @@ assert.equal(valid.ok, true);
 assert.equal(valid.status, "PASS_M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_VERIFIED");
 assert.equal(valid.evidence.worker_model_route_authority, false);
 assert.equal(valid.evidence.delivery_mode, "no_send");
+assert.equal(valid.evidence.authority_mode, M8_AUTHORITY_MODE);
+assert.equal(valid.evidence.underlying_lane_authority_mode, "observe_only");
 assert.equal(valid.evidence.production_authority_change, false);
 assert.equal(valid.evidence.broad_production_enforcement, false);
 assert.equal(valid.evidence.live_action_canary, false);
@@ -214,7 +217,7 @@ const policyArtifact = {
   m7_policy: buildM7EligibilityPolicy(),
   boundary_counters: M8_POLICY_BOUNDARY_COUNTERS,
 };
-const policyMd = `# M8 Owner Contract Lane Enforced No-Send Canary Policy\n\nStatus: \`PASS_M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_POLICY_DEFINED\`\n\nM8 is source/fixture-only. It allows only owner-turn contract-lane decisions that preserve M7 eligibility/fallback equivalence, M6 contract-build lane, no-send delivery, observe-only authority, terminal closeout, and zero send/provider/config/memory/context mutations.\n\nBroad production enforcement, live-action canaries, raw provider/model authority, worker route authority, Telegram probes/sends, provider live calls, durable memory writes, Context Bridge mutation, package install/apply, Gateway restart, and M9 are forbidden.\n`;
+const policyMd = `# M8 Owner Contract Lane Enforced No-Send Canary Policy\n\nStatus: \`PASS_M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_POLICY_DEFINED\`\n\nM8 is source/fixture-only. It allows only owner-turn contract-lane decisions that preserve M7 eligibility/fallback equivalence, M6 contract-build lane, no-send delivery, enforced_no_send canary authority, underlying M6/M7 observe-only lane authority, terminal closeout, and zero send/provider/config/memory/context mutations.\n\nBroad production enforcement, live-action canaries, raw provider/model authority, worker route authority, Telegram probes/sends, provider live calls, durable memory writes, Context Bridge mutation, package install/apply, Gateway restart, and M9 are forbidden.\n`;
 const contractArtifact = {
   schema: "umc.v1.m8.owner_contract_lane_enforced_no_send_canary_contract.v1",
   generated_utc: now,
@@ -244,6 +247,7 @@ const fixtureResults = {
     worker_model_route_authority: valid.evidence.worker_model_route_authority,
     delivery_mode: valid.evidence.delivery_mode,
     authority_mode: valid.evidence.authority_mode,
+    underlying_lane_authority_mode: valid.evidence.underlying_lane_authority_mode,
   },
   source_fixture_only: true,
   live_action_canary_executed: false,
