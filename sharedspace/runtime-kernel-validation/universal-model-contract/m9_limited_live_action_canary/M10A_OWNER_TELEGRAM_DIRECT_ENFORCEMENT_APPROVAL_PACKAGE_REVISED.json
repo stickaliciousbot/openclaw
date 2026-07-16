@@ -1,0 +1,25 @@
+{
+  "schema": "umc.v1.m10a.owner_telegram_direct_enforcement_approval_package_revised.v1",
+  "generated_utc": "2026-07-16T13:38:26.020Z",
+  "status": "HOLD_M10A_FINAL_OPERATOR_APPROVAL_TEXT_READY",
+  "source_command_surface_installed": true,
+  "installed_validation": "PASS_M10A_COMMAND_SURFACE_INSTALLED_VALIDATION",
+  "enablement_not_performed": true,
+  "final_operator_approval_required_before_enablement": true,
+  "exact_enable_command": "node scripts/m10a-owner-telegram-direct-control.mjs --action enable --mode apply --state-root /home/stickai/.openclaw --scope-name M10A_OWNER_TELEGRAM_DIRECT_CONTRACT_ENFORCEMENT_ONLY --owner-chat-id 8495203551 --channel telegram_direct --agent-id main --requested-by owner_approval",
+  "exact_disable_command": "node scripts/m10a-owner-telegram-direct-control.mjs --action disable --mode apply --state-root /home/stickai/.openclaw --requested-by owner_off_switch",
+  "exact_status_command": "node scripts/m10a-owner-telegram-direct-control.mjs --action status --mode dry-run --state-root /home/stickai/.openclaw",
+  "exact_operator_stop_command": "node scripts/m10a-owner-telegram-direct-control.mjs --action operator-stop --mode apply --state-root /home/stickai/.openclaw --requested-by operator_stop",
+  "exact_post_enable_observation_command": "node scripts/m10a-owner-telegram-direct-observe.mjs --mode observe --state-root /home/stickai/.openclaw --duration-minutes 30 --cadence-minutes 5 --expected-probes 6",
+  "hard_stops": [
+    "M10A becomes enabled unexpectedly",
+    "production authority changes",
+    "broad enforcement becomes true",
+    "Telegram send/probe occurs without explicit approval",
+    "provider/model live call occurs",
+    "M8 SHA mismatch"
+  ],
+  "m10a_enabled": false,
+  "production_authority": false,
+  "broad_enforcement": false
+}

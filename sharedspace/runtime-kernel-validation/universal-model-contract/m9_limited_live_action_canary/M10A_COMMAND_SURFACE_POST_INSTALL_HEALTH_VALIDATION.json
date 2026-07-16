@@ -1,0 +1,11 @@
+{
+  "schema": "umc.v1.m10a.command_surface_post_install_health_validation.v1",
+  "generated_utc": "2026-07-16T13:38:26.020Z",
+  "status": "PASS_M10A_COMMAND_SURFACE_POST_INSTALL_HEALTH_VALIDATION",
+  "gateway_status_exit_code": 0,
+  "gateway_status_excerpt": "Service: systemd user (enabled)\nFile logs: /tmp/openclaw/openclaw-2026-07-16.log\nCommand: /usr/bin/node /home/stickai/.npm-global/lib/node_modules/openclaw/dist/index.js gateway --port 18789\nService file: ~/.config/systemd/user/openclaw-gateway.service\nService env: OPENCLAW_GATEWAY_PORT=18789\n\nConfig (cli): ~/.openclaw/openclaw.json\nConfig (service): ~/.openclaw/openclaw.json\n\nGateway: bind=lan (0.0.0.0), port=18789 (service args)\nProbe target: ws://127.0.0.1:18789\nDashboard: http://172.24.168.46:18789/\nProbe note: bind=lan listens on 0.0.0.0 (all interfaces); probing via 127.0.0.1.\n\nRuntime: running (pid 1419760, state active, sub running, last exit 0, reason 0)\nConnectivity probe: ok\nCapability: admin-capable\n\nListening: *:18789\nTroubles: run openclaw status\nTroubleshooting: https://docs.openclaw.ai/troubleshooting\n\nService config looks out of date or non-standard.\nService config issue: Gateway service PATH missing required dirs: /home/stickai/.local/share/pnpm\nRecommendation: run \"openclaw doctor\" (or \"openclaw doctor --repair\").\n",
+  "telegram_health_validation": "PASS_NO_SEND_STATUS_INSPECTION_TELEGRAM_ON_OK_ACCOUNTS_1_OF_1",
+  "telegram_health_source": "openclaw status no-send inspection; Channels table reported Telegram ON / OK / accounts 1/1",
+  "gateway_restart_count": 0,
+  "telegram_send_probe_count": 0
+}

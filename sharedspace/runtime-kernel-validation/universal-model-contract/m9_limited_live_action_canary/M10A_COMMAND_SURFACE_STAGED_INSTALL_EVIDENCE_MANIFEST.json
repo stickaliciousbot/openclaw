@@ -1,0 +1,92 @@
+{
+  "schema": "umc.v1.m10a.command_surface_staged_install_evidence_manifest.v1",
+  "generated_utc": "2026-07-16T13:38:26.029Z",
+  "status": "HOLD_M10A_FINAL_OPERATOR_APPROVAL_TEXT_READY",
+  "final_status": "HOLD_M10A_FINAL_OPERATOR_APPROVAL_TEXT_READY",
+  "artifacts": [
+    {
+      "file": "M10A_COMMAND_SURFACE_STAGED_INSTALL_RESULT.json",
+      "sha256": "4ae96a8dd4e3e1a5032d41bc8f59e6f97ab676e6263c01be475ed2163858d5ca",
+      "status": "PASS_M10A_COMMAND_SURFACE_STAGED_INSTALL_RESULT"
+    },
+    {
+      "file": "M10A_COMMAND_SURFACE_INSTALLED_VALIDATION.json",
+      "sha256": "0da36d2838aa3888dba089c37e34a5a114b0391ac2d4beb373b6fe92e534d67a",
+      "status": "PASS_M10A_COMMAND_SURFACE_INSTALLED_VALIDATION"
+    },
+    {
+      "file": "M10A_COMMAND_SURFACE_ENABLE_DISABLE_STATUS_DRY_RUN_VALIDATION.json",
+      "sha256": "9e600c303a8d812b9b79969a58e2f60e5bb694ac72218e2c5a86f9103661a62d",
+      "status": "PASS_M10A_COMMAND_SURFACE_ENABLE_DISABLE_STATUS_DRY_RUN_VALIDATION"
+    },
+    {
+      "file": "M10A_COMMAND_SURFACE_OBSERVE_DRY_RUN_VALIDATION.json",
+      "sha256": "7b43272e3f387dd4d4db2d00d6fb1ab727e096a36de15b3227c59be5d8b7ade0",
+      "status": "PASS_M10A_COMMAND_SURFACE_OBSERVE_DRY_RUN_VALIDATION"
+    },
+    {
+      "file": "M10A_COMMAND_SURFACE_POST_INSTALL_HEALTH_VALIDATION.json",
+      "sha256": "a1181e03d72a3ca388a6ea03b541144b8658a8b53a1ad72c3dd7ce2fd5748607",
+      "status": "PASS_M10A_COMMAND_SURFACE_POST_INSTALL_HEALTH_VALIDATION"
+    },
+    {
+      "file": "M10A_OWNER_TELEGRAM_DIRECT_ENFORCEMENT_APPROVAL_PACKAGE_REVISED.json",
+      "sha256": "bfcbf02a0b4a8ab47562fd904cf595ae02444d2545c503bf15d7d402889ecd21",
+      "status": "HOLD_M10A_FINAL_OPERATOR_APPROVAL_TEXT_READY"
+    },
+    {
+      "file": "M10A_OWNER_TELEGRAM_DIRECT_ENFORCEMENT_APPROVAL_PACKAGE_REVISED.md",
+      "sha256": "00606ccf084905ca1d09c178dbacc8cb97d0960639524ece4c8e1f304aec5e45"
+    },
+    {
+      "file": "M10A_FINAL_OPERATOR_APPROVAL_TEXT_TO_ENABLE.md",
+      "sha256": "b8b6be2c96c7f97f5824cff1ec341ac12e77ab908bb39dddbe9452e6dc923e3f"
+    },
+    {
+      "file": "M10A_COMMAND_SURFACE_STAGED_INSTALL_CLOSEOUT.json",
+      "sha256": "31e91bcfb451adaad55e79458c692744d914f220b84539d4ac2ab3e505a11a8a",
+      "status": "HOLD_M10A_FINAL_OPERATOR_APPROVAL_TEXT_READY"
+    }
+  ],
+  "candidate_package_path": "/home/stickai/.openclaw/workspace/tmp/m10a-command-surface-staged-install-candidate/20260716T1325Z/m10a-command-surface-staged-install-candidate-20260716T1325Z.tar.gz",
+  "candidate_package_sha256": "1c26049fab45d9afbadf3be4a33ef569b03184d65a05b81abdfcde85467ea71d",
+  "backup_path": "/home/stickai/.openclaw/backups/openclaw-m10a-command-surface-staged-install-20260716T1325Z/openclaw-installed-package",
+  "rollback_command": "rm -rf /home/stickai/.npm-global/lib/node_modules/openclaw && cp -a /home/stickai/.openclaw/backups/openclaw-m10a-command-surface-staged-install-20260716T1325Z/openclaw-installed-package /home/stickai/.npm-global/lib/node_modules/openclaw",
+  "installed_script_sha256": {
+    "scripts/m10a-owner-telegram-direct-control.mjs": "02b8d9182d39c040ed22f027da2489c209dc9ea2d569e989ea6149ac25207dd6",
+    "scripts/m10a-owner-telegram-direct-observe.mjs": "98b2f27d751055489c0e8b28ad4ba2b15c6a06adda3701f2217196fc02694c38"
+  },
+  "expected_installed_files_changed": [
+    "package.json",
+    "M10A_COMMAND_SURFACE_CANDIDATE_OVERLAY_MANIFEST.json",
+    "scripts/m10a-owner-telegram-direct-observe.mjs",
+    "scripts/m10a-owner-telegram-direct-control.mjs"
+  ],
+  "expected_preserved_files": [
+    "dist/auto-reply/reply/umc-m4-verified-route.js",
+    "dist/auto-reply/reply/umc-m5-capability-manifest.js",
+    "dist/auto-reply/reply/umc-m5-capability-manifest.schema.json",
+    "dist/auto-reply/reply/umc-m5-seed-manifests.json",
+    "dist/auto-reply/reply/umc-m6-contract-build-lane.js",
+    "dist/auto-reply/reply/umc-m7-model-eligibility.js",
+    "dist/auto-reply/reply/umc-m8-owner-contract-lane.js",
+    "dist/auto-reply/reply/umc-m10a-owner-telegram-direct-control-path.js",
+    "dist/umc-m3-envelope-supervision-CZFFPUFB.js",
+    "dist/umc-m4-verified-route-B8LC1Bgv.js",
+    "dist/umc-m5-capability-manifest-DBUsXqaz.js",
+    "dist/umc-m6-contract-build-lane-B49r9Ao5.js",
+    "dist/umc-m7-model-eligibility-ovqh9OfD.js",
+    "dist/umc-m8-owner-contract-lane-CdxuqyX4.js",
+    "dist/extensions/telegram/openclaw.plugin.json"
+  ],
+  "m8_sha256": "27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db",
+  "m10a_runtime_control_path_sha256": "be56d6a5105d4d0a03085757483b3bb07374ff96b9db8ea44a1bcb164139e082",
+  "gateway_restart_count": 0,
+  "telegram_send_probe_count": 0,
+  "provider_model_live_call_count": 0,
+  "runtime_write_tool_execution_count": 0,
+  "durable_memory_mutation_count": 0,
+  "context_bridge_mutation_count": 0,
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "exact_next_phase": "APPROVE_OR_DENY_M10A_OWNER_TELEGRAM_DIRECT_PRODUCTION_ENABLEMENT"
+}

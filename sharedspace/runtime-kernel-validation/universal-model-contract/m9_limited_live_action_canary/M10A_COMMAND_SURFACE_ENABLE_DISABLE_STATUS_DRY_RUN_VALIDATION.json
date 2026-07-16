@@ -1,0 +1,43 @@
+{
+  "schema": "umc.v1.m10a.command_surface_enable_disable_status_dry_run_validation.v1",
+  "generated_utc": "2026-07-16T13:38:11.954Z",
+  "status": "PASS_M10A_COMMAND_SURFACE_ENABLE_DISABLE_STATUS_DRY_RUN_VALIDATION",
+  "runs": [
+    {
+      "name": "enable_dry_run",
+      "code": 0,
+      "status": "PASS_M10A_COMMAND_ENABLE_DRY_RUN",
+      "expected_status": "PASS_M10A_COMMAND_ENABLE_DRY_RUN",
+      "stderr": ""
+    },
+    {
+      "name": "disable_dry_run",
+      "code": 0,
+      "status": "PASS_M10A_COMMAND_DISABLE_DRY_RUN",
+      "expected_status": "PASS_M10A_COMMAND_DISABLE_DRY_RUN",
+      "stderr": ""
+    },
+    {
+      "name": "status_dry_run",
+      "code": 0,
+      "status": "PASS_M10A_COMMAND_STATUS_READBACK",
+      "expected_status": "PASS_M10A_COMMAND_STATUS_READBACK",
+      "stderr": ""
+    },
+    {
+      "name": "verify_disabled_dry_run",
+      "code": 0,
+      "status": "PASS_M10A_COMMAND_VERIFY_DISABLED",
+      "expected_status": "PASS_M10A_COMMAND_VERIFY_DISABLED",
+      "stderr": ""
+    }
+  ],
+  "exact_enable_command_represented_not_live": true,
+  "exact_disable_command_represented_not_live": true,
+  "exact_status_readback_command_dry_run_safe": true,
+  "m10a_enabled": false,
+  "production_authority": false,
+  "broad_enforcement": false,
+  "telegram_send_probe_count": 0,
+  "provider_model_live_call_count": 0
+}

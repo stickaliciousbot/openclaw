@@ -1,0 +1,13 @@
+{
+  "schema": "umc.v1.m10a.command_surface_observe_dry_run_validation.v1",
+  "generated_utc": "2026-07-16T13:38:12.014Z",
+  "status": "PASS_M10A_COMMAND_SURFACE_OBSERVE_DRY_RUN_VALIDATION",
+  "run": {
+    "code": 0,
+    "status": "PASS_M10A_OBSERVATION_COMMAND_DRY_RUN"
+  },
+  "post_enable_observation_command_represented": true,
+  "dry_run_safe": true,
+  "telegram_send_probe_count": 0,
+  "provider_model_live_call_count": 0
+}
