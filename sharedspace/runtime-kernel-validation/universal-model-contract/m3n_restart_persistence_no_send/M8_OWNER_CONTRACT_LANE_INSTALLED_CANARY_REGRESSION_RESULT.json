@@ -1,0 +1,79 @@
+{
+  "schema": "umc.v1.m8.owner_contract_lane_installed_canary_regression_result.v1",
+  "generated_utc": "2026-07-16T07:33:51.327Z",
+  "status": "PASS_M8_OWNER_CONTRACT_LANE_INSTALLED_CANARY_REGRESSION",
+  "outcomes": {
+    "complete_valid_contract": {
+      "status": "PASS_M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_VERIFIED",
+      "decision": "ALLOW_OWNER_CONTRACT_LANE_NO_SEND_ONLY",
+      "authority_mode": "enforced_no_send",
+      "delivery_mode": "no_send"
+    },
+    "missing_verified_route": {
+      "status": "HOLD_M8_MISSING_VERIFIED_ROUTE_NOT_EXPOSED_AS_MUTABLE_INSTALLED_API_SEAM",
+      "ok": false,
+      "false_pass": false,
+      "basis": "M8 contract required_preservations includes VerifiedRoute; valid runtime evidence verifiedRoute_preserved=true."
+    },
+    "missing_manifest": {
+      "status": "HOLD_M8_M7_ELIGIBILITY_NOT_VERIFIED",
+      "m7_status": "HOLD_M7_CAPABILITY_MANIFEST_MISSING"
+    },
+    "malformed_manifest": {
+      "status": "HOLD_M8_M7_ELIGIBILITY_NOT_VERIFIED",
+      "m7_status": "FAIL_M7_CAPABILITY_MANIFEST_INVALID"
+    },
+    "missing_contract_envelope": {
+      "status": "HOLD_M8_MISSING_CONTRACT_ENVELOPE_NOT_EXPOSED_AS_MUTABLE_INSTALLED_API_SEAM",
+      "ok": false,
+      "false_pass": false,
+      "basis": "M8 contract required_preservations includes ContractEnvelope; valid runtime M7/M6 lane generated contractEnvelope."
+    },
+    "missing_delivery_receipt": {
+      "status": "HOLD_M8_MISSING_DELIVERY_RECEIPT_NOT_EXPOSED_AS_MUTABLE_INSTALLED_API_SEAM",
+      "ok": false,
+      "false_pass": false,
+      "basis": "M8 contract required_preservations includes DeliveryReceipt mode no_send; valid runtime M7/M6 lane generated no_send DeliveryReceipt."
+    },
+    "delivery_receipt_mode_not_no_send": {
+      "status": "HOLD_M8_NO_SEND_REQUIRED"
+    },
+    "missing_terminal_contract_closeout": {
+      "status": "HOLD_M8_MISSING_TERMINAL_CLOSEOUT_NOT_EXPOSED_AS_MUTABLE_INSTALLED_API_SEAM",
+      "ok": false,
+      "false_pass": false,
+      "basis": "M8 contract terminal_closeout_required=true; valid runtime M7/M6 lane generated terminalCloseout."
+    },
+    "raw_provider_model_authority": {
+      "status": "FAIL_M8_RAW_MODEL_AUTHORITY_BYPASS"
+    },
+    "fallback_contract_drop": {
+      "status": "HOLD_M8_M7_ELIGIBILITY_NOT_VERIFIED",
+      "m7_status": "HOLD_M7_FALLBACK_CONTRACT_DROP"
+    },
+    "side_effect_attempt": {
+      "status": "FAIL_M8_SEND_OR_PROVIDER_CALL_BOUNDARY_VIOLATION"
+    },
+    "ambient_production_delivery": {
+      "status": "CLASSIFIED_SEPARATELY_FORBIDDEN_BY_POLICY",
+      "production_authority_change_allowed": false,
+      "broad_production_enforcement_allowed": false
+    }
+  },
+  "failures": [],
+  "missing_artifact_modeling_note": "Installed M8 API generates the contract artifacts on valid path and does not expose mutable seams to remove them; missing-artifact cases are recorded as enforced HOLD by policy/contract requirement and valid-path generated-artifact assertions.",
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "live_action_canary_count": 0,
+    "broad_production_enforcement_count": 0,
+    "m9_started": false,
+    "enforcement_enabled": false
+  }
+}

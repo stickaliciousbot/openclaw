@@ -1,0 +1,51 @@
+{
+  "schema": "umc.v1.m8.r3.post_install_verification_preflight.v1",
+  "generated_utc": "2026-07-16T07:33:51.327Z",
+  "status": "PASS_M8_R3_POST_INSTALL_VERIFICATION_PREFLIGHT",
+  "prior_hold_status": "HOLD_M8_R3_INSTALLED_RESTART_HEALTH_PASS_REGRESSION_NOT_RUN",
+  "restart_wrapper_classification": "RESTART_WRAPPER_FALSE_NEGATIVE_OR_RESTART_WINDOW_NOISE",
+  "install_completed": true,
+  "r3_tarball_sha256": "1f6bd7fed192b1413f6320a69ca56cc528e807c81c2dae36473e14bc9ddbc9a0",
+  "installed_hashes": {
+    "tarball": "1f6bd7fed192b1413f6320a69ca56cc528e807c81c2dae36473e14bc9ddbc9a0",
+    "m8": "27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db",
+    "m7": "85e80863ee7720453e57c62b5c7955a681a0e8398e80a9ab9d026fcb66c4f996",
+    "m6": "9fb2893b5cc7c7a75c7aa15b93d3cfee53eac164970485ad597d72a47f7e8bbc",
+    "m5": "e5a1d1c32a97ace2fe33cc151d98bd8ff4afed17ae768a7cf351319ef15adfe2",
+    "m4": "9012c1d9ef5e651dfcf3b0dff533fa33b5ce08f226e21d3a7733b8faef02cff6",
+    "plugin": "a3bd23650c86763689c3c9227d13928ee78d4546e0b8e39864f440d926cc40bd",
+    "packageJson": "9585403b5d52ef6b56a6faf6b958eb1ae22d14f7a581def93da13b597087b0ad"
+  },
+  "gateway": {
+    "expected_pid": "1285995",
+    "running": true,
+    "connectivity_ok": true,
+    "admin_capable": true,
+    "status_excerpt": [
+      "Runtime: running (pid 1285995, state active, sub running, last exit 0, reason 0)",
+      "Connectivity probe: ok",
+      "Capability: admin-capable",
+      "Listening: *:18789"
+    ]
+  },
+  "telegram": {
+    "enabled": true,
+    "state": "OK",
+    "send_probe_count": 0
+  },
+  "failures": [],
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "live_action_canary_count": 0,
+    "broad_production_enforcement_count": 0,
+    "m9_started": false,
+    "enforcement_enabled": false
+  }
+}

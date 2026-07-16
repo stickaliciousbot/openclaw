@@ -1,36 +1,159 @@
 {
   "schema": "umc.v1.m8.owner_contract_lane_installed_runtime_verification.v1",
-  "generated_utc": "2026-07-16T05:34:00.000Z",
-  "status": "FAIL_M8_OWNER_CONTRACT_LANE_INSTALLED_RUNTIME_VERIFICATION",
-  "failures": [
-    "authority_mode_enforced_no_send_literal_missing"
-  ],
+  "generated_utc": "2026-07-16T07:33:51.327Z",
+  "status": "PASS_M8_OWNER_CONTRACT_LANE_INSTALLED_RUNTIME_VERIFIED",
+  "failures": [],
   "checks": {
-    "m8_present": true,
-    "valid_ok": true,
+    "m8_enforced_no_send_owner_contract_lane_present": true,
     "valid_status": "PASS_M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_VERIFIED",
+    "authority_mode": "enforced_no_send",
     "delivery_mode": "no_send",
-    "authority_mode": "observe_only",
-    "enforcement_mode": "fixture_only_enforced_no_send_canary",
-    "production_authority_change": false,
-    "worker_model_route_authority": false,
-    "raw_provider_model_authority_status": "FAIL_M8_RAW_MODEL_AUTHORITY_BYPASS",
-    "missing_manifest_status": "HOLD_M8_M7_ELIGIBILITY_NOT_VERIFIED",
-    "missing_verified_route_status": "HOLD_M8_MISSING_VERIFIED_ROUTE_NOT_MODELED_BY_INSTALLED_API",
-    "missing_receipt_status": "HOLD_M8_MISSING_RECEIPT_NOT_MODELED_BY_INSTALLED_API",
-    "send_mode_status": "HOLD_M8_NO_SEND_REQUIRED",
+    "production_authority": false,
+    "live_action_canary": false,
+    "broad_enforcement": false,
+    "contract_decision": "ALLOW_OWNER_CONTRACT_LANE_NO_SEND_ONLY",
     "side_effect_status": "FAIL_M8_SEND_OR_PROVIDER_CALL_BOUNDARY_VIOLATION",
-    "live_action_status": "HOLD_M8_LIVE_ACTION_CANARY_FORBIDDEN",
-    "broad_production_status": "FAIL_M8_BROAD_PRODUCTION_ENFORCEMENT_FORBIDDEN",
-    "m9_status": "FAIL_M8_SEND_OR_PROVIDER_CALL_BOUNDARY_VIOLATION",
-    "policy_live_action_canary_allowed": false,
-    "policy_broad_production_enforcement_allowed": false,
-    "policy_production_authority_change_allowed": false,
-    "contract_terminal_closeout_required": true
+    "owner_scope_non_owner_status": "HOLD_M8_OWNER_SCOPE_REQUIRED",
+    "raw_provider_model_authority_status": "FAIL_M8_RAW_MODEL_AUTHORITY_BYPASS",
+    "missing_receipt_status": "HOLD_M8_MISSING_DELIVERY_RECEIPT_NOT_EXPOSED_AS_MUTABLE_INSTALLED_API_SEAM",
+    "missing_verified_route_status": "HOLD_M8_MISSING_VERIFIED_ROUTE_NOT_EXPOSED_AS_MUTABLE_INSTALLED_API_SEAM",
+    "missing_manifest_status": "HOLD_M8_M7_ELIGIBILITY_NOT_VERIFIED",
+    "unsupported_fallback_status": "HOLD_M8_M7_ELIGIBILITY_NOT_VERIFIED",
+    "tool_postcondition_gap_status": "HOLD_M8_NO_SEND_REQUIRED",
+    "contract_preservations": [
+      "owner_turn scope",
+      "M6 contract-build lane",
+      "M7 model eligibility",
+      "M7 fallback equivalence",
+      "VerifiedRoute",
+      "ContractEnvelope",
+      "DeliveryReceipt mode no_send",
+      "terminal closeout",
+      "enforced_no_send canary authority",
+      "underlying M6/M7 lane authority remains observe_only",
+      "worker model route_authority false",
+      "zero send/provider/config/memory/context-bridge counters"
+    ],
+    "generated_contract_envelope_present": true,
+    "generated_delivery_receipt_mode": "no_send",
+    "generated_terminal_closeout_present": true,
+    "verifiedRoute_preserved": true,
+    "worker_model_route_authority": false
+  },
+  "policy": {
+    "policy_version": "umc.v1.m8.owner_contract_lane_enforced_no_send_canary_policy.v1",
+    "milestone": "M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY",
+    "enforcement_mode": "fixture_only_enforced_no_send_canary",
+    "source_ready_status": "PASS_M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_SOURCE_READY_NO_APPLY",
+    "eligible_scope": "owner_turn",
+    "forbidden_scope": "broad_production",
+    "lane_id": "token-broker-vmesh/contract-build",
+    "required_route": {
+      "provider": "token-broker-vmesh",
+      "model": "contract-build"
+    },
+    "primary_worker": {
+      "provider": "openai-codex",
+      "model": "gpt-5.5"
+    },
+    "fallback_worker": {
+      "provider": "ollama",
+      "model": "deepseek-v4-pro:cloud"
+    },
+    "required_delivery_mode": "no_send",
+    "required_authority_mode": "enforced_no_send",
+    "underlying_lane_authority_mode": "observe_only",
+    "m7_prerequisite": "PASS_M7_MODEL_ELIGIBILITY_STAGED_INSTALL_AND_REGRESSION",
+    "source_fixture_only": true,
+    "installed_runtime_mutation_allowed": false,
+    "live_action_canary_allowed": false,
+    "broad_production_enforcement_allowed": false,
+    "production_authority_change_allowed": false,
+    "raw_provider_model_authority_allowed": false,
+    "worker_model_route_authority_allowed": false,
+    "no_send_required": true,
+    "external_send_allowed": false,
+    "provider_model_live_call_allowed": false,
+    "route_config_mutation_allowed": false,
+    "durable_memory_mutation_allowed": false,
+    "context_bridge_mutation_allowed": false,
+    "m9_allowed": false
+  },
+  "canary_contract": {
+    "contract_version": "umc.v1.m8.owner_contract_lane_enforced_no_send_canary_contract.v1",
+    "enforcement_mode": "fixture_only_enforced_no_send_canary",
+    "enforced_in_source_fixtures_only": true,
+    "allow_decision": "ALLOW_OWNER_CONTRACT_LANE_NO_SEND_ONLY",
+    "deny_decision": "DENY_OR_HOLD_ANY_NON_OWNER_SEND_LIVE_OR_RAW_AUTHORITY",
+    "prerequisites": [
+      "PASS_M7_MODEL_ELIGIBILITY_STAGED_INSTALL_AND_REGRESSION",
+      "PASS_M7_MODEL_ELIGIBILITY_VERIFIED",
+      "PASS_M7_FALLBACK_EQUIVALENCE_INSTALLED_REGRESSION"
+    ],
+    "required_preservations": [
+      "owner_turn scope",
+      "M6 contract-build lane",
+      "M7 model eligibility",
+      "M7 fallback equivalence",
+      "VerifiedRoute",
+      "ContractEnvelope",
+      "DeliveryReceipt mode no_send",
+      "terminal closeout",
+      "enforced_no_send canary authority",
+      "underlying M6/M7 lane authority remains observe_only",
+      "worker model route_authority false",
+      "zero send/provider/config/memory/context-bridge counters"
+    ],
+    "forbidden_actions": [
+      "installed runtime mutation in source-ready milestone",
+      "package install",
+      "tarball apply",
+      "Gateway restart",
+      "Telegram send/probe",
+      "external send",
+      "provider/model live call",
+      "route/fallback/config production mutation",
+      "durable memory mutation",
+      "Context Bridge mutation",
+      "production authority change",
+      "M9 start",
+      "live-action canary",
+      "broad production enforcement"
+    ],
+    "terminal_closeout_required": true
+  },
+  "missing_artifact_cases": {
+    "missing_verified_route": {
+      "status": "HOLD_M8_MISSING_VERIFIED_ROUTE_NOT_EXPOSED_AS_MUTABLE_INSTALLED_API_SEAM",
+      "ok": false,
+      "false_pass": false,
+      "basis": "M8 contract required_preservations includes VerifiedRoute; valid runtime evidence verifiedRoute_preserved=true."
+    },
+    "missing_contract_envelope": {
+      "status": "HOLD_M8_MISSING_CONTRACT_ENVELOPE_NOT_EXPOSED_AS_MUTABLE_INSTALLED_API_SEAM",
+      "ok": false,
+      "false_pass": false,
+      "basis": "M8 contract required_preservations includes ContractEnvelope; valid runtime M7/M6 lane generated contractEnvelope."
+    },
+    "missing_delivery_receipt": {
+      "status": "HOLD_M8_MISSING_DELIVERY_RECEIPT_NOT_EXPOSED_AS_MUTABLE_INSTALLED_API_SEAM",
+      "ok": false,
+      "false_pass": false,
+      "basis": "M8 contract required_preservations includes DeliveryReceipt mode no_send; valid runtime M7/M6 lane generated no_send DeliveryReceipt."
+    },
+    "missing_terminal_closeout": {
+      "status": "HOLD_M8_MISSING_TERMINAL_CLOSEOUT_NOT_EXPOSED_AS_MUTABLE_INSTALLED_API_SEAM",
+      "ok": false,
+      "false_pass": false,
+      "basis": "M8 contract terminal_closeout_required=true; valid runtime M7/M6 lane generated terminalCloseout."
+    }
   },
   "installed_runtime": {
+    "m8_dist_sha256": "27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db",
     "m7_dist_sha256": "85e80863ee7720453e57c62b5c7955a681a0e8398e80a9ab9d026fcb66c4f996",
-    "m8_dist_sha256": "ab0b66fb9578f1b99320b46590825a1a956a83152d5c653f0d00ca2386cdb44f"
+    "m6_dist_sha256": "9fb2893b5cc7c7a75c7aa15b93d3cfee53eac164970485ad597d72a47f7e8bbc",
+    "m5_dist_sha256": "e5a1d1c32a97ace2fe33cc151d98bd8ff4afed17ae768a7cf351319ef15adfe2",
+    "m4_dist_sha256": "9012c1d9ef5e651dfcf3b0dff533fa33b5ce08f226e21d3a7733b8faef02cff6"
   },
   "boundary_counters": {
     "telegram_send_probe_count": 0,
@@ -40,6 +163,7 @@
     "durable_memory_mutation_count": 0,
     "context_bridge_mutation_count": 0,
     "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
     "live_action_canary_count": 0,
     "broad_production_enforcement_count": 0,
     "m9_started": false,

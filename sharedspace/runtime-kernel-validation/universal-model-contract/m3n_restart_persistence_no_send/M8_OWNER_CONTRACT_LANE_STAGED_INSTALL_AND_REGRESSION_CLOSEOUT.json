@@ -1,34 +1,46 @@
 {
   "schema": "umc.v1.m8.owner_contract_lane_staged_install_and_regression_closeout.v1",
-  "generated_utc": "2026-07-16T05:39:00Z",
-  "status": "FAIL_M8_OWNER_CONTRACT_LANE_INSTALLED_RUNTIME_VERIFICATION",
-  "closeout_status": "FAIL_M8_OWNER_CONTRACT_LANE_INSTALLED_RUNTIME_VERIFICATION",
+  "generated_utc": "2026-07-16T08:01:02.504Z",
+  "status": "PASS_M8_OWNER_CONTRACT_LANE_STAGED_INSTALL_AND_REGRESSION",
+  "final_status": "PASS_M8_OWNER_CONTRACT_LANE_STAGED_INSTALL_AND_REGRESSION",
   "milestone": "M8_OWNER_CONTRACT_LANE_STAGED_INSTALL_AND_REGRESSION",
-  "staged_install_result": "PASS_M8_OWNER_CONTRACT_LANE_STAGED_INSTALL_EXECUTED",
-  "installed_runtime_m8_verification_result": "FAIL_M8_OWNER_CONTRACT_LANE_INSTALLED_RUNTIME_VERIFICATION",
-  "installed_canary_regression_result": "NOT_RUN_STOPPED_AFTER_INSTALLED_RUNTIME_VERIFICATION_FAILURE",
-  "m3_m4_m5_m6_m7_post_install_regression_result": "NOT_RUN_STOPPED_AFTER_INSTALLED_RUNTIME_VERIFICATION_FAILURE",
-  "post_install_stability_result": "NOT_RUN_STOPPED_AFTER_INSTALLED_RUNTIME_VERIFICATION_FAILURE",
-  "blocking_failure": {
-    "id": "authority_mode_enforced_no_send_literal_missing",
-    "required": "authority_mode === enforced_no_send",
-    "actual": "observe_only",
-    "source": "installed M8 verifier valid-path evidence",
-    "artifact": "M8_OWNER_CONTRACT_LANE_INSTALLED_RUNTIME_VERIFICATION.json",
-    "artifact_sha256": "d27b151802fb968f2b35720a18ec79b42256b61aed774579016a096c4503911e"
+  "restart_wrapper_classification": "RESTART_WRAPPER_FALSE_NEGATIVE_OR_RESTART_WINDOW_NOISE",
+  "r3_install": {
+    "status": "PASS_M8_R3_STAGED_INSTALL_EXECUTED",
+    "tarball": "/home/stickai/.openclaw/workspace/tmp/umc-m8-r3-package/openclaw-2026.5.7.tgz",
+    "tarball_sha256": "1f6bd7fed192b1413f6320a69ca56cc528e807c81c2dae36473e14bc9ddbc9a0",
+    "backup": "/home/stickai/.openclaw/backups/openclaw-m8-r3-authority-mode-install-20260716T0707Z/scoped-installed-files"
   },
-  "installed_state": {
-    "m7_model_eligibility_sha256": "85e80863ee7720453e57c62b5c7955a681a0e8398e80a9ab9d026fcb66c4f996",
-    "m8_owner_contract_lane_sha256": "ab0b66fb9578f1b99320b46590825a1a956a83152d5c653f0d00ca2386cdb44f",
-    "gateway_health": "PASS_RUNNING_CONNECTIVITY_OK_ADMIN_CAPABLE",
-    "telegram_health": "PASS_ENABLED_CONFIGURED_RUNNING_CONNECTED"
+  "gateway": {
+    "pid": 1285995,
+    "state": "running",
+    "connectivity_ok": true,
+    "admin_capable": true
   },
-  "rollback": {
-    "rollback_ready": true,
-    "rollback_not_executed": true,
-    "reason": "Approval policy did not require automatic rollback; stop and preserve evidence on installed-runtime verification failure.",
-    "rollback_source": "/home/stickai/.openclaw/workspace/tmp/umc-m7-package/openclaw-2026.5.7.tgz",
-    "rollback_source_sha256": "8814f2ee8e0cd5a6b7fbf8ba52f80f497a468404513ea865af9a729a8cd37717"
+  "telegram": {
+    "enabled": true,
+    "state": "OK"
+  },
+  "installed_hashes": {
+    "m8": "27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db",
+    "m7": "85e80863ee7720453e57c62b5c7955a681a0e8398e80a9ab9d026fcb66c4f996",
+    "m6": "9fb2893b5cc7c7a75c7aa15b93d3cfee53eac164970485ad597d72a47f7e8bbc",
+    "m5": "e5a1d1c32a97ace2fe33cc151d98bd8ff4afed17ae768a7cf351319ef15adfe2",
+    "m4": "9012c1d9ef5e651dfcf3b0dff533fa33b5ce08f226e21d3a7733b8faef02cff6",
+    "telegram_plugin": "a3bd23650c86763689c3c9227d13928ee78d4546e0b8e39864f440d926cc40bd",
+    "package_json": "9585403b5d52ef6b56a6faf6b958eb1ae22d14f7a581def93da13b597087b0ad"
+  },
+  "verification_results": {
+    "post_install_preflight": "PASS_M8_R3_POST_INSTALL_VERIFICATION_PREFLIGHT",
+    "installed_runtime_m8_verification": "PASS_M8_OWNER_CONTRACT_LANE_INSTALLED_RUNTIME_VERIFIED",
+    "installed_canary_regression": "PASS_M8_OWNER_CONTRACT_LANE_INSTALLED_CANARY_REGRESSION",
+    "m3_m4_m5_m6_m7_post_install_regression": "PASS_M8_M3_M4_M5_M6_M7_POST_INSTALL_REGRESSION",
+    "post_install_stability": "PASS_M8_POST_INSTALL_STABILITY_CONFIRMED",
+    "authority_mode": "enforced_no_send",
+    "delivery_mode": "no_send",
+    "production_authority": false,
+    "live_action_canary": false,
+    "broad_enforcement": false
   },
   "boundary_counters": {
     "telegram_send_probe_count": 0,
@@ -38,10 +50,17 @@
     "durable_memory_mutation_count": 0,
     "context_bridge_mutation_count": 0,
     "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
     "live_action_canary_count": 0,
     "broad_production_enforcement_count": 0,
     "m9_started": false,
     "enforcement_enabled": false
   },
-  "next_required_decision": "Approve a recovery path: source repair + R3 staged install approval, or rollback to M7 tarball, or accept observe_only as the intended M8 authority vocabulary and revise contract."
+  "rollback_readiness": {
+    "scoped_backup_ready": true,
+    "m8_r2_tarball_ready": true,
+    "m7_emergency_rollback_tarball_ready": true,
+    "rollback_not_executed": true
+  },
+  "next_milestone": "M9_OWNER_CONTRACT_LANE_LIMITED_LIVE_ACTION_CANARY"
 }

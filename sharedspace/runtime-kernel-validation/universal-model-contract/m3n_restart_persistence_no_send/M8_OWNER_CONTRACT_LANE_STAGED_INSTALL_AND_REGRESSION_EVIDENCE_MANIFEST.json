@@ -1,43 +1,68 @@
 {
   "schema": "umc.v1.m8.owner_contract_lane_staged_install_and_regression_evidence_manifest.v1",
-  "generated_utc": "2026-07-16T05:40:00Z",
-  "status": "FAIL_M8_OWNER_CONTRACT_LANE_INSTALLED_RUNTIME_VERIFICATION_EVIDENCE_PRESERVED",
-  "final_status": "FAIL_M8_OWNER_CONTRACT_LANE_INSTALLED_RUNTIME_VERIFICATION",
+  "generated_utc": "2026-07-16T08:01:02.504Z",
+  "status": "PASS_M8_OWNER_CONTRACT_LANE_STAGED_INSTALL_AND_REGRESSION",
+  "final_status": "PASS_M8_OWNER_CONTRACT_LANE_STAGED_INSTALL_AND_REGRESSION",
   "artifacts": [
     {
-      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_OWNER_CONTRACT_LANE_STAGED_INSTALL_RESULT.json",
-      "sha256": "da4a7f9290168b5c3adfe5f3e85ebcde145024b709d4c9eb5cf835c5f33006a9",
-      "status": "PASS_M8_OWNER_CONTRACT_LANE_STAGED_INSTALL_EXECUTED"
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_R3_POST_INSTALL_VERIFICATION_PREFLIGHT.json",
+      "sha256": "94ce7b20acf38b78862bb28906aa10d2f611175e97c68f7c311e3e7f866f6d24",
+      "status": "PASS_M8_R3_POST_INSTALL_VERIFICATION_PREFLIGHT"
     },
     {
       "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_OWNER_CONTRACT_LANE_INSTALLED_RUNTIME_VERIFICATION.json",
-      "sha256": "d27b151802fb968f2b35720a18ec79b42256b61aed774579016a096c4503911e",
-      "status": "FAIL_M8_OWNER_CONTRACT_LANE_INSTALLED_RUNTIME_VERIFICATION"
+      "sha256": "a8c80c9dd1b1b278284f8396ba70717845359a992b3611a8fbc574d1bcaa12b5",
+      "status": "PASS_M8_OWNER_CONTRACT_LANE_INSTALLED_RUNTIME_VERIFIED"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_OWNER_CONTRACT_LANE_INSTALLED_CANARY_REGRESSION_RESULT.json",
+      "sha256": "39d1947396b0b6e0e8a0324a5625c64c798a37ca740221aab0752102783e6a84",
+      "status": "PASS_M8_OWNER_CONTRACT_LANE_INSTALLED_CANARY_REGRESSION"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_M3_M4_M5_M6_M7_POST_INSTALL_REGRESSION_RESULT.json",
+      "sha256": "c0ebbca8179afa8dd64d317e74890b37787cdb854cb45da9c6111f2e7d1527e2",
+      "status": "PASS_M8_M3_M4_M5_M6_M7_POST_INSTALL_REGRESSION"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_POST_INSTALL_STABILITY_PROBE_0001.json",
+      "sha256": "51f05cdccebe781653b63644b78a1b0ee75586e7df4ed3a65a4deed5453894bd",
+      "status": "PASS_M8_POST_INSTALL_STABILITY_PROBE"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_POST_INSTALL_STABILITY_PROBE_0002.json",
+      "sha256": "8e0a0c720352ae6ef0362923e5790642dacd7ba2346dc6eee2deccfe43181567",
+      "status": "PASS_M8_POST_INSTALL_STABILITY_PROBE"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_POST_INSTALL_STABILITY_PROBE_0003.json",
+      "sha256": "4d1adc9443a91c826feec997be023d6cf5f5122f152a46832f89865e3812c407",
+      "status": "PASS_M8_POST_INSTALL_STABILITY_PROBE"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_POST_INSTALL_STABILITY_PROBE_0004.json",
+      "sha256": "2a92fcd2084368fed516dc6eed76fdad7a01b70a70c9278a37457846b949d16f",
+      "status": "PASS_M8_POST_INSTALL_STABILITY_PROBE"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_POST_INSTALL_STABILITY_SUMMARY.json",
+      "sha256": "e2ba4f4716846e2ed96de61353b895d2f3d638cbfc968a7b47298d9e52ca3bc7",
+      "status": "PASS_M8_POST_INSTALL_STABILITY_CONFIRMED"
     },
     {
       "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_OWNER_CONTRACT_LANE_STAGED_INSTALL_AND_REGRESSION_CLOSEOUT.json",
-      "sha256": "f424d76c523860ac46f1762022ce1412f6b421abcc9ca78d065edd02cf10e025",
-      "status": "FAIL_M8_OWNER_CONTRACT_LANE_INSTALLED_RUNTIME_VERIFICATION"
+      "sha256": "27b62e31568818e84494e51c48295ca5c3b4138bbcdae49b609469b910cb86e8",
+      "status": "PASS_M8_OWNER_CONTRACT_LANE_STAGED_INSTALL_AND_REGRESSION"
     },
     {
       "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_OWNER_CONTRACT_LANE_STAGED_INSTALL_AND_REGRESSION_SUMMARY.md",
-      "sha256": "b04a3eeb98bc4f774f83d9146fd3c2ccb5e97c00164697dd0a3c4482d7b43e0c"
+      "sha256": "7af6ef3012f3a27bdaa973a027da6a0d79b3b3960c9de595636f357fa8459171"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M8_OWNER_CONTRACT_LANE_STAGED_INSTALL_AND_REGRESSION_EVIDENCE_MANIFEST.json",
+      "sha256": "d134967e97007d14d221d27febf418592e49e76a8dd6d1263c1676b7733474cb",
+      "status": "PASS_M8_OWNER_CONTRACT_LANE_STAGED_INSTALL_AND_REGRESSION"
     }
-  ],
-  "installed_hashes": {
-    "m7_model_eligibility": "85e80863ee7720453e57c62b5c7955a681a0e8398e80a9ab9d026fcb66c4f996",
-    "m8_owner_contract_lane": "ab0b66fb9578f1b99320b46590825a1a956a83152d5c653f0d00ca2386cdb44f",
-    "m4_verified_route": "9012c1d9ef5e651dfcf3b0dff533fa33b5ce08f226e21d3a7733b8faef02cff6",
-    "m5_capability_manifest": "e5a1d1c32a97ace2fe33cc151d98bd8ff4afed17ae768a7cf351319ef15adfe2",
-    "m6_contract_build_lane": "9fb2893b5cc7c7a75c7aa15b93d3cfee53eac164970485ad597d72a47f7e8bbc",
-    "telegram_plugin_manifest": "a3bd23650c86763689c3c9227d13928ee78d4546e0b8e39864f440d926cc40bd",
-    "package_json": "9585403b5d52ef6b56a6faf6b958eb1ae22d14f7a581def93da13b597087b0ad"
-  },
-  "blocking_failure": "authority_mode_enforced_no_send_literal_missing",
-  "stopped_before": [
-    "M8_OWNER_CONTRACT_LANE_INSTALLED_CANARY_REGRESSION_RESULT.json",
-    "M8_M3_M4_M5_M6_M7_POST_INSTALL_REGRESSION_RESULT.json",
-    "M8_POST_INSTALL_STABILITY_SUMMARY.json"
   ],
   "boundary_counters": {
     "telegram_send_probe_count": 0,
@@ -47,10 +72,12 @@
     "durable_memory_mutation_count": 0,
     "context_bridge_mutation_count": 0,
     "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
     "live_action_canary_count": 0,
     "broad_production_enforcement_count": 0,
     "m9_started": false,
     "enforcement_enabled": false
   },
-  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION"
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "next_milestone": "M9_OWNER_CONTRACT_LANE_LIMITED_LIVE_ACTION_CANARY"
 }
