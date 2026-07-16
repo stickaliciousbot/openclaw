@@ -276,28 +276,51 @@ function normalizeFallbacks(input: M6RouteIntentInput, worker: M4RouteRef): M4Ro
   });
 }
 
-export function buildM6ContractBuildLane(params: {
-  intent: M6RouteIntentInput;
-  registry?: M5CapabilityRegistry;
-  worker?: M4RouteRef;
-  now?: string;
-}): M6ContractBuildLaneResult {
+export function buildM6DefaultRouteIntent(
+  overrides: Partial<M6RouteIntentInput> = {},
+): M6RouteIntentInput {
+  return {
+    source: "m2_owner_turn_route_admission",
+    owner_scope: M6_OWNER_SCOPE,
+    requested: M6_BROKER_ROUTE,
+    executable: M6_BROKER_ROUTE,
+    worker: M6_DEFAULT_WORKER,
+    fallback_chain: [M6_DEFAULT_WORKER],
+    session_model_pin: { provider: "openai", model: "gpt-5.5" },
+    channel_model_pin: { provider: "openai-codex", model: "gpt-5.5" },
+    turn_id: "m6-default-turn",
+    session_id: "m6-default-session",
+    channel: "telegram",
+    contract_envelope_ref: "ContractEnvelope:m6-default",
+    ...overrides,
+  };
+}
+
+export function buildM6ContractBuildLane(
+  params: {
+    intent?: M6RouteIntentInput;
+    registry?: M5CapabilityRegistry;
+    worker?: M4RouteRef;
+    now?: string;
+  } = {},
+): M6ContractBuildLaneResult {
   const now = params.now ?? new Date().toISOString();
-  const worker = normalizeRoute(params.worker) ?? M6_DEFAULT_WORKER;
+  const intent = params.intent ?? buildM6DefaultRouteIntent();
+  const worker = normalizeRoute(params.worker ?? intent.worker) ?? M6_DEFAULT_WORKER;
   const brokerRoute = M6_BROKER_ROUTE;
   const registry = params.registry ?? createM6CapabilityRegistry(now);
   const spec = buildM6ContractBuildLaneSpec(worker);
   const routeIntentMetadata = {
-    source: params.intent.source,
-    requested: params.intent.requested ?? null,
-    executable: params.intent.executable ?? null,
-    session_model_pin: params.intent.session_model_pin ?? null,
-    channel_model_pin: params.intent.channel_model_pin ?? null,
+    source: intent.source,
+    requested: intent.requested ?? null,
+    executable: intent.executable ?? null,
+    session_model_pin: intent.session_model_pin ?? null,
+    channel_model_pin: intent.channel_model_pin ?? null,
     session_channel_pins_are_route_intent_only: true,
     worker_route_authority: false,
   };
 
-  if (params.intent.source !== "m2_owner_turn_route_admission") {
+  if (intent.source !== "m2_owner_turn_route_admission") {
     return {
       ok: false,
       status: "FAIL_M6_INVALID_ROUTE_INTENT",
@@ -305,7 +328,7 @@ export function buildM6ContractBuildLane(params: {
       route_intent_metadata: routeIntentMetadata,
     };
   }
-  if (params.intent.owner_scope !== M6_OWNER_SCOPE) {
+  if (intent.owner_scope !== M6_OWNER_SCOPE) {
     return {
       ok: false,
       status: "FAIL_M6_INVALID_ROUTE_INTENT",
@@ -313,7 +336,7 @@ export function buildM6ContractBuildLane(params: {
       route_intent_metadata: routeIntentMetadata,
     };
   }
-  if (isRawProviderAuthorityBypass(params.intent, brokerRoute)) {
+  if (isRawProviderAuthorityBypass(intent, brokerRoute)) {
     return {
       ok: false,
       status: "FAIL_M6_RAW_MODEL_AUTHORITY_BYPASS",
@@ -323,22 +346,22 @@ export function buildM6ContractBuildLane(params: {
     };
   }
 
-  const fallbackChain = normalizeFallbacks(params.intent, worker);
+  const fallbackChain = normalizeFallbacks(intent, worker);
   const m5Intent: M4RouteIntent = {
     // M6 composes from an M2 owner-turn admission; keep the M4 authority source
     // as the M2 admission vocabulary so M6 cannot invent a new raw route authority.
     source: "m2_queued_route_admission",
-    turn_id: params.intent.turn_id,
-    session_id: params.intent.session_id,
-    channel: params.intent.channel,
-    owner_scope: params.intent.owner_scope,
-    requested: normalizeRoute(params.intent.requested) ?? brokerRoute,
+    turn_id: intent.turn_id,
+    session_id: intent.session_id,
+    channel: intent.channel,
+    owner_scope: intent.owner_scope,
+    requested: normalizeRoute(intent.requested) ?? brokerRoute,
     executable: brokerRoute,
     fallback_chain: fallbackChain,
     contract_version: M4_CONTRACT_VERSION,
     authority_mode: M4_AUTHORITY_MODE,
     contract_envelope_ref:
-      params.intent.contract_envelope_ref ?? "ContractEnvelope:m6-contract-build-lane",
+      intent.contract_envelope_ref ?? "ContractEnvelope:m6-contract-build-lane",
     verification_reason: "M6 contract-build lane verified via M5 manifests and M4 VerifiedRoute",
   };
   const m5 = verifyM5RouteEligibility({ registry, intent: m5Intent, now });
@@ -360,15 +383,15 @@ export function buildM6ContractBuildLane(params: {
 
   const m3 = runM3EnvelopeSupervisor({
     now,
-    turn_id: params.intent.turn_id,
-    session_id: params.intent.session_id,
-    channel: params.intent.channel,
-    owner_scope: params.intent.owner_scope,
+    turn_id: intent.turn_id,
+    session_id: intent.session_id,
+    channel: intent.channel,
+    owner_scope: intent.owner_scope,
     route_intent: {
       contractVersion: M6_CONTRACT_VERSION,
       milestone: M6_MILESTONE,
       source: "m6_contract_build_lane",
-      requested: params.intent.requested ?? brokerRoute,
+      requested: intent.requested ?? brokerRoute,
       executable: brokerRoute,
       worker,
       fallback_chain: fallbackChain,
