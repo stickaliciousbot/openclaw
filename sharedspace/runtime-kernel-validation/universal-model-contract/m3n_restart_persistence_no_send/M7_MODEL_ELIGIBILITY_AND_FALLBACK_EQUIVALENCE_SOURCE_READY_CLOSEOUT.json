@@ -1,0 +1,46 @@
+{
+  "schema": "umc.v1.m7.model_eligibility_and_fallback_equivalence_source_ready_closeout.v1",
+  "generated_utc": "2026-07-16T04:00:02.887Z",
+  "status": "PASS_M7_MODEL_ELIGIBILITY_AND_FALLBACK_EQUIVALENCE_SOURCE_READY_NO_APPLY",
+  "closeout_status": "PASS_M7_MODEL_ELIGIBILITY_AND_FALLBACK_EQUIVALENCE_SOURCE_READY_NO_APPLY",
+  "milestone": "M7_MODEL_ELIGIBILITY_AND_FALLBACK_EQUIVALENCE_NO_SEND",
+  "source_commit": "73bb16549c73fab52b2d0fcbac0b2fbf35c52b8c",
+  "results": {
+    "preflight": "PASS_M7_MODEL_ELIGIBILITY_PREFLIGHT",
+    "eligibility_policy": "PASS_M7_MODEL_ELIGIBILITY_POLICY_DEFINED",
+    "fallback_matrix": "PASS_M7_MODEL_FALLBACK_MATRIX_DEFINED",
+    "eligibility_checker": "PASS_M7_MODEL_ELIGIBILITY_CHECKER_IMPLEMENTED",
+    "fallback_equivalence_contract": "PASS_M7_FALLBACK_EQUIVALENCE_CONTRACT_DEFINED",
+    "fixtures": "PASS_M7_MODEL_ELIGIBILITY_AND_FALLBACK_FIXTURES",
+    "live_call_qualification_decision": "SKIP_M7_LIVE_MODEL_CALL_QUALIFICATION_NOT_REQUIRED",
+    "m3_m4_m5_m6_regression": "PASS_M7_M3_M4_M5_M6_REGRESSION",
+    "no_apply_build_validation": "PASS_M7_MODEL_ELIGIBILITY_NO_APPLY_BUILD_VALIDATION",
+    "staged_install_plan": "PASS_M7_MODEL_ELIGIBILITY_STAGED_INSTALL_PLAN_READY"
+  },
+  "key_outcomes": {
+    "eligible_primary_worker": "PASS_M7_MODEL_ELIGIBILITY_VERIFIED",
+    "eligible_fallback": "PASS_M7_MODEL_ELIGIBILITY_VERIFIED",
+    "missing_manifest_hold": "HOLD_M7_CAPABILITY_MANIFEST_MISSING",
+    "malformed_manifest_fail": "FAIL_M7_CAPABILITY_MANIFEST_INVALID",
+    "fallback_contract_drop": "HOLD_M7_FALLBACK_CONTRACT_DROP",
+    "raw_provider_model_authority": "FAIL_M7_RAW_MODEL_AUTHORITY_BYPASS",
+    "worker_model_route_authority": false
+  },
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "package_install_count": 0,
+    "tarball_apply_count": 0,
+    "gateway_restart_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "m8_started": false,
+    "enforcement_enabled": false
+  },
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "next_milestone": "M7_MODEL_ELIGIBILITY_STAGED_INSTALL_AND_REGRESSION"
+}

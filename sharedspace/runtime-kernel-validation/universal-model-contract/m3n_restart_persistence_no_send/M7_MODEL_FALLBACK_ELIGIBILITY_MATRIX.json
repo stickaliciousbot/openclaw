@@ -1,0 +1,105 @@
+{
+  "schema": "umc.v1.m7.model_fallback_eligibility_matrix.v1",
+  "generated_utc": "2026-07-16T03:58:00.000Z",
+  "status": "PASS_M7_MODEL_FALLBACK_MATRIX_DEFINED",
+  "matrix": {
+    "primary_eligible_worker": {
+      "route": {
+        "provider": "openai-codex",
+        "model": "gpt-5.5"
+      },
+      "result": "PASS_M7_MODEL_ELIGIBILITY_VERIFIED"
+    },
+    "configured_fallback_chain": [
+      {
+        "route": {
+          "provider": "ollama",
+          "model": "deepseek-v4-pro:cloud"
+        },
+        "result": "PASS_M7_MODEL_ELIGIBILITY_VERIFIED"
+      }
+    ],
+    "missing_manifest_model": {
+      "route": {
+        "provider": "missing-provider",
+        "model": "missing-model"
+      },
+      "result": "HOLD_M7_CAPABILITY_MANIFEST_MISSING"
+    },
+    "malformed_manifest_model": {
+      "route": {
+        "provider": "malformed",
+        "model": "invalid-manifest"
+      },
+      "result": "FAIL_M7_CAPABILITY_MANIFEST_INVALID"
+    },
+    "unsupported_no_send_model": {
+      "route": {
+        "provider": "unsupported",
+        "model": "no-send"
+      },
+      "result": "HOLD_M7_UNSUPPORTED_NO_SEND"
+    },
+    "unsupported_contract_envelope_model": {
+      "route": {
+        "provider": "unsupported",
+        "model": "contract-envelope"
+      },
+      "result": "HOLD_M7_UNSUPPORTED_CONTRACT_ENVELOPE"
+    },
+    "unsupported_delivery_receipt_model": {
+      "route": {
+        "provider": "unsupported",
+        "model": "delivery-receipt"
+      },
+      "result": "HOLD_M7_UNSUPPORTED_DELIVERY_RECEIPT"
+    },
+    "fallback_preserving_contract": {
+      "route": {
+        "provider": "ollama",
+        "model": "deepseek-v4-pro:cloud"
+      },
+      "result": "PASS_M7_MODEL_ELIGIBILITY_VERIFIED"
+    },
+    "fallback_dropping_contract": {
+      "route": {
+        "provider": "ollama",
+        "model": "deepseek-v4-pro:cloud"
+      },
+      "result": "HOLD_M7_FALLBACK_CONTRACT_DROP"
+    },
+    "fallback_changing_authority_mode": {
+      "route": {
+        "provider": "ollama",
+        "model": "deepseek-v4-pro:cloud"
+      },
+      "result": "FAIL_M7_CAPABILITY_MANIFEST_INVALID"
+    },
+    "fallback_changing_delivery_mode": {
+      "route": {
+        "provider": "ollama",
+        "model": "deepseek-v4-pro:cloud"
+      },
+      "result": "HOLD_M7_FALLBACK_DELIVERY_MODE_CHANGED"
+    },
+    "raw_provider_model_pin": {
+      "route": {
+        "provider": "openai",
+        "model": "gpt-5.5"
+      },
+      "result": "FAIL_M7_RAW_MODEL_AUTHORITY_BYPASS"
+    }
+  },
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "m8_started": false,
+    "enforcement_enabled": false
+  }
+}

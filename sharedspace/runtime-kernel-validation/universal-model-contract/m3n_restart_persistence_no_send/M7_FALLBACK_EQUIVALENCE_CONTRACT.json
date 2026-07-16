@@ -1,0 +1,44 @@
+{
+  "schema": "umc.v1.m7.fallback_equivalence_contract_artifact.v1",
+  "generated_utc": "2026-07-16T03:58:00.000Z",
+  "status": "PASS_M7_FALLBACK_EQUIVALENCE_CONTRACT_DEFINED",
+  "equivalence": {
+    "contract_version": "umc.v1.m7.fallback_equivalence_contract.v1",
+    "equivalent_only_if_preserves": [
+      "VerifiedRoute",
+      "ContractEnvelope",
+      "capability manifest eligibility",
+      "delivery_mode no_send",
+      "authority_mode observe_only",
+      "terminal closeout",
+      "tool policy",
+      "postcondition policy",
+      "safety counters",
+      "no provider/model route authority"
+    ],
+    "forbidden_changes": [
+      "drop VerifiedRoute",
+      "drop ContractEnvelope",
+      "drop capability manifest requirement",
+      "change delivery_mode",
+      "change authority_mode",
+      "skip terminal closeout",
+      "gain route authority",
+      "send externally",
+      "call live provider by default"
+    ],
+    "no_provider_model_route_authority": true
+  },
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "m8_started": false,
+    "enforcement_enabled": false
+  }
+}

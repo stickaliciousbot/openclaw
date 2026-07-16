@@ -1,0 +1,30 @@
+{
+  "schema": "umc.v1.m7.m3_m4_m5_m6_regression_results.v1",
+  "generated_utc": "2026-07-16T03:58:00.000Z",
+  "status": "PASS_M7_M3_M4_M5_M6_REGRESSION",
+  "regression": {
+    "m3_envelope_no_send_receipts_still_pass": "no_send",
+    "m4_verified_route_firewall_blocks_raw_provider_model_authority": "FAIL_M6_RAW_MODEL_AUTHORITY_BYPASS",
+    "m5_manifests_gate_route_eligibility": "FAIL_M5_CAPABILITY_MANIFEST_INVALID",
+    "m6_contract_build_lane_builds_valid_contract_qualified_lane": "PASS_M6_CONTRACT_BUILD_LANE_BUILT",
+    "fallback_preservation_still_enforced": "HOLD_M7_FALLBACK_CONTRACT_DROP",
+    "provider_model_live_call_occurred": false,
+    "telegram_send_probe_occurred": false,
+    "route_config_mutation_occurred": false,
+    "durable_memory_mutation_occurred": false,
+    "context_bridge_mutation_occurred": false,
+    "production_authority_change_occurred": false
+  },
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "m8_started": false,
+    "enforcement_enabled": false
+  }
+}

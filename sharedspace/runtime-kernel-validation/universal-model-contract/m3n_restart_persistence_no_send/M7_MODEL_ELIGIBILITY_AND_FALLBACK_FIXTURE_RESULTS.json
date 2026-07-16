@@ -1,0 +1,36 @@
+{
+  "schema": "umc.v1.m7.model_eligibility_and_fallback_fixture_results.v1",
+  "generated_utc": "2026-07-16T03:58:00.000Z",
+  "status": "PASS_M7_MODEL_ELIGIBILITY_AND_FALLBACK_FIXTURES",
+  "fixture_cases": {
+    "eligible_primary_worker_qualifies": "PASS_M7_MODEL_ELIGIBILITY_VERIFIED",
+    "eligible_fallback_preserving_contract_qualifies": "PASS_M7_MODEL_ELIGIBILITY_VERIFIED",
+    "missing_manifest_blocks_with_hold": "HOLD_M7_CAPABILITY_MANIFEST_MISSING",
+    "malformed_manifest_fails": "FAIL_M7_CAPABILITY_MANIFEST_INVALID",
+    "unsupported_no_send_blocks": "HOLD_M7_UNSUPPORTED_NO_SEND",
+    "unsupported_contract_envelope_blocks": "HOLD_M7_UNSUPPORTED_CONTRACT_ENVELOPE",
+    "unsupported_delivery_receipt_blocks": "HOLD_M7_UNSUPPORTED_DELIVERY_RECEIPT",
+    "fallback_dropping_contract_envelope_blocks": "HOLD_M7_FALLBACK_CONTRACT_DROP",
+    "fallback_changing_delivery_mode_blocks": "HOLD_M7_FALLBACK_DELIVERY_MODE_CHANGED",
+    "fallback_changing_authority_mode_blocks": "FAIL_M7_CAPABILITY_MANIFEST_INVALID",
+    "raw_provider_model_pin_rejected": "FAIL_M7_RAW_MODEL_AUTHORITY_BYPASS",
+    "session_channel_model_pin_cannot_become_authority": true,
+    "worker_model_route_authority_remains_false": false,
+    "contract_build_lane_remains_valid": "PASS_M6_CONTRACT_BUILD_LANE_BUILT",
+    "m3_envelope_no_send_receipts_still_pass": "no_send",
+    "m4_raw_provider_model_bypass_still_blocked": "FAIL_M6_RAW_MODEL_AUTHORITY_BYPASS",
+    "m5_manifest_registry_behavior_still_passes": true
+  },
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "m8_started": false,
+    "enforcement_enabled": false
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "schema": "umc.v1.m7.model_eligibility_no_apply_build_validation.v1",
+  "generated_utc": "2026-07-16T03:58:00.000Z",
+  "status": "PASS_M7_MODEL_ELIGIBILITY_NO_APPLY_BUILD_VALIDATION",
+  "validation_results": {
+    "fixture_runner": "PASS_M7_MODEL_ELIGIBILITY_FIXTURE_RUNNER",
+    "source_imports_via_tsx": "PASS",
+    "node_check_script": "PASS",
+    "json_validation": "PENDING_FINAL_VALIDATION",
+    "git_diff_check": "PENDING_FINAL_VALIDATION",
+    "full_build": "PASS_PNPM_BUILD_NO_APPLY"
+  },
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "m8_started": false,
+    "enforcement_enabled": false
+  }
+}

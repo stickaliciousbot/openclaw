@@ -1,0 +1,57 @@
+{
+  "schema": "umc.v1.m7.model_eligibility_preflight.v1",
+  "generated_utc": "2026-07-16T03:52:00Z",
+  "status": "PASS_M7_MODEL_ELIGIBILITY_PREFLIGHT",
+  "milestone": "M7_MODEL_ELIGIBILITY_AND_FALLBACK_EQUIVALENCE_NO_SEND",
+  "m6": {
+    "final_closeout_exists": true,
+    "final_status": "PASS_M6_CONTRACT_BUILD_LANE_STAGED_INSTALL_AND_REGRESSION",
+    "commit_exists": true,
+    "commit": "df0bc4f41199966be06bb43ae18fd4113fa75f81",
+    "installed_contract_build_lane_present": true
+  },
+  "installed_stack": {
+    "m5_capability_registry_present": true,
+    "m4_verified_route_firewall_present": true,
+    "m3_envelope_no_send_receipts_present": true,
+    "m2_route_admission_preserved": true,
+    "m2_symbols": [
+      "resolveUmcV1DefaultRouteFromConfig",
+      "applyUmcV1QueuedRouteAdmission",
+      "M2Q_QUEUE_RESUME_ROUTE_ADMISSION"
+    ]
+  },
+  "health": {
+    "gateway": "PASS_RUNNING_CONNECTIVITY_OK_ADMIN_CAPABLE",
+    "telegram": "PASS_ENABLED_CONFIGURED_RUNNING_CONNECTED",
+    "event_loop_cpu_watch_item": {
+      "known": true,
+      "blocking": false,
+      "reason": "Read-only health passed; event-loop/cpu degradation remains known non-blocking watch item."
+    }
+  },
+  "progression": {
+    "m7_already_started": false,
+    "m8_started": false,
+    "enforcement_enabled": false
+  },
+  "rollback": {
+    "backup_exists": true,
+    "backup_path": "/home/stickai/.openclaw/backups/openclaw-m6-contract-build-lane-install-20260716T030734Z/openclaw-installed-package"
+  },
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "package_install_count": 0,
+    "tarball_apply_count": 0,
+    "gateway_restart_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "m8_started": false,
+    "enforcement_enabled": false
+  }
+}

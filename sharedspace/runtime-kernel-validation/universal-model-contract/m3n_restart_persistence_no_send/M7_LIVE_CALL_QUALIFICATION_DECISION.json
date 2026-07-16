@@ -1,0 +1,20 @@
+{
+  "schema": "umc.v1.m7.live_call_qualification_decision.v1",
+  "generated_utc": "2026-07-16T03:58:00.000Z",
+  "status": "SKIP_M7_LIVE_MODEL_CALL_QUALIFICATION_NOT_REQUIRED",
+  "reason": "Focused source/fixture evidence qualifies model/fallback contract behavior; no live provider/model call is required or approved.",
+  "provider_model_live_call_count": 0,
+  "approval_required_for_future_live_call": true,
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "m8_started": false,
+    "enforcement_enabled": false
+  }
+}

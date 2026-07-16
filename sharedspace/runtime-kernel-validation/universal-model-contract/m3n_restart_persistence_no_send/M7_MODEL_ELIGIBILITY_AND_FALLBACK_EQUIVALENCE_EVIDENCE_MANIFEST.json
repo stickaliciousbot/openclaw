@@ -1,0 +1,100 @@
+{
+  "schema": "umc.v1.m7.model_eligibility_and_fallback_equivalence_evidence_manifest.v1",
+  "generated_utc": "2026-07-16T04:00:02.887Z",
+  "status": "PASS_M7_MODEL_ELIGIBILITY_AND_FALLBACK_EQUIVALENCE_EVIDENCE_MANIFEST_READY",
+  "final_status": "PASS_M7_MODEL_ELIGIBILITY_AND_FALLBACK_EQUIVALENCE_SOURCE_READY_NO_APPLY",
+  "source_commit": "73bb16549c73fab52b2d0fcbac0b2fbf35c52b8c",
+  "artifacts": [
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M7_MODEL_ELIGIBILITY_PREFLIGHT.json",
+      "sha256": "806ac5c3dd237f1e5d9175c7728c993dd5bac414deeade878386a0e873d74834",
+      "status": "PASS_M7_MODEL_ELIGIBILITY_PREFLIGHT"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M7_MODEL_ELIGIBILITY_POLICY.json",
+      "sha256": "1dcf41baf32736e17bea98a7272754edbd3154e11dca02788de81a5959e1dfb2",
+      "status": "PASS_M7_MODEL_ELIGIBILITY_POLICY_DEFINED"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M7_MODEL_ELIGIBILITY_POLICY.md",
+      "sha256": "e5bdd962a04f72f2a3f7d60b57e064220c2c31f20df86734e2e076456356b1c6"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M7_MODEL_FALLBACK_ELIGIBILITY_MATRIX.json",
+      "sha256": "1fb4eeaafa1623aaea0d19be97c5a24d06126171a9a6cd41171a3ed3216538f5",
+      "status": "PASS_M7_MODEL_FALLBACK_MATRIX_DEFINED"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M7_MODEL_FALLBACK_ELIGIBILITY_MATRIX.md",
+      "sha256": "7298f3108f5c7a1246c8d3b6eacb8963f92ef89bf3a0a2e0b77f0559bdaacd29"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M7_MODEL_ELIGIBILITY_CHECKER_IMPLEMENTATION_RESULT.json",
+      "sha256": "b1aac290d206e6f99caf7dc96e0936d508c7308fe79d28524895099b0b809637",
+      "status": "PASS_M7_MODEL_ELIGIBILITY_CHECKER_IMPLEMENTED"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M7_FALLBACK_EQUIVALENCE_CONTRACT.json",
+      "sha256": "2f898ad18e5ca6d077a0e06020eeaf97ffe6ea27538923f6523e49d7659e5d61",
+      "status": "PASS_M7_FALLBACK_EQUIVALENCE_CONTRACT_DEFINED"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M7_FALLBACK_EQUIVALENCE_CONTRACT.md",
+      "sha256": "6e2701a652ccf7ac48d8a1e89ceda6212ee8bc6b523389957ef1cb37d10d7f6e"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M7_MODEL_ELIGIBILITY_AND_FALLBACK_FIXTURE_RESULTS.json",
+      "sha256": "6f3d3f19da66378fe14853b8ca587d3451ee970cb54c309c43811760e40eaaac",
+      "status": "PASS_M7_MODEL_ELIGIBILITY_AND_FALLBACK_FIXTURES"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M7_LIVE_CALL_QUALIFICATION_DECISION.json",
+      "sha256": "42d5e4eedfde8e01245fa38bb6c301446d18b7386a937efadf06656096065141",
+      "status": "SKIP_M7_LIVE_MODEL_CALL_QUALIFICATION_NOT_REQUIRED"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M7_M3_M4_M5_M6_REGRESSION_RESULTS.json",
+      "sha256": "f19b0dbbc5ef5ce927117f2d2dfc65ee0c6f632e0a5da707a0fb698587e66144",
+      "status": "PASS_M7_M3_M4_M5_M6_REGRESSION"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M7_MODEL_ELIGIBILITY_NO_APPLY_BUILD_VALIDATION.json",
+      "sha256": "6dd42ee8b5b6fecae6391fc37d40133c5e666da01eb522639eafc15d540f4cc4",
+      "status": "PASS_M7_MODEL_ELIGIBILITY_NO_APPLY_BUILD_VALIDATION"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M7_MODEL_ELIGIBILITY_STAGED_INSTALL_PLAN.json",
+      "sha256": "a3c09dd8737fe304cafbdbf9444f3bfae855189a8ae1128324d281cf4b4a0513",
+      "status": "PASS_M7_MODEL_ELIGIBILITY_STAGED_INSTALL_PLAN_READY"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M7_MODEL_ELIGIBILITY_STAGED_INSTALL_PLAN.md",
+      "sha256": "0e2e390ab7b0b05157992d5ca9c2fe0cad8571224de0054e1c3fe0ec490cde6d"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M7_MODEL_ELIGIBILITY_AND_FALLBACK_EQUIVALENCE_SOURCE_READY_CLOSEOUT.json",
+      "sha256": "88a32ba9b80c887dea6c1151428e211c84727fcc39d3a369c529e924417c3565",
+      "status": "PASS_M7_MODEL_ELIGIBILITY_AND_FALLBACK_EQUIVALENCE_SOURCE_READY_NO_APPLY"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M7_MODEL_ELIGIBILITY_AND_FALLBACK_EQUIVALENCE_SOURCE_READY_SUMMARY.md",
+      "sha256": "b9ccfc1a0bb0f02d407de16c35b4e1b5b367262581d28ed662e5c2a998d777d5"
+    }
+  ],
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "package_install_count": 0,
+    "tarball_apply_count": 0,
+    "gateway_restart_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "m8_started": false,
+    "enforcement_enabled": false
+  },
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION"
+}

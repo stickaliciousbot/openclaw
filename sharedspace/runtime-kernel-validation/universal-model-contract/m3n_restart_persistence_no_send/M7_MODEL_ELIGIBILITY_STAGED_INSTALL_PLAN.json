@@ -1,0 +1,45 @@
+{
+  "schema": "umc.v1.m7.model_eligibility_staged_install_plan.v1",
+  "generated_utc": "2026-07-16T03:58:00.000Z",
+  "status": "PASS_M7_MODEL_ELIGIBILITY_STAGED_INSTALL_PLAN_READY",
+  "do_not_install_in_this_milestone": true,
+  "source": {
+    "path": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+    "branch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+    "head": "73bb16549c73fab52b2d0fcbac0b2fbf35c52b8c",
+    "source_commit": "73bb16549c73fab52b2d0fcbac0b2fbf35c52b8c"
+  },
+  "build_package": {
+    "command": "/home/stickai/.openclaw/workspace/tmp/openclaw-start-ack-pnpm-shim/pnpm build && npm pack --ignore-scripts",
+    "package_tarball_path": "TBD_IN_M7_MODEL_ELIGIBILITY_STAGED_INSTALL_AND_REGRESSION"
+  },
+  "expected_installed_files_changed": [
+    "dist/auto-reply/reply/umc-m7-model-eligibility.js"
+  ],
+  "backup_path_template": "/home/stickai/.openclaw/backups/openclaw-m7-model-eligibility-install-<UTC>/openclaw-installed-package",
+  "rollback_command": "npm install -g --ignore-scripts /home/stickai/.openclaw/workspace/tmp/umc-m6-package/openclaw-2026.5.7.tgz && openclaw gateway restart",
+  "health_validation": {
+    "gateway": "openclaw gateway status must report running/connectivity/admin-capable",
+    "telegram": "openclaw channels status must report Telegram enabled/configured/running/connected; no Telegram send/probe"
+  },
+  "regression_plan": {
+    "m3": "Verify envelope/no-send receipts and terminal closeout.",
+    "m4": "Verify raw provider/model authority remains blocked.",
+    "m5": "Verify model/adapter manifests gate route eligibility.",
+    "m6": "Verify contract-build lane still builds contract-qualified lane.",
+    "m7": "Verify installed model eligibility and fallback equivalence checker statuses."
+  },
+  "approval_boundary": "No install, Gateway restart, Telegram probe, provider/model live call, config mutation, authority, enforcement, or M8 without explicit staged-install approval.",
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "m8_started": false,
+    "enforcement_enabled": false
+  }
+}
