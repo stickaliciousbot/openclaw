@@ -1,6 +1,6 @@
 {
   "schema": "umc.v1.m4.verified_route_preflight.v1",
-  "generated_utc": "2026-07-15T22:56:53.761Z",
+  "generated_utc": "2026-07-15T23:53:58.512Z",
   "status": "PASS_M4_VERIFIED_ROUTE_PREFLIGHT",
   "source_path": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
   "selected_source_branch_expected": "evidence/umc-m3g-observe-only-hook-source-20260711",

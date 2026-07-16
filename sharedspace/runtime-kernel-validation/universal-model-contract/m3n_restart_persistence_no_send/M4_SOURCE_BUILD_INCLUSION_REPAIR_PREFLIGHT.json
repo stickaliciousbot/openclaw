@@ -1,0 +1,46 @@
+{
+  "schema": "umc.v1.m4.source_build_inclusion_repair_preflight.v1",
+  "generated_utc": "2026-07-15T23:52:00Z",
+  "status": "PASS_M4_SOURCE_BUILD_INCLUSION_REPAIR_PREFLIGHT",
+  "current_status": "BLOCKED_M4_VERIFIED_ROUTE_INSTALL_APPROVAL_CARD_PACKAGE_VALIDATION_FAILED",
+  "m4_source_ready_status": "PASS_M4_VERIFIED_ROUTE_BRANDING_AND_DIRECT_BYPASS_FIREWALL_SOURCE_READY_NO_APPLY",
+  "tarball": {
+    "path": "/home/stickai/.openclaw/workspace/tmp/umc-m4-package/openclaw-2026.5.7.tgz",
+    "sha256": "92634bc0a599a16a687e4ef50575f8ca8ade7d367afc47a16090949c61b1f7e5",
+    "validation_failed_reason": "M4 VerifiedRoute/firewall runtime artifact absent from source dist and tarball"
+  },
+  "blocked_artifacts_read": [
+    "M4_SOURCE_BUILD_PACKAGE_VALIDATION.json",
+    "M4_VERIFIED_ROUTE_INSTALL_APPROVAL_CARD.json",
+    "M4_VERIFIED_ROUTE_INSTALL_APPROVAL_CARD.md"
+  ],
+  "verified_conditions": {
+    "install_card_status_blocked_package_validation_failed": true,
+    "tarball_sha256_matches_authoritative_value": true,
+    "m4_runtime_artifact_absent": true,
+    "ui_build_failed_missing_ui_runner": true,
+    "no_install_occurred": true,
+    "no_installed_runtime_mutation_occurred": true,
+    "no_gateway_restart_occurred": true,
+    "safety_counters_clean": true
+  },
+  "source_worktree": {
+    "path": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+    "branch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+    "head": "e9b3f0ff7b99cb98c70ad303d58d15b71d26d9c5"
+  },
+  "safety_counters": {
+    "installed_runtime_mutation_count": 0,
+    "direct_dist_hotpatch_count": 0,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "production_enforcement_enabled": false,
+    "m5_started": false
+  }
+}

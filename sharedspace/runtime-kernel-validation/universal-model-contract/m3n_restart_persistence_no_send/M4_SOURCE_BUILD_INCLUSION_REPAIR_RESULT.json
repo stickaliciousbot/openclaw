@@ -1,0 +1,61 @@
+{
+  "schema": "umc.v1.m4.source_build_inclusion_repair_result.v1",
+  "generated_utc": "2026-07-16T00:06:00Z",
+  "status": "HOLD_M4_VERIFIED_ROUTE_INSTALL_AWAITING_OPERATOR_APPROVAL",
+  "source_repair_status": "PASS_M4_SOURCE_BUILD_INCLUSION_REPAIRED",
+  "package_validation_status": "PASS_M4_SOURCE_BUILD_PACKAGE_VALIDATION_R2",
+  "root_cause_classification": "SOURCE_FILE_NOT_INCLUDED_IN_BUILD_GRAPH",
+  "source_changes": [
+    {
+      "path": "tsdown.config.ts",
+      "change": "Added explicit stable package dist entry auto-reply/reply/umc-m4-verified-route -> src/auto-reply/reply/umc-m4-verified-route.ts under buildDockerE2eHarnessEntries"
+    },
+    {
+      "path": "scripts/validate-m4-build-inclusion.mjs",
+      "change": "Added focused validation for M4 dist/tarball artifact presence, M3 envelope/no-send symbols, M2 route-admission symbols, plugin manifest presence, and zero safety counters"
+    }
+  ],
+  "source_repair_commit": "c0bd5adebeb1b2e59406a87fdb2fac33a01a5777",
+  "repair_scope": "source/build inclusion only; no enforcement wiring and no installed runtime mutation",
+  "validation_completed": {
+    "node_check_validate_m4_build_inclusion_script": "PASS",
+    "focused_m4_fixture_runner": "PASS_M4_FIXTURE_RUNNER",
+    "pnpm_build": "PASS",
+    "source_dist_m4_artifact": "PASS",
+    "r2_tarball_m4_artifact": "PASS",
+    "r2_tarball_m3_artifact": "PASS",
+    "r2_tarball_m2_route_admission": "PASS",
+    "r2_plugin_manifest_topology": "PASS"
+  },
+  "r2_tarball": {
+    "path": "/home/stickai/.openclaw/workspace/tmp/umc-m4-package-r2/openclaw-2026.5.7.tgz",
+    "sha256": "6a2ec7a2318c8e56a565524f938831ca5d2a2de965e6e16bd2fbc5f4acd2f663",
+    "sha1": "cdf43b1cd91a5198f6d7ecffecc69223711422d0",
+    "size_bytes": 23625162,
+    "total_files": 9673
+  },
+  "install_card": {
+    "json": "M4_VERIFIED_ROUTE_INSTALL_APPROVAL_CARD_R2.json",
+    "markdown": "M4_VERIFIED_ROUTE_INSTALL_APPROVAL_CARD_R2.md",
+    "status": "HOLD_M4_VERIFIED_ROUTE_INSTALL_AWAITING_OPERATOR_APPROVAL"
+  },
+  "old_invalid_tarball": {
+    "path": "/home/stickai/.openclaw/workspace/tmp/umc-m4-package/openclaw-2026.5.7.tgz",
+    "sha256": "92634bc0a599a16a687e4ef50575f8ca8ade7d367afc47a16090949c61b1f7e5",
+    "decision": "DO_NOT_INSTALL"
+  },
+  "safety_counters": {
+    "installed_runtime_mutation_count": 0,
+    "direct_dist_hotpatch_count": 0,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "production_enforcement_enabled": false,
+    "m5_started": false
+  }
+}

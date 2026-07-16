@@ -1,0 +1,80 @@
+{
+  "schema": "umc.v1.m4.source_build_package_validation.v1",
+  "generated_utc": "2026-07-15T23:37:53Z",
+  "status": "BLOCKED_M4_SOURCE_BUILD_PACKAGE_VALIDATION_M4_DIST_MISSING",
+  "requested_final_status_if_package_valid": "HOLD_M4_VERIFIED_ROUTE_INSTALL_AWAITING_OPERATOR_APPROVAL",
+  "selected_source_path": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+  "source_branch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+  "source_head": "e9b3f0ff7b99cb98c70ad303d58d15b71d26d9c5",
+  "source_commit": "e9b3f0ff7b99cb98c70ad303d58d15b71d26d9c5",
+  "evidence_commit": "0b10b5306567ff997ddc4333c9517feca80a11b5",
+  "approved_scope": "package-build-only for M4 tarball SHA; no install/runtime mutation/restart/send/provider/config/memory/context-bridge/authority/enforcement",
+  "approved_commands_result": [
+    {
+      "command": "chmod u+x /home/stickai/.openclaw/workspace/tmp/openclaw-start-ack-pnpm-shim/pnpm",
+      "status": "PASS",
+      "effect": "shim permission changed only; no install"
+    },
+    {
+      "command": "PATH=/home/stickai/.openclaw/workspace/tmp/openclaw-start-ack-pnpm-shim:$PATH pnpm build",
+      "status": "PASS",
+      "evidence": "completed; plugin-sdk exports verified; hook metadata copied; build-info/startup metadata/compat written"
+    },
+    {
+      "command": "PATH=/home/stickai/.openclaw/workspace/tmp/openclaw-start-ack-pnpm-shim:$PATH pnpm ui:build",
+      "status": "FAIL_TOOL_ENV_ASSIGNMENT",
+      "evidence": "shell/tool treated PATH assignment as a command before pnpm ran"
+    },
+    {
+      "command": "/home/stickai/.openclaw/workspace/tmp/openclaw-start-ack-pnpm-shim/pnpm ui:build",
+      "status": "FAIL_CODE_1",
+      "evidence": "project script ran and failed: Missing UI runner: install pnpm, then retry. Install was not approved and was not performed."
+    },
+    {
+      "command": "mkdir -p /home/stickai/.openclaw/workspace/tmp/umc-m4-package",
+      "status": "PASS"
+    },
+    {
+      "command": "npm pack --ignore-scripts --pack-destination /home/stickai/.openclaw/workspace/tmp/umc-m4-package",
+      "status": "PASS",
+      "npm_package_size": "23.6 MB",
+      "npm_unpacked_size": "71.8 MB",
+      "npm_total_files": 9672,
+      "npm_shasum_sha1": "84364ed6fdbaf17c6642bbf8a9eda9a6575a35c6"
+    }
+  ],
+  "tarball": {
+    "path": "/home/stickai/.openclaw/workspace/tmp/umc-m4-package/openclaw-2026.5.7.tgz",
+    "exists": true,
+    "size_bytes": 23621847,
+    "sha256": "92634bc0a599a16a687e4ef50575f8ca8ade7d367afc47a16090949c61b1f7e5"
+  },
+  "package_content_validation": {
+    "contains_umc_m4_verified_route_artifact": false,
+    "tarball_grep_pattern": "umc-m4-verified-route",
+    "tarball_grep_exit_code": 1,
+    "source_dist_umc_m4_artifact_found": false,
+    "source_dist_find_patterns": [
+      "*umc-m4*",
+      "*verified-route*"
+    ],
+    "observed_reply_dist_entries": [
+      "package/dist/auto-reply/reply/commands-crestodian.js"
+    ],
+    "classification": "PACKAGE_NOT_INSTALL_CARD_READY_M4_RUNTIME_ARTIFACT_ABSENT"
+  },
+  "root_cause_hypothesis": "M4 source module is not part of the built/packed runtime graph yet, so the package produced from the approved source build does not contain a compiled umc-m4-verified-route artifact. This is not an install problem and must be repaired at source/build-entry/wiring level before staged install approval.",
+  "safety_counters": {
+    "installed_runtime_mutation_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "production_enforcement_enabled": false,
+    "m5_started": false
+  },
+  "decision": "Do not present this tarball for M4 staged install approval. Repair source/build inclusion so the M4 VerifiedRoute/firewall artifact is present, then rebuild/package and regenerate the exact install card."
+}

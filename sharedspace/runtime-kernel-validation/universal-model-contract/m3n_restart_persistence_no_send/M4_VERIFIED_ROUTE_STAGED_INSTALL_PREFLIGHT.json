@@ -1,0 +1,67 @@
+{
+  "schema": "umc.v1.m4.verified_route_staged_install_preflight.v1",
+  "generated_utc": "2026-07-15T23:08:39Z",
+  "status": "PASS_M4_VERIFIED_ROUTE_STAGED_INSTALL_PREFLIGHT",
+  "completed_source_ready_milestone": "PASS_M4_VERIFIED_ROUTE_BRANDING_AND_DIRECT_BYPASS_FIREWALL_SOURCE_READY_NO_APPLY",
+  "source_commit": "e9b3f0ff7b99cb98c70ad303d58d15b71d26d9c5",
+  "source_commit_exists": true,
+  "evidence_commit": "0b10b5306567ff997ddc4333c9517feca80a11b5",
+  "evidence_commit_exists": true,
+  "m4_source_ready_closeout": {
+    "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M4_VERIFIED_ROUTE_SOURCE_READY_CLOSEOUT.json",
+    "status": "PASS_M4_VERIFIED_ROUTE_BRANDING_AND_DIRECT_BYPASS_FIREWALL_SOURCE_READY_NO_APPLY"
+  },
+  "m4_fixture_results": {
+    "direct_bypass_fixtures": "PASS_M4_DIRECT_BYPASS_FIREWALL_FIXTURES",
+    "m3_compatibility_fixtures": "PASS_M4_M3_COMPATIBILITY_FIXTURES",
+    "no_apply_build_validation": "PASS_M4_VERIFIED_ROUTE_NO_APPLY_BUILD_VALIDATION",
+    "staged_install_plan": "PASS_M4_VERIFIED_ROUTE_STAGED_INSTALL_PLAN_READY"
+  },
+  "m3p_final_closeout": {
+    "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M3P_OWNER_TURN_SHADOW_COVERAGE_SOAK_CLOSEOUT.json",
+    "status": "PASS_M3P_OWNER_TURN_SHADOW_COVERAGE_SOAK_NO_SEND",
+    "observation_path_classification": "installed runtime implementation exercised via temporary in-memory loader export; not production authority/enforcement"
+  },
+  "installed_runtime_baseline": {
+    "package_root": "/home/stickai/.npm-global/lib/node_modules/openclaw",
+    "dist_exists": true,
+    "package_json_exists": true
+  },
+  "read_only_health": {
+    "gateway_rpc_ok": true,
+    "gateway_status_source": "openclaw gateway status: Connectivity probe ok, runtime running pid 927551, admin-capable",
+    "telegram_read_only_ok": true,
+    "telegram_status_source": "openclaw channels status: Telegram default enabled/configured/running/connected, mode polling; no send/probe performed",
+    "event_loop_degraded_warning": "openclaw channels status reported event_loop_utilization/cpu degradation; not an M4 install blocker, but carry into approval card health checks"
+  },
+  "rollback_path_known": {
+    "backup_path_template": "/home/stickai/.openclaw/backups/openclaw-m4-verified-route-install-<UTC>/openclaw-installed-package",
+    "known_prior_backup": "/home/stickai/.openclaw/backups/openclaw-m3-source-build-install-20260715T163100Z/openclaw-installed-package"
+  },
+  "stale_approval_cards": {
+    "used": false,
+    "ignored_pending_or_stale_ids": [
+      "c07c1a98-2cf7-4a5f-8d6a-264e69b1bcb9",
+      "e189d58a-299a-4d65-b27d-c2e4ac02c99f",
+      "71bf3402-d3d2-45f4-bdd6-a69390044636",
+      "8149af18-7ee4-4cd2-94c7-7ea1b19d6919",
+      "e7288b5c-43a8-46ae-b685-3ee88073d07d",
+      "a5336e80-a537-4b56-99c4-dc67f4c15ff7",
+      "cd8cc2b3-73b5-42ac-964d-d87983546c33",
+      "60d2a89f-bd2a-4811-9534-308f872f02bd"
+    ]
+  },
+  "safety_counters": {
+    "installed_runtime_mutation_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "production_enforcement_enabled": false,
+    "m5_started": false
+  },
+  "phase_b_readiness_note": "Preflight passed, but exact install approval card preparation is blocked until an M4 source-built package tarball and SHA256 are produced. Current host PATH lacks pnpm; npm pack dry-run fails because prepack invokes pnpm build/ui:build. No install was attempted."
+}

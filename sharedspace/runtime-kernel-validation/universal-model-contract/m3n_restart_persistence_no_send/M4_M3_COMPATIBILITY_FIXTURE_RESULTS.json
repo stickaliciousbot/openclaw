@@ -1,6 +1,6 @@
 {
   "schema": "umc.v1.m4.m3_compatibility_fixture_results.v1",
-  "generated_utc": "2026-07-15T22:56:53.765Z",
+  "generated_utc": "2026-07-15T23:53:58.515Z",
   "status": "PASS_M4_M3_COMPATIBILITY_FIXTURES",
   "checks": {
     "eligible_owner_turn_with_verified_route_emits_contract_envelope": true,

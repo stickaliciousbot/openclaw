@@ -1,6 +1,6 @@
 {
   "schema": "umc.v1.m4.verified_route_brand_schema.v1",
-  "generated_utc": "2026-07-15T22:56:53.763Z",
+  "generated_utc": "2026-07-15T23:53:58.513Z",
   "status": "PASS_M4_VERIFIED_ROUTE_BRAND_DEFINED",
   "required_fields": [
     "verified_route_version",

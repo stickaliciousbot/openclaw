@@ -1,0 +1,66 @@
+{
+  "schema": "umc.v1.m4.source_build_inclusion_repair_fixture_results.v1",
+  "generated_utc": "2026-07-15T23:54:20Z",
+  "status": "PASS_M4_SOURCE_BUILD_INCLUSION_REPAIR_FIXTURES",
+  "fixture_runner_status": "PASS_M4_FIXTURE_RUNNER",
+  "checks": {
+    "verified_route_brand_exists": true,
+    "route_verifier_brander_exists": true,
+    "direct_bypass_firewall_exists": true,
+    "raw_provider_model_call_rejected": true,
+    "forged_verified_route_rejected": true,
+    "fallback_without_verified_route_rejected": true,
+    "session_channel_pins_route_intent_only": true,
+    "m3_envelope_no_send_receipts_pass": true,
+    "provider_model_live_call_count": 0,
+    "telegram_send_probe_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0
+  },
+  "generated_fixture_artifacts": [
+    {
+      "name": "M4_VERIFIED_ROUTE_PREFLIGHT.json",
+      "sha256": "677cc331b69205e109d52b9e3fe9ce658bbf5e4e8121baaa186323bf2dd6fdff"
+    },
+    {
+      "name": "M4_MODEL_EXECUTION_PATH_MAP.json",
+      "sha256": "a83a80b9a35b6c098edba26120cfceb03da5204fe4d444b5ab0ada1cbdbd787d"
+    },
+    {
+      "name": "M4_VERIFIED_ROUTE_BRAND_SCHEMA.json",
+      "sha256": "edfebd8ccba09388e562d60d8ef7c590d494a25ce26679240b0d8d3f0a87cfa4"
+    },
+    {
+      "name": "M4_VERIFIED_ROUTE_BRANDER_IMPLEMENTATION_RESULT.json",
+      "sha256": "78317be0ca14f5759774615e6738360d3735329991cec0e199b228ae68575b94"
+    },
+    {
+      "name": "M4_DIRECT_BYPASS_FIREWALL_IMPLEMENTATION_RESULT.json",
+      "sha256": "e85d57998ff3250e968a0a46631629775b8d52ea9249863982c7ca9310d2dffb"
+    },
+    {
+      "name": "M4_M3_COMPATIBILITY_FIXTURE_RESULTS.json",
+      "sha256": "f080d9e3f161a8697510fb6f007213034fb0ede994dbdbf3f09be142ea84c9b9"
+    },
+    {
+      "name": "M4_DIRECT_BYPASS_FIREWALL_FIXTURE_RESULTS.json",
+      "sha256": "4136e3415db5ee39211dd09fd1200ac83d93bfdda870565bbf4834ff4de8f5e8"
+    }
+  ],
+  "safety_counters": {
+    "installed_runtime_mutation_count": 0,
+    "direct_dist_hotpatch_count": 0,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "production_enforcement_enabled": false,
+    "m5_started": false
+  }
+}

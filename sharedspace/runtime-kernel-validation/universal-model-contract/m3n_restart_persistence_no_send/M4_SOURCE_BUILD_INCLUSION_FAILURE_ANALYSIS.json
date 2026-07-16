@@ -1,0 +1,42 @@
+{
+  "schema": "umc.v1.m4.source_build_inclusion_failure_analysis.v1",
+  "generated_utc": "2026-07-15T23:54:20Z",
+  "status": "PASS_M4_SOURCE_BUILD_INCLUSION_FAILURE_ANALYZED",
+  "root_cause_classification": "SOURCE_FILE_NOT_INCLUDED_IN_BUILD_GRAPH",
+  "secondary_classifications": [
+    "SOURCE_FILE_NOT_IMPORTED_BY_RUNTIME"
+  ],
+  "summary": "M4 VerifiedRoute/firewall existed in source/tests/scripts, but no runtime/bundle entry imported it and tsdown.config.ts did not declare it as a stable package dist entry. tsdown therefore omitted it from dist and npm pack omitted it from the tarball.",
+  "evidence": {
+    "m4_source_file_exists": "src/auto-reply/reply/umc-m4-verified-route.ts",
+    "m4_test_file_exists": "src/auto-reply/reply/umc-m4-verified-route.test.ts",
+    "fixture_script_imports_m4": "scripts/run-m4-verified-route-fixtures.mjs imports src/auto-reply/reply/umc-m4-verified-route.ts",
+    "runtime_source_imports_before_repair": "rg showed followup-runner imports M3 envelope supervision and contains M2 route admission, while M4 appeared only in tests/scripts/source file and not in runtime entry seams",
+    "dist_before_repair": "rg M4_VERIFIED_ROUTE/VERIFIED_ROUTE_UMC_V1_M4/umc.v1.m4.verified_route in dist exited 1 before repair",
+    "m3_m2_comparison": "M3/M2 symbols are present in dist/agent-runner.runtime-DESbFJnG.js because followup-runner imports M3 and contains M2 queued route admission; M4 had no equivalent build graph edge",
+    "package_before_repair": "M4_SOURCE_BUILD_PACKAGE_VALIDATION.json recorded tarball sha256 92634bc0a599a16a687e4ef50575f8ca8ade7d367afc47a16090949c61b1f7e5 with M4 artifact absent"
+  },
+  "ruled_out": {
+    "BUILD_OUTPUT_NOT_INCLUDED_IN_PACKAGE": "not primary; package files include dist/, but M4 was absent from dist",
+    "PACKAGE_FILES_EXCLUDE_M4_ARTIFACT": "not primary; no M4 artifact existed to exclude",
+    "WRONG_SOURCE_TREE_OR_BRANCH": "source worktree branch evidence/umc-m3g-observe-only-hook-source-20260711 at e9b3f0ff7b99cb98c70ad303d58d15b71d26d9c5 matched authoritative source commit",
+    "BUILD_COMMAND_SKIPPED_RUNTIME_ENTRYPOINT": "not primary; build produced agent-runner runtime with M2/M3 symbols, proving runtime build path ran",
+    "UI_BUILD_BLOCKING_PACKAGE_OUTPUT": "not primary for M4 runtime artifact; ui:build failed, but npm pack used existing UI assets and the missing artifact was in runtime dist graph",
+    "UNKNOWN_INCLUSION_FAILURE": "not applicable"
+  },
+  "repair_selected": "Add src/auto-reply/reply/umc-m4-verified-route.ts as an explicit stable tsdown package dist entry under buildDockerE2eHarnessEntries, matching the existing package-internal harness entry pattern for commands-crestodian. This includes M4 in dist/package without enabling enforcement or changing installed runtime.",
+  "safety_counters": {
+    "installed_runtime_mutation_count": 0,
+    "direct_dist_hotpatch_count": 0,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "production_enforcement_enabled": false,
+    "m5_started": false
+  }
+}
