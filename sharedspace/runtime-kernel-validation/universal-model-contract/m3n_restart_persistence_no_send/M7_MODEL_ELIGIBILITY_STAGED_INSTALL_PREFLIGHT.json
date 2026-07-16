@@ -1,0 +1,74 @@
+{
+  "schema": "umc.v1.m7.model_eligibility_staged_install_preflight.v1",
+  "generated_utc": "2026-07-16T04:19:57Z",
+  "status": "PASS_M7_MODEL_ELIGIBILITY_STAGED_INSTALL_PREFLIGHT",
+  "milestone": "M7_MODEL_ELIGIBILITY_STAGED_INSTALL_AND_REGRESSION",
+  "source_ready": {
+    "final_status_exists": true,
+    "final_status": "PASS_M7_MODEL_ELIGIBILITY_AND_FALLBACK_EQUIVALENCE_SOURCE_READY_NO_APPLY",
+    "source_ready_commit_exists": true,
+    "source_ready_commit": "73bb16549c73fab52b2d0fcbac0b2fbf35c52b8c",
+    "evidence_commit_exists": true,
+    "evidence_commit": "6105e2306ad25ec8ac50cb65f51bae5aff2f8637",
+    "fixtures_status": "PASS_M7_MODEL_ELIGIBILITY_AND_FALLBACK_FIXTURES",
+    "no_apply_build_validation_status": "PASS_M7_MODEL_ELIGIBILITY_NO_APPLY_BUILD_VALIDATION",
+    "staged_install_plan_status": "PASS_M7_MODEL_ELIGIBILITY_STAGED_INSTALL_PLAN_READY"
+  },
+  "staged_install_source": {
+    "source_path": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+    "source_branch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+    "source_head": "1557ff822e0c9b86eded7c827543bf4866676671",
+    "source_head_note": "Includes source-ready M7 commit 73bb16549c73fab52b2d0fcbac0b2fbf35c52b8c plus M7 staged-install M6 default-lane compatibility repair for installed regression parity.",
+    "worktree_clean_after_commit": true
+  },
+  "prior_milestones": {
+    "m6_staged_install_regression_status": "PASS_M6_CONTRACT_BUILD_LANE_STAGED_INSTALL_AND_REGRESSION",
+    "m5_staged_install_regression_status": "PASS_M5_CAPABILITY_MANIFEST_STAGED_INSTALL_AND_REGRESSION",
+    "m4_staged_install_regression_status": "PASS_M4_VERIFIED_ROUTE_STAGED_INSTALL_AND_REGRESSION",
+    "m3p_status": "PASS_M3P_OWNER_TURN_SHADOW_COVERAGE_SOAK_NO_SEND"
+  },
+  "health": {
+    "gateway_read_only_health": "PASS_RUNNING_CONNECTIVITY_OK_ADMIN_CAPABLE",
+    "telegram_read_only_health": "PASS_ENABLED_CONFIGURED_RUNNING_CONNECTED",
+    "event_loop_cpu_watch_item": {
+      "known": true,
+      "blocking": false,
+      "reason": "Known intermittent watch item; current Gateway and Telegram health passed."
+    }
+  },
+  "package_extract_validation": {
+    "status": "PASS_M7_PACKAGE_EXTRACT_R2_VALIDATION",
+    "m6_default_no_arg_compatibility": "PASS_M6_CONTRACT_BUILD_LANE_BUILT",
+    "m6_worker_model_route_authority": false,
+    "m7_eligible_with_fallback": "PASS_M7_MODEL_ELIGIBILITY_VERIFIED",
+    "m7_missing_manifest": "HOLD_M7_CAPABILITY_MANIFEST_MISSING",
+    "m7_raw_provider_model_authority": "FAIL_M7_RAW_MODEL_AUTHORITY_BYPASS"
+  },
+  "rollback": {
+    "path_known": true,
+    "trusted_m6_backup": "/home/stickai/.openclaw/backups/openclaw-m6-contract-build-lane-install-20260716T030734Z/openclaw-installed-package",
+    "trusted_m6_tarball": "/home/stickai/.openclaw/workspace/tmp/umc-m6-package/openclaw-2026.5.7.tgz",
+    "trusted_m6_tarball_sha256": "4f3d07373f51a8a302078c9f72a5416775a4983db3486c7a9a14cda5a09b888d"
+  },
+  "stale_approval_cards": {
+    "used": false,
+    "note": "Read-only helper approval cards created by allowlist misses are stale and must not be used for M7 install."
+  },
+  "boundary_counters": {
+    "installed_runtime_mutation_count": 0,
+    "package_install_count": 0,
+    "tarball_apply_count": 0,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "m8_started": false,
+    "enforcement_enabled": false
+  },
+  "next_required_step": "Operator approval for M7_MODEL_ELIGIBILITY_INSTALL_APPROVAL_CARD is required before staged install."
+}

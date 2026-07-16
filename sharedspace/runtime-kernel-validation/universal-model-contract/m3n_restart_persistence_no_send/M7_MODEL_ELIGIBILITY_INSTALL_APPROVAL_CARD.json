@@ -1,0 +1,148 @@
+{
+  "schema": "umc.v1.m7.model_eligibility_install_approval_card.v1",
+  "generated_utc": "2026-07-16T04:19:57Z",
+  "status": "HOLD_M7_MODEL_ELIGIBILITY_INSTALL_AWAITING_OPERATOR_APPROVAL",
+  "milestone": "M7_MODEL_ELIGIBILITY_STAGED_INSTALL_AND_REGRESSION",
+  "approval_scope": {
+    "install_before_approval": false,
+    "approval_required": true,
+    "approved_now": false,
+    "stop_after_card": true,
+    "stale_approval_cards_used": false,
+    "stale_approval_note": "Prior read-only helper approval cards from allowlist misses are stale and are not part of this approval."
+  },
+  "selected_source": {
+    "path": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+    "branch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+    "head": "1557ff822e0c9b86eded7c827543bf4866676671",
+    "source_commit_to_install": "1557ff822e0c9b86eded7c827543bf4866676671",
+    "source_ready_base_commit": "73bb16549c73fab52b2d0fcbac0b2fbf35c52b8c",
+    "source_ready_evidence_commit": "6105e2306ad25ec8ac50cb65f51bae5aff2f8637",
+    "staged_install_repair": {
+      "commit": "1557ff822e0c9b86eded7c827543bf4866676671",
+      "reason": "Preserve M6 installed-regression no-arg buildM6ContractBuildLane compatibility under M7 package topology before install approval."
+    }
+  },
+  "build_and_package": {
+    "build_command": "/home/stickai/.openclaw/workspace/tmp/openclaw-start-ack-pnpm-shim/pnpm build",
+    "package_command": "npm pack --ignore-scripts --pack-destination /home/stickai/.openclaw/workspace/tmp/umc-m7-package",
+    "tarball_path": "/home/stickai/.openclaw/workspace/tmp/umc-m7-package/openclaw-2026.5.7.tgz",
+    "tarball_sha256": "8814f2ee8e0cd5a6b7fbf8ba52f80f497a468404513ea865af9a729a8cd37717",
+    "tarball_size_bytes": 23635839,
+    "package_extract_validation": "PASS_M7_PACKAGE_EXTRACT_R2_VALIDATION"
+  },
+  "installed_package_root": "/home/stickai/.npm-global/lib/node_modules/openclaw",
+  "exact_files_expected_to_change": [
+    {
+      "path": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/auto-reply/reply/umc-m7-model-eligibility.js",
+      "change": "add",
+      "new_sha256": "d7de6cb9f6f4dc1006f0062fb77070535eb7198712647a4f152acce876191789",
+      "purpose": "M7 model eligibility/fallback equivalence installed runtime entry"
+    },
+    {
+      "path": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/auto-reply/reply/umc-m6-contract-build-lane.js",
+      "change": "replace_entry_with_build_chunk_shim",
+      "current_sha256": "5af495a685bc40fcbd8ebc51eea9d3785f93c76b26c59227981ed305f52ca2ac",
+      "new_sha256": "9fb2893b5cc7c7a75c7aa15b93d3cfee53eac164970485ad597d72a47f7e8bbc",
+      "purpose": "M6 entry topology changes in source-build package; no-arg compatibility repaired and package-extract validated"
+    },
+    {
+      "path": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/umc-m6-contract-build-lane-B49r9Ao5.js",
+      "change": "add",
+      "new_sha256": "8416342de89bf8e525f477c4255c59b54f0a5a624d8a1c02dd2e783aa51a397a",
+      "purpose": "M6 implementation chunk imported by the M6 entry shim and M7 entry"
+    }
+  ],
+  "preservation_checks": {
+    "package_json_sha256_preserved": "9585403b5d52ef6b56a6faf6b958eb1ae22d14f7a581def93da13b597087b0ad",
+    "m4_verified_route_sha256_preserved": "9012c1d9ef5e651dfcf3b0dff533fa33b5ce08f226e21d3a7733b8faef02cff6",
+    "m5_capability_manifest_sha256_preserved": "e5a1d1c32a97ace2fe33cc151d98bd8ff4afed17ae768a7cf351319ef15adfe2",
+    "telegram_plugin_manifest_sha256_preserved": "a3bd23650c86763689c3c9227d13928ee78d4546e0b8e39864f440d926cc40bd"
+  },
+  "backup": {
+    "backup_path": "/home/stickai/.openclaw/backups/openclaw-m7-model-eligibility-install-20260716T041957Z/openclaw-installed-package",
+    "backup_command": "mkdir -p /home/stickai/.openclaw/backups/openclaw-m7-model-eligibility-install-20260716T041957Z && cp -a /home/stickai/.npm-global/lib/node_modules/openclaw /home/stickai/.openclaw/backups/openclaw-m7-model-eligibility-install-20260716T041957Z/openclaw-installed-package"
+  },
+  "approved_install_sequence": [
+    "sha256sum /home/stickai/.openclaw/workspace/tmp/umc-m7-package/openclaw-2026.5.7.tgz",
+    "mkdir -p /home/stickai/.openclaw/backups/openclaw-m7-model-eligibility-install-20260716T041957Z && cp -a /home/stickai/.npm-global/lib/node_modules/openclaw /home/stickai/.openclaw/backups/openclaw-m7-model-eligibility-install-20260716T041957Z/openclaw-installed-package",
+    "npm install -g --ignore-scripts /home/stickai/.openclaw/workspace/tmp/umc-m7-package/openclaw-2026.5.7.tgz",
+    "openclaw gateway restart"
+  ],
+  "install_command": "npm install -g --ignore-scripts /home/stickai/.openclaw/workspace/tmp/umc-m7-package/openclaw-2026.5.7.tgz",
+  "gateway_restart_requirement": {
+    "required": true,
+    "command": "openclaw gateway restart",
+    "reason": "Installed global package changes require the running Gateway process to reload the new runtime files before installed-runtime verification."
+  },
+  "rollback": {
+    "readiness": "READY",
+    "rollback_command": "npm install -g --ignore-scripts /home/stickai/.openclaw/workspace/tmp/umc-m6-package/openclaw-2026.5.7.tgz && openclaw gateway restart",
+    "trusted_m6_tarball": "/home/stickai/.openclaw/workspace/tmp/umc-m6-package/openclaw-2026.5.7.tgz",
+    "trusted_m6_tarball_sha256": "4f3d07373f51a8a302078c9f72a5416775a4983db3486c7a9a14cda5a09b888d",
+    "pre_install_backup_path": "/home/stickai/.openclaw/backups/openclaw-m7-model-eligibility-install-20260716T041957Z/openclaw-installed-package"
+  },
+  "health_checks": {
+    "gateway_pre_install": "PASS_RUNNING_CONNECTIVITY_OK_ADMIN_CAPABLE",
+    "telegram_pre_install": "PASS_ENABLED_CONFIGURED_RUNNING_CONNECTED",
+    "gateway_post_restart_check": "openclaw gateway status must report runtime running, connectivity ok, admin-capable",
+    "telegram_post_restart_check": "openclaw channels status must report Telegram enabled/configured/running/connected; no Telegram send/probe"
+  },
+  "installed_runtime_m7_verification_checks": [
+    "M7 model eligibility policy present",
+    "M7 fallback matrix present",
+    "M7 eligibility checker present",
+    "M7 fallback equivalence contract present",
+    "eligible primary worker qualifies",
+    "eligible fallback preserving contract qualifies",
+    "missing manifest blocks with HOLD_M7_CAPABILITY_MANIFEST_MISSING",
+    "malformed manifest fails with FAIL_M7_CAPABILITY_MANIFEST_INVALID",
+    "unsupported no_send blocks",
+    "unsupported ContractEnvelope blocks",
+    "unsupported DeliveryReceipt blocks",
+    "fallback dropping ContractEnvelope blocks",
+    "fallback changing delivery_mode blocks",
+    "fallback changing authority_mode blocks",
+    "raw provider/model pin rejected",
+    "session/channel model pin cannot become authority",
+    "worker model route authority false",
+    "production authority remains disabled",
+    "enforcement remains disabled"
+  ],
+  "m3_m4_m5_m6_regression_plan": {
+    "m3": "Envelope/no-send receipt path still passes with terminal closeout.",
+    "m4": "VerifiedRoute/firewall still blocks raw provider/model authority.",
+    "m5": "Capability manifests still gate route eligibility.",
+    "m6": "Contract-build lane still builds valid contract-qualified lane, including no-arg installed-regression compatibility.",
+    "m7": "M7 fallback preservation remains enforced."
+  },
+  "model_eligibility_validation_plan": [
+    "eligible primary worker PASS",
+    "missing manifest HOLD",
+    "malformed manifest FAIL",
+    "unsupported no_send HOLD",
+    "unsupported ContractEnvelope HOLD",
+    "unsupported DeliveryReceipt HOLD",
+    "raw provider/model authority FAIL",
+    "worker model route-authority false"
+  ],
+  "fallback_equivalence_validation_plan": [
+    "eligible fallback preserving contract PASS",
+    "fallback dropping ContractEnvelope HOLD/FAIL",
+    "fallback changing delivery_mode HOLD/FAIL",
+    "fallback changing authority_mode HOLD/FAIL",
+    "fallback without contract preservation blocked"
+  ],
+  "no_send_no_authority_boundary": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "enforcement_enabled": false,
+    "m8_started": false
+  },
+  "approval_text": "Approve M7 staged install of tarball /home/stickai/.openclaw/workspace/tmp/umc-m7-package/openclaw-2026.5.7.tgz with SHA256 8814f2ee8e0cd5a6b7fbf8ba52f80f497a468404513ea865af9a729a8cd37717, backup to /home/stickai/.openclaw/backups/openclaw-m7-model-eligibility-install-20260716T041957Z/openclaw-installed-package, npm install -g --ignore-scripts, and Gateway restart."
+}
