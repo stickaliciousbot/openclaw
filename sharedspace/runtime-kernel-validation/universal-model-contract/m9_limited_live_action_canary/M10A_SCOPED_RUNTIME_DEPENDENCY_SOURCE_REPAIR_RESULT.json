@@ -1,0 +1,12 @@
+{
+  "schema": "umc.v1.m10a.scoped_runtime_dependency_source_repair.v1",
+  "generated_utc": "2026-07-16T12:00:00Z",
+  "status": "PASS_M10A_SCOPED_RUNTIME_DEPENDENCY_SOURCE_REPAIR_NO_APPLY",
+  "source_commit": "19d1fd367ac179c971b1ccb157659f8c52641c32",
+  "source_files": [
+    "scripts/umc-m10a-preservation-guard.mjs",
+    "scripts/run-m10a-scoped-dependency-repair-fixtures.mjs"
+  ],
+  "repair_summary": "Extended the scoped preservation guard to require, hash-check, and copy the generated runtime dependency closure alongside the M10A entry while continuing to reject preserved M2-M9 runtime entry artifacts such as the canonical M8 entry file.",
+  "no_apply": true
+}

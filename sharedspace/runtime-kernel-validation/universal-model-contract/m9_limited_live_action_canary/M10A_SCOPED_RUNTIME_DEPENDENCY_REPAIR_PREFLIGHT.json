@@ -1,0 +1,36 @@
+{
+  "schema": "umc.v1.m10a.scoped_runtime_dependency_repair_preflight.v1",
+  "generated_utc": "2026-07-16T12:00:00Z",
+  "status": "PASS_M10A_SCOPED_RUNTIME_DEPENDENCY_REPAIR_PREFLIGHT",
+  "failed_status_rehydrated": "FAIL_M10A_REPAIRED_CONTROL_PATH_STAGED_INSTALL_FAILED",
+  "missing_dependency_chunk": "dist/umc-m8-owner-contract-lane-CdxuqyX4.js",
+  "m8_preserved_sha256": "27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db",
+  "installed_m10a_absent": true,
+  "installed_dependency_pre_state": {
+    "dist/umc-m8-owner-contract-lane-CdxuqyX4.js": {
+      "present": false,
+      "sha256": null
+    },
+    "dist/umc-m7-model-eligibility-ovqh9OfD.js": {
+      "present": true,
+      "sha256": "e25711e5809835085d4c5450f5b1fb4e479b6f9e29631b538fd1f9908e78b9bd"
+    },
+    "dist/umc-m6-contract-build-lane-B49r9Ao5.js": {
+      "present": true,
+      "sha256": "8416342de89bf8e525f477c4255c59b54f0a5a624d8a1c02dd2e783aa51a397a"
+    },
+    "dist/umc-m5-capability-manifest-DBUsXqaz.js": {
+      "present": true,
+      "sha256": "3f4dc6191a7e4ffced65b95aaeb9113964f2c9c36c1958c634fbdefb5d059745"
+    },
+    "dist/umc-m4-verified-route-B8LC1Bgv.js": {
+      "present": true,
+      "sha256": "8fd34dd344ec074204feb6231127ae0ff9bf7655f5273b864103cf5b457b5cc2"
+    },
+    "dist/umc-m3-envelope-supervision-CZFFPUFB.js": {
+      "present": true,
+      "sha256": "9af1b667eb69a32c7d7f9bd28c3bd72843e331d63cc8bf8e81399479a6a7dfba"
+    }
+  },
+  "no_apply": true
+}

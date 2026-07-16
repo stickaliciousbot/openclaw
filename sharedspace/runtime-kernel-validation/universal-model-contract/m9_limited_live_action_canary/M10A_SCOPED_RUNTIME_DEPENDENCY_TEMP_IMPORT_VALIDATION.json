@@ -1,0 +1,22 @@
+{
+  "schema": "umc.v1.m10a.scoped_runtime_dependency_temp_import_validation.v1",
+  "generated_utc": "2026-07-16T12:00:00Z",
+  "status": "PASS_M10A_SCOPED_RUNTIME_DEPENDENCY_TEMP_IMPORT_VALIDATION",
+  "temp_install_root": "/tmp/m10a-r2-import-1jnZHu",
+  "imported_entry": "dist/auto-reply/reply/umc-m10a-owner-telegram-direct-control-path.js",
+  "imported_dependency": "dist/umc-m8-owner-contract-lane-CdxuqyX4.js",
+  "imported_dependency_closure": {
+    "dist/umc-m8-owner-contract-lane-CdxuqyX4.js": "70e580814a1649068dcd173d979ac31d579b5ef7ae85866753c1503133815ed7",
+    "dist/umc-m7-model-eligibility-ovqh9OfD.js": "e25711e5809835085d4c5450f5b1fb4e479b6f9e29631b538fd1f9908e78b9bd",
+    "dist/umc-m6-contract-build-lane-B49r9Ao5.js": "8416342de89bf8e525f477c4255c59b54f0a5a624d8a1c02dd2e783aa51a397a",
+    "dist/umc-m5-capability-manifest-DBUsXqaz.js": "3f4dc6191a7e4ffced65b95aaeb9113964f2c9c36c1958c634fbdefb5d059745",
+    "dist/umc-m4-verified-route-B8LC1Bgv.js": "8fd34dd344ec074204feb6231127ae0ff9bf7655f5273b864103cf5b457b5cc2",
+    "dist/umc-m3-envelope-supervision-CZFFPUFB.js": "9af1b667eb69a32c7d7f9bd28c3bd72843e331d63cc8bf8e81399479a6a7dfba"
+  },
+  "default_readback_enabled": false,
+  "default_production_authority": false,
+  "default_broad_enforcement": false,
+  "exact_enable_fixture_status": "PASS_M10A_CONTROL_ENABLE_ACCEPTED",
+  "wrong_owner_fixture_status": "FAIL_M10A_ENABLE_SCOPE_MISMATCH",
+  "runtime_disabled_status": "PASS_M10A_DISABLED_PRE_M10_BEHAVIOR"
+}

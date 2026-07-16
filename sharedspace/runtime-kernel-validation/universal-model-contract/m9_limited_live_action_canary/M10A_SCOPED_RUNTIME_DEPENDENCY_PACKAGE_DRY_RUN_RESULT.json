@@ -1,0 +1,68 @@
+{
+  "schema": "umc.v1.m10a.scoped_runtime_dependency_package_dry_run.v1",
+  "generated_utc": "2026-07-16T12:00:00Z",
+  "status": "PASS_M10A_SCOPED_RUNTIME_DEPENDENCY_PACKAGE_DRY_RUN",
+  "candidate_tarball_path": "/home/stickai/.openclaw/workspace/tmp/umc-m10a-repaired-scoped-overlay-r2/m10a-control-path-scoped-overlay-r2-20260716T1200Z.tar.gz",
+  "candidate_tarball_sha256": "c0fdd546016071cf2cfbcca802bf458261d5e5fac07fd38e7797ceace9aba83d",
+  "stale_candidate_sha_rejected": "be66f39008d09e8a04c848a50a3842b8553743a5bd4b0a9541218f3a32204587",
+  "candidate_m10a_dist_sha256": "be56d6a5105d4d0a03085757483b3bb07374ff96b9db8ea44a1bcb164139e082",
+  "candidate_dependency_sha256": "70e580814a1649068dcd173d979ac31d579b5ef7ae85866753c1503133815ed7",
+  "candidate_dependency_closure": {
+    "dist/umc-m8-owner-contract-lane-CdxuqyX4.js": "70e580814a1649068dcd173d979ac31d579b5ef7ae85866753c1503133815ed7",
+    "dist/umc-m7-model-eligibility-ovqh9OfD.js": "e25711e5809835085d4c5450f5b1fb4e479b6f9e29631b538fd1f9908e78b9bd",
+    "dist/umc-m6-contract-build-lane-B49r9Ao5.js": "8416342de89bf8e525f477c4255c59b54f0a5a624d8a1c02dd2e783aa51a397a",
+    "dist/umc-m5-capability-manifest-DBUsXqaz.js": "3f4dc6191a7e4ffced65b95aaeb9113964f2c9c36c1958c634fbdefb5d059745",
+    "dist/umc-m4-verified-route-B8LC1Bgv.js": "8fd34dd344ec074204feb6231127ae0ff9bf7655f5273b864103cf5b457b5cc2",
+    "dist/umc-m3-envelope-supervision-CZFFPUFB.js": "9af1b667eb69a32c7d7f9bd28c3bd72843e331d63cc8bf8e81399479a6a7dfba"
+  },
+  "candidate_file_list": [
+    "M10A_SCOPED_OVERLAY_MANIFEST.json",
+    "dist/auto-reply/reply/umc-m10a-owner-telegram-direct-control-path.js",
+    "dist/umc-m3-envelope-supervision-CZFFPUFB.js",
+    "dist/umc-m4-verified-route-B8LC1Bgv.js",
+    "dist/umc-m5-capability-manifest-DBUsXqaz.js",
+    "dist/umc-m6-contract-build-lane-B49r9Ao5.js",
+    "dist/umc-m7-model-eligibility-ovqh9OfD.js",
+    "dist/umc-m8-owner-contract-lane-CdxuqyX4.js"
+  ],
+  "preserved_m8_handling": "canonical M8 entry file excluded and protected by SHA guard",
+  "expected_installed_files_changed": [
+    {
+      "operation": "add",
+      "path": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/auto-reply/reply/umc-m10a-owner-telegram-direct-control-path.js",
+      "sha256": "be56d6a5105d4d0a03085757483b3bb07374ff96b9db8ea44a1bcb164139e082"
+    },
+    {
+      "operation": "add",
+      "path": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/umc-m8-owner-contract-lane-CdxuqyX4.js",
+      "sha256": "70e580814a1649068dcd173d979ac31d579b5ef7ae85866753c1503133815ed7"
+    },
+    {
+      "operation": "replace",
+      "path": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/umc-m7-model-eligibility-ovqh9OfD.js",
+      "sha256": "e25711e5809835085d4c5450f5b1fb4e479b6f9e29631b538fd1f9908e78b9bd"
+    },
+    {
+      "operation": "replace",
+      "path": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/umc-m6-contract-build-lane-B49r9Ao5.js",
+      "sha256": "8416342de89bf8e525f477c4255c59b54f0a5a624d8a1c02dd2e783aa51a397a"
+    },
+    {
+      "operation": "replace",
+      "path": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/umc-m5-capability-manifest-DBUsXqaz.js",
+      "sha256": "3f4dc6191a7e4ffced65b95aaeb9113964f2c9c36c1958c634fbdefb5d059745"
+    },
+    {
+      "operation": "replace",
+      "path": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/umc-m4-verified-route-B8LC1Bgv.js",
+      "sha256": "8fd34dd344ec074204feb6231127ae0ff9bf7655f5273b864103cf5b457b5cc2"
+    },
+    {
+      "operation": "replace",
+      "path": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/umc-m3-envelope-supervision-CZFFPUFB.js",
+      "sha256": "9af1b667eb69a32c7d7f9bd28c3bd72843e331d63cc8bf8e81399479a6a7dfba"
+    }
+  ],
+  "no_install": true,
+  "no_gateway_restart": true
+}
