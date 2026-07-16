@@ -1,0 +1,24 @@
+{
+  "schema": "umc.v1.m10.narrow_scope_definition.v1",
+  "generated_utc": "2026-07-16T10:48:00Z",
+  "status": "PASS_M10_NARROW_SCOPE_DEFINED",
+  "scope_name": "M10A_OWNER_TELEGRAM_DIRECT_CONTRACT_ENFORCEMENT_ONLY",
+  "owner_chat_id": "8495203551",
+  "channel": "telegram_direct_only",
+  "agent": "main / Stickbot owner direct path",
+  "included_control_path": "existing owner-chat production response path only, after owner-turn admission and before UMC-controlled actions",
+  "included_surfaces": ["Telegram direct owner chat telegram:8495203551 only"],
+  "excluded_surfaces": ["Web UI", "LAN/browser", "Gmail", "Drive", "Calendar", "group chats", "non-owner Telegram chats", "M10B future surfaces", "M10C future surfaces"],
+  "excluded_tools": ["write tools by default", "general tool execution", "cron/job mutation", "Gateway/config broad mutation"],
+  "excluded_sends": ["external sends", "Telegram probes", "new action classes"],
+  "excluded_mutations": ["durable memory mutation", "Context Bridge mutation", "route/fallback/config production mutation outside the exact M10A flag"],
+  "authority_boundary": "M10A may only enforce PASS/HOLD/FAIL contract decisions for owner Telegram direct path before UMC-controlled actions; no broad production enforcement.",
+  "fallback_boundary": "No fallback policy expansion; fallback must preserve contract envelope/receipts and fail closed on contract loss.",
+  "provider_model_boundary": "No provider/model policy expansion; no provider/model calls outside the already-existing owner production response path.",
+  "contract_decision_behavior": {
+    "PASS": "Allow the existing owner direct response path to continue without enabling new action class.",
+    "HOLD": "Block UMC-controlled action and return/record a safe hold classification; no send/probe escalation.",
+    "FAIL": "Block UMC-controlled action, emit failure evidence, and trigger abort/rollback observation path."
+  },
+  "operator_notification_behavior": "Close-loop PASS/FAIL/HOLD/ABORT report to Stick in current owner channel after apply/observation; no extra Telegram probe."
+}

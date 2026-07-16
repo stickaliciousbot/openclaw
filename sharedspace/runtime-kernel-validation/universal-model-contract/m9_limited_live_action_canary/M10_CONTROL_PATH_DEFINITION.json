@@ -1,0 +1,33 @@
+{
+  "schema": "umc.v1.m10.control_path_definition.v1",
+  "generated_utc": "2026-07-16T10:48:00Z",
+  "status": "BLOCKED_M10_CONTROL_PATH_GAP",
+  "entrypoint": "Telegram direct owner chat -> main agent auto-reply/get-reply owner response path",
+  "owner_turn_admission_point": "owner direct chat session key agent:main:telegram:direct:8495203551 / Telegram sender 8495203551",
+  "existing_checks": {
+    "M2_route_admission_check": "Installed queued owner-scope route admission vocabulary from M2/M4 evidence; active implementation vocabulary present in installed runtime lineage.",
+    "M3_envelope_receipt_check": "M3 envelope/receipt/no-send delivery evidence passed in M3P.",
+    "M4_verified_route_check": "umc-m4-verified-route.js installed and M4 staged regression passed.",
+    "M5_manifest_check": "umc-m5-capability-manifest.js installed and M5 staged regression passed.",
+    "M6_contract_build_lane_check": "umc-m6-contract-build-lane.js installed and M6 staged regression passed.",
+    "M7_model_fallback_eligibility_check": "umc-m7-model-eligibility.js installed and M7 staged regression passed.",
+    "M8_enforced_no_send_decision_check": "umc-m8-owner-contract-lane.js installed and M8 staged regression passed."
+  },
+  "M9_live_action_eligibility_boundary": "M9 proved only local_artifact_write_only; M10A must not enable new action classes or write tools.",
+  "where_M10_would_enforce": "After M8 enforced-no-send contract decision check and before any UMC-controlled action/reply side effect in the owner Telegram direct path.",
+  "where_M10_must_not_enforce": ["Web UI", "group chats", "non-owner chats", "external service sends", "provider/model policy layer expansion", "memory mutation", "Context Bridge mutation", "general tool execution"],
+  "installed_runtime_search_result": {
+    "installed_umc_modules_found": ["umc-m4-verified-route.js", "umc-m5-capability-manifest.js", "umc-m6-contract-build-lane.js", "umc-m7-model-eligibility.js", "umc-m8-owner-contract-lane.js"],
+    "runtime_backed_m10_enable_flag_found": false,
+    "runtime_backed_m10_disable_flag_found": false
+  },
+  "proposed_control_artifact_if_source_repair_is_authorized_later": {
+    "path": "state/umc-v1/m10a-owner-telegram-direct-enforcement/control.json",
+    "enable_flag": "enabled=true",
+    "disable_flag": "enabled=false",
+    "schema": "umc.v1.m10a.owner_telegram_direct_contract_enforcement.control.v1",
+    "note": "This is a proposed exact artifact path only; current installed runtime has not been proven to read it."
+  },
+  "blocking_gap": "No current installed runtime-backed M10A enable/disable flag was found; exact approval text would be unsafe until a source/staged install adds or proves the control reader.",
+  "m10_ready_for_enablement_approval": false
+}

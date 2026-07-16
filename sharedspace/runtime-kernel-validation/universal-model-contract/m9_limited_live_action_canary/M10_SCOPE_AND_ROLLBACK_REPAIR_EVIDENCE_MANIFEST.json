@@ -1,0 +1,35 @@
+{
+  "schema": "umc.v1.m10.scope_and_rollback_repair_evidence_manifest.v1",
+  "generated_utc": "2026-07-16T10:48:00Z",
+  "status": "BLOCKED_M10_CONTROL_PATH_GAP",
+  "final_status": "BLOCKED_M10_CONTROL_PATH_GAP",
+  "artifacts": [
+    "M10_SCOPE_REPAIR_PREFLIGHT.json",
+    "M10_NARROW_SCOPE_DEFINITION.json",
+    "M10_NARROW_SCOPE_DEFINITION.md",
+    "M10_CONTROL_PATH_DEFINITION.json",
+    "M10_CONTROL_PATH_DEFINITION.md",
+    "M10_ROLLBACK_OFF_SWITCH_PLAN.json",
+    "M10_ROLLBACK_OFF_SWITCH_PLAN.md",
+    "M10_ABORT_THRESHOLDS_AND_OBSERVATION_PLAN.json",
+    "M10_ABORT_THRESHOLDS_AND_OBSERVATION_PLAN.md",
+    "M10_REPAIRED_APPROVAL_READINESS_DECISION.json",
+    "M10_REPAIRED_APPROVAL_READINESS_DECISION.md"
+  ],
+  "phase_results": {
+    "scope_repair_preflight": "PASS_M10_SCOPE_REPAIR_PREFLIGHT",
+    "narrow_scope": "PASS_M10_NARROW_SCOPE_DEFINED",
+    "control_path": "BLOCKED_M10_CONTROL_PATH_GAP",
+    "rollback_off_switch": "BLOCKED_M10_ROLLBACK_OFF_SWITCH_INCOMPLETE",
+    "abort_thresholds_observation": "PASS_M10_ABORT_THRESHOLDS_AND_OBSERVATION_PLAN_DEFINED",
+    "repaired_readiness": "M10_BLOCKED_BY_CONTROL_PATH_GAP",
+    "approval_text": "NOT_PRODUCED_CONTROL_PATH_GAP"
+  },
+  "m10_enabled": false,
+  "production_authority_changed": false,
+  "no_send_validation": true,
+  "no_provider_validation": true,
+  "no_memory_context_bridge_mutation_validation": true,
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "next_phase": "IMPLEMENT_OR_PROVE_M10A_CONTROL_PATH_SOURCE_READY_NO_APPLY"
+}

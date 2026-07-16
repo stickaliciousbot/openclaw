@@ -1,0 +1,36 @@
+{
+  "schema": "umc.v1.m10.abort_thresholds_and_observation_plan.v1",
+  "generated_utc": "2026-07-16T10:48:00Z",
+  "status": "PASS_M10_ABORT_THRESHOLDS_AND_OBSERVATION_PLAN_DEFINED",
+  "abort_triggers": {
+    "gateway_unhealthy": "abort on any Gateway RPC failure, not running, connectivity not ok, or not admin-capable",
+    "telegram_unhealthy": "abort on Telegram not ON/OK using no-send status readback",
+    "queue_backlog_exceeds_threshold": "abort if queue_backlog_count > 0 for two consecutive probes or > 1 in any probe",
+    "context_overflow_returns": "abort on context_overflow_count > 0 or context_overflow_diag_count > 0",
+    "event_loop_degradation_worsens_with_health_failure": "abort if event-loop degradation appears with Gateway/Telegram health failure",
+    "unexpected_telegram_send_probe": "abort on Telegram send/probe count > 0 outside normal owner reply delivery",
+    "external_send_attempt": "abort on external_send_count > 0",
+    "provider_model_call_outside_allowed_production_path": "abort on provider/model call lacking M10A owner-direct contract envelope/receipt linkage",
+    "write_tool_execution_outside_scope": "abort on any write-tool execution; M10A excludes write tools",
+    "durable_memory_mutation": "abort on durable_memory_mutation_count > 0",
+    "context_bridge_mutation": "abort on context_bridge_mutation_count > 0",
+    "route_config_drift": "abort on unexpected route/config/fallback fingerprint drift",
+    "production_authority_outside_m10a_scope": "abort on any authority outside telegram:8495203551 direct owner path",
+    "fallback_drops_contract": "abort on fallback path without preserved contract envelope/receipt",
+    "missing_receipt_passes": "abort if PASS occurs with missing receipt",
+    "raw_provider_model_bypass_accepted": "abort on raw provider/model authority bypass accepted",
+    "operator_stop_requested": "abort immediately on Stick stop/pause/audit request"
+  },
+  "observation_plan": {
+    "duration_minutes": 60,
+    "cadence_minutes": 5,
+    "expected_probes": 12,
+    "health_probes": ["Gateway RPC OK", "Telegram ON/OK no-send readback", "queue backlog", "context overflow log counters"],
+    "receipt_validation": ["ContractEnvelope", "UniversalContractReceipt", "DeliveryReceipt", "TerminalContractCloseout"],
+    "decision_counters": ["PASS", "HOLD", "FAIL"],
+    "ambient_delivery_classification": "classify owner-chat ambient delivery separately from UMC-triggered sends/probes",
+    "rollback_readiness_checks": ["off-switch readback", "rollback tarball exists and SHA matches", "Gateway restart path available"],
+    "operator_notification": "Report STARTED and terminal PASS/FAIL/HOLD/ABORT to Stick; no extra Telegram probe."
+  },
+  "m10_enablement_permitted_by_this_plan": false
+}

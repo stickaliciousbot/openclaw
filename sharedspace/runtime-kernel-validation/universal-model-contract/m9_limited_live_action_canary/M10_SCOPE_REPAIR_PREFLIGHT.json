@@ -1,0 +1,27 @@
+{
+  "schema": "umc.v1.m10.scope_repair_preflight.v1",
+  "generated_utc": "2026-07-16T10:48:00Z",
+  "status": "PASS_M10_SCOPE_REPAIR_PREFLIGHT",
+  "rehydrated_from": [
+    "M10_APPROVAL_PREP_REHYDRATION_RESULT.json",
+    "M10_EVIDENCE_CHAIN_REVIEW.json",
+    "M10_SCOPE_REVIEW.json",
+    "M10_ROLLBACK_AND_ABORT_REVIEW.json",
+    "M10_APPROVAL_READINESS_DECISION.json"
+  ],
+  "current_status": "HOLD_M10_REQUIRES_SCOPE_NARROWING",
+  "scope_review_blocked_as_too_broad_or_ambiguous": true,
+  "rollback_abort_review_blocked_as_incomplete": true,
+  "m10_started": false,
+  "production_authority_changed": false,
+  "safety_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "write_tool_execution_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "broad_enforcement_enabled": false
+  }
+}

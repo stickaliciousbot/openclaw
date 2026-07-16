@@ -1,0 +1,21 @@
+{
+  "schema": "umc.v1.m10.rollback_off_switch_plan.v1",
+  "generated_utc": "2026-07-16T10:48:00Z",
+  "status": "BLOCKED_M10_ROLLBACK_OFF_SWITCH_INCOMPLETE",
+  "exact_off_switch_flag_key": "PROPOSED_ONLY: state/umc-v1/m10a-owner-telegram-direct-enforcement/control.json enabled=false",
+  "exact_disable_command_or_tool_call": "PROPOSED_ONLY: write control.json with enabled=false, then gateway.restart if the future runtime reader requires restart",
+  "package_rollback_command_if_required": "npm install -g --ignore-scripts /home/stickai/.openclaw/workspace/tmp/umc-m8-r3-package/openclaw-2026.5.7.tgz && openclaw gateway restart",
+  "package_rollback_tarball": "/home/stickai/.openclaw/workspace/tmp/umc-m8-r3-package/openclaw-2026.5.7.tgz",
+  "package_rollback_tarball_sha256": "1f6bd7fed192b1413f6320a69ca56cc528e807c81c2dae36473e14bc9ddbc9a0",
+  "current_installed_backup_path": "/home/stickai/.openclaw/backups/openclaw-m8-r3-authority-mode-install-20260716T0707Z/scoped-installed-files",
+  "emergency_m7_rollback_tarball": "/home/stickai/.openclaw/workspace/tmp/umc-m7-package/openclaw-2026.5.7.tgz",
+  "emergency_m7_rollback_tarball_sha256": "8814f2ee8e0cd5a6b7fbf8ba52f80f497a468404513ea865af9a729a8cd37717",
+  "gateway_restart_required_to_disable": "UNKNOWN_UNTIL_RUNTIME_CONTROL_READER_EXISTS",
+  "verify_disabled_state": ["control artifact readback enabled=false", "owner direct M10A route/status readback shows disabled", "no M10A production authority in evidence manifest"],
+  "verify_telegram_healthy": ["Gateway RPC OK", "Telegram ON/OK status readback without send/probe"],
+  "verify_production_path_restored": ["M8 enforced_no_send remains installed", "M10A authority count 0", "fallback/route fingerprint stable or restored"],
+  "operator_notification": "Report PASS/FAIL/HOLD/ABORT to Stick after rollback/off-switch, no extra Telegram probe.",
+  "maximum_time_to_rollback_minutes": 10,
+  "blocking_gap": "Off-switch is not exact because no installed runtime-backed M10A control reader/flag has been proven.",
+  "rollback_ready_for_enablement_approval": false
+}

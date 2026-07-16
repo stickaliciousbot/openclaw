@@ -1,0 +1,25 @@
+{
+  "schema": "umc.v1.m10.repaired_approval_readiness_decision.v1",
+  "generated_utc": "2026-07-16T10:48:00Z",
+  "status": "BLOCKED_M10_CONTROL_PATH_GAP",
+  "decision": "M10_BLOCKED_BY_CONTROL_PATH_GAP",
+  "allowed_decisions": [
+    "M10_NARROW_APPROVAL_PACKAGE_READY_FOR_OPERATOR_DECISION",
+    "M10_STILL_REQUIRES_SCOPE_NARROWING",
+    "M10_STILL_REQUIRES_ROLLBACK_REPAIR",
+    "M10_REQUIRES_ADDITIONAL_M9_CANARY",
+    "M10_BLOCKED_BY_CONTROL_PATH_GAP"
+  ],
+  "criteria": {
+    "scope_is_narrow": true,
+    "control_path_is_exact": false,
+    "rollback_off_switch_is_exact": false,
+    "abort_thresholds_are_exact": true,
+    "m2_m9_evidence_chain_valid": true,
+    "m10_has_not_started": true,
+    "approval_text_can_be_exact_and_bounded": false
+  },
+  "approval_text_produced": false,
+  "reason": "M10A scope is now narrow and abort thresholds are defined, but current installed runtime does not expose a proven M10A enable/disable flag or control reader. Approval text would be unsafe until source/staged install adds or proves the control path and off-switch.",
+  "next_phase": "IMPLEMENT_OR_PROVE_M10A_CONTROL_PATH_SOURCE_READY_NO_APPLY"
+}
