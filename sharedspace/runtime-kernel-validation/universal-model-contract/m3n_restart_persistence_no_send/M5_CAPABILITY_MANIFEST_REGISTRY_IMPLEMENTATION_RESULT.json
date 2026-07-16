@@ -1,0 +1,20 @@
+{
+  "schema": "umc.v1.m5.capability_manifest_registry_implementation_result.v1",
+  "generated_utc": "2026-07-16T00:45:00.000Z",
+  "status": "PASS_M5_CAPABILITY_MANIFEST_REGISTRY_IMPLEMENTED",
+  "source_file": "src/auto-reply/reply/umc-m5-capability-manifest.ts",
+  "implemented_behaviors": {
+    "load_manifests_from_approved_source": true,
+    "normalize_manifest_fields": true,
+    "validate_required_m5_fields": true,
+    "reject_missing_manifests": "HOLD_M5_CAPABILITY_MANIFEST_MISSING",
+    "reject_malformed_manifests": "FAIL_M5_CAPABILITY_MANIFEST_INVALID",
+    "reject_unsupported_delivery_modes": "HOLD_M5_CAPABILITY_UNSUPPORTED",
+    "reject_unsupported_authority_modes": "FAIL_M5_CAPABILITY_MANIFEST_INVALID",
+    "reject_fallback_without_contract_preservation": "HOLD_M5_CAPABILITY_UNSUPPORTED",
+    "typed_hold_for_missing_or_unsupported_capability": true,
+    "typed_fail_for_contradictory_invalid_manifest": true,
+    "produce_evidence_refs_for_accepted_manifests": true
+  },
+  "registry_version": "umc.v1.m5.capability_manifest_registry.v1"
+}

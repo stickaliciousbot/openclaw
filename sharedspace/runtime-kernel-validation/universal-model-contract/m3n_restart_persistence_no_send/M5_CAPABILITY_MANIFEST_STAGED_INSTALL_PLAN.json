@@ -1,0 +1,52 @@
+{
+  "schema": "umc.v1.m5.capability_manifest_staged_install_plan.v1",
+  "generated_utc": "2026-07-16T00:56:00Z",
+  "status": "PASS_M5_CAPABILITY_MANIFEST_STAGED_INSTALL_PLAN_READY",
+  "milestone": "M5_CAPABILITY_MANIFEST_REGISTRY_NO_SEND",
+  "do_not_install_in_this_milestone": true,
+  "source": {
+    "path": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+    "branch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+    "head": "3aaf216bcfd8beb7988949b655441104e78176f8",
+    "source_commit": "3aaf216bcfd8beb7988949b655441104e78176f8"
+  },
+  "build_package": {
+    "command": "pnpm build && npm pack --ignore-scripts",
+    "package_tarball_path": "TBD_IN_M5_CAPABILITY_MANIFEST_STAGED_INSTALL_AND_REGRESSION",
+    "tarball_produced_in_m5_source_ready": false
+  },
+  "expected_installed_files_changed": [
+    "dist/auto-reply/reply/umc-m5-capability-manifest.js",
+    "dist/auto-reply/reply/umc-m5-capability-manifest.schema.json",
+    "dist/auto-reply/reply/umc-m5-seed-manifests.json"
+  ],
+  "source_manifest_file_locations": [
+    "src/auto-reply/reply/umc-m5-capability-manifest.schema.json",
+    "src/auto-reply/reply/umc-m5-seed-manifests.json"
+  ],
+  "backup": {
+    "trusted_previous_backup": "/home/stickai/.openclaw/backups/openclaw-m4-verified-route-install-20260716T0022Z/openclaw-installed-package",
+    "next_staged_install_backup_path_template": "/home/stickai/.openclaw/backups/openclaw-m5-capability-manifest-install-<UTC>/openclaw-installed-package"
+  },
+  "rollback": {
+    "command": "npm install -g --ignore-scripts /home/stickai/.openclaw/workspace/tmp/umc-m4-package-r2/openclaw-2026.5.7.tgz && openclaw gateway restart",
+    "approved_m4_tarball_sha256": "6a2ec7a2318c8e56a565524f938831ca5d2a2de965e6e16bd2fbc5f4acd2f663",
+    "requires_operator_approval": true
+  },
+  "post_install_validation_plan": {
+    "gateway_health_validation": "openclaw gateway status must report running/connectivity/admin-capable after restart",
+    "telegram_health_validation": "openclaw channels status must report telegram enabled/configured/running/connected; no Telegram send/probe required unless separately approved",
+    "m3_regression_plan": "Run installed-runtime no-send M3 envelope fixture and require terminal closeout/no-send receipts with zero forbidden counters.",
+    "m4_regression_plan": "Run installed-runtime M4 direct bypass firewall fixture and require raw provider/model owner-scoped execution to HOLD.",
+    "m5_registry_installed_runtime_validation_plan": "Require installed M5 registry artifact, schema, seed manifests, manifest validation PASS, missing manifest HOLD, unsupported capability HOLD, contradictory manifest FAIL, fallback contract preservation HOLD.",
+    "direct_bypass_firewall_validation_plan": "Require manifests cannot forge VerifiedRoute or bypass M4 firewall; serialized/deserialized route remains rejected.",
+    "no_send_validation": "Counters for Telegram sends, external sends, provider/model live calls, route/config mutation, durable memory mutation, Context Bridge mutation, production authority change remain zero.",
+    "approval_boundary": "No package install, Gateway restart, live route/config mutation, Telegram probe, provider/model live call, or enforcement without explicit staged-install approval."
+  },
+  "cpu_event_loop_watch_item": {
+    "known_currently": true,
+    "blocking": false,
+    "reason": "Observed before M4 install; Gateway RPC and Telegram health passed; M5 source/no-apply gates do not depend on sustained runtime load. Treat as blocker only if it worsens, correlates with health/readback failure, or violates M5 safety gates.",
+    "suspected_root": "Not proven. Current evidence points to runtime load/event-loop saturation amplified by repeated status/validation CLI calls; process sampling during preflight showed status CLI processes plus Gateway servicing them as major CPU consumers, not a verified M4 artifact regression."
+  }
+}

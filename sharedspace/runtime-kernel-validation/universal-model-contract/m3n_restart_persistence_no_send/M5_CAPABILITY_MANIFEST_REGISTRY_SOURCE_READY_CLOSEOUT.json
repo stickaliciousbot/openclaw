@@ -1,0 +1,52 @@
+{
+  "schema": "umc.v1.m5.capability_manifest_registry_source_ready_closeout.v1",
+  "generated_utc": "2026-07-16T00:58:00Z",
+  "status": "PASS_M5_CAPABILITY_MANIFEST_REGISTRY_SOURCE_READY_NO_APPLY",
+  "milestone": "M5_CAPABILITY_MANIFEST_REGISTRY_NO_SEND",
+  "authoritative_prior_milestone": "PASS_M4_VERIFIED_ROUTE_STAGED_INSTALL_AND_REGRESSION",
+  "m4_evidence_commit": "eb6f257099243d04c52d13d9dbd0da63eba5a06a",
+  "source_commit": "3aaf216bcfd8beb7988949b655441104e78176f8",
+  "results": {
+    "preflight": "PASS_M5_CAPABILITY_MANIFEST_PREFLIGHT",
+    "manifest_schema": "PASS_M5_CAPABILITY_MANIFEST_SCHEMA_DEFINED",
+    "registry_implementation": "PASS_M5_CAPABILITY_MANIFEST_REGISTRY_IMPLEMENTED",
+    "seed_manifests": "PASS_M5_CAPABILITY_MANIFESTS_SEEDED_NO_SEND",
+    "route_eligibility_integration": "PASS_M5_ROUTE_ELIGIBILITY_INTEGRATED",
+    "fixtures": "PASS_M5_CAPABILITY_MANIFEST_REGISTRY_FIXTURES",
+    "no_apply_build_validation": "PASS_M5_CAPABILITY_MANIFEST_NO_APPLY_BUILD_VALIDATION",
+    "staged_install_plan": "PASS_M5_CAPABILITY_MANIFEST_STAGED_INSTALL_PLAN_READY"
+  },
+  "fixture_key_results": {
+    "valid_manifest_route_eligibility": "PASS_M5_ROUTE_ELIGIBILITY_VERIFIED",
+    "missing_manifest_block": "HOLD_M5_CAPABILITY_MANIFEST_MISSING",
+    "malformed_manifest_block": "FAIL_M5_CAPABILITY_MANIFEST_INVALID",
+    "unsupported_capability_block": "HOLD_M5_CAPABILITY_UNSUPPORTED",
+    "fallback_contract_preservation_block": "HOLD_M5_CAPABILITY_MANIFEST_MISSING_AFTER_UNSUPPORTED_FALLBACK_MANIFEST_REJECTED",
+    "production_authority_prevention": "FAIL_M5_CAPABILITY_MANIFEST_INVALID",
+    "m3_regression": "PASS_M3_TERMINAL_CONTRACT_CLOSEOUT_EMITTED",
+    "m4_bypass_regression": "HOLD_M4_MISSING_VERIFIED_ROUTE"
+  },
+  "cpu_event_loop_watch_item": {
+    "known": true,
+    "blocking": false,
+    "root_proven": false,
+    "best_current_explanation": "runtime load/event-loop saturation amplified by repeated status/validation CLI calls; observed before M4 install and not correlated with Gateway/Telegram health failure or M5 no-apply readback failure"
+  },
+  "boundary_counters": {
+    "installed_runtime_mutation_count": 0,
+    "package_install_count": 0,
+    "tarball_apply_count": 0,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "production_enforcement_enabled": false,
+    "m6_started": false
+  },
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "next_milestone": "M5_CAPABILITY_MANIFEST_STAGED_INSTALL_AND_REGRESSION"
+}

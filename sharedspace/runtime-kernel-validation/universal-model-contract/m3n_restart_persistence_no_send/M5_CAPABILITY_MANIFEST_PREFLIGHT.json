@@ -1,0 +1,63 @@
+{
+  "schema": "umc.v1.m5.capability_manifest_preflight.v1",
+  "generated_utc": "2026-07-16T00:41:00Z",
+  "status": "PASS_M5_CAPABILITY_MANIFEST_PREFLIGHT",
+  "milestone": "M5_CAPABILITY_MANIFEST_REGISTRY_NO_SEND",
+  "source_no_apply": true,
+  "verified_conditions": {
+    "m4_final_closeout_exists": true,
+    "m4_final_status_pass": true,
+    "m4_evidence_commit_exists": true,
+    "m4_evidence_commit": "eb6f257099243d04c52d13d9dbd0da63eba5a06a",
+    "m4_installed_artifact_present": true,
+    "m4_direct_bypass_firewall_installed": true,
+    "m3p_final_pass_exists": true,
+    "m3p_status": "PASS_M3P_OWNER_TURN_SHADOW_COVERAGE_SOAK_NO_SEND",
+    "m3_envelope_no_send_path_installed": true,
+    "m2_route_admission_hook_preserved": true,
+    "gateway_rpc_ok": true,
+    "telegram_on_ok": true,
+    "production_enforcement_disabled": true,
+    "m5_not_already_started_before_this_preflight": true,
+    "m6_not_started": true,
+    "safety_counters_clean": true,
+    "rollback_backup_exists": true,
+    "rollback_backup": "/home/stickai/.openclaw/backups/openclaw-m4-verified-route-install-20260716T0022Z/openclaw-installed-package"
+  },
+  "source_worktree": {
+    "path": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+    "branch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+    "head": "c0bd5adebeb1b2e59406a87fdb2fac33a01a5777",
+    "clean_before_m5": true
+  },
+  "evidence_repo": {
+    "path": "/home/stickai/.openclaw/workspace",
+    "branch": "evidence/umc-m3n-post-restart-health-failclosed-20260713",
+    "head": "eb6f257099243d04c52d13d9dbd0da63eba5a06a"
+  },
+  "event_loop_cpu_watch_item": {
+    "known_degradation_currently_known": true,
+    "current_gateway_health": "pass: running pid 1119605, connectivity ok, admin-capable",
+    "current_telegram_health": "pass: enabled/configured/running/connected",
+    "latest_channel_status_degraded": true,
+    "latest_degradation": "event_loop_utilization,cpu eventLoopDelayMaxMs=0 eventLoopUtilization=1 cpuCoreRatio=1.013",
+    "process_sample": "Gateway node around 20.9% CPU; during concurrent status checks the status CLI child processes were top CPU consumers and Gateway remained reachable",
+    "blocking": false,
+    "blocking_reason": "Degradation existed before M4 install and currently does not correlate with connectivity/admin/Telegram failure or M5 gate failure; track as watch item. Likely root class is Gateway event-loop utilization/CPU pressure during status/probe handling, not M4 capability logic. Root not fully proven; no repair attempted under M5 no-apply boundary."
+  },
+  "safety_counters": {
+    "installed_runtime_mutation_count": 0,
+    "package_install_count": 0,
+    "tarball_apply_count": 0,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "production_enforcement_enabled": false,
+    "m6_started": false
+  }
+}

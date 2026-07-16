@@ -1,0 +1,19 @@
+{
+  "schema": "umc.v1.m5.capability_manifest_seed_result.v1",
+  "generated_utc": "2026-07-16T00:45:00.000Z",
+  "status": "PASS_M5_CAPABILITY_MANIFESTS_SEEDED_NO_SEND",
+  "source_seed_path": "src/auto-reply/reply/umc-m5-seed-manifests.json",
+  "manifest_count": 8,
+  "component_ids": [
+    "lane:owner-turn-primary",
+    "model:openai-codex/gpt-5.5",
+    "model:ollama/deepseek-v4-pro:cloud",
+    "model:token-broker-vmesh/auto",
+    "adapter:m3-envelope-supervision",
+    "adapter:m4-verified-route-firewall",
+    "adapter:telegram-delivery-no-send-observation",
+    "tool_runtime:supervision-boundary"
+  ],
+  "enforcement_ready_count": 0,
+  "all_no_send_observe_only": true
+}

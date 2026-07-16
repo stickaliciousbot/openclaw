@@ -1,0 +1,75 @@
+{
+  "schema": "umc.v1.m5.capability_manifest_evidence_manifest.v1",
+  "generated_utc": "2026-07-16T00:59:00Z",
+  "status": "PASS_M5_CAPABILITY_MANIFEST_EVIDENCE_MANIFEST_READY",
+  "final_status": "PASS_M5_CAPABILITY_MANIFEST_REGISTRY_SOURCE_READY_NO_APPLY",
+  "source_commit": "3aaf216bcfd8beb7988949b655441104e78176f8",
+  "evidence_commit": "PENDING_COMMIT",
+  "artifacts": [
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M5_CAPABILITY_MANIFEST_PREFLIGHT.json",
+      "sha256": "3293c2c07be04113508575e8b07f517f8b8b212c67ca0ab9a0982a04909cfc14",
+      "status": "PASS_M5_CAPABILITY_MANIFEST_PREFLIGHT"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M5_CAPABILITY_MANIFEST_SCHEMA.json",
+      "sha256": "2ad9ddd473808dc5a3902f7ee76c1166a29695965becb41ffabb06897ea019ee",
+      "status": "PASS_M5_CAPABILITY_MANIFEST_SCHEMA_DEFINED"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M5_CAPABILITY_MANIFEST_SCHEMA.md",
+      "sha256": "8c283455892110489fd4b1bc7fc48e0c5e867d5528990912b6fd0137c98e06be"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M5_CAPABILITY_MANIFEST_REGISTRY_IMPLEMENTATION_RESULT.json",
+      "sha256": "aa8c410514db00174e17e746c648a9eb2a531e61913ec451069838636739f0d0",
+      "status": "PASS_M5_CAPABILITY_MANIFEST_REGISTRY_IMPLEMENTED"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M5_CAPABILITY_MANIFEST_SEED_RESULT.json",
+      "sha256": "cb7a9e7a250980b300aab21677ce92d3ad46a689268fdd44486a32060d59a4d2",
+      "status": "PASS_M5_CAPABILITY_MANIFESTS_SEEDED_NO_SEND"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M5_ROUTE_ELIGIBILITY_INTEGRATION_RESULT.json",
+      "sha256": "b11dc150772b0451c98efb6718cc89bb667c3be2d1a9f41148e47041f64fd258",
+      "status": "PASS_M5_ROUTE_ELIGIBILITY_INTEGRATED"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M5_CAPABILITY_MANIFEST_REGISTRY_FIXTURE_RESULTS.json",
+      "sha256": "43e3c17a30efef7858f06387937696b9930ef89bbccc58c7a0126492e41c9a06",
+      "status": "PASS_M5_CAPABILITY_MANIFEST_REGISTRY_FIXTURES"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M5_CAPABILITY_MANIFEST_NO_APPLY_BUILD_VALIDATION.json",
+      "sha256": "29e09c221fd63b2208715194040c33d3a9a6154412b80e412a473515871e39ea",
+      "status": "PASS_M5_CAPABILITY_MANIFEST_NO_APPLY_BUILD_VALIDATION"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M5_CAPABILITY_MANIFEST_STAGED_INSTALL_PLAN.json",
+      "sha256": "ab4b29f520c55532477f88c489839ddb9fe45108d7607bc0879f1d2f2c7fee2c",
+      "status": "PASS_M5_CAPABILITY_MANIFEST_STAGED_INSTALL_PLAN_READY"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M5_CAPABILITY_MANIFEST_STAGED_INSTALL_PLAN.md",
+      "sha256": "923a979bcc584697cf706780e680d10c28ba51b98dd023e05ef1508003fc6d14"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m3n_restart_persistence_no_send/M5_CAPABILITY_MANIFEST_REGISTRY_SOURCE_READY_CLOSEOUT.json",
+      "sha256": "dd276f99ae91bf621f50b7f20a512a227614e3d7d847c5bc223b1cdff1df5615",
+      "status": "PASS_M5_CAPABILITY_MANIFEST_REGISTRY_SOURCE_READY_NO_APPLY"
+    }
+  ],
+  "boundaries": {
+    "installed_runtime_mutation_count": 0,
+    "telegram_send_probe_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "enforcement_mutation_count": 0,
+    "m6_started": false
+  },
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION"
+}

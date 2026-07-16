@@ -1,0 +1,44 @@
+{
+  "schema": "umc.v1.m5.no_apply_build_validation.v1",
+  "generated_utc": "2026-07-16T00:55:00Z",
+  "status": "PASS_M5_CAPABILITY_MANIFEST_NO_APPLY_BUILD_VALIDATION",
+  "milestone": "M5_CAPABILITY_MANIFEST_REGISTRY_NO_SEND",
+  "source_repo": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+  "source_branch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+  "source_commit": "3aaf216bcfd8beb7988949b655441104e78176f8",
+  "validation_results": {
+    "m5_fixture_runner": "PASS_M5_CAPABILITY_MANIFEST_FIXTURE_RUNNER",
+    "script_syntax_run_m5_fixtures": "PASS_node_check",
+    "script_syntax_write_m5_seed_manifests": "PASS_node_check",
+    "source_schema_json_parse": "PASS_python_json_tool",
+    "source_seed_manifests_json_parse": "PASS_python_json_tool",
+    "git_diff_check": "PASS",
+    "manifest_validation": "PASS_M5_CAPABILITY_MANIFESTS_SEEDED_NO_SEND",
+    "route_eligibility_validation": "PASS_M5_ROUTE_ELIGIBILITY_INTEGRATED",
+    "m3_regression_fixture_validation": "PASS_M3_TERMINAL_CONTRACT_CLOSEOUT_EMITTED",
+    "m4_bypass_regression_fixture_validation": "HOLD_M4_MISSING_VERIFIED_ROUTE",
+    "markdown_sanity": "PASS_scoped_markdown_written",
+    "full_vitest": "NOT_USED_AS_GATE_SIGKILL_UNDER_EXISTING_CPU_EVENT_LOOP_PRESSURE",
+    "full_build": "NOT_RUN_NO_APPLY_SOURCE_MILESTONE_AND_CPU_WATCH_ITEM"
+  },
+  "boundary_validation": {
+    "installed_runtime_mutation_count": 0,
+    "package_install_count": 0,
+    "tarball_apply_count": 0,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "production_enforcement_enabled": false,
+    "m6_started": false
+  },
+  "notes": [
+    "Focused source/fixture validation passed with node --import tsx scripts/run-m5-capability-manifest-fixtures.mjs.",
+    "A direct Vitest invocation was attempted earlier for a temporary unit-test file and was SIGKILLed after heavy plugin-timing warnings; the temporary Vitest file was removed and was not used as an M5 gate.",
+    "No installed runtime, config, route, Context Bridge, durable memory, Telegram, provider/model, authority, or enforcement mutation was performed."
+  ]
+}

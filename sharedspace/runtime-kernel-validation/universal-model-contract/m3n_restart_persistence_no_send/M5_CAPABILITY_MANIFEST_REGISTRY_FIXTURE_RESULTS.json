@@ -1,0 +1,42 @@
+{
+  "schema": "umc.v1.m5.capability_manifest_registry_fixture_results.v1",
+  "generated_utc": "2026-07-16T00:45:00.000Z",
+  "status": "PASS_M5_CAPABILITY_MANIFEST_REGISTRY_FIXTURES",
+  "fixture_cases": {
+    "valid_manifest_allows_no_send_observe_only_route_eligibility": "PASS_M5_ROUTE_ELIGIBILITY_VERIFIED",
+    "missing_manifest_blocks_route": "HOLD_M5_CAPABILITY_MANIFEST_MISSING",
+    "malformed_manifest_blocks_route": "FAIL_M5_CAPABILITY_MANIFEST_INVALID",
+    "unsupported_delivery_mode_blocks_route": "HOLD_M5_CAPABILITY_UNSUPPORTED",
+    "unsupported_contract_envelope_blocks_route": "HOLD_M5_CAPABILITY_UNSUPPORTED",
+    "unsupported_delivery_receipt_no_send_blocks_route": "HOLD_M5_CAPABILITY_UNSUPPORTED",
+    "fallback_without_contract_preservation_blocks_fallback": "HOLD_M5_CAPABILITY_MANIFEST_MISSING",
+    "manifest_cannot_forge_verified_route": "HOLD_M4_FORGED_OR_DESERIALIZED_VERIFIED_ROUTE",
+    "manifest_cannot_enable_production_authority": "FAIL_M5_CAPABILITY_MANIFEST_INVALID",
+    "manifest_cannot_bypass_direct_bypass_firewall": "HOLD_M4_MISSING_VERIFIED_ROUTE",
+    "m3_envelope_no_send_receipts_still_pass": "PASS_M3_TERMINAL_CONTRACT_CLOSEOUT_EMITTED",
+    "m4_raw_provider_model_rejection_still_passes": "HOLD_M4_MISSING_VERIFIED_ROUTE"
+  },
+  "m3_receipts": [
+    "envelope",
+    "shadowObservationReceipt",
+    "toolSupervisionReceipt",
+    "deliveryReceipt",
+    "universalContractReceipt",
+    "terminalCloseout"
+  ],
+  "safety_counters": {
+    "installed_runtime_mutation_count": 0,
+    "package_install_count": 0,
+    "tarball_apply_count": 0,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "production_enforcement_enabled": false,
+    "m6_started": false
+  }
+}

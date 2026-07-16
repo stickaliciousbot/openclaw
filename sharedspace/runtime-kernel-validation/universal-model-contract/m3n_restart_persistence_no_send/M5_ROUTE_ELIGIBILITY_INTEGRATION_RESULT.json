@@ -1,0 +1,17 @@
+{
+  "schema": "umc.v1.m5.route_eligibility_integration_result.v1",
+  "generated_utc": "2026-07-16T00:45:00.000Z",
+  "status": "PASS_M5_ROUTE_ELIGIBILITY_INTEGRATED",
+  "source_file": "src/auto-reply/reply/umc-m5-capability-manifest.ts",
+  "integration_mode": "source-level wrapper validates M5 capability manifests before delegating to M4 verifyM4RouteIntent",
+  "required_behaviors": {
+    "verified_route_creation_checks_required_capabilities": "PASS_M5_ROUTE_ELIGIBILITY_VERIFIED",
+    "fallback_selection_checks_required_capabilities": "HOLD_M5_CAPABILITY_MANIFEST_MISSING",
+    "missing_manifest_blocks_route": "HOLD_M5_CAPABILITY_MANIFEST_MISSING",
+    "unsupported_no_send_blocks_route": "HOLD_M5_CAPABILITY_UNSUPPORTED",
+    "unsupported_contract_envelope_blocks_route": "HOLD_M5_CAPABILITY_UNSUPPORTED",
+    "unsupported_fallback_contract_preservation_blocks_fallback": "HOLD_M5_CAPABILITY_UNSUPPORTED",
+    "manifest_cannot_grant_production_authority": "FAIL_M5_CAPABILITY_MANIFEST_INVALID",
+    "manifest_cannot_bypass_m4_firewall": "HOLD_M4_MISSING_VERIFIED_ROUTE"
+  }
+}
