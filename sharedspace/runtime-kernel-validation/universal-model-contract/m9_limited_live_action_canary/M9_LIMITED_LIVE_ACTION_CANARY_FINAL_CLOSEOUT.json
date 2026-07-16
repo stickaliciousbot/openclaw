@@ -1,0 +1,64 @@
+{
+  "schema": "umc.v1.m9.limited_live_action_canary_final_closeout.v1",
+  "generated_utc": "2026-07-16T08:50:19.347Z",
+  "status": "FAIL_M9_LIMITED_LIVE_ACTION_CANARY_OBSERVATION",
+  "final_status": "FAIL_M9_LIMITED_LIVE_ACTION_CANARY_OBSERVATION",
+  "original_canary_result": "PASS_M9_LIMITED_LIVE_ACTION_CANARY_LOCAL_ARTIFACT_WRITE",
+  "canary_rehydration_result": "PASS_M9_CANARY_REHYDRATED",
+  "post_canary_observation_result": "FAIL_M9_POST_CANARY_OBSERVATION_REGRESSION",
+  "evidence_sufficiency_decision": "M9_BLOCKED_BY_STABILITY_OR_SAFETY_REGRESSION",
+  "target_path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LOCAL_ARTIFACT_CANARY_TARGET.txt",
+  "target_sha256": "1908d9158dc06e6c7127b86cde923361c3f86a13ba084c4f03746d4af49ff0cf",
+  "expected_target_sha256": "1908d9158dc06e6c7127b86cde923361c3f86a13ba084c4f03746d4af49ff0cf",
+  "action_count": {
+    "original_canary": 1,
+    "maximum_approved": 1,
+    "additional_live_actions": 0,
+    "duplicate_write_count": 0
+  },
+  "receipt_summary": {
+    "write_receipt": "PASS_M9_LOCAL_ARTIFACT_WRITE_RECEIPT",
+    "delivery_receipt": "PASS_M9_DELIVERY_RECEIPT_LOCAL_ARTIFACT_WRITE",
+    "delivery_receipt_mode": "local_artifact_write",
+    "terminal_contract_closeout": "PASS_M9_LIMITED_LIVE_ACTION_CANARY_LOCAL_ARTIFACT_WRITE",
+    "write_receipt_unchanged_during_observation": true,
+    "delivery_receipt_unchanged_during_observation": true,
+    "terminal_contract_closeout_unchanged_during_observation": true
+  },
+  "postcondition_summary": {
+    "file_exists": true,
+    "path_exact": true,
+    "sha256_matches": true,
+    "no_duplicate_canary_write": true,
+    "failed_observation_rules": [
+      "context_overflow_count",
+      "context_overflow_diag_count"
+    ]
+  },
+  "gateway_telegram_health": {
+    "gateway_rpc_ok": true,
+    "telegram_on_ok": true,
+    "queue_depth_resting": true,
+    "known_warning": "Gateway service PATH missing required dirs: /home/stickai/.local/share/pnpm"
+  },
+  "production_authority_state": "unchanged/no production authority change",
+  "broad_enforcement_enabled": false,
+  "m10_started": false,
+  "m10_prep_result": "NOT_PRODUCED_BLOCKED_BY_M9_OBSERVATION_REGRESSION",
+  "additional_canary_plan_result": "NOT_PRODUCED_BLOCKED_BY_M9_OBSERVATION_REGRESSION",
+  "safety_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "write_tool_live_execution_count": 1,
+    "additional_write_tool_live_execution_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "broad_production_enforcement_count": 0,
+    "duplicate_canary_write_count": 0,
+    "m10_started": false
+  },
+  "recommendation_for_next_phase": "INVESTIGATE_M9_CONTEXT_OVERFLOW_OBSERVATION_REGRESSION"
+}

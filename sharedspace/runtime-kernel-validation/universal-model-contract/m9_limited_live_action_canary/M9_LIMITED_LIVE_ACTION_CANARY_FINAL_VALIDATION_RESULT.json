@@ -1,0 +1,40 @@
+{
+  "schema": "umc.v1.m9.failed_observation_closeout_validation.v1",
+  "generated_utc": "2026-07-16T08:51:03.007Z",
+  "status": "PASS_M9_FAILED_OBSERVATION_CLOSEOUT_VALIDATION",
+  "checks": {
+    "json_validation": true,
+    "markdown_sanity": true,
+    "git_diff_check": true,
+    "changed_file_scope": true,
+    "canary_rehydration_validation": true,
+    "post_canary_observation_validation": true,
+    "evidence_sufficiency_validation": true,
+    "m9_final_closeout_validation": true,
+    "m10_prep_validation": "NOT_PRODUCED_AS_REQUIRED_BY_FAILED_OBSERVATION",
+    "additional_canary_plan_validation": "NOT_PRODUCED_AS_REQUIRED_BY_FAILED_OBSERVATION",
+    "no_duplicate_write_validation": true,
+    "no_send_validation": true,
+    "no_authority_validation": true,
+    "runtime_config_drift_validation": true,
+    "durable_memory_context_bridge_non_mutation_validation": true,
+    "target_sha_validation": true
+  },
+  "failures": [],
+  "changed_files": [
+    "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_CANARY_REHYDRATION_RESULT.json",
+    "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_CANARY_REHYDRATION_SUMMARY.md",
+    "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_EVIDENCE_SUFFICIENCY_DECISION.json",
+    "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_EVIDENCE_SUFFICIENCY_DECISION.md",
+    "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LIMITED_LIVE_ACTION_CANARY_FINAL_CLOSEOUT.json",
+    "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LIMITED_LIVE_ACTION_CANARY_FINAL_EVIDENCE_MANIFEST.json",
+    "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LIMITED_LIVE_ACTION_CANARY_FINAL_SUMMARY.md",
+    "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_CANARY_OBSERVATION_PROBE_0001.json",
+    "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_CANARY_OBSERVATION_PROBE_0002.json",
+    "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_CANARY_OBSERVATION_PROBE_0003.json",
+    "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_CANARY_OBSERVATION_PROBE_0004.json",
+    "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_CANARY_OBSERVATION_PROBE_0005.json",
+    "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_CANARY_OBSERVATION_PROBE_0006.json",
+    "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_CANARY_OBSERVATION_SUMMARY.json"
+  ]
+}

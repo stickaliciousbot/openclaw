@@ -1,0 +1,52 @@
+{
+  "schema": "umc.v1.m9.canary_rehydration_result.v1",
+  "generated_utc": "2026-07-16T08:21:15.599Z",
+  "status": "PASS_M9_CANARY_REHYDRATED",
+  "failures": [],
+  "checks": {
+    "final_status": "PASS_M9_LIMITED_LIVE_ACTION_CANARY_LOCAL_ARTIFACT_WRITE",
+    "action_count_exactly_one": true,
+    "target_file_exists": true,
+    "target_path_exact": true,
+    "target_sha256_matches": true,
+    "write_receipt_exists": true,
+    "delivery_receipt_exists": true,
+    "delivery_receipt_mode": "local_artifact_write",
+    "terminal_contract_closeout_exists": true,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "m10_started": false,
+    "commit_exists": true,
+    "summary_nonempty": true,
+    "manifest_status": "PASS_M9_LIMITED_LIVE_ACTION_CANARY_LOCAL_ARTIFACT_WRITE",
+    "target_mtime_ms": 1784189684560.4978,
+    "target_size": 171
+  },
+  "source_commit": "dd89874b44ccd495ab83938d1834a656c59f6271",
+  "target_baseline": {
+    "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LOCAL_ARTIFACT_CANARY_TARGET.txt",
+    "sha256": "1908d9158dc06e6c7127b86cde923361c3f86a13ba084c4f03746d4af49ff0cf",
+    "mtime_ms": 1784189684560.4978,
+    "size": 171
+  },
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "write_tool_live_execution_count": 1,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "broad_production_enforcement_count": 0,
+    "m10_started": false,
+    "live_action_executed": true,
+    "additional_write_tool_live_execution_count": 0
+  }
+}

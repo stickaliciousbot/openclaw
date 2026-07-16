@@ -1,0 +1,93 @@
+{
+  "schema": "umc.v1.m9.limited_live_action_canary_final_evidence_manifest.v1",
+  "generated_utc": "2026-07-16T08:51:03.026Z",
+  "status": "FAIL_M9_LIMITED_LIVE_ACTION_CANARY_OBSERVATION",
+  "final_status": "FAIL_M9_LIMITED_LIVE_ACTION_CANARY_OBSERVATION",
+  "evidence_sufficiency_decision": "M9_BLOCKED_BY_STABILITY_OR_SAFETY_REGRESSION",
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "next_phase": "INVESTIGATE_M9_CONTEXT_OVERFLOW_OBSERVATION_REGRESSION",
+  "artifacts": [
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_CANARY_REHYDRATION_RESULT.json",
+      "sha256": "b1cba1cda341aabecad9cc79aa2ffe7ff9c465d2489a8742e84333aaec18f386",
+      "status": "PASS_M9_CANARY_REHYDRATED"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_CANARY_REHYDRATION_SUMMARY.md",
+      "sha256": "7acb802ff172b55c09ef53706199b45765fedc8ee49d50ddf4cfc2fc0fdd264d"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_CANARY_OBSERVATION_PROBE_0001.json",
+      "sha256": "c85f0fc8093d906af1d49f324994532277224b8870f7d1e2e16db4ff00ee2fa0",
+      "status": "PASS_M9_POST_CANARY_OBSERVATION_PROBE"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_CANARY_OBSERVATION_PROBE_0002.json",
+      "sha256": "5940d3c18e3b0a960ed10d31cd3b959d5ab5c950a8b83322b955812e92898ef9",
+      "status": "PASS_M9_POST_CANARY_OBSERVATION_PROBE"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_CANARY_OBSERVATION_PROBE_0003.json",
+      "sha256": "44ce2d386d9bfc3f01cd91ea0a1ac1e193d0ccb1a12d80ad3f218a6637870770",
+      "status": "PASS_M9_POST_CANARY_OBSERVATION_PROBE"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_CANARY_OBSERVATION_PROBE_0004.json",
+      "sha256": "50418adf04d4cbae2c52d6ad256fb29982fb922ba8dee6facad59f26213ca69c",
+      "status": "PASS_M9_POST_CANARY_OBSERVATION_PROBE"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_CANARY_OBSERVATION_PROBE_0005.json",
+      "sha256": "5356c61216bd5b3d42a42522216ae2878716a8dc356d7a7fff71821dffb4656e",
+      "status": "PASS_M9_POST_CANARY_OBSERVATION_PROBE"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_CANARY_OBSERVATION_PROBE_0006.json",
+      "sha256": "8f1b03284f8c5b13bc07ddd00f9cbf9b064dd6c1c5eccdbe14dd8572228eb3ba",
+      "status": "FAIL_M9_POST_CANARY_OBSERVATION_REGRESSION"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_CANARY_OBSERVATION_SUMMARY.json",
+      "sha256": "148acb3bd1d3081cfcf043552fb1122c0591776f09fcf66d1823035f5f890c0e",
+      "status": "FAIL_M9_POST_CANARY_OBSERVATION_REGRESSION"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_EVIDENCE_SUFFICIENCY_DECISION.json",
+      "sha256": "a41eba5a393f98462b52f14f8d0e5bb79aacd5c1626ddf07be1744e059c566da",
+      "status": "M9_BLOCKED_BY_STABILITY_OR_SAFETY_REGRESSION"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_EVIDENCE_SUFFICIENCY_DECISION.md",
+      "sha256": "ef3f22c40cb92313cef74f5073b89ae5ef941b07c8be3728d6e6dbf3aa81c3b9"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LIMITED_LIVE_ACTION_CANARY_FINAL_CLOSEOUT.json",
+      "sha256": "f129d18c5d2a4d0474c52900192b173f2ac1298d7a3b4fad542949aa03663870",
+      "status": "FAIL_M9_LIMITED_LIVE_ACTION_CANARY_OBSERVATION"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LIMITED_LIVE_ACTION_CANARY_FINAL_SUMMARY.md",
+      "sha256": "56c091f5710c404e181fbdfb1a302378de8a0b7b021fce93088f14f7998fe76f"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LIMITED_LIVE_ACTION_CANARY_FINAL_VALIDATION_RESULT.json",
+      "sha256": "fc4e5473304b8e9f292df9860e76f76c6cf1aaa3fee9b6635c57da8bc315c171",
+      "status": "PASS_M9_FAILED_OBSERVATION_CLOSEOUT_VALIDATION"
+    }
+  ],
+  "safety_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "write_tool_live_execution_count": 1,
+    "additional_write_tool_live_execution_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "broad_production_enforcement_count": 0,
+    "duplicate_canary_write_count": 0,
+    "m10_started": false
+  },
+  "validation_status": "PASS_M9_FAILED_OBSERVATION_CLOSEOUT_VALIDATION"
+}

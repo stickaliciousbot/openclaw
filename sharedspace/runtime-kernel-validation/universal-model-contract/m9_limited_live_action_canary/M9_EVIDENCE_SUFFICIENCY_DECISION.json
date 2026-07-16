@@ -1,0 +1,36 @@
+{
+  "schema": "umc.v1.m9.evidence_sufficiency_decision.v1",
+  "generated_utc": "2026-07-16T08:50:19.347Z",
+  "status": "M9_BLOCKED_BY_STABILITY_OR_SAFETY_REGRESSION",
+  "decision": "M9_BLOCKED_BY_STABILITY_OR_SAFETY_REGRESSION",
+  "sufficient_for_m10_prep": false,
+  "m10_prep_allowed": false,
+  "additional_canary_plan_allowed": false,
+  "reason": "Post-canary observation failed the explicit zero-tolerance context-overflow/context-overflow-diag probe rule on probe 0006.",
+  "selection_rule_applied": "Choose M9_BLOCKED_BY_STABILITY_OR_SAFETY_REGRESSION because rehydration passed but post-canary observation did not pass.",
+  "rehydration_status": "PASS_M9_CANARY_REHYDRATED",
+  "post_canary_observation_status": "FAIL_M9_POST_CANARY_OBSERVATION_REGRESSION",
+  "failed_probe": "M9_POST_CANARY_OBSERVATION_PROBE_0006.json",
+  "failed_probe_failures": [
+    "context_overflow_count",
+    "context_overflow_diag_count"
+  ],
+  "canary_preserved": true,
+  "target_path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LOCAL_ARTIFACT_CANARY_TARGET.txt",
+  "target_sha256": "1908d9158dc06e6c7127b86cde923361c3f86a13ba084c4f03746d4af49ff0cf",
+  "safety_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "write_tool_live_execution_count": 1,
+    "additional_write_tool_live_execution_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "broad_production_enforcement_count": 0,
+    "duplicate_canary_write_count": 0,
+    "m10_started": false
+  },
+  "recommendation": "Do not prepare M10 approval yet. Investigate/clear context-overflow diagnostics, then request/approve a fresh observation gate or additional M9 evidence gate before M10 prep."
+}
