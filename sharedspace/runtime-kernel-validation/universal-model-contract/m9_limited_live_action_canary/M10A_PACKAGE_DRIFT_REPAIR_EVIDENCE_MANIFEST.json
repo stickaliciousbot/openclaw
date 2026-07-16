@@ -1,0 +1,96 @@
+{
+  "schema": "umc.v1.m10a.package_drift_repair_evidence_manifest.v1",
+  "generated_utc": "2026-07-16T11:33:00Z",
+  "status": "HOLD_M10A_REPAIRED_INSTALL_AWAITING_OPERATOR_APPROVAL",
+  "final_status": "HOLD_M10A_REPAIRED_INSTALL_AWAITING_OPERATOR_APPROVAL",
+  "artifacts": [
+    {
+      "file": "M10A_PACKAGE_DRIFT_REPAIR_PREFLIGHT.json",
+      "bytes": 612,
+      "sha256": "4d5a3940830a572fe20992525615a30701632398e90a9f52d00ee1518dea18a0",
+      "status": "PASS_M10A_PACKAGE_DRIFT_REPAIR_PREFLIGHT"
+    },
+    {
+      "file": "M10A_PACKAGE_DRIFT_REPAIR_PREFLIGHT.md",
+      "bytes": 360,
+      "sha256": "02fbc47c057b565546315b9c27b29c070cb9c85809759004879105e0c6154365"
+    },
+    {
+      "file": "M10A_PACKAGE_PRESERVATION_DRIFT_ROOT_CAUSE.json",
+      "bytes": 1257,
+      "sha256": "a1bc2e7b7c5154e750418e68a3787090754bd63767bcd6177266f5e1ed1d2716",
+      "status": "PASS_M10A_PACKAGE_PRESERVATION_DRIFT_ROOT_CAUSE_CLASSIFIED"
+    },
+    {
+      "file": "M10A_PACKAGE_PRESERVATION_DRIFT_ROOT_CAUSE.md",
+      "bytes": 604,
+      "sha256": "414fd41f237aa0d6acff00affdc21920880a221155dc658524bb6678997def85"
+    },
+    {
+      "file": "M10A_PACKAGE_PRESERVATION_INVARIANT.json",
+      "bytes": 1467,
+      "sha256": "cd7133c75be9018d2633cdb04a0767ac926885b4542e0914d8e8a6effaebfd3a",
+      "status": "PASS_M10A_PACKAGE_PRESERVATION_INVARIANT_DEFINED"
+    },
+    {
+      "file": "M10A_PACKAGE_PRESERVATION_INVARIANT.md",
+      "bytes": 304,
+      "sha256": "0dc4c7d33832892e76e649862b32357a95f213d6a0eae4efe50382480e1427ee"
+    },
+    {
+      "file": "M10A_PACKAGE_DRIFT_SOURCE_REPAIR_RESULT.json",
+      "bytes": 559,
+      "sha256": "eb84bd1b38d2235a7396427a924c5190067a011735d40e8271d7856677b0db76",
+      "status": "PASS_M10A_PACKAGE_DRIFT_SOURCE_REPAIR"
+    },
+    {
+      "file": "M10A_PACKAGE_DRIFT_GUARD_FIXTURE_RESULTS.json",
+      "bytes": 508,
+      "sha256": "79ef94678bfd464fb134691730abb53ba53f5970e71fd604e6ac2c2040a02966",
+      "status": "PASS_M10A_PACKAGE_DRIFT_GUARD_FIXTURES"
+    },
+    {
+      "file": "M10A_PACKAGE_DRIFT_REPAIR_CONTROL_PATH_REGRESSION.json",
+      "bytes": 490,
+      "sha256": "a32ca89387f42218e107b97fd7cfff447a36bd1e8cb4323e957154f1840a4743",
+      "status": "PASS_M10A_PACKAGE_DRIFT_REPAIR_CONTROL_PATH_REGRESSION"
+    },
+    {
+      "file": "M10A_PACKAGE_DRIFT_REPAIR_PACKAGE_DRY_RUN.json",
+      "bytes": 1201,
+      "sha256": "6bd4e1c8e490b307b9308b2d460f6164b94fa2ee46ec9ec44c0ce1f6bad63904",
+      "status": "PASS_M10A_PACKAGE_DRIFT_REPAIR_PACKAGE_DRY_RUN"
+    },
+    {
+      "file": "M10A_REPAIRED_CONTROL_PATH_INSTALL_APPROVAL_CARD.json",
+      "bytes": 5573,
+      "sha256": "cc0864415ab8c57b08cb2362d4da896231b89a01bf85a1a1fcfb1ab723516aa0",
+      "status": "HOLD_M10A_REPAIRED_INSTALL_AWAITING_OPERATOR_APPROVAL"
+    },
+    {
+      "file": "M10A_REPAIRED_CONTROL_PATH_INSTALL_APPROVAL_CARD.md",
+      "bytes": 2842,
+      "sha256": "e1423118e886dfd936800c4b8e97ded8e403523f3069010882cd1676ce6f3a6f"
+    },
+    {
+      "file": "M10A_PACKAGE_DRIFT_REPAIR_VALIDATION.json",
+      "bytes": 1440,
+      "sha256": "8f3bc66f9a4ea95c9715f564e75844defa826b00c8c0275177d19e602b3de93d",
+      "status": "PASS_M10A_PACKAGE_DRIFT_REPAIR_VALIDATION"
+    }
+  ],
+  "candidate_tarball_path": "/home/stickai/.openclaw/workspace/tmp/umc-m10a-repaired-scoped-overlay/m10a-control-path-scoped-overlay-20260716T1133Z.tar.gz",
+  "candidate_tarball_sha256": "be66f39008d09e8a04c848a50a3842b8553743a5bd4b0a9541218f3a32204587",
+  "candidate_m10a_dist_sha256": "be56d6a5105d4d0a03085757483b3bb07374ff96b9db8ea44a1bcb164139e082",
+  "expected_m8_preserved_sha256": "27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db",
+  "m10a_enabled": false,
+  "production_authority_changed": false,
+  "gateway_restart_count": 0,
+  "telegram_send_probe_count": 0,
+  "external_send_count": 0,
+  "provider_model_live_call_count": 0,
+  "write_tool_execution_count": 0,
+  "durable_memory_mutation_count": 0,
+  "context_bridge_mutation_count": 0,
+  "next_phase": "APPROVE_OR_DENY_M10A_REPAIRED_CONTROL_PATH_STAGED_INSTALL"
+}

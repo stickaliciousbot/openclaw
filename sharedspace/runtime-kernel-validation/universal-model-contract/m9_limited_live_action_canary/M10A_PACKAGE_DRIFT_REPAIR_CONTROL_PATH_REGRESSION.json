@@ -1,0 +1,11 @@
+{
+  "schema": "umc.v1.m10a.package_drift_control_path_regression.v1",
+  "generated_utc": "2026-07-16T11:33:00Z",
+  "status": "PASS_M10A_PACKAGE_DRIFT_REPAIR_CONTROL_PATH_REGRESSION",
+  "m10a_control_fixture_results": "PASS_M10A_CONTROL_PATH_FIXTURES",
+  "m2_m9_regression_results": "PASS_M10A_M2_M9_REGRESSION",
+  "local_m10a_module_check": "PASS_NODE_EXPERIMENTAL_STRIP_TYPES_CHECK",
+  "m10a_enabled": false,
+  "production_authority_changed": false,
+  "broad_enforcement_enabled": false
+}

@@ -1,0 +1,73 @@
+{
+  "schema": "umc.v1.m10a.repaired_control_path_install_approval_card.v1",
+  "generated_utc": "2026-07-16T11:33:00Z",
+  "status": "HOLD_M10A_REPAIRED_INSTALL_AWAITING_OPERATOR_APPROVAL",
+  "root_cause": {
+    "schema": "umc.v1.m10a.package_preservation_drift_root_cause.v1",
+    "generated_utc": "2026-07-16T11:33:00Z",
+    "status": "PASS_M10A_PACKAGE_PRESERVATION_DRIFT_ROOT_CAUSE_CLASSIFIED",
+    "classification": "INSTALL_COPIED_UNEXPECTED_M8_DIST",
+    "secondary_classifications": [
+      "TARBALL_INCLUDED_UNEXPECTED_M8_DIST",
+      "BUILD_REGENERATED_PRESERVED_M8_DIST"
+    ],
+    "evidence": {
+      "source_dist_m8_sha256": "753fade05d957fb295dcf33a7beaec7a89d6b977e750c937e26a9cd7ad18b0ef",
+      "failed_tarball_m8_sha256": "753fade05d957fb295dcf33a7beaec7a89d6b977e750c937e26a9cd7ad18b0ef",
+      "restored_installed_m8_sha256": "27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db",
+      "full_npm_tarball_included_m8": true,
+      "npm_install_copied_full_dist_tree": true,
+      "m10a_entry_collision_found": false,
+      "stable_entry_naming_collision_found": false,
+      "preservation_expectation_outdated": false
+    },
+    "conclusion": "The M10A source build regenerated existing M8 dist content to a different hash. The full npm package tarball included that regenerated M8 file, and npm install copied the whole package/dist tree. The M10A module itself did not collide with M8; the install mechanism was too broad for a single-file preservation boundary."
+  },
+  "repair_summary": "Added scoped overlay preservation guard. The repaired install path validates overlay SHA, rejects overlays containing M8/M2-M9 artifacts, verifies preserved installed hashes before and after, and in apply mode copies only the M10A dist file.",
+  "source": {
+    "source_path": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+    "source_branch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+    "source_commit": "32c02611898dca57f8c27982b3a60c087970d0f4"
+  },
+  "candidate_tarball_path": "/home/stickai/.openclaw/workspace/tmp/umc-m10a-repaired-scoped-overlay/m10a-control-path-scoped-overlay-20260716T1133Z.tar.gz",
+  "candidate_tarball_sha256": "be66f39008d09e8a04c848a50a3842b8553743a5bd4b0a9541218f3a32204587",
+  "candidate_m10a_dist_sha256": "be56d6a5105d4d0a03085757483b3bb07374ff96b9db8ea44a1bcb164139e082",
+  "expected_installed_files_changed": [
+    {
+      "operation": "add",
+      "path": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/auto-reply/reply/umc-m10a-owner-telegram-direct-control-path.js",
+      "sha256": "be56d6a5105d4d0a03085757483b3bb07374ff96b9db8ea44a1bcb164139e082"
+    }
+  ],
+  "preserved_files": {
+    "dist/auto-reply/reply/umc-m4-verified-route.js": "9012c1d9ef5e651dfcf3b0dff533fa33b5ce08f226e21d3a7733b8faef02cff6",
+    "dist/auto-reply/reply/umc-m5-capability-manifest.js": "e5a1d1c32a97ace2fe33cc151d98bd8ff4afed17ae768a7cf351319ef15adfe2",
+    "dist/auto-reply/reply/umc-m6-contract-build-lane.js": "9fb2893b5cc7c7a75c7aa15b93d3cfee53eac164970485ad597d72a47f7e8bbc",
+    "dist/auto-reply/reply/umc-m7-model-eligibility.js": "85e80863ee7720453e57c62b5c7955a681a0e8398e80a9ab9d026fcb66c4f996",
+    "dist/auto-reply/reply/umc-m8-owner-contract-lane.js": "27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db",
+    "dist/extensions/telegram/openclaw.plugin.json": "a3bd23650c86763689c3c9227d13928ee78d4546e0b8e39864f440d926cc40bd",
+    "package.json": "9585403b5d52ef6b56a6faf6b958eb1ae22d14f7a581def93da13b597087b0ad"
+  },
+  "explicit_m8_sha_preservation_check": "27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db",
+  "plugin_manifest_preservation_checks": {
+    "dist/extensions/telegram/openclaw.plugin.json": "a3bd23650c86763689c3c9227d13928ee78d4546e0b8e39864f440d926cc40bd"
+  },
+  "backup_path": "/home/stickai/.openclaw/backups/openclaw-m10a-repaired-control-path-install-20260716T1133Z/openclaw-installed-package",
+  "rollback_command": "rm -rf /home/stickai/.npm-global/lib/node_modules/openclaw && cp -a /home/stickai/.openclaw/backups/openclaw-m10a-repaired-control-path-install-20260716T1133Z/openclaw-installed-package /home/stickai/.npm-global/lib/node_modules/openclaw",
+  "gateway_restart_requirement": "required after approved scoped copy only; not part of this no-apply milestone",
+  "approved_install_command_template": "node /home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711/scripts/umc-m10a-preservation-guard.mjs --mode apply --overlay /home/stickai/.openclaw/workspace/tmp/umc-m10a-repaired-scoped-overlay/m10a-control-path-scoped-overlay-20260716T1133Z.tar.gz --installed-root /home/stickai/.npm-global/lib/node_modules/openclaw --expected-overlay-sha256 be66f39008d09e8a04c848a50a3842b8553743a5bd4b0a9541218f3a32204587 --expected-m10a-sha256 be56d6a5105d4d0a03085757483b3bb07374ff96b9db8ea44a1bcb164139e082 --backup-path /home/stickai/.openclaw/backups/openclaw-m10a-repaired-control-path-install-20260716T1133Z/openclaw-installed-package",
+  "post_install_validation_plan": [
+    "Verify M10A dist hash",
+    "Verify M8 hash remains 27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db",
+    "Verify every preserved M2-M9 artifact hash remains unchanged",
+    "Restart Gateway only after preservation passes",
+    "Verify M10A disabled by default and production_authority=false"
+  ],
+  "hard_stops": [
+    "M8 drift recurs",
+    "Any preserved M2-M9 artifact drifts",
+    "M10A enabled by default",
+    "production authority changes"
+  ],
+  "no_install_performed": true
+}

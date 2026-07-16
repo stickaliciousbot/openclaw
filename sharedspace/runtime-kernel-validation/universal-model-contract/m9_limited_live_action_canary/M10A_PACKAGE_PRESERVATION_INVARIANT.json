@@ -1,0 +1,18 @@
+{
+  "schema": "umc.v1.m10a.package_preservation_invariant.v1",
+  "generated_utc": "2026-07-16T11:33:00Z",
+  "status": "PASS_M10A_PACKAGE_PRESERVATION_INVARIANT_DEFINED",
+  "invariant": "A repaired M10A staged install may add only dist/auto-reply/reply/umc-m10a-owner-telegram-direct-control-path.js. It must not include, copy, overwrite, or rehash any preserved M2-M9 runtime artifact. M8 must remain exactly 27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db.",
+  "expected_installed_files_changed": [
+    "dist/auto-reply/reply/umc-m10a-owner-telegram-direct-control-path.js"
+  ],
+  "explicitly_preserved": {
+    "dist/auto-reply/reply/umc-m4-verified-route.js": "9012c1d9ef5e651dfcf3b0dff533fa33b5ce08f226e21d3a7733b8faef02cff6",
+    "dist/auto-reply/reply/umc-m5-capability-manifest.js": "e5a1d1c32a97ace2fe33cc151d98bd8ff4afed17ae768a7cf351319ef15adfe2",
+    "dist/auto-reply/reply/umc-m6-contract-build-lane.js": "9fb2893b5cc7c7a75c7aa15b93d3cfee53eac164970485ad597d72a47f7e8bbc",
+    "dist/auto-reply/reply/umc-m7-model-eligibility.js": "85e80863ee7720453e57c62b5c7955a681a0e8398e80a9ab9d026fcb66c4f996",
+    "dist/auto-reply/reply/umc-m8-owner-contract-lane.js": "27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db",
+    "dist/extensions/telegram/openclaw.plugin.json": "a3bd23650c86763689c3c9227d13928ee78d4546e0b8e39864f440d926cc40bd",
+    "package.json": "9585403b5d52ef6b56a6faf6b958eb1ae22d14f7a581def93da13b597087b0ad"
+  }
+}

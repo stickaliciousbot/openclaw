@@ -1,0 +1,14 @@
+{
+  "schema": "umc.v1.m10a.package_drift_repair_preflight.v1",
+  "generated_utc": "2026-07-16T11:33:00Z",
+  "status": "PASS_M10A_PACKAGE_DRIFT_REPAIR_PREFLIGHT",
+  "failed_install_stopped_before_gateway_restart": true,
+  "activation_count": 0,
+  "rollback_restored_trusted_backup": "PASS_M10A_STAGED_INSTALL_ROLLBACK_DISK_RESTORE",
+  "m8_sha_restored": "27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db",
+  "m10a_installed_artifact_absent_after_rollback": true,
+  "m10a_enabled": false,
+  "production_authority_changed": false,
+  "broad_enforcement": false,
+  "side_effect_counters_zero": true
+}

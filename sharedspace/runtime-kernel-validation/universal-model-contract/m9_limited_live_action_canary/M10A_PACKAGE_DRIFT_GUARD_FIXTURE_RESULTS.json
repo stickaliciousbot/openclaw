@@ -1,0 +1,9 @@
+{
+  "schema": "umc.v1.m10a.package_drift_guard_fixture_results.v1",
+  "generated_utc": "2026-07-16T11:33:00Z",
+  "status": "PASS_M10A_PACKAGE_DRIFT_GUARD_FIXTURES",
+  "scoped_overlay_dry_run": "PASS_M10A_PACKAGE_PRESERVATION_GUARD_DRY_RUN",
+  "drift_overlay_rejected": "FAIL_M10A_PACKAGE_PRESERVATION_GUARD_ACCEPTED_DRIFT",
+  "m8_preserved_sha256": "27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db",
+  "m10a_dist_sha256": "be56d6a5105d4d0a03085757483b3bb07374ff96b9db8ea44a1bcb164139e082"
+}
