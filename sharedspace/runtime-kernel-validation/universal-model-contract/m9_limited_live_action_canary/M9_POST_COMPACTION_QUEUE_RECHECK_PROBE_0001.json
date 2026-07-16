@@ -1,0 +1,73 @@
+{
+  "schema": "umc.v1.m9.post_compaction_queue_recheck_probe.v1",
+  "generated_utc": "2026-07-16T10:16:47.453Z",
+  "probe_index": 1,
+  "expected_probes": 3,
+  "cadence_minutes": 5,
+  "status": "PASS_M9_POST_COMPACTION_QUEUE_RECHECK_PROBE_CLEAN",
+  "failures": [],
+  "queue_depth": {
+    "active": 0,
+    "queued": 0,
+    "running": 0,
+    "parse_failed": false
+  },
+  "queue_classification": {
+    "queue_backlog_count": 0,
+    "active_recheck_turn_count": 0,
+    "unrelated_running_turn_count": 0,
+    "telegram_delivery_queue_count": 0,
+    "pass": true
+  },
+  "checks": {
+    "gateway_rpc_ok": true,
+    "telegram_on_ok": true,
+    "queue_backlog_count": 0,
+    "active_recheck_turn_count": 0,
+    "unrelated_running_turn_count": 0,
+    "telegram_delivery_queue_count": 0,
+    "target_file_still_exists": true,
+    "target_sha256_actual": "1908d9158dc06e6c7127b86cde923361c3f86a13ba084c4f03746d4af49ff0cf",
+    "target_sha256_matches": true,
+    "duplicate_write_count": 0,
+    "write_receipt_unchanged": true,
+    "delivery_receipt_unchanged": true,
+    "terminal_contract_closeout_unchanged": true,
+    "context_overflow_count": 0,
+    "context_overflow_diag_count": 0,
+    "event_loop_degradation_not_worsening": true,
+    "event_loop_degradation_count": 0,
+    "getMe_timeout_count": 0,
+    "gateway_timeout_count": 0,
+    "production_config_hash_stable": true,
+    "route_provider_fallback_fingerprint_stable": true,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "additional_write_tool_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "broad_enforcement_enabled": false,
+    "m10_started": false
+  },
+  "log_segment": {
+    "start_offset": 3680822,
+    "end_offset": 3680822,
+    "bytes_examined": 0
+  },
+  "safety_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "additional_write_tool_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "route_config_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "broad_enforcement_enabled": false,
+    "m10_started": false,
+    "duplicate_write_count": 0
+  }
+}

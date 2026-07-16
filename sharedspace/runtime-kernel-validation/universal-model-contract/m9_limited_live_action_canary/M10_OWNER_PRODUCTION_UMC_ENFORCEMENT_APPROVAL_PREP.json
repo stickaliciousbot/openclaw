@@ -1,0 +1,81 @@
+{
+  "schema": "umc.v1.m10.owner_production_umc_enforcement_approval_prep.v1",
+  "generated_utc": "2026-07-16T10:32:41.421Z",
+  "status": "HOLD_M10_OWNER_PRODUCTION_ENFORCEMENT_APPROVAL_PREP_READY",
+  "authorization_state": {
+    "m10_authorized_by_this_artifact": false,
+    "production_enforcement_enabled": false,
+    "live_sends_authorized": false,
+    "provider_calls_authorized": false
+  },
+  "evidence_chain": {
+    "M2": "Installed queued owner-scope route admission/hook vocabulary present from prior milestones",
+    "M3": "Envelope/tools/delivery supervision chain preserved",
+    "M4": "VerifiedRoute branding/direct bypass firewall staged/regressed",
+    "M5": "Capability manifest staged/regressed",
+    "M6": "Contract-build lane authority staged/regressed",
+    "M7": "Model eligibility/fallback equivalence staged/regressed",
+    "M8": "Owner contract lane enforced_no_send staged/regressed",
+    "M9": "Local artifact write canary passed; owner-session context compaction passed; overflow clean; queue self-activity classified and post-idle queue recheck clean"
+  },
+  "exact_owner_scope": [
+    "telegram:8495203551"
+  ],
+  "exact_channel_scope": [
+    "telegram direct chat with owner Stick only"
+  ],
+  "what_m10_would_enable": [
+    "owner production UMC enforcement approval gate for approved owner/operator live turns only"
+  ],
+  "remains_gated": [
+    "non-owner channels",
+    "group chats",
+    "external sends",
+    "provider/model live calls outside explicit approval",
+    "memory mutation",
+    "Context Bridge mutation",
+    "route/config mutation",
+    "broad enforcement"
+  ],
+  "pre_enable_health_gates": [
+    "Gateway RPC OK",
+    "Telegram ON/OK no-send status readback",
+    "queue backlog 0",
+    "context overflow 0",
+    "target SHA/receipts stable",
+    "config/fingerprint stable"
+  ],
+  "rollback_plan": {
+    "disable_m10_gate": "revert scoped M10 control artifact/config if separately approved",
+    "compaction_restore_if_needed": {
+      "method": "sessions.compaction.restore",
+      "params": {
+        "key": "agent:main:telegram:direct:8495203551",
+        "checkpointId": "1b9a82a9-1d82-46c9-8851-cd89002d4df9"
+      },
+      "requires_separate_explicit_approval": true
+    }
+  },
+  "authority_boundary": "Owner Telegram direct scope only; no broad production authority.",
+  "send_external_provider_policy": "No live sends, external sends, Telegram probes, or provider/model calls are authorized by this prep artifact.",
+  "memory_context_bridge_policy": "No durable memory or Context Bridge mutation is authorized by this prep artifact.",
+  "known_risks": [
+    "owner session can accumulate context again",
+    "active self-turn can appear in queue metrics and must be classified distinctly"
+  ],
+  "non_goals": [
+    "do not enable M10",
+    "do not mutate runtime config",
+    "do not enable production authority",
+    "do not send messages",
+    "do not call providers/models",
+    "do not broaden enforcement"
+  ],
+  "required_operator_approval_text": "APPROVE_M10_OWNER_PRODUCTION_UMC_ENFORCEMENT_ENABLEMENT",
+  "explicit_statements": [
+    "M10 is not authorized by this artifact.",
+    "No production enforcement has been enabled.",
+    "No live sends or provider calls are authorized by this prep artifact."
+  ],
+  "next_phase": "REVIEW_M10_OWNER_PRODUCTION_ENFORCEMENT_APPROVAL_PREP"
+}

@@ -1,0 +1,86 @@
+{
+  "schema": "umc.v1.m9.post_compaction_queue_blocker_rehydration.v1",
+  "generated_utc": "2026-07-16T10:16:47.443Z",
+  "status": "PASS_M9_POST_COMPACTION_QUEUE_BLOCKER_REHYDRATED",
+  "failures": [],
+  "checks": {
+    "current_status_hold": true,
+    "probe1_queue_only_hold": true,
+    "probes_2_6_pass": true,
+    "context_overflow_zero": true,
+    "context_overflow_diag_zero": true,
+    "target_sha_matches": true,
+    "duplicate_write_zero": true,
+    "receipts_unchanged": true,
+    "m10_not_started": true
+  },
+  "source_summary": "M9_POST_COMPACTION_RECHECK_SUMMARY.json",
+  "probe1_queue_depth": {
+    "active": 1,
+    "queued": 0,
+    "running": 1,
+    "resting": false
+  },
+  "probe_2_6_queue_depths": [
+    {
+      "probe": 2,
+      "queue_depth": {
+        "active": 0,
+        "queued": 0,
+        "running": 0,
+        "resting": true
+      },
+      "status": "PASS_M9_POST_COMPACTION_RECHECK_PROBE_CLEAN"
+    },
+    {
+      "probe": 3,
+      "queue_depth": {
+        "active": 0,
+        "queued": 0,
+        "running": 0,
+        "resting": true
+      },
+      "status": "PASS_M9_POST_COMPACTION_RECHECK_PROBE_CLEAN"
+    },
+    {
+      "probe": 4,
+      "queue_depth": {
+        "active": 0,
+        "queued": 0,
+        "running": 0,
+        "resting": true
+      },
+      "status": "PASS_M9_POST_COMPACTION_RECHECK_PROBE_CLEAN"
+    },
+    {
+      "probe": 5,
+      "queue_depth": {
+        "active": 0,
+        "queued": 0,
+        "running": 0,
+        "resting": true
+      },
+      "status": "PASS_M9_POST_COMPACTION_RECHECK_PROBE_CLEAN"
+    },
+    {
+      "probe": 6,
+      "queue_depth": {
+        "active": 0,
+        "queued": 0,
+        "running": 0,
+        "resting": true
+      },
+      "status": "PASS_M9_POST_COMPACTION_RECHECK_PROBE_CLEAN"
+    }
+  ],
+  "target_sha256": "1908d9158dc06e6c7127b86cde923361c3f86a13ba084c4f03746d4af49ff0cf",
+  "receipt_summary": {
+    "write_receipt": "PASS_M9_LOCAL_ARTIFACT_WRITE_RECEIPT",
+    "delivery_receipt": "PASS_M9_DELIVERY_RECEIPT_LOCAL_ARTIFACT_WRITE",
+    "terminal_contract_closeout": "PASS_M9_LIMITED_LIVE_ACTION_CANARY_LOCAL_ARTIFACT_WRITE",
+    "write_receipt_unchanged": true,
+    "delivery_receipt_unchanged": true,
+    "terminal_contract_closeout_unchanged": true
+  },
+  "m10_started": false
+}

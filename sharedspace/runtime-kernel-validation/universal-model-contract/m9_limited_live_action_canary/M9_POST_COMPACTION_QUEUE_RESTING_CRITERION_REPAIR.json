@@ -1,0 +1,21 @@
+{
+  "schema": "umc.v1.m9.post_compaction_queue_resting_criterion_repair.v1",
+  "generated_utc": "2026-07-16T10:16:47.448Z",
+  "status": "PASS_M9_QUEUE_RESTING_CRITERION_REPAIRED_FOR_SELF_ACTIVITY",
+  "repair_scope": "harness_classification_only_no_runtime_mutation",
+  "criterion": {
+    "queue_backlog_count": "parsed queued count from openclaw status",
+    "active_recheck_turn_count": "1 only when active=1 running=1 queued=0 during this recheck execution window",
+    "unrelated_running_turn_count": "max(0, running-active_recheck_turn_count)",
+    "telegram_delivery_queue_count": "bounded evidence/log signal count, must remain 0"
+  },
+  "pass_condition": {
+    "queue_backlog_count": 0,
+    "unrelated_running_turn_count": 0,
+    "telegram_delivery_queue_count": 0,
+    "active_recheck_turn_count": "may be 0 or 1 only during this recheck own execution window"
+  },
+  "must_not_hide_real_backlog": true,
+  "runtime_mutation": false,
+  "production_queue_behavior_changed": false
+}

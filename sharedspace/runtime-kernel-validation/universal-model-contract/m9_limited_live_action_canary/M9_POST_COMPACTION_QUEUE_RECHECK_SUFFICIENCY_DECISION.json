@@ -1,0 +1,24 @@
+{
+  "schema": "umc.v1.m9.post_compaction_queue_recheck_sufficiency_decision.v1",
+  "generated_utc": "2026-07-16T10:32:41.419Z",
+  "status": "PASS_M9_POST_COMPACTION_QUEUE_RECHECK_EVIDENCE_SUFFICIENT_FOR_M10_PREP",
+  "decision": "M9_LOCAL_ARTIFACT_CANARY_SUFFICIENT_FOR_M10_PREP_AFTER_COMPACTION_AND_QUEUE_RECHECK",
+  "allowed_decisions": [
+    "M9_LOCAL_ARTIFACT_CANARY_SUFFICIENT_FOR_M10_PREP_AFTER_COMPACTION_AND_QUEUE_RECHECK",
+    "M9_BLOCKED_QUEUE_BACKLOG_PERSISTS",
+    "M9_BLOCKED_QUEUE_ACTIVITY_UNCLASSIFIED"
+  ],
+  "criteria": {
+    "context_overflow_zero": true,
+    "queue_backlog_zero": true,
+    "target_sha_stable": true,
+    "duplicate_write_count_zero": true,
+    "receipts_valid": true,
+    "gateway_telegram_healthy": true,
+    "safety_counters_clean": true,
+    "m10_not_started": true
+  },
+  "references": {
+    "queue_recheck_summary": "M9_POST_COMPACTION_QUEUE_RECHECK_SUMMARY.json"
+  }
+}

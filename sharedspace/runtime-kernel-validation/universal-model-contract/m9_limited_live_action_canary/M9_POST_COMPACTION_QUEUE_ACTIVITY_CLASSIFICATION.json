@@ -1,0 +1,71 @@
+{
+  "schema": "umc.v1.m9.post_compaction_queue_activity_classification.v1",
+  "generated_utc": "2026-07-16T10:16:47.444Z",
+  "status": "PASS_M9_POST_COMPACTION_QUEUE_ACTIVITY_CLASSIFIED",
+  "classification": "ACTIVE_OWNER_RECHECK_TURN_SELF_ACTIVITY",
+  "expected_classification": "ACTIVE_OWNER_RECHECK_TURN_SELF_ACTIVITY",
+  "evidence": {
+    "timestamp": "2026-07-16T09:37:09.177Z",
+    "active_count": 1,
+    "running_count": 1,
+    "queued_count": 0,
+    "session_or_turn_id_available": false,
+    "session_or_turn_id": null,
+    "belongs_to_recheck_itself": true,
+    "belongs_to_active_owner_conversation": true,
+    "created_send_probe_provider_write_mutation": false,
+    "persisted_into_probes_2_6": false,
+    "probe_2_6_queue_depths": [
+      {
+        "probe": 2,
+        "active": 0,
+        "queued": 0,
+        "running": 0,
+        "resting": true
+      },
+      {
+        "probe": 3,
+        "active": 0,
+        "queued": 0,
+        "running": 0,
+        "resting": true
+      },
+      {
+        "probe": 4,
+        "active": 0,
+        "queued": 0,
+        "running": 0,
+        "resting": true
+      },
+      {
+        "probe": 5,
+        "active": 0,
+        "queued": 0,
+        "running": 0,
+        "resting": true
+      },
+      {
+        "probe": 6,
+        "active": 0,
+        "queued": 0,
+        "running": 0,
+        "resting": true
+      }
+    ],
+    "log_segment_bytes_examined": 0,
+    "safety_counters": {
+      "telegram_send_probe_count": 0,
+      "external_send_count": 0,
+      "provider_model_live_call_count": 0,
+      "additional_write_tool_count": 0,
+      "durable_memory_mutation_count": 0,
+      "context_bridge_mutation_count": 0,
+      "route_config_mutation_count": 0,
+      "production_authority_change_count": 0,
+      "broad_enforcement_enabled": false,
+      "m10_started": false,
+      "duplicate_write_count": 0
+    }
+  },
+  "stop_required": false
+}

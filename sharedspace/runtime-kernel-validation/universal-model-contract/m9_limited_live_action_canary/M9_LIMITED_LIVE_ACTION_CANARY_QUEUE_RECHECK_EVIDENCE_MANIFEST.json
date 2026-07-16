@@ -1,0 +1,122 @@
+{
+  "schema": "umc.v1.m9.queue_recheck_evidence_manifest.v1",
+  "generated_utc": "2026-07-16T10:32:41.424Z",
+  "status": "PASS_M9_LIMITED_LIVE_ACTION_CANARY_LOCAL_ARTIFACT_WRITE_OBSERVED_AFTER_COMPACTION_AND_QUEUE_RECHECK",
+  "final_status": "PASS_M9_LIMITED_LIVE_ACTION_CANARY_LOCAL_ARTIFACT_WRITE_OBSERVED_AFTER_COMPACTION_AND_QUEUE_RECHECK",
+  "artifacts": [
+    {
+      "file": "M9_POST_COMPACTION_QUEUE_BLOCKER_REHYDRATION.json",
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_COMPACTION_QUEUE_BLOCKER_REHYDRATION.json",
+      "sha256": "a22fe50771d82cf6d93fc071ca1f4dc5b622281342d5d4efc838b2b7a2106d94",
+      "status": "PASS_M9_POST_COMPACTION_QUEUE_BLOCKER_REHYDRATED"
+    },
+    {
+      "file": "M9_POST_COMPACTION_QUEUE_BLOCKER_SUMMARY.md",
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_COMPACTION_QUEUE_BLOCKER_SUMMARY.md",
+      "sha256": "eea5a6421cc059e06b21dd42525dfeab9ab22ae3ebcbc30ea73e56520495ecfd",
+      "status": null
+    },
+    {
+      "file": "M9_POST_COMPACTION_QUEUE_ACTIVITY_CLASSIFICATION.json",
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_COMPACTION_QUEUE_ACTIVITY_CLASSIFICATION.json",
+      "sha256": "2c404e55be05fd186262be2a86f1fb0f7f16920865c731f68ff77ff1b23ef560",
+      "status": "PASS_M9_POST_COMPACTION_QUEUE_ACTIVITY_CLASSIFIED"
+    },
+    {
+      "file": "M9_POST_COMPACTION_QUEUE_ACTIVITY_CLASSIFICATION.md",
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_COMPACTION_QUEUE_ACTIVITY_CLASSIFICATION.md",
+      "sha256": "71b3dc87bbc5f325746f9ca2df65a8a3628119bf6b63d8c3b08961a8b459c339",
+      "status": null
+    },
+    {
+      "file": "M9_POST_COMPACTION_QUEUE_RESTING_CRITERION_REPAIR.json",
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_COMPACTION_QUEUE_RESTING_CRITERION_REPAIR.json",
+      "sha256": "222334106d34b3c2723d5c7d47447a93f429c0cf3f515313cfdc23087952c4e3",
+      "status": "PASS_M9_QUEUE_RESTING_CRITERION_REPAIRED_FOR_SELF_ACTIVITY"
+    },
+    {
+      "file": "M9_POST_COMPACTION_QUEUE_RESTING_CRITERION_REPAIR.md",
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_COMPACTION_QUEUE_RESTING_CRITERION_REPAIR.md",
+      "sha256": "acfcbea5cc91697eebb971c483b96ef1505eeaeb1f9885c320b66b74779698d9",
+      "status": null
+    },
+    {
+      "file": "M9_POST_COMPACTION_QUEUE_RECHECK_PROBE_0001.json",
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_COMPACTION_QUEUE_RECHECK_PROBE_0001.json",
+      "sha256": "1123f620e2cc8dc2d9e16d9971dc518f148df6b08a17b268f3ec2492a93a8ffa",
+      "status": "PASS_M9_POST_COMPACTION_QUEUE_RECHECK_PROBE_CLEAN"
+    },
+    {
+      "file": "M9_POST_COMPACTION_QUEUE_RECHECK_PROBE_0002.json",
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_COMPACTION_QUEUE_RECHECK_PROBE_0002.json",
+      "sha256": "108535b20a55422a7182bb73fb0729e409302f4499dd16ac17061b9867e1c269",
+      "status": "PASS_M9_POST_COMPACTION_QUEUE_RECHECK_PROBE_CLEAN"
+    },
+    {
+      "file": "M9_POST_COMPACTION_QUEUE_RECHECK_PROBE_0003.json",
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_COMPACTION_QUEUE_RECHECK_PROBE_0003.json",
+      "sha256": "a76ff3ce151e2043141b87af7a888334e004cd47e4187f2a2d06211bd5e09e29",
+      "status": "PASS_M9_POST_COMPACTION_QUEUE_RECHECK_PROBE_CLEAN"
+    },
+    {
+      "file": "M9_POST_COMPACTION_QUEUE_RECHECK_SUMMARY.json",
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_COMPACTION_QUEUE_RECHECK_SUMMARY.json",
+      "sha256": "3fb29ce5d391d18c3b662e0d7d588d34d710b1513d3b9129cb4f74f114d945c6",
+      "status": "PASS_M9_POST_COMPACTION_QUEUE_RECHECK_CLEAN"
+    },
+    {
+      "file": "M9_POST_COMPACTION_QUEUE_RECHECK_SUFFICIENCY_DECISION.json",
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_COMPACTION_QUEUE_RECHECK_SUFFICIENCY_DECISION.json",
+      "sha256": "a590d4724aa4aa2619f2ad82798cc3928bb8ccd1be3502e55e53b8bdbf212b8b",
+      "status": "PASS_M9_POST_COMPACTION_QUEUE_RECHECK_EVIDENCE_SUFFICIENT_FOR_M10_PREP"
+    },
+    {
+      "file": "M9_POST_COMPACTION_QUEUE_RECHECK_SUFFICIENCY_DECISION.md",
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_POST_COMPACTION_QUEUE_RECHECK_SUFFICIENCY_DECISION.md",
+      "sha256": "782de89ef2cd2ba063e55b91504f0acfc02bd9944e50a78654654fec2c6c23cc",
+      "status": null
+    },
+    {
+      "file": "M9_LIMITED_LIVE_ACTION_CANARY_QUEUE_RECHECK_CLOSEOUT.json",
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LIMITED_LIVE_ACTION_CANARY_QUEUE_RECHECK_CLOSEOUT.json",
+      "sha256": "9470b1c092ed795341b457f9475cb48867bbdcf5a5cc79e318d0daeb5a7bfc6f",
+      "status": "PASS_M9_LIMITED_LIVE_ACTION_CANARY_LOCAL_ARTIFACT_WRITE_OBSERVED_AFTER_COMPACTION_AND_QUEUE_RECHECK"
+    },
+    {
+      "file": "M9_LIMITED_LIVE_ACTION_CANARY_QUEUE_RECHECK_SUMMARY.md",
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M9_LIMITED_LIVE_ACTION_CANARY_QUEUE_RECHECK_SUMMARY.md",
+      "sha256": "d5d66721025e0cb0b8e2eaba60db94586bcf19e043b2a41648b4bdb780882637",
+      "status": null
+    },
+    {
+      "file": "M10_OWNER_PRODUCTION_UMC_ENFORCEMENT_APPROVAL_PREP.json",
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M10_OWNER_PRODUCTION_UMC_ENFORCEMENT_APPROVAL_PREP.json",
+      "sha256": "299894f6ae5a9202e13ec30b928e505fd2b824013c51b5e581af2e698c9cc1b6",
+      "status": "HOLD_M10_OWNER_PRODUCTION_ENFORCEMENT_APPROVAL_PREP_READY"
+    },
+    {
+      "file": "M10_OWNER_PRODUCTION_UMC_ENFORCEMENT_APPROVAL_PREP.md",
+      "path": "sharedspace/runtime-kernel-validation/universal-model-contract/m9_limited_live_action_canary/M10_OWNER_PRODUCTION_UMC_ENFORCEMENT_APPROVAL_PREP.md",
+      "sha256": "6b77993501299a3584e301121ac834e8eea7e2d25e210578138f813108c0d240",
+      "status": null
+    }
+  ],
+  "validation": {
+    "json_written": true,
+    "markdown_written": true,
+    "queue_activity_classification_validation": true,
+    "queue_resting_criterion_validation": true,
+    "queue_recheck_validation": true,
+    "target_sha_validation": true,
+    "receipt_validation": true,
+    "m9_sufficiency_validation": true,
+    "no_duplicate_write_validation": true,
+    "no_send_validation": true,
+    "no_authority_validation": true,
+    "runtime_config_drift_validation": true,
+    "durable_memory_context_bridge_non_mutation_validation": true,
+    "m10_prep_validation": true
+  },
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "next_phase": "REVIEW_M10_OWNER_PRODUCTION_ENFORCEMENT_APPROVAL_PREP"
+}
