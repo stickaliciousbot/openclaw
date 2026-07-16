@@ -1,0 +1,58 @@
+{
+  "schema": "umc.v1.m5.capability_manifest_staged_install_result.v1",
+  "generated_utc": "2026-07-16T01:36:00Z",
+  "status": "PASS_M5_CAPABILITY_MANIFEST_STAGED_INSTALL_EXECUTED",
+  "milestone": "M5_CAPABILITY_MANIFEST_STAGED_INSTALL_AND_REGRESSION",
+  "backup": {
+    "status": "PASS_BACKUP_CREATED",
+    "path": "/home/stickai/.openclaw/backups/openclaw-m5-capability-manifest-install-20260716T0124Z/openclaw-installed-package",
+    "marker": "/home/stickai/.openclaw/backups/openclaw-m5-capability-manifest-install-20260716T0124Z/PASS_BACKUP_CREATED"
+  },
+  "package": {
+    "tarball": "/home/stickai/.openclaw/workspace/tmp/umc-m5-package/openclaw-2026.5.7.tgz",
+    "sha256_expected": "13850f7bd15224e295cc4bee6be184e4df3cd29ab30f191d6a757cd088bdcc06",
+    "sha256_verification": "PASS",
+    "install_command": "npm install -g --ignore-scripts /home/stickai/.openclaw/workspace/tmp/umc-m5-package/openclaw-2026.5.7.tgz",
+    "install_result": "PASS_CODE_0_CHANGED_548_PACKAGES"
+  },
+  "installed_package_root": "/home/stickai/.npm-global/lib/node_modules/openclaw",
+  "installed_files": {
+    "dist/auto-reply/reply/umc-m5-capability-manifest.js": "62c71597611586c90a1b54c938ab24cd4b5778cfabad8916552b9f4fd2853a99",
+    "dist/auto-reply/reply/umc-m5-capability-manifest.schema.json": "4bfd667c7c390d3d53610c923a49a155eed2ebfec6d0f3e7230d5e250ad5384f",
+    "dist/auto-reply/reply/umc-m5-seed-manifests.json": "38d3df45abd70322a53fe1f01da9d853ebf943dec68955c3772d7245d6405dd7",
+    "dist/extensions/telegram/openclaw.plugin.json": "a3bd23650c86763689c3c9227d13928ee78d4546e0b8e39864f440d926cc40bd"
+  },
+  "preservation": {
+    "m4_verified_route_artifact_present": true,
+    "telegram_plugin_manifest_present": true
+  },
+  "gateway_restart": {
+    "tool": "gateway.restart",
+    "result": "PASS_SIGUSR1_ACCEPTED",
+    "ok": true,
+    "pid": 1119605,
+    "reason": "M5 capability manifest staged install activation"
+  },
+  "health_after_restart": {
+    "gateway": "PASS_RUNNING_CONNECTIVITY_OK_ADMIN_CAPABLE",
+    "telegram": "PASS_ENABLED_CONFIGURED_RUNNING_CONNECTED",
+    "telegram_send_probe_sent": false
+  },
+  "rollback": {
+    "path": "/home/stickai/.openclaw/backups/openclaw-m5-capability-manifest-install-20260716T0124Z/openclaw-installed-package",
+    "rollback_tarball": "/home/stickai/.openclaw/workspace/tmp/umc-m4-package-r2/openclaw-2026.5.7.tgz",
+    "rollback_tarball_sha256": "6a2ec7a2318c8e56a565524f938831ca5d2a2de965e6e16bd2fbc5f4acd2f663",
+    "rollback_required": false
+  },
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "enforcement_enabled": false,
+    "m6_started": false
+  }
+}

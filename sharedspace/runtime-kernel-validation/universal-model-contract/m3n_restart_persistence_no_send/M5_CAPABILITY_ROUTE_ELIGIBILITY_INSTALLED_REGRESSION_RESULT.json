@@ -1,0 +1,26 @@
+{
+  "schema": "umc.v1.m5.capability_route_eligibility_installed_regression_result.v1",
+  "generated_utc": "2026-07-16T01:39:00Z",
+  "status": "PASS_M5_CAPABILITY_ROUTE_ELIGIBILITY_INSTALLED_REGRESSION",
+  "installed_runtime_harness": "/home/stickai/.openclaw/workspace/tmp/m5-installed-runtime-regression.mjs",
+  "outcomes": {
+    "valid_manifest_route_eligibility": "PASS_M5_ROUTE_ELIGIBILITY_VERIFIED",
+    "missing_manifest_route_eligibility": "HOLD_M5_CAPABILITY_MANIFEST_MISSING",
+    "malformed_manifest_route_eligibility": "FAIL_M5_CAPABILITY_MANIFEST_INVALID",
+    "unsupported_capability_route_eligibility": "HOLD_M5_CAPABILITY_UNSUPPORTED",
+    "fallback_contract_preservation_failure_blocked": true,
+    "production_authority_prevention": "FAIL_M5_CAPABILITY_MANIFEST_INVALID",
+    "m3_regression": "PASS_M3_TERMINAL_CONTRACT_CLOSEOUT_EMITTED",
+    "m4_bypass_regression": "HOLD_M4_MISSING_VERIFIED_ROUTE"
+  },
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "enforcement_enabled": false
+  }
+}

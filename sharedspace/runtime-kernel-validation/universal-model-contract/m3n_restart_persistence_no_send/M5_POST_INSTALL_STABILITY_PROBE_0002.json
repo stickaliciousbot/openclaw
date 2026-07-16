@@ -1,0 +1,32 @@
+{
+  "schema": "umc.v1.m5.post_install_stability_probe.v1",
+  "generated_utc": "2026-07-16T01:44:23.327Z",
+  "probe_index": 2,
+  "status": "PASS_M5_POST_INSTALL_STABILITY_PROBE",
+  "gateway_rpc_ok": true,
+  "telegram_on_ok": true,
+  "queue_depth_resting": true,
+  "context_overflow_count": 14,
+  "context_overflow_diag_count": 14,
+  "event_loop_degradation_watch_item_known": true,
+  "event_loop_degradation_not_worsening": true,
+  "getme_timeout_count": 5,
+  "gateway_timeout_count": 3,
+  "production_config_hash_stable": true,
+  "route_provider_fallback_fingerprint_stable": true,
+  "m3_receipts_still_available": true,
+  "m4_verified_route_firewall_symbols_still_available": true,
+  "m5_registry_manifests_still_available": true,
+  "telegram_send_probe_count": 0,
+  "external_send_count": 0,
+  "provider_model_live_call_count": 0,
+  "route_config_mutation_count": 0,
+  "durable_memory_mutation_count": 0,
+  "context_bridge_mutation_count": 0,
+  "production_authority_change_count": 0,
+  "enforcement_enabled": false,
+  "notes": {
+    "gateway_status_excerpt": "Service: systemd user (enabled)\nFile logs: /tmp/openclaw/openclaw-2026-07-16.log\nCommand: /usr/bin/node /home/stickai/.npm-global/lib/node_modules/openclaw/dist/index.js gateway --port 18789\nService file: ~/.config/systemd/user/openclaw-gateway.service\nService env: OPENCLAW_GATEWAY_PORT=18789\n\nConfig (cli): ~/.openclaw/openclaw.json\nConfig (service): ~/.openclaw/openclaw.json\n\nGateway: bind=lan (0.0.0.0), port=18789 (service args)\nProbe target: ws://127.0.0.1:18789\nDashboard: http://172.24.168.46:18789/",
+    "channel_status_excerpt": "Checking channel status…\nGateway reachable.\nGateway event loop degraded: reasons=event_loop_utilization,cpu eventLoopDelayMaxMs=0 eventLoopUtilization=1 cpuCoreRatio=1.088\n- Telegram default: enabled, configured, running, connected, in:14m ago, out:7m ago, mode:polling, token:config\n\nTip: https://docs.openclaw.ai/cli#status adds gateway health probes to status output (requires a reachable gateway).\n"
+  }
+}

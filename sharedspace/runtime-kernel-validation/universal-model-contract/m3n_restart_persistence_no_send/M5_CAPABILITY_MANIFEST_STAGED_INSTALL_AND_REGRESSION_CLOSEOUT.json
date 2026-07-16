@@ -1,0 +1,54 @@
+{
+  "schema": "umc.v1.m5.capability_manifest_staged_install_and_regression_closeout.v1",
+  "generated_utc": "2026-07-16T01:57:00Z",
+  "status": "PASS_M5_CAPABILITY_MANIFEST_STAGED_INSTALL_AND_REGRESSION",
+  "closeout_status": "PASS_M5_CAPABILITY_MANIFEST_STAGED_INSTALL_AND_REGRESSION",
+  "summary": "M5 capability manifest registry source-build package was installed after approved backup and SHA256 verification; Gateway restarted via first-class gateway.restart; installed-runtime M5 verification, M3/M4 regression, capability route eligibility regression, and bounded read-only stability passed without Telegram send/probe, provider/model live call, route/config production mutation, durable memory mutation, Context Bridge mutation, production authority change, enforcement, cron re-enable, or M6.",
+  "source_commit": "3a9abe46293294da7c73432d74f6c32e3fd1deaf",
+  "tarball": "/home/stickai/.openclaw/workspace/tmp/umc-m5-package/openclaw-2026.5.7.tgz",
+  "tarball_sha256": "13850f7bd15224e295cc4bee6be184e4df3cd29ab30f191d6a757cd088bdcc06",
+  "required_artifacts": {
+    "M5_CAPABILITY_MANIFEST_STAGED_INSTALL_RESULT.json": "PASS_M5_CAPABILITY_MANIFEST_STAGED_INSTALL_EXECUTED",
+    "M5_CAPABILITY_MANIFEST_INSTALLED_RUNTIME_VERIFICATION.json": "PASS_M5_CAPABILITY_MANIFEST_INSTALLED_RUNTIME_VERIFIED",
+    "M5_M3_M4_POST_INSTALL_REGRESSION_RESULT.json": "PASS_M5_M3_M4_POST_INSTALL_REGRESSION",
+    "M5_CAPABILITY_ROUTE_ELIGIBILITY_INSTALLED_REGRESSION_RESULT.json": "PASS_M5_CAPABILITY_ROUTE_ELIGIBILITY_INSTALLED_REGRESSION",
+    "M5_POST_INSTALL_STABILITY_SUMMARY.json": "PASS_M5_POST_INSTALL_STABILITY_CONFIRMED"
+  },
+  "key_results": {
+    "valid_manifest_route_eligibility": "PASS_M5_ROUTE_ELIGIBILITY_VERIFIED",
+    "missing_manifest_block": "HOLD_M5_CAPABILITY_MANIFEST_MISSING",
+    "malformed_manifest_block": "FAIL_M5_CAPABILITY_MANIFEST_INVALID",
+    "unsupported_capability_block": "HOLD_M5_CAPABILITY_UNSUPPORTED",
+    "fallback_contract_preservation_failure": "blocked",
+    "production_authority_prevention": "FAIL_M5_CAPABILITY_MANIFEST_INVALID",
+    "m3_regression": "PASS_M5_M3_M4_POST_INSTALL_REGRESSION",
+    "m4_bypass_regression": "HOLD_M4_MISSING_VERIFIED_ROUTE",
+    "post_install_stability": "PASS_M5_POST_INSTALL_STABILITY_CONFIRMED"
+  },
+  "gateway_telegram_health": {
+    "gateway": "PASS_RUNNING_CONNECTIVITY_OK_ADMIN_CAPABLE",
+    "telegram": "PASS_ENABLED_CONFIGURED_RUNNING_CONNECTED",
+    "telegram_send_probe_sent": false,
+    "event_loop_cpu_degradation_watch_item": "known_non_blocking_not_worsening"
+  },
+  "rollback": {
+    "readiness": "READY_NOT_REQUIRED",
+    "backup_path": "/home/stickai/.openclaw/backups/openclaw-m5-capability-manifest-install-20260716T0124Z/openclaw-installed-package",
+    "backup_marker": "/home/stickai/.openclaw/backups/openclaw-m5-capability-manifest-install-20260716T0124Z/PASS_BACKUP_CREATED",
+    "rollback_command": "npm install -g --ignore-scripts /home/stickai/.openclaw/workspace/tmp/umc-m4-package-r2/openclaw-2026.5.7.tgz && openclaw gateway restart"
+  },
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "cron_reenable_count": 0,
+    "m6_started": false,
+    "enforcement_enabled": false
+  },
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "next_milestone": "M6_TOKEN_BROKER_VMESH_CONTRACT_BUILD_LANE"
+}

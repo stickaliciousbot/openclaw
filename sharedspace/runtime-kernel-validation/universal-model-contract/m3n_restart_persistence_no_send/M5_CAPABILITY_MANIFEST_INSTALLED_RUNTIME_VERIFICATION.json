@@ -1,0 +1,54 @@
+{
+  "schema": "umc.v1.m5.capability_manifest_installed_runtime_verification.v1",
+  "generated_utc": "2026-07-16T01:37:00Z",
+  "status": "PASS_M5_CAPABILITY_MANIFEST_INSTALLED_RUNTIME_VERIFIED",
+  "installed_root": "/home/stickai/.npm-global/lib/node_modules/openclaw",
+  "installed_artifacts": {
+    "capability_manifest_schema_present": true,
+    "capability_manifest_registry_present": true,
+    "seed_manifests_present": true,
+    "route_eligibility_integration_present": true,
+    "m4_verified_route_firewall_present": true,
+    "telegram_plugin_manifest_present": true
+  },
+  "fixture_harness": "/home/stickai/.openclaw/workspace/tmp/m5-installed-runtime-regression.mjs",
+  "m5_checks": {
+    "valid_manifest_allows_no_send_observe_only_route_eligibility": "PASS_M5_ROUTE_ELIGIBILITY_VERIFIED",
+    "missing_manifest_blocks_route": "HOLD_M5_CAPABILITY_MANIFEST_MISSING",
+    "malformed_manifest_blocks_route": "FAIL_M5_CAPABILITY_MANIFEST_INVALID",
+    "unsupported_delivery_mode_blocks_route": "HOLD_M5_CAPABILITY_UNSUPPORTED",
+    "unsupported_contract_envelope_blocks_route": "HOLD_M5_CAPABILITY_UNSUPPORTED",
+    "unsupported_delivery_receipt_no_send_blocks_route": "HOLD_M5_CAPABILITY_UNSUPPORTED",
+    "fallback_without_contract_preservation_blocks_fallback": "HOLD_M5_CAPABILITY_MANIFEST_MISSING",
+    "manifest_cannot_enable_production_authority": "FAIL_M5_CAPABILITY_MANIFEST_INVALID"
+  },
+  "m4_checks": {
+    "manifest_cannot_forge_verified_route": "HOLD_M4_FORGED_OR_DESERIALIZED_VERIFIED_ROUTE",
+    "manifest_cannot_bypass_direct_bypass_firewall": "HOLD_M4_MISSING_VERIFIED_ROUTE",
+    "raw_provider_model_rejection_preserved": "HOLD_M4_MISSING_VERIFIED_ROUTE",
+    "missing_verified_route_rejection_preserved": "HOLD_M4_MISSING_VERIFIED_ROUTE"
+  },
+  "m3_installed_runtime_observation": {
+    "agent_runner_runtime_contains_contract_envelope": true,
+    "agent_runner_runtime_contains_shadow_observation_receipt": true,
+    "agent_runner_runtime_contains_universal_contract_receipt": true,
+    "agent_runner_runtime_contains_delivery_receipt": true,
+    "agent_runner_runtime_contains_terminal_closeout": true,
+    "agent_runner_runtime_terminal_status": "PASS_M3_TERMINAL_CONTRACT_CLOSEOUT_EMITTED",
+    "note": "M3 runtime seam remains in installed agent-runner runtime; executable exported M3 harness is not separately exposed by the installed package, so M3 regression evidence is symbol/vocabulary preservation plus prior M5 fixture source run and post-install M5/M4 executable no-send fixture."
+  },
+  "authority_enforcement": {
+    "production_authority_remains_disabled": true,
+    "contract_enforcement_remains_disabled": true,
+    "enforcement_enabled": false
+  },
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0
+  }
+}
