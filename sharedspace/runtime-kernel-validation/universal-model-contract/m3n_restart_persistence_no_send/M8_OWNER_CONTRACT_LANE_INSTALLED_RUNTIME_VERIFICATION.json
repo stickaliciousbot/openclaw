@@ -1,0 +1,48 @@
+{
+  "schema": "umc.v1.m8.owner_contract_lane_installed_runtime_verification.v1",
+  "generated_utc": "2026-07-16T05:34:00.000Z",
+  "status": "FAIL_M8_OWNER_CONTRACT_LANE_INSTALLED_RUNTIME_VERIFICATION",
+  "failures": [
+    "authority_mode_enforced_no_send_literal_missing"
+  ],
+  "checks": {
+    "m8_present": true,
+    "valid_ok": true,
+    "valid_status": "PASS_M8_OWNER_CONTRACT_LANE_ENFORCED_NO_SEND_CANARY_VERIFIED",
+    "delivery_mode": "no_send",
+    "authority_mode": "observe_only",
+    "enforcement_mode": "fixture_only_enforced_no_send_canary",
+    "production_authority_change": false,
+    "worker_model_route_authority": false,
+    "raw_provider_model_authority_status": "FAIL_M8_RAW_MODEL_AUTHORITY_BYPASS",
+    "missing_manifest_status": "HOLD_M8_M7_ELIGIBILITY_NOT_VERIFIED",
+    "missing_verified_route_status": "HOLD_M8_MISSING_VERIFIED_ROUTE_NOT_MODELED_BY_INSTALLED_API",
+    "missing_receipt_status": "HOLD_M8_MISSING_RECEIPT_NOT_MODELED_BY_INSTALLED_API",
+    "send_mode_status": "HOLD_M8_NO_SEND_REQUIRED",
+    "side_effect_status": "FAIL_M8_SEND_OR_PROVIDER_CALL_BOUNDARY_VIOLATION",
+    "live_action_status": "HOLD_M8_LIVE_ACTION_CANARY_FORBIDDEN",
+    "broad_production_status": "FAIL_M8_BROAD_PRODUCTION_ENFORCEMENT_FORBIDDEN",
+    "m9_status": "FAIL_M8_SEND_OR_PROVIDER_CALL_BOUNDARY_VIOLATION",
+    "policy_live_action_canary_allowed": false,
+    "policy_broad_production_enforcement_allowed": false,
+    "policy_production_authority_change_allowed": false,
+    "contract_terminal_closeout_required": true
+  },
+  "installed_runtime": {
+    "m7_dist_sha256": "85e80863ee7720453e57c62b5c7955a681a0e8398e80a9ab9d026fcb66c4f996",
+    "m8_dist_sha256": "ab0b66fb9578f1b99320b46590825a1a956a83152d5c653f0d00ca2386cdb44f"
+  },
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "live_action_canary_count": 0,
+    "broad_production_enforcement_count": 0,
+    "m9_started": false,
+    "enforcement_enabled": false
+  }
+}

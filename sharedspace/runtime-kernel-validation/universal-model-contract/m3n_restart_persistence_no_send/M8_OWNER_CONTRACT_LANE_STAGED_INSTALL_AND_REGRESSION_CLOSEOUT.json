@@ -1,0 +1,47 @@
+{
+  "schema": "umc.v1.m8.owner_contract_lane_staged_install_and_regression_closeout.v1",
+  "generated_utc": "2026-07-16T05:39:00Z",
+  "status": "FAIL_M8_OWNER_CONTRACT_LANE_INSTALLED_RUNTIME_VERIFICATION",
+  "closeout_status": "FAIL_M8_OWNER_CONTRACT_LANE_INSTALLED_RUNTIME_VERIFICATION",
+  "milestone": "M8_OWNER_CONTRACT_LANE_STAGED_INSTALL_AND_REGRESSION",
+  "staged_install_result": "PASS_M8_OWNER_CONTRACT_LANE_STAGED_INSTALL_EXECUTED",
+  "installed_runtime_m8_verification_result": "FAIL_M8_OWNER_CONTRACT_LANE_INSTALLED_RUNTIME_VERIFICATION",
+  "installed_canary_regression_result": "NOT_RUN_STOPPED_AFTER_INSTALLED_RUNTIME_VERIFICATION_FAILURE",
+  "m3_m4_m5_m6_m7_post_install_regression_result": "NOT_RUN_STOPPED_AFTER_INSTALLED_RUNTIME_VERIFICATION_FAILURE",
+  "post_install_stability_result": "NOT_RUN_STOPPED_AFTER_INSTALLED_RUNTIME_VERIFICATION_FAILURE",
+  "blocking_failure": {
+    "id": "authority_mode_enforced_no_send_literal_missing",
+    "required": "authority_mode === enforced_no_send",
+    "actual": "observe_only",
+    "source": "installed M8 verifier valid-path evidence",
+    "artifact": "M8_OWNER_CONTRACT_LANE_INSTALLED_RUNTIME_VERIFICATION.json",
+    "artifact_sha256": "d27b151802fb968f2b35720a18ec79b42256b61aed774579016a096c4503911e"
+  },
+  "installed_state": {
+    "m7_model_eligibility_sha256": "85e80863ee7720453e57c62b5c7955a681a0e8398e80a9ab9d026fcb66c4f996",
+    "m8_owner_contract_lane_sha256": "ab0b66fb9578f1b99320b46590825a1a956a83152d5c653f0d00ca2386cdb44f",
+    "gateway_health": "PASS_RUNNING_CONNECTIVITY_OK_ADMIN_CAPABLE",
+    "telegram_health": "PASS_ENABLED_CONFIGURED_RUNNING_CONNECTED"
+  },
+  "rollback": {
+    "rollback_ready": true,
+    "rollback_not_executed": true,
+    "reason": "Approval policy did not require automatic rollback; stop and preserve evidence on installed-runtime verification failure.",
+    "rollback_source": "/home/stickai/.openclaw/workspace/tmp/umc-m7-package/openclaw-2026.5.7.tgz",
+    "rollback_source_sha256": "8814f2ee8e0cd5a6b7fbf8ba52f80f497a468404513ea865af9a729a8cd37717"
+  },
+  "boundary_counters": {
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "live_action_canary_count": 0,
+    "broad_production_enforcement_count": 0,
+    "m9_started": false,
+    "enforcement_enabled": false
+  },
+  "next_required_decision": "Approve a recovery path: source repair + R3 staged install approval, or rollback to M7 tarball, or accept observe_only as the intended M8 authority vocabulary and revise contract."
+}
