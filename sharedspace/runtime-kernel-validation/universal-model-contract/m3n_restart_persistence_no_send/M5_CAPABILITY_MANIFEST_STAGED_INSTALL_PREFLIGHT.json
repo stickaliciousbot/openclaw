@@ -1,0 +1,81 @@
+{
+  "schema": "umc.v1.m5.capability_manifest_staged_install_preflight.v1",
+  "generated_utc": "2026-07-16T01:24:00Z",
+  "status": "PASS_M5_CAPABILITY_MANIFEST_STAGED_INSTALL_PREFLIGHT",
+  "milestone": "M5_CAPABILITY_MANIFEST_STAGED_INSTALL_AND_REGRESSION",
+  "source_ready": {
+    "final_status_exists": true,
+    "final_status": "PASS_M5_CAPABILITY_MANIFEST_REGISTRY_SOURCE_READY_NO_APPLY",
+    "source_ready_commit_exists": true,
+    "source_ready_commit": "3aaf216bcfd8beb7988949b655441104e78176f8",
+    "evidence_commit_exists": true,
+    "evidence_commit": "dbff54039bb87946aa9f29a8418f5882f8143b82",
+    "fixtures_status": "PASS_M5_CAPABILITY_MANIFEST_REGISTRY_FIXTURES",
+    "no_apply_build_validation_status": "PASS_M5_CAPABILITY_MANIFEST_NO_APPLY_BUILD_VALIDATION",
+    "staged_install_plan_status": "PASS_M5_CAPABILITY_MANIFEST_STAGED_INSTALL_PLAN_READY"
+  },
+  "staged_install_candidate": {
+    "source_path": "/home/stickai/.openclaw/worktrees/umc-m3g-observe-only-hook-source-20260711",
+    "source_branch": "evidence/umc-m3g-observe-only-hook-source-20260711",
+    "source_ready_head": "3aaf216bcfd8beb7988949b655441104e78176f8",
+    "install_candidate_head": "3a9abe46293294da7c73432d74f6c32e3fd1deaf",
+    "install_candidate_note": "Preflight found M5 source was not yet included as a stable tsdown package entry. A minimal source-build inclusion repair was committed before package build so the staged tarball can contain dist/auto-reply/reply/umc-m5-capability-manifest.js and copied schema/seed JSON assets.",
+    "build_inclusion_repair_status": "PASS_M5_SOURCE_BUILD_INCLUSION_REPAIRED_BEFORE_INSTALL_APPROVAL_CARD"
+  },
+  "prior_milestones": {
+    "m4_staged_install_regression_status": "PASS_M4_VERIFIED_ROUTE_STAGED_INSTALL_AND_REGRESSION",
+    "m4_evidence_commit": "eb6f257099243d04c52d13d9dbd0da63eba5a06a",
+    "m3p_status": "PASS_M3P_OWNER_TURN_SHADOW_COVERAGE_SOAK_NO_SEND"
+  },
+  "gateway_read_only_health": {
+    "status": "PASS_GATEWAY_READ_ONLY_HEALTH_OK",
+    "pid": 1119605,
+    "connectivity_probe": "ok",
+    "admin_capable": true,
+    "service_path_warning": "Gateway service PATH missing /home/stickai/.local/share/pnpm; recorded as non-blocking for preflight but relevant to build/restart operator awareness."
+  },
+  "telegram_read_only_health": {
+    "status": "PASS_TELEGRAM_READ_ONLY_HEALTH_OK",
+    "enabled": true,
+    "configured": true,
+    "running": true,
+    "connected": true,
+    "send_probe_sent": false
+  },
+  "rollback": {
+    "path_known": true,
+    "trusted_m4_backup": "/home/stickai/.openclaw/backups/openclaw-m4-verified-route-install-20260716T0022Z/openclaw-installed-package",
+    "approved_m4_r2_tarball": "/home/stickai/.openclaw/workspace/tmp/umc-m4-package-r2/openclaw-2026.5.7.tgz",
+    "approved_m4_r2_tarball_sha256_verified": "6a2ec7a2318c8e56a565524f938831ca5d2a2de965e6e16bd2fbc5f4acd2f663"
+  },
+  "event_loop_cpu_watch_item": {
+    "known": true,
+    "current_gateway_health": "pass",
+    "current_telegram_health": "pass",
+    "degraded_reasons": ["event_loop_utilization", "cpu"],
+    "event_loop_utilization": 1,
+    "cpu_core_ratio": 1.019,
+    "blocking": false,
+    "reason": "Known before M4 install and still not correlated with Gateway RPC or Telegram read-only health failure. Treat as blocker only if it worsens, correlates with health/readback failure, or violates M5 gates."
+  },
+  "stale_approval_cards": {
+    "used": false,
+    "note": "M4 install approval cards were not reused. M5 install approval card has not yet been produced because package build requires native approval."
+  },
+  "boundary_counters": {
+    "installed_runtime_mutation_count": 0,
+    "package_install_count": 0,
+    "tarball_apply_count": 0,
+    "gateway_restart_count": 0,
+    "telegram_send_probe_count": 0,
+    "external_send_count": 0,
+    "provider_model_live_call_count": 0,
+    "route_config_mutation_count": 0,
+    "durable_memory_mutation_count": 0,
+    "context_bridge_mutation_count": 0,
+    "production_authority_change_count": 0,
+    "production_enforcement_enabled": false,
+    "m6_started": false
+  },
+  "next_required_step": "Build/package M5 tarball to compute exact approval-card tarball path and SHA256; native approval is pending for /home/stickai/.local/share/pnpm/pnpm build."
+}
