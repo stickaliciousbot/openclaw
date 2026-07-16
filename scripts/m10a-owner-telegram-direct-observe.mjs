@@ -2,15 +2,29 @@
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import {
-  M10A_AGENT_ID,
-  M10A_CHANNEL,
-  M10A_CONTROL_ARTIFACT_PATH,
-  M10A_OWNER_CHAT_ID,
-  M10A_SCOPE_NAME,
-  buildM10ADefaultControlState,
-  readM10AStatus,
-} from "../src/auto-reply/reply/umc-m10a-owner-telegram-direct-control-path.ts";
+
+async function loadM10AModule() {
+  const candidates = [
+    new URL(
+      "../src/auto-reply/reply/umc-m10a-owner-telegram-direct-control-path.ts",
+      import.meta.url,
+    ),
+    new URL(
+      "../dist/auto-reply/reply/umc-m10a-owner-telegram-direct-control-path.js",
+      import.meta.url,
+    ),
+  ];
+  const errors = [];
+  for (const url of candidates) {
+    try {
+      return await import(url.href);
+    } catch (error) {
+      errors.push({ url: url.href, error: error instanceof Error ? error.message : String(error) });
+    }
+  }
+  const detail = errors.map((entry) => `${entry.url}: ${entry.error}`).join("; ");
+  throw new Error(`Unable to load M10A control module from source or installed dist: ${detail}`);
+}
 
 function parseArgs(argv) {
   const args = {};
@@ -29,9 +43,9 @@ function parseArgs(argv) {
   return args;
 }
 
-function loadState(controlPath) {
-  if (!fs.existsSync(controlPath)) return buildM10ADefaultControlState();
-  return buildM10ADefaultControlState(JSON.parse(fs.readFileSync(controlPath, "utf8")));
+function loadState(controlPath, moduleApi) {
+  if (!fs.existsSync(controlPath)) return moduleApi.buildM10ADefaultControlState();
+  return moduleApi.buildM10ADefaultControlState(JSON.parse(fs.readFileSync(controlPath, "utf8")));
 }
 
 function emit(value, code = 0) {
@@ -69,10 +83,24 @@ const PROBE_CHECKS = Object.freeze([
   "Context Bridge mutation count 0",
 ]);
 
-function main() {
+async function main() {
+  const moduleApi = await loadM10AModule();
   const args = parseArgs(process.argv.slice(2));
-  const mode = args.mode ?? "dry-run";
-  if (!["dry-run", "observe"].includes(mode)) throw new Error(`Unsupported --mode: ${mode}`);
+  const mode = args.help === "true" ? "help" : (args.mode ?? "dry-run");
+  if (!["help", "dry-run", "observe"].includes(mode))
+    throw new Error(`Unsupported --mode: ${mode}`);
+  if (mode === "help") {
+    emit({
+      schema: "umc.v1.m10a.post_enable_observation_command_help.v1",
+      status: "PASS_M10A_OBSERVATION_COMMAND_HELP",
+      modes: ["dry-run", "observe"],
+      dry_run_safe: true,
+      observe_requires_operator_approval_after_install: true,
+      no_telegram_send_probe: true,
+      no_provider_model_live_call: true,
+      no_runtime_write_tool_execution: true,
+    });
+  }
   const durationMinutes = Number(args["duration-minutes"] ?? 30);
   const cadenceMinutes = Number(args["cadence-minutes"] ?? 5);
   const expectedProbes = Number(args["expected-probes"] ?? 6);
@@ -81,8 +109,8 @@ function main() {
     : path.join(os.homedir(), ".openclaw");
   const controlPath = args["control-path"]
     ? path.resolve(args["control-path"])
-    : path.join(stateRoot, M10A_CONTROL_ARTIFACT_PATH);
-  const readback = readM10AStatus(loadState(controlPath));
+    : path.join(stateRoot, moduleApi.M10A_CONTROL_ARTIFACT_PATH);
+  const readback = moduleApi.readM10AStatus(loadState(controlPath, moduleApi));
   const probes = Array.from({ length: expectedProbes }, (_, index) => ({
     probe_number: index + 1,
     scheduled_minute: index * cadenceMinutes,
@@ -100,10 +128,10 @@ function main() {
     cadence_minutes: cadenceMinutes,
     expected_probes: expectedProbes,
     hard_stop: true,
-    scope_name: M10A_SCOPE_NAME,
-    owner_chat_id: M10A_OWNER_CHAT_ID,
-    channel: M10A_CHANNEL,
-    agent_id: M10A_AGENT_ID,
+    scope_name: moduleApi.M10A_SCOPE_NAME,
+    owner_chat_id: moduleApi.M10A_OWNER_CHAT_ID,
+    channel: moduleApi.M10A_CHANNEL,
+    agent_id: moduleApi.M10A_AGENT_ID,
     control_artifact_path: controlPath,
     current_readback: readback,
     probes,
@@ -124,9 +152,7 @@ function main() {
   });
 }
 
-try {
-  main();
-} catch (error) {
+main().catch((error) => {
   emit(
     {
       schema: "umc.v1.m10a.post_enable_observation_command_result.v1",
@@ -135,4 +161,4 @@ try {
     },
     1,
   );
-}
+});

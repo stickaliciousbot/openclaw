@@ -61,6 +61,12 @@ function record(name, result, expectedStatus, expectedCode = 0) {
 }
 
 record(
+  "control_help",
+  runNode(controlScript, ["--action", "help", "--mode", "dry-run", "--state-root", stateRoot]),
+  "PASS_M10A_COMMAND_HELP",
+);
+record("observe_help", runNode(observeScript, ["--help"]), "PASS_M10A_OBSERVATION_COMMAND_HELP");
+record(
   "status_default",
   runNode(controlScript, ["--action", "status", "--mode", "dry-run", "--state-root", stateRoot]),
   "PASS_M10A_COMMAND_STATUS_READBACK",

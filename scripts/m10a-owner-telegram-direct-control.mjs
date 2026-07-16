@@ -3,20 +3,9 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import {
-  M10A_AGENT_ID,
-  M10A_CHANNEL,
-  M10A_CONTROL_ARTIFACT_PATH,
-  M10A_OWNER_CHAT_ID,
-  M10A_ROLLBACK_KEY,
-  M10A_SCOPE_NAME,
-  applyM10AControlIntent,
-  buildM10ADefaultControlState,
-  disableM10AControlState,
-  readM10AStatus,
-} from "../src/auto-reply/reply/umc-m10a-owner-telegram-direct-control-path.ts";
 
 const ACTIONS = new Set([
+  "help",
   "enable",
   "disable",
   "status",
@@ -25,6 +14,29 @@ const ACTIONS = new Set([
   "operator-stop",
   "rollback-if-disable-fails",
 ]);
+
+async function loadM10AModule() {
+  const candidates = [
+    new URL(
+      "../src/auto-reply/reply/umc-m10a-owner-telegram-direct-control-path.ts",
+      import.meta.url,
+    ),
+    new URL(
+      "../dist/auto-reply/reply/umc-m10a-owner-telegram-direct-control-path.js",
+      import.meta.url,
+    ),
+  ];
+  const errors = [];
+  for (const url of candidates) {
+    try {
+      return await import(url.href);
+    } catch (error) {
+      errors.push({ url: url.href, error: error instanceof Error ? error.message : String(error) });
+    }
+  }
+  const detail = errors.map((entry) => `${entry.url}: ${entry.error}`).join("; ");
+  throw new Error(`Unable to load M10A control module from source or installed dist: ${detail}`);
+}
 
 function parseArgs(argv) {
   const args = {};
@@ -52,14 +64,14 @@ function resolveStateRoot(args) {
   return path.join(os.homedir(), ".openclaw");
 }
 
-function controlPathForStateRoot(stateRoot) {
-  return path.join(stateRoot, M10A_CONTROL_ARTIFACT_PATH);
+function controlPathForStateRoot(stateRoot, moduleApi) {
+  return path.join(stateRoot, moduleApi.M10A_CONTROL_ARTIFACT_PATH);
 }
 
-function loadState(controlPath) {
-  if (!fs.existsSync(controlPath)) return buildM10ADefaultControlState();
+function loadState(controlPath, moduleApi) {
+  if (!fs.existsSync(controlPath)) return moduleApi.buildM10ADefaultControlState();
   const parsed = JSON.parse(fs.readFileSync(controlPath, "utf8"));
-  return buildM10ADefaultControlState(parsed);
+  return moduleApi.buildM10ADefaultControlState(parsed);
 }
 
 function writeStateAtomic(controlPath, state) {
@@ -78,23 +90,23 @@ function exactScopeArgs(args) {
   };
 }
 
-function requireExactScope(args) {
+function requireExactScope(args, moduleApi) {
   const scope = exactScopeArgs(args);
   const failures = [];
-  if (scope.scope_name !== M10A_SCOPE_NAME) failures.push("scope-name");
-  if (scope.owner_chat_id !== M10A_OWNER_CHAT_ID) failures.push("owner-chat-id");
-  if (scope.channel !== M10A_CHANNEL) failures.push("channel");
-  if (scope.agent_id !== M10A_AGENT_ID) failures.push("agent-id");
+  if (scope.scope_name !== moduleApi.M10A_SCOPE_NAME) failures.push("scope-name");
+  if (scope.owner_chat_id !== moduleApi.M10A_OWNER_CHAT_ID) failures.push("owner-chat-id");
+  if (scope.channel !== moduleApi.M10A_CHANNEL) failures.push("channel");
+  if (scope.agent_id !== moduleApi.M10A_AGENT_ID) failures.push("agent-id");
   if (failures.length > 0) {
     return {
       ok: false,
       status: "FAIL_M10A_COMMAND_SCOPE_MISMATCH",
       failures,
       required: {
-        scope_name: M10A_SCOPE_NAME,
-        owner_chat_id: M10A_OWNER_CHAT_ID,
-        channel: M10A_CHANNEL,
-        agent_id: M10A_AGENT_ID,
+        scope_name: moduleApi.M10A_SCOPE_NAME,
+        owner_chat_id: moduleApi.M10A_OWNER_CHAT_ID,
+        channel: moduleApi.M10A_CHANNEL,
+        agent_id: moduleApi.M10A_AGENT_ID,
       },
       supplied: scope,
     };
@@ -107,7 +119,7 @@ function emit(value, code = 0) {
   process.exit(code);
 }
 
-function resultBase({ action, mode, stateRoot, controlPath }) {
+function resultBase({ action, mode, stateRoot, controlPath, moduleApi }) {
   return {
     schema: "umc.v1.m10a.owner_telegram_direct_control_command_result.v1",
     generated_utc: new Date().toISOString(),
@@ -115,11 +127,11 @@ function resultBase({ action, mode, stateRoot, controlPath }) {
     mode,
     state_root: stateRoot,
     control_artifact_path: controlPath,
-    scope_name: M10A_SCOPE_NAME,
-    owner_chat_id: M10A_OWNER_CHAT_ID,
-    channel: M10A_CHANNEL,
-    agent_id: M10A_AGENT_ID,
-    rollback_key: M10A_ROLLBACK_KEY,
+    scope_name: moduleApi.M10A_SCOPE_NAME,
+    owner_chat_id: moduleApi.M10A_OWNER_CHAT_ID,
+    channel: moduleApi.M10A_CHANNEL,
+    agent_id: moduleApi.M10A_AGENT_ID,
+    rollback_key: moduleApi.M10A_ROLLBACK_KEY,
     production_authority_changed: false,
     broad_enforcement_enabled: false,
     telegram_send_probe_count: 0,
@@ -131,36 +143,64 @@ function resultBase({ action, mode, stateRoot, controlPath }) {
   };
 }
 
-function main() {
+async function main() {
+  const moduleApi = await loadM10AModule();
   const args = parseArgs(process.argv.slice(2));
-  const action = args.action;
+  const action = args.help === "true" ? "help" : args.action;
   const mode = args.mode ?? "dry-run";
   if (!ACTIONS.has(action)) throw new Error(`Unsupported --action: ${action}`);
   if (!["dry-run", "apply"].includes(mode)) throw new Error(`Unsupported --mode: ${mode}`);
 
+  if (action === "help") {
+    emit({
+      schema: "umc.v1.m10a.owner_telegram_direct_control_command_help.v1",
+      status: "PASS_M10A_COMMAND_HELP",
+      actions: Array.from(ACTIONS).filter((entry) => entry !== "help"),
+      exact_scope_required_for: ["enable", "verify-enabled-scope"],
+      dry_run_safe_actions: [
+        "help",
+        "status",
+        "verify-disabled",
+        "verify-enabled-scope",
+        "enable",
+        "disable",
+        "operator-stop",
+        "rollback-if-disable-fails",
+      ],
+      apply_actions_require_operator_approval: [
+        "enable",
+        "disable",
+        "operator-stop",
+        "rollback-if-disable-fails",
+      ],
+      no_telegram_send_probe: true,
+      no_provider_model_live_call: true,
+    });
+  }
+
   const stateRoot = resolveStateRoot(args);
   const controlPath = args["control-path"]
     ? path.resolve(args["control-path"])
-    : controlPathForStateRoot(stateRoot);
-  const current = loadState(controlPath);
-  const base = resultBase({ action, mode, stateRoot, controlPath });
+    : controlPathForStateRoot(stateRoot, moduleApi);
+  const current = loadState(controlPath, moduleApi);
+  const base = resultBase({ action, mode, stateRoot, controlPath, moduleApi });
   const scopeCheck = ["enable", "verify-enabled-scope"].includes(action)
-    ? requireExactScope(args)
+    ? requireExactScope(args, moduleApi)
     : null;
   if (scopeCheck && !scopeCheck.ok)
-    emit({ ...base, ...scopeCheck, readback: readM10AStatus(current) }, 1);
+    emit({ ...base, ...scopeCheck, readback: moduleApi.readM10AStatus(current) }, 1);
 
   if (action === "status") {
     emit({
       ...base,
       status: "PASS_M10A_COMMAND_STATUS_READBACK",
-      readback: readM10AStatus(current),
+      readback: moduleApi.readM10AStatus(current),
       control_artifact_exists: fs.existsSync(controlPath),
     });
   }
 
   if (action === "verify-disabled") {
-    const readback = readM10AStatus(current);
+    const readback = moduleApi.readM10AStatus(current);
     const ok =
       readback.enabled === false &&
       readback.production_authority === false &&
@@ -177,13 +217,13 @@ function main() {
   }
 
   if (action === "verify-enabled-scope") {
-    const readback = readM10AStatus(current);
+    const readback = moduleApi.readM10AStatus(current);
     const ok =
       readback.enabled === true &&
-      readback.scope_name === M10A_SCOPE_NAME &&
-      readback.owner_chat_id === M10A_OWNER_CHAT_ID &&
-      readback.channel === M10A_CHANNEL &&
-      readback.agent_id === M10A_AGENT_ID &&
+      readback.scope_name === moduleApi.M10A_SCOPE_NAME &&
+      readback.owner_chat_id === moduleApi.M10A_OWNER_CHAT_ID &&
+      readback.channel === moduleApi.M10A_CHANNEL &&
+      readback.agent_id === moduleApi.M10A_AGENT_ID &&
       readback.contract_decision_enforcement === true &&
       readback.production_authority === false &&
       readback.broad_enforcement === false;
@@ -201,12 +241,12 @@ function main() {
   }
 
   if (action === "enable") {
-    const decision = applyM10AControlIntent(current, {
+    const decision = moduleApi.applyM10AControlIntent(current, {
       request: "enable",
-      scope_name: M10A_SCOPE_NAME,
-      owner_chat_id: M10A_OWNER_CHAT_ID,
-      channel: M10A_CHANNEL,
-      agent_id: M10A_AGENT_ID,
+      scope_name: moduleApi.M10A_SCOPE_NAME,
+      owner_chat_id: moduleApi.M10A_OWNER_CHAT_ID,
+      channel: moduleApi.M10A_CHANNEL,
+      agent_id: moduleApi.M10A_AGENT_ID,
       contract_decision_enforcement: true,
       production_authority: false,
       broad_enforcement: false,
@@ -232,7 +272,7 @@ function main() {
   }
 
   if (action === "disable") {
-    const decision = disableM10AControlState({
+    const decision = moduleApi.disableM10AControlState({
       state: current,
       disabled_by: args["requested-by"] ?? "m10a_owner_operator_command",
       disabled_at: args["requested-at"] ?? new Date().toISOString(),
@@ -252,13 +292,13 @@ function main() {
   }
 
   if (action === "operator-stop") {
-    const decision = applyM10AControlIntent(current, {
+    const decision = moduleApi.applyM10AControlIntent(current, {
       request: "disable",
       operator_stop_requested: true,
       requested_by: args["requested-by"] ?? "operator_stop",
       requested_at: args["requested-at"] ?? new Date().toISOString(),
     });
-    const disabled = disableM10AControlState({
+    const disabled = moduleApi.disableM10AControlState({
       state: current,
       disabled_by: args["requested-by"] ?? "operator_stop",
       disabled_at: args["requested-at"] ?? new Date().toISOString(),
@@ -278,7 +318,7 @@ function main() {
   }
 
   if (action === "rollback-if-disable-fails") {
-    const readback = readM10AStatus(current);
+    const readback = moduleApi.readM10AStatus(current);
     const backupPath = args["backup-path"] ? path.resolve(args["backup-path"]) : null;
     const installedRoot = args["installed-root"] ? path.resolve(args["installed-root"]) : null;
     const disableSucceeded =
@@ -324,9 +364,7 @@ function main() {
   }
 }
 
-try {
-  main();
-} catch (error) {
+main().catch((error) => {
   emit(
     {
       schema: "umc.v1.m10a.owner_telegram_direct_control_command_result.v1",
@@ -335,4 +373,4 @@ try {
     },
     1,
   );
-}
+});
