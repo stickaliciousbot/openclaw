@@ -1,0 +1,11 @@
+{
+  "schema": "umc.v1.m10a.repaired_control_path_installed_runtime_verification.v1",
+  "generated_utc": "2026-07-16T11:55:00Z",
+  "status": "FAIL_M10A_INSTALLED_RUNTIME_VERIFICATION_MISSING_DEPENDENCY_CHUNK",
+  "final_status": "FAIL_M10A_REPAIRED_CONTROL_PATH_STAGED_INSTALL_FAILED",
+  "attempted_before_gateway_restart": true,
+  "import_not_executed_after_missing_dependency_detected": true,
+  "missing_dependency_chunk": "dist/umc-m8-owner-contract-lane-CdxuqyX4.js",
+  "post_rollback_m10a_artifact_absent": true,
+  "post_rollback_m8_sha256": "27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db"
+}

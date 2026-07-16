@@ -1,0 +1,16 @@
+{
+  "schema": "umc.v1.m10a.repaired_control_path_staged_install_and_validation_closeout.v1",
+  "generated_utc": "2026-07-16T11:55:00Z",
+  "status": "FAIL_M10A_REPAIRED_CONTROL_PATH_STAGED_INSTALL_FAILED",
+  "final_status": "FAIL_M10A_REPAIRED_CONTROL_PATH_STAGED_INSTALL_FAILED",
+  "closeout_status": "FAIL_M10A_REPAIRED_CONTROL_PATH_STAGED_INSTALL_FAILED",
+  "failure_classification": "M10A_SCOPED_OVERLAY_MISSING_REQUIRED_GENERATED_DEPENDENCY_CHUNK",
+  "root_cause": "The repaired scoped overlay copied only the M10A entry file, but the built M10A file imports a generated shared M8 chunk that was not included in the overlay allowlist. Preservation was maintained, but the installed control path was incomplete.",
+  "rollback_result": "PASS_M10A_REPAIRED_INSTALL_ROLLBACK_DISK_RESTORE",
+  "gateway_restart_count": 0,
+  "m8_sha256_restored": "27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db",
+  "m10a_installed_artifact_absent_after_rollback": true,
+  "production_authority_changed": false,
+  "broad_enforcement_enabled": false,
+  "next_phase": "REPAIR_M10A_SCOPED_PACKAGE_INCLUDE_REQUIRED_RUNTIME_DEPENDENCIES_NO_APPLY"
+}

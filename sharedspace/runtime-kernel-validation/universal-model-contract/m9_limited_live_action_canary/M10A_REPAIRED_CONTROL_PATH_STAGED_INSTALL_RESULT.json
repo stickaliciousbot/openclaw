@@ -1,0 +1,47 @@
+{
+  "schema": "umc.v1.m10a.repaired_control_path_staged_install_result.v1",
+  "generated_utc": "2026-07-16T11:55:00Z",
+  "status": "FAIL_M10A_REPAIRED_CONTROL_PATH_STAGED_INSTALL_FAILED",
+  "failure_classification": "M10A_SCOPED_OVERLAY_MISSING_REQUIRED_GENERATED_DEPENDENCY_CHUNK",
+  "candidate_tarball_path": "/home/stickai/.openclaw/workspace/tmp/umc-m10a-repaired-scoped-overlay/m10a-control-path-scoped-overlay-20260716T1133Z.tar.gz",
+  "candidate_tarball_sha256_expected": "be66f39008d09e8a04c848a50a3842b8553743a5bd4b0a9541218f3a32204587",
+  "candidate_tarball_sha256_actual": "be66f39008d09e8a04c848a50a3842b8553743a5bd4b0a9541218f3a32204587",
+  "candidate_sha_verified": true,
+  "candidate_m10a_dist_sha256_expected": "be56d6a5105d4d0a03085757483b3bb07374ff96b9db8ea44a1bcb164139e082",
+  "install_guard_status": "PASS_M10A_PACKAGE_PRESERVATION_GUARD_APPLY",
+  "install_guard_added_m10a_artifact_before_failure_detection": true,
+  "preservation_after_install_before_rollback": {
+    "m8_expected_sha256": "27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db",
+    "m8_actual_sha256": "27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db",
+    "m8_preservation_ok": true,
+    "preserved_m2_m9_artifact_drift_detected": false
+  },
+  "installed_runtime_import_dependency_check": {
+    "status": "FAIL_M10A_INSTALLED_RUNTIME_MISSING_DEPENDENCY_CHUNK",
+    "m10a_imports_missing_chunk": "dist/umc-m8-owner-contract-lane-CdxuqyX4.js",
+    "missing_chunk_present_before_rollback": false,
+    "hard_stop_before_gateway_restart": true
+  },
+  "rollback": {
+    "rollback_executed_before_gateway_restart": true,
+    "backup_path": "/home/stickai/.openclaw/backups/openclaw-m10a-repaired-control-path-install-20260716T1133Z/openclaw-installed-package",
+    "rollback_result": "PASS_M10A_REPAIRED_INSTALL_ROLLBACK_DISK_RESTORE",
+    "post_rollback_m8_sha256": "27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db",
+    "post_rollback_m8_restored": true,
+    "post_rollback_m10a_artifact_absent": true,
+    "post_rollback_missing_chunk_absent": true
+  },
+  "gateway_restart_count": 0,
+  "gateway_activation_count": 0,
+  "m10a_enabled": false,
+  "production_authority_changed": false,
+  "broad_enforcement_enabled": false,
+  "telegram_send_probe_count": 0,
+  "external_send_count": 0,
+  "provider_model_live_call_count": 0,
+  "write_tool_execution_count": 0,
+  "durable_memory_mutation_count": 0,
+  "context_bridge_mutation_count": 0,
+  "route_config_mutation_count": 0,
+  "gateway_status_read_only": "PASS_GATEWAY_STATUS_READ_ONLY_OK"
+}

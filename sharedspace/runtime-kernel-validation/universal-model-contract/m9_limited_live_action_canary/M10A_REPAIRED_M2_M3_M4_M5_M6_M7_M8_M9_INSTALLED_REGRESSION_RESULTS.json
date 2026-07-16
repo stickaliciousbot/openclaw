@@ -1,0 +1,8 @@
+{
+  "schema": "umc.v1.m10a.repaired_m2_m9_installed_regression_results.v1",
+  "generated_utc": "2026-07-16T11:55:00Z",
+  "status": "NOT_RUN_M10A_REPAIRED_INSTALL_FAILED_BEFORE_GATEWAY_RESTART",
+  "reason": "Scoped overlay omitted required generated dependency chunk; Gateway restart and post-install validation were hard-stopped; disk restored from trusted backup.",
+  "final_status": "FAIL_M10A_REPAIRED_CONTROL_PATH_STAGED_INSTALL_FAILED",
+  "gateway_restart_count": 0
+}

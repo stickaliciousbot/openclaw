@@ -1,0 +1,66 @@
+{
+  "schema": "umc.v1.m10a.repaired_control_path_staged_install_and_validation_evidence_manifest.v1",
+  "generated_utc": "2026-07-16T11:55:00Z",
+  "status": "FAIL_M10A_REPAIRED_CONTROL_PATH_STAGED_INSTALL_FAILED",
+  "final_status": "FAIL_M10A_REPAIRED_CONTROL_PATH_STAGED_INSTALL_FAILED",
+  "artifacts": [
+    {
+      "file": "M10A_REPAIRED_CONTROL_PATH_STAGED_INSTALL_RESULT.json",
+      "sha256": "6a3bd7c9361dad0a06e5d52771f53add07671e21ecfea6811e0e3073f8fa5219",
+      "status": "FAIL_M10A_REPAIRED_CONTROL_PATH_STAGED_INSTALL_FAILED"
+    },
+    {
+      "file": "M10A_REPAIRED_CONTROL_PATH_INSTALLED_RUNTIME_VERIFICATION.json",
+      "sha256": "246349af6fa9cbbeceba8700140ec51e0a33fe6b0020cfb80f747ffd7daedbb1",
+      "status": "FAIL_M10A_INSTALLED_RUNTIME_VERIFICATION_MISSING_DEPENDENCY_CHUNK"
+    },
+    {
+      "file": "M10A_REPAIRED_ENABLE_DISABLE_DRY_RUN_VALIDATION.json",
+      "sha256": "ba3a4e2c6cd01b7780cae08920ca901fcd14b5247e2af661daac2fa6ea4d1679",
+      "status": "NOT_RUN_M10A_REPAIRED_INSTALL_FAILED_BEFORE_GATEWAY_RESTART"
+    },
+    {
+      "file": "M10A_REPAIRED_M2_M3_M4_M5_M6_M7_M8_M9_INSTALLED_REGRESSION_RESULTS.json",
+      "sha256": "fb886e08a630c3ce586154c62e4a7d1daa7ba1e4e7c2ab24de51a00e29fb1d32",
+      "status": "NOT_RUN_M10A_REPAIRED_INSTALL_FAILED_BEFORE_GATEWAY_RESTART"
+    },
+    {
+      "file": "M10A_REPAIRED_POST_INSTALL_STABILITY_SUMMARY.json",
+      "sha256": "332875231b64ed4d637eae83f16e5d02192013a87d86f9faffc97a14e320b5b3",
+      "status": "NOT_RUN_M10A_REPAIRED_INSTALL_FAILED_BEFORE_GATEWAY_RESTART"
+    },
+    {
+      "file": "M10A_OWNER_TELEGRAM_DIRECT_ENFORCEMENT_APPROVAL_PACKAGE.json",
+      "sha256": "66dc6d3b8164152121c57ab6dfad777e0efd07e27831e8e65eaedba4a0f48f87",
+      "status": "NOT_PRODUCED_M10A_REPAIRED_INSTALL_FAILED"
+    },
+    {
+      "file": "M10A_OWNER_TELEGRAM_DIRECT_ENFORCEMENT_APPROVAL_PACKAGE.md",
+      "sha256": "651c70278ec5c69cfe3c9369b83d3d8fb3b9d50ad09b2a7e93a970691dd15d55"
+    },
+    {
+      "file": "M10A_EXACT_OPERATOR_APPROVAL_TEXT.md",
+      "sha256": "a36b87571f21dc506e2554dd2a0936b59f46ae9216e7293dc49dcb6e4802a91e"
+    },
+    {
+      "file": "M10A_REPAIRED_CONTROL_PATH_STAGED_INSTALL_AND_VALIDATION_CLOSEOUT.json",
+      "sha256": "00a43e71e4003e48c79252d1987600e7805241dbd632ea0c21b2dba677d523b2",
+      "status": "FAIL_M10A_REPAIRED_CONTROL_PATH_STAGED_INSTALL_FAILED"
+    }
+  ],
+  "candidate_tarball_path": "/home/stickai/.openclaw/workspace/tmp/umc-m10a-repaired-scoped-overlay/m10a-control-path-scoped-overlay-20260716T1133Z.tar.gz",
+  "candidate_tarball_sha256": "be66f39008d09e8a04c848a50a3842b8553743a5bd4b0a9541218f3a32204587",
+  "required_preserved_m8_sha256": "27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db",
+  "post_rollback_m8_sha256": "27116a4374b699b7e98bc8ec9be98f3584bc14a8ca740d0723316deaa66088db",
+  "gateway_restart_count": 0,
+  "telegram_send_probe_count": 0,
+  "external_send_count": 0,
+  "provider_model_live_call_count": 0,
+  "write_tool_execution_count": 0,
+  "durable_memory_mutation_count": 0,
+  "context_bridge_mutation_count": 0,
+  "production_authority_changed": false,
+  "broad_enforcement_enabled": false,
+  "push_status": "NOT_PUSHED_NO_EXPLICIT_AUTHORIZATION",
+  "exact_next_phase": "REPAIR_M10A_SCOPED_PACKAGE_INCLUDE_REQUIRED_RUNTIME_DEPENDENCIES_NO_APPLY"
+}

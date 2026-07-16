@@ -1,0 +1,7 @@
+{
+  "schema": "umc.v1.m10a.owner_telegram_direct_enforcement_approval_package.v1",
+  "generated_utc": "2026-07-16T11:55:00Z",
+  "status": "NOT_PRODUCED_M10A_REPAIRED_INSTALL_FAILED",
+  "reason": "Installed-runtime validation did not pass; exact enforcement approval package must not be produced.",
+  "final_status": "FAIL_M10A_REPAIRED_CONTROL_PATH_STAGED_INSTALL_FAILED"
+}
