@@ -1,0 +1,17 @@
+{
+  "approved_goal": "exactly one boundary-handled retry",
+  "evidence_root": "sharedspace/runtime-kernel-validation/memory-ledger/m25c_single_boundary_handled_retry_20260719T053834+1000",
+  "hard_constraints_preserved": [
+    "no retry scheduled",
+    "no retry run",
+    "no delivery",
+    "no Telegram send by this task",
+    "no Ledger mutation by this task",
+    "no Context Bridge mutation by this task",
+    "no route/model/provider/fallback/memory-route mutation",
+    "no authority promotion",
+    "M26 not started"
+  ],
+  "milestone": "M25C Single Boundary-Handled Retry Scheduling and Closeout",
+  "terminal_status": "M25C_BLOCKED_SAFE_SINGLE_RETRY_SCHEDULING_NOT_ESTABLISHED"
+}

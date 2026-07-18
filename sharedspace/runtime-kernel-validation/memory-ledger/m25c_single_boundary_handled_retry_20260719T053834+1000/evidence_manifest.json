@@ -1,0 +1,60 @@
+{
+  "evidence_root": "sharedspace/runtime-kernel-validation/memory-ledger/m25c_single_boundary_handled_retry_20260719T053834+1000",
+  "files": [
+    {
+      "path": "boundary_handler_readback.json",
+      "sha256": "07fafc8cdb282b1833d4be90fd34949c821db0f58b4095903c193b0d0008e465",
+      "size": 1280
+    },
+    {
+      "path": "closeout_anchor_proof.json",
+      "sha256": "b004bec7210bb8748653af248967b536c3aa88f740b22c80ce6c4bdbca3499d9",
+      "size": 217
+    },
+    {
+      "path": "delivery_proof.json",
+      "sha256": "768acffc1854d3dec2f79c47536c0bfa48ea14c2ca5a7c33cef5712998e1e7d4",
+      "size": 181
+    },
+    {
+      "path": "post_retry_validation.json",
+      "sha256": "59b3cab621914857cd3c1bab842e881cd5a2f612da8206c7c8c0698a7642b722",
+      "size": 1705
+    },
+    {
+      "path": "preflight_state.json",
+      "sha256": "2ff2365b01325bad82c0a250a4cae2533ea25795a9d99c6ecb4060e8416ed6b8",
+      "size": 2214
+    },
+    {
+      "path": "retry_run_proof.json",
+      "sha256": "1da5c0b5f887692aaed322bda314415f6872f3b1cf99ed968173a669d5af284f",
+      "size": 184
+    },
+    {
+      "path": "retry_schedule_proof.json",
+      "sha256": "9444a03009083e8869387de6b92813733904a2e9b3bf04ee2ba79f097b4cba49",
+      "size": 561
+    },
+    {
+      "path": "run_config.json",
+      "sha256": "b6159474b53a2ea8f4b53be38ef8ebfddf1e01ac80b984c0a717b1e04de78d73",
+      "size": 690
+    },
+    {
+      "path": "safety_report.json",
+      "sha256": "613722ff8240fbcdc9d43d643eeff1ff6142d6ea8b8681820ebcfa099d28df5f",
+      "size": 535
+    },
+    {
+      "path": "status.json",
+      "sha256": "7dba5f0c4770868153e1b08792b63967f3d07666705d027076e3b085b9b77d27",
+      "size": 1273
+    },
+    {
+      "path": "summary.json",
+      "sha256": "d43297548ff4245a7244d9e7a79b70ef621e5819ea5ae2fad43bab5b3436fa7f",
+      "size": 1937
+    }
+  ]
+}

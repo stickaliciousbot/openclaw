@@ -1,0 +1,6 @@
+{
+  "reason_not_run": "No safe boundary-handled one-shot scheduling path established without arming plugin config.",
+  "retry_count": 0,
+  "retry_ran": false,
+  "retry_run_id": null
+}

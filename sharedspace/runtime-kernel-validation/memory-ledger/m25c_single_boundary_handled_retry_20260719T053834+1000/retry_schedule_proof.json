@@ -1,0 +1,8 @@
+{
+  "active_m25_retry_jobs": [],
+  "m25c_jobs_observed": [],
+  "reason_not_scheduled": "Boundary handler is installed/enabled and hash-proven, but its plugin config is not armed. A real boundary-handled retry requires exact expectedJobId/session/caller/source/context hashes in plugin config. Arming that config would be a Gateway/plugin config mutation; under this M25C approval the safe single-retry scheduling path is therefore not established.",
+  "retry_schedule_count": 0,
+  "retry_scheduled": false,
+  "safe_single_retry_scheduling_established": false
+}

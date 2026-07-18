@@ -1,0 +1,6 @@
+{
+  "closeout_anchor_observed": false,
+  "final_closeout_delivered": false,
+  "reason": "Blocked before retry execution/delivery; no closeout payload should be emitted.",
+  "terminal_payload_anchor_observed": false
+}

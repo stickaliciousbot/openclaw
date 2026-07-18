@@ -1,0 +1,17 @@
+{
+  "authority_promoted": false,
+  "context_bridge_changed_by_this_task": false,
+  "delivery_count": 0,
+  "delivery_succeeded": false,
+  "ledger_changed_by_this_task": false,
+  "m26_started": false,
+  "private_raw_scan_hits": [],
+  "private_raw_scan_pass": true,
+  "raw_private_scan_pending": false,
+  "retry_count": 0,
+  "retry_ran": false,
+  "retry_scheduled": false,
+  "route_config_mutation_by_this_task": false,
+  "telegram_send_occurred": false,
+  "terminal_status": "M25C_BLOCKED_SAFE_SINGLE_RETRY_SCHEDULING_NOT_ESTABLISHED"
+}

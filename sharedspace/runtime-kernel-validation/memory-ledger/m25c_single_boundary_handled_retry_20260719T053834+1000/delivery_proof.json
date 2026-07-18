@@ -1,0 +1,7 @@
+{
+  "delivery_attempted": false,
+  "delivery_count": 0,
+  "delivery_succeeded": false,
+  "reason": "Blocked before retry scheduling/execution.",
+  "telegram_send_occurred": false
+}

@@ -1,0 +1,32 @@
+{
+  "block_reason": "Boundary handler is installed/enabled and hash-proven, but its plugin config is not armed. A real boundary-handled retry requires exact expectedJobId/session/caller/source/context hashes in plugin config. Arming that config would be a Gateway/plugin config mutation; under this M25C approval the safe single-retry scheduling path is therefore not established.",
+  "blocked": true,
+  "gates": {
+    "M25C_G1": "PASS",
+    "M25C_G10": "N/A_BLOCKED_BEFORE_RETRY",
+    "M25C_G11": "N/A_BLOCKED_BEFORE_RETRY",
+    "M25C_G12": "N/A_BLOCKED_BEFORE_RETRY",
+    "M25C_G13": "N/A_BLOCKED_BEFORE_RETRY",
+    "M25C_G14": "N/A_BLOCKED_BEFORE_RETRY",
+    "M25C_G15": "PASS",
+    "M25C_G16": "PASS",
+    "M25C_G17": "PASS",
+    "M25C_G18": "PASS",
+    "M25C_G19": "PASS",
+    "M25C_G2": "PASS",
+    "M25C_G20": "PASS",
+    "M25C_G21": "PASS",
+    "M25C_G22": "PASS",
+    "M25C_G23": "PASS",
+    "M25C_G24": "PASS",
+    "M25C_G25": "PASS",
+    "M25C_G3": "PASS",
+    "M25C_G4": "PASS",
+    "M25C_G5": "PASS",
+    "M25C_G6": "N/A_BLOCKED_BEFORE_RETRY",
+    "M25C_G7": "N/A_BLOCKED_BEFORE_RETRY",
+    "M25C_G8": "N/A_BLOCKED_BEFORE_RETRY",
+    "M25C_G9": "N/A_BLOCKED_BEFORE_RETRY"
+  },
+  "terminal_status": "M25C_BLOCKED_SAFE_SINGLE_RETRY_SCHEDULING_NOT_ESTABLISHED"
+}
