@@ -1,0 +1,23 @@
+{
+  "schema": "stickbot.memory_ledger.m25b.runtime_source_root_replacement_preflight.v1",
+  "timestamp_utc": "2026-07-18T14:10:22Z",
+  "status": "PASS_M25B_RUNTIME_SOURCE_ROOT_REPLACEMENT_PREFLIGHT",
+  "operator_approval": "APPROVE_M25B_RUNTIME_SOURCE_ROOT_REPAIRED_REPLACEMENT_INSTALL_AND_GATEWAY_RESTART",
+  "approved_commit": "055a3f56076d6d804ec925a401e48dc2698bc895",
+  "approved_version": "0.0.4-m25b-runtime-root-repair",
+  "approved_package_sha256": "346a3e1127e2d8934e7d6a84802ef4702d1778bd0db8f97833b35a74714f501f",
+  "approved_candidate_source_sha256": "dec25b28503614eefbbf8ba763eda3a9d48f93dbbd306921197ece262e42a4e3",
+  "package_sha256_verified_before_replacement": true,
+  "candidate_source_sha256_verified_before_replacement": true,
+  "approved_inventory_file_count": 12,
+  "installed_before": {
+    "version": "0.0.3-m25b-runtime-output",
+    "runtime_sha256": "a9cf4a6deca4d045b116ef480dd3abb6747ed1cca838d6484513e74d902fdec5",
+    "gateway_pid": 2598361,
+    "effective_armed": false
+  },
+  "retry_jobs_before": 0,
+  "boundary_runs_before": 0,
+  "deliveries_before": 0,
+  "production_apply_scope": "replace_only_m25b_plugin_then_first_class_gateway_restart"
+}

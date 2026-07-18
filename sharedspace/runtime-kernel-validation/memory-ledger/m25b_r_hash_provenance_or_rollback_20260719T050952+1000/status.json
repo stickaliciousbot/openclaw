@@ -1,0 +1,28 @@
+{
+  "gates": {
+    "M25BR_G1": "PASS",
+    "M25BR_G10": "PASS",
+    "M25BR_G11": "PASS",
+    "M25BR_G12": "PASS",
+    "M25BR_G13": "PASS",
+    "M25BR_G14": "PASS",
+    "M25BR_G15": "PASS",
+    "M25BR_G16": "PASS",
+    "M25BR_G17": "PASS",
+    "M25BR_G18": "PASS",
+    "M25BR_G19": "PASS",
+    "M25BR_G2": "PASS",
+    "M25BR_G20": "PASS",
+    "M25BR_G3": "PASS",
+    "M25BR_G4": "PASS",
+    "M25BR_G5": "PASS",
+    "M25BR_G6": "PASS",
+    "M25BR_G7": "PASS",
+    "M25BR_G8": "N/A_PROVENANCE_PROVEN_NO_ROLLBACK_REQUIRED",
+    "M25BR_G9": "PASS"
+  },
+  "provenance_proven": true,
+  "retry_remains_separate_later_approval": true,
+  "rollback_or_disable_occurred": false,
+  "terminal_status": "M25B_R_HASH_PROVENANCE_PASS_INSTALL_CAN_STAND_NO_RETRY_SCHEDULED"
+}

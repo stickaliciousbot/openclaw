@@ -1,0 +1,9 @@
+{
+  "active_hash_allowed_to_stand": true,
+  "backup_exists": true,
+  "backup_path": "/home/stickai/.openclaw/backups/m25b-boundary-handler-preinstall-d65a5ce831f7",
+  "installed_hash_removed_or_inactive": false,
+  "reason": "Provenance proven; rollback not required.",
+  "rollback_command_available": "openclaw plugins uninstall stickbot-memory-ledger-m25b-boundary-handler",
+  "rollback_or_disable_occurred": false
+}

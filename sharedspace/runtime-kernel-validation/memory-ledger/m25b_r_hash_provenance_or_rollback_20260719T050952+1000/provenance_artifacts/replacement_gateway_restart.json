@@ -1,0 +1,19 @@
+{
+  "schema": "stickbot.memory_ledger.m25b.runtime_source_root_gateway_restart_result.v1",
+  "timestamp_utc": "2026-07-18T14:10:22Z",
+  "status": "PASS_M25B_RUNTIME_SOURCE_ROOT_GATEWAY_RESTART",
+  "restart_surface": "first_class_gateway_restart",
+  "signal": "SIGUSR1",
+  "old_gateway_pid": 2598361,
+  "new_gateway_pid": 2624356,
+  "pid_changed": true,
+  "shutdown_started_log_observed": true,
+  "new_gateway_http_listener_log_observed": true,
+  "gateway_state": "active_running",
+  "connectivity_probe": "ok",
+  "capability": "admin-capable",
+  "plugin_listed_in_new_gateway_startup": true,
+  "fatal_startup_errors": 0,
+  "telegram_delivery_probe_performed": false,
+  "telegram_message_sent_by_validation": false
+}

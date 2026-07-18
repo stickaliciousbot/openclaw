@@ -1,0 +1,21 @@
+{
+  "allowed_outcomes": [
+    "prove_provenance",
+    "rollback_or_disable_unapproved_hash"
+  ],
+  "evidence_root": "sharedspace/runtime-kernel-validation/memory-ledger/m25b_r_hash_provenance_or_rollback_20260719T050952+1000",
+  "forbidden": [
+    "retry_schedule",
+    "delivery",
+    "telegram_send",
+    "ledger_mutation",
+    "context_bridge_mutation",
+    "authority_promotion",
+    "model_provider_fallback_memory_route_mutation",
+    "follow_on_milestone"
+  ],
+  "milestone": "M25B-R Boundary Handler Hash Provenance / Rollback Decision",
+  "prior_blocked_evidence_root": "sharedspace/runtime-kernel-validation/memory-ledger/m25b_boundary_handler_install_20260719T045227+1000",
+  "recorded_approved_repaired_runtime_dist_hash": "a9cf4a6deca4d045b116ef480dd3abb6747ed1cca838d6484513e74d902fdec5",
+  "target_installed_hash": "98a174e1767221f355d7a28364f738c2918eab320ed5373f9851d31da33b4347"
+}

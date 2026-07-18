@@ -1,0 +1,126 @@
+{
+  "chain_checks": {
+    "hooks_present": true,
+    "installed_hash_matches_target": true,
+    "installed_package_version_matches": true,
+    "repair_manifest_compiled_runtime_target": true,
+    "replacement_install_runtime_target": true,
+    "replacement_preflight_references_prior_approved_hash": true,
+    "replacement_runtime_validation_target": true,
+    "runtime_import_pass": true
+  },
+  "commits": [
+    {
+      "commit": "055a3f56076d6d804ec925a401e48dc2698bc895",
+      "role": "records repaired compiled runtime target hash in install manifest",
+      "subject": "fix(memory-ledger): repair M25B runtime source root"
+    },
+    {
+      "commit": "1c119cf5d186dbde8be48977efae0245256b759a",
+      "role": "records replacement install/runtime validation at target hash and preflight references prior approved hash",
+      "subject": "docs(memory-ledger): preserve M25B source-root replacement"
+    }
+  ],
+  "extracted_artifacts": [
+    {
+      "commit": "055a3f56076d6d804ec925a401e48dc2698bc895",
+      "json_ok": true,
+      "key": "repair_manifest",
+      "ok": true,
+      "path": "projects/stickbot-memory-ledger-v0/artifacts/memory-ledger/m25b-runtime-source-root-repair-no-apply/MEMORY_LEDGER_V0_1_M25B_RUNTIME_SOURCE_ROOT_REPAIRED_INSTALL_MANIFEST.json",
+      "sha256": "cff45f6cc0a4d910d67121e7b4371a117aa4ad40742fdbdc6b1f119d334e4ff6"
+    },
+    {
+      "commit": "055a3f56076d6d804ec925a401e48dc2698bc895",
+      "json_ok": true,
+      "key": "repair_closeout",
+      "ok": true,
+      "path": "projects/stickbot-memory-ledger-v0/artifacts/memory-ledger/m25b-runtime-source-root-repair-no-apply/MEMORY_LEDGER_V0_1_M25B_RUNTIME_SOURCE_ROOT_REPAIR_CLOSEOUT.json",
+      "sha256": "f411af5bb59867025e588b71a682f6b08e4191067200bcf0085a067ec0ed556f"
+    },
+    {
+      "commit": "055a3f56076d6d804ec925a401e48dc2698bc895",
+      "json_ok": true,
+      "key": "repair_evidence_manifest",
+      "ok": true,
+      "path": "projects/stickbot-memory-ledger-v0/artifacts/memory-ledger/m25b-runtime-source-root-repair-no-apply/MEMORY_LEDGER_V0_1_M25B_RUNTIME_SOURCE_ROOT_REPAIR_EVIDENCE_MANIFEST.json",
+      "sha256": "be8e409642a2564608a7be3ae3785dc5ce3770b2e9fcf9f53a6cce4835fd2fc4"
+    },
+    {
+      "commit": "1c119cf5d186dbde8be48977efae0245256b759a",
+      "json_ok": true,
+      "key": "replacement_preflight",
+      "ok": true,
+      "path": "projects/stickbot-memory-ledger-v0/artifacts/memory-ledger/m25b-runtime-source-root-replacement-install-and-validation/MEMORY_LEDGER_V0_1_M25B_RUNTIME_SOURCE_ROOT_REPLACEMENT_PREFLIGHT.json",
+      "sha256": "c80b49cdee2ac30b33423fd182c67bd66f87cfdc7478fba74490b1076251343f"
+    },
+    {
+      "commit": "1c119cf5d186dbde8be48977efae0245256b759a",
+      "json_ok": true,
+      "key": "replacement_install_result",
+      "ok": true,
+      "path": "projects/stickbot-memory-ledger-v0/artifacts/memory-ledger/m25b-runtime-source-root-replacement-install-and-validation/MEMORY_LEDGER_V0_1_M25B_RUNTIME_SOURCE_ROOT_REPLACEMENT_INSTALL_RESULT.json",
+      "sha256": "03d8d64e6bc1d993a78e96f673b98ff7644ccf2deadf919b18ab1f493df9d059"
+    },
+    {
+      "commit": "1c119cf5d186dbde8be48977efae0245256b759a",
+      "json_ok": true,
+      "key": "replacement_runtime_validation",
+      "ok": true,
+      "path": "projects/stickbot-memory-ledger-v0/artifacts/memory-ledger/m25b-runtime-source-root-replacement-install-and-validation/MEMORY_LEDGER_V0_1_M25B_RUNTIME_SOURCE_ROOT_RUNTIME_VALIDATION.json",
+      "sha256": "d09e56e2482f8e78541947057815cfa8e5e34af02dd507510ab4d7aad9b665d9"
+    },
+    {
+      "commit": "1c119cf5d186dbde8be48977efae0245256b759a",
+      "json_ok": true,
+      "key": "replacement_no_retry_no_delivery",
+      "ok": true,
+      "path": "projects/stickbot-memory-ledger-v0/artifacts/memory-ledger/m25b-runtime-source-root-replacement-install-and-validation/MEMORY_LEDGER_V0_1_M25B_RUNTIME_SOURCE_ROOT_NO_RETRY_NO_DELIVERY_VALIDATION.json",
+      "sha256": "3a7aca8ce320cad3da0f6d7c5cca2afdb8430985381b85e144d277f6efda0048"
+    },
+    {
+      "commit": "1c119cf5d186dbde8be48977efae0245256b759a",
+      "json_ok": true,
+      "key": "replacement_mutation_sentinels",
+      "ok": true,
+      "path": "projects/stickbot-memory-ledger-v0/artifacts/memory-ledger/m25b-runtime-source-root-replacement-install-and-validation/MEMORY_LEDGER_V0_1_M25B_RUNTIME_SOURCE_ROOT_MUTATION_SENTINELS.json",
+      "sha256": "3a452235d32a5beab3f7b82c3e9ba5a62f0a2172c153b5fad4512d8a00699241"
+    },
+    {
+      "commit": "1c119cf5d186dbde8be48977efae0245256b759a",
+      "json_ok": true,
+      "key": "replacement_gateway_restart",
+      "ok": true,
+      "path": "projects/stickbot-memory-ledger-v0/artifacts/memory-ledger/m25b-runtime-source-root-replacement-install-and-validation/MEMORY_LEDGER_V0_1_M25B_RUNTIME_SOURCE_ROOT_GATEWAY_RESTART_RESULT.json",
+      "sha256": "f1174bd2c27eff3063a43c2a83c066b3ffece59f09f18de97b4b382a45da3a07"
+    },
+    {
+      "commit": "1c119cf5d186dbde8be48977efae0245256b759a",
+      "json_ok": true,
+      "key": "replacement_closeout",
+      "ok": true,
+      "path": "projects/stickbot-memory-ledger-v0/artifacts/memory-ledger/m25b-runtime-source-root-replacement-install-and-validation/MEMORY_LEDGER_V0_1_M25B_RUNTIME_SOURCE_ROOT_REPLACEMENT_CLOSEOUT.json",
+      "sha256": "3300f50720b45c01c75b8d8261c8a356fda0003a2ff70d2ac3bb205bdc3dc915"
+    },
+    {
+      "commit": "1c119cf5d186dbde8be48977efae0245256b759a",
+      "json_ok": true,
+      "key": "replacement_evidence_manifest",
+      "ok": true,
+      "path": "projects/stickbot-memory-ledger-v0/artifacts/memory-ledger/m25b-runtime-source-root-replacement-install-and-validation/MEMORY_LEDGER_V0_1_M25B_RUNTIME_SOURCE_ROOT_REPLACEMENT_EVIDENCE_MANIFEST.json",
+      "sha256": "060aa5c05b83cddf00ad07f36c671159948a6f076ba7aa75fe06fe5274141a78"
+    }
+  ],
+  "method": "bounded git-history exact commits plus extracted historical artifacts; earlier broad searches timed out but identified these commits via git pickaxe",
+  "proof_chain": {
+    "source_root_repair_manifest": "git:055a3f56076d6d804ec925a401e48dc2698bc895:projects/stickbot-memory-ledger-v0/artifacts/memory-ledger/m25b-runtime-source-root-repair-no-apply/MEMORY_LEDGER_V0_1_M25B_RUNTIME_SOURCE_ROOT_REPAIRED_INSTALL_MANIFEST.json",
+    "source_root_replacement_closeout": "git:1c119cf5d186dbde8be48977efae0245256b759a:projects/stickbot-memory-ledger-v0/artifacts/memory-ledger/m25b-runtime-source-root-replacement-install-and-validation/MEMORY_LEDGER_V0_1_M25B_RUNTIME_SOURCE_ROOT_REPLACEMENT_CLOSEOUT.json",
+    "source_root_replacement_install_result": "git:1c119cf5d186dbde8be48977efae0245256b759a:projects/stickbot-memory-ledger-v0/artifacts/memory-ledger/m25b-runtime-source-root-replacement-install-and-validation/MEMORY_LEDGER_V0_1_M25B_RUNTIME_SOURCE_ROOT_REPLACEMENT_INSTALL_RESULT.json",
+    "source_root_replacement_preflight": "git:1c119cf5d186dbde8be48977efae0245256b759a:projects/stickbot-memory-ledger-v0/artifacts/memory-ledger/m25b-runtime-source-root-replacement-install-and-validation/MEMORY_LEDGER_V0_1_M25B_RUNTIME_SOURCE_ROOT_REPLACEMENT_PREFLIGHT.json",
+    "source_root_replacement_runtime_validation": "git:1c119cf5d186dbde8be48977efae0245256b759a:projects/stickbot-memory-ledger-v0/artifacts/memory-ledger/m25b-runtime-source-root-replacement-install-and-validation/MEMORY_LEDGER_V0_1_M25B_RUNTIME_SOURCE_ROOT_RUNTIME_VALIDATION.json"
+  },
+  "provenance_artifact_copies": "sharedspace/runtime-kernel-validation/memory-ledger/m25b_r_hash_provenance_or_rollback_20260719T050952+1000/provenance_artifacts",
+  "provenance_proven": true,
+  "recorded_approved_hash": "a9cf4a6deca4d045b116ef480dd3abb6747ed1cca838d6484513e74d902fdec5",
+  "target_hash": "98a174e1767221f355d7a28364f738c2918eab320ed5373f9851d31da33b4347"
+}

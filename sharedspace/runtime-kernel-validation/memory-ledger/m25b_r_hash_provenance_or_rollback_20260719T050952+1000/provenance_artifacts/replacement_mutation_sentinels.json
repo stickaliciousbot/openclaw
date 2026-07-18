@@ -1,0 +1,30 @@
+{
+  "schema": "stickbot.memory_ledger.m25b.runtime_source_root_mutation_sentinels.v1",
+  "timestamp_utc": "2026-07-18T14:10:22Z",
+  "status": "PASS_M25B_RUNTIME_SOURCE_ROOT_REPLACEMENT_MUTATION_SENTINELS",
+  "protected_hashes_after": {
+    "openclaw_config": "2310b592be9af1f67c2a180a2628424779bf548db8bb39a9a5a04f70c38c8a96",
+    "cron_jobs": "7e6f8c25b89fd3bbf17a821c551908075fd14903c9b554d0989671a87463ca25",
+    "binding": "26e9004dc83a61604ddd18a3e46cc9a47d441e9074f55ba2d0b9a7db8599207d",
+    "ledger": "f50ff3836724358d2ef99d92d7c32c2c07651138a749e2a03ce5c03c512807f6",
+    "context_bridge_events": "f0f7f59ed0028d2f2f250934b62b6f3f3e8aa3cbf3ed1d6454d71b2a63d269b3",
+    "context_bridge_actions": "a7b0d3d4bd1a9c8bb0da20a1f92cc248f3f37dbf551c66a361330076777bba63"
+  },
+  "expected_config_change": {
+    "before_sha256": "57b4a97feb2efbd47ef03d221b54bdb301806c49cf3cd1bf5cf1085bcade783f",
+    "after_sha256": "2310b592be9af1f67c2a180a2628424779bf548db8bb39a9a5a04f70c38c8a96",
+    "diff_keys": [
+      "meta.lastTouchedAt"
+    ],
+    "outside_replacement_scope": false
+  },
+  "cron_mutations": 0,
+  "ledger_mutations": 0,
+  "context_bridge_mutations": 0,
+  "binding_mutations": 0,
+  "authority_promotions": 0,
+  "recall_time_writes": 0,
+  "m24_relabels": 0,
+  "m26_starts": 0,
+  "pushes": 0
+}

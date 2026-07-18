@@ -1,0 +1,33 @@
+{
+  "achieved": [
+    "live failure path reproduced before schedule mutation",
+    "canonical TypeScript source repaired",
+    "deterministic runtime rebuilt",
+    "runtime fixtures 19/19 PASS",
+    "source regression 29/29 PASS",
+    "12-file package built deterministically"
+  ],
+  "after_approval": "Replace only the M25B plugin through supported plugin surfaces, validate dormant state and runtime source proof, then continue the already-approved exact retry schedule.",
+  "m24_terminal": "MEMORY_LEDGER_V0_1_M24_ABORT_SANITIZED_DEFAULT_NOT_USED",
+  "next_decision": "APPROVE_OR_DENY_M25B_RUNTIME_SOURCE_ROOT_REPAIRED_REPLACEMENT_INSTALL",
+  "not_performed": [
+    "installed plugin replacement",
+    "Gateway restart",
+    "plugin arming",
+    "retry scheduling",
+    "boundary run",
+    "delivery",
+    "manual delivery",
+    "Ledger mutation",
+    "Context Bridge mutation",
+    "authority promotion",
+    "recall-time write",
+    "M24 relabel",
+    "M26 start",
+    "push"
+  ],
+  "ok": true,
+  "schema": "stickbot.memory_ledger.m25b.runtime_source_root_repair_closeout.v1",
+  "status": "HOLD_M25B_RUNTIME_SOURCE_ROOT_REPAIRED_REPLACEMENT_INSTALL_AWAITING_OPERATOR_APPROVAL",
+  "timestamp_utc": "2026-07-18T13:52:18.048986+00:00"
+}

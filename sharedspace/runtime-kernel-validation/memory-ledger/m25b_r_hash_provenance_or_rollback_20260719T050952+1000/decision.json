@@ -1,0 +1,8 @@
+{
+  "decision": "provenance_proven_install_can_stand",
+  "provenance_proven": true,
+  "reason": "Installed hash is documented by local Git-history source-root repair/replacement artifacts and matches active installed dist.",
+  "rollback_or_disable_occurred": false,
+  "rollback_required": false,
+  "terminal_status": "M25B_R_HASH_PROVENANCE_PASS_INSTALL_CAN_STAND_NO_RETRY_SCHEDULED"
+}

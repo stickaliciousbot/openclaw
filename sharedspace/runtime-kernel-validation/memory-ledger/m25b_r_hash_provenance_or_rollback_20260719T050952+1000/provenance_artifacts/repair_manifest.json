@@ -1,0 +1,44 @@
+{
+  "candidate_package_path": "projects/stickbot-memory-ledger-v0/artifacts/memory-ledger/m25b-runtime-source-root-repair-no-apply/stickbot-memory-ledger-m25b-boundary-handler-0.0.4-m25b-runtime-root-repair-install-candidate.tgz",
+  "candidate_package_sha256": "346a3e1127e2d8934e7d6a84802ef4702d1778bd0db8f97833b35a74714f501f",
+  "candidate_source_sha256": "dec25b28503614eefbbf8ba763eda3a9d48f93dbbd306921197ece262e42a4e3",
+  "compiled_runtime_path": "dist/index.js",
+  "compiled_runtime_sha256": "98a174e1767221f355d7a28364f738c2918eab320ed5373f9851d31da33b4347",
+  "deterministic_repeat_sha256": "346a3e1127e2d8934e7d6a84802ef4702d1778bd0db8f97833b35a74714f501f",
+  "exact_inventory_match": true,
+  "file_count": 12,
+  "files": [
+    "dist/index.js",
+    "dist/src/boundary-handler.js",
+    "dist/src/input-loader.js",
+    "dist/src/sanitized-renderer.js",
+    "index.ts",
+    "openclaw.plugin.json",
+    "package.json",
+    "scripts/build-runtime.js",
+    "src/boundary-handler.ts",
+    "src/input-loader.ts",
+    "src/sanitized-renderer.ts",
+    "src/types.ts"
+  ],
+  "ok": true,
+  "plugin_id": "stickbot-memory-ledger-m25b-boundary-handler",
+  "production_apply": false,
+  "required_replacement_path": "supported plugin uninstall/install followed by Gateway restart only if installer requires it",
+  "rollback": "restore prior approved 0.0.3 package or preinstall backup, then first-class Gateway restart only if required",
+  "runtime_fixture": {
+    "compiled_runtime_resolves_canonical_source_root": true,
+    "passed": 19,
+    "status": "PASS_M25B_RUNTIME_OUTPUT_FIXTURES",
+    "total": 19
+  },
+  "schema": "stickbot.memory_ledger.m25b.runtime_source_root_repaired_install_manifest.v1",
+  "source_regression": {
+    "passed": 29,
+    "status": "PASS_M25B_OUTBOUND_HOOK_FIXTURES",
+    "total": 29
+  },
+  "status": "PASS_M25B_RUNTIME_SOURCE_ROOT_REPAIRED_INSTALL_CANDIDATE_READY_NO_APPLY",
+  "timestamp_utc": "2026-07-18T13:52:18.048986+00:00",
+  "version": "0.0.4-m25b-runtime-root-repair"
+}

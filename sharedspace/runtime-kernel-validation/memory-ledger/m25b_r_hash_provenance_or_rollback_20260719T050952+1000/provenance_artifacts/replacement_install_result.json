@@ -1,0 +1,33 @@
+{
+  "schema": "stickbot.memory_ledger.m25b.runtime_source_root_replacement_install_result.v1",
+  "timestamp_utc": "2026-07-18T14:10:22Z",
+  "status": "PASS_M25B_RUNTIME_SOURCE_ROOT_REPLACEMENT_INSTALLED",
+  "plugin_id": "stickbot-memory-ledger-m25b-boundary-handler",
+  "installed_version": "0.0.4-m25b-runtime-root-repair",
+  "package_sha256": "346a3e1127e2d8934e7d6a84802ef4702d1778bd0db8f97833b35a74714f501f",
+  "candidate_source_sha256": "dec25b28503614eefbbf8ba763eda3a9d48f93dbbd306921197ece262e42a4e3",
+  "runtime_sha256": "98a174e1767221f355d7a28364f738c2918eab320ed5373f9851d31da33b4347",
+  "supported_installer_exit": 0,
+  "force_replace": true,
+  "exact_inventory_match": true,
+  "file_count": 12,
+  "files": [
+    "dist/index.js",
+    "dist/src/boundary-handler.js",
+    "dist/src/input-loader.js",
+    "dist/src/sanitized-renderer.js",
+    "index.ts",
+    "openclaw.plugin.json",
+    "package.json",
+    "scripts/build-runtime.js",
+    "src/boundary-handler.ts",
+    "src/input-loader.ts",
+    "src/sanitized-renderer.ts",
+    "src/types.ts"
+  ],
+  "installed_source_bytes_match_committed_candidate": true,
+  "config_diff_from_preinstall_backup": [
+    "meta.lastTouchedAt"
+  ],
+  "config_drift_outside_replacement_scope": false
+}

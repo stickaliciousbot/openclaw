@@ -1,0 +1,41 @@
+{
+  "backup_exists": true,
+  "backup_path": "/home/stickai/.openclaw/backups/m25b-boundary-handler-preinstall-d65a5ce831f7",
+  "branch": "evidence/umc-m3n-post-restart-health-failclosed-20260713",
+  "false_pass_status_superseded": true,
+  "head": "f7a478722c6a0981bae6db7e6d7025cf3d4450f7",
+  "installed_dist_index_sha256": "98a174e1767221f355d7a28364f738c2918eab320ed5373f9851d31da33b4347",
+  "installed_hash_matches_recorded_approved": false,
+  "installed_hash_matches_target": true,
+  "package_json": {
+    "name": "stickbot-memory-ledger-m25b-boundary-handler",
+    "openclaw": {
+      "extensions": [
+        "./index.ts"
+      ],
+      "runtimeExtensions": [
+        "./dist/index.js"
+      ]
+    },
+    "private": true,
+    "scripts": {
+      "build:runtime": "node ./scripts/build-runtime.js"
+    },
+    "type": "module",
+    "version": "0.0.4-m25b-runtime-root-repair"
+  },
+  "plugin_exists": true,
+  "plugin_path": "/home/stickai/.openclaw/extensions/stickbot-memory-ledger-m25b-boundary-handler",
+  "prior_false_pass_file": "sharedspace/runtime-kernel-validation/memory-ledger/m25b_boundary_handler_install_20260719T045227+1000/status.json",
+  "prior_m25b_status": "M25B_REVISED_BOUNDARY_HANDLER_INSTALL_BLOCKED",
+  "recorded_approved_dist_index_sha256": "a9cf4a6deca4d045b116ef480dd3abb6747ed1cca838d6484513e74d902fdec5",
+  "required_hooks_present": {
+    "before_agent_reply": true,
+    "message_sending": true,
+    "message_sent": true
+  },
+  "superseding_files": [
+    "sharedspace/runtime-kernel-validation/memory-ledger/m25b_boundary_handler_install_20260719T045227+1000/install_proof.json",
+    "sharedspace/runtime-kernel-validation/memory-ledger/m25b_boundary_handler_install_20260719T045227+1000/blocker_correction.json"
+  ]
+}

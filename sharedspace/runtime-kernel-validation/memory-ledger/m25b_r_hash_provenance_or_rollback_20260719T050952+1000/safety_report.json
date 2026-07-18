@@ -1,0 +1,17 @@
+{
+  "active_retry_cron_entries": [],
+  "authority_promoted": false,
+  "commit_by_this_exec": false,
+  "context_bridge_changed_by_this_task": false,
+  "delivery_occurred_by_this_task": false,
+  "ledger_changed_by_this_task": false,
+  "model_provider_fallback_memory_route_mutated_by_this_task": false,
+  "private_scan_hits": [],
+  "private_scan_pass": true,
+  "push_by_this_exec": false,
+  "retry_scheduled": false,
+  "rollback_or_disable_occurred": false,
+  "route_config_mutation_occurred_by_this_task": false,
+  "scheduled_run_occurred_by_this_task": false,
+  "telegram_send_occurred_by_this_task": false
+}

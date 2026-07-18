@@ -1,0 +1,105 @@
+{
+  "evidence_root": "sharedspace/runtime-kernel-validation/memory-ledger/m25b_r_hash_provenance_or_rollback_20260719T050952+1000",
+  "files": [
+    {
+      "path": "decision.json",
+      "sha256": "91a8dc56048d85e0f3e9ba45831fe0ba29518073f4f22905b856c10afb738420",
+      "size": 386
+    },
+    {
+      "path": "post_action_validation.json",
+      "sha256": "243136bcd54f7d30fb6483738a047576c714f3ad9282ad24a7b77e001092d7e0",
+      "size": 1267
+    },
+    {
+      "path": "pre_action_state.json",
+      "sha256": "016b1969d12a2e56b1e322aeec101ac14602b4de65552aae1c9ae9d2c551a199",
+      "size": 1748
+    },
+    {
+      "path": "provenance_artifacts/repair_closeout.json",
+      "sha256": "f411af5bb59867025e588b71a682f6b08e4191067200bcf0085a067ec0ed556f",
+      "size": 1239
+    },
+    {
+      "path": "provenance_artifacts/repair_evidence_manifest.json",
+      "sha256": "be8e409642a2564608a7be3ae3785dc5ce3770b2e9fcf9f53a6cce4835fd2fc4",
+      "size": 2886
+    },
+    {
+      "path": "provenance_artifacts/repair_manifest.json",
+      "sha256": "cff45f6cc0a4d910d67121e7b4371a117aa4ad40742fdbdc6b1f119d334e4ff6",
+      "size": 2001
+    },
+    {
+      "path": "provenance_artifacts/replacement_closeout.json",
+      "sha256": "3300f50720b45c01c75b8d8261c8a356fda0003a2ff70d2ac3bb205bdc3dc915",
+      "size": 1034
+    },
+    {
+      "path": "provenance_artifacts/replacement_evidence_manifest.json",
+      "sha256": "060aa5c05b83cddf00ad07f36c671159948a6f076ba7aa75fe06fe5274141a78",
+      "size": 1686
+    },
+    {
+      "path": "provenance_artifacts/replacement_gateway_restart.json",
+      "sha256": "f1174bd2c27eff3063a43c2a83c066b3ffece59f09f18de97b4b382a45da3a07",
+      "size": 716
+    },
+    {
+      "path": "provenance_artifacts/replacement_install_result.json",
+      "sha256": "03d8d64e6bc1d993a78e96f673b98ff7644ccf2deadf919b18ab1f493df9d059",
+      "size": 1244
+    },
+    {
+      "path": "provenance_artifacts/replacement_mutation_sentinels.json",
+      "sha256": "3a452235d32a5beab3f7b82c3e9ba5a62f0a2172c153b5fad4512d8a00699241",
+      "size": 1299
+    },
+    {
+      "path": "provenance_artifacts/replacement_no_retry_no_delivery.json",
+      "sha256": "3a7aca8ce320cad3da0f6d7c5cca2afdb8430985381b85e144d277f6efda0048",
+      "size": 547
+    },
+    {
+      "path": "provenance_artifacts/replacement_preflight.json",
+      "sha256": "c80b49cdee2ac30b33423fd182c67bd66f87cfdc7478fba74490b1076251343f",
+      "size": 1179
+    },
+    {
+      "path": "provenance_artifacts/replacement_runtime_validation.json",
+      "sha256": "d09e56e2482f8e78541947057815cfa8e5e34af02dd507510ab4d7aad9b665d9",
+      "size": 996
+    },
+    {
+      "path": "provenance_search.json",
+      "sha256": "ef35b4cbfac938676300b3fa8f859c7a52af44a5b5c11be6cc8a4949eb38a866",
+      "size": 7757
+    },
+    {
+      "path": "rollback_proof.json",
+      "sha256": "cd1697b622035a79f0b2702650045a8fcf5a38046517ad87db1944d8ba470c35",
+      "size": 418
+    },
+    {
+      "path": "run_config.json",
+      "sha256": "940cfd16a10fd930e5804cecd611488abd809cf22de5f0399b124cfb7b1cc118",
+      "size": 899
+    },
+    {
+      "path": "safety_report.json",
+      "sha256": "3acd99ea943e05eb75c77ef3305b601cab2221548887df01c4c9575c116e0462",
+      "size": 609
+    },
+    {
+      "path": "status.json",
+      "sha256": "faa4ae5418a88ae1ea64f7b9014b6afb68308c249c7fb6d6bbc0eacf7ce2c3a6",
+      "size": 757
+    },
+    {
+      "path": "summary.json",
+      "sha256": "f0c57b7b525763c80af8fc16ba2ca811d9c1a5276b5c2ff544570316a9c20eea",
+      "size": 1828
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "active_retry_cron_entries": [],
+  "final_active_plugin_hash": "98a174e1767221f355d7a28364f738c2918eab320ed5373f9851d31da33b4347",
+  "final_active_plugin_hash_state": "active and provenance-proven",
+  "gateway_health_pass": true,
+  "gateway_status_excerpt": "Gateway: bind=lan (0.0.0.0), port=18789 (service args)\nRuntime: running (pid 2624356, state active, sub running, last exit 0, reason 0)\nConnectivity probe: ok\nCapability: admin-capable\nListening: *:18789",
+  "installed_package_name": "stickbot-memory-ledger-m25b-boundary-handler",
+  "installed_package_version": "0.0.4-m25b-runtime-root-repair",
+  "required_hooks_present": {
+    "before_agent_reply": true,
+    "message_sending": true,
+    "message_sent": true
+  },
+  "runtime_import_exit_code": 0,
+  "runtime_import_stderr": "(node:2747199) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)",
+  "runtime_import_stdout": "{\"id\":\"stickbot-memory-ledger-m25b-boundary-handler\",\"version\":\"0.0.4-m25b-runtime-root-repair\",\"hooks\":[\"before_agent_reply\",\"message_sending\",\"message_sent\"]}",
+  "terminal_status": "M25B_R_HASH_PROVENANCE_PASS_INSTALL_CAN_STAND_NO_RETRY_SCHEDULED"
+}
