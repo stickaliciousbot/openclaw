@@ -1,0 +1,56 @@
+{
+  "schema": "stickbot.memory_ledger.m25d.summary.v1",
+  "terminal_status": "M25D_BOUNDARY_HANDLER_ARMING_PLAN_READY_NO_APPLY",
+  "plan_path": "projects/stickbot-memory-ledger-v0/docs/M25D_BOUNDARY_HANDLER_ARMING_PLAN_NO_APPLY.md",
+  "runtime_evidence_root": "sharedspace/runtime-kernel-validation/memory-ledger/m25d_boundary_handler_arming_plan_20260719T055127+1000",
+  "handler": {
+    "plugin": "stickbot-memory-ledger-m25b-boundary-handler",
+    "version": "0.0.4-m25b-runtime-root-repair",
+    "installed_hash": "98a174e1767221f355d7a28364f738c2918eab320ed5373f9851d31da33b4347",
+    "candidate_source_sha256_dry_run": "dec25b28503614eefbbf8ba763eda3a9d48f93dbbd306921197ece262e42a4e3",
+    "armed": false
+  },
+  "required_actual_fields": [
+    "armed",
+    "expectedJobId",
+    "expectedAgentId",
+    "expectedSessionKey",
+    "expectedCallerPromptSha256",
+    "expectedT0CallerSha256",
+    "expectedCandidateSourceSha256",
+    "eventsPath",
+    "expectedEventsSha256",
+    "actionsPath",
+    "expectedActionsSha256",
+    "ledgerMode",
+    "ledgerPath",
+    "expectedLedgerSha256",
+    "validatedLedgerRecords",
+    "validatedLedgerEvents",
+    "localDate"
+  ],
+  "unresolved_requested_knobs_not_installed_handler_fields": [
+    "expectedDeliverySurface",
+    "maxDeliveries",
+    "expiresAt",
+    "disarmAfterSuccess",
+    "disarmAfterFailure",
+    "evidenceRoot"
+  ],
+  "sample_hashes": {
+    "sample_prompt_sha256": "120ea147b65c9f0603de21181cb856c67d874b06b37078d9e62c9e2dbff21947",
+    "context_bridge_events_sha256": "f0f7f59ed0028d2f2f250934b62b6f3f3e8aa3cbf3ed1d6454d71b2a63d269b3",
+    "context_bridge_actions_sha256": "a7b0d3d4bd1a9c8bb0da20a1f92cc248f3f37dbf551c66a361330076777bba63",
+    "ledger_store_sha256": null,
+    "validated_m22_posture_hash": "f50ff3836724358d2ef99d92d7c32c2c07651138a749e2a03ce5c03c512807f6",
+    "local_date": "2026-07-19"
+  },
+  "validation": {
+    "gateway_health": "PASS",
+    "private_raw_scan": "PASS",
+    "no_enabled_m25_retry_like_jobs": true,
+    "no_apply_mutation_detected": false
+  },
+  "committed": false,
+  "pushed": false
+}

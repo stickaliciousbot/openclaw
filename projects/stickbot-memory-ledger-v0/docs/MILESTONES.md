@@ -38,6 +38,9 @@
 | CB-L4 | `CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L4_CLOSEOUT_REPAIRED_PASS_NO_PRODUCTION_WIRING` | Presentation sanitizer canary PASS; closeout metadata repaired from UNKNOWN/projector-facing in-progress ambiguity to explicit PASS; sanitizer hash unchanged; no production wiring; no mutation. |
 | CB-L5 | `CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L5_BLOCKED_DIRTY_LIVE_CONTEXT_BRIDGE_STATE` | Append-only Ledger status marker blocked before append because live `actions.json` was untracked and contained raw private identifier text; no marker append performed. |
 | CB-L5R | `CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L5R_ACTIONS_LEDGER_REDACTION_PROVENANCE_PASS_NO_MARKER_APPEND` | Actions ledger redaction/provenance repair PASS; one raw private identifier text redacted deterministically; action count/status counts preserved; `events.jsonl` unchanged; no marker append; CB-L6/M21/M22 not started. |
+| M25B-R | `M25B_R_PUSHED_HASH_PROVENANCE_PASS_INSTALL_CAN_STAND_NO_RETRY_SCHEDULED` | Installed M25B boundary-handler hash `98a174e1767221f355d7a28364f738c2918eab320ed5373f9851d31da33b4347` provenance-proven and pushed; install can stand; no retry scheduled, no delivery/send, no Ledger/Context Bridge mutation, no authority promotion. |
+| M25C | `M25C_PUSHED_BLOCKED_SAFE_SINGLE_RETRY_SCHEDULING_NOT_ESTABLISHED` | Single boundary-handled retry blocked safely because handler was enabled/hash-proven but unarmed; evidence pushed at `3b36d0317b2b5d520be3b9c9de6e8c4eeab6d717`; no retry scheduled/run, no delivery/send, no config mutation, no authority promotion. |
+| M25D | `M25D_BOUNDARY_HANDLER_ARMING_PLAN_READY_NO_APPLY` | No-apply arming plan derived exact installed-handler config fields and future M25E one-shot arming/disarm proof plan; no plugin arming, no retry scheduling, no delivery/send, no Gateway/plugin config mutation, no Ledger/Context Bridge mutation, no M25E/M26 start. |
 
 ---
 

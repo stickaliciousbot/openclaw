@@ -190,6 +190,9 @@ CB-L3 — shadow user-facing projection PASS with closeout metadata repaired to 
 CB-L4 — presentation sanitizer canary PASS with closeout metadata repaired to explicit PASS; test-harness-only; no production wiring; no mutation.
 CB-L5 — append-only Ledger status marker blocked before append due to dirty/untracked live Context Bridge `actions.json` containing raw private identifier text; no marker append occurred.
 CB-L5R — actions ledger redaction/provenance repair PASS; sanitized/tracked `actions.json`; no `events.jsonl` mutation; no marker append; CB-L6/M21/M22 not started.
+M25B-R — boundary-handler hash provenance PASS and preservation push PASS; installed handler version `0.0.4-m25b-runtime-root-repair`, runtime hash `98a174e1767221f355d7a28364f738c2918eab320ed5373f9851d31da33b4347`; install can stand; no retry scheduled.
+M25C — pushed blocked closeout `M25C_PUSHED_BLOCKED_SAFE_SINGLE_RETRY_SCHEDULING_NOT_ESTABLISHED`; handler enabled/hash-proven but unarmed; no retry scheduled/run, no delivery/send, no config mutation, no authority promotion.
+M25D — no-apply arming plan `M25D_BOUNDARY_HANDLER_ARMING_PLAN_READY_NO_APPLY`; exact installed-handler arming fields and future M25E controlled arming/disarm plan documented; M25E/M26 not started.
 ```
 
 M20R evidence root:

@@ -10,48 +10,17 @@ const repoRoot = join(projectRoot, '..', '..');
 const artifactRoot = join(projectRoot, 'artifacts', 'rehydration', 'stickbot-memory-ledger');
 
 const sourceFiles = [
-  'README.md',
-  'pyproject.toml',
   'docs/STICKBOT_MEMORY_LEDGER_V0_1_REVISED_IMPROVED_PLAN.md',
   'docs/TROUBLESHOOTING_REPAIR_AND_IMPLEMENTATION_GUIDE.md',
   'docs/PROJECT_REHYDRATOR.md',
   'docs/REHYDRATOR_IMPROVEMENTS_NOTEBOOK.md',
   'docs/MILESTONES.md',
-  'docs/CLEAN_ROOM_NOTES.md',
-  'docs/M10_READ_ONLY_OPENCLAW_ADAPTER_CANARY_APPROVAL.md',
-  'docs/M11_PRODUCTION_READINESS_AND_RUNTIME_ENABLEMENT_PLAN.md',
-  'docs/M12_TINY_PRODUCTION_READONLY_CANARY.md',
-  'docs/M13_CONTROLLED_PRODUCTION_INTEGRATION_PLAN.md',
-  'docs/M14_OPERATOR_ONLY_PRODUCTION_READONLY_RECALL.md',
-  'docs/M15_OPENCLAW_RUNTIME_OPERATOR_READONLY_RECALL.md',
-  'docs/M16_OPERATOR_RECALL_HARDENING_AND_REPEATABILITY.md',
-  'docs/M17_STICKBOT_TARS_OPERATOR_READONLY_RECALL.md',
-  'docs/M18_PRODUCTION_RELEASE_CANDIDATE_CUTOVER_READINESS.md',
-  'docs/M19_CONTROLLED_PRODUCTION_ENABLEMENT.md',
-  'docs/M20R_DETERMINISTIC_OBSERVER_RECOVERY.md',
-  'docs/CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L0_L1_READONLY_AUDIT.md',
-  'docs/CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L2_AUTHORITY_MATRIX.md',
-  'docs/CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L3_SHADOW_PROJECTION.md',
-  'docs/CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L4_SANITIZER_CANARY.md',
   'docs/CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L5R_ACTIONS_LEDGER_REDACTION_PROVENANCE.md',
+  'docs/M25D_BOUNDARY_HANDLER_ARMING_PLAN_NO_APPLY.md',
+  'artifacts/memory-ledger/m25d-boundary-handler-arming-plan/status.json',
+  'artifacts/memory-ledger/m25d-boundary-handler-arming-plan/summary.json',
   'scripts/stickbot-memory-ledger-rehydrate.mjs',
-  'scripts/stickbot-memory-ledger-cli.py',
-  'scripts/stickbot-memory-ledger-m12-canary.py',
-  'scripts/stickbot-memory-ledger-operator-recall.py',
-  'scripts/stickbot-memory-ledger-m16-repeatability.py',
-  'scripts/context_bridge_ledger_l0_l1_readonly_audit.py',
-  'scripts/context_bridge_ledger_l2_authority_matrix.py',
-  'scripts/context_bridge_ledger_l3_shadow_projection.py',
-  'scripts/context_bridge_ledger_l4_sanitizer_canary.py',
   'scripts/context_bridge_actions_l5r_redact_provenance.py',
-  'src/stickbot_memory_ledger/__init__.py',
-  'src/stickbot_memory_ledger/constants.py',
-  'src/stickbot_memory_ledger/util.py',
-  'src/stickbot_memory_ledger/redaction.py',
-  'src/stickbot_memory_ledger/store.py',
-  'src/stickbot_memory_ledger/cli.py',
-  'src/stickbot_memory_ledger/openclaw_readonly_adapter.py',
-  'test/test_first_slice.py',
 ];
 
 function sha256(data) {
@@ -103,9 +72,9 @@ function buildPacket() {
       'No Nuzo code/package/schema/test/plugin reuse',
       'No hidden inferred writes',
     ],
-    currentMilestone: 'CB-L5R actions ledger redaction/provenance repair PASS with closeout metadata repaired to explicit PASS; terminal CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L5R_ACTIONS_LEDGER_REDACTION_PROVENANCE_PASS_NO_MARKER_APPEND; repair terminal CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L5R_CLOSEOUT_REPAIRED_PASS_NO_MARKER_APPEND; CB-L5 marker append blocked and not performed; no authority promotion; CB-L6/M21/M22 not started',
-    previousMilestone: 'CB-L4 sanitizer canary PASS and pushed; CB-L3 shadow projection PASS and pushed; CB-L2 authority matrix PASS and pushed; CB-L1 read-only audit PASS and pushed; M20R deterministic observer recovery PASS; M20 detached observer HOLD; M19 controlled production enablement PASS',
-    nextImplementationSlice: 'Finish CB-L5R actions ledger redaction/provenance repair only; do not append CB-L5 marker or start CB-L6/M21/M22 without separate owner approval',
+    currentMilestone: 'M25D boundary-handler arming plan READY/no-apply; installed M25B handler remains enabled, hash-proven, and unarmed; exact installed-handler arming fields and future M25E one-shot arming/disarm proof plan documented; terminal M25D_BOUNDARY_HANDLER_ARMING_PLAN_READY_NO_APPLY; no plugin arming, no retry scheduling/run, no delivery/send, no Gateway/plugin config mutation, no Ledger/Context Bridge mutation, no authority promotion; M25E/M26 not started',
+    previousMilestone: 'M25C pushed blocked closeout at 3b36d0317b2b5d520be3b9c9de6e8c4eeab6d717: M25C_PUSHED_BLOCKED_SAFE_SINGLE_RETRY_SCHEDULING_NOT_ESTABLISHED because handler was enabled/hash-proven but unarmed. M25B-R hash provenance/preservation PASS at fd00fb76518d463d009b055918d88bcf75d50b27. CB-L5R actions ledger redaction/provenance repair PASS/no marker append; M20R deterministic observer recovery PASS',
+    nextImplementationSlice: 'Recommended only, not started: M25E — Boundary Handler Armed One-Shot Retry Controlled Execution. Requires separate owner approval allowing bounded plugin config arming/disarming, exactly one one-shot retry schedule/run, immediate disarm/removal, and sanitized evidence. Do not start M25E/M26 automatically; do not mutate routes/model/provider/fallback/memory routes, Ledger, or Context Bridge',
     activeObservation: {
       milestone: 'M20R',
       status: 'MEMORY_LEDGER_V0_1_M20R_DETERMINISTIC_OBSERVER_RECOVERY_PASS_NO_AUTHORITY_PROMOTION',
@@ -150,13 +119,14 @@ function buildPacket() {
 `Branch: \`${manifest.branch}\`\n\n` +
 `## Immediate Resume\n\n` +
 `1. Read \`docs/STICKBOT_MEMORY_LEDGER_V0_1_REVISED_IMPROVED_PLAN.md\`.\n` +
-`2. Read \`docs/MILESTONES.md\`, \`docs/M10_READ_ONLY_OPENCLAW_ADAPTER_CANARY_APPROVAL.md\`, \`docs/M11_PRODUCTION_READINESS_AND_RUNTIME_ENABLEMENT_PLAN.md\`, \`docs/M12_TINY_PRODUCTION_READONLY_CANARY.md\`, \`docs/M13_CONTROLLED_PRODUCTION_INTEGRATION_PLAN.md\`, \`docs/M14_OPERATOR_ONLY_PRODUCTION_READONLY_RECALL.md\`, \`docs/M15_OPENCLAW_RUNTIME_OPERATOR_READONLY_RECALL.md\`, \`docs/M16_OPERATOR_RECALL_HARDENING_AND_REPEATABILITY.md\`, \`docs/M17_STICKBOT_TARS_OPERATOR_READONLY_RECALL.md\`, \`docs/M18_PRODUCTION_RELEASE_CANDIDATE_CUTOVER_READINESS.md\`, \`docs/M19_CONTROLLED_PRODUCTION_ENABLEMENT.md\`, \`docs/M20R_DETERMINISTIC_OBSERVER_RECOVERY.md\`, \`docs/CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L0_L1_READONLY_AUDIT.md\`, \`docs/CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L2_AUTHORITY_MATRIX.md\`, \`docs/CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L3_SHADOW_PROJECTION.md\`, \`docs/CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L4_SANITIZER_CANARY.md\`, and \`docs/CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L5R_ACTIONS_LEDGER_REDACTION_PROVENANCE.md\`.\n` +
+`2. Read \`docs/MILESTONES.md\`, \`docs/PROJECT_REHYDRATOR.md\`, \`docs/REHYDRATOR_IMPROVEMENTS_NOTEBOOK.md\`, \`docs/TROUBLESHOOTING_REPAIR_AND_IMPLEMENTATION_GUIDE.md\`, \`docs/CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L5R_ACTIONS_LEDGER_REDACTION_PROVENANCE.md\`, and \`docs/M25D_BOUNDARY_HANDLER_ARMING_PLAN_NO_APPLY.md\`. For older implementation slice docs not present in this evidence branch, use the branch/worktree recovery section instead of broad filesystem searches.\n` +
 `3. Preserve hard boundaries: no Gateway/model/provider/runtime memory-route mutation and no \`MEMORY.md\` writes in v0.1.\n` +
 `4. Treat the production recall path as operator-only and explicit-flag/confirmation/scope gated for exactly \`system:memory-ledger\`, \`project:openclaw-runtime\`, and \`project:stickbot-tars\`.\n` +
-`5. Current live state: CB-L5 marker append is blocked/not performed; CB-L5R actions ledger redaction/provenance repair PASS with closeout metadata repaired to explicit PASS; terminal CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L5R_ACTIONS_LEDGER_REDACTION_PROVENANCE_PASS_NO_MARKER_APPEND; repair terminal CONTEXT_BRIDGE_LEDGER_RECONCILIATION_L5R_CLOSEOUT_REPAIRED_PASS_NO_MARKER_APPEND; CB-L4 PASS/repaired/pushed, CB-L3 PASS/repaired/pushed, CB-L2 PASS/repaired/pushed, CB-L1 PASS/pushed, M20R PASS, no authority promotion; CB-L6/M21/M22 not started. Original M20 remains HOLD because detached observer sessions did not execute required checks.\n` +
-`6. If the current checkout is not the Ledger branch, use the branch/worktree recovery section below before broad filesystem searches.\n` +
-`7. Update this rehydrator and docs before every milestone closeout.\n` +
-`8. For M20R details, read \`docs/M20R_DETERMINISTIC_OBSERVER_RECOVERY.md\`.\n\n` +
+`5. Current live state: M25D arming plan READY/no-apply. M25B-R hash provenance and scoped preservation push PASS; installed boundary-handler runtime hash \`98a174e1767221f355d7a28364f738c2918eab320ed5373f9851d31da33b4347\` is provenance-proven. M25C pushed blocked because the handler was enabled/hash-proven but unarmed; no retry scheduled/run and no delivery/send. M25D documented exact arming fields and future M25E plan without arming, scheduling, delivery, config mutation, Ledger/Context Bridge mutation, or authority promotion. M25E/M26 not started.\n` +
+`6. Scoped preservation push rule: if global tracked dirt is unrelated/pre-existing, do not treat it as clean; require explicit owner approval for scoped committed-head push, verify empty index/no rebase/no merge and committed diff scope, then push without staging/commit/amend/force.\n` +
+`7. If the current checkout is not the Ledger branch, use the branch/worktree recovery section below before broad filesystem searches.\n` +
+`8. Update this rehydrator and docs before every milestone closeout.\n` +
+`9. For M20R details, read \`docs/M20R_DETERMINISTIC_OBSERVER_RECOVERY.md\`.\n\n` +
 `## Current Milestone\n\n${manifest.currentMilestone}\n\n` +
 `Previous milestone: ${manifest.previousMilestone}\n\n` +
 `Next implementation slice: ${manifest.nextImplementationSlice}\n\n` +

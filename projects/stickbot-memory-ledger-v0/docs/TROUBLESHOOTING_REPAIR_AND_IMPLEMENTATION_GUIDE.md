@@ -29,6 +29,8 @@ Use this guide with:
 6. **Archive is default forget.** Hard deletion is not a v0.1 default.
 7. **Expected revision is mandatory for updates.** No silent retry after revision conflict.
 8. **Source refs do not grant authority.** Source refs support review; actions must still obey current instructions and source-authority gates.
+9. **Boundary-handler installed/enabled is not armed.** For the M25B boundary handler, `plugins.entries.stickbot-memory-ledger-m25b-boundary-handler.enabled: true` only loads the extension. A real boundary-handled retry requires `config.armed: true` plus exact job/session/caller/source/Context Bridge/Ledger/local-date fields. Do not run an ordinary cron retry and call it boundary-handled.
+10. **Boundary-handler arming is a Gateway/plugin config mutation.** It requires a separate explicit approval milestone, a bounded diff, pre/post config hashes, immediate disarm/removal, and no route/model/provider/fallback/memory-route mutation.
 
 ---
 
