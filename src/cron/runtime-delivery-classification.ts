@@ -1,5 +1,11 @@
 /** Typed cron reply/delivery classification before legacy NO_REPLY compatibility. */
 import { createHash } from "node:crypto";
+import {
+  boundaryDecisionEnvelopeToRuntimePatch,
+  type BoundaryDecisionEnvelope,
+  type BoundaryDecisionValidationContext,
+  type BoundaryDecisionReasonCode,
+} from "./boundary-decision-envelope.js";
 
 export type RuntimeReplyJobClass = "quiet_success" | "delivery_required" | "unknown";
 
@@ -39,7 +45,8 @@ export type RuntimeReplyReasonCode =
   | "SURFACE_CONTRACT_MISMATCH"
   | "TARGET_GRANT_REQUIRED_MISSING"
   | "DUPLICATE_DELIVERY_SUPPRESSED"
-  | "DELIVERY_FAILED";
+  | "DELIVERY_FAILED"
+  | BoundaryDecisionReasonCode;
 
 export type RuntimeReplyRequiredAnchors = {
   closeoutAnchorPresent?: boolean;
@@ -57,6 +64,7 @@ export type RuntimeReplyClassificationInput = {
   boundaryHandlerRequired?: boolean;
   boundaryDecisionPresent?: boolean;
   boundaryDecision?: RuntimeBoundaryDecision;
+  boundaryReasonCode?: RuntimeReplyReasonCode;
   contractValid?: boolean;
   contractHashMatches?: boolean;
   expired?: boolean;
@@ -77,6 +85,7 @@ export type RuntimeReplyClassification = {
   requiredAnchorsPresent: boolean;
   boundaryDecisionPresent: boolean;
   boundaryDecision?: RuntimeBoundaryDecision;
+  boundaryReasonCode?: RuntimeReplyReasonCode;
   terminal: RuntimeReplyTerminal;
   reasonCode: RuntimeReplyReasonCode;
   deliveryEligible: boolean;
@@ -154,6 +163,18 @@ function isInvalidContract(
 }
 
 function terminalForReason(reasonCode: RuntimeReplyReasonCode): RuntimeReplyTerminal {
+  if (
+    reasonCode === "BOUNDARY_MATCH_ALLOW" ||
+    reasonCode === "BOUNDARY_MATCH_ALLOW_DELIVERY_REQUIRED"
+  ) {
+    return "BOUNDARY_ALLOWED_PAYLOAD_READY";
+  }
+  if (reasonCode.endsWith("_HOLD")) {
+    return "BOUNDARY_HOLD_NO_DELIVERY";
+  }
+  if (reasonCode.endsWith("_REJECT")) {
+    return "BOUNDARY_REJECT_NO_DELIVERY";
+  }
   switch (reasonCode) {
     case "QUIET_SUCCESS_EXPLICIT_NO_DELIVERY_REQUIRED":
       return "QUIET_SUCCESS_NO_DELIVERY_REQUIRED";
@@ -204,10 +225,10 @@ function classifyReason(input: RuntimeReplyClassificationInput): RuntimeReplyRea
     return "BOUNDARY_DECISION_REQUIRED_MISSING";
   }
   if (input.boundaryDecisionPresent === true && input.boundaryDecision === "hold") {
-    return "BOUNDARY_HOLD";
+    return input.boundaryReasonCode ?? "BOUNDARY_HOLD";
   }
   if (input.boundaryDecisionPresent === true && input.boundaryDecision === "reject") {
-    return "BOUNDARY_REJECT";
+    return input.boundaryReasonCode ?? "BOUNDARY_REJECT";
   }
   if (input.deliveryRequired && input.candidatePayloadPresent !== true) {
     return "DELIVERY_REQUIRED_PAYLOAD_MISSING";
@@ -219,7 +240,7 @@ function classifyReason(input: RuntimeReplyClassificationInput): RuntimeReplyRea
     return "DELIVERY_FAILED";
   }
   if (input.boundaryDecisionPresent === true && input.boundaryDecision === "allow") {
-    return "BOUNDARY_ALLOWED_PAYLOAD_READY";
+    return input.boundaryReasonCode ?? "BOUNDARY_ALLOWED_PAYLOAD_READY";
   }
   return "DELIVERY_REQUIRED_PAYLOAD_READY";
 }
@@ -242,6 +263,7 @@ export function classifyRuntimeReply(
     requiredAnchorsPresent: requiredAnchorsPresent(input.requiredAnchors),
     boundaryDecisionPresent,
     boundaryDecision: input.boundaryDecisionPresent ? input.boundaryDecision : undefined,
+    boundaryReasonCode: input.boundaryDecisionPresent ? input.boundaryReasonCode : undefined,
     terminal,
     reasonCode,
     deliveryEligible,
@@ -252,6 +274,22 @@ export function classifyRuntimeReply(
     ...classificationWithoutSha,
     classificationSha256: sha256Stable(classificationWithoutSha),
   };
+}
+
+export type RuntimeReplyClassificationWithBoundaryEnvelopeInput =
+  RuntimeReplyClassificationInput & {
+    boundaryDecisionEnvelope?: BoundaryDecisionEnvelope | unknown;
+    boundaryDecisionContext: BoundaryDecisionValidationContext;
+  };
+
+export function classifyRuntimeReplyWithBoundaryDecisionEnvelope(
+  input: RuntimeReplyClassificationWithBoundaryEnvelopeInput,
+): RuntimeReplyClassification {
+  const runtimePatch = boundaryDecisionEnvelopeToRuntimePatch(
+    input.boundaryDecisionEnvelope,
+    input.boundaryDecisionContext,
+  );
+  return classifyRuntimeReply({ ...input, ...runtimePatch });
 }
 
 export function runtimeReplyClassificationToLegacyText(
