@@ -1,0 +1,31 @@
+{
+  "boundaryHandlerSourceModification": false,
+  "changedFileCount": 3,
+  "changedFileList": [
+    "src/cron/boundary-decision-envelope.ts",
+    "src/cron/boundary-decision-envelope.test.ts",
+    "src/cron/runtime-delivery-classification.ts"
+  ],
+  "delivery": "none",
+  "forkBranch": "boundary-decision-envelope-2026-5-7-backport",
+  "forkRemoteAlignment": "PASS",
+  "implementationRepositoryRole": "canonical OpenClaw source",
+  "milestone": "M25L",
+  "noLiveApply": true,
+  "preservationFork": "stickaliciousbot/openclaw",
+  "preservationMilestone": "M25L-PF",
+  "priorM25lEvidenceManifestSha256": "1d97a2e998321eaa071525c123a2b296c3b8bc3548132234ec428e5971ecc663",
+  "schema": "stickbot.m25l.source_repository_fork_preservation_link.v1",
+  "schemaVersion": "1.0.0",
+  "sourceBase": "087a300cc78c677116829a885a699a96535ee295",
+  "sourceDiffSha256": "3aa4d657b20ea0af5e1c9eda6348bae40185214eddbada5aafb33ab7f8f87e1c",
+  "sourceFilesCopiedIntoWorkspace": false,
+  "sourceHead": "32b218aa9cd8261532a6f039fb3d4f00fb9342c1",
+  "sourcePreservationReceiptFile": "source_repository_fork_preservation_receipt.json",
+  "sourcePreservationReceiptSha256": "3f9f2919eaf09087194d74bb1ee8a5b38e11792126637c69310424bff30f97cc",
+  "telegram": "none",
+  "testResultSummary": "PASS focused M25L tsx; 11 positive / 22 negative / 6 regression; M25K smoke 31 assertions / 10 terminals",
+  "upstreamRepository": "openclaw/openclaw",
+  "workspaceM25lEvidenceCommitBeforeLinkage": "f2627cda5dee38ed7bff1d82d8bc7101e664ca40",
+  "workspaceRemoteBaselineBeforeM25l": "a48507c39f965f26d880e4f9d3ead40733f4c578"
+}

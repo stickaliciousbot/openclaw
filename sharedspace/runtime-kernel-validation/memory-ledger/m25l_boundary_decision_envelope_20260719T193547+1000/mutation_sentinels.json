@@ -17,6 +17,28 @@
     "handlerSource": "687524d056ec89748d6ae0483936c994a59270af8016e6959c65a4e84291b09b",
     "installedRuntime": "9c72b80b522c21df975ed6f1fd8fae5a96307a6e58f7d692223d82d5d8e0d109"
   },
+  "m25lPf": {
+    "authorityPromotion": false,
+    "contextBridgeChanged": false,
+    "deliveryAdapterInvocation": 0,
+    "forkBranchCreated": true,
+    "gatewayConfigChanged": false,
+    "gatewayRestartReload": false,
+    "handlerDormantUnarmed": true,
+    "installedPluginChanged": false,
+    "installedRuntimeChanged": false,
+    "ledgerChanged": false,
+    "m25mOrM26Started": false,
+    "pullRequestCreated": false,
+    "retryProofJobs": 0,
+    "routeModelConfigChanged": false,
+    "sourceFilesCopiedIntoWorkspace": false,
+    "targetRegistry": 0,
+    "targetResolution": 0,
+    "telegramSends": 0,
+    "upstreamBranchCreated": false,
+    "upstreamChanged": false
+  },
   "mutations": {
     "authorityPromotion": false,
     "contextBridge": false,

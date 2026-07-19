@@ -1,0 +1,11 @@
+{
+  "diffCheck": "PASS before commit",
+  "expectedCommitMessage": "Link M25L evidence to preserved OpenClaw fork commit",
+  "privateRawScan": "PASS before commit",
+  "schema": "stickbot.m25l_pf.workspace_linkage_commit_proof.v1",
+  "scope": "M25L-PF linkage/evidence files under existing M25L evidence root",
+  "sourceFilesCopiedIntoWorkspace": false,
+  "workspaceBranch": "evidence/umc-m3n-post-restart-health-failclosed-20260713",
+  "workspaceHeadBeforeLinkage": "f2627cda5dee38ed7bff1d82d8bc7101e664ca40",
+  "workspaceLinkageCommitSha": "external_git_readback_after_commit"
+}

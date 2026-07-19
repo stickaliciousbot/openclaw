@@ -1,0 +1,37 @@
+{
+  "base": "087a300cc78c677116829a885a699a96535ee295",
+  "branch": "boundary-decision-envelope-2026-5-7-backport",
+  "changedFileCount": 3,
+  "changedFileList": [
+    "src/cron/boundary-decision-envelope.ts",
+    "src/cron/boundary-decision-envelope.test.ts",
+    "src/cron/runtime-delivery-classification.ts"
+  ],
+  "deterministicDiffSha256": "3aa4d657b20ea0af5e1c9eda6348bae40185214eddbada5aafb33ab7f8f87e1c",
+  "fixtureSummary": {
+    "negative": 22,
+    "positive": 11,
+    "reasonCodes": 23,
+    "regression": 6
+  },
+  "forcePush": false,
+  "forkPushResult": "PASS",
+  "forkRemoteHead": "32b218aa9cd8261532a6f039fb3d4f00fb9342c1",
+  "liveRuntimeApply": false,
+  "localForkAlignment": "PASS",
+  "localRemoteName": "fork",
+  "milestone": "M25L",
+  "preservationMilestone": "M25L-PF",
+  "preservationRepository": "stickaliciousbot/openclaw",
+  "privacyRawScan": "PASS",
+  "pullRequestCreated": false,
+  "receiptSha256": "3f9f2919eaf09087194d74bb1ee8a5b38e11792126637c69310424bff30f97cc",
+  "schema": "stickbot.m25l.source_fork_preservation_receipt.v1",
+  "schemaVersion": "1.0.0",
+  "sourceLocalHead": "32b218aa9cd8261532a6f039fb3d4f00fb9342c1",
+  "testSummary": "PASS focused M25L tsx; 11 positive / 22 negative / 6 regression; M25K smoke 31 assertions / 10 terminals",
+  "typeScriptStaticCheck": "PASS targeted tsc",
+  "upstreamBranchCreated": false,
+  "upstreamChanged": false,
+  "upstreamRepositoryAlias": "openclaw/openclaw"
+}

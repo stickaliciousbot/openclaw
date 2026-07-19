@@ -31,6 +31,11 @@
       "sha256": "db61c2b8ea8b2496ddd03e011cd9ae9f8997d9e25d03b2c229c9ab134888a1d0"
     },
     {
+      "bytes": 868,
+      "path": "dual_repository_alignment.json",
+      "sha256": "12a8eb57fa61faff922d32f5d295a9a5de1eea3caf24be634bb50585680e0179"
+    },
+    {
       "bytes": 1278,
       "path": "fixture_inventory.json",
       "sha256": "40feb80ce487c83b7794ac9be31cbd42169097d1261540c32379a86b12a957b1"
@@ -41,9 +46,9 @@
       "sha256": "3d47fcde42fff0f0813b1c32fb50a56a0f07de03ec9c3e539dfac89f6f944c89"
     },
     {
-      "bytes": 852,
+      "bytes": 1005,
       "path": "hard_gates.json",
-      "sha256": "7185c068d3cc057031688450ce80df2eefdd2a4542aabb7a8e574dc1d13c7466"
+      "sha256": "ec490cb913a29348d2bc9923e5e7ef6f61b6186ce7595e2e18009a7e58719e91"
     },
     {
       "bytes": 328,
@@ -56,9 +61,9 @@
       "sha256": "71ef8a8691c2e5aa9fe111ed1229fabf4311d0c8f21bb72d2d79428192f758fe"
     },
     {
-      "bytes": 1713,
+      "bytes": 2388,
       "path": "mutation_sentinels.json",
-      "sha256": "3b64c757072c3ed29525a32d12f2ddd0955d8589154646ec7d4267b466cf75fb"
+      "sha256": "7b81b362bedc2950df157cef995c7dc10473d677b4eacd8bf0e9f401069431cc"
     },
     {
       "bytes": 453,
@@ -71,9 +76,9 @@
       "sha256": "16c409a990761f2ebd28e7d4bf5164ac60a648209bbeabcfcae1891661ddccb7"
     },
     {
-      "bytes": 259,
+      "bytes": 368,
       "path": "privacy_scan.json",
-      "sha256": "81fdcb809d92edb6dd9218104de4667c28dfdc244bc507bda869debfddd1af88"
+      "sha256": "75a3e23d584833e63c06baeb1f2ddc72de6ff2bf568ffefa31b43623b173f925"
     },
     {
       "bytes": 977,
@@ -106,22 +111,44 @@
       "sha256": "9fd60c5d44f847f01b3f234d46df295875fce3543a0ba5e72191ff87cdbd56a9"
     },
     {
-      "bytes": 312,
-      "path": "status.json",
-      "sha256": "fa1bded2861e81d5e6727ca759ef89ee84df436a8a9761a80d20dabe43ff8460"
+      "bytes": 1588,
+      "path": "source_repository_fork_preservation_link.json",
+      "sha256": "37d2deba9acf1682c2fbff296a1e1452c2f8400d3997c270be1cf73501176fd9"
     },
     {
-      "bytes": 2490,
+      "bytes": 1435,
+      "path": "source_repository_fork_preservation_receipt.json",
+      "sha256": "30bf581fe1b78c9e2f35501e2164fb70f3c800f898b067c2bfa22b3b9a372fc0"
+    },
+    {
+      "bytes": 711,
+      "path": "status.json",
+      "sha256": "70b6d00b904226097455484f8f6b90c45cafa6083692ea423c059dc15e66bf5f"
+    },
+    {
+      "bytes": 3229,
       "path": "summary.json",
-      "sha256": "a09d02f54c0b94064f9e24773b48c86abbcfc5d81caafd853eec566ba9891934"
+      "sha256": "32aaa93f14e6c3f432098797bb3db5aabd0a8af254f8d4e761e3b9700bd2705c"
     },
     {
       "bytes": 542,
       "path": "test_results.json",
       "sha256": "2c18efdc12f14f57cd5578e92601fc2339dab1ca1825cfd8561fb7bffea103ca"
+    },
+    {
+      "bytes": 579,
+      "path": "workspace_linkage_commit_proof.json",
+      "sha256": "0f62e4e95becb27eb5b8c682ae1883e438b67973df0bdba8d586ca8c9454bc0c"
+    },
+    {
+      "bytes": 469,
+      "path": "workspace_push_proof.json",
+      "sha256": "99b649c6f4f0b32667220dc0709776a7bfed37ee884cdf4470f36471aa5d3bda"
     }
   ],
-  "entryCount": 24,
+  "entryCount": 29,
+  "preservationMilestone": "M25L-PF",
   "root": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25l_boundary_decision_envelope_20260719T193547+1000",
-  "schema": "stickbot.m25l.evidence_manifest.v1"
+  "schema": "stickbot.m25l.evidence_manifest.v2",
+  "supersedesManifestSha256": "1d97a2e998321eaa071525c123a2b296c3b8bc3548132234ec428e5971ecc663"
 }

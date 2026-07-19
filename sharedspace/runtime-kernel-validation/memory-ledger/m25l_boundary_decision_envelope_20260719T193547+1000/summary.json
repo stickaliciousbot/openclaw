@@ -22,6 +22,8 @@
   "m25eM25gM25hRegression": "PASS",
   "m25kRegression": "PASS",
   "m25mM26Started": false,
+  "preservationTerminal": "M25L_PF_FORK_SOURCE_AND_WORKSPACE_PRESERVATION_PASS_NO_TELEGRAM",
+  "priorEvidenceManifestSha256": "1d97a2e998321eaa071525c123a2b296c3b8bc3548132234ec428e5971ecc663",
   "privateRawScan": "PASS",
   "pushed": false,
   "quietSuccessCompatibility": "PASS",
@@ -60,8 +62,16 @@
   "runtimeHandoff": "PASS",
   "sourceBase": "087a300cc78c677116829a885a699a96535ee295",
   "sourceBranch": "boundary-decision-envelope-2026-5-7-backport",
+  "sourceForkAlignment": "PASS",
+  "sourceForkHead": "32b218aa9cd8261532a6f039fb3d4f00fb9342c1",
   "sourceHead": "32b218aa9cd8261532a6f039fb3d4f00fb9342c1",
+  "sourcePreservationFork": "stickaliciousbot/openclaw",
+  "sourcePreservationForkBranch": "boundary-decision-envelope-2026-5-7-backport",
+  "sourcePreservationReceiptSha256": "3f9f2919eaf09087194d74bb1ee8a5b38e11792126637c69310424bff30f97cc",
   "staticTypecheck": "PASS",
   "targetResolution": "none",
-  "terminal": "M25L_BOUNDARY_DECISION_ENVELOPE_PASS_NO_TELEGRAM"
+  "terminal": "M25L_BOUNDARY_DECISION_ENVELOPE_PASS_NO_TELEGRAM",
+  "updatedEvidenceManifestSha256": "external_sha256sum_after_manifest_write",
+  "workspaceLinkageCommit": "external_git_readback_after_commit",
+  "workspacePushProof": "external_git_readback_after_push"
 }

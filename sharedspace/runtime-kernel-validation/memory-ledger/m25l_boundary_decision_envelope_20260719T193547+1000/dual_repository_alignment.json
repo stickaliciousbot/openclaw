@@ -1,0 +1,21 @@
+{
+  "dualRepositoryPreservation": "PASS_PENDING_WORKSPACE_PUSH",
+  "schema": "stickbot.m25l_pf.dual_repository_alignment.v1",
+  "sourceRepository": {
+    "alignment": "PASS",
+    "branch": "boundary-decision-envelope-2026-5-7-backport",
+    "fork": "stickaliciousbot/openclaw",
+    "localHead": "32b218aa9cd8261532a6f039fb3d4f00fb9342c1",
+    "remoteHead": "32b218aa9cd8261532a6f039fb3d4f00fb9342c1"
+  },
+  "workspaceContainsCopiedSourceFiles": false,
+  "workspaceContainsSanitizedForkLinkage": true,
+  "workspaceContainsSourceCommitObject": false,
+  "workspaceRepository": {
+    "alignment": "external_git_readback_after_push",
+    "branch": "evidence/umc-m3n-post-restart-health-failclosed-20260713",
+    "localHead": "external_git_readback_after_commit",
+    "remoteHead": "external_git_readback_after_push",
+    "repository": "stickaliciousbot/webworkspace"
+  }
+}

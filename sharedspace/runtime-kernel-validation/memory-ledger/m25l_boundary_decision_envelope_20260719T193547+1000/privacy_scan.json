@@ -1,10 +1,13 @@
 {
+  "m25lPf": "PASS",
   "notes": "negative tests use unmistakable synthetic sentinels only",
   "rawIdsFound": 0,
   "rawPayloadsPersisted": false,
   "rawTargetIdsFound": 0,
   "scopedSourceScan": "PASS",
   "secretsFound": 0,
+  "sourceFilesCopiedIntoWorkspace": false,
+  "sourcePreservationLinkageRawScan": "PASS",
   "status": "PASS",
   "workspaceEvidenceScan": "PASS"
 }

@@ -1,0 +1,9 @@
+{
+  "forcePush": false,
+  "pushCommand": "git push origin HEAD:evidence/umc-m3n-post-restart-health-failclosed-20260713",
+  "remoteBaseline": "a48507c39f965f26d880e4f9d3ead40733f4c578",
+  "schema": "stickbot.m25l_pf.workspace_push_proof.v1",
+  "workspaceBranch": "evidence/umc-m3n-post-restart-health-failclosed-20260713",
+  "workspaceExpectedRemoteHead": "external_git_readback_after_push",
+  "workspaceHeadBeforeLinkage": "f2627cda5dee38ed7bff1d82d8bc7101e664ca40"
+}
