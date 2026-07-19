@@ -1,0 +1,9 @@
+{
+  "delivered": false,
+  "job_id": "9d6aa1d9-edd7-4633-90eb-3fba96f20b02",
+  "prior_cleanup_commit": "a449084deaebc5d12a8135817f226a98fb9747c6",
+  "prior_cleanup_packet": "sharedspace/runtime-kernel-validation/memory-ledger/m25e_r_disarm_reload_validation_20260719T132216+1000",
+  "prior_m25e_status": "M25E_NOT_PASS_NO_SANITIZED_DELIVERY",
+  "run_id": "manual:9d6aa1d9-edd7-4633-90eb-3fba96f20b02:1784426529773:1",
+  "summary": "NO_REPLY"
+}

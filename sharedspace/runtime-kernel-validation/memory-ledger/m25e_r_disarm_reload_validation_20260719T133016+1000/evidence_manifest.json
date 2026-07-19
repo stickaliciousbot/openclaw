@@ -1,0 +1,69 @@
+{
+  "artifact_count_excluding_manifest": 12,
+  "artifacts": [
+    {
+      "bytes": 381,
+      "file": "delivery_absence_proof.json",
+      "sha256": "d23e1ad645400908c24abb8e758e7732a70fd268299135bce6d5c97e1a685055"
+    },
+    {
+      "bytes": 1137,
+      "file": "doctor_report.json",
+      "sha256": "81d5f0e8e8fba3ec355a349f054011db383da9ca7cc8552809e1acc9d133f8f1"
+    },
+    {
+      "bytes": 443,
+      "file": "m25e_prior_state.json",
+      "sha256": "56affad206d848b1a60a8a53bc8a6f4b6b58942dfd648089d9bb30f196917c8b"
+    },
+    {
+      "bytes": 1350,
+      "file": "post_cleanup_validation.json",
+      "sha256": "000aeb286b3f65e8b88cbcbd745f6dae9f95378476747bb8b12cd09c2ac7bc50"
+    },
+    {
+      "bytes": 1289,
+      "file": "pre_cleanup_config_readback.json",
+      "sha256": "5a9c9a53c84c254cec0e1a098308771c26197f0373b44312c37b77d30300df59"
+    },
+    {
+      "bytes": 8387,
+      "file": "reload_validation.json",
+      "sha256": "65fccc140a2b87654bded9d8216202fa339543d2b7600bf7cb18f12a186aeda5"
+    },
+    {
+      "bytes": 480,
+      "file": "retry_absence_proof.json",
+      "sha256": "ce2e3a6c348ca6eeb0d64fb65281c5593c38c51befa41c612e3117fe17583f9b"
+    },
+    {
+      "bytes": 650,
+      "file": "run_config.json",
+      "sha256": "541354d3c2cb10a67f73afecce9c5818be1b6fdcc4470ed06d7dfaad8d73cb3b"
+    },
+    {
+      "bytes": 804,
+      "file": "run_history_proof.json",
+      "sha256": "6f4643ddd1ee039fae688b17b6d3643daacc6d8f47d159a525b8a9acd4903934"
+    },
+    {
+      "bytes": 6081,
+      "file": "safety_report.json",
+      "sha256": "24b2f66628c5216cfcfb556a681a10eb7e72ec04c876d3cb195e0645dafc3fb8"
+    },
+    {
+      "bytes": 1250,
+      "file": "status.json",
+      "sha256": "a23af36634085724e088498709f9c2f992c406b09c545bdfa03fb6cd4ef55a87"
+    },
+    {
+      "bytes": 1031,
+      "file": "summary.json",
+      "sha256": "c9ae78018e27fd9d6c53f79cf87e65b3d8ed981ee4390bc95446782313f09230"
+    }
+  ],
+  "created_at": "2026-07-19T13:30:16.634524+10:00",
+  "pass": true,
+  "schema": "stickbot.memory_ledger.m25e_r.post_restart.evidence_manifest.v1",
+  "terminal_status": "M25E_R_DISARM_RELOAD_VALIDATION_PASS_NO_RERUN_NO_DELIVERY"
+}

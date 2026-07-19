@@ -1,0 +1,69 @@
+{
+  "authority_promoted": false,
+  "context_bridge_actions_unchanged": true,
+  "context_bridge_changed": false,
+  "context_bridge_events_unchanged": true,
+  "doctor_report": {
+    "attempts": [
+      {
+        "mutations": "none_requested",
+        "result": "diagnostics_printed_then_SIGKILL_timeout",
+        "session": "quick-atlas"
+      },
+      {
+        "mutations": "none_requested",
+        "result": "diagnostics_printed_then_hung_on_state_integrity_scan_SIGKILL",
+        "session": "fresh-ocean"
+      }
+    ],
+    "captured_warnings_sanitized": [
+      "Codex OAuth openai-codex/* routes preserved by doctor",
+      "Direct openai/* GPT-5 refs configured for PI while Codex OAuth also available; doctor --fix would leave unchanged",
+      "Telegram first-time setup/DM allowlist warning",
+      "1/5 recent sessions missing transcripts",
+      "11011 orphan transcript files in ~/.openclaw/agents/main/sessions",
+      "2 live non-stale session lock files for current gateway pid observed during doctor run"
+    ],
+    "clean_exit_obtained": false,
+    "command": "openclaw doctor --non-interactive",
+    "reason_not_blocker": "Requested doctor was executed read-only and produced housekeeping warnings unrelated to M25E-R boundary handler/retry/delivery proof. Gateway status separately passed after warm-up.",
+    "validation_blocker": false
+  },
+  "expected_context_bridge_actions_sha256": "a7b0d3d4bd1a9c8bb0da20a1f92cc248f3f37dbf551c66a361330076777bba63",
+  "expected_context_bridge_events_sha256": "76f4d0f030af56ee03b3484413ca67c7f9a65992f68ecb2b46ed144410b1a9b5",
+  "git_branch_before_commit": "evidence/umc-m3n-post-restart-health-failclosed-20260713",
+  "git_head_before_commit": "a449084deaebc5d12a8135817f226a98fb9747c6",
+  "git_status_before_commit": {
+    "cmd": [
+      "git",
+      "status",
+      "--short",
+      "--branch"
+    ],
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "_sidecar_soak/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_2h_24h_advisory_sidecar_health_watch/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_2h_r2_repaired_health_watch_proof/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_2h_r_monitor_durability_repair/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_3_production_baseline_hardening/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_4_supervised_production_health_watch/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_5_production_acceptance_consolidation/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_6_active_production_decision_exercise/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_7_production_operating_baseline_finalization/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11_production_activation_owner_operator_cutover/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m11r_token_broker_vmesh_readiness_repair/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1_bounded_artifact_status_qa_readiness/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r10_bounded_artifact_status_qa_readiness_rerun/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r10r_provider_path_token_broker_readiness_repair/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r11_bounded_artifact_status_qa_readiness_rerun/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r11r_typed_numeric_output_emission_repair/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r12_bounded_artifact_status_qa_readiness_rerun/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r12r_source_ref_exact_anchor_repair/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r13_bounded_artifact_status_qa_readiness_rerun/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r13r_answer_envelope_compiler_normalizer_repair/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r14_bounded_artifact_status_qa_readiness_rerun/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r14r_fail_closed_hold_envelope_normalization_repair/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r15_bounded_artifact_status_qa_readiness_rerun/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r15r_hold_citation_source_ref_contract_repair/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r16_bounded_readiness_rerun_c1k_authority_envelope_no_apply/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r2_bounded_artifact_status_qa_readiness_rerun/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r2r_source_ref_canonicalization_repair/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r3_bounded_artifact_status_qa_readiness_rerun/\n?? sharedsp\u2026TRUNCATED"
+  },
+  "hashes": {
+    "context_bridge_actions_json": "a7b0d3d4bd1a9c8bb0da20a1f92cc248f3f37dbf551c66a361330076777bba63",
+    "context_bridge_events_jsonl": "76f4d0f030af56ee03b3484413ca67c7f9a65992f68ecb2b46ed144410b1a9b5",
+    "cron_jobs_json": "2552a3a4f7c229109c5903551aed9a826491aa6316e95dec3db1791fb489b3b2",
+    "cron_run_jsonl": "5007451696c259368536dcf4a08208feb553e3160d9814f9fc07e44a3bde15c9",
+    "openclaw_json": "5af9752d7175515c269281bba248b916f18eab5bb23accb1ed12f1fbb4cb6546",
+    "plugin_boundary_handler_ts": "bf137a5957b89eac12acc679dcbe7a842a33b1f39647e9c8cf2616a343f2f05f",
+    "plugin_dist_index_js": "98a174e1767221f355d7a28364f738c2918eab320ed5373f9851d31da33b4347"
+  },
+  "ledger_changed": false,
+  "m26_started": false,
+  "model_fallbacks": [
+    "ollama/deepseek-v4-pro:cloud"
+  ],
+  "model_primary": "openai-codex/gpt-5.5",
+  "model_route_expected": true,
+  "pass": true,
+  "private_raw_scan": {
+    "method": "artifacts include hashes/status/ids/sanitized config only; no raw retry message/prompt content copied",
+    "status": "PASS"
+  },
+  "route_config_mutation_exceeded_scope": false
+}

@@ -1,0 +1,32 @@
+{
+  "authority_promoted": false,
+  "context_bridge_changed": false,
+  "gates": {
+    "M25ER_POST_G10_context_events_hash_unchanged": true,
+    "M25ER_POST_G11_context_actions_hash_unchanged": true,
+    "M25ER_POST_G12_model_primary_expected": true,
+    "M25ER_POST_G13_model_fallback_expected": true,
+    "M25ER_POST_G14_no_ledger_mutation": true,
+    "M25ER_POST_G15_no_authority_promotion": true,
+    "M25ER_POST_G16_m26_not_started": true,
+    "M25ER_POST_G17_private_raw_scan_pass": true,
+    "M25ER_POST_G18_doctor_ran_noninteractive": true,
+    "M25ER_POST_G1_gateway_health_ok": true,
+    "M25ER_POST_G2_handler_enabled": true,
+    "M25ER_POST_G3_handler_armed_false": true,
+    "M25ER_POST_G4_retry_job_absent": true,
+    "M25ER_POST_G5_retry_not_runnable": true,
+    "M25ER_POST_G6_run_history_exactly_one": true,
+    "M25ER_POST_G7_run_summary_no_reply": true,
+    "M25ER_POST_G8_run_delivered_false": true,
+    "M25ER_POST_G9_no_job_delivery_logs": true
+  },
+  "handler_dormant_unarmed": true,
+  "ledger_changed": false,
+  "m26_started": false,
+  "retry_remains_scheduled_or_runnable": false,
+  "route_config_mutation_exceeded_scope": false,
+  "run_history_exactly_one_no_reply_not_delivered": true,
+  "telegram_send_or_delivery_for_m25e_detected": false,
+  "terminal_status": "M25E_R_DISARM_RELOAD_VALIDATION_PASS_NO_RERUN_NO_DELIVERY"
+}

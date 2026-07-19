@@ -1,0 +1,9 @@
+{
+  "cron_run_delivered_false": true,
+  "job_delivery_or_telegram_lines_post_restart": [],
+  "job_log_lines_post_restart": [],
+  "no_post_restart_job_delivery_log_lines": true,
+  "note": "Current assistant replies use Telegram surface normally; this proof is scoped to M25E retry job/run delivery paths only.",
+  "pass": true,
+  "telegram_send_delivery_for_m25e_detected": false
+}

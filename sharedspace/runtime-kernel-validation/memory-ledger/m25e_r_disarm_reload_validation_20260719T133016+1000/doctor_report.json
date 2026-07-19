@@ -1,0 +1,26 @@
+{
+  "attempts": [
+    {
+      "mutations": "none_requested",
+      "result": "diagnostics_printed_then_SIGKILL_timeout",
+      "session": "quick-atlas"
+    },
+    {
+      "mutations": "none_requested",
+      "result": "diagnostics_printed_then_hung_on_state_integrity_scan_SIGKILL",
+      "session": "fresh-ocean"
+    }
+  ],
+  "captured_warnings_sanitized": [
+    "Codex OAuth openai-codex/* routes preserved by doctor",
+    "Direct openai/* GPT-5 refs configured for PI while Codex OAuth also available; doctor --fix would leave unchanged",
+    "Telegram first-time setup/DM allowlist warning",
+    "1/5 recent sessions missing transcripts",
+    "11011 orphan transcript files in ~/.openclaw/agents/main/sessions",
+    "2 live non-stale session lock files for current gateway pid observed during doctor run"
+  ],
+  "clean_exit_obtained": false,
+  "command": "openclaw doctor --non-interactive",
+  "reason_not_blocker": "Requested doctor was executed read-only and produced housekeeping warnings unrelated to M25E-R boundary handler/retry/delivery proof. Gateway status separately passed after warm-up.",
+  "validation_blocker": false
+}

@@ -1,0 +1,26 @@
+{
+  "branch": "evidence/umc-m3n-post-restart-health-failclosed-20260713",
+  "committed": true,
+  "context_bridge_actions_unchanged": true,
+  "context_bridge_events_unchanged": true,
+  "doctor_clean_exit_obtained": false,
+  "doctor_validation_blocker": false,
+  "effective_handler_state_now": "DORMANT_UNARMED",
+  "evidence_root": "sharedspace/runtime-kernel-validation/memory-ledger/m25e_r_disarm_reload_validation_20260719T133016+1000",
+  "gateway_health_ok": true,
+  "handler_armed": false,
+  "head_before_commit": "a449084deaebc5d12a8135817f226a98fb9747c6",
+  "model_fallbacks": [
+    "ollama/deepseek-v4-pro:cloud"
+  ],
+  "model_primary": "openai-codex/gpt-5.5",
+  "pushed": false,
+  "restart_sentinel": "2026-07-19T13:23:34+10:00",
+  "retry_job_present": false,
+  "retry_job_runnable": false,
+  "run_history_count": 1,
+  "run_history_delivered": false,
+  "run_history_summary": "NO_REPLY",
+  "telegram_send_delivery_for_m25e_detected": false,
+  "terminal_status": "M25E_R_DISARM_RELOAD_VALIDATION_PASS_NO_RERUN_NO_DELIVERY"
+}

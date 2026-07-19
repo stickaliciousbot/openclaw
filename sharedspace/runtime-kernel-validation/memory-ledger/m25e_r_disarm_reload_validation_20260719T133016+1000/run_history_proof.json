@@ -1,0 +1,24 @@
+{
+  "delivered_false": true,
+  "delivery_status": "not-delivered",
+  "exactly_one_expected_run": true,
+  "expected_run_id": "manual:9d6aa1d9-edd7-4633-90eb-3fba96f20b02:1784426529773:1",
+  "pass": true,
+  "run_count": 1,
+  "run_file_exists": true,
+  "run_history_path": "/home/stickai/.openclaw/cron/runs/9d6aa1d9-edd7-4633-90eb-3fba96f20b02.jsonl",
+  "runs_sanitized": [
+    {
+      "contains_expected_run_id": true,
+      "delivered": false,
+      "deliveryStatus": "not-delivered",
+      "model": "gpt-5.5",
+      "provider": "openai-codex",
+      "record_sha256": "bd75c4eee80cd93b777ba8e5cb7b83e86835765f2581cf8508ffcbf2a6048bad",
+      "runId": "manual:9d6aa1d9-edd7-4633-90eb-3fba96f20b02:1784426529773:1",
+      "status": "ok",
+      "summary": "NO_REPLY"
+    }
+  ],
+  "summary_no_reply": true
+}
