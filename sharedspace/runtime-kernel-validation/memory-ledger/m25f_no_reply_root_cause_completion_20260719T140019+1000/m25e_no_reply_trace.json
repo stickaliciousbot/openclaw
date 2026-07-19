@@ -1,0 +1,82 @@
+{
+  "deterministic_handler_path": {
+    "ctx_and_hash_evaluation": {
+      "actions_current_matches_expected": true,
+      "candidate_source_current_sha256": "dec25b28503614eefbbf8ba763eda3a9d48f93dbbd306921197ece262e42a4e3",
+      "candidate_source_matches_expected": true,
+      "events_current_matches_expected": false,
+      "events_mtime_before_run": true,
+      "events_size_current": 170024,
+      "events_size_preflight": 166721,
+      "expected_session_key": "cron:9d6aa1d9-edd7-4633-90eb-3fba96f20b02",
+      "job_id_matches_config": true,
+      "payload_hash_matches_expected": true,
+      "runtime_isolated_base_session_key_source": "server-cron runIsolatedAgentJob uses resolveCronSessionTargetSessionKey(...) ?? `cron:${job.id}`",
+      "trigger": "cron"
+    },
+    "evidence": [
+      "Installed plugin registers before_agent_reply; runtime invokes before_agent_reply for trigger=cron before model execution.",
+      "Boundary raw config was armed for this job at retry time and jobId/prompt/source/action hashes matched.",
+      "Boundary hold() returns handled=true without reply, which embedded cron maps to finalAssistantRawText/VisibleText NO_REPLY.",
+      "Cron delivery runtime normalizes exact NO_REPLY to no payload and records delivered=false/not-delivered."
+    ],
+    "first_failing_boundary_condition": "CONTEXT_BRIDGE_OR_LEDGER_DRIFT:EVENTS_FINGERPRINT_DRIFT",
+    "retry_reached_handler": true,
+    "why_first_failing": "Earlier scope checks pass under the cron isolated base session contract; current events hash differs from expected and file mtime/size show the drifted Context Bridge events file existed before the retry run began."
+  },
+  "job_id": "9d6aa1d9-edd7-4633-90eb-3fba96f20b02",
+  "one_shot_payload": {
+    "closeout_anchor_present": true,
+    "delivery_channel": "last",
+    "delivery_mode": "announce",
+    "message_sha256": "aaf27d4ffbece798e9a38cdb9cbf679a45f7491b132a3a997f09edf7547de135",
+    "session_target": "isolated",
+    "terminal_payload_anchor_present": true
+  },
+  "run_count": 1,
+  "run_history_entry_sanitized": {
+    "action": "finished",
+    "delivered": false,
+    "delivery": {
+      "delivered": false,
+      "fallbackUsed": true,
+      "intended": {
+        "channel": "telegram",
+        "source": "explicit",
+        "to": "<redacted>",
+        "to_sha256": "57636a7474a8c491ab00f179205e639a079f17915b829fcca4356705b2830d8d"
+      },
+      "resolved": {
+        "channel": "telegram",
+        "ok": true,
+        "source": "explicit",
+        "to": "<redacted>",
+        "to_sha256": "57636a7474a8c491ab00f179205e639a079f17915b829fcca4356705b2830d8d"
+      }
+    },
+    "deliveryStatus": "not-delivered",
+    "durationMs": 2278,
+    "jobId": "9d6aa1d9-edd7-4633-90eb-3fba96f20b02",
+    "model": "gpt-5.5",
+    "provider": "openai-codex",
+    "runAtMs": 1784426529781,
+    "runId": "manual:9d6aa1d9-edd7-4633-90eb-3fba96f20b02:1784426529773:1",
+    "sessionId": "1adb4f39-62cd-4f06-bec2-dfb721f3acea",
+    "sessionKey": "agent:main:cron:9d6aa1d9-edd7-4633-90eb-3fba96f20b02:run:1adb4f39-62cd-4f06-bec2-dfb721f3acea",
+    "status": "ok",
+    "summary": "NO_REPLY",
+    "ts": 1784426532060
+  },
+  "run_id": "manual:9d6aa1d9-edd7-4633-90eb-3fba96f20b02:1784426529773:1",
+  "run_started_aest": "2026-07-19T12:02:09.781000+10:00",
+  "schema": "stickbot.memory_ledger.m25f.no_reply_trace.v1",
+  "source_line_evidence": {
+    "boundary_drift_maps_to_hold_line": 130,
+    "boundary_events_drift_line": 79,
+    "boundary_hold_line": 32,
+    "cron_base_session_key_line": 2473,
+    "hook_result_no_reply_line": 1746,
+    "index_register_before_agent_reply_line": 28,
+    "silent_normalization_line": 27
+  }
+}

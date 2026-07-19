@@ -1,0 +1,21 @@
+{
+  "job_shape": {
+    "deleteAfterRun": true,
+    "delivery_mode": "announce",
+    "enabled_at_creation": false,
+    "sessionTarget": "isolated"
+  },
+  "run_contract": {
+    "active_retry_jobs": [],
+    "exactly_one_run": true,
+    "old_job_absent": true,
+    "old_job_rerun_in_m25f": false,
+    "recurring_schedule_created": false
+  },
+  "runtime_source": {
+    "isolated_base_session_key_line": 2473,
+    "server_cron_file": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/server-cron-64Gwr3vh.js"
+  },
+  "schema": "stickbot.memory_ledger.m25f.cron_retry_contract_analysis.v1",
+  "status": "PASS_CRON_RETRY_CONTRACT_INSPECTED"
+}

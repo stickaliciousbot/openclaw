@@ -1,0 +1,111 @@
+{
+  "current": {
+    "active_m25e_retry_jobs": [],
+    "branch": "evidence/umc-m3n-post-restart-health-failclosed-20260713",
+    "gateway_health": {
+      "excerpt": "Gateway: bind=lan (0.0.0.0), port=18789 (service args)\nRuntime: running (pid 2826348, state active, sub running, last exit 0, reason 0)\nConnectivity probe: ok\nCapability: admin-capable\nListening: *:18789",
+      "pass": true,
+      "returncode": 0,
+      "stderr_sanitized": "Service config looks out of date or non-standard.\nService config issue: Gateway service PATH missing required dirs: /home/stickai/.local/share/pnpm\nRecommendation: run \"openclaw doctor\" (or \"openclaw doctor --repair\")."
+    },
+    "handler_config_sanitized": {
+      "actionsPath": "sharedspace/context-bridge/actions.json",
+      "armed": false,
+      "eventsPath": "sharedspace/context-bridge/events.jsonl",
+      "expectedActionsSha256": "a7b0d3d4bd1a9c8bb0da20a1f92cc248f3f37dbf551c66a361330076777bba63",
+      "expectedAgentId": "main",
+      "expectedCallerPromptSha256": "aaf27d4ffbece798e9a38cdb9cbf679a45f7491b132a3a997f09edf7547de135",
+      "expectedCandidateSourceSha256": "dec25b28503614eefbbf8ba763eda3a9d48f93dbbd306921197ece262e42a4e3",
+      "expectedEventsSha256": "f0f7f59ed0028d2f2f250934b62b6f3f3e8aa3cbf3ed1d6454d71b2a63d269b3",
+      "expectedJobId": "9d6aa1d9-edd7-4633-90eb-3fba96f20b02",
+      "expectedLedgerSha256": "f50ff3836724358d2ef99d92d7c32c2c07651138a749e2a03ce5c03c512807f6",
+      "expectedSessionKey": "cron:9d6aa1d9-edd7-4633-90eb-3fba96f20b02",
+      "expectedT0CallerSha256": "aaf27d4ffbece798e9a38cdb9cbf679a45f7491b132a3a997f09edf7547de135",
+      "ledgerMode": "validated_m22_posture",
+      "ledgerPath": null,
+      "localDate": "2026-07-19",
+      "validatedLedgerEvents": 20,
+      "validatedLedgerRecords": 19
+    },
+    "handler_enabled": true,
+    "hashes": {
+      "actions": {
+        "bytes": 95781,
+        "exists": true,
+        "mtime_iso": "2026-07-19T06:50:10.826989+10:00",
+        "path": "sharedspace/context-bridge/actions.json",
+        "sha256": "a7b0d3d4bd1a9c8bb0da20a1f92cc248f3f37dbf551c66a361330076777bba63"
+      },
+      "boundary_dist": {
+        "bytes": 1517,
+        "exists": true,
+        "mtime_iso": "2026-07-19T00:01:57.547952+10:00",
+        "path": "/home/stickai/.openclaw/extensions/stickbot-memory-ledger-m25b-boundary-handler/dist/index.js",
+        "sha256": "98a174e1767221f355d7a28364f738c2918eab320ed5373f9851d31da33b4347"
+      },
+      "cron_jobs": {
+        "bytes": 63868,
+        "exists": true,
+        "mtime_iso": "2026-07-19T12:02:12.216573+10:00",
+        "path": "/home/stickai/.openclaw/cron/jobs.json",
+        "sha256": "2552a3a4f7c229109c5903551aed9a826491aa6316e95dec3db1791fb489b3b2"
+      },
+      "events": {
+        "bytes": 170024,
+        "exists": true,
+        "mtime_iso": "2026-07-19T06:50:10.819543+10:00",
+        "path": "sharedspace/context-bridge/events.jsonl",
+        "sha256": "76f4d0f030af56ee03b3484413ca67c7f9a65992f68ecb2b46ed144410b1a9b5"
+      },
+      "openclaw_config": {
+        "bytes": 30432,
+        "exists": true,
+        "mtime_iso": "2026-07-19T12:10:36.834795+10:00",
+        "path": "/home/stickai/.openclaw/openclaw.json",
+        "sha256": "5af9752d7175515c269281bba248b916f18eab5bb23accb1ed12f1fbb4cb6546"
+      }
+    },
+    "head": "f4612e8f4ed7dd64824597cf71db58a8d8126f08",
+    "head_remote_aligned": true,
+    "model_route": {
+      "fallbacks": [
+        "ollama/deepseek-v4-pro:cloud"
+      ],
+      "primary": "openai-codex/gpt-5.5"
+    },
+    "old_m25e_job_present": false,
+    "remote_head": "f4612e8f4ed7dd64824597cf71db58a8d8126f08"
+  },
+  "m25b_r": {
+    "pushed": true,
+    "terminal": "M25B_R_PUSHED_HASH_PROVENANCE_PASS_INSTALL_CAN_STAND_NO_RETRY_SCHEDULED"
+  },
+  "m25d": {
+    "commit": "7a377964a1406e8f125466bd5b6ea3142c38f8ac",
+    "pushed": true,
+    "terminal": "M25D_PUSHED_BOUNDARY_HANDLER_ARMING_PLAN_READY_NO_APPLY"
+  },
+  "m25e": {
+    "deleteAfterRun": true,
+    "delivered": false,
+    "deliveryStatus": "not-delivered",
+    "expected_session_key": "cron:9d6aa1d9-edd7-4633-90eb-3fba96f20b02",
+    "job_id": "9d6aa1d9-edd7-4633-90eb-3fba96f20b02",
+    "payload_message_sha256": "aaf27d4ffbece798e9a38cdb9cbf679a45f7491b132a3a997f09edf7547de135",
+    "run_count": 1,
+    "run_id": "manual:9d6aa1d9-edd7-4633-90eb-3fba96f20b02:1784426529773:1",
+    "sessionTarget": "isolated",
+    "summary": "NO_REPLY",
+    "terminal": "M25E_NOT_PASS_NO_SANITIZED_DELIVERY"
+  },
+  "m25e_r": {
+    "commit": "f4612e8f4ed7dd64824597cf71db58a8d8126f08",
+    "handler_state": "DORMANT_UNARMED",
+    "manifest_sha256": "c1508ee42d1651a4d69742cf3e8ae0cb3a50d96a35a1b55fa432a5112f9b80a4",
+    "no_delayed_delivery": true,
+    "old_job_absent_or_not_runnable": null,
+    "pushed_terminal": "M25E_R_PUSHED_DISARM_RELOAD_VALIDATION_PASS_NO_RERUN_NO_DELIVERY",
+    "terminal": "M25E_R_DISARM_RELOAD_VALIDATION_PASS_NO_RERUN_NO_DELIVERY"
+  },
+  "schema": "stickbot.memory_ledger.m25f.prior_state.v1"
+}

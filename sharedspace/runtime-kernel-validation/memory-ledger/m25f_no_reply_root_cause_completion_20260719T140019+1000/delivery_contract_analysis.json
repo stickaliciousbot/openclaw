@@ -1,0 +1,20 @@
+{
+  "announce_contract": "Cron announce fallback delivers final text only if a non-empty payload remains after silent-reply normalization.",
+  "m25e_delivery_result": {
+    "delivered": false,
+    "deliveryStatus": "not-delivered",
+    "manual_telegram_send": false,
+    "resolved_target_ok": true
+  },
+  "no_reply_contract": "Exact NO_REPLY is a silent token: normalizeSilentReplyText returns text undefined; deliverViaDirect/finalizeTextDelivery finish as silent with delivered=false/not-delivered.",
+  "schema": "stickbot.memory_ledger.m25f.delivery_contract_analysis.v1",
+  "source": {
+    "docs_announce_line": 157,
+    "docs_delivery_section_line": 153,
+    "empty_payload_silent_finish_line": 322,
+    "normalize_silent_line": 27,
+    "runtime_delivery_file": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/run-delivery.runtime-DFwuGfE0.js"
+  },
+  "status": "PASS_DELIVERY_CONTRACT_INSPECTED",
+  "telegram_boundary": "No Telegram send is attempted when normalized payloads are empty; target resolution can be ok while delivered=false."
+}

@@ -1,0 +1,94 @@
+{
+  "evidence_root": "sharedspace/runtime-kernel-validation/memory-ledger/m25f_no_reply_root_cause_completion_20260719T140019+1000",
+  "final_proof_run_present": false,
+  "generated_utc": "2026-07-19T04:00:21.946038+00:00",
+  "ok": true,
+  "receipt_count": 13,
+  "receipts": [
+    {
+      "bytes": 1455,
+      "path": "boundary_handler_contract_analysis.json",
+      "sha256": "e4ca44fb3de1e0ba899f179fe690d86e886ef511dec42f233f757fc42a20ecf8"
+    },
+    {
+      "bytes": 702,
+      "path": "closeout_contract_analysis.json",
+      "sha256": "6346fc3bfb42db1067298d03f927b8252833e2e3e21f585c9d1547d625f88d6e"
+    },
+    {
+      "bytes": 642,
+      "path": "cron_retry_contract_analysis.json",
+      "sha256": "3ef088644891ccd3a901141e8ac58e442ad3d7854945e25acbf088350f270341"
+    },
+    {
+      "bytes": 1056,
+      "path": "delivery_contract_analysis.json",
+      "sha256": "acb7e1c2bc786a901917d1e8891196ca171c9c5f5d694e71fe827242a4897546"
+    },
+    {
+      "bytes": 3669,
+      "path": "m25e_no_reply_trace.json",
+      "sha256": "ac761fbd53c86e5394960a57bf8929b80cb1721fac2812f744af07696d218d42"
+    },
+    {
+      "bytes": 922,
+      "path": "post_validation.json",
+      "sha256": "523acf2c64f191f408045420242c51f06a76e9bc1e90db297aaa3d75121f2dc9"
+    },
+    {
+      "bytes": 5002,
+      "path": "prior_state.json",
+      "sha256": "fdfa9ac5bb1942686226406ba29f11b61d2991b03ce9338e5d3fa21947b9c858"
+    },
+    {
+      "bytes": 1436,
+      "path": "repair_plan.json",
+      "sha256": "90ce8dc7b525518a047341b532a5880080574850567dece6364edb16ec54b1d5"
+    },
+    {
+      "bytes": 3580,
+      "path": "root_cause_decision.json",
+      "sha256": "aa4eca7e20bffc16529a5090411a77f6655b0365a461e9669ae618fbe95cd5dc"
+    },
+    {
+      "bytes": 1303,
+      "path": "run_config.json",
+      "sha256": "1e1449a8562e20189b931122960f4ae8d27c6fcce6f2929951b4e565c38e7cf6"
+    },
+    {
+      "bytes": 1109,
+      "path": "safety_report.json",
+      "sha256": "23155cfd3ae44946b2357574f713a95d663203c86756c7539813ae6660c9a175"
+    },
+    {
+      "bytes": 540,
+      "path": "status.json",
+      "sha256": "555d6fd737595fb9466c7a1a2b092dbda0dc8435e0fd5581f285e96aa05b29f6"
+    },
+    {
+      "bytes": 1231,
+      "path": "summary.json",
+      "sha256": "396a934ce4d00627a1be9f3ae7837e08041dfa26685c67b838e4d29a29481bca"
+    }
+  ],
+  "repair_diff_present": false,
+  "required_artifacts_present": [
+    "boundary_handler_contract_analysis.json",
+    "closeout_contract_analysis.json",
+    "cron_retry_contract_analysis.json",
+    "delivery_contract_analysis.json",
+    "evidence_manifest.json",
+    "m25e_no_reply_trace.json",
+    "post_validation.json",
+    "prior_state.json",
+    "repair_plan.json",
+    "root_cause_decision.json",
+    "run_config.json",
+    "safety_report.json",
+    "status.json",
+    "summary.json"
+  ],
+  "schema": "stickbot.memory_ledger.m25f.evidence_manifest.v1",
+  "status": "M25F_NO_REPLY_ROOT_CAUSE_IDENTIFIED_REPAIR_PLAN_READY_NO_RETRY_RUN",
+  "terminal_status": "M25F_NO_REPLY_ROOT_CAUSE_IDENTIFIED_REPAIR_PLAN_READY_NO_RETRY_RUN"
+}

@@ -1,0 +1,48 @@
+{
+  "counts": {
+    "m25f_deliveries": 0,
+    "m25f_retry_runs": 0,
+    "manual_telegram_sends": 0,
+    "old_m25e_run_count": 1
+  },
+  "gates": {
+    "M25F_G1": true,
+    "M25F_G10": true,
+    "M25F_G11": true,
+    "M25F_G12": true,
+    "M25F_G13": true,
+    "M25F_G14": true,
+    "M25F_G15": true,
+    "M25F_G16": true,
+    "M25F_G17": true,
+    "M25F_G18": true,
+    "M25F_G19": true,
+    "M25F_G2": true,
+    "M25F_G20": true,
+    "M25F_G21": true,
+    "M25F_G22": true,
+    "M25F_G23": true,
+    "M25F_G24": true,
+    "M25F_G25": true,
+    "M25F_G3": true,
+    "M25F_G4": true,
+    "M25F_G5": true,
+    "M25F_G6": true,
+    "M25F_G7": true,
+    "M25F_G8": true,
+    "M25F_G9": true
+  },
+  "mutations": {
+    "authority_promotions": 0,
+    "context_bridge": 0,
+    "ledger": 0,
+    "m26": 0,
+    "model_provider_fallback_memory_routes": 0
+  },
+  "private_raw_scan": {
+    "notes": "Artifacts redact delivery target; no secrets/raw prompts beyond sanitized hashes and non-private job IDs.",
+    "pass": true
+  },
+  "schema": "stickbot.memory_ledger.m25f.safety_report.v1",
+  "status": "PASS_SAFETY_GATES"
+}

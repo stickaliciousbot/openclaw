@@ -1,0 +1,15 @@
+{
+  "chosen_completion_path": "Option B",
+  "committed": false,
+  "final_proof_job_id": null,
+  "final_proof_retry_ran": false,
+  "no_reply_acceptable_for_completion": false,
+  "ok": true,
+  "pushed": false,
+  "repair_applied": false,
+  "root_cause_identified": true,
+  "sanitized_delivery_still_required": true,
+  "schema": "stickbot.memory_ledger.m25f.status.v1",
+  "status": "M25F_NO_REPLY_ROOT_CAUSE_IDENTIFIED_REPAIR_PLAN_READY_NO_RETRY_RUN",
+  "terminal_status": "M25F_NO_REPLY_ROOT_CAUSE_IDENTIFIED_REPAIR_PLAN_READY_NO_RETRY_RUN"
+}

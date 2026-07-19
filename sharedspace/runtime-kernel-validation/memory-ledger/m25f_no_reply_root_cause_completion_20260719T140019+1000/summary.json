@@ -1,0 +1,23 @@
+{
+  "authority_promotions": 0,
+  "branch": "evidence/umc-m3n-post-restart-health-failclosed-20260713",
+  "chosen_path": "Option B \u2014 repair plan ready, no retry run",
+  "committed": false,
+  "context_bridge_mutations_by_m25f": 0,
+  "delivery_count": 0,
+  "evidence_root": "sharedspace/runtime-kernel-validation/memory-ledger/m25f_no_reply_root_cause_completion_20260719T140019+1000",
+  "gateway_health_pass": true,
+  "handler_ended_dormant_unarmed": true,
+  "head": "f4612e8f4ed7dd64824597cf71db58a8d8126f08",
+  "ledger_mutations": 0,
+  "m25e_job_id": "9d6aa1d9-edd7-4633-90eb-3fba96f20b02",
+  "m26_started": false,
+  "old_job_absent_not_runnable": true,
+  "private_raw_scan_pass": true,
+  "pushed": false,
+  "retry_count": 1,
+  "root_cause": "The boundary handler fail-closed before rendering because Context Bridge events changed after M25E arming/preflight and before the forced retry. That produced HOLD_NO_DELIVERY with no reply; OpenClaw cron then normalized exact NO_REPLY as a silent final payload and did not announce to Telegram.",
+  "route_config_mutations_by_m25f": 0,
+  "schema": "stickbot.memory_ledger.m25f.summary.v1",
+  "terminal_status": "M25F_NO_REPLY_ROOT_CAUSE_IDENTIFIED_REPAIR_PLAN_READY_NO_RETRY_RUN"
+}

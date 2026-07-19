@@ -1,0 +1,62 @@
+{
+  "chosen_completion_path": "Option B \u2014 Root cause found, separate repair needed",
+  "delivery_ran_in_m25f": false,
+  "diagnostic_answers": {
+    "10_no_reply_acceptable_if_ledger_path_otherwise_complete": {
+      "answer": false,
+      "basis": "Safe closeout/dormancy is acceptable, but Ledger v0.1 completion cannot be claimed without sanitized delivery semantics."
+    },
+    "1_retry_reached_handler": {
+      "answer": true,
+      "basis": "before_agent_reply hook registered and cron trigger invokes it; armed/job/prompt/source checks match before drift check."
+    },
+    "2_handler_allow_or_reject": {
+      "answer": "rejected/held fail-closed",
+      "reason": "CONTEXT_BRIDGE_OR_LEDGER_DRIFT:EVENTS_FINGERPRINT_DRIFT"
+    },
+    "3_no_reply_due_malformed_closeout_payload": {
+      "answer": false,
+      "basis": "payload hashes/anchors were present and matched; closeout anchor was not the failing condition."
+    },
+    "4_no_reply_due_runner_quiet_success": {
+      "answer": "partly runtime-mechanical, not root cause",
+      "basis": "runner treats exact NO_REPLY as silent delivery, but exact NO_REPLY came from boundary HOLD without reply."
+    },
+    "5_no_reply_due_announce_insufficient": {
+      "answer": false,
+      "basis": "announce was sufficient for non-empty final text; it had no payload after NO_REPLY normalization."
+    },
+    "6_no_reply_due_terminal_anchor_missing_or_mismatched": {
+      "answer": false,
+      "basis": "terminal and closeout anchors were recorded present and message SHA matched expected."
+    },
+    "7_no_reply_due_intentional_suppression_for_job_class": {
+      "answer": false,
+      "basis": "Cron isolated jobs can announce; suppression is only exact silent-token behavior after boundary hold."
+    },
+    "8_no_reply_due_surface_session_key_mismatch": {
+      "answer": false,
+      "basis": "delivery target resolution was ok and cron isolated base session key matched expected `cron:<jobId>` contract."
+    },
+    "9_sanitized_delivery_required_for_ledger_v0_1_completion": {
+      "answer": true,
+      "basis": "M25E completion criterion was sanitized Context Bridge summary delivery; M25E-R only proved cleanup/no-rerun safety."
+    }
+  },
+  "not_classified_as": [
+    "malformed_closeout_payload",
+    "announce_contract_insufficient",
+    "terminal_anchor_missing",
+    "delivery_surface_mismatch",
+    "job_class_intentional_suppression",
+    "acceptable_completion"
+  ],
+  "primary_classification": "BOUNDARY_HOLD_NO_DELIVERY_CONTEXT_BRIDGE_EVENTS_FINGERPRINT_DRIFT_THEN_CRON_SILENT_REPLY_NORMALIZATION",
+  "retry_ran_in_m25f": false,
+  "root_cause": "The boundary handler fail-closed before rendering because Context Bridge events changed after M25E arming/preflight and before the forced retry. That produced HOLD_NO_DELIVERY with no reply; OpenClaw cron then normalized exact NO_REPLY as a silent final payload and did not announce to Telegram.",
+  "schema": "stickbot.memory_ledger.m25f.root_cause_decision.v1",
+  "status": "PASS_ROOT_CAUSE_IDENTIFIED_NO_RETRY",
+  "terminal": "M25F_NO_REPLY_ROOT_CAUSE_IDENTIFIED_REPAIR_PLAN_READY_NO_RETRY_RUN",
+  "why_not_option_a": "NO_REPLY is runtime-expected after a boundary hold, but sanitized delivery remains required for Ledger v0.1 completion.",
+  "why_not_option_c": "A final proof would require a fresh one-shot job, protected arming/config mutation, Gateway reload, and external delivery. The safer M25F closeout is no-retry repair planning; final proof should be a separately approved milestone with context-freeze/just-in-time hash controls."
+}

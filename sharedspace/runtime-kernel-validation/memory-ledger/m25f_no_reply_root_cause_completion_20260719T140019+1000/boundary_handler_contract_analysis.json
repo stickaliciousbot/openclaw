@@ -1,0 +1,33 @@
+{
+  "before_agent_reply_behavior": "DORMANT returns handled=false; HOLD_NO_DELIVERY returns handled=true with no reply; READY returns handled=true with sanitized reply.",
+  "conditions_for_sanitized_delivery": [
+    "armed=true",
+    "trigger=cron",
+    "jobId matches",
+    "agent/session match",
+    "caller hash matches",
+    "candidate source hash matches",
+    "events/actions/ledger fingerprints match",
+    "renderer/privacy/postconditions pass",
+    "exact prepared content passes message_sending"
+  ],
+  "delivery_gate_behavior": "message_sending permits only exact prepared sanitized content; unbound/fail-closed prose is cancelled.",
+  "m25e_decision": {
+    "allowed_delivery": false,
+    "kind": "HOLD_NO_DELIVERY",
+    "reasonCode": "CONTEXT_BRIDGE_OR_LEDGER_DRIFT:EVENTS_FINGERPRINT_DRIFT",
+    "sanitized_envelope_rendered": false
+  },
+  "registered_hooks": [
+    "before_agent_reply",
+    "message_sending",
+    "message_sent"
+  ],
+  "schema": "stickbot.memory_ledger.m25f.boundary_handler_contract_analysis.v1",
+  "source": {
+    "handler": "/home/stickai/.openclaw/extensions/stickbot-memory-ledger-m25b-boundary-handler/src/boundary-handler.ts",
+    "index": "/home/stickai/.openclaw/extensions/stickbot-memory-ledger-m25b-boundary-handler/index.ts",
+    "input_loader": "/home/stickai/.openclaw/extensions/stickbot-memory-ledger-m25b-boundary-handler/src/input-loader.ts"
+  },
+  "status": "PASS_BOUNDARY_HANDLER_CONTRACT_INSPECTED"
+}

@@ -1,0 +1,24 @@
+{
+  "estimated_risk": "moderate because it touches protected handler config, Gateway reload, cron execution, and external delivery even though no code change is required.",
+  "next_milestone": "M25G_BOUNDARY_HANDLER_DRIFT_STABLE_FINAL_DELIVERY_PROOF",
+  "non_goals": [
+    "M26",
+    "model/provider/fallback/memory-route mutation",
+    "Ledger mutation",
+    "Context Bridge mutation",
+    "authority promotion",
+    "manual Telegram outside proof path"
+  ],
+  "plan": [
+    "Freeze or explicitly quiesce Context Bridge writes for the proof window, or derive just-in-time current event/action hashes immediately before arming.",
+    "Create a new one-shot proof job with a new job ID; never reuse M25E job ID.",
+    "Precompute exact caller hash and configure boundary handler for that job/session/hash/current Context Bridge fingerprints only.",
+    "Arm handler, reload Gateway if config freeze requires it, then run exactly once.",
+    "Require one sanitized delivery or explicitly abort; disarm handler and remove proof job immediately after success/failure.",
+    "Validate no duplicate delivery, no retry remains, Ledger/Context Bridge/routes unchanged, private scan pass, and commit evidence."
+  ],
+  "repair_type": "process/config proof repair, not runtime model-route repair",
+  "requires_separate_owner_approval": true,
+  "schema": "stickbot.memory_ledger.m25f.repair_plan.v1",
+  "status": "REPAIR_PLAN_READY_NO_RETRY_RUN"
+}

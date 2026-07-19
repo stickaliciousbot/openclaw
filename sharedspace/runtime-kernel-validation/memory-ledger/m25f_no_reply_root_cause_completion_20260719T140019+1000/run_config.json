@@ -1,0 +1,35 @@
+{
+  "chosen_completion_path": "Option B \u2014 Root cause found, separate repair needed",
+  "constraints": {
+    "context_bridge_mutation_allowed": false,
+    "final_proof_retry_run": false,
+    "ledger_mutation_allowed": false,
+    "m26_allowed": false,
+    "manual_telegram_send": false,
+    "old_job_recreation_allowed": false,
+    "old_job_rerun_allowed": false,
+    "recurring_retry_allowed": false,
+    "route_mutation_allowed": false
+  },
+  "created_utc": "2026-07-19T04:00:21.932077+00:00",
+  "evidence_root": "sharedspace/runtime-kernel-validation/memory-ledger/m25f_no_reply_root_cause_completion_20260719T140019+1000",
+  "milestone": "M25F \u2014 NO_REPLY Root Cause / Completion Path Decision",
+  "required_artifacts": [
+    "run_config.json",
+    "prior_state.json",
+    "m25e_no_reply_trace.json",
+    "delivery_contract_analysis.json",
+    "boundary_handler_contract_analysis.json",
+    "cron_retry_contract_analysis.json",
+    "closeout_contract_analysis.json",
+    "root_cause_decision.json",
+    "repair_plan.json",
+    "post_validation.json",
+    "safety_report.json",
+    "status.json",
+    "summary.json",
+    "evidence_manifest.json"
+  ],
+  "schema": "stickbot.memory_ledger.m25f.run_config.v1",
+  "terminal": "M25F_NO_REPLY_ROOT_CAUSE_IDENTIFIED_REPAIR_PLAN_READY_NO_RETRY_RUN"
+}

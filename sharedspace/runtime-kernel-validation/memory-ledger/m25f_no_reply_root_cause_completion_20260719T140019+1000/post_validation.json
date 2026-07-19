@@ -1,0 +1,27 @@
+{
+  "authority_promoted": false,
+  "context_bridge_mutated_by_m25f": false,
+  "context_bridge_read_only_current_hashes": {
+    "actions": "a7b0d3d4bd1a9c8bb0da20a1f92cc248f3f37dbf551c66a361330076777bba63",
+    "events": "76f4d0f030af56ee03b3484413ca67c7f9a65992f68ecb2b46ed144410b1a9b5"
+  },
+  "gateway_health_pass": true,
+  "handler_dormant_unarmed_at_end": true,
+  "ledger_changed": false,
+  "m25f_delivery_count": 0,
+  "m25f_final_proof_run": false,
+  "m26_started": false,
+  "manual_telegram_send": false,
+  "model_route": {
+    "fallbacks": [
+      "ollama/deepseek-v4-pro:cloud"
+    ],
+    "primary": "openai-codex/gpt-5.5"
+  },
+  "no_retry_scheduled_or_runnable": true,
+  "old_m25e_job_absent_not_runnable": true,
+  "old_m25e_run_count_still_one": true,
+  "route_config_mutated_by_m25f": false,
+  "schema": "stickbot.memory_ledger.m25f.post_validation.v1",
+  "status": "PASS_POST_VALIDATION_NO_RETRY_NO_DELIVERY"
+}
