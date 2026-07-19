@@ -1,0 +1,7 @@
+{
+  "delivery_eligible_output": null,
+  "delivery_required_hold_or_fail_output": "CRON_DELIVERY_CLASSIFICATION_<terminal>: <reasonCode>",
+  "delivery_required_no_reply_rejected": true,
+  "function": "runtimeReplyClassificationToLegacyText",
+  "quiet_success_output": "NO_REPLY"
+}

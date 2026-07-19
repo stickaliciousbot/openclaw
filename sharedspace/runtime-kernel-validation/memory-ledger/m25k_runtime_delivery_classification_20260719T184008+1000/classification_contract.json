@@ -1,0 +1,37 @@
+{
+  "central_rule": "Bare NO_REPLY compatibility is allowed only for typed quiet success when deliveryRequired=false.",
+  "fields": [
+    "jobId",
+    "deliveryRequired",
+    "jobClass",
+    "candidatePayloadPresent",
+    "requiredAnchorsPresent",
+    "boundaryDecisionPresent",
+    "boundaryDecision",
+    "terminal",
+    "reasonCode",
+    "deliveryEligible",
+    "quietSuccess",
+    "idempotencyKey",
+    "classificationSha256"
+  ],
+  "jobClass": [
+    "quiet_success",
+    "delivery_required",
+    "unknown"
+  ],
+  "terminal": [
+    "QUIET_SUCCESS_NO_DELIVERY_REQUIRED",
+    "DELIVERY_REQUIRED_PAYLOAD_READY",
+    "BOUNDARY_ALLOWED_PAYLOAD_READY",
+    "BOUNDARY_HOLD_NO_DELIVERY",
+    "BOUNDARY_REJECT_NO_DELIVERY",
+    "DELIVERY_REQUIRED_PAYLOAD_MISSING",
+    "ANCHOR_MISSING_NO_DELIVERY",
+    "BOUNDARY_DECISION_MISSING",
+    "DELIVERY_CONTRACT_INVALID",
+    "DUPLICATE_DELIVERY_SUPPRESSED",
+    "DELIVERY_FAILED"
+  ],
+  "type": "RuntimeReplyClassification"
+}

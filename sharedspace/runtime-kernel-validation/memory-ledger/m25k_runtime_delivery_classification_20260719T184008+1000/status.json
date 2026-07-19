@@ -1,0 +1,9 @@
+{
+  "closeout_unknown": false,
+  "committed": true,
+  "pushed": false,
+  "source_tree_commit": "087a300cc7",
+  "status": "PASS",
+  "terminal": "M25K_RUNTIME_DELIVERY_CLASSIFICATION_PASS_NO_TELEGRAM",
+  "workspace_evidence_commit": "external_git_readback_after_commit"
+}

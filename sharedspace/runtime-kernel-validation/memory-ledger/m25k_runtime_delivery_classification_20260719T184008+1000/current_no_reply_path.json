@@ -1,0 +1,6 @@
+{
+  "branch": "normalizeSilentReplyText(text) -> text undefined for exact NO_REPLY -> normalizedPayloads empty -> finishSilentReplyDelivery() -> status ok delivered false deliveryAttempted true",
+  "compiled_path": "/home/stickai/.npm-global/lib/node_modules/openclaw/dist/run-delivery.runtime-DFwuGfE0.js",
+  "m25k_change": "runtimeReplyClassificationToLegacyText returns NO_REPLY only for QUIET_SUCCESS_NO_DELIVERY_REQUIRED with deliveryRequired=false; delivery-required missing/hold/reject/invalid terminals return explicit classification text or remain delivery-eligible undefined.",
+  "source_path": "/home/stickai/.openclaw/workspace/tmp/openclaw-2026-5-7-closeout-backport/src/cron/isolated-agent/delivery-dispatch.ts"
+}

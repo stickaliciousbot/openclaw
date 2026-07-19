@@ -1,0 +1,24 @@
+{
+  "focused_smoke": {
+    "assertions": 31,
+    "command": "node --import tsx tmp/m25k-runtime-classification-smoke.ts",
+    "status": "PASS",
+    "terminalsCovered": 10
+  },
+  "git_diff_check": {
+    "status": "PASS"
+  },
+  "native_vitest_wrapper_final_attempt": {
+    "command": "node scripts/run-vitest.mjs run src/cron/runtime-delivery-classification.test.ts",
+    "reason": "native wrapper produced no output in bounded window; focused tsx harness and targeted tsc are authoritative for this no-live source slice",
+    "status": "STOPPED_TIMEOUT_NO_OUTPUT"
+  },
+  "targeted_typecheck": {
+    "command": "tsc --noEmit --ignoreConfig --skipLibCheck --module NodeNext --moduleResolution NodeNext --target ES2022 --types node,vitest <m25k files>",
+    "status": "PASS"
+  },
+  "vitest_initial_command": {
+    "reason": "repo transform plugins hung; not a code failure",
+    "status": "STOPPED_TIMEOUT_TRANSFORM"
+  }
+}

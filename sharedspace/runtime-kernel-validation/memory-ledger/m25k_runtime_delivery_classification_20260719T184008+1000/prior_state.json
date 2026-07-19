@@ -1,0 +1,12 @@
+{
+  "accepted_m25j_r_head": "b9e388d7005d5fca3bf80fea0a0305416919adaf",
+  "branch": "evidence/umc-m3n-post-restart-health-failclosed-20260713",
+  "context_bridge_actions_sha256": "a7b0d3d4bd1a9c8bb0da20a1f92cc248f3f37dbf551c66a361330076777bba63",
+  "context_bridge_events_sha256": "76f4d0f030af56ee03b3484413ca67c7f9a65992f68ecb2b46ed144410b1a9b5",
+  "cron_job_count_read_only": 28,
+  "cron_jobs_sha256": "2552a3a4f7c229109c5903551aed9a826491aa6316e95dec3db1791fb489b3b2",
+  "gateway_config_sha256": "69fda094eb9c2476db5d4377135f633339094b5cc9a2e6d4340b4564a0da2bc7",
+  "handler_armed": false,
+  "m25j_r_terminal": "M25J_R_PUSHED_SECURITY_FIXTURE_TARGET_RESOLVER_CONTRACTS_PASS_NO_LIVE_DELIVERY",
+  "raw_targets_redacted": true
+}

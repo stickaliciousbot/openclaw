@@ -1,0 +1,11 @@
+{
+  "raw_payload_persisted": false,
+  "raw_target_ids_found": 0,
+  "scoped_files_scanned": [
+    "src/cron/runtime-delivery-classification.ts",
+    "src/cron/runtime-delivery-classification.test.ts",
+    "tmp/m25k-runtime-classification-smoke.ts"
+  ],
+  "secret_patterns_found": 0,
+  "status": "PASS"
+}

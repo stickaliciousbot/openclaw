@@ -1,0 +1,22 @@
+{
+  "classification": "RuntimeReplyClassification typed layer and compatibility adapter",
+  "committed": true,
+  "delivery_required_no_reply_rejection": "PASS",
+  "evidence_root": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25k_runtime_delivery_classification_20260719T184008+1000",
+  "focused_test": "PASS 31 assertions",
+  "m25e_m25g_m25h_regression": "PASS explicit DELIVERY_REQUIRED_PAYLOAD_MISSING",
+  "m25l_m25m_started": false,
+  "no_live_apply": "PASS",
+  "private_raw_scan": "PASS",
+  "pushed": false,
+  "quiet_success_compatibility": "PASS: only typed quiet success maps to NO_REPLY",
+  "relevant_full_suite": "STOPPED_TIMEOUT_NO_OUTPUT; not used as PASS evidence",
+  "source_paths_changed": [
+    "src/cron/runtime-delivery-classification.ts",
+    "src/cron/runtime-delivery-classification.test.ts"
+  ],
+  "source_tree_commit": "087a300cc7",
+  "terminal": "M25K_RUNTIME_DELIVERY_CLASSIFICATION_PASS_NO_TELEGRAM",
+  "typecheck": "PASS targeted",
+  "workspace_evidence_commit": "external_git_readback_after_commit"
+}

@@ -1,0 +1,5 @@
+{
+  "m25k_scope": "classification only; no live target resolution or delivery adapter invocation",
+  "source": "M25I/M25J-R architecture plus M25K owner instruction",
+  "srtr_chain": "SanitizedPayloadEnvelope -> Surface Service Broker policy -> Surface Response Target Resolver -> Surface Delivery Adapter -> DeliveryResultEnvelope"
+}

@@ -1,0 +1,106 @@
+{
+  "entries": [
+    {
+      "bytes": 1368,
+      "path": "changed_file_inventory.json",
+      "sha256": "273671d8f8b503cb86dbff5bace6155e5d05895e32efe5571b400cf49b243fda"
+    },
+    {
+      "bytes": 965,
+      "path": "classification_contract.json",
+      "sha256": "d1505a6ac5f8f7fda96ae37eab2215c0e67945db7e55f059b520fd231ff006f7"
+    },
+    {
+      "bytes": 280,
+      "path": "compatibility_adapter_design.json",
+      "sha256": "b3e4a0ea3ddb0d8192e45107482bfd78c264fcd2decaa7f3677411f29beb73a9"
+    },
+    {
+      "bytes": 728,
+      "path": "current_no_reply_path.json",
+      "sha256": "2003729672c776060a29f028e326d148c92093ceb1c5cfb6e4c1ff44bf8bbe6d"
+    },
+    {
+      "bytes": 190,
+      "path": "delivery_required_regression.json",
+      "sha256": "650248d8453927a8466b43f3a103ebef0e9de766e17002c954c15caeda549209"
+    },
+    {
+      "bytes": 335,
+      "path": "design_authority_readback.json",
+      "sha256": "95b8d50211e3bcd0aa056089875855b77a62ba7d262b8bf8e4d7b9c63802f284"
+    },
+    {
+      "bytes": 1077,
+      "path": "fixture_inventory.json",
+      "sha256": "f6fb8c08cf7741481ca59302ae9e4bba9e2c21f50e21833aa3490b25549e029f"
+    },
+    {
+      "bytes": 820,
+      "path": "hard_gates.json",
+      "sha256": "02c1e6b345b489b28921cca9448793b58fd0bae468a719ccb77441ece5aeac13"
+    },
+    {
+      "bytes": 298,
+      "path": "health_checks.json",
+      "sha256": "d842fd2a3b8a2d0e856ff7912c703a2d9117e524aa40c2a063ca3213dbff8a08"
+    },
+    {
+      "bytes": 908,
+      "path": "mutation_sentinels.json",
+      "sha256": "2556dea749a2595fc9436fd8df0857a816d249d6b6b29d9e30bc34fa0b4468b3"
+    },
+    {
+      "bytes": 1035,
+      "path": "no_live_apply_proof.json",
+      "sha256": "299fbd7bc6a88fd8f744c3a69a7a37e7ba798513dab9cd0d907a122d3cd72a8f"
+    },
+    {
+      "bytes": 730,
+      "path": "prior_state.json",
+      "sha256": "da5a48590cb372012c8ad463070ff59a053286a0a8eba0d222049fa4b1158569"
+    },
+    {
+      "bytes": 303,
+      "path": "privacy_scan.json",
+      "sha256": "057ed14dd28f9c6b87a14f8ee97441d1b119f9883229da430649174c5623e198"
+    },
+    {
+      "bytes": 115,
+      "path": "quiet_success_regression.json",
+      "sha256": "5216569c3b7638657a88ef1b9fc7bd0bc79c87608e2a0f7e7fc08a6d05d9d59e"
+    },
+    {
+      "bytes": 430,
+      "path": "rollback_proof.json",
+      "sha256": "5d34c9275a3ce0a7e1e95ba54c36d84fd77a62ba371f91d59fccc3fe71ea11ed"
+    },
+    {
+      "bytes": 481,
+      "path": "run_config.json",
+      "sha256": "f4b7f9f9e04e5f279a61c1e39bbe316f34568a9ebf88b1ab47886c2b62c32041"
+    },
+    {
+      "bytes": 8991,
+      "path": "runtime_source_map.json",
+      "sha256": "a76bcb98eb1c2e58c0ae88c81ccb5a418f04caba4cd6ec1efaf890b669cc9db0"
+    },
+    {
+      "bytes": 270,
+      "path": "status.json",
+      "sha256": "7f46d880922f3f18dfb758110d8e8f210e0bdbe3cc2187ae02f6f9e910d7bdd8"
+    },
+    {
+      "bytes": 1070,
+      "path": "summary.json",
+      "sha256": "c5ea929f6ec9b4ddf94f4b33b557917b78eba704a831c28eb139ca274df1749f"
+    },
+    {
+      "bytes": 919,
+      "path": "test_results.json",
+      "sha256": "f58c2861e416e3e2ea99c004dcc3ebe907bb0099646eb2722f9fb6034bfb2c9a"
+    }
+  ],
+  "entry_count": 20,
+  "root": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25k_runtime_delivery_classification_20260719T184008+1000"
+}

@@ -1,0 +1,6 @@
+{
+  "hold_reject_explicit": true,
+  "m25e_m25g_m25h_shape": "explicit missing payload, not NO_REPLY",
+  "missing_payload_terminal": "DELIVERY_REQUIRED_PAYLOAD_MISSING",
+  "status": "PASS"
+}

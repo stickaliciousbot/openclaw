@@ -1,0 +1,7 @@
+{
+  "build": "PASS_TARGETED",
+  "gateway_read_only_status": "PASS_session_status",
+  "post_build": "PASS",
+  "preflight": "PASS",
+  "relevant_full_suite": "STOPPED_TIMEOUT_NO_OUTPUT; broad/native Vitest runner unavailable in bounded window; focused M25K harness PASS and targeted typecheck PASS"
+}

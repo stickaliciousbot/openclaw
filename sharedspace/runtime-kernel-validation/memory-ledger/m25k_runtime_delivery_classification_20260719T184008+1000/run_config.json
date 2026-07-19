@@ -1,0 +1,10 @@
+{
+  "evidence_root": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25k_runtime_delivery_classification_20260719T184008+1000",
+  "milestone": "M25K",
+  "no_live_apply": true,
+  "no_push": true,
+  "no_telegram": true,
+  "source_root": "/home/stickai/.openclaw/workspace/tmp/openclaw-2026-5-7-closeout-backport",
+  "started_local": "2026-07-19T18:40:08+10:00",
+  "terminal_expected": "M25K_RUNTIME_DELIVERY_CLASSIFICATION_PASS_NO_TELEGRAM"
+}

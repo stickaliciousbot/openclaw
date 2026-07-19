@@ -1,0 +1,37 @@
+{
+  "negative": [
+    "unknown job class",
+    "missing payload",
+    "missing closeout anchor",
+    "missing terminal payload anchor",
+    "missing completion anchor",
+    "boundary decision missing",
+    "malformed contract",
+    "contract hash mismatch",
+    "expired job",
+    "idempotency missing/mismatch",
+    "surface mismatch",
+    "target grant missing",
+    "quiet job marked delivery-required",
+    "delivery-required normalized to NO_REPLY rejected"
+  ],
+  "positive": [
+    "quiet watcher success",
+    "quiet observer success represented by quiet_success input",
+    "delivery-required payload ready",
+    "delivery-required all anchors",
+    "boundary allow",
+    "boundary hold",
+    "boundary reject",
+    "valid expired-state classification",
+    "valid duplicate-suppression classification"
+  ],
+  "regression": [
+    "historical quiet watcher remains quiet",
+    "report-required not quiet",
+    "M25E/M25G/M25H-shaped no payload explicit missing",
+    "old no-response watcher path valid",
+    "unknown fails closed"
+  ],
+  "stored_raw_payloads": false
+}

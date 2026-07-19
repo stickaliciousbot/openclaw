@@ -1,0 +1,10 @@
+{
+  "installed_runtime_unchanged": true,
+  "no_live_apply": true,
+  "rollback": [
+    "git -C tmp/openclaw-2026-5-7-closeout-backport revert 087a300cc7",
+    "git -C tmp/openclaw-2026-5-7-closeout-backport checkout -- src/cron/runtime-delivery-classification.ts src/cron/runtime-delivery-classification.test.ts",
+    "remove ignored tmp/m25k-runtime-classification-smoke.ts if desired"
+  ],
+  "source_tree_commit": "087a300cc7"
+}
