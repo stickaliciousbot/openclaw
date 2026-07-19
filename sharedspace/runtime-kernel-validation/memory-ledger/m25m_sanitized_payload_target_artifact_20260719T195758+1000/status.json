@@ -3,9 +3,18 @@
   "closeoutUnknown": false,
   "m25nStarted": false,
   "m26Started": false,
+  "preservationStatus": "PASS",
+  "preservationTerminal": "M25M_PF_FORK_SOURCE_AND_WORKSPACE_PRESERVATION_PASS_NO_TELEGRAM",
+  "priorEvidenceManifestSha256": "0d70dc9da13598c08394f4268f91ff99feabe4044a5e66ea73b21b54248e2e23",
   "pushed": false,
   "sourceCommit": "5e15c706e7549d827a44156fe5f3360858a3d5d3",
+  "sourceForkHead": "5e15c706e7549d827a44156fe5f3360858a3d5d3",
+  "sourcePreservationReceiptSha256": "6961bfcdf07cf7851395142e9d3e7fde088ee31d4d16bed1363f8ea5e1050f73",
+  "sourceRepositoryForkPreservationLinkSha256": "5d65f9041b82502184949b29942f41756dc11412f6caf681c35e4f8999f5e414",
   "status": "PASS",
   "terminal": "M25M_SANITIZED_PAYLOAD_TARGET_ARTIFACT_PASS_NO_TELEGRAM",
-  "workspaceEvidenceCommit": "external_git_readback_after_commit"
+  "updatedEvidenceManifestSha256": "external_readback_after_manifest_finalization",
+  "updatedEvidenceManifestSha256Authority": "sha256sum evidence_manifest.json after all tracked linkage files are written",
+  "workspaceEvidenceCommit": "external_git_readback_after_commit",
+  "workspaceM25mEvidenceCommitBeforeLinkage": "457a0b52f7b1f174b59b6bdf407dfcd58f62b35d"
 }

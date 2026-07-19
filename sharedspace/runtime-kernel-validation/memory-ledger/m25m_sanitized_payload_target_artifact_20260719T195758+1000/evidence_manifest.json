@@ -1,6 +1,11 @@
 {
   "entries": [
     {
+      "bytes": 1954,
+      "path": "M25M_SOURCE_FORK_PRESERVATION_RECEIPT.json",
+      "sha256": "d3e8d6ce1dd020330acdc3382d07e37c87370dfe11177ad3fa37aa7a2d618b54"
+    },
+    {
       "bytes": 772,
       "path": "chain_validation_receipt.json",
       "sha256": "6c6b802e97b4c50f6fc0154d9107c12a8853cfee51b1bc2293cff4128ac6db32"
@@ -36,9 +41,9 @@
       "sha256": "af4dca2cc0d2520b9a5da0033c74f08f000fcc6a248a1a2043b2f3958b5c66b4"
     },
     {
-      "bytes": 918,
+      "bytes": 1725,
       "path": "hard_gates.json",
-      "sha256": "55a9b790fe0cf460b6c95baa7778e42a178570fecbdd8f135e4b96d6986be343"
+      "sha256": "7c0c0a5249abb84c2a6caa607283aff4134be8440379dbeead648031acd99c18"
     },
     {
       "bytes": 459,
@@ -106,14 +111,19 @@
       "sha256": "1a6e11f25868c7e5ec12dc7bc40d063c69bf917e070603d2e482b7fe89ed7542"
     },
     {
-      "bytes": 397,
-      "path": "status.json",
-      "sha256": "edaf5553fc9adeafd871d46f612bfb85632c7145f2168d61ae9f33f12ff112e8"
+      "bytes": 2378,
+      "path": "source_repository_fork_preservation_link.json",
+      "sha256": "23edeeaa7deeafa79004e4f3e9529ebafb3763ef0d1eb8854b2cf3d2ed997c95"
     },
     {
-      "bytes": 2645,
+      "bytes": 1206,
+      "path": "status.json",
+      "sha256": "f632a45ddfbc07fd7955538e83211f9cce95f97967bad0e137fbfab74079bf4c"
+    },
+    {
+      "bytes": 3821,
       "path": "summary.json",
-      "sha256": "0648b3e2709f606e0aa5531286c969d20a39ccdb1529c5c095825bb692071e23"
+      "sha256": "e53532d17f27fb6209883db5bbc175d8279abeaeed15c4bbcdbcee50a336965b"
     },
     {
       "bytes": 8281,
@@ -136,7 +146,9 @@
       "sha256": "475051747e1f01ba8d1eaeed40c054fe08e774f9fa7bc4936f96150dcb3cd7ca"
     }
   ],
-  "entryCount": 27,
+  "entryCount": 29,
+  "preservationTerminal": "M25M_PF_FORK_SOURCE_AND_WORKSPACE_PRESERVATION_PASS_NO_TELEGRAM",
+  "priorEvidenceManifestSha256": "0d70dc9da13598c08394f4268f91ff99feabe4044a5e66ea73b21b54248e2e23",
   "root": "sharedspace/runtime-kernel-validation/memory-ledger/m25m_sanitized_payload_target_artifact_20260719T195758+1000",
   "schema": "stickbot.m25m.evidence_manifest.v1"
 }

@@ -12,6 +12,7 @@
     "src/cron/sanitized-payload-target-artifact.test.ts"
   ],
   "deliveryTelegram": "none",
+  "dualRepositoryPreservation": "pending_workspace_push",
   "evidenceRoot": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25m_sanitized_payload_target_artifact_20260719T195758+1000",
   "fixtures": "12 positive / 28 negative / 6 regression",
   "focusedM25M": "PASS",
@@ -43,6 +44,8 @@
     "src/cron/sanitized-payload-target-artifact.ts",
     "src/cron/sanitized-payload-target-artifact.test.ts"
   ],
+  "preservationTerminal": "M25M_PF_FORK_SOURCE_AND_WORKSPACE_PRESERVATION_PASS_NO_TELEGRAM",
+  "priorEvidenceManifestSha256": "0d70dc9da13598c08394f4268f91ff99feabe4044a5e66ea73b21b54248e2e23",
   "privateRawScan": "PASS",
   "pushed": false,
   "repositoriesChanged": [
@@ -53,7 +56,13 @@
   "routeModelConfigMutation": "none",
   "sourceBase": "32b218aa9cd8261532a6f039fb3d4f00fb9342c1",
   "sourceBranch": "sanitized-payload-target-artifact-2026-5-7-backport",
+  "sourceForkBranch": "sanitized-payload-target-artifact-2026-5-7-backport",
+  "sourceForkRemoteHead": "5e15c706e7549d827a44156fe5f3360858a3d5d3",
+  "sourceForkRepository": "stickaliciousbot/openclaw",
   "sourceHead": "5e15c706e7549d827a44156fe5f3360858a3d5d3",
+  "sourceLocalForkAlignment": "PASS",
+  "sourcePreservationReceiptSha256": "6961bfcdf07cf7851395142e9d3e7fde088ee31d4d16bed1363f8ea5e1050f73",
+  "sourceRepositoryForkPreservationLinkSha256": "5d65f9041b82502184949b29942f41756dc11412f6caf681c35e4f8999f5e414",
   "srtrPytest": "NOT_RUN pytest unavailable; non-authoritative duplicate runner not used",
   "srtrRegression": "PASS validate_all_fixtures.py: 36 positive / 45 negative / 10 security / 0 errors",
   "staticTypecheck": "PASS",
@@ -63,5 +72,11 @@
   ],
   "targetRegistry": "none",
   "targetRequestGrantReceipt": "PASS",
-  "terminal": "M25M_SANITIZED_PAYLOAD_TARGET_ARTIFACT_PASS_NO_TELEGRAM"
+  "terminal": "M25M_SANITIZED_PAYLOAD_TARGET_ARTIFACT_PASS_NO_TELEGRAM",
+  "updatedEvidenceManifestSha256": "external_readback_after_manifest_finalization",
+  "updatedEvidenceManifestSha256Authority": "sha256sum evidence_manifest.json after all tracked linkage files are written",
+  "workspaceLinkageCommit": "pending_external_git_readback",
+  "workspaceLocalRemoteAlignment": "pending_after_push",
+  "workspaceM25mEvidenceCommitBeforeLinkage": "457a0b52f7b1f174b59b6bdf407dfcd58f62b35d",
+  "workspaceRemoteHead": "pending_after_push"
 }

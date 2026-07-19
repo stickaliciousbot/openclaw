@@ -1,0 +1,37 @@
+{
+  "base": "32b218aa9cd8261532a6f039fb3d4f00fb9342c1",
+  "branch": "sanitized-payload-target-artifact-2026-5-7-backport",
+  "changedFileCount": 2,
+  "changedFiles": [
+    "src/cron/sanitized-payload-target-artifact.ts",
+    "src/cron/sanitized-payload-target-artifact.test.ts"
+  ],
+  "deterministicSourceDiffSha256": "86734ed774400fcfac5df79a9d30c99dceff10d735bc840f0cc4377755f2a730",
+  "forkPushResult": "PASS new branch pushed by non-force git push fork HEAD:sanitized-payload-target-artifact-2026-5-7-backport",
+  "forkRemoteHead": "5e15c706e7549d827a44156fe5f3360858a3d5d3",
+  "gatewayRestartReload": false,
+  "liveRuntimeApply": false,
+  "localForkAlignment": "PASS",
+  "milestone": "M25M",
+  "nonForce": true,
+  "preservationFork": "stickaliciousbot/openclaw",
+  "preservationMilestone": "M25M-PF",
+  "pullRequestCreated": false,
+  "receiptSha256": "6961bfcdf07cf7851395142e9d3e7fde088ee31d4d16bed1363f8ea5e1050f73",
+  "remoteName": "fork",
+  "schema": "stickbot.m25m.source_fork_preservation_receipt.v1",
+  "schemaVersion": "1.0.0",
+  "sourceLocalHead": "5e15c706e7549d827a44156fe5f3360858a3d5d3",
+  "telegramDelivery": false,
+  "upstreamBranchCreated": false,
+  "upstreamChanged": false,
+  "upstreamRepository": "openclaw/openclaw",
+  "validationSummary": {
+    "focusedM25M": "PASS node --import tsx src/cron/sanitized-payload-target-artifact.test.ts; 12 positive / 28 negative / 6 regression / 7 outcomes",
+    "m25kRegression": "PASS node --import tsx tmp/m25k-runtime-classification-smoke.ts; 31 assertions / 10 terminals",
+    "m25lRegression": "PASS node --import tsx src/cron/boundary-decision-envelope.test.ts; 23 reason codes / 11 positive / 22 negative / 6 regression",
+    "privateRawScan": "PASS zero hits",
+    "srtrRegression": "PASS python3 projects/durable-memory-architecture/contracts/m25j/validate_all_fixtures.py; 36 positive / 45 negative / 10 security / 0 errors",
+    "staticTypecheck": "PASS targeted tsc --noEmit"
+  }
+}

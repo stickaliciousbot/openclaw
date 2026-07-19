@@ -1,0 +1,40 @@
+{
+  "artifactCanaryTerminal": "PASS_SANITIZED_PAYLOAD_TARGET_ARTIFACT_NO_SEND",
+  "forkBranch": "sanitized-payload-target-artifact-2026-5-7-backport",
+  "forkRemoteAlignment": "PASS",
+  "linkSha256": "5d65f9041b82502184949b29942f41756dc11412f6caf681c35e4f8999f5e414",
+  "m25mPfTerminal": "M25M_PF_FORK_SOURCE_AND_WORKSPACE_PRESERVATION_PASS_NO_TELEGRAM",
+  "m25mTerminal": "M25M_SANITIZED_PAYLOAD_TARGET_ARTIFACT_PASS_NO_TELEGRAM",
+  "milestone": "M25M",
+  "noDelivery": true,
+  "noLiveApply": true,
+  "noLiveTargetResolution": true,
+  "noTelegram": true,
+  "preservationFork": "stickaliciousbot/openclaw",
+  "preservationMilestone": "M25M-PF",
+  "priorM25mEvidenceManifestSha256": "0d70dc9da13598c08394f4268f91ff99feabe4044a5e66ea73b21b54248e2e23",
+  "schema": "stickbot.m25m.source_repository_fork_preservation_link.v1",
+  "schemaVersion": "1.0.0",
+  "sourceBase": "32b218aa9cd8261532a6f039fb3d4f00fb9342c1",
+  "sourceChangedFileCount": 2,
+  "sourceChangedFiles": [
+    "src/cron/sanitized-payload-target-artifact.ts",
+    "src/cron/sanitized-payload-target-artifact.test.ts"
+  ],
+  "sourceDiffSha256": "86734ed774400fcfac5df79a9d30c99dceff10d735bc840f0cc4377755f2a730",
+  "sourceFilesCopiedIntoWorkspace": false,
+  "sourceHead": "5e15c706e7549d827a44156fe5f3360858a3d5d3",
+  "sourcePreservationReceiptPath": "M25M_SOURCE_FORK_PRESERVATION_RECEIPT.json",
+  "sourcePreservationReceiptSha256": "6961bfcdf07cf7851395142e9d3e7fde088ee31d4d16bed1363f8ea5e1050f73",
+  "sourceRepositoryRole": "canonical OpenClaw implementation",
+  "sourceValidationSummary": {
+    "focusedM25M": "PASS node --import tsx src/cron/sanitized-payload-target-artifact.test.ts; 12 positive / 28 negative / 6 regression / 7 outcomes",
+    "m25kRegression": "PASS node --import tsx tmp/m25k-runtime-classification-smoke.ts; 31 assertions / 10 terminals",
+    "m25lRegression": "PASS node --import tsx src/cron/boundary-decision-envelope.test.ts; 23 reason codes / 11 positive / 22 negative / 6 regression",
+    "privateRawScan": "PASS zero hits",
+    "srtrRegression": "PASS python3 projects/durable-memory-architecture/contracts/m25j/validate_all_fixtures.py; 36 positive / 45 negative / 10 security / 0 errors",
+    "staticTypecheck": "PASS targeted tsc --noEmit"
+  },
+  "upstreamRepository": "openclaw/openclaw",
+  "workspaceM25mEvidenceCommitBeforeLinkage": "457a0b52f7b1f174b59b6bdf407dfcd58f62b35d"
+}
