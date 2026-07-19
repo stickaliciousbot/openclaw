@@ -1,0 +1,12 @@
+{
+  "m25er_config_diff_summary": "NOOP: no config mutation in M25E-R; existing disarm retained (armed=false).",
+  "needed_in_m25er": false,
+  "prior_disarm_outside_m25er": {
+    "after_hash": "5af9752d7175515c269281bba248b916f18eab5bb23accb1ed12f1fbb4cb6546",
+    "backup": "/home/stickai/.openclaw/backups/m25e-disarm-20260719T121006+1000/openclaw.json.before",
+    "before_hash": "56abeddf1384dddeda8b8d81ebc3befe7ffece6c5eaebaa094bb44fc71605eb2",
+    "one_field_changed": "plugins.entries.stickbot-memory-ledger-m25b-boundary-handler.config.armed true -> false"
+  },
+  "reason": "On-disk and first-class effective config readback already showed armed=false before M25E-R collector; no mutation performed in M25E-R.",
+  "unrelated_config_mutation_in_m25er": false
+}

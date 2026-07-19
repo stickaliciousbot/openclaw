@@ -1,0 +1,30 @@
+{
+  "created_at": "2026-07-19T13:22:16.064524+10:00",
+  "evidence_root": "sharedspace/runtime-kernel-validation/memory-ledger/m25e_r_disarm_reload_validation_20260719T132216+1000",
+  "gates": {
+    "M25ER_G1": true,
+    "M25ER_G10": true,
+    "M25ER_G11": true,
+    "M25ER_G12": true,
+    "M25ER_G13": true,
+    "M25ER_G14": true,
+    "M25ER_G15": true,
+    "M25ER_G16": true,
+    "M25ER_G17": true,
+    "M25ER_G18": true,
+    "M25ER_G19": true,
+    "M25ER_G2": true,
+    "M25ER_G20": true,
+    "M25ER_G21": true,
+    "M25ER_G3": true,
+    "M25ER_G4": true,
+    "M25ER_G5": true,
+    "M25ER_G6": true,
+    "M25ER_G7": true,
+    "M25ER_G8": true,
+    "M25ER_G9": true
+  },
+  "pass": true,
+  "schema": "stickbot.memory_ledger.m25e_r.status.v1",
+  "terminal_status": "M25E_R_DISARM_RELOAD_VALIDATION_PASS_NO_RERUN_NO_DELIVERY"
+}

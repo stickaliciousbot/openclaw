@@ -1,0 +1,33 @@
+{
+  "cron_jobs_path": "/home/stickai/.openclaw/cron/jobs.json",
+  "cron_jobs_sha256": "2552a3a4f7c229109c5903551aed9a826491aa6316e95dec3db1791fb489b3b2",
+  "cron_runs_transcript_summary": {
+    "delivered": false,
+    "deliveryStatus": "not-delivered",
+    "run_id": "manual:9d6aa1d9-edd7-4633-90eb-3fba96f20b02:1784426529773:1",
+    "summary": "NO_REPLY",
+    "total": 1
+  },
+  "matching_job_records": [],
+  "no_duplicate_observer_active_for_m25e_retry": true,
+  "pass": true,
+  "retry_like_records_sanitized": [
+    {
+      "delivery": {
+        "channel": "telegram",
+        "mode": "announce",
+        "to": "8495203551"
+      },
+      "enabled": false,
+      "id": "c8499a92-ed1e-43cf-bd34-0e8cb1547104",
+      "name": "context-bridge:daily-2am-reconcile",
+      "schedule": {
+        "at": "2026-07-19T20:00:00.000Z",
+        "kind": "at"
+      },
+      "sessionTarget": "session:m25b-retry-20260720-0600-aest"
+    }
+  ],
+  "target_job_present": false,
+  "target_job_runnable": false
+}

@@ -1,0 +1,22 @@
+{
+  "delivered": false,
+  "delivery_status": "not-delivered",
+  "duplicate_retry_known": false,
+  "evidence_basis": [
+    "cron.runs live readback in transcript total=1 delivered=false",
+    "cron.list live readback in transcript showed M25E job absent",
+    "local cron jobs file inspection in this packet"
+  ],
+  "gateway_restarted_reloaded_for_frozen_plugin_config_before_retry": true,
+  "handler_armed_for_exact_job_before_retry": true,
+  "job_delete_after_run_disappeared": true,
+  "m26_started": false,
+  "manual_delivery_known": false,
+  "prior_m25e_terminal": "HOLD_M25E_ONE_SHOT_NO_DELIVERY_DISARM_RELOAD_VALIDATION_BLOCKED_BY_TOOL_SURFACE",
+  "retry_created": true,
+  "retry_job_id": "9d6aa1d9-edd7-4633-90eb-3fba96f20b02",
+  "retry_ran_exactly_once": true,
+  "retry_result": "NO_REPLY",
+  "retry_run_id": "manual:9d6aa1d9-edd7-4633-90eb-3fba96f20b02:1784426529773:1",
+  "retry_verified_disabled_inert_before_arming": true
+}

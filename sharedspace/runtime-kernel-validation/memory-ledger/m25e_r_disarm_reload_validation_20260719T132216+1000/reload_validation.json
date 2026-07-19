@@ -1,0 +1,35 @@
+{
+  "effective_armed": false,
+  "effective_handler_state": "DORMANT_UNARMED",
+  "gateway_status": {
+    "cmd": [
+      "openclaw",
+      "gateway",
+      "status"
+    ],
+    "returncode": 0,
+    "stderr": "Service config looks out of date or non-standard.\nService config issue: Gateway service PATH missing required dirs: /home/stickai/.local/share/pnpm\nRecommendation: run \"openclaw doctor\" (or \"openclaw doctor --repair\").\n",
+    "stdout": "Service: systemd user (enabled)\nFile logs: /tmp/openclaw/openclaw-2026-07-19.log\nCommand: /usr/bin/node /home/stickai/.npm-global/lib/node_modules/openclaw/dist/index.js gateway --port 18789\nService file: ~/.config/systemd/user/openclaw-gateway.service\nService env: OPENCLAW_GATEWAY_PORT=18789\n\nConfig (cli): ~/.openclaw/openclaw.json\nConfig (service): ~/.openclaw/openclaw.json\n\nGateway: bind=lan (0.0.0.0), port=18789 (service args)\nProbe target: ws://127.0.0.1:18789\nDashboard: http://172.24.168.46:18789/\nProbe note: bind=lan listens on 0.0.0.0 (all interfaces); probing via 127.0.0.1.\n\nRuntime: running (pid 2820725, state active, sub running, last exit 0, reason 0)\nConnectivity probe: ok\nCapability: admin-capable\n\nListening: *:18789\nTroubles: run openclaw status\nTroubleshooting: https://docs.openclaw.ai/troubleshooting\n"
+  },
+  "handler_source_contract": {
+    "dormant_guard_present": true,
+    "dormant_result_unhandled": true,
+    "index_freezes_plugin_config": true,
+    "registers_hooks": true
+  },
+  "pass": true,
+  "plugin_auto_loaded_post_restart_lines_sanitized": [
+    "{\"0\":\"{\\\"subsystem\\\":\\\"plugins\\\"}\",\"1\":\"[plugins] plugins.allow is empty; discovered non-bundled plugins may auto-load: stickbot-memory-ledger-m25b-boundary-handler (/home/stickai/.openclaw/extensions/stickbot-memory-ledger-m25b-boundary-handler/dist/index.js). Set plugins.allow to explicit trusted ids.\",\"_meta\":{\"runtime\":\"node\",\"runtimeVersion\":\"22.22.2\",\"hostname\":\"unknown\",\"name\":\"{\\\"subsystem\\\":\\\"plugins\\\"}\",\"parentNames\":[\"openclaw\"],\"date\":\"2026-07-19T03:10:52.471Z\",\"logLevelId\":4,\"logLevelName\":\"WARN\",\"path\":{\"fullFilePath\":\"file:///home/stickai/.npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150:14\",\"fileName\":\"subsystem-CxWoQXRD.js\",\"fileNameWithLine\":\"subsystem-CxWoQXRD.js:150\",\"fileColumn\":\"14\",\"fileLine\":\"150\",\"filePath\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js\",\"filePathWithLine\":\".npm-global/lib/node_modules/openclaw/dist/subsystem-CxWoQXRD.js:150\",\"method\":\"logToFile\"}},\"time\":\"2026-07-19T13:10:52.471+10:00\",\"hostname\":\"Susie-Dell-Inspiron\",\"message\":\"[plugins] plugins.allow is empty; discovered non-bundled plugins may auto-load: stickbot-memory-ledger-m25b-boundary-handler (/home/stickai/.openclaw/extensions/stickbot-memory-ledger-m25b-boundary-handler/dist/index.js). Set plugins.allow to explicit trusted ids.\"}"
+  ],
+  "post_restart_job_delivery_logs": [],
+  "process_pid_after_reload": 2820725,
+  "proof_logic": [
+    "config.get after reload returned plugin enabled=true config.armed=false",
+    "openclaw gateway status after reload PASS",
+    "plugin source freezes config at registration",
+    "handler source returns dormant/unhandled when rawConfig.armed !== true"
+  ],
+  "reload_or_restart_occurred_in_m25er": true,
+  "reload_reason": "Reload Gateway after on-disk armed=false so frozen plugin registration is dormant/unarmed.",
+  "reload_tool": "gateway.restart SIGUSR1"
+}

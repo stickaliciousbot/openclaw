@@ -1,0 +1,64 @@
+{
+  "artifact_count_excluding_manifest": 11,
+  "artifacts": [
+    {
+      "bytes": 520,
+      "file": "delivery_absence_proof.json",
+      "sha256": "4abcdb41600915c80db3974b441406e484da91db11bcca15b1c213a0a2a9d278"
+    },
+    {
+      "bytes": 768,
+      "file": "disarm_action.json",
+      "sha256": "6090ec992970ab230dff99fe8f09a1fb59fc1e00eed5e89ea23618f1edf3d63a"
+    },
+    {
+      "bytes": 935,
+      "file": "m25e_prior_state.json",
+      "sha256": "0ef86dd2e336244a1280b41b2c98da6bdd8dea6f619596a8e07d7b70d80975fe"
+    },
+    {
+      "bytes": 902,
+      "file": "post_cleanup_validation.json",
+      "sha256": "af9c63226fc1b6b7e5f9898a8d8f9c1be230c79969053eb757a9a84c76770a06"
+    },
+    {
+      "bytes": 2595,
+      "file": "pre_cleanup_config_readback.json",
+      "sha256": "667a96dae21500d00af5ed84ccc350c5158bf16bfc26ec0bc77bb00dcc6bc4b4"
+    },
+    {
+      "bytes": 3525,
+      "file": "reload_validation.json",
+      "sha256": "7803a2a6ec5c9b36490bcf98c697778e7409a2548afdc3beb3d393a79a62522a"
+    },
+    {
+      "bytes": 993,
+      "file": "retry_absence_proof.json",
+      "sha256": "a0e267c629644c91187dfb3dfab78c1bc64256714291ba7563845a538c0310da"
+    },
+    {
+      "bytes": 482,
+      "file": "run_config.json",
+      "sha256": "aabbf12f8e39171f73f2478b13ab82bf2ef1b5e9ffd4b9f18d6cd1b93913e340"
+    },
+    {
+      "bytes": 7039,
+      "file": "safety_report.json",
+      "sha256": "2ac58ab83cf6dd8a5c2beef54fbb1c7de6aecde5c95465a457814e2a93c9d759"
+    },
+    {
+      "bytes": 826,
+      "file": "status.json",
+      "sha256": "19b0c6a73840ed3286ed41222f42d5dfcba2e34a6589318817aa9be2e8334e20"
+    },
+    {
+      "bytes": 1090,
+      "file": "summary.json",
+      "sha256": "16cee9f4c6b04fadf89727094c3f0249d8c08d2e95f2f79d76cf980d6bb5e6ca"
+    }
+  ],
+  "created_at": "2026-07-19T13:22:16.064524+10:00",
+  "pass": true,
+  "schema": "stickbot.memory_ledger.m25e_r.evidence_manifest.v1",
+  "terminal_status": "M25E_R_DISARM_RELOAD_VALIDATION_PASS_NO_RERUN_NO_DELIVERY"
+}

@@ -1,0 +1,19 @@
+{
+  "created_at": "2026-07-19T13:22:16.064524+10:00",
+  "forbidden_actions_held": [
+    "arm_handler",
+    "create_retry_job",
+    "schedule_retry",
+    "rerun_one_shot",
+    "delivery",
+    "telegram_send",
+    "ledger_mutation",
+    "context_bridge_mutation",
+    "route_mutation",
+    "authority_promotion",
+    "start_m26"
+  ],
+  "job_id": "9d6aa1d9-edd7-4633-90eb-3fba96f20b02",
+  "schema": "stickbot.memory_ledger.m25e_r.run_config.v1",
+  "scope": "cleanup_validation_only"
+}

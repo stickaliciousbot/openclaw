@@ -1,0 +1,44 @@
+{
+  "authority_promotion": false,
+  "context_bridge_actions_unchanged": true,
+  "context_bridge_changed_since_pre_m25er_suffix": false,
+  "context_bridge_events_unchanged_since_pre_m25er_suffix": true,
+  "git_status_before_artifact_commit": {
+    "cmd": [
+      "git",
+      "status",
+      "--short",
+      "--branch"
+    ],
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "epair/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r8_bounded_artifact_status_qa_readiness_rerun/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r8r_typed_exact_value_fidelity_repair/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r9_bounded_artifact_status_qa_readiness_rerun/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r9r_output_disposition_contract_repair/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c1r_source_authority_isolation_repair/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4_final_owner_acceptance_review/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4h_limited_production_health_watch/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_c4p5_limited_production_acceptance_finalization/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_final_accepted_production_stack_closeout/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m12_limited_expansion_readiness_design/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m13_owner_approved_readiness_design_gate/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m13r1_durability_close_loop_visibility_implementation_packet/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m13r1_final_production_acceptance/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m13r1a_controlled_apply/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m13r1a_controlled_implementation_apply/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m13r1h_production_health_watch/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m13r1p_limited_production_verification/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m6_5_promotion_readiness/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m7_5_observer_lane/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m7_limited_canary/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m8a_5_vmesh_preclassification_tuning/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m8a_vmesh_auto_observer/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m8b_limited_binding_canary/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m8b_post_reset_smoke/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m9_5_promotion_readiness/\n?? sharedspace/runtime-kernel-validation/vnext-semantic-gate/m9_limited_binding_soak/\n?? sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout/M11D_DIST_DISCOVERY_RAW.txt\n?? sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout/M11M_GATEWAY_PATCH_TOOL_EXPOSURE_REPAIR.md\n?? sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout/M11M_PROTECTED_PATH_APPLY_AUTHORITY.md\n?? sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout/M11N_ADMIN_APPLY_RESTART_HOLD.md\n?? sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout/M11O_POST_RESTART_VALIDATION_HOLD_EXEC_APPROVAL_UNAVAILABLE.md\n?? sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout/M11_ADMIN_UI_APPLY_HOLD_BROWSER_UNAVAILABLE.md\n?? sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout/cdp-control-ui-admin-apply/\n?? sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout/m11-admin-apply-approved-json-diff.json\n?? sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout/m11-admin-apply-result.json\n?? sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout/m11-admin-preapply-config-snapshot.plugins-redacted.json\n?? sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout/m11-apply-preflight-existing-hook-scaffold-test.txt\n?? sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout/m11-apply-preflight-package-validation.json\n?? sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout/m11-external-preapply-existing-hook-scaffold-test.txt\n?? sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout/m11-external-preapply-package-validation.json\n?? sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout/m11-final-apply-existing-hook-scaffold-test.txt\n?? sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout/m11-final-apply-package-validation.json\n?? sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout/m11-post-restart-validation/\n?? sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout/m11-retry-existing-hook-scaffold-test.txt\n?? sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout/m11-retry-package-validation.json\n?? sharedspace/runtime-kernel-validation/work-lifecycle/m11-production-rollout/m11e-existing-hook-scaffold-test.txt\n?? sharedspace/runtime-kernel-va\u2026TRUNCATED"
+  },
+  "hashes": {
+    "context_bridge_actions_json": "a7b0d3d4bd1a9c8bb0da20a1f92cc248f3f37dbf551c66a361330076777bba63",
+    "context_bridge_events_jsonl": "76f4d0f030af56ee03b3484413ca67c7f9a65992f68ecb2b46ed144410b1a9b5",
+    "cron_jobs_json": "2552a3a4f7c229109c5903551aed9a826491aa6316e95dec3db1791fb489b3b2",
+    "ledger_latest_json": "c27d2734b308211b644860131aec6ca64ffb3062f5dfdfedc45093651c10c022",
+    "openclaw_json": "5af9752d7175515c269281bba248b916f18eab5bb23accb1ed12f1fbb4cb6546",
+    "plugin_boundary_handler_ts": "bf137a5957b89eac12acc679dcbe7a842a33b1f39647e9c8cf2616a343f2f05f",
+    "plugin_dist_index_js": "98a174e1767221f355d7a28364f738c2918eab320ed5373f9851d31da33b4347"
+  },
+  "ledger_changed_in_m25er": false,
+  "m26_started": false,
+  "model_fallbacks": [
+    "ollama/deepseek-v4-pro:cloud"
+  ],
+  "model_primary": "openai-codex/gpt-5.5",
+  "pass": true,
+  "pre_hashes": {
+    "context_bridge_actions_sha256_pre": "a7b0d3d4bd1a9c8bb0da20a1f92cc248f3f37dbf551c66a361330076777bba63",
+    "context_bridge_events_sha256_pre_suffix": "76f4d0f030af56ee03b3484413ca67c7f9a65992f68ecb2b46ed144410b1a9b5",
+    "cron_jobs_sha256_pre": "2552a3a4f7c229109c5903551aed9a826491aa6316e95dec3db1791fb489b3b2",
+    "openclaw_config_sha256_after_disarm_before_m25er_reload": "5af9752d7175515c269281bba248b916f18eab5bb23accb1ed12f1fbb4cb6546"
+  },
+  "private_raw_scan": {
+    "method": "artifacts contain only hashes, ids, statuses, sanitized config; secrets redacted by key name; no raw prompt content or private payload included.",
+    "status": "PASS"
+  },
+  "route_config_ok": true
+}

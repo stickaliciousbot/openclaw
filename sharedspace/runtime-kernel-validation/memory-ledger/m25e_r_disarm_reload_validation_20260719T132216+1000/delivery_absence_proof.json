@@ -1,0 +1,14 @@
+{
+  "cron_runs_transcript_summary": {
+    "delivered": false,
+    "deliveryStatus": "not-delivered",
+    "summary": "NO_REPLY"
+  },
+  "delayed_delivery_after_no_reply_detected": false,
+  "m25e_delivery_count": 0,
+  "m25e_telegram_send_count": 0,
+  "manual_delivery_known": false,
+  "note": "Historical generic Telegram send failures exist in the daily log around 12:04 but are not tied to the M25E job/run and predate this M25E-R reload validation.",
+  "pass": true,
+  "post_reload_log_lines_tied_to_job_delivery": []
+}

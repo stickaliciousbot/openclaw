@@ -1,0 +1,49 @@
+{
+  "arming_fields_present_but_inert_when_armed_false": {
+    "expectedActionsSha256": "a7b0d3d4bd1a9c8bb0da20a1f92cc248f3f37dbf551c66a361330076777bba63",
+    "expectedAgentId": "main",
+    "expectedCallerPromptSha256": "aaf27d4ffbece798e9a38cdb9cbf679a45f7491b132a3a997f09edf7547de135",
+    "expectedCandidateSourceSha256": "dec25b28503614eefbbf8ba763eda3a9d48f93dbbd306921197ece262e42a4e3",
+    "expectedEventsSha256": "f0f7f59ed0028d2f2f250934b62b6f3f3e8aa3cbf3ed1d6454d71b2a63d269b3",
+    "expectedJobId": "9d6aa1d9-edd7-4633-90eb-3fba96f20b02",
+    "expectedLedgerSha256": "f50ff3836724358d2ef99d92d7c32c2c07651138a749e2a03ce5c03c512807f6",
+    "expectedSessionKey": "cron:9d6aa1d9-edd7-4633-90eb-3fba96f20b02",
+    "expectedT0CallerSha256": "aaf27d4ffbece798e9a38cdb9cbf679a45f7491b132a3a997f09edf7547de135",
+    "ledgerMode": "validated_m22_posture",
+    "ledgerPath": null,
+    "localDate": "2026-07-19",
+    "validatedLedgerEvents": 20,
+    "validatedLedgerRecords": 19
+  },
+  "config_path": "/home/stickai/.openclaw/openclaw.json",
+  "config_sha256": "5af9752d7175515c269281bba248b916f18eab5bb23accb1ed12f1fbb4cb6546",
+  "effective_gateway_config_readback_in_transcript": {
+    "armed": false,
+    "hash": "5af9752d7175515c269281bba248b916f18eab5bb23accb1ed12f1fbb4cb6546",
+    "plugin_enabled": true,
+    "tool": "gateway.config.get"
+  },
+  "pass_condition_met": true,
+  "plugin_armed": false,
+  "plugin_config_sanitized": {
+    "actionsPath": "sharedspace/context-bridge/actions.json",
+    "armed": false,
+    "eventsPath": "sharedspace/context-bridge/events.jsonl",
+    "expectedActionsSha256": "a7b0d3d4bd1a9c8bb0da20a1f92cc248f3f37dbf551c66a361330076777bba63",
+    "expectedAgentId": "main",
+    "expectedCallerPromptSha256": "aaf27d4ffbece798e9a38cdb9cbf679a45f7491b132a3a997f09edf7547de135",
+    "expectedCandidateSourceSha256": "dec25b28503614eefbbf8ba763eda3a9d48f93dbbd306921197ece262e42a4e3",
+    "expectedEventsSha256": "f0f7f59ed0028d2f2f250934b62b6f3f3e8aa3cbf3ed1d6454d71b2a63d269b3",
+    "expectedJobId": "9d6aa1d9-edd7-4633-90eb-3fba96f20b02",
+    "expectedLedgerSha256": "f50ff3836724358d2ef99d92d7c32c2c07651138a749e2a03ce5c03c512807f6",
+    "expectedSessionKey": "cron:9d6aa1d9-edd7-4633-90eb-3fba96f20b02",
+    "expectedT0CallerSha256": "aaf27d4ffbece798e9a38cdb9cbf679a45f7491b132a3a997f09edf7547de135",
+    "ledgerMode": "validated_m22_posture",
+    "ledgerPath": null,
+    "localDate": "2026-07-19",
+    "validatedLedgerEvents": 20,
+    "validatedLedgerRecords": 19
+  },
+  "plugin_enabled": true,
+  "plugin_id": "stickbot-memory-ledger-m25b-boundary-handler"
+}
