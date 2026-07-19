@@ -1,0 +1,16 @@
+{
+  "absoluteWorktreePath": "/home/stickai/.openclaw/workspace/tmp/openclaw-2026-5-7-closeout-backport",
+  "branch": "closeout-delivery-2026-5-7-backport",
+  "gitCommonDir": "/home/stickai/.openclaw/workspace/tmp/openclaw-source-start-ack-backport-2026-5-7/.git",
+  "gitTopLevel": "/home/stickai/.openclaw/workspace/tmp/openclaw-2026-5-7-closeout-backport",
+  "head": "087a300cc78c677116829a885a699a96535ee295",
+  "indexStagedCount": 0,
+  "remotes": {
+    "fork": "https://github.com/stickaliciousbot/openclaw.git",
+    "origin": "https://github.com/openclaw/openclaw.git"
+  },
+  "schema": "stickbot.m25k_pf.source_preflight.v1",
+  "trackedM25kFileStatus": "clean",
+  "unrelatedSourceWorktreeDirtPolicy": "left local and unpushed; source commit scope is exact",
+  "unrelatedSourceWorktreeDirtPresent": true
+}

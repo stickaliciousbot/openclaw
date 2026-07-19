@@ -1,9 +1,15 @@
 {
   "closeout_unknown": false,
   "committed": true,
+  "preservationStatus": "PASS",
+  "preservationTerminal": "M25K_PF_FORK_SOURCE_AND_WORKSPACE_PRESERVATION_PASS_NO_TELEGRAM",
+  "priorEvidenceManifestSha256": "9558d8d7f4fd144c01b679b8fc611f532eaa7019b7222fa9586e9c5cdcbd6596",
   "pushed": false,
+  "sourceForkHead": "087a300cc78c677116829a885a699a96535ee295",
+  "sourceForkPreserved": true,
   "source_tree_commit": "087a300cc7",
   "status": "PASS",
   "terminal": "M25K_RUNTIME_DELIVERY_CLASSIFICATION_PASS_NO_TELEGRAM",
+  "updatedEvidenceManifestSha256": "external_sha256sum_after_manifest_write",
   "workspace_evidence_commit": "external_git_readback_after_commit"
 }

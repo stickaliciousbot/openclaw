@@ -1,0 +1,18 @@
+{
+  "forcePush": false,
+  "forkBranch": "closeout-delivery-2026-5-7-backport",
+  "forkBranchExistedBeforePush": false,
+  "forkLsRemoteHead": "087a300cc78c677116829a885a699a96535ee295",
+  "forkRemoteName": "fork",
+  "forkRemoteTrackingHead": "087a300cc78c677116829a885a699a96535ee295",
+  "forkRepository": "stickaliciousbot/openclaw",
+  "localForkAlignment": "PASS",
+  "pushCommand": "git push fork HEAD:closeout-delivery-2026-5-7-backport",
+  "schema": "stickbot.m25k_pf.source_push_proof.v1",
+  "upstreamBranchCreated": false,
+  "upstreamOrigin": "openclaw/openclaw",
+  "upstreamOriginUnchanged": true,
+  "upstreamPullRequestCreated": false,
+  "upstreamPushAttemptedPreviously": true,
+  "upstreamPushResult": "HTTP_403_PERMISSION_DENIED"
+}

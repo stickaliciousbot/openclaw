@@ -7,10 +7,17 @@
   "m25e_m25g_m25h_regression": "PASS explicit DELIVERY_REQUIRED_PAYLOAD_MISSING",
   "m25l_m25m_started": false,
   "no_live_apply": "PASS",
+  "preservationTerminal": "M25K_PF_FORK_SOURCE_AND_WORKSPACE_PRESERVATION_PASS_NO_TELEGRAM",
+  "priorEvidenceManifestSha256": "9558d8d7f4fd144c01b679b8fc611f532eaa7019b7222fa9586e9c5cdcbd6596",
   "private_raw_scan": "PASS",
   "pushed": false,
   "quiet_success_compatibility": "PASS: only typed quiet success maps to NO_REPLY",
   "relevant_full_suite": "STOPPED_TIMEOUT_NO_OUTPUT; not used as PASS evidence",
+  "sourceForkAlignment": "PASS",
+  "sourceForkHead": "087a300cc78c677116829a885a699a96535ee295",
+  "sourcePreservationFork": "stickaliciousbot/openclaw",
+  "sourcePreservationForkBranch": "closeout-delivery-2026-5-7-backport",
+  "sourcePreservationReceiptSha256": "1e7ea670ed446f3bbef5ee56b0aca16c6f2d7ebe8c67a1eeac929792223f957d",
   "source_paths_changed": [
     "src/cron/runtime-delivery-classification.ts",
     "src/cron/runtime-delivery-classification.test.ts"
@@ -18,5 +25,8 @@
   "source_tree_commit": "087a300cc7",
   "terminal": "M25K_RUNTIME_DELIVERY_CLASSIFICATION_PASS_NO_TELEGRAM",
   "typecheck": "PASS targeted",
+  "updatedEvidenceManifestSha256": "external_sha256sum_after_manifest_write",
+  "workspaceLinkageCommit": "external_git_readback_after_commit",
+  "workspacePushProof": "external_git_readback_after_push",
   "workspace_evidence_commit": "external_git_readback_after_commit"
 }

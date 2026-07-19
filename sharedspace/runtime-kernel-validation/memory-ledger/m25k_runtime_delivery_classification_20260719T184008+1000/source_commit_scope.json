@@ -1,0 +1,33 @@
+{
+  "authorDate": "2026-07-19T18:42:21+10:00",
+  "changedFileCount": 2,
+  "changedFilePaths": [
+    "src/cron/runtime-delivery-classification.ts",
+    "src/cron/runtime-delivery-classification.test.ts"
+  ],
+  "classificationCoverage": [
+    "typed quiet-success classification",
+    "typed delivery-required classification",
+    "DELIVERY_REQUIRED_PAYLOAD_MISSING",
+    "ANCHOR_MISSING_NO_DELIVERY",
+    "BOUNDARY_HOLD_NO_DELIVERY",
+    "BOUNDARY_REJECT_NO_DELIVERY",
+    "BOUNDARY_DECISION_MISSING",
+    "DELIVERY_CONTRACT_INVALID",
+    "unknown class fail-closed",
+    "bare NO_REPLY only for typed quiet success",
+    "delivery-required paths cannot become bare NO_REPLY"
+  ],
+  "diffSha256": "3e08afe2bce6eb0197492e358ad9ad53ab78b6cbca593835625127e183bbef10",
+  "diffStat": {
+    "deletions": 0,
+    "filesChanged": 2,
+    "insertions": 464
+  },
+  "head": "087a300cc78c677116829a885a699a96535ee295",
+  "parent": "9338825836c9989062dfcf7e6231fc5b56bf44a5",
+  "schema": "stickbot.m25k_pf.source_commit_scope.v1",
+  "scopeResult": "PASS",
+  "smokeHarnessTracked": false,
+  "subject": "Add M25K runtime delivery classification"
+}

@@ -31,14 +31,19 @@
       "sha256": "95b8d50211e3bcd0aa056089875855b77a62ba7d262b8bf8e4d7b9c63802f284"
     },
     {
+      "bytes": 820,
+      "path": "dual_repository_alignment.json",
+      "sha256": "fc0e690c14cc4c494cb5497d6e89bf563432eb70a6378074d9ed031b4e56e346"
+    },
+    {
       "bytes": 1077,
       "path": "fixture_inventory.json",
       "sha256": "f6fb8c08cf7741481ca59302ae9e4bba9e2c21f50e21833aa3490b25549e029f"
     },
     {
-      "bytes": 820,
+      "bytes": 1023,
       "path": "hard_gates.json",
-      "sha256": "02c1e6b345b489b28921cca9448793b58fd0bae468a719ccb77441ece5aeac13"
+      "sha256": "edb967804100c31e998ab316f2acee10704202eae7472fe2874b06eb844c6871"
     },
     {
       "bytes": 298,
@@ -46,9 +51,14 @@
       "sha256": "d842fd2a3b8a2d0e856ff7912c703a2d9117e524aa40c2a063ca3213dbff8a08"
     },
     {
-      "bytes": 908,
+      "bytes": 658,
+      "path": "m25k_pf_run_config.json",
+      "sha256": "30293dcfb841488209895f4c4ef123e8f9a00ea3d628f82672d394cd00be94b2"
+    },
+    {
+      "bytes": 2061,
       "path": "mutation_sentinels.json",
-      "sha256": "2556dea749a2595fc9436fd8df0857a816d249d6b6b29d9e30bc34fa0b4468b3"
+      "sha256": "84950d9407bcb892b32114f4ca06cc20dfc8bb16b83d8e92cbdccee9e274f3cc"
     },
     {
       "bytes": 1035,
@@ -61,9 +71,9 @@
       "sha256": "da5a48590cb372012c8ad463070ff59a053286a0a8eba0d222049fa4b1158569"
     },
     {
-      "bytes": 303,
+      "bytes": 653,
       "path": "privacy_scan.json",
-      "sha256": "057ed14dd28f9c6b87a14f8ee97441d1b119f9883229da430649174c5623e198"
+      "sha256": "b60cf410ca69a5478193c51fcd928aceaddf79fbac60619f0295950dedf7de32"
     },
     {
       "bytes": 115,
@@ -86,21 +96,59 @@
       "sha256": "a76bcb98eb1c2e58c0ae88c81ccb5a418f04caba4cd6ec1efaf890b669cc9db0"
     },
     {
-      "bytes": 270,
-      "path": "status.json",
-      "sha256": "7f46d880922f3f18dfb758110d8e8f210e0bdbe3cc2187ae02f6f9e910d7bdd8"
+      "bytes": 1130,
+      "path": "source_commit_scope.json",
+      "sha256": "6b4d8fbcbd0ef16d90b8ced8fabf420d29fc17d288cebd72dafb67473616c906"
     },
     {
-      "bytes": 1070,
+      "bytes": 1591,
+      "path": "source_repository_fork_preservation_link.json",
+      "sha256": "ee79886d48e0b026164da96dcef5d72d890d957fcf42e4104db2f6600f1cec56"
+    },
+    {
+      "bytes": 1495,
+      "path": "source_repository_fork_preservation_receipt.json",
+      "sha256": "77bc72a7d6ff6c6c6df71a225a042f85fc89296fbe85c61c546b9351cf60aeb8"
+    },
+    {
+      "bytes": 809,
+      "path": "source_repository_preflight.json",
+      "sha256": "a85f48ffab1714129f0669df46cb3d9a048d161aa91f32af4da75327eb8e934d"
+    },
+    {
+      "bytes": 741,
+      "path": "source_repository_push_proof.json",
+      "sha256": "817c9302fac25b50ad750b65b12f5fa41e58d134ba9a0dd302f57675dfbf404e"
+    },
+    {
+      "bytes": 669,
+      "path": "status.json",
+      "sha256": "5245dc84a04badb995f60d00a288bc7bb0ff2869d86258156e140b8c3705dfb9"
+    },
+    {
+      "bytes": 1800,
       "path": "summary.json",
-      "sha256": "c5ea929f6ec9b4ddf94f4b33b557917b78eba704a831c28eb139ca274df1749f"
+      "sha256": "7a3b66b76d234ab7e7d1fa7eac9ffbe612721cca03368d6f6868d0ddbbd85f3b"
     },
     {
       "bytes": 919,
       "path": "test_results.json",
       "sha256": "f58c2861e416e3e2ea99c004dcc3ebe907bb0099646eb2722f9fb6034bfb2c9a"
+    },
+    {
+      "bytes": 600,
+      "path": "workspace_linkage_commit_proof.json",
+      "sha256": "3fb092cf7f027e897eecba5280d585e21cdc554b8122cae3fd152960e8d9435b"
+    },
+    {
+      "bytes": 567,
+      "path": "workspace_push_proof.json",
+      "sha256": "1f9bc5be4f7daf123c9fc93e2b8db7ae86d5a694a6bbc8e19f0bbfe67c211cfc"
     }
   ],
-  "entry_count": 20,
-  "root": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25k_runtime_delivery_classification_20260719T184008+1000"
+  "entry_count": 29,
+  "preservationMilestone": "M25K-PF",
+  "root": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25k_runtime_delivery_classification_20260719T184008+1000",
+  "schema": "stickbot.m25k.evidence_manifest.v2",
+  "supersedesManifestSha256": "9558d8d7f4fd144c01b679b8fc611f532eaa7019b7222fa9586e9c5cdcbd6596"
 }

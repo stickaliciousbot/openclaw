@@ -1,0 +1,13 @@
+{
+  "approvedFork": "stickaliciousbot/openclaw",
+  "milestone": "M25K-PF",
+  "noLiveApply": true,
+  "noM25LOrM26": true,
+  "noTelegram": true,
+  "priorTerminal": "M25K_P_BLOCKED_SOURCE_REPOSITORY_REMOTE_NOT_PROVEN",
+  "schema": "stickbot.m25k_pf.run_config.v1",
+  "sourceWorktree": "/home/stickai/.openclaw/workspace/tmp/openclaw-2026-5-7-closeout-backport",
+  "terminalExpected": "M25K_PF_FORK_SOURCE_AND_WORKSPACE_PRESERVATION_PASS_NO_TELEGRAM",
+  "upstreamOriginPreserved": true,
+  "workspaceEvidenceRoot": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25k_runtime_delivery_classification_20260719T184008+1000"
+}

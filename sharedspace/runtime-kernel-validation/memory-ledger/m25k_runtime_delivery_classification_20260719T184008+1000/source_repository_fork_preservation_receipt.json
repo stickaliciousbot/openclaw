@@ -1,0 +1,32 @@
+{
+  "changedFileCount": 2,
+  "changedFilePaths": [
+    "src/cron/runtime-delivery-classification.ts",
+    "src/cron/runtime-delivery-classification.test.ts"
+  ],
+  "diffSha256": "3e08afe2bce6eb0197492e358ad9ad53ab78b6cbca593835625127e183bbef10",
+  "forkPushResult": "PASS",
+  "forkRemoteHead": "087a300cc78c677116829a885a699a96535ee295",
+  "liveRuntimeApply": false,
+  "localForkAlignment": "PASS",
+  "localRemoteName": "fork",
+  "localSourceHead": "087a300cc78c677116829a885a699a96535ee295",
+  "milestone": "M25K",
+  "nonForcePush": true,
+  "preservationRepositoryAlias": "stickaliciousbot/openclaw",
+  "preservation_milestone": "M25K-PF",
+  "privateRawScan": "PASS scoped source files; no raw Telegram IDs/secrets found",
+  "receiptSha256": "1e7ea670ed446f3bbef5ee56b0aca16c6f2d7ebe8c67a1eeac929792223f957d",
+  "schema": "stickbot.m25k.source_fork_preservation_receipt.v1",
+  "sourceBranch": "closeout-delivery-2026-5-7-backport",
+  "sourceParent": "9338825836c9989062dfcf7e6231fc5b56bf44a5",
+  "sourceTestSummary": {
+    "focusedClassificationSmoke": "PASS 31 assertions / 10 terminals (M25K accepted result)",
+    "nativeVitestWrapper": "STOPPED_TIMEOUT_NO_OUTPUT; not used as PASS evidence",
+    "targetedTypecheck": "PASS (M25K accepted result)"
+  },
+  "staticTypecheckSummary": "PASS targeted tsc on M25K files",
+  "upstreamPushAttemptedPreviously": true,
+  "upstreamPushResult": "permission_denied_http_403_no_upstream_branch_created",
+  "upstreamRepositoryAlias": "openclaw/openclaw"
+}

@@ -1,0 +1,32 @@
+{
+  "delivery": "none",
+  "forkBranch": "closeout-delivery-2026-5-7-backport",
+  "forkRemoteAlignment": "PASS",
+  "liveApply": false,
+  "milestone": "M25K",
+  "preservationFork": "stickaliciousbot/openclaw",
+  "preservationMilestone": "M25K-PF",
+  "priorM25kEvidenceManifestSha256": "9558d8d7f4fd144c01b679b8fc611f532eaa7019b7222fa9586e9c5cdcbd6596",
+  "schema": "stickbot.m25k.source_repository_fork_preservation_link.v1",
+  "sourceChangedFileCount": 2,
+  "sourceChangedFiles": [
+    "src/cron/runtime-delivery-classification.ts",
+    "src/cron/runtime-delivery-classification.test.ts"
+  ],
+  "sourceDiffSha256": "3e08afe2bce6eb0197492e358ad9ad53ab78b6cbca593835625127e183bbef10",
+  "sourceFilesCopiedIntoWorkspace": false,
+  "sourceHead": "087a300cc78c677116829a885a699a96535ee295",
+  "sourceParent": "9338825836c9989062dfcf7e6231fc5b56bf44a5",
+  "sourcePreservationReceiptFile": "source_repository_fork_preservation_receipt.json",
+  "sourcePreservationReceiptSha256": "1e7ea670ed446f3bbef5ee56b0aca16c6f2d7ebe8c67a1eeac929792223f957d",
+  "sourceRepositoryRole": "canonical implementation source",
+  "sourceTests": {
+    "focusedClassificationSmoke": "PASS 31 assertions / 10 terminals (M25K accepted result)",
+    "nativeVitestWrapper": "STOPPED_TIMEOUT_NO_OUTPUT; not used as PASS evidence",
+    "targetedTypecheck": "PASS (M25K accepted result)"
+  },
+  "telegram": "none",
+  "upstreamRepository": "openclaw/openclaw",
+  "workspaceEvidenceHeadBeforeLinkage": "3128034130c8dc79f8790626730d479855e43f8e",
+  "workspaceRemoteBaselineBeforeM25K": "b9e388d7005d5fca3bf80fea0a0305416919adaf"
+}

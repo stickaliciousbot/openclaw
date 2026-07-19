@@ -1,4 +1,7 @@
 {
+  "m25kPfStatus": "PASS",
+  "rawScanNote": "grep pattern sk-* false-positive matches path fragments such as task-contract; no credential/raw-id content found in reviewed files",
+  "rawTargetIdsFound": 0,
   "raw_payload_persisted": false,
   "raw_target_ids_found": 0,
   "scoped_files_scanned": [
@@ -6,6 +9,10 @@
     "src/cron/runtime-delivery-classification.test.ts",
     "tmp/m25k-runtime-classification-smoke.ts"
   ],
+  "secretPatternsFound": 0,
   "secret_patterns_found": 0,
-  "status": "PASS"
+  "sourceFilesCopiedIntoWorkspace": false,
+  "sourceForkReceiptRawScan": "PASS",
+  "status": "PASS",
+  "workspaceLinkageRawScan": "PASS"
 }
