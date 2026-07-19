@@ -1,0 +1,14 @@
+{
+  "milestone": "M25N",
+  "terminal": "M25N_TELEGRAM_DELIVERY_ADAPTER_CANARY_PASS_ONE_SEND",
+  "evidenceRoot": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000",
+  "targetAlias": "operator-canary-target",
+  "registryPathAlias": "m25n-private-runtime-local-registry",
+  "mode0600": true,
+  "entryCount": 1,
+  "rawTargetPrinted": false,
+  "rawTargetTracked": false,
+  "aliasResolvedPrivatelyExactlyOnce": true,
+  "removedAfterLive": true,
+  "presentAfterCleanup": false
+}

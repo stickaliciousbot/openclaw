@@ -5,5 +5,10 @@
     "harness_result": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/harness_result.json",
     "status": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/status.json"
   },
-  "next_safe_step": "Prepare M25O proposal only after owner review; do not start M25O/M26 automatically."
+  "next_safe_step": "Prepare M25O proposal only after owner review; do not start M25O/M26 automatically.",
+  "evidenceArtifactSetCompleted": true,
+  "localCommits": {
+    "source": "68faa47abd",
+    "workspaceEvidenceInitial": "839178772"
+  }
 }

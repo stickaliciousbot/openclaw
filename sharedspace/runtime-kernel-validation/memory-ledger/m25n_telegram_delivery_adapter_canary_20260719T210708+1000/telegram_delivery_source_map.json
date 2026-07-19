@@ -1,0 +1,18 @@
+{
+  "milestone": "M25N",
+  "terminal": "M25N_TELEGRAM_DELIVERY_ADAPTER_CANARY_PASS_ONE_SEND",
+  "evidenceRoot": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000",
+  "targetAlias": "operator-canary-target",
+  "canonicalPrimitive": {
+    "path": "extensions/telegram/src/send.ts",
+    "entryPoint": "sendMessageTelegram(to, text, opts)",
+    "retryAttemptsConfigured": 1,
+    "providerResultSanitized": true
+  },
+  "sourceFiles": {
+    "src/cron/telegram-delivery-adapter-canary.ts": "c3351f5a5bb37462c70344531d96e21a39d44753ca0b2b2342ff2185befca7bf",
+    "src/cron/telegram-delivery-adapter-canary.test.ts": "514a1fc2148805719b0c7df2d60cf4533f60c9f13017952e409da200d8ab8a0a",
+    "src/cron/m25n-telegram-canary-harness.ts": "211ce091ae34a706d7d6490e8ecc7a83d6d2548e81a6c95eacb1248e1dcc0191"
+  },
+  "hiddenRetriesBypassed": "provider retry configured attempts=1; adapter invokes provider once; duplicate gate before provider"
+}

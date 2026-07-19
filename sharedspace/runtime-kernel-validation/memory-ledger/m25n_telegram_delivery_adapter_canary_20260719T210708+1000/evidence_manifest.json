@@ -1,20 +1,124 @@
 {
-  "schema": "stickbot.m25n.evidence_manifest.v1",
+  "milestone": "M25N",
   "terminal": "M25N_TELEGRAM_DELIVERY_ADAPTER_CANARY_PASS_ONE_SEND",
+  "evidenceRoot": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000",
+  "targetAlias": "operator-canary-target",
+  "schema": "stickbot.m25n.evidence_manifest.v2",
   "files": [
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/canary_payload.json",
+      "sha256": "2f550aa8ac145284cc9944a65fc64b3b181fbffaedabd534293ccbe54f065c04"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/delivery_result.json",
+      "sha256": "13143b20070a33f502572004c5433c8b0fdc593188f7a397d5a49722332d3d49"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/duplicate_suppression_proof.json",
+      "sha256": "0cbe98e17cf4c5a80b92e994ea2f6e10748cb4dacb5918de8522f789152c1435"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/hard_gates.json",
+      "sha256": "fb85770f935a1df8d29f1a1319af89aec9e3f11e2248929d454b5d7a6d1ec15a"
+    },
     {
       "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/harness_result.json",
       "sha256": "91548cc14f24af9c225fb222be467124ffd0ef2e57fb7556738d80864594a7e0"
     },
     {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/health_checks.json",
+      "sha256": "d201c81f0de0bd7fefe90a1e92d4a8d045b8861e1b47a7687fdad09129aa1158"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/m25k_regression_results.json",
+      "sha256": "ace4c8f53655485208f89024f042573becabe995366b317637c3949b9eb691dc"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/m25l_regression_results.json",
+      "sha256": "ace4c8f53655485208f89024f042573becabe995366b317637c3949b9eb691dc"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/m25m_regression_results.json",
+      "sha256": "ace4c8f53655485208f89024f042573becabe995366b317637c3949b9eb691dc"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/mutation_sentinels.json",
+      "sha256": "2fe98b9d10cfc9702e781d3a5dcb22565407b4e599fa0cd3392ad2b0303ff631"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/pending_delivery_check.json",
+      "sha256": "188a23f82652753f3ba5075c1a07277a9771220cc8a0c14e4185b1eb2ff6dfe9"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/pre_send_validation.json",
+      "sha256": "ab52d28a98beb8ebfd8ce1841c0cad36e2fd4873b1f033eaaa789b727df31eda"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/prior_state.json",
+      "sha256": "7e1f2ea98b9c7c04646cb2645b6ecc26a5d236476d80feb15bbb59655370a813"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/privacy_scan.json",
+      "sha256": "dbc283afde2d8b74c46e9f6aa4d664dfb5249a954868f474c73a4ec64df64f45"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/provider_invocation_proof.json",
+      "sha256": "4571aeb69e56f53317581a8cd7143f93a9d8486f09465b2f55200f72d7d387e2"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/rollback_proof.json",
+      "sha256": "d7dd0f150553e2800cdb3a8aa42c64c32641b620fdff60d4603af2a5fd6f24a5"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/run_config.json",
+      "sha256": "6b5804710e32fbdb1ae8a79206b714e957a86c875aedec157043e2f2f5a0033d"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/srtr_regression_results.json",
+      "sha256": "ace4c8f53655485208f89024f042573becabe995366b317637c3949b9eb691dc"
+    },
+    {
       "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/status.json",
-      "sha256": "aeea1d0f261fc264fe4afaa9fb95abdbd5f11ccb9782a076563d02d2f339ceb3"
+      "sha256": "f83cefc82df4c7d7c87e6e968bfa4c4b04e378ed8baf180f756d27f32da92260"
     },
     {
       "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/summary.json",
-      "sha256": "977cc35e0c2b70800b6882b01d0d69926ded7e494d25d5e61f3c03d9ba93de1a"
+      "sha256": "8342b4e5df0ac27c85c0464528102c8bf3e3478e0f81917db92c1143aca03d82"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/surface_policy.json",
+      "sha256": "be095d052032096ae875cfffbd1e82d06242d466f4915564ca2b09f05c576d19"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/target_grant.json",
+      "sha256": "22c3490872e713792563ebb215e763b566e9a1bd6590cc05b3ceb8fac5672003"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/target_grant_cleanup.json",
+      "sha256": "d32cb0ec30357cff80f49697d776322a978e181c8117b89eacc76179512a08dd"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/target_receipt.json",
+      "sha256": "06ce7289fc9e73bc22d0093f1b7dfc24709a64beff2577d6369f444475ee209b"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/target_registry_safety.json",
+      "sha256": "0dd6cd62bb87136dae9991ce60f2f7337ad0d76164c4f23d7ac1fcdcd93f800f"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/target_request.json",
+      "sha256": "631eff24dc5c68edb9705c9dcf395dc0cf8775f7d8d2447309d5ac9fc432ffb8"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/telegram_delivery_source_map.json",
+      "sha256": "990e7f2156cdc3b5282c99a95bd1c399b0c47d8cac3c56b07cdd3444c428350d"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/test_results.json",
+      "sha256": "ed1925dfacbb1c074679150275ef9d2e1dd8ccc84ebe1fee6b9f38a29004f27d"
     }
   ],
+  "fileCount": 28,
   "counts": {
     "providerInvocationCount": 1,
     "telegramDeliveredMessageCount": 1,
@@ -24,13 +128,22 @@
   },
   "privacy": {
     "rawTargetExposed": false,
+    "privateRawEvidenceFindings": 0,
     "providerResultSanitized": true,
     "registryRemovedAfterLive": true
   },
-  "no_go": {
-    "gatewayRestartOrReload": false,
-    "handlerArmed": false,
-    "cronRetryJobCreated": false,
-    "pushPerformed": false
-  }
+  "repositories": {
+    "source": {
+      "branch": "telegram-delivery-adapter-canary-2026-5-7-backport",
+      "base": "5e15c706e7549d827a44156fe5f3360858a3d5d3",
+      "head": "68faa47abd57a608a6e0c06fd4ff79211f254517"
+    },
+    "workspace": {
+      "branch": "evidence/umc-m3n-post-restart-health-failclosed-20260713",
+      "head": "83917877212476125458d317a68d0e535f87c7b7"
+    }
+  },
+  "pushed": false,
+  "m25oStarted": false,
+  "m26Started": false
 }

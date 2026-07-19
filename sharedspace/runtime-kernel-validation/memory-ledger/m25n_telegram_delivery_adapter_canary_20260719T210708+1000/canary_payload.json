@@ -1,0 +1,12 @@
+{
+  "milestone": "M25N",
+  "terminal": "M25N_TELEGRAM_DELIVERY_ADAPTER_CANARY_PASS_ONE_SEND",
+  "evidenceRoot": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000",
+  "targetAlias": "operator-canary-target",
+  "title": "[CANARY TEST \u2014 sanitized Context Bridge summary] M25N Telegram delivery-adapter canary",
+  "bodySummary": "M25N canary \u2014 sanitized Telegram delivery-adapter test completed. This is an authorized test message. No action is required.",
+  "payloadSha256": "104596ef076c9c3ec2a1aea70814b98c84b622f1358cab2ea4c87bca21af6b23",
+  "privateScanPass": true,
+  "rawIdentifiersPresent": false,
+  "validatedCanaryMeaning": true
+}

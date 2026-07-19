@@ -1,0 +1,17 @@
+{
+  "milestone": "M25N",
+  "terminal": "M25N_TELEGRAM_DELIVERY_ADAPTER_CANARY_PASS_ONE_SEND",
+  "evidenceRoot": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000",
+  "targetAlias": "operator-canary-target",
+  "surfacePolicy": {
+    "deliverySurface": "telegram",
+    "allowedTargetAliases": [
+      "operator-canary-target"
+    ],
+    "allowedCapabilities": [
+      "send_text"
+    ],
+    "maxDeliveries": 1,
+    "policyEpoch": "policy_epoch_m25n_001"
+  }
+}

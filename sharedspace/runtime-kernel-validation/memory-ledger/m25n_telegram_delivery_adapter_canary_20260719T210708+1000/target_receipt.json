@@ -1,0 +1,17 @@
+{
+  "schema": "stickbot.surface_response_target.receipt.v1",
+  "schemaVersion": "1.0.0",
+  "receiptId": "receipt-8fa23199da9a031f",
+  "requestId": "target-req-m25n-canary",
+  "grantId": "grant-05d860d64ac05f1f",
+  "surfaceId": "owner-direct-telegram-canary-surface",
+  "targetAlias": "operator-canary-target",
+  "resolutionStatus": "RESOLVED",
+  "identityVerified": true,
+  "sessionVerified": true,
+  "rawTargetExposed": false,
+  "policyEpoch": "policy_epoch_m25n_001",
+  "durationMs": 1,
+  "receiptSha256": "13f2bca2222d457a9e8c0c663c5bd6a47e59a9818455bb31d59d9e9e64e109d1",
+  "contractHash": "5b835408d567ca254a959f582d382b563fa42d4a34dcaba9d7820160b211e4a8"
+}

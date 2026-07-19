@@ -1,0 +1,18 @@
+{
+  "schema": "stickbot.surface_response_target.request.v1",
+  "schemaVersion": "1.0.0",
+  "requestId": "target-req-m25n-canary",
+  "surfaceId": "owner-direct-telegram-canary-surface",
+  "targetAlias": "operator-canary-target",
+  "identityScope": "owner",
+  "sessionScopeHash": "7777777777777777777777777777777777777777777777777777777777777777",
+  "deliveryIntent": "m25n-sanitized-delivery-canary",
+  "requiredCapabilities": [
+    "send_text"
+  ],
+  "approvalContext": "m25n-owner-approved-one-send-canary",
+  "idempotencyKey": "m25n-one-send-canary-idempotency",
+  "policyEpoch": "policy_epoch_m25n_001",
+  "expiresAt": "2026-07-19T11:17:08.542Z",
+  "contractHash": "8c48ec645642d9e94692ceba921fbb3840f9d6d1ccc329414b98ff17e913f98b"
+}

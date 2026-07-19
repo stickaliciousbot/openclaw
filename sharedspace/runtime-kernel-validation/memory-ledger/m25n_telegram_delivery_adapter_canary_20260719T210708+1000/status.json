@@ -20,5 +20,9 @@
   "gateway_restart_or_reload": false,
   "cron_retry_job_created": false,
   "ledger_or_context_bridge_mutated": false,
-  "push_performed": false
+  "push_performed": false,
+  "evidenceArtifactSetCompleted": true,
+  "gatewayHealthAfter": "PASS",
+  "sourceHead": "68faa47abd57a608a6e0c06fd4ff79211f254517",
+  "workspaceHead": "83917877212476125458d317a68d0e535f87c7b7"
 }
