@@ -1,21 +1,20 @@
 {
-  "anchors": {
-    "closeoutAnchor": "closeout_anchor",
-    "ledgerCompletionAnchor": "ledger_completion_anchor",
-    "terminalPayloadAnchor": "terminal_payload_anchor"
-  },
-  "body": "NO_REPLY",
-  "completionStatus": "PASS",
-  "contractHash": "5daa02075b2b5cf2faad6bb6eeae4ab2fd3a431bacb10735873a9ad90f8d6ea3",
-  "createdAt": "2026-07-19T07:12:00Z",
+  "boundaryHandlerRequired": true,
+  "closeoutAnchor": "closeout_anchor",
+  "contractHash": "2e0c9be50146d6bbd06b3f8125f85123a559be32939300838d949b68ec0708ab",
+  "deliveryIntent": "NO_REPLY",
+  "deliveryRequired": true,
   "deliverySurface": "owner_direct",
-  "idempotencyKey": "m25j:delivery:idem",
-  "payloadSha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
-  "payloadType": "milestone_closeout",
-  "privateScanPass": true,
-  "rawIdentifiersPresent": false,
-  "sanitized": true,
-  "schema": "stickbot.sanitized_payload.v1",
+  "evidenceRoot": "sharedspace/runtime-kernel-validation/memory-ledger/m25j_contract_schema_skeleton_20260719T171500+1000",
+  "expiresAt": "2026-07-20T00:00:00Z",
+  "idempotencyKey": "m25jr:target:idem",
+  "jobId": "job_delivery_m25j",
+  "ledgerCompletionAnchor": "ledger_completion_anchor",
+  "maxDeliveries": 1,
+  "sanitizationPolicy": "no_raw_identifiers_private_scan_pass",
+  "schema": "stickbot.delivery_required_job.v1",
   "schemaVersion": "1.0.0",
-  "title": "M25J sanitized fixture"
+  "targetAlias": "owner-direct-primary",
+  "targetResolutionRequired": true,
+  "terminalPayloadAnchor": "terminal_payload_anchor"
 }

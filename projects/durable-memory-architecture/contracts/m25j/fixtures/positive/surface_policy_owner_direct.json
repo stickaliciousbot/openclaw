@@ -6,17 +6,21 @@
     "sanitized"
   ],
   "approvalRequired": false,
-  "contractHash": "81c5c7cb865621a935ad53e601233a831049c75e0a7834c6e0ce89adca65d5c0",
+  "contractHash": "7bfebb2559725ba5651d380800a066bbbe305be7fb083e00b39ab3953adbd729",
   "deliveryDedupePolicy": "suppress_duplicate_idempotency_key",
   "evidencePolicy": "receipt_required",
   "externalSendPolicy": "deny_without_policy",
   "identityScope": "owner_alias",
   "mayNarrowOnly": true,
+  "noFallbackPolicy": true,
   "permittedDeliverySurfaces": [
     "owner_direct_fixture"
   ],
   "permittedServices": [
     "svc_context_reconstruction"
+  ],
+  "permittedTargetAliases": [
+    "owner-direct-primary"
   ],
   "permittedTools": [],
   "policyHash": "6666666666666666666666666666666666666666666666666666666666666666",
@@ -26,5 +30,12 @@
   "schemaVersion": "1.0.0",
   "sessionScope": "offline_contract_fixture",
   "surfaceId": "surface_owner_direct",
-  "surfaceType": "owner_direct"
+  "surfaceType": "owner_direct",
+  "targetDeliveryCapabilities": [
+    "send_text"
+  ],
+  "targetEvidenceRedactionPolicy": "keyed_rotating_non_correlatable_alias",
+  "targetGrantExpiryLimitSeconds": 300,
+  "targetGrantRequired": true,
+  "targetResolutionPolicy": "srtr_required"
 }

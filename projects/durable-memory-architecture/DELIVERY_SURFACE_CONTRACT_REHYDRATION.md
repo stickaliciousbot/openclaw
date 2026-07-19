@@ -37,3 +37,7 @@ The rehydrator reads only allowlisted local design/evidence/navigation files:
 ## Boundaries
 
 The packet is non-authoritative navigation data. It does not inject context, mutate Gateway/config/Ledger/Context Bridge/runtime/routes/model settings, arm handlers, schedule or run cron jobs, send Telegram, run delivery, promote authority, or start M26/implementation milestones.
+
+## M25J-R SRTR rehydration anchor
+
+Current M25J rehydration must include the SRTR extension: sanitized target request/grant/receipt schemas, synthetic raw-target security fixtures, target gates/health checks, and milestone sequence updates. The rehydrator remains non-authoritative navigation only and must not expose raw target IDs or inject target handles into prompts, Context Bridge, UMC prose, or evidence.

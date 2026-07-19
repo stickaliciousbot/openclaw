@@ -1,0 +1,5 @@
+{
+  "expectedTerminal": "FAIL_RAW_SURFACE_TARGET_IDENTIFIER",
+  "fixtureType": "forbidden_raw_surface_target_identifier",
+  "syntheticUnsafeValue": "<RAW_TELEGRAM_CHAT_ID_FORBIDDEN>"
+}

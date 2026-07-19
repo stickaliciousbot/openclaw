@@ -53,3 +53,7 @@ Use `projects/durable-memory-architecture/M25J_FILE_ALLOWLIST_AND_TEST_MATRIX.js
 - Evidence manifest with no unresolved UNKNOWN.
 
 Stop after M25J; do not start M25K.
+
+## M25J-R SRTR extension
+
+M25J now includes the Surface Response Target Resolver contract skeleton: `SurfaceResponseTargetRequest`, `SurfaceResponseTargetGrant`, and `SurfaceResponseTargetReceipt`. Security fixtures must use visibly synthetic forbidden markers such as `<RAW_TELEGRAM_TARGET_ID_FORBIDDEN>` rather than realistic provider identifiers. M25J-R remains offline/no-live-delivery and must not implement a target registry, invoke adapters, mutate runtime config, create jobs, or start M25K.

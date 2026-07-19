@@ -1,0 +1,7 @@
+{
+  "no_live_delivery": true,
+  "prior_terminal": "M25J_CONTRACT_SCHEMA_SKELETON_TESTS_PASS_NO_LIVE_DELIVERY",
+  "repair_scope": "security_fixture_redaction_and_surface_response_target_contract_extension",
+  "schema": "stickbot.m25jr.run_config.v1",
+  "terminal_target": "M25J_R_SECURITY_FIXTURE_TARGET_RESOLVER_CONTRACTS_PASS_NO_LIVE_DELIVERY"
+}

@@ -1,16 +1,19 @@
 {
-  "contractHash": "cc039288eafa1f039dc6118627903cc138cd4582f07a344445061eb04f710676",
+  "contractHash": "89f8a0c94d460bceb8d268acc91b6fd978788cf3d758a12dec845bfc59748e3e",
   "delivered": true,
   "deliveryAttempted": false,
   "deliveryStatus": "delivered",
   "deliverySurface": "owner_direct",
   "duplicateSuppressed": false,
   "errorClass": "",
-  "idempotencyKey": "m25j:delivery:idem",
+  "idempotencyKey": "m25jr:target:idem",
   "jobId": "job_delivery_m25j",
+  "policyEpoch": "policy_epoch_m25jr_001",
   "resultSha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
   "sanitizedEvidencePath": "sharedspace/runtime-kernel-validation/memory-ledger/m25j_contract_schema_skeleton_20260719T171500+1000/test_results.json",
   "schema": "stickbot.delivery_result.v1",
   "schemaVersion": "1.0.0",
+  "targetGrantId": "grant_m25jr_owner_direct",
+  "targetScopeAlias": "ksa:m25jr:target:001",
   "timestamp": "2026-07-19T07:12:00Z"
 }

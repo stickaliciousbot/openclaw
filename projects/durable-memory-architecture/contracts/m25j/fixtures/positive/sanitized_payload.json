@@ -6,10 +6,10 @@
   },
   "body": "M25J sanitized fixture payload",
   "completionStatus": "PASS",
-  "contractHash": "3f0c6362e894927ecfd3997ec0a3c459de4d991e2cad9ab0d4347a47e2dc8293",
+  "contractHash": "1d43d5351a351f8642c0f73c3c8196fc01ea36f5f18b673d4194ba1d12824f56",
   "createdAt": "2026-07-19T07:12:00Z",
   "deliverySurface": "owner_direct",
-  "idempotencyKey": "m25j:delivery:idem",
+  "idempotencyKey": "m25jr:target:idem",
   "payloadSha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
   "payloadType": "milestone_closeout",
   "privateScanPass": true,
@@ -17,5 +17,6 @@
   "sanitized": true,
   "schema": "stickbot.sanitized_payload.v1",
   "schemaVersion": "1.0.0",
+  "targetAlias": "owner-direct-primary",
   "title": "M25J sanitized fixture"
 }

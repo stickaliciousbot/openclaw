@@ -1,0 +1,17 @@
+{
+  "contractHash": "365196611082d25f2f8f41f1f15e62c7a4d003c0dfa7a84de3cbaf81c727ada6",
+  "durationMs": 3,
+  "grantId": "grant_m25jr_owner_direct",
+  "identityVerified": true,
+  "policyEpoch": "policy_epoch_m25jr_001",
+  "rawTargetExposed": false,
+  "receiptId": "receipt_expired_m25jr",
+  "receiptSha256": "2222222222222222222222222222222222222222222222222222222222222222",
+  "requestId": "target_req_m25jr_001",
+  "resolutionStatus": "EXPIRED",
+  "schema": "stickbot.surface_response_target.receipt.v1",
+  "schemaVersion": "1.0.0",
+  "sessionVerified": true,
+  "surfaceId": "telegram-owner-direct",
+  "targetAlias": "owner-direct-primary"
+}

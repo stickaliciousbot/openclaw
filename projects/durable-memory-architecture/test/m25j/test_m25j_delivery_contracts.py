@@ -26,4 +26,20 @@ class DeliveryTests(unittest.TestCase):
         for name in ['delivered_true_without_attempt','duplicate_suppression_wrong_status','failed_delivery_missing_error_class']:
             with self.subTest(name=name):
                 with self.assertRaises(ContractValidationError): validate_json_text((FIX/f'negative/{name}.json').read_text())
+    def test_srtr_request_grant_receipt_valid_path(self):
+        for name in ['surface_response_target_request_owner_direct','surface_response_target_grant_owner_direct','surface_response_target_receipt_resolved']:
+            with self.subTest(name=name):
+                self.assertEqual(validate_json_text((FIX/f'positive/{name}.json').read_text())['validationTerminal'],'PASS')
+    def test_srtr_rejects_raw_target_markers_and_fallback(self):
+        for name in ['target_request_raw_chat_id','target_request_raw_message_id','target_grant_raw_provider_target_id','target_request_fallback_target_field']:
+            with self.subTest(name=name):
+                with self.assertRaises(ContractValidationError): validate_json_text((FIX/f'negative/{name}.json').read_text())
+    def test_srtr_enforces_verification_single_delivery_and_no_raw_receipt(self):
+        for name in ['target_grant_without_identity_verification','target_grant_without_session_verification','target_grant_max_deliveries_gt_one','target_receipt_raw_target_exposed','target_receipt_resolved_without_identity','target_receipt_resolved_without_session']:
+            with self.subTest(name=name):
+                with self.assertRaises(ContractValidationError): validate_json_text((FIX/f'negative/{name}.json').read_text())
+    def test_delivery_result_requires_target_grant_chain(self):
+        for name in ['delivery_without_target_grant','delivery_target_idempotency_mismatch']:
+            with self.subTest(name=name):
+                with self.assertRaises(ContractValidationError): validate_json_text((FIX/f'negative/{name}.json').read_text())
 if __name__=='__main__': unittest.main()

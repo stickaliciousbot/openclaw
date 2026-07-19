@@ -1,0 +1,5 @@
+{
+  "live_apply": false,
+  "rollback": "revert/remove M25J files only; verify hashes remain stable",
+  "schema": "stickbot.m25j.rollback_proof.v1"
+}

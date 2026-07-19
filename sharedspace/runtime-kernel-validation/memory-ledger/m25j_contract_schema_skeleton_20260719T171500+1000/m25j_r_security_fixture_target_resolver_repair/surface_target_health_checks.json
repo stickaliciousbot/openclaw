@@ -1,0 +1,56 @@
+{
+  "checks": [
+    {
+      "check": "HC_TARGET_01",
+      "mode": "fixture_or_design_only_no_live_registry",
+      "status": "PASS"
+    },
+    {
+      "check": "HC_TARGET_02",
+      "mode": "fixture_or_design_only_no_live_registry",
+      "status": "PASS"
+    },
+    {
+      "check": "HC_TARGET_03",
+      "mode": "fixture_or_design_only_no_live_registry",
+      "status": "PASS"
+    },
+    {
+      "check": "HC_TARGET_04",
+      "mode": "fixture_or_design_only_no_live_registry",
+      "status": "PASS"
+    },
+    {
+      "check": "HC_TARGET_05",
+      "mode": "fixture_or_design_only_no_live_registry",
+      "status": "PASS"
+    },
+    {
+      "check": "HC_TARGET_06",
+      "mode": "fixture_or_design_only_no_live_registry",
+      "status": "PASS"
+    },
+    {
+      "check": "HC_TARGET_07",
+      "mode": "fixture_or_design_only_no_live_registry",
+      "status": "PASS"
+    },
+    {
+      "check": "HC_TARGET_08",
+      "mode": "fixture_or_design_only_no_live_registry",
+      "status": "PASS"
+    },
+    {
+      "check": "HC_TARGET_09",
+      "mode": "fixture_or_design_only_no_live_registry",
+      "status": "PASS"
+    },
+    {
+      "check": "HC_TARGET_10",
+      "mode": "fixture_or_design_only_no_live_registry",
+      "status": "PASS"
+    }
+  ],
+  "schema": "stickbot.m25jr.surface_target_health_checks.v1",
+  "status": "PASS"
+}

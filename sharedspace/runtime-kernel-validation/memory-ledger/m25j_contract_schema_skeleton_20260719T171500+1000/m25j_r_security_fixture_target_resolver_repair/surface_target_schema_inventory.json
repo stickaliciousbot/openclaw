@@ -1,0 +1,73 @@
+{
+  "schema": "stickbot.m25jr.surface_target_schema_inventory.v1",
+  "schemas": [
+    {
+      "extensionsAllowed": false,
+      "name": "SurfaceResponseTargetGrant",
+      "required": [
+        "schema",
+        "schemaVersion",
+        "grantId",
+        "requestId",
+        "surfaceId",
+        "targetAlias",
+        "targetHandleRef",
+        "targetScopeAlias",
+        "identityVerified",
+        "sessionVerified",
+        "deliveryAllowed",
+        "allowedCapabilities",
+        "maxDeliveries",
+        "policyEpoch",
+        "issuedAt",
+        "expiresAt",
+        "grantSha256",
+        "contractHash"
+      ],
+      "schema": "stickbot.surface_response_target.grant.v1"
+    },
+    {
+      "extensionsAllowed": false,
+      "name": "SurfaceResponseTargetReceipt",
+      "required": [
+        "schema",
+        "schemaVersion",
+        "receiptId",
+        "requestId",
+        "grantId",
+        "surfaceId",
+        "targetAlias",
+        "resolutionStatus",
+        "identityVerified",
+        "sessionVerified",
+        "policyEpoch",
+        "rawTargetExposed",
+        "durationMs",
+        "receiptSha256",
+        "contractHash"
+      ],
+      "schema": "stickbot.surface_response_target.receipt.v1"
+    },
+    {
+      "extensionsAllowed": false,
+      "name": "SurfaceResponseTargetRequest",
+      "required": [
+        "schema",
+        "schemaVersion",
+        "requestId",
+        "surfaceId",
+        "targetAlias",
+        "identityScope",
+        "sessionScopeHash",
+        "deliveryIntent",
+        "requiredCapabilities",
+        "approvalContext",
+        "idempotencyKey",
+        "policyEpoch",
+        "expiresAt",
+        "contractHash"
+      ],
+      "schema": "stickbot.surface_response_target.request.v1"
+    }
+  ]
+}

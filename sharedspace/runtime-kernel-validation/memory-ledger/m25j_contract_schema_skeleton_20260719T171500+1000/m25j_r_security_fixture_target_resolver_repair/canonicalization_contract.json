@@ -1,0 +1,9 @@
+{
+  "encoding": "UTF-8",
+  "hash": "SHA-256 lowercase hex",
+  "numbers": "integers only; floats rejected to avoid ambiguous serializer behavior",
+  "objectKeys": "sorted",
+  "selfHashExclusion": "contractHash is excluded only from its own preimage; additional packet/receipt/policy hashes are shape-checked unless specified by schema invariant",
+  "standard": "JCS-compatible bounded subset",
+  "whitespace": "none"
+}

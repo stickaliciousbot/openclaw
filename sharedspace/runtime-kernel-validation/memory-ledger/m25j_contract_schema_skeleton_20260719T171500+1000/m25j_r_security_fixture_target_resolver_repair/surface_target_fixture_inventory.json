@@ -1,0 +1,195 @@
+{
+  "negative": [
+    {
+      "category": "negative",
+      "errorCode": "TARGET_CHAIN_IDEMPOTENCY_MISMATCH",
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/delivery_target_idempotency_mismatch.json",
+      "terminal": "EXPECTED_FAIL"
+    },
+    {
+      "category": "negative",
+      "errorCode": "TARGET_GRANT_REQUIRED",
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/delivery_without_target_grant.json",
+      "terminal": "EXPECTED_FAIL"
+    },
+    {
+      "category": "negative",
+      "errorCode": "TARGET_GRANT_EXPIRED",
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/target_grant_expired.json",
+      "terminal": "EXPECTED_FAIL"
+    },
+    {
+      "category": "negative",
+      "errorCode": "TARGET_MAX_DELIVERIES_GT_ONE",
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/target_grant_max_deliveries_gt_one.json",
+      "terminal": "EXPECTED_FAIL"
+    },
+    {
+      "category": "negative",
+      "errorCode": "TARGET_POLICY_EPOCH_MISMATCH",
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/target_grant_policy_epoch_mismatch.json",
+      "terminal": "EXPECTED_FAIL"
+    },
+    {
+      "category": "negative",
+      "errorCode": "FAIL_RAW_SURFACE_TARGET_IDENTIFIER",
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/target_grant_raw_provider_target_id.json",
+      "terminal": "EXPECTED_FAIL"
+    },
+    {
+      "category": "negative",
+      "errorCode": "TARGET_VERIFICATION_REQUIRED",
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/target_grant_without_identity_verification.json",
+      "terminal": "EXPECTED_FAIL"
+    },
+    {
+      "category": "negative",
+      "errorCode": "TARGET_VERIFICATION_REQUIRED",
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/target_grant_without_session_verification.json",
+      "terminal": "EXPECTED_FAIL"
+    },
+    {
+      "category": "negative",
+      "errorCode": "TARGET_VERIFICATION_REQUIRED",
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/target_grant_wrong_identity.json",
+      "terminal": "EXPECTED_FAIL"
+    },
+    {
+      "category": "negative",
+      "errorCode": "UNKNOWN_FIELD",
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/target_grant_wrong_session.json",
+      "terminal": "EXPECTED_FAIL"
+    },
+    {
+      "category": "negative",
+      "errorCode": "TARGET_GRANT_SURFACE_MISMATCH",
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/target_grant_wrong_surface.json",
+      "terminal": "EXPECTED_FAIL"
+    },
+    {
+      "category": "negative",
+      "errorCode": "RAW_TARGET_EXPOSED",
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/target_receipt_raw_target_exposed.json",
+      "terminal": "EXPECTED_FAIL"
+    },
+    {
+      "category": "negative",
+      "errorCode": "TARGET_VERIFICATION_REQUIRED",
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/target_receipt_resolved_without_identity.json",
+      "terminal": "EXPECTED_FAIL"
+    },
+    {
+      "category": "negative",
+      "errorCode": "TARGET_VERIFICATION_REQUIRED",
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/target_receipt_resolved_without_session.json",
+      "terminal": "EXPECTED_FAIL"
+    },
+    {
+      "category": "negative",
+      "errorCode": "EXPIRED_TARGET_REQUEST",
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/target_request_expired.json",
+      "terminal": "EXPECTED_FAIL"
+    },
+    {
+      "category": "negative",
+      "errorCode": "UNKNOWN_FIELD",
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/target_request_fallback_target_field.json",
+      "terminal": "EXPECTED_FAIL"
+    },
+    {
+      "category": "negative",
+      "errorCode": "TARGET_ALIAS_MISSING_OR_AMBIGUOUS",
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/target_request_missing_alias.json",
+      "terminal": "EXPECTED_FAIL"
+    },
+    {
+      "category": "negative",
+      "errorCode": "FAIL_RAW_SURFACE_TARGET_IDENTIFIER",
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/target_request_raw_chat_id.json",
+      "terminal": "EXPECTED_FAIL"
+    },
+    {
+      "category": "negative",
+      "errorCode": "FAIL_RAW_SURFACE_TARGET_IDENTIFIER",
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/target_request_raw_message_id.json",
+      "terminal": "EXPECTED_FAIL"
+    },
+    {
+      "category": "negative",
+      "errorCode": "BAD_TARGET_CAPABILITY",
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/target_request_wrong_capability.json",
+      "terminal": "EXPECTED_FAIL"
+    }
+  ],
+  "positive": [
+    {
+      "category": "positive",
+      "errorCode": null,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/surface_response_target_grant_owner_direct.json",
+      "schema": "stickbot.surface_response_target.grant.v1",
+      "terminal": "PASS"
+    },
+    {
+      "category": "positive",
+      "errorCode": null,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/surface_response_target_receipt_denied_wrong_identity.json",
+      "schema": "stickbot.surface_response_target.receipt.v1",
+      "terminal": "PASS"
+    },
+    {
+      "category": "positive",
+      "errorCode": null,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/surface_response_target_receipt_expired.json",
+      "schema": "stickbot.surface_response_target.receipt.v1",
+      "terminal": "PASS"
+    },
+    {
+      "category": "positive",
+      "errorCode": null,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/surface_response_target_receipt_hold_missing_alias.json",
+      "schema": "stickbot.surface_response_target.receipt.v1",
+      "terminal": "PASS"
+    },
+    {
+      "category": "positive",
+      "errorCode": null,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/surface_response_target_receipt_resolved.json",
+      "schema": "stickbot.surface_response_target.receipt.v1",
+      "terminal": "PASS"
+    },
+    {
+      "category": "positive",
+      "errorCode": null,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/surface_response_target_request_owner_direct.json",
+      "schema": "stickbot.surface_response_target.request.v1",
+      "terminal": "PASS"
+    }
+  ],
+  "schema": "stickbot.m25jr.surface_target_fixture_inventory.v1",
+  "security": [
+    {
+      "category": "security",
+      "errorCode": "FAIL_RAW_SURFACE_TARGET_IDENTIFIER",
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/security/raw_surface_target_handle_marker.json",
+      "terminal": "EXPECTED_FAIL"
+    },
+    {
+      "category": "security",
+      "errorCode": "FAIL_RAW_SURFACE_TARGET_IDENTIFIER",
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/security/raw_telegram_chat_marker.json",
+      "terminal": "EXPECTED_FAIL"
+    },
+    {
+      "category": "security",
+      "errorCode": "FAIL_RAW_SURFACE_TARGET_IDENTIFIER",
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/security/raw_telegram_identifier.json",
+      "terminal": "EXPECTED_FAIL"
+    },
+    {
+      "category": "security",
+      "errorCode": "FAIL_RAW_SURFACE_TARGET_IDENTIFIER",
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/security/raw_telegram_message_marker.json",
+      "terminal": "EXPECTED_FAIL"
+    }
+  ]
+}

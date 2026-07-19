@@ -23,6 +23,18 @@ class SchemaFixtureTests(unittest.TestCase):
         for p in files:
             with self.subTest(p=p.name):
                 with self.assertRaises(ContractValidationError): validate_json_text(p.read_text())
+    def test_srtr_schemas_are_registered(self):
+        from m25j.validators import NAME_TO_SCHEMA
+        self.assertEqual(NAME_TO_SCHEMA['SurfaceResponseTargetRequest'],'stickbot.surface_response_target.request.v1')
+        self.assertEqual(NAME_TO_SCHEMA['SurfaceResponseTargetGrant'],'stickbot.surface_response_target.grant.v1')
+        self.assertEqual(NAME_TO_SCHEMA['SurfaceResponseTargetReceipt'],'stickbot.surface_response_target.receipt.v1')
+    def test_unsafe_realistic_telegram_pattern_removed_from_security_fixture(self):
+        text=(FIX/'security/raw_telegram_identifier.json').read_text()
+        prior_target_pattern='telegram:' + '123456789'
+        prior_message_pattern='message_id=' + '41672'
+        self.assertNotIn(prior_target_pattern, text)
+        self.assertNotIn(prior_message_pattern, text)
+        self.assertIn('<RAW_TELEGRAM_TARGET_ID_FORBIDDEN>', text)
     def test_required_fields_enforced_and_unknown_major_fails(self):
         obj=json.loads((FIX/'positive/sanitized_payload.json').read_text()); obj.pop('payloadType')
         with self.assertRaisesRegex(ContractValidationError,'MISSING_REQUIRED_FIELD'): validate_contract(obj)

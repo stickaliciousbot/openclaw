@@ -1,0 +1,12 @@
+{
+  "classified_security_fixtures": [
+    {
+      "classification": "intentional_negative_or_security_fixture",
+      "line": 7,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/security/private_key_marker.json"
+    }
+  ],
+  "findings": [],
+  "schema": "stickbot.m25j.privacy_scan.v1",
+  "status": "PASS"
+}

@@ -1,0 +1,7 @@
+{
+  "build_test": "PASS",
+  "post_build": "PASS",
+  "preflight": "PASS",
+  "schema": "stickbot.m25j.health_checks.v1",
+  "target_health_checks": "PASS"
+}

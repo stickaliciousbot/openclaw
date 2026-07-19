@@ -1,0 +1,18 @@
+{
+  "approvalContext": "m25n-owner-approved-canary",
+  "contractHash": "35dd3091782826910f6eca7933cd5c0960a5a6a7b514ade574a0ba74a8d8efb7",
+  "deliveryIntent": "ledger-completion-closeout",
+  "expiresAt": "2026-07-20T00:00:00Z",
+  "idempotencyKey": "m25jr:target:idem",
+  "identityScope": "owner",
+  "policyEpoch": "policy_epoch_m25jr_001",
+  "requestId": "target_req_m25jr_001",
+  "requiredCapabilities": [
+    "send_text"
+  ],
+  "schema": "stickbot.surface_response_target.request.v1",
+  "schemaVersion": "1.0.0",
+  "sessionScopeHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "surfaceId": "telegram-owner-direct",
+  "targetAlias": "<RAW_TELEGRAM_CHAT_ID_FORBIDDEN>"
+}

@@ -1,0 +1,46 @@
+{
+  "gates": [
+    {
+      "gate": "HG_TARGET_01",
+      "status": "PASS"
+    },
+    {
+      "gate": "HG_TARGET_02",
+      "status": "PASS"
+    },
+    {
+      "gate": "HG_TARGET_03",
+      "status": "PASS"
+    },
+    {
+      "gate": "HG_TARGET_04",
+      "status": "PASS"
+    },
+    {
+      "gate": "HG_TARGET_05",
+      "status": "PASS"
+    },
+    {
+      "gate": "HG_TARGET_06",
+      "status": "PASS"
+    },
+    {
+      "gate": "HG_TARGET_07",
+      "status": "PASS"
+    },
+    {
+      "gate": "HG_TARGET_08",
+      "status": "PASS"
+    },
+    {
+      "gate": "HG_TARGET_09",
+      "status": "PASS"
+    },
+    {
+      "gate": "HG_TARGET_10",
+      "status": "PASS"
+    }
+  ],
+  "schema": "stickbot.m25jr.surface_target_hard_gates.v1",
+  "status": "PASS"
+}

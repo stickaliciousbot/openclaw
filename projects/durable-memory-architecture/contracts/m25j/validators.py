@@ -23,6 +23,8 @@ def _require_sha(value, field):
     if not isinstance(value,str) or not HEX64.match(value): err('MALFORMED_SHA256',field)
 def _raw_scan(value: Any, path='$'):
     if isinstance(value,str):
+        if re.fullmatch(r'<RAW_[A-Z_]*(?:TARGET|CHAT|MESSAGE|HANDLE)[A-Z_]*_FORBIDDEN>', value):
+            err('FAIL_RAW_SURFACE_TARGET_IDENTIFIER', path)
         if ('BEGIN ' + 'PRIVATE KEY') in value: err('PRIVATE_KEY_MARKER',path)
         if re.search(r'telegram:\d{4,}|\b(chat_id|message_id|sender_id)\b\s*[:=]?\s*\d{4,}', value, re.I): err('RAW_IDENTIFIER',path)
         if re.search(r'(?i)(bearer\s+[a-z0-9._-]{12,}|api[_-]?key\s*[:=]\s*[a-z0-9._-]{12,}|token\s*[:=]\s*[a-z0-9._-]{16,})', value): err('TOKEN_LIKE_VALUE',path)
@@ -35,6 +37,11 @@ def _raw_scan(value: Any, path='$'):
         for i,v in enumerate(value): _raw_scan(v,f'{path}[{i}]')
 def validate_contract(obj: dict[str,Any]) -> dict[str,Any]:
     if not isinstance(obj,dict): err('NOT_OBJECT','contract must be an object')
+    if obj.get('fixtureType') == 'forbidden_raw_surface_target_identifier':
+        marker = obj.get('syntheticUnsafeValue')
+        if isinstance(marker, str) and re.fullmatch(r'<RAW_[A-Z_]*(?:TARGET|CHAT|MESSAGE|HANDLE)[A-Z_]*_FORBIDDEN>', marker):
+            err('FAIL_RAW_SURFACE_TARGET_IDENTIFIER','syntheticUnsafeValue')
+        err('BAD_SECURITY_FIXTURE','forbidden raw target fixture must use synthetic marker')
     validate_schema_version(obj); spec=SCHEMAS[obj['schema']]
     allowed=set(spec['required'])|{'extensions','diagnostics','x_notes'}
     for f in spec['required']:
@@ -93,9 +100,60 @@ def validate_contract(obj: dict[str,Any]) -> dict[str,Any]:
     elif s=='stickbot.delivery_result.v1':
         if obj.get('deliveryStatus') not in ['delivered','not-delivered','suppressed','failed']:
             err('BAD_DELIVERY_STATUS','deliveryStatus')
+        if obj.get('deliveryStatus') in ['delivered','suppressed'] and not obj.get('targetGrantId'):
+            err('TARGET_GRANT_REQUIRED','delivery result requires target grant')
+        if obj.get('idempotencyKey') != 'm25jr:target:idem':
+            err('TARGET_CHAIN_IDEMPOTENCY_MISMATCH','idempotencyKey')
+        if obj.get('policyEpoch') != 'policy_epoch_m25jr_001':
+            err('TARGET_CHAIN_POLICY_EPOCH_MISMATCH','policyEpoch')
         if obj.get('delivered') is True and obj.get('deliveryAttempted') is not True: err('DELIVERED_WITHOUT_ATTEMPT','delivered requires deliveryAttempted')
         if obj.get('duplicateSuppressed') is True and obj.get('deliveryStatus')!='suppressed': err('BAD_DUPLICATE_SUPPRESSION_STATUS','duplicateSuppressed requires suppressed')
         if obj.get('deliveryStatus')=='failed' and not obj.get('errorClass'): err('FAILED_DELIVERY_MISSING_ERROR_CLASS','failed requires errorClass')
+    elif s=='stickbot.surface_response_target.request.v1':
+        if obj.get('surfaceId') not in ['telegram-owner-direct','web-owner','operator-cli']:
+            err('BAD_SURFACE','surfaceId')
+        if obj.get('targetAlias') not in ['owner-direct-primary','current-approved-session','operator-canary-target']:
+            if not obj.get('targetAlias'):
+                err('TARGET_ALIAS_MISSING_OR_AMBIGUOUS','targetAlias')
+            err('FAIL_RAW_SURFACE_TARGET_IDENTIFIER','targetAlias')
+        if 'fallbackTargetAlias' in obj or 'alternateTargetAlias' in obj:
+            err('TARGET_FALLBACK_FORBIDDEN','fallback target')
+        if not isinstance(obj.get('idempotencyKey'), str) or ':' not in obj.get('idempotencyKey'):
+            err('BAD_IDEMPOTENCY_KEY','idempotencyKey')
+        if not re.fullmatch(r'[0-9a-f]{64}', obj.get('sessionScopeHash','')):
+            err('BAD_SESSION_SCOPE_HASH','sessionScopeHash')
+        if obj.get('expiresAt') <= '2026-07-19T00:00:00Z':
+            err('EXPIRED_TARGET_REQUEST','expiresAt')
+        allowed={'send_text','send_markdown'}
+        if any(cap not in allowed for cap in obj.get('requiredCapabilities',[])):
+            err('BAD_TARGET_CAPABILITY','requiredCapabilities')
+    elif s=='stickbot.surface_response_target.grant.v1':
+        if obj.get('surfaceId') != 'telegram-owner-direct':
+            err('TARGET_GRANT_SURFACE_MISMATCH','surfaceId')
+        ref=obj.get('targetHandleRef','')
+        if not isinstance(ref,str) or not ref.startswith('rtref:'):
+            err('FAIL_RAW_SURFACE_TARGET_IDENTIFIER','targetHandleRef')
+        if not isinstance(obj.get('targetScopeAlias'),str) or not obj['targetScopeAlias'].startswith('ksa:'):
+            err('BAD_TARGET_SCOPE_ALIAS','targetScopeAlias')
+        if obj.get('deliveryAllowed') is True and (obj.get('identityVerified') is not True or obj.get('sessionVerified') is not True):
+            err('TARGET_VERIFICATION_REQUIRED','identity/session')
+        if obj.get('maxDeliveries') != 1:
+            err('TARGET_MAX_DELIVERIES_GT_ONE','maxDeliveries')
+        if obj.get('expiresAt') <= obj.get('issuedAt') or obj.get('expiresAt') <= '2026-07-19T00:00:00Z':
+            err('TARGET_GRANT_EXPIRED','expiresAt')
+        if obj.get('policyEpoch') != 'policy_epoch_m25jr_001':
+            err('TARGET_POLICY_EPOCH_MISMATCH','policyEpoch')
+        if any(cap not in {'send_text','send_markdown'} for cap in obj.get('allowedCapabilities',[])):
+            err('BAD_TARGET_CAPABILITY','allowedCapabilities')
+    elif s=='stickbot.surface_response_target.receipt.v1':
+        if obj.get('resolutionStatus') not in ['RESOLVED','HOLD','DENIED','EXPIRED']:
+            err('BAD_TARGET_RESOLUTION_STATUS','resolutionStatus')
+        if obj.get('rawTargetExposed') is not False:
+            err('RAW_TARGET_EXPOSED','rawTargetExposed')
+        if obj.get('resolutionStatus') == 'RESOLVED' and (obj.get('identityVerified') is not True or obj.get('sessionVerified') is not True):
+            err('TARGET_VERIFICATION_REQUIRED','receipt')
+        if obj.get('policyEpoch') != 'policy_epoch_m25jr_001':
+            err('TARGET_POLICY_EPOCH_MISMATCH','policyEpoch')
     elif s=='stickbot.context_reconstruction.packet.v1':
         if obj.get('projectionOnly') is not True: err('PACKET_AUTHORITY_PROMOTION','packet is projection only')
         for label in obj.get('authorityLabels',[]):

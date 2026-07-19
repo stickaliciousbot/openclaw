@@ -5,7 +5,7 @@
   "authorityPolicy": "receipt_required",
   "consequenceLevel": "medium",
   "contractEnvelopeId": "umc_m25j_delivery",
-  "contractHash": "33afcd2b0ec0d8b2886da7e289466741787cf67c52623374bd8ae62571e3963e",
+  "contractHash": "27dec399a6526091e840b60e3372456f400d979a9742f9d8d0390a6cada94e8e",
   "deliveryPolicy": "delivery_required_no_no_reply",
   "prohibitedClaimsWithoutReceipt": [
     "delivery_success",
@@ -24,6 +24,10 @@
   "requiredServices": [
     "svc_context_reconstruction"
   ],
+  "requiredTargetReceipts": [
+    "target_receipt_m25jr_resolved"
+  ],
+  "requiredTargetResolution": true,
   "requiredTools": [],
   "schema": "stickbot.umc.contract_envelope.v1",
   "schemaVersion": "1.0.0",

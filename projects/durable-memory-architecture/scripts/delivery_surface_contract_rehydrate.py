@@ -55,6 +55,9 @@ WORKSPACE_SOURCES = (
     ("m25i_hard_gate_registry", Path("projects/durable-memory-architecture/M25I_HARD_GATE_REGISTRY.json"), "m25i_design_inventory_non_authoritative"),
     ("m25i_health_model", Path("projects/durable-memory-architecture/M25I_HEALTH_MODEL.json"), "m25i_design_inventory_non_authoritative"),
     ("m25j_allowlist", Path("projects/durable-memory-architecture/M25J_FILE_ALLOWLIST_AND_TEST_MATRIX.json"), "m25j_readiness_non_authoritative"),
+    ("m25j_srtr_schema_registry", Path("projects/durable-memory-architecture/contracts/m25j/schema_registry.json"), "m25j_srtr_contract_navigation_non_authoritative"),
+    ("m25j_srtr_validator", Path("projects/durable-memory-architecture/contracts/m25j/validators.py"), "m25j_srtr_contract_navigation_non_authoritative"),
+    ("m25j_srtr_repaired_security_fixture", Path("projects/durable-memory-architecture/contracts/m25j/fixtures/security/raw_telegram_identifier.json"), "m25j_srtr_security_fixture_repair_non_authoritative"),
 )
 
 FORBIDDEN_PATTERNS = (
@@ -70,6 +73,7 @@ FORBIDDEN_PATTERNS = (
         ),
     ),
     ("raw_auth_header", re.compile(r"(?i)\bAuthorization\s*:\s*\S+")),
+    ("raw_surface_target_identifier", re.compile(r"(?i)telegram:\d{4,}|\b(?:chat_id|message_id|sender_id)\b\s*[:=]?\s*\d{4,}")),
 )
 
 SUMMARY_JSON_FIELDS = (
@@ -246,6 +250,7 @@ def build_packet(workspace: Path, project_root: Path) -> tuple[dict[str, Any], s
             "Bind job/run/session -> boundary decision -> reply payload -> message_sending gate -> delivery runtime -> message_sent receipt -> closeout.",
             "Make exactly-one delivery and dedupe contract-level properties.",
             "Keep Surface Service Broker privacy/rendering/delivery policy separate from Runtime Service Broker source authority.",
+            "Keep Surface Response Target Resolver grants separate from surface authorization and raw provider target handles.",
             "Require UMC postcondition receipts before prose claims delivery/source success.",
         ],
     }

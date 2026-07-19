@@ -1,7 +1,7 @@
 {
   "boundaryHandlerRequired": false,
   "closeoutAnchor": "",
-  "contractHash": "79b3322c53c5f0c5f96d4307cc55da1774cc6026200218573e96886f159b239f",
+  "contractHash": "13451d66e60a9dfd29d868a6099671b6e0470117a3d1478d96c797ab5b7b0045",
   "deliveryIntent": "quiet_success",
   "deliveryRequired": false,
   "deliverySurface": "none",
@@ -14,5 +14,7 @@
   "sanitizationPolicy": "sanitized_or_empty",
   "schema": "stickbot.delivery_required_job.v1",
   "schemaVersion": "1.0.0",
+  "targetAlias": "none",
+  "targetResolutionRequired": false,
   "terminalPayloadAnchor": ""
 }

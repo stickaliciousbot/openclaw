@@ -1,0 +1,11 @@
+{
+  "negative": 45,
+  "no_live_delivery": true,
+  "positive": 36,
+  "pushed": false,
+  "schema": "stickbot.m25jr.summary.v1",
+  "schemas": 28,
+  "security": 10,
+  "srtr_schemas": 3,
+  "terminal_status": "M25J_R_SECURITY_FIXTURE_TARGET_RESOLVER_CONTRACTS_PASS_NO_LIVE_DELIVERY"
+}

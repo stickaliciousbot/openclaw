@@ -1,0 +1,7 @@
+{
+  "expected_terminal": "FAIL_RAW_SURFACE_TARGET_IDENTIFIER",
+  "original_realistic_pattern_absent": true,
+  "replacement_marker": "<RAW_TELEGRAM_TARGET_ID_FORBIDDEN>",
+  "schema": "stickbot.m25jr.security_fixture_repair.v1",
+  "unsafe_fixture": "projects/durable-memory-architecture/contracts/m25j/fixtures/security/raw_telegram_identifier.json"
+}

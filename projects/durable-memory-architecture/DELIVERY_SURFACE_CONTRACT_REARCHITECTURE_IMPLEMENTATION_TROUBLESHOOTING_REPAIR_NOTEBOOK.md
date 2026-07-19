@@ -200,3 +200,58 @@ Stop after creating the notebook/rehydrator and validating that the design rehyd
 - Owner LLD copied unchanged to `projects/durable-memory-architecture/DURABLE_MEMORY_LEDGER_CONTEXT_CONTRACT_SURFACE_BROKER_LLD.md` with SHA-256 `edd7284f2f591517b3536300ba476ab9b06abd0d01a02ec3b1500cc748f66de1`.
 - Current systemic blocker: delivery-required cron/proof work can still collapse to `NO_REPLY`/not-delivered despite handler-local repair, so the architecture now requires explicit job/run/session, boundary, payload, SSB, adapter and UMC receipt binding.
 - Boundaries preserved: no jobs, no handler arming, no Gateway reload/restart, no Telegram/delivery adapter, no Ledger/Context Bridge/model-route mutation, no authority promotion, no M25J/M26 start.
+
+## 12. M25J-R — Surface Response Target Resolver repair extension
+
+Status: started 2026-07-19 AEST as a narrow continuation of M25J. No live delivery, no target registry implementation, no Gateway/plugin/config mutation, no handler arming, no retry/job creation, no Ledger/Context Bridge/route mutation, no authority promotion, no M25K/M26.
+
+### 12.1 New missing layer
+
+The architecture now explicitly separates authorized surface from authorized response target. The bounded layer is the **Surface Response Target Resolver (SRTR)**, initially an SSB subservice/contract layer.
+
+Canonical path:
+
+```text
+SanitizedPayloadEnvelope
+-> Surface Service Broker policy decision
+-> Surface Response Target Resolver
+-> Surface Delivery Adapter
+-> DeliveryResultEnvelope
+```
+
+SRTR resolves symbolic target aliases to runtime-private handles through a private untracked registry. It must produce sanitized grants/receipts and must not expose raw provider IDs, choose fallback recipients, generate content, decide source authority, broaden SSB permission, persist raw target IDs, send messages, or let the model choose arbitrary addresses.
+
+### 12.2 SRTR contracts
+
+- `SurfaceResponseTargetRequest` (`stickbot.surface_response_target.request.v1`)
+- `SurfaceResponseTargetGrant` (`stickbot.surface_response_target.grant.v1`)
+- `SurfaceResponseTargetReceipt` (`stickbot.surface_response_target.receipt.v1`)
+
+Required global target gates: every external delivery requires a valid unexpired target grant; surface authorization does not imply target authorization; raw provider target identifiers never appear in tracked artifacts; aliases resolve only through the later private runtime registry; cross-user/session/surface/stale replay denies; target resolution narrows only; no fallback; target grant/payload/result share grant chain, idempotency key, surface and policy epoch; max deliveries one; evidence uses keyed rotating non-correlatable aliases.
+
+### 12.3 M25J-R repair note
+
+The M25J preservation blocker was a security fixture using a realistic provider-target pattern. The repair must replace it with an unmistakably synthetic marker such as `<RAW_TELEGRAM_TARGET_ID_FORBIDDEN>` and update the detector so it tests prohibited category/field semantics, not a realistic numeric ID.
+
+### 12.4 Target registry and health model
+
+M25J-R does **not** implement a live target registry. It documents the future registry boundary and validates fixtures only.
+
+Future private registry shape:
+
+```text
+surface_id + target_alias -> private provider-specific target handle
+```
+
+Examples are symbolic: `telegram-owner-direct / owner-direct-primary`, `web-owner / current-authenticated-session`, `operator-cli / current-terminal`. The registry is untracked, owner/operator managed, permission restricted, separate from prompts/Context Bridge, and policy-epoch versioned. Missing, ambiguous, expired, unauthorized, wrong-user/session/surface, stale-grant, or replayed grants fail closed. No heuristic discovery and no fallback target.
+
+M25J-R fixture health checks: HC_TARGET_01 through HC_TARGET_10 are design/fixture checks only; they prove permission/ownership requirements, exact alias count, identity/session/capability binding, current expiry/epoch, wrong-scope denial, HOLD-on-missing-alias/no-fallback, zero raw-target leakage, replay rejection, and adapter rejection without target grant.
+
+### 12.5 Updated milestone sequence
+
+- M25J: contract schemas, including SRTR.
+- M25K: runtime quiet-vs-delivery-required classification.
+- M25L: boundary decision envelope integration.
+- M25M: sanitized payload plus target-resolution artifact canary, no send.
+- M25N: delivery adapter canary using an approved target grant, exactly one send.
+- M25O: armed one-shot full proof binding job, boundary decision, sanitized payload, SSB policy, target grant, delivery result and UMC postcondition.

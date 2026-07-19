@@ -59,3 +59,20 @@
 | UMC | required service/action fixtures, postcondition verification, prose-success rejection, HOLD rendering |
 | Surface/delivery | SSB policy intersection, render/redaction, delivery/dedupe, Telegram result, cross-surface denial |
 | Safety | no-write sentinels, privacy/injection, authority bypass, duplicate receipt, duplicate delivery, hydration strict status |
+
+## SRTR target gates and fixture health checks
+
+| ID | Group | Rule | Failure |
+| --- | --- | --- | --- |
+| HG_TARGET_01 | Target | every external delivery requires a valid, unexpired SurfaceResponseTargetGrant | STOP_PRESERVE_EVIDENCE |
+| HG_TARGET_02 | Target | surface permission does not imply target permission | STOP_PRESERVE_EVIDENCE |
+| HG_TARGET_03 | Privacy | raw provider target identifiers never appear in tracked schemas, fixtures, evidence, Context Bridge, UMC prose or reconstruction packets | STOP_PRESERVE_EVIDENCE |
+| HG_TARGET_04 | Target | target aliases resolve only through the later private runtime registry | STOP_PRESERVE_EVIDENCE |
+| HG_TARGET_05 | Replay | cross-user/session/surface and stale-grant replay are denied | STOP_PRESERVE_EVIDENCE |
+| HG_TARGET_06 | LeastPrivilege | target resolution may narrow SSB permission but never broaden it | STOP_PRESERVE_EVIDENCE |
+| HG_TARGET_07 | Target | no automatic fallback to another target | STOP_PRESERVE_EVIDENCE |
+| HG_TARGET_08 | Binding | target grant, payload envelope and delivery result share idempotency key, surface, policy epoch and scoped grant chain | STOP_PRESERVE_EVIDENCE |
+| HG_TARGET_09 | Dedupe | current M25 delivery grants allow at most one delivery | STOP_PRESERVE_EVIDENCE |
+| HG_TARGET_10 | Evidence | evidence uses keyed rotating non-correlatable aliases, not raw target IDs or stable public hashes | STOP_PRESERVE_EVIDENCE |
+
+Fixture-only health checks HC_TARGET_01..HC_TARGET_10 cover private registry design/permissions, exact alias resolution, identity/session/capability binding, expiry/epoch, wrong-scope denial, HOLD-on-missing-alias/no-fallback, raw leakage scan, replay-after-use/expiry rejection, and adapter rejection without target grant.
