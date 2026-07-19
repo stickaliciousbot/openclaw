@@ -1,0 +1,10 @@
+{
+  "deliveryStatus": "not-delivered",
+  "delivery_count": 0,
+  "duplicate_delivery_occurred": false,
+  "sanitized_delivery_succeeded": false,
+  "schema": "stickbot.memory_ledger.m25h.delivery_proof.v1",
+  "status": "BLOCKED_REPAIRED_DELIVERY_STILL_NO_REPLY",
+  "summary": "NO_REPLY",
+  "telegram_send_count": 0
+}

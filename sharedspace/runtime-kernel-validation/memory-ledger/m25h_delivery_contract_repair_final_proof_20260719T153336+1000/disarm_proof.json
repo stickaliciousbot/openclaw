@@ -1,0 +1,12 @@
+{
+  "schema": "stickbot.memory_ledger.m25h.disarm_proof.v1",
+  "status": "PASS_DISARM_CONFIG_WRITTEN",
+  "backup_path_sanitized": "<openclaw-backups>/m25h-predisarm-2026-07-19T05-36-53-972Z.json",
+  "config_sha256_before": "a4afd971417cd4fe7aa86d92d0cd201c0f43cb4c3080e94da7e3b3cb8be580a0",
+  "config_sha256_after": "69fda094eb9c2476db5d4377135f633339094b5cc9a2e6d4340b4564a0da2bc7",
+  "previous_job_id": "5cfdb17a-5247-4f16-8300-d3f86f0a9c11",
+  "armed_before": true,
+  "armed_after": false,
+  "route_changed": false,
+  "stale_fields_retained_dormant": true
+}

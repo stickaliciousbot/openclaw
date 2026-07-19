@@ -1,0 +1,13 @@
+{
+  "abort": false,
+  "blocked": true,
+  "commit_sha_recording": "external_only_self_referential_commit_sha_not_embedded",
+  "committed": true,
+  "ok": true,
+  "pass": false,
+  "pushed": false,
+  "restart_sentinel_validation": "PASS_RESTART_SENTINEL_BLOCKED_CLOSEOUT_STILL_SAFE",
+  "schema": "stickbot.memory_ledger.m25h.status.v1",
+  "status": "M25H_BLOCKED_REPAIRED_DELIVERY_STILL_NO_REPLY",
+  "terminal_status": "M25H_BLOCKED_REPAIRED_DELIVERY_STILL_NO_REPLY"
+}

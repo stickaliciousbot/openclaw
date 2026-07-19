@@ -1,0 +1,65 @@
+{
+  "authority_promoted": false,
+  "context_bridge_changed_after_freeze": false,
+  "context_bridge_current_hashes": {
+    "actions": "a7b0d3d4bd1a9c8bb0da20a1f92cc248f3f37dbf551c66a361330076777bba63",
+    "events": "76f4d0f030af56ee03b3484413ca67c7f9a65992f68ecb2b46ed144410b1a9b5"
+  },
+  "delivery_count": 0,
+  "duplicate_delivery_occurred": false,
+  "gateway_after": {
+    "excerpt": "Gateway: bind=lan (0.0.0.0), port=18789 (service args)\nRuntime: running (pid 2832333, state active, sub running, last exit 0, reason 0)\nConnectivity probe: ok\nCapability: admin-capable",
+    "pass": true,
+    "returncode": 0
+  },
+  "gateway_after_restart_sentinel": {
+    "excerpt": "Gateway: bind=lan (0.0.0.0), port=18789 (service args)\nRuntime: running (pid 2838162, state active, sub running, last exit 0, reason 0)\nConnectivity probe: ok\nCapability: admin-capable",
+    "pass": true,
+    "returncode": 0,
+    "warning_path_missing_pnpm": false
+  },
+  "handler_armed_after": false,
+  "handler_dormant_unarmed_after": true,
+  "handler_dormant_unarmed_after_restart_sentinel": true,
+  "ledger_changed": false,
+  "m25h_last_result_after_restart_sentinel": {
+    "delivered": false,
+    "deliveryStatus": "not-delivered",
+    "summary": "NO_REPLY"
+  },
+  "m25h_run_count": 1,
+  "m25h_run_count_exactly_one": true,
+  "m26_started": false,
+  "m26_started_after_restart_sentinel": false,
+  "model_route": {
+    "fallbacks": [
+      "ollama/deepseek-v4-pro:cloud"
+    ],
+    "primary": "openai-codex/gpt-5.5"
+  },
+  "no_retry_scheduled_after": true,
+  "old_jobs_absent_not_runnable": true,
+  "old_m25e_run_count": 1,
+  "old_m25g_run_count": 1,
+  "old_run_counts_unchanged": true,
+  "plugin_repair_hashes": {
+    "dist_boundary_handler_sha256": "643b49744f92eacefab36afa8742c2b987a67dcbe60cbcd3e47ee2fa0784f858",
+    "dist_index_sha256": "98a174e1767221f355d7a28364f738c2918eab320ed5373f9851d31da33b4347",
+    "src_boundary_handler_sha256": "687524d056ec89748d6ae0483936c994a59270af8016e6959c65a4e84291b09b"
+  },
+  "proof_jobs_absent_after_restart_sentinel": true,
+  "recall_time_memory_writes": 0,
+  "restart_sentinel_validation": "PASS_RESTART_SENTINEL_BLOCKED_CLOSEOUT_STILL_SAFE",
+  "retry_absent_not_runnable_after": true,
+  "route_config_mutation_occurred": false,
+  "route_config_mutation_occurred_after_restart_sentinel": false,
+  "run_counts_after_restart_sentinel": {
+    "m25e": 1,
+    "m25g": 1,
+    "m25h": 1
+  },
+  "sanitized_delivery_succeeded": false,
+  "schema": "stickbot.memory_ledger.m25h.post_validation.v1",
+  "status": "PASS_POST_VALIDATION_BLOCKED_SAFE_CLEANUP",
+  "terminal": "M25H_BLOCKED_REPAIRED_DELIVERY_STILL_NO_REPLY"
+}

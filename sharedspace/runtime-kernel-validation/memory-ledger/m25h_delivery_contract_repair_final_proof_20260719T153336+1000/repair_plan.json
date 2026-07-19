@@ -1,0 +1,10 @@
+{
+  "chosen_option": "Option B \u2014 Handler-to-runtime decision repair",
+  "context_bridge_mutation": false,
+  "ledger_mutation": false,
+  "no_broadened_authority": true,
+  "route_mutation": false,
+  "schema": "stickbot.memory_ledger.m25h.repair_plan.v1",
+  "status": "PASS_REPAIR_PLAN_SELECTED",
+  "summary": "Narrowly accept OpenClaw runtime cron run session keys of shape agent:<agent>:cron:<jobId>:run:<uuid> when config expectedSessionKey is the exact cron:<jobId> base. Apply the same matcher to message_sending so unbound prose in the exact job is cancelled, while prepared sanitized content is authorized."
+}

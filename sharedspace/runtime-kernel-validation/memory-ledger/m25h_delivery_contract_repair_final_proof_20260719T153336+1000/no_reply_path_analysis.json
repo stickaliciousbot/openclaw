@@ -1,0 +1,8 @@
+{
+  "old_m25g_result": "NO_REPLY delivered=false not-delivered",
+  "repair_target": "handler before_agent_reply allow path and message_sending scope for exact runtime cron session key shape.",
+  "root_cause": "Strict exact session-key comparison in handler did not match OpenClaw cron isolated runtime key shape; handled HOLD without reply became NO_REPLY and delivery stripped it.",
+  "schema": "stickbot.memory_ledger.m25h.no_reply_path_analysis.v1",
+  "status": "PASS_NO_REPLY_PATH_MAPPED",
+  "why_fingerprint_not_cause": "M25G frozen Context Bridge hashes matched before/after run."
+}

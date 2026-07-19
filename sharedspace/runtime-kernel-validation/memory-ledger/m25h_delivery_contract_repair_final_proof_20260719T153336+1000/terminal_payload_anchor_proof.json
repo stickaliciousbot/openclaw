@@ -1,0 +1,7 @@
+{
+  "anchor": "M25H_TERMINAL_PAYLOAD_ANCHOR",
+  "observed_in_job_payload": true,
+  "observed_in_sanitized_delivery": false,
+  "schema": "stickbot.memory_ledger.m25h.terminal_payload_anchor_proof.v1",
+  "status": "PASS_CALLER_TERMINAL_ANCHOR_OBSERVED_BUT_NOT_DELIVERED"
+}

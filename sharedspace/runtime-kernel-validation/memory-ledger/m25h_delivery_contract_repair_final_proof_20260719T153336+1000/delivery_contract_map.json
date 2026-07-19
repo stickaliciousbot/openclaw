@@ -1,0 +1,21 @@
+{
+  "answers": {
+    "10_tests_prove_repair": "Focused tests cover exact base key allow, runtime cron run key allow, malformed key hold, missing-anchor/no-reply hold, exact sanitized send authorize, sent receipt, duplicate block, and unbound NO_REPLY cancellation.",
+    "1_component_owns_sanitized_reply_payload": "Boundary handler before_agent_reply allow path owns producing reply.text from renderSanitized().",
+    "2_component_owns_telegram_delivery_decision": "Cron delivery runtime delivers announce output only when final payload text is non-silent and message_sending does not cancel it.",
+    "3_data_shape_required_for_delivery": "HookResult {handled:true, reply:{text:<sanitized non-NO_REPLY text>}} must produce payloads with text; then delivery runtime normalizes non-silent text and sends to announce target.",
+    "4_m25g_lacked": "M25G lacked handler allow because expectedSessionKey was cron:<jobId> but OpenClaw runtime hook ctx/session uses agent:<agent>:cron:<jobId>:run:<uuid>; handler returned HOLD_NO_DELIVERY without reply.",
+    "5_handler_approved_but_no_payload_created": "No; source contract and run result indicate a handled/no-reply HOLD path, not an approved reply payload.",
+    "6_runner_never_create_reply_candidate": "Runner would create a reply candidate from hookResult.reply.text; the repair ensures handler returns one on valid runtime cron key.",
+    "7_announce_failed_to_imply_deliverable_payload": "Announce is not sufficient by itself; it cannot deliver exact NO_REPLY/silent payload.",
+    "8_terminal_closeout_anchor_wrong_layer": "Anchors were in caller payload; handler does not render them, but they were enough for caller-hash proof. Delivery success depends on handler allow reply.text.",
+    "9_minimal_repair_point": "Boundary handler session-key matcher and outbound message_sending scope must accept exact runtime cron run key shape for the exact configured job."
+  },
+  "schema": "stickbot.memory_ledger.m25h.delivery_contract_map.v1",
+  "source_evidence": {
+    "delivery_runtime_silent_contract": "run-delivery.runtime normalizes exact NO_REPLY to no payload",
+    "handler_contract": "evaluateBoundary READY returns reply.text; HOLD returns handled true without reply",
+    "runEmbeddedPiAgent_hook_payload_contract": "pi-embedded: buildHandledReplyPayloads(hookResult.reply), final text NO_REPLY when reply missing"
+  },
+  "status": "PASS_DELIVERY_CONTRACT_MAPPED"
+}

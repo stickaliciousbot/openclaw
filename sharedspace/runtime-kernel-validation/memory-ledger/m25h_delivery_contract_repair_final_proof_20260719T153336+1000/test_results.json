@@ -1,0 +1,18 @@
+{
+  "approval_gated_rerun_skipped": "A later redirect-to-file test command hit approval before running and was not needed; prior focused test output was already PASS.",
+  "build_runtime": "PASS_M25B_RUNTIME_OUTPUT_BUILD",
+  "focused_tests": "PASS_M25H_FOCUSED_DELIVERY_CONTRACT_TESTS",
+  "schema": "stickbot.memory_ledger.m25h.test_results.v1",
+  "static_checks": "node import/execution against dist passed",
+  "status": "PASS_FOCUSED_TESTS",
+  "tests": {
+    "duplicate_delivery_blocked": true,
+    "exact_cron_session_key_allows_reply": true,
+    "malformed_runtime_session_key_holds_no_delivery": true,
+    "message_sent_records_success_receipt": true,
+    "missing_anchor_prompt_holds_no_delivery": true,
+    "no_reply_unbound_send_cancelled": true,
+    "prepared_message_sending_authorizes_exact_sanitized_text": true,
+    "runtime_cron_run_session_key_allows_reply": true
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "changed_file_hashes": {
+    "candidate_source_sha256": "e174d7430c53820d5d79bb97bfced0a4aa561fbd303d30233979804f875e4d2d",
+    "dist_boundary_handler_sha256": "643b49744f92eacefab36afa8742c2b987a67dcbe60cbcd3e47ee2fa0784f858",
+    "dist_index_sha256": "98a174e1767221f355d7a28364f738c2918eab320ed5373f9851d31da33b4347",
+    "src_boundary_handler_sha256": "687524d056ec89748d6ae0483936c994a59270af8016e6959c65a4e84291b09b"
+  },
+  "changed_files": [
+    "/home/stickai/.openclaw/extensions/stickbot-memory-ledger-m25b-boundary-handler/src/boundary-handler.ts",
+    "/home/stickai/.openclaw/extensions/stickbot-memory-ledger-m25b-boundary-handler/dist/src/boundary-handler.js"
+  ],
+  "code_change_scope": "boundary-handler only",
+  "diff_summary": [
+    "Added sessionKeyMatchesExpectedCronScope() for exact cron:<jobId> base and runtime agent:<agent>:cron:<jobId>:run:<uuid> shape.",
+    "evaluateBoundary uses matcher for caller identity instead of exact session string only.",
+    "gateMessageSending uses same matcher to keep exact-job fail-closed cancellation for runtime cron session key."
+  ],
+  "model_route_mutation": false,
+  "schema": "stickbot.memory_ledger.m25h.repair_diff.v1",
+  "status": "PASS_REPAIR_DIFF_LIMITED"
+}

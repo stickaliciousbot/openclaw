@@ -1,0 +1,156 @@
+{
+  "commit_sha_recording": "external_only_self_referential_commit_sha_not_embedded",
+  "committed": true,
+  "evidence_root": "sharedspace/runtime-kernel-validation/memory-ledger/m25h_delivery_contract_repair_final_proof_20260719T153336+1000",
+  "generated_utc": "2026-07-19T05:44:12.391211+00:00",
+  "manifest_complete": true,
+  "ok": true,
+  "private_raw_scan_pass": true,
+  "pushed": false,
+  "receipt_count": 28,
+  "receipts": [
+    {
+      "bytes": 2447,
+      "path": "arming_config_diff.json",
+      "sha256": "958df2e840a8f6163cb36076b500dade4b4ef684ca45ff77d63b4d027319458b"
+    },
+    {
+      "bytes": 1580,
+      "path": "arming_inputs.json",
+      "sha256": "f9cb636fdfebee7b4bc361dd3ae66b7fca89309b99eb0bd53e1a565541e30e61"
+    },
+    {
+      "bytes": 2095,
+      "path": "arming_proof.json",
+      "sha256": "bbfac1477b3a223a4c4f10a32a6a65937629a3de3fd4d84a7ba1d525ed5cefea"
+    },
+    {
+      "bytes": 882,
+      "path": "boundary_handler_decision_proof.json",
+      "sha256": "53d77685406364a87bdfc66e8a9ff9bd6a20faaea7e21507536591aa720379db"
+    },
+    {
+      "bytes": 255,
+      "path": "closeout_anchor_proof.json",
+      "sha256": "1b808fbce21d3ec91e080909bb6053274824833eaf92f9b72d61db540528215d"
+    },
+    {
+      "bytes": 2428,
+      "path": "delivery_contract_map.json",
+      "sha256": "864e0c996c438c62cd13dbbb945bff023bfa53923f39d9032b0f4109eaa128cc"
+    },
+    {
+      "bytes": 314,
+      "path": "delivery_proof.json",
+      "sha256": "b3f7b98c4c5876fe76ef50e703a86c4893ea74f2c7bcde642e67ef49c0cb31c6"
+    },
+    {
+      "bytes": 561,
+      "path": "disarm_proof.json",
+      "sha256": "7e39c584e41845d259869e367d9a6c5d2831051949d9b984f9a9d4aa47021d3e"
+    },
+    {
+      "bytes": 1754,
+      "path": "final_proof_run.json",
+      "sha256": "d62d2604c4d21d821a9041f3c61212a861e59ee398b210f1cca9c04bb9a5124e"
+    },
+    {
+      "bytes": 577,
+      "path": "fresh_fingerprint_freeze.json",
+      "sha256": "d450f317c08f4c5dbec210e5234651dd33888fbd33c6a1c685219472bfb68a44"
+    },
+    {
+      "bytes": 285,
+      "path": "ledger_completion_anchor_proof.json",
+      "sha256": "98946283b91204ba8a4139c02e00cb9c890059cae8a6d6144fe866e3a07fde35"
+    },
+    {
+      "bytes": 589,
+      "path": "no_reply_path_analysis.json",
+      "sha256": "094798f22cddaaa01e708111bb7d1e33bf04f42ce65aafd461cfbf42c6dbe7fc"
+    },
+    {
+      "bytes": 603,
+      "path": "offline_decision_probe.json",
+      "sha256": "8dd56db0002bd2b0259b87aa46a429e473ce73efae369d710a5552f237d275c1"
+    },
+    {
+      "bytes": 900,
+      "path": "one_shot_job_proof.json",
+      "sha256": "c14272f199a6a6e2d3bba171ed28140dce1e318ad72e9e4741194083e73bd788"
+    },
+    {
+      "bytes": 2639,
+      "path": "post_validation.json",
+      "sha256": "bda5d0e41b1054530a59ddd5c410eb4d5d730ddc464a73c859afb9089866baf7"
+    },
+    {
+      "bytes": 390,
+      "path": "preflight_state.json",
+      "sha256": "f70d94e2905661d56e9b2878c488e4cbf380e00eb6daa5742859e5d39563aa8d"
+    },
+    {
+      "bytes": 2241,
+      "path": "prior_state.json",
+      "sha256": "553fec38de99b016a975da02683b05089ff066980a5deffb16274ed274d4add8"
+    },
+    {
+      "bytes": 1279,
+      "path": "reload_proof.json",
+      "sha256": "b202c6a82f0db5e26470689215d623a3d05ae2627738f0320c4cbab3f24929a3"
+    },
+    {
+      "bytes": 1235,
+      "path": "repair_diff.json",
+      "sha256": "0e6c2479159af7596e35645123e79a91830faa9ed49a3b7ddc52c34d20db94a4"
+    },
+    {
+      "bytes": 619,
+      "path": "repair_plan.json",
+      "sha256": "638756185c25afb49a3350b477099a68e25c7b73d32dd4222a4c06556d85d4ca"
+    },
+    {
+      "bytes": 2485,
+      "path": "restart_sentinel_validation.json",
+      "sha256": "69c2aa5a0c7a27cd610c870c86ee1e2a84e0428e67492c87bc3e9fb68f6b902f"
+    },
+    {
+      "bytes": 366,
+      "path": "retry_removal_proof.json",
+      "sha256": "fd54d56bb09ee2f10a94a7703ddd3e95e9c061c27f8e1c89dea0d068085e1720"
+    },
+    {
+      "bytes": 1328,
+      "path": "run_config.json",
+      "sha256": "32172bc2878f4585273fe621d171b0aeb5152d3301ecb55ea4505026b452bd3e"
+    },
+    {
+      "bytes": 1676,
+      "path": "safety_report.json",
+      "sha256": "f88a2c53c4d50d3387bbdf92d8a382aa26cf29b6959ec9f6c931615f3ce4c9ec"
+    },
+    {
+      "bytes": 465,
+      "path": "status.json",
+      "sha256": "91e0a4df84fcc374aaad44a57eb38764a3517135d6dc3567a47959b8ade4a68b"
+    },
+    {
+      "bytes": 1618,
+      "path": "summary.json",
+      "sha256": "7b3d85f98dfd286fbf8adc18287ea3b883020d5fe1d0ab3328cf3670d35f89ff"
+    },
+    {
+      "bytes": 271,
+      "path": "terminal_payload_anchor_proof.json",
+      "sha256": "572fb32a3a7f7e4a0d4a3c10e5bda68c67c87e7f8b9d56f80685ed1a1ab6e637"
+    },
+    {
+      "bytes": 884,
+      "path": "test_results.json",
+      "sha256": "8773afb7cc2d793fd90aea8023867a0465591361692721ee7c6449a203a2c9d1"
+    }
+  ],
+  "restart_sentinel_validation": "PASS_RESTART_SENTINEL_BLOCKED_CLOSEOUT_STILL_SAFE",
+  "schema": "stickbot.memory_ledger.m25h.evidence_manifest.v1",
+  "status": "M25H_BLOCKED_REPAIRED_DELIVERY_STILL_NO_REPLY"
+}

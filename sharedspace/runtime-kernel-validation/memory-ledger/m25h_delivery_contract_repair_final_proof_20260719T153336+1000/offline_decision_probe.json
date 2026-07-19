@@ -1,0 +1,13 @@
+{
+  "schema": "stickbot.memory_ledger.m25h.offline_decision_probe.v1",
+  "status": "PASS_OFFLINE_REPAIRED_HANDLER_ALLOWS_RUNTIME_SESSION_KEY",
+  "decision_kind": "READY_FOR_SINGLE_SCHEDULED_ANNOUNCE",
+  "decision_status": "PASS_M25B_BOUNDARY_READY_FOR_SINGLE_SCHEDULED_ANNOUNCE",
+  "hook_handled": true,
+  "hook_reply_present": true,
+  "hook_reply_sha256": "a11e2c0eb333070db569bf3bfc60996f9037e8ec00b467dc055a105d0aff2750",
+  "run_session_key_shape": "agent:main:cron:<jobId>:run:<uuid>",
+  "runtime_run_summary": "NO_REPLY",
+  "runtime_delivered": false,
+  "runtime_deliveryStatus": "not-delivered"
+}

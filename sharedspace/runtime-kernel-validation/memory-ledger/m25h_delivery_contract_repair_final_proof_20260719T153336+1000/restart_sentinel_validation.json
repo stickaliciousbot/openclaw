@@ -1,0 +1,69 @@
+{
+  "active_m25_retry_like_jobs": [],
+  "authority_promotion": 0,
+  "branch": "evidence/umc-m3n-post-restart-health-failclosed-20260713",
+  "context_bridge_hashes": {
+    "actions": "a7b0d3d4bd1a9c8bb0da20a1f92cc248f3f37dbf551c66a361330076777bba63",
+    "events": "76f4d0f030af56ee03b3484413ca67c7f9a65992f68ecb2b46ed144410b1a9b5"
+  },
+  "context_bridge_mutation": 0,
+  "doctor_non_interactive": {
+    "blocker": false,
+    "clean_exit": false,
+    "diagnostic_summary": [
+      "Codex/OpenAI route warnings only; routes preserved.",
+      "Telegram first-time setup/allowlist warning.",
+      "State integrity orphan transcript warning.",
+      "No doctor --fix/repair run."
+    ],
+    "result": "SIGKILL_TIMEOUT_AFTER_DIAGNOSTIC_OUTPUT",
+    "started": true
+  },
+  "gateway_after_restart": {
+    "excerpt": "Gateway: bind=lan (0.0.0.0), port=18789 (service args)\nRuntime: running (pid 2838162, state active, sub running, last exit 0, reason 0)\nConnectivity probe: ok\nCapability: admin-capable",
+    "pass": true,
+    "returncode": 0,
+    "warning_path_missing_pnpm": false
+  },
+  "handler_config_job_field_retained_dormant": "5cfdb17a-5247-4f16-8300-d3f86f0a9c11",
+  "handler_dist_boundary_sha256": "643b49744f92eacefab36afa8742c2b987a67dcbe60cbcd3e47ee2fa0784f858",
+  "handler_dormant_unarmed": true,
+  "head_before_amend": "4202b9f7aedb8c0adcf2ccacdde7e907dd9aef80",
+  "job_matches": {
+    "3e05cd9e-c890-449a-9b3f-59d5cf5b3b84": 0,
+    "5cfdb17a-5247-4f16-8300-d3f86f0a9c11": 0,
+    "9d6aa1d9-edd7-4633-90eb-3fba96f20b02": 0
+  },
+  "ledger_mutation": 0,
+  "m25h_last_result": {
+    "delivered": false,
+    "deliveryStatus": "not-delivered",
+    "summary": "NO_REPLY"
+  },
+  "m26_started": false,
+  "model_route": {
+    "fallbacks": [
+      "ollama/deepseek-v4-pro:cloud"
+    ],
+    "primary": "openai-codex/gpt-5.5"
+  },
+  "no_delivery_after_closeout": true,
+  "proof_jobs_absent_not_runnable": true,
+  "remote_head": "66694cd39d2e27137a081bede90b36d69d826c95",
+  "restart_sentinel": "gateway.restart ok after M25H disarm; no rerun allowed",
+  "route_config_mutation": false,
+  "run_counts": {
+    "m25e": 1,
+    "m25g": 1,
+    "m25h": 1
+  },
+  "run_counts_expected": {
+    "m25e": 1,
+    "m25g": 1,
+    "m25h": 1
+  },
+  "schema": "stickbot.memory_ledger.m25h.restart_sentinel_validation.v1",
+  "status": "PASS_RESTART_SENTINEL_BLOCKED_CLOSEOUT_STILL_SAFE",
+  "terminal": "M25H_BLOCKED_REPAIRED_DELIVERY_STILL_NO_REPLY",
+  "timestamp_utc": "2026-07-19T05:44:12.371436+00:00"
+}

@@ -1,0 +1,12 @@
+{
+  "actions_bytes": 95781,
+  "events_bytes": 170024,
+  "frozen_actions_sha256": "a7b0d3d4bd1a9c8bb0da20a1f92cc248f3f37dbf551c66a361330076777bba63",
+  "frozen_events_sha256": "76f4d0f030af56ee03b3484413ca67c7f9a65992f68ecb2b46ed144410b1a9b5",
+  "frozen_utc": "2026-07-19T05:34:27.153805+00:00",
+  "job_id": "5cfdb17a-5247-4f16-8300-d3f86f0a9c11",
+  "method": "Late-bound after tests and inert job creation; immediately before arming.",
+  "old_job_ids_reused": false,
+  "schema": "stickbot.memory_ledger.m25h.fresh_fingerprint_freeze.v1",
+  "status": "FROZEN_FOR_M25H_ARMING"
+}

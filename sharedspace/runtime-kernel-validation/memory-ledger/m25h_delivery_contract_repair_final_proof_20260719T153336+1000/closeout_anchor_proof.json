@@ -1,0 +1,7 @@
+{
+  "anchor": "M25H_CLOSEOUT_ANCHOR",
+  "observed_in_job_payload": true,
+  "observed_in_sanitized_delivery": false,
+  "schema": "stickbot.memory_ledger.m25h.closeout_anchor_proof.v1",
+  "status": "PASS_CALLER_CLOSEOUT_ANCHOR_OBSERVED_BUT_NOT_DELIVERED"
+}

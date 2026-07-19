@@ -1,0 +1,14 @@
+{
+  "classification": "Focused tests and offline exact-run probe show repaired handler can produce a reply for the runtime cron key shape. Live cron still returned NO_REPLY, so the remaining blocker is runtime/plugin deployment or hook invocation/result propagation, not the local handler decision function itself.",
+  "handler_allow_live_confirmed": false,
+  "handler_bypassed_confirmed": false,
+  "job_id": "5cfdb17a-5247-4f16-8300-d3f86f0a9c11",
+  "live_deliveryStatus": "not-delivered",
+  "live_runtime_delivered": false,
+  "live_runtime_summary": "NO_REPLY",
+  "offline_repaired_handler_allows_runtime_session_key": true,
+  "offline_reply_present": true,
+  "offline_reply_sha256": "a11e2c0eb333070db569bf3bfc60996f9037e8ec00b467dc055a105d0aff2750",
+  "schema": "stickbot.memory_ledger.m25h.boundary_handler_decision_proof.v1",
+  "status": "MIXED_OFFLINE_ALLOW_LIVE_NO_REPLY"
+}

@@ -1,0 +1,31 @@
+{
+  "arming_config": {
+    "actionsPath": "sharedspace/context-bridge/actions.json",
+    "armed": true,
+    "eventsPath": "sharedspace/context-bridge/events.jsonl",
+    "expectedActionsSha256": "a7b0d3d4bd1a9c8bb0da20a1f92cc248f3f37dbf551c66a361330076777bba63",
+    "expectedAgentId": "main",
+    "expectedCallerPromptSha256": "f8a56d8a5e04699228531c8e33c5ad294db21ec0b71b1a09b35c29726054b425",
+    "expectedCandidateSourceSha256": "e174d7430c53820d5d79bb97bfced0a4aa561fbd303d30233979804f875e4d2d",
+    "expectedEventsSha256": "76f4d0f030af56ee03b3484413ca67c7f9a65992f68ecb2b46ed144410b1a9b5",
+    "expectedJobId": "5cfdb17a-5247-4f16-8300-d3f86f0a9c11",
+    "expectedLedgerSha256": "f50ff3836724358d2ef99d92d7c32c2c07651138a749e2a03ce5c03c512807f6",
+    "expectedSessionKey": "cron:5cfdb17a-5247-4f16-8300-d3f86f0a9c11",
+    "expectedT0CallerSha256": "f8a56d8a5e04699228531c8e33c5ad294db21ec0b71b1a09b35c29726054b425",
+    "ledgerMode": "validated_m22_posture",
+    "ledgerPath": null,
+    "localDate": "2026-07-19",
+    "validatedLedgerEvents": 20,
+    "validatedLedgerRecords": 19
+  },
+  "guards": {
+    "delivery_surface": "telegram explicit approved proof path, raw target redacted in evidence",
+    "disarm_after_failure": true,
+    "disarm_after_success": true,
+    "evidence_root": "sharedspace/runtime-kernel-validation/memory-ledger/m25h_delivery_contract_repair_final_proof_20260719T153336+1000",
+    "max_deliveries": 1
+  },
+  "job_id": "5cfdb17a-5247-4f16-8300-d3f86f0a9c11",
+  "schema": "stickbot.memory_ledger.m25h.arming_inputs.v1",
+  "status": "READY_TO_ARM"
+}

@@ -1,0 +1,73 @@
+{
+  "abort_gates_triggered": [],
+  "blocked_gates": [
+    "M25H_G18",
+    "M25H_G19"
+  ],
+  "commit_state": {
+    "commit_sha_recording": "external_only_self_referential_commit_sha_not_embedded",
+    "committed": true,
+    "pushed": false
+  },
+  "counts": {
+    "deliveries": 0,
+    "m25e_runs": 1,
+    "m25g_runs": 1,
+    "m25h_runs": 1,
+    "telegram_sends": 0
+  },
+  "gates": {
+    "M25H_G1": true,
+    "M25H_G10": true,
+    "M25H_G11": true,
+    "M25H_G12": true,
+    "M25H_G13": true,
+    "M25H_G14": true,
+    "M25H_G15": true,
+    "M25H_G16": true,
+    "M25H_G17": true,
+    "M25H_G18": false,
+    "M25H_G19": false,
+    "M25H_G2": true,
+    "M25H_G20": true,
+    "M25H_G21": true,
+    "M25H_G22": true,
+    "M25H_G23": true,
+    "M25H_G24": true,
+    "M25H_G25": true,
+    "M25H_G26": true,
+    "M25H_G27": true,
+    "M25H_G28": true,
+    "M25H_G29": true,
+    "M25H_G3": true,
+    "M25H_G30": true,
+    "M25H_G31": true,
+    "M25H_G32": true,
+    "M25H_G33": true,
+    "M25H_G34": true,
+    "M25H_G35": true,
+    "M25H_G36": true,
+    "M25H_G4": true,
+    "M25H_G5": true,
+    "M25H_G6": true,
+    "M25H_G7": true,
+    "M25H_G8": true,
+    "M25H_G9": true
+  },
+  "mutations": {
+    "authority_promotions": 0,
+    "context_bridge": 0,
+    "ledger": 0,
+    "m26": 0,
+    "model_provider_fallback_memory_routes": 0,
+    "recall_time_memory_writes": 0
+  },
+  "private_raw_scan": {
+    "hits": [],
+    "pass": true
+  },
+  "restart_sentinel_validation": "PASS_RESTART_SENTINEL_BLOCKED_CLOSEOUT_STILL_SAFE",
+  "schema": "stickbot.memory_ledger.m25h.safety_report.v1",
+  "status": "PASS_SAFE_BLOCKED_CLOSEOUT",
+  "terminal": "M25H_BLOCKED_REPAIRED_DELIVERY_STILL_NO_REPLY"
+}
