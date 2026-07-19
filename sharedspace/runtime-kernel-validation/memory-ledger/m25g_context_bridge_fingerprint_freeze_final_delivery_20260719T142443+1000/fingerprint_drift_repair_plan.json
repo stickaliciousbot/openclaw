@@ -1,0 +1,20 @@
+{
+  "chosen_repair_path": "Option A \u2014 procedural fingerprint freeze only",
+  "code_change_required": false,
+  "config_repair_required": "only bounded arming/disarm config mutation for new proof job",
+  "drift_policy": "If hashes drift after freeze and before run, do not run; disarm/remove and close blocked/abort with evidence.",
+  "method": [
+    "Complete preflight/evidence writes first",
+    "Create disabled proof job first so final job id and caller hash are stable",
+    "Freeze Context Bridge events/actions hashes immediately before arming",
+    "Use frozen hashes as arming inputs",
+    "Arm exact new job only",
+    "Reload/restart Gateway because plugin freezes rawConfig at registration",
+    "Verify frozen hashes still match immediately before run",
+    "Run new proof job exactly once",
+    "Disarm/remove immediately after result",
+    "Validate no drift/duplicate/old-rerun"
+  ],
+  "schema": "stickbot.memory_ledger.m25g.fingerprint_drift_repair_plan.v1",
+  "why_safe": "No code change and no context/ledger/route mutation; existing handler already fail-closes on drift and gates exact sanitized content before send."
+}

@@ -1,0 +1,53 @@
+{
+  "delivered": false,
+  "deliveryStatus": "not-delivered",
+  "job_id": "3e05cd9e-c890-449a-9b3f-59d5cf5b3b84",
+  "old_m25e_rerun_detected": false,
+  "old_m25e_run_count_after": 1,
+  "pass_terminal_achieved": false,
+  "ran_exactly_once": true,
+  "result_summary": "NO_REPLY",
+  "run_count": 1,
+  "run_entries_sanitized": [
+    {
+      "action": "finished",
+      "delivered": false,
+      "delivery": {
+        "delivered": false,
+        "fallbackUsed": true,
+        "intended": {
+          "channel": "telegram",
+          "source": "explicit",
+          "to": "<redacted>",
+          "to_sha256": "57636a7474a8c491ab00f179205e639a079f17915b829fcca4356705b2830d8d"
+        },
+        "resolved": {
+          "accountId": "<redacted>",
+          "channel": "telegram",
+          "ok": true,
+          "source": "explicit",
+          "to": "<redacted>",
+          "to_sha256": "57636a7474a8c491ab00f179205e639a079f17915b829fcca4356705b2830d8d"
+        }
+      },
+      "deliveryStatus": "not-delivered",
+      "durationMs": 1922,
+      "jobId": "3e05cd9e-c890-449a-9b3f-59d5cf5b3b84",
+      "model": "gpt-5.5",
+      "nextRunAtMs": 1893456000000,
+      "provider": "openai-codex",
+      "runAtMs": 1784435311057,
+      "runId": "manual:3e05cd9e-c890-449a-9b3f-59d5cf5b3b84:1784435311049:1",
+      "sessionId": "<redacted>",
+      "sessionId_sha256": "bbb0219eaf4ee50834f69482e225cc927c93fa07f929dd3d69ea3df2a8ed6e49",
+      "sessionKey": "<redacted>",
+      "sessionKey_sha256": "58c5ba5824e0b5cdf27acd696590f4a9c37e6b4f97da9d3ec6b8d3280e24932b",
+      "sessionKey_shape": "agent:main:cron:<jobId>:run:<sessionId>",
+      "status": "ok",
+      "summary": "NO_REPLY",
+      "ts": 1784435312981
+    }
+  ],
+  "schema": "stickbot.memory_ledger.m25g.final_proof_run.v1",
+  "status": "BLOCKED_RUN_COMPLETED_NO_DELIVERY"
+}

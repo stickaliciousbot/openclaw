@@ -1,0 +1,69 @@
+{
+  "abort_gates_triggered": [],
+  "blocked_gates": [
+    "M25G_G16",
+    "M25G_G17"
+  ],
+  "commit_state": {
+    "commit_sha_recording": "external_only_self_referential_commit_sha_not_embedded",
+    "committed": true,
+    "pushed": false
+  },
+  "counts": {
+    "deliveries": 0,
+    "m25g_runs": 1,
+    "old_m25e_runs": 1,
+    "telegram_sends": 0
+  },
+  "gates": {
+    "M25G_G1": true,
+    "M25G_G10": true,
+    "M25G_G11": true,
+    "M25G_G12": true,
+    "M25G_G13": true,
+    "M25G_G14": true,
+    "M25G_G15": true,
+    "M25G_G16": false,
+    "M25G_G17": false,
+    "M25G_G18": true,
+    "M25G_G19": true,
+    "M25G_G2": true,
+    "M25G_G20": true,
+    "M25G_G21": true,
+    "M25G_G22": true,
+    "M25G_G23": true,
+    "M25G_G24": true,
+    "M25G_G25": true,
+    "M25G_G26": true,
+    "M25G_G27": true,
+    "M25G_G28": true,
+    "M25G_G29": true,
+    "M25G_G3": true,
+    "M25G_G30": true,
+    "M25G_G31": true,
+    "M25G_G32": true,
+    "M25G_G33": true,
+    "M25G_G34": true,
+    "M25G_G4": true,
+    "M25G_G5": true,
+    "M25G_G6": true,
+    "M25G_G7": true,
+    "M25G_G8": true,
+    "M25G_G9": true
+  },
+  "mutations": {
+    "authority_promotions": 0,
+    "context_bridge": 0,
+    "ledger": 0,
+    "m26": 0,
+    "model_provider_fallback_memory_routes": 0,
+    "recall_time_memory_writes": 0
+  },
+  "private_raw_scan": {
+    "hits": [],
+    "pass": true
+  },
+  "schema": "stickbot.memory_ledger.m25g.safety_report.v1",
+  "status": "PASS_SAFE_BLOCKED_CLOSEOUT",
+  "terminal": "M25G_BLOCKED_SANITIZED_DELIVERY_REQUIRES_SEPARATE_DESIGN"
+}

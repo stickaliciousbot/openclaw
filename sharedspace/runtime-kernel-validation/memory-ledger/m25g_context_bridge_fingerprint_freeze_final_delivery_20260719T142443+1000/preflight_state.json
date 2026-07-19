@@ -1,0 +1,13 @@
+{
+  "gateway_health_pass": true,
+  "handler_starts_dormant_unarmed": true,
+  "m26_not_started": true,
+  "no_pending_delivery_known": true,
+  "no_retry_active_at_start": true,
+  "old_m25e_job_absent_not_runnable": true,
+  "old_m25e_job_id_not_reusable": "9d6aa1d9-edd7-4633-90eb-3fba96f20b02",
+  "old_m25e_run_count_exactly_one": true,
+  "route_unchanged_from_m25f": true,
+  "schema": "stickbot.memory_ledger.m25g.preflight_state.v1",
+  "status": "PASS_PREFLIGHT"
+}

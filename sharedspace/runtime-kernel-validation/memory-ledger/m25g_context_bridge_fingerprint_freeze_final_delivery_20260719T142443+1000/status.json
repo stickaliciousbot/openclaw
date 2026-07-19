@@ -1,0 +1,13 @@
+{
+  "abort": false,
+  "blocked": true,
+  "commit_sha_recording": "external_only_self_referential_commit_sha_not_embedded",
+  "committed": true,
+  "expected_success_terminal": "M25G_CONTEXT_BRIDGE_FINGERPRINT_FREEZE_FINAL_DELIVERY_PASS_LEDGER_V0_1_COMPLETE",
+  "ok": true,
+  "pass": false,
+  "pushed": false,
+  "schema": "stickbot.memory_ledger.m25g.status.v1",
+  "status": "M25G_BLOCKED_SANITIZED_DELIVERY_REQUIRES_SEPARATE_DESIGN",
+  "terminal_status": "M25G_BLOCKED_SANITIZED_DELIVERY_REQUIRES_SEPARATE_DESIGN"
+}

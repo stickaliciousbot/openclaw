@@ -1,0 +1,11 @@
+{
+  "active_m25e_m25g_retry_jobs_after": [],
+  "job_absent_not_runnable": true,
+  "job_id": "3e05cd9e-c890-449a-9b3f-59d5cf5b3b84",
+  "job_matches_after": 0,
+  "no_m25e_m25g_retry_scheduled": true,
+  "old_m25e_absent_not_runnable": true,
+  "old_m25e_job_matches_after": 0,
+  "schema": "stickbot.memory_ledger.m25g.retry_removal_proof.v1",
+  "status": "PASS_RETRY_REMOVED_OR_ABSENT_NOT_RUNNABLE"
+}

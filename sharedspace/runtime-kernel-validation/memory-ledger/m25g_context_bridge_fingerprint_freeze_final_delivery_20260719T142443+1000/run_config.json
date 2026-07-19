@@ -1,0 +1,35 @@
+{
+  "approved_repair_paths": [
+    "Option A procedural freeze",
+    "Option B minimal code/config repair if Option A unsafe"
+  ],
+  "chosen_initial_path": "Option A procedural freeze only; no code change unless blocked",
+  "created_utc": "2026-07-19T04:24:45.159769+00:00",
+  "current_status": "M25G_IN_PROGRESS_CONTEXT_BRIDGE_FINGERPRINT_FREEZE_FINAL_DELIVERY",
+  "evidence_root": "sharedspace/runtime-kernel-validation/memory-ledger/m25g_context_bridge_fingerprint_freeze_final_delivery_20260719T142443+1000",
+  "forbidden": {
+    "authority_promotion": true,
+    "automatic_recall": true,
+    "leave_handler_armed": true,
+    "leave_retry_runnable": true,
+    "ledger_mutation": true,
+    "m26": true,
+    "manual_telegram_outside_proof": true,
+    "more_than_one_m25g_retry": true,
+    "old_job_id_reuse": true,
+    "old_m25e_rerun": true,
+    "prompt_injection": true,
+    "recurring_retry": true,
+    "route_mutation": true,
+    "uncontrolled_context_bridge_mutation": true
+  },
+  "milestone": "M25G \u2014 Context Bridge Fingerprint Freeze / Final Delivery Repair",
+  "old_m25e_job_id": "9d6aa1d9-edd7-4633-90eb-3fba96f20b02",
+  "required_anchors": [
+    "M25G_TERMINAL_PAYLOAD_ANCHOR",
+    "M25G_CLOSEOUT_ANCHOR",
+    "M25G_LEDGER_V0_1_COMPLETE_ANCHOR"
+  ],
+  "schema": "stickbot.memory_ledger.m25g.run_config.v1",
+  "terminal_expected": "M25G_CONTEXT_BRIDGE_FINGERPRINT_FREEZE_FINAL_DELIVERY_PASS_LEDGER_V0_1_COMPLETE"
+}

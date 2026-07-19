@@ -1,0 +1,17 @@
+{
+  "armed_config_loaded_before_run": true,
+  "caller_hash_matched_arming_inputs": true,
+  "candidate_source_hash_used": "dec25b28503614eefbbf8ba763eda3a9d48f93dbbd306921197ece262e42a4e3",
+  "decision_classification": "Boundary did not produce a deliverable sanitized reply. Fingerprint drift was repaired/ruled out, so remaining blocker is separate delivery/handler-runtime contract design (likely effective hook context/correlation or silent-hold observability), not Context Bridge fingerprint drift. No second proof run allowed under M25G constraints.",
+  "frozen_hashes_match_after_run": true,
+  "frozen_hashes_matched_before_run": true,
+  "handler_allow_confirmed": false,
+  "handler_bypassed_confirmed": false,
+  "handler_dist_index_sha256": "98a174e1767221f355d7a28364f738c2918eab320ed5373f9851d31da33b4347",
+  "handler_enforcement_point_preserved": true,
+  "handler_version": "0.0.4-m25b-runtime-root-repair",
+  "job_id": "3e05cd9e-c890-449a-9b3f-59d5cf5b3b84",
+  "observed_runtime_result": "NO_REPLY/no delivery",
+  "schema": "stickbot.memory_ledger.m25g.boundary_handler_decision_proof.v1",
+  "status": "BLOCKED_NO_DELIVERABLE_BOUNDARY_DECISION_RECEIPT"
+}

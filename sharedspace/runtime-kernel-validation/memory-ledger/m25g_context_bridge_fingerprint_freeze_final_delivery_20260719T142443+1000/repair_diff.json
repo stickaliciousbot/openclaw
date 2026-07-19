@@ -1,0 +1,9 @@
+{
+  "chosen_path": "Option A procedural freeze",
+  "code_diff": null,
+  "config_mutation_planned": "temporary exact-job arming then disarm",
+  "plugin_code_mutation": false,
+  "route_mutation": false,
+  "runtime_source_mutation": false,
+  "schema": "stickbot.memory_ledger.m25g.repair_diff.v1"
+}

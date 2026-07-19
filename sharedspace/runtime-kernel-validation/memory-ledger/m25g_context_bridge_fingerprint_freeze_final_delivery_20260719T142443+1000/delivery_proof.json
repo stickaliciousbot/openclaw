@@ -1,0 +1,12 @@
+{
+  "deliveryStatus": "not-delivered",
+  "delivery_count": 0,
+  "delivery_target_sanitized": "sha256 recorded in run entry only; raw target not committed",
+  "duplicate_delivery_occurred": false,
+  "job_id": "3e05cd9e-c890-449a-9b3f-59d5cf5b3b84",
+  "sanitized_delivery_succeeded": false,
+  "schema": "stickbot.memory_ledger.m25g.delivery_proof.v1",
+  "status": "BLOCKED_NO_SANITIZED_DELIVERY",
+  "summary": "NO_REPLY",
+  "telegram_send_count": 0
+}

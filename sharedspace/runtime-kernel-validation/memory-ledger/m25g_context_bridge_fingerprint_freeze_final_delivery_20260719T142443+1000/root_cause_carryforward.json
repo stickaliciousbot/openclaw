@@ -1,0 +1,8 @@
+{
+  "m25f_commit": "8ff969c62a94acdcb967945c5ebc2bf277fb659b",
+  "m25f_primary_classification": "BOUNDARY_HOLD_NO_DELIVERY_CONTEXT_BRIDGE_EVENTS_FINGERPRINT_DRIFT_THEN_CRON_SILENT_REPLY_NORMALIZATION",
+  "m25f_root_cause": "The boundary handler fail-closed before rendering because Context Bridge events changed after M25E arming/preflight and before the forced retry. That produced HOLD_NO_DELIVERY with no reply; OpenClaw cron then normalized exact NO_REPLY as a silent final payload and did not announce to Telegram.",
+  "m25f_terminal_pushed": "M25F_PUSHED_NO_REPLY_ROOT_CAUSE_IDENTIFIED_REPAIR_PLAN_READY_NO_RETRY_RUN",
+  "sanitized_delivery_still_required": true,
+  "schema": "stickbot.memory_ledger.m25g.root_cause_carryforward.v1"
+}

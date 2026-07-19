@@ -1,0 +1,9 @@
+{
+  "ledger_complete_anchor": "M25G_LEDGER_V0_1_COMPLETE_ANCHOR",
+  "ledger_complete_anchor_observed_in_job_payload": true,
+  "observed_in_sanitized_delivery": false,
+  "schema": "stickbot.memory_ledger.m25g.terminal_payload_anchor_proof.v1",
+  "status": "PASS_CALLER_TERMINAL_AND_LEDGER_ANCHORS_OBSERVED_BUT_NOT_DELIVERED",
+  "terminal_anchor": "M25G_TERMINAL_PAYLOAD_ANCHOR",
+  "terminal_anchor_observed_in_job_payload": true
+}

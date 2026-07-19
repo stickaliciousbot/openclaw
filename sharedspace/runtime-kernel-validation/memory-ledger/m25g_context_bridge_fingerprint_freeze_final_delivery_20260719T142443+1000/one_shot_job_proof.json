@@ -1,0 +1,31 @@
+{
+  "anchors_present": {
+    "M25G_CLOSEOUT_ANCHOR": true,
+    "M25G_LEDGER_V0_1_COMPLETE_ANCHOR": true,
+    "M25G_TERMINAL_PAYLOAD_ANCHOR": true
+  },
+  "deleteAfterRun": true,
+  "delivery_sanitized": {
+    "bestEffort": false,
+    "channel": "telegram",
+    "mode": "announce",
+    "to_sha256": "57636a7474a8c491ab00f179205e639a079f17915b829fcca4356705b2830d8d"
+  },
+  "disabled_inert_first": true,
+  "enabled": false,
+  "job_id": "3e05cd9e-c890-449a-9b3f-59d5cf5b3b84",
+  "job_source_matches_arming_inputs": true,
+  "no_delivery_possible_while_disabled": true,
+  "old_job_id_reused": false,
+  "old_m25e_job_id": "9d6aa1d9-edd7-4633-90eb-3fba96f20b02",
+  "one_shot_only": true,
+  "payload_message_sha256": "8f6b27b4495272dc9f778ade5a9035b550ce86a6e0d68386d0c697a2b010afe3",
+  "recurring_schedule": false,
+  "schedule": {
+    "at": "2030-01-01T00:00:00.000Z",
+    "kind": "at"
+  },
+  "schema": "stickbot.memory_ledger.m25g.one_shot_job_proof.v1",
+  "sessionTarget": "isolated",
+  "status": "PASS_DISABLED_INERT_ONE_SHOT_JOB_CREATED"
+}
