@@ -1,0 +1,10 @@
+{
+  "notes": "negative tests use unmistakable synthetic sentinels only",
+  "rawIdsFound": 0,
+  "rawPayloadsPersisted": false,
+  "rawTargetIdsFound": 0,
+  "scopedSourceScan": "PASS",
+  "secretsFound": 0,
+  "status": "PASS",
+  "workspaceEvidenceScan": "PASS"
+}

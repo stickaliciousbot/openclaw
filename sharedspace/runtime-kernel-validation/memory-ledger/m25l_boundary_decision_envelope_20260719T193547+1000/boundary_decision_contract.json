@@ -1,0 +1,36 @@
+{
+  "decisionEnum": [
+    "allow",
+    "hold",
+    "reject"
+  ],
+  "invariants": [
+    "allow requires deliveryAllowed=true",
+    "hold/reject require deliveryAllowed=false",
+    "unknown/malformed fails closed",
+    "diagnostics bounded <=160 chars and sanitized",
+    "bindings exact",
+    "contract hash validates"
+  ],
+  "requiredFields": [
+    "schema",
+    "schemaVersion",
+    "decision",
+    "reasonCode",
+    "jobId",
+    "agentId",
+    "sessionKey",
+    "callerPromptSha256",
+    "candidateSourceSha256",
+    "eventsSha256",
+    "actionsSha256",
+    "ledgerSha256",
+    "localDate",
+    "decisionSha256",
+    "sanitizedDiagnostic",
+    "deliveryAllowed",
+    "contractHash"
+  ],
+  "schema": "stickbot.boundary_decision.v1",
+  "schemaVersion": "1.0.0"
+}

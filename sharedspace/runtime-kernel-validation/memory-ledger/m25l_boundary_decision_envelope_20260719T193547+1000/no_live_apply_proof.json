@@ -1,0 +1,16 @@
+{
+  "authorityPromotion": false,
+  "contextBridgeUnchanged": true,
+  "cronJobsUnchanged": true,
+  "deliveryAdapterInvocation": 0,
+  "gatewayConfigUnchanged": true,
+  "gatewayRestartReload": false,
+  "handlerArmed": false,
+  "installedPluginDistUnchanged": true,
+  "installedPluginSourceUnchanged": true,
+  "installedRuntimeUnchanged": true,
+  "ledgerUnchanged": true,
+  "routeModelConfigUnchanged": true,
+  "targetResolution": 0,
+  "telegramSends": 0
+}

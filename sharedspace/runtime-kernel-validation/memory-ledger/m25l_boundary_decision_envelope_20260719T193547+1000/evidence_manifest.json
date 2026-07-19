@@ -1,0 +1,127 @@
+{
+  "entries": [
+    {
+      "bytes": 763,
+      "path": "boundary_decision_contract.json",
+      "sha256": "898203176d892657830beb07204094f930e54bf5ddc1b70d486fd5fb6c4fe660"
+    },
+    {
+      "bytes": 1787,
+      "path": "boundary_handler_source_map.json",
+      "sha256": "806d1789453c9121553e7f2de47ef3563aca100571aad716cf7737a73e8b0016"
+    },
+    {
+      "bytes": 893,
+      "path": "changed_file_inventory.json",
+      "sha256": "7c2f8e0016b15d37a79ff99d6d8c6e8a2f6f1caed3e8b4a2ef2ebcf4f64b25bc"
+    },
+    {
+      "bytes": 783,
+      "path": "changed_repository_inventory.json",
+      "sha256": "7f9f3928a6b4a88561f70573c8cca19c05b19defc4911a9c12395be626e728d3"
+    },
+    {
+      "bytes": 452,
+      "path": "decision_hash_contract.json",
+      "sha256": "8c6378bc417b6b10d0180014ebd2a1f097cd96291afbfd3f1e0e8cc8a9f16160"
+    },
+    {
+      "bytes": 346,
+      "path": "design_authority_readback.json",
+      "sha256": "db61c2b8ea8b2496ddd03e011cd9ae9f8997d9e25d03b2c229c9ab134888a1d0"
+    },
+    {
+      "bytes": 1278,
+      "path": "fixture_inventory.json",
+      "sha256": "40feb80ce487c83b7794ac9be31cbd42169097d1261540c32379a86b12a957b1"
+    },
+    {
+      "bytes": 563,
+      "path": "handler_result_taxonomy.json",
+      "sha256": "3d47fcde42fff0f0813b1c32fb50a56a0f07de03ec9c3e539dfac89f6f944c89"
+    },
+    {
+      "bytes": 852,
+      "path": "hard_gates.json",
+      "sha256": "7185c068d3cc057031688450ce80df2eefdd2a4542aabb7a8e574dc1d13c7466"
+    },
+    {
+      "bytes": 328,
+      "path": "health_checks.json",
+      "sha256": "64ab7c9d2b9e5947d62810511d844f94e2e7aa847d4e5619b971dfcffeac1e4f"
+    },
+    {
+      "bytes": 339,
+      "path": "m25k_regression_results.json",
+      "sha256": "71ef8a8691c2e5aa9fe111ed1229fabf4311d0c8f21bb72d2d79428192f758fe"
+    },
+    {
+      "bytes": 1713,
+      "path": "mutation_sentinels.json",
+      "sha256": "3b64c757072c3ed29525a32d12f2ddd0955d8589154646ec7d4267b466cf75fb"
+    },
+    {
+      "bytes": 453,
+      "path": "no_live_apply_proof.json",
+      "sha256": "9765edf4b3bfdb1fc649d022996c978e0f3ebde6d308dc19880408c3b337c178"
+    },
+    {
+      "bytes": 1054,
+      "path": "prior_state.json",
+      "sha256": "16c409a990761f2ebd28e7d4bf5164ac60a648209bbeabcfcae1891661ddccb7"
+    },
+    {
+      "bytes": 259,
+      "path": "privacy_scan.json",
+      "sha256": "81fdcb809d92edb6dd9218104de4667c28dfdc244bc507bda869debfddd1af88"
+    },
+    {
+      "bytes": 977,
+      "path": "reason_code_registry.json",
+      "sha256": "c543af67490bafbe77754099c9763acae2d583a53b97b57c49ece094f19f0487"
+    },
+    {
+      "bytes": 385,
+      "path": "rollback_proof.json",
+      "sha256": "015cd332bc947e1571f25995dd96e898b9a0aebbcef8a012d35a4bfa1e51329a"
+    },
+    {
+      "bytes": 460,
+      "path": "run_config.json",
+      "sha256": "cdb8dc4fd96c94f92dc2380be681360bbfbae80a318f0b40055738dcdd5cc32a"
+    },
+    {
+      "bytes": 697,
+      "path": "runtime_handoff_map.json",
+      "sha256": "be20eb788c12bcd6a26513aa6052ed96f43ed50a9fb9a05c78e0b85e3a23287f"
+    },
+    {
+      "bytes": 1195,
+      "path": "runtime_source_map.json",
+      "sha256": "7c3f04a82ba8c0d1f66fe12a5f8640df7504d3fbbe15fc37c1fe3ed570092657"
+    },
+    {
+      "bytes": 299,
+      "path": "security_results.json",
+      "sha256": "9fd60c5d44f847f01b3f234d46df295875fce3543a0ba5e72191ff87cdbd56a9"
+    },
+    {
+      "bytes": 312,
+      "path": "status.json",
+      "sha256": "fa1bded2861e81d5e6727ca759ef89ee84df436a8a9761a80d20dabe43ff8460"
+    },
+    {
+      "bytes": 2490,
+      "path": "summary.json",
+      "sha256": "a09d02f54c0b94064f9e24773b48c86abbcfc5d81caafd853eec566ba9891934"
+    },
+    {
+      "bytes": 542,
+      "path": "test_results.json",
+      "sha256": "2c18efdc12f14f57cd5578e92601fc2339dab1ca1825cfd8561fb7bffea103ca"
+    }
+  ],
+  "entryCount": 24,
+  "root": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25l_boundary_decision_envelope_20260719T193547+1000",
+  "schema": "stickbot.m25l.evidence_manifest.v1"
+}

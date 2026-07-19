@@ -1,0 +1,5 @@
+{
+  "build": "PASS envelope source compiles, runtime adapter compiles, hash checks/tests/security PASS",
+  "postBuild": "PASS installed runtime/plugin/config unchanged; no restart/job/delivery; evidence manifest PASS",
+  "preflight": "PASS baseline/fork heads verified, handler dormant, no active proof jobs by hash/readback"
+}

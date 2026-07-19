@@ -1,0 +1,16 @@
+{
+  "baselineHashes": {
+    "contextBridgeActions": "a7b0d3d4bd1a9c8bb0da20a1f92cc248f3f37dbf551c66a361330076777bba63",
+    "contextBridgeEvents": "76f4d0f030af56ee03b3484413ca67c7f9a65992f68ecb2b46ed144410b1a9b5",
+    "cronJobs": "2552a3a4f7c229109c5903551aed9a826491aa6316e95dec3db1791fb489b3b2",
+    "gatewayConfig": "69fda094eb9c2476db5d4377135f633339094b5cc9a2e6d4340b4564a0da2bc7",
+    "handlerDist": "643b49744f92eacefab36afa8742c2b987a67dcbe60cbcd3e47ee2fa0784f858",
+    "handlerSource": "687524d056ec89748d6ae0483936c994a59270af8016e6959c65a4e84291b09b",
+    "installedRuntime": "9c72b80b522c21df975ed6f1fd8fae5a96307a6e58f7d692223d82d5d8e0d109"
+  },
+  "m25kEvidenceManifest": "1b18b95b333d29d10795a96cc4608c7d67b60289c8b47b7b6af637f15f696d22",
+  "m25kPreservationTerminal": "M25K_PF_FORK_SOURCE_AND_WORKSPACE_PRESERVATION_PASS_NO_TELEGRAM",
+  "m25kTerminal": "M25K_RUNTIME_DELIVERY_CLASSIFICATION_PASS_NO_TELEGRAM",
+  "sourceForkHead": "087a300cc78c677116829a885a699a96535ee295",
+  "workspaceHead": "a48507c39f965f26d880e4f9d3ead40733f4c578"
+}

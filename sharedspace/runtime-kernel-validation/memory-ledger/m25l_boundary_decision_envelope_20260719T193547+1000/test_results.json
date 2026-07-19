@@ -1,0 +1,7 @@
+{
+  "diffCheck": "PASS",
+  "focusedM25L": "PASS node --import tsx src/cron/boundary-decision-envelope.test.ts; 23 reason codes; 11 positive / 22 negative / 6 regression",
+  "m25kRegression": "PASS node --import tsx tmp/m25k-runtime-classification-smoke.ts; 31 assertions / 10 terminals",
+  "nativeVitest": "not run; prior native wrapper hangs; focused tsx/tsc used",
+  "targetedTypecheck": "PASS tsc --noEmit --ignoreConfig --skipLibCheck --module NodeNext --moduleResolution NodeNext --target ES2022 --types node,vitest <M25L/M25K files>"
+}

@@ -1,0 +1,16 @@
+{
+  "installedHandlerChanged": false,
+  "installedRuntimeChanged": false,
+  "openclawSourceFiles": [
+    "src/cron/boundary-decision-envelope.ts",
+    "src/cron/boundary-decision-envelope.test.ts",
+    "src/cron/runtime-delivery-classification.ts"
+  ],
+  "sourceDiffSha256": "3aa4d657b20ea0af5e1c9eda6348bae40185214eddbada5aafb33ab7f8f87e1c",
+  "sourceFileHashes": {
+    "src/cron/boundary-decision-envelope.test.ts": "7ec7a16c137db061c023841274bc57e02cf580db9b14aca5641e3bad58a0a62c",
+    "src/cron/boundary-decision-envelope.ts": "2fefedeac51018610e0b296e9fa27cd076ceaa42c696573bdf91fe0e620cdd2b",
+    "src/cron/runtime-delivery-classification.ts": "7cfc83c4f0a97cc8960901847a6ad98c3af343955725225583a743e2716eb1ed"
+  },
+  "workspaceEvidenceRoot": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25l_boundary_decision_envelope_20260719T193547+1000"
+}

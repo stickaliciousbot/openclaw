@@ -1,0 +1,9 @@
+{
+  "allow": "valid allow + payload -> BOUNDARY_ALLOWED_PAYLOAD_READY deliveryEligible=true",
+  "flow": "raw handler result -> BoundaryDecisionEnvelope -> validate hashes/bindings/privacy -> boundaryDecisionEnvelopeToRuntimePatch -> classifyRuntimeReply",
+  "hold": "valid hold -> BOUNDARY_HOLD_NO_DELIVERY deliveryEligible=false reason retained",
+  "invalid": "malformed/tampered/wrong binding -> DELIVERY_CONTRACT_INVALID",
+  "missing": "handler required + missing envelope -> BOUNDARY_DECISION_MISSING",
+  "quietCompatibility": "quiet_success deliveryRequired=false remains NO_REPLY only path",
+  "reject": "valid reject -> BOUNDARY_REJECT_NO_DELIVERY deliveryEligible=false reason retained"
+}

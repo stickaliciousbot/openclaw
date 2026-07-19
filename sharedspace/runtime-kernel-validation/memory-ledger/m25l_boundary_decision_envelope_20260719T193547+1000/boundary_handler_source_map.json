@@ -1,0 +1,39 @@
+{
+  "before_agent_reply": {
+    "allowPath": "READY_FOR_SINGLE_SCHEDULED_ANNOUNCE after caller/source/events/actions/ledger/date/privacy checks and sanitized renderer postconditions",
+    "configFrozenAtRegistration": "plugin config live read/config-bound by Gateway plugin system; M25L did not change live config",
+    "diagnostics": "reason/reasonCode strings; no durable envelope before M25L",
+    "dormantPaths": [
+      "not_armed",
+      "not_cron",
+      "job_scope_miss"
+    ],
+    "function": "evaluateBoundary",
+    "holdPaths": [
+      "HANDLER_CONFIG_UNPROVEN",
+      "BOUNDARY_CALLER_IDENTITY_DRIFT",
+      "T0_CALLER_DRIFT",
+      "BOUNDARY_CALLER_PROMPT_DRIFT",
+      "BINDING_SOURCE_DRIFT",
+      "BINDING_SOURCE_UNPROVEN",
+      "CONTEXT_BRIDGE_OR_LEDGER_DRIFT",
+      "CONTEXT_BRIDGE_OR_LEDGER_UNPROVEN",
+      "SANITIZED_RENDERER_FAILURE",
+      "RENDERER_POSTCONDITION_FAILURE",
+      "SANITIZED_MARKER_MISSING",
+      "PRIVACY_RECEIPT_FAILED"
+    ],
+    "input": "rawConfig + BoundaryEvent.cleanedBody + BoundaryContext + dependencies",
+    "message_sending": "gateMessageSending validates prepared outbound proof and cancels failed/duplicate/correlation drift",
+    "message_sent": "recordSentReceipt stores in-memory typed delivery receipt only",
+    "output": "BoundaryDecision union DORMANT / HOLD_NO_DELIVERY / READY_FOR_SINGLE_SCHEDULED_ANNOUNCE",
+    "rejectPath": "none explicit in existing handler; runtime envelope validator rejects malformed/forbidden/tampered inputs"
+  },
+  "canonicalHandlerChanged": false,
+  "paths": {
+    "distHandler": "dist/src/boundary-handler.js",
+    "handler": "src/boundary-handler.ts",
+    "types": "src/types.ts"
+  },
+  "pluginSourceRoot": "/home/stickai/.openclaw/extensions/stickbot-memory-ledger-m25b-boundary-handler"
+}

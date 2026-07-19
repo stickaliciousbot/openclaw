@@ -1,0 +1,14 @@
+{
+  "contractHash": "canonical envelope excluding contractHash after decisionSha256 is populated",
+  "decisionSha256": "canonical envelope excluding decisionSha256 and contractHash",
+  "determinismTests": [
+    "key order stable",
+    "binding field changes hash",
+    "diagnostic changes hash",
+    "decision changes hash",
+    "tampered hash rejected",
+    "unknown schema major rejected"
+  ],
+  "hash": "SHA-256 lowercase hex",
+  "result": "PASS"
+}

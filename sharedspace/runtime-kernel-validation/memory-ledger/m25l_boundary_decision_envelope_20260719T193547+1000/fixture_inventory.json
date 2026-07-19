@@ -1,0 +1,51 @@
+{
+  "negative": 22,
+  "negativeCases": [
+    "unknown decision",
+    "allow deliveryAllowed false",
+    "hold deliveryAllowed true",
+    "reject deliveryAllowed true",
+    "missing reason",
+    "malformed SHA",
+    "decision hash mismatch",
+    "contract hash mismatch",
+    "wrong job",
+    "wrong agent",
+    "wrong session",
+    "wrong caller",
+    "wrong source",
+    "wrong events",
+    "wrong actions",
+    "wrong ledger",
+    "wrong date",
+    "unknown major schema",
+    "raw target sentinel",
+    "secret-like diagnostic sentinel",
+    "oversized diagnostic",
+    "duplicate replay",
+    "reason/decision mismatch"
+  ],
+  "positive": 11,
+  "positiveCases": [
+    "valid allow",
+    "valid delivery-required allow",
+    "valid hold unarmed",
+    "valid hold job mismatch/hash drift registry",
+    "valid reject malformed contract",
+    "valid reject privacy failure",
+    "deterministic hashes",
+    "runtime allow",
+    "runtime hold",
+    "runtime reject",
+    "evidence receipt"
+  ],
+  "regression": 6,
+  "regressionCases": [
+    "M25K quiet success remains quiet",
+    "missing decision explicit",
+    "M25E fingerprint drift hold",
+    "M25G missing payload explicit",
+    "M25H cannot allow without valid envelope",
+    "hold/reject never delivery eligible"
+  ]
+}

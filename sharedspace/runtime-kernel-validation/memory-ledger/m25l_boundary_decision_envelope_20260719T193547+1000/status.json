@@ -1,0 +1,10 @@
+{
+  "closeoutUnknown": false,
+  "m25mStarted": false,
+  "m26Started": false,
+  "pushed": false,
+  "sourceCommit": "32b218aa9cd8261532a6f039fb3d4f00fb9342c1",
+  "status": "PASS",
+  "terminal": "M25L_BOUNDARY_DECISION_ENVELOPE_PASS_NO_TELEGRAM",
+  "workspaceEvidenceCommit": "external_git_readback_after_commit"
+}

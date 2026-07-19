@@ -1,0 +1,9 @@
+{
+  "duplicateReplayRejected": "PASS",
+  "forgedDecisionHashRejected": "PASS",
+  "privateRawScan": "PASS",
+  "rawIdentifierRejected": "PASS synthetic sentinel",
+  "secretLikeDiagnosticRejected": "PASS synthetic sentinel",
+  "tamperedEnvelopeRejected": "PASS",
+  "wrongSessionReplayDenied": "PASS"
+}

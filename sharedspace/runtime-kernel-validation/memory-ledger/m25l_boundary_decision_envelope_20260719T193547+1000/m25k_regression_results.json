@@ -1,0 +1,8 @@
+{
+  "M25E": "fingerprint drift maps to hold/no bare NO_REPLY",
+  "M25G": "stable fingerprints plus missing payload maps explicitly",
+  "M25H": "allow requires valid envelope; repaired path cannot claim allow without envelope",
+  "deliveryRequiredBareNoReplyRejected": "PASS",
+  "m25kSmoke": "PASS",
+  "quietSuccessCompatibility": "PASS"
+}

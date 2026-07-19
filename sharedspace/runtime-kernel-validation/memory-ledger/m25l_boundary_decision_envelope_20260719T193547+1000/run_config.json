@@ -1,0 +1,12 @@
+{
+  "milestone": "M25L",
+  "noLiveApply": true,
+  "noM25MOrM26": true,
+  "noTelegram": true,
+  "schema": "stickbot.m25l.run_config.v1",
+  "sourceBase": "087a300cc78c677116829a885a699a96535ee295",
+  "sourceBranch": "boundary-decision-envelope-2026-5-7-backport",
+  "sourceHead": "32b218aa9cd8261532a6f039fb3d4f00fb9342c1",
+  "terminalExpected": "M25L_BOUNDARY_DECISION_ENVELOPE_PASS_NO_TELEGRAM",
+  "workspaceBase": "a48507c39f965f26d880e4f9d3ead40733f4c578"
+}

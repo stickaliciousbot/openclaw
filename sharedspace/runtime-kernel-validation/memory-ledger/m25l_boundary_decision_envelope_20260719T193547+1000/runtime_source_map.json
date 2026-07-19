@@ -1,0 +1,24 @@
+{
+  "runtimeFiles": [
+    {
+      "input": "RuntimeReplyClassificationInput plus optional BoundaryDecisionEnvelope/context",
+      "m25lChange": "imports validated envelope patch and retains boundaryReasonCode in classification",
+      "output": "RuntimeReplyClassification terminal/reason/deliveryEligible/legacy adapter",
+      "path": "src/cron/runtime-delivery-classification.ts",
+      "responsibility": "M25K reply classification plus M25L boundary-envelope handoff"
+    },
+    {
+      "input": "draft/envelope + synthetic or bound validation context",
+      "m25lChange": "new canonical implementation",
+      "output": "validated decision/contract hashes, runtime patch, evidence receipt",
+      "path": "src/cron/boundary-decision-envelope.ts",
+      "responsibility": "BoundaryDecisionEnvelope schema, reason registry, hashing, validation, runtime patch, no-send evidence"
+    },
+    {
+      "m25lChange": "new canonical focused tests",
+      "path": "src/cron/boundary-decision-envelope.test.ts",
+      "responsibility": "focused no-send contract/security/runtime handoff tests"
+    }
+  ],
+  "sourceRoot": "/home/stickai/.openclaw/workspace/tmp/openclaw-2026-5-7-closeout-backport"
+}

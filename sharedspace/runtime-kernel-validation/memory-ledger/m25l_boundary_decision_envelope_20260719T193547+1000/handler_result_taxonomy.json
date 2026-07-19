@@ -1,0 +1,15 @@
+{
+  "allow": [
+    "READY_FOR_SINGLE_SCHEDULED_ANNOUNCE -> BOUNDARY_MATCH_ALLOW_DELIVERY_REQUIRED"
+  ],
+  "dormant": [
+    "DORMANT not armed/not cron/job miss -> BOUNDARY_UNARMED_HOLD or missing envelope depending runtime requirement"
+  ],
+  "hold": [
+    "HOLD_NO_DELIVERY config/caller/source/context/renderer/privacy/duplicate/correlation branches -> bounded *_HOLD reason codes"
+  ],
+  "reject": [
+    "Malformed/unknown/forbidden/tampered envelope input -> bounded *_REJECT reason codes via runtime validator"
+  ],
+  "unknown": "fail closed; never allow"
+}

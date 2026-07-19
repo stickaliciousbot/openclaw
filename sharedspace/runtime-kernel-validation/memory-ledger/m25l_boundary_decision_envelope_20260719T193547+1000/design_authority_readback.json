@@ -1,0 +1,13 @@
+{
+  "authority": "M25J-R/M25K accepted contract chain",
+  "boundaryDecisionSchema": "stickbot.boundary_decision.v1",
+  "m25lScope": "source-level typed envelope and runtime handoff only",
+  "notInScope": [
+    "Telegram delivery",
+    "target resolution",
+    "live Gateway/plugin installation",
+    "handler arming",
+    "M25M",
+    "M26"
+  ]
+}
