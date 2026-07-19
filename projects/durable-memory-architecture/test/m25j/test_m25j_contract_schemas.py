@@ -24,7 +24,7 @@ class SchemaFixtureTests(unittest.TestCase):
             with self.subTest(p=p.name):
                 with self.assertRaises(ContractValidationError): validate_json_text(p.read_text())
     def test_required_fields_enforced_and_unknown_major_fails(self):
-        obj=json.loads((FIX/'positive/sanitized_payload.json').read_text()); obj.pop('payloadId')
+        obj=json.loads((FIX/'positive/sanitized_payload.json').read_text()); obj.pop('payloadType')
         with self.assertRaisesRegex(ContractValidationError,'MISSING_REQUIRED_FIELD'): validate_contract(obj)
         obj=json.loads((FIX/'positive/sanitized_payload.json').read_text()); obj['schema']='stickbot.sanitized_payload.v99'; obj['schemaVersion']='99.0.0'
         with self.assertRaisesRegex(ContractValidationError,'UNKNOWN_MAJOR'): validate_contract(obj)

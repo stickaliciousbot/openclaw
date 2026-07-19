@@ -1,16 +1,21 @@
 {
-  "contractHash": "df2342412beb3fff5076d6e6eec9de28630af40e005d7a7e5cfb19b6498011b2",
-  "deliveryRequired": true,
-  "jobId": "job_delivery_m25j",
-  "payloadId": "payload_m25j_001",
-  "payloadText": "M25J sanitized fixture payload",
-  "privateScanPassed": true,
-  "rawIdentifiers": [],
-  "redactions": [
-    "raw_ids"
-  ],
-  "renderProfile": "plain_text",
+  "anchors": {
+    "closeoutAnchor": "closeout_anchor",
+    "ledgerCompletionAnchor": "ledger_completion_anchor",
+    "terminalPayloadAnchor": "terminal_payload_anchor"
+  },
+  "body": "M25J sanitized fixture payload",
+  "completionStatus": "PASS",
+  "contractHash": "ecf7d898f94b22e2c0091b978bdc52defb8c1610c1737716d57490dd12de776b",
+  "createdAt": "2026-07-19T07:12:00Z",
+  "deliverySurface": "owner_direct",
+  "idempotencyKey": "m25j:delivery:idem",
+  "payloadSha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+  "payloadType": "milestone_closeout",
+  "privateScanPass": true,
+  "rawIdentifiersPresent": false,
   "sanitized": false,
   "schema": "stickbot.sanitized_payload.v1",
-  "schemaVersion": "1.0.0"
+  "schemaVersion": "1.0.0",
+  "title": "M25J sanitized fixture"
 }

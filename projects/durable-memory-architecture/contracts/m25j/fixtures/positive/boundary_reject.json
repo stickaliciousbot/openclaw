@@ -1,13 +1,19 @@
 {
-  "contractHash": "2a4553ba482398e3f038fd48cfdbafd97873b455c9548a6e9d048929da2bc753",
+  "actionsSha256": "a7b0d3d4bd1a9c8bb0da20a1f92cc248f3f37dbf551c66a361330076777bba63",
+  "agentId": "agent_main_alias",
+  "callerPromptSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "candidateSourceSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "contractHash": "b22b43892662fda2d31c0b214d2c7022badcfb047b47b71138e7fdd39be86847",
   "decision": "reject",
-  "decisionId": "boundary_reject_m25j",
+  "decisionSha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
   "deliveryAllowed": false,
+  "eventsSha256": "76f4d0f030af56ee03b3484413ca67c7f9a65992f68ecb2b46ed144410b1a9b5",
   "jobId": "job_delivery_m25j",
-  "policyEpoch": "policy_epoch_m25j_001",
-  "reason": "offline_reject",
+  "ledgerSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "localDate": "2026-07-19",
+  "reasonCode": "policy_reject",
+  "sanitizedDiagnostic": "offline reject fixture",
   "schema": "stickbot.boundary_decision.v1",
   "schemaVersion": "1.0.0",
-  "sessionScopeHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-  "surfaceScope": "owner_direct_fixture"
+  "sessionKey": "session_alias_m25j"
 }

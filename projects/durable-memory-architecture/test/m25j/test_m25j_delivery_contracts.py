@@ -11,10 +11,10 @@ FIX=ROOT/'projects/durable-memory-architecture/contracts/m25j/fixtures'
 class DeliveryTests(unittest.TestCase):
     def test_no_reply_valid_for_quiet_job_only(self):
         quiet=json.loads((FIX/'positive/quiet_job_delivery_not_required.json').read_text())
-        quiet['desiredOutput']='NO_REPLY'; quiet['contractHash']='0'*64
+        quiet['deliveryIntent']='NO_REPLY'; quiet['contractHash']='0'*64
         from m25j.canonical import compute_contract_hash; quiet['contractHash']=compute_contract_hash(quiet)
         self.assertEqual(validate_contract(quiet)['validationTerminal'],'PASS')
-        req=json.loads((FIX/'positive/delivery_required_job_all_anchors.json').read_text()); req['desiredOutput']='NO_REPLY'
+        req=json.loads((FIX/'positive/delivery_required_job_all_anchors.json').read_text()); req['deliveryIntent']='NO_REPLY'
         from m25j.canonical import compute_contract_hash; req['contractHash']=compute_contract_hash(req)
         with self.assertRaisesRegex(ContractValidationError,'DELIVERY_REQUIRED_NO_REPLY'): validate_contract(req)
     def test_boundary_hold_reject_cannot_authorize_delivery(self):

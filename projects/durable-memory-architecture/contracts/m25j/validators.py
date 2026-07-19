@@ -48,31 +48,54 @@ def validate_contract(obj: dict[str,Any]) -> dict[str,Any]:
             if not k.startswith('x_'): err('BAD_EXTENSION_NAMESPACE',k)
             if isinstance(v,dict) and v.get('mandatory') is True: err('MANDATORY_UNKNOWN_EXTENSION',k)
     _raw_scan(obj)
-    for f in ['contractHash','packetHash','receiptSha256','policyHash','contentSha256','serviceHash','inputHash']:
+    for f in [
+        'contractHash','packetHash','receiptSha256','policyHash','contentSha256','serviceHash','inputHash',
+        'callerPromptSha256','candidateSourceSha256','eventsSha256','actionsSha256','ledgerSha256',
+        'decisionSha256','payloadSha256','resultSha256'
+    ]:
         if f in obj: _require_sha(obj[f],f)
     if not validate_contract_hash(obj): err('CONTRACT_HASH_MISMATCH',obj.get('schema','unknown'))
     if obj.get('idempotencyKey') == 'idem_replayed_cross_session':
         err('DUPLICATE_IDEMPOTENCY_KEY','idempotencyKey')
     s=obj['schema']
     if s=='stickbot.delivery_required_job.v1':
+        if obj.get('deliverySurface') not in ['owner_direct','telegram_owner_direct','web_owner_direct','none']:
+            err('BAD_DELIVERY_SURFACE','deliverySurface')
+        if not isinstance(obj.get('idempotencyKey'), str) or ':' not in obj.get('idempotencyKey'):
+            err('BAD_IDEMPOTENCY_KEY','idempotencyKey must be non-empty and scoped')
+        if obj.get('expiresAt') <= '2026-07-19T00:00:00Z':
+            err('EXPIRED_DELIVERY_JOB','expiresAt')
         if obj['deliveryRequired'] is True:
-            for f in ['completionAnchor','terminalAnchor','closeoutAnchor']:
+            for f in ['closeoutAnchor','terminalPayloadAnchor','ledgerCompletionAnchor']:
                 if not obj.get(f): err('MISSING_DELIVERY_ANCHOR',f)
-            if obj.get('desiredOutput')=='NO_REPLY': err('DELIVERY_REQUIRED_NO_REPLY','delivery-required job cannot be bare NO_REPLY')
+            if obj.get('deliveryIntent')=='NO_REPLY': err('DELIVERY_REQUIRED_NO_REPLY','delivery-required job cannot be bare NO_REPLY')
+            if obj.get('boundaryHandlerRequired') is not True:
+                err('BOUNDARY_HANDLER_REQUIRED','delivery-required jobs require boundary handler')
         if obj.get('maxDeliveries') != 1: err('MAX_DELIVERIES_GT_ONE','maxDeliveries must be exactly 1')
     elif s=='stickbot.boundary_decision.v1':
         if obj['decision'] not in ['allow','hold','reject']: err('BAD_BOUNDARY_DECISION',obj['decision'])
         if obj['decision'] in ['hold','reject'] and obj.get('deliveryAllowed') is True: err('BOUNDARY_NON_ALLOW_DELIVERY_ALLOWED',obj['decision'])
         if obj.get('deliveryAllowed') is True and obj['decision']!='allow': err('BOUNDARY_DELIVERY_ALLOWED_WITHOUT_ALLOW',obj['decision'])
+        if not isinstance(obj.get('sanitizedDiagnostic'), str) or len(obj['sanitizedDiagnostic']) > 512:
+            err('UNSANITIZED_DIAGNOSTIC','sanitizedDiagnostic')
     elif s=='stickbot.sanitized_payload.v1':
-        if obj.get('deliveryRequired') is True and obj.get('payloadText')=='NO_REPLY': err('DELIVERY_REQUIRED_NO_REPLY','payload')
-        if obj.get('sanitized') is not True or obj.get('privateScanPassed') is not True: err('UNSANITIZED_PAYLOAD','sanitized/privateScanPassed required')
-        if obj.get('rawIdentifiers'): err('RAW_IDENTIFIER','rawIdentifiers must be empty')
+        if obj.get('body')=='NO_REPLY': err('DELIVERY_REQUIRED_NO_REPLY','payload')
+        if obj.get('sanitized') is not True or obj.get('privateScanPass') is not True: err('UNSANITIZED_PAYLOAD','sanitized/privateScanPass required')
+        if obj.get('rawIdentifiersPresent') is not False: err('RAW_IDENTIFIER','rawIdentifiersPresent must be false')
+        if obj.get('deliverySurface') not in ['owner_direct','telegram_owner_direct','web_owner_direct','none']:
+            err('BAD_DELIVERY_SURFACE','deliverySurface')
+        body = obj.get('body')
+        if not isinstance(body, str) or len(body) > 4000:
+            err('PAYLOAD_BODY_BOUNDS','body')
+        anchors = obj.get('anchors')
+        if not isinstance(anchors, dict) or not all(anchors.get(k) for k in ['closeoutAnchor','terminalPayloadAnchor','ledgerCompletionAnchor']):
+            err('MISSING_DELIVERY_ANCHOR','anchors')
     elif s=='stickbot.delivery_result.v1':
-        if obj.get('deliveryRequired') is True and obj.get('status')=='NO_REPLY': err('DELIVERY_REQUIRED_NO_REPLY','result')
+        if obj.get('deliveryStatus') not in ['delivered','not-delivered','suppressed','failed']:
+            err('BAD_DELIVERY_STATUS','deliveryStatus')
         if obj.get('delivered') is True and obj.get('deliveryAttempted') is not True: err('DELIVERED_WITHOUT_ATTEMPT','delivered requires deliveryAttempted')
-        if obj.get('duplicateSuppressed') is True and obj.get('status')!='suppressed': err('BAD_DUPLICATE_SUPPRESSION_STATUS','duplicateSuppressed requires suppressed')
-        if obj.get('status')=='failed' and not obj.get('errorClass'): err('FAILED_DELIVERY_MISSING_ERROR_CLASS','failed requires errorClass')
+        if obj.get('duplicateSuppressed') is True and obj.get('deliveryStatus')!='suppressed': err('BAD_DUPLICATE_SUPPRESSION_STATUS','duplicateSuppressed requires suppressed')
+        if obj.get('deliveryStatus')=='failed' and not obj.get('errorClass'): err('FAILED_DELIVERY_MISSING_ERROR_CLASS','failed requires errorClass')
     elif s=='stickbot.context_reconstruction.packet.v1':
         if obj.get('projectionOnly') is not True: err('PACKET_AUTHORITY_PROMOTION','packet is projection only')
         for label in obj.get('authorityLabels',[]):

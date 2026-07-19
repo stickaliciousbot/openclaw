@@ -1,15 +1,16 @@
 {
-  "adapter": "offline_fixture_adapter",
-  "attemptedAt": "2026-07-19T07:12:00Z",
-  "contractHash": "86ae9c26adc86b554982c80adb88da936c086e12f9bab6da6a38cffd521d8f7d",
+  "contractHash": "cc039288eafa1f039dc6118627903cc138cd4582f07a344445061eb04f710676",
   "delivered": true,
   "deliveryAttempted": false,
-  "deliveryId": "delivery_m25j_001",
-  "deliveryRequired": true,
+  "deliveryStatus": "delivered",
+  "deliverySurface": "owner_direct",
   "duplicateSuppressed": false,
   "errorClass": "",
+  "idempotencyKey": "m25j:delivery:idem",
   "jobId": "job_delivery_m25j",
+  "resultSha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+  "sanitizedEvidencePath": "sharedspace/runtime-kernel-validation/memory-ledger/m25j_contract_schema_skeleton_20260719T171500+1000/test_results.json",
   "schema": "stickbot.delivery_result.v1",
   "schemaVersion": "1.0.0",
-  "status": "delivered"
+  "timestamp": "2026-07-19T07:12:00Z"
 }

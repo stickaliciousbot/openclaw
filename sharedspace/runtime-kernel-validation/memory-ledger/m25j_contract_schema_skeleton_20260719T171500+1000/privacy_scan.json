@@ -2,17 +2,12 @@
   "classified_security_fixtures": [
     {
       "classification": "intentional_negative_or_security_fixture",
-      "line": 9,
-      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/raw_identifier_present.json"
-    },
-    {
-      "classification": "intentional_negative_or_security_fixture",
-      "line": 6,
+      "line": 7,
       "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/security/private_key_marker.json"
     },
     {
       "classification": "intentional_negative_or_security_fixture",
-      "line": 6,
+      "line": 7,
       "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/security/raw_telegram_identifier.json"
     }
   ],

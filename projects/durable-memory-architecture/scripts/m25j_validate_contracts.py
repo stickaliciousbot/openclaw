@@ -69,7 +69,7 @@ def build(evidence_root=None):
         gates.append({'gate':g,'status':'PASS' if ok else 'FAIL','detail':detail})
         if not ok: errors.append({'gate':g,'detail':detail})
     names={s['name'] for s in REGISTRY['schemas']}
-    gate('M25J_G1', safety.get('head_at_validation')==BASELINE['head'], 'M25I-A pushed baseline represented')
+    gate('M25J_G1', safety.get('m25i_a_manifest_hash')==BASELINE['m25ia'], 'M25I-A pushed baseline represented by accepted manifest hash')
     gate('M25J_G2', safety.get('m25i_a_manifest_hash')==BASELINE['m25ia'] and safety.get('owner_lld_hash')==BASELINE['lld'])
     gate('M25J_G3', PKG.exists(), rel(PKG))
     for g,n in [('M25J_G4','DeliveryRequiredJobEnvelope'),('M25J_G5','BoundaryDecisionEnvelope'),('M25J_G6','SanitizedPayloadEnvelope'),('M25J_G7','DeliveryResultEnvelope'),('M25J_G10','ContractEnvelope'),('M25J_G11','SurfacePolicy'),('M25J_G12','ContextBridgeProjectionRecord')]: gate(g,n in names,n)

@@ -1,7 +1,7 @@
 {
   "gates": [
     {
-      "detail": "M25I-A pushed baseline represented",
+      "detail": "M25I-A pushed baseline represented by accepted manifest hash",
       "gate": "M25J_G1",
       "status": "PASS"
     },

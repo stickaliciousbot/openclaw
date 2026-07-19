@@ -1,16 +1,18 @@
 {
+  "boundaryHandlerRequired": true,
   "closeoutAnchor": "closeout_anchor",
-  "completionAnchor": "completion_anchor",
-  "contractEnvelopeId": "umc_m25j_delivery",
-  "contractHash": "d2bf106b21dcf316203ea8d88c62dfb6de47e83b3109b548440313b127505529",
+  "contractHash": "afc7de6d6e243c4537d85c8966871ab2ce882c9cdad198700108e1a244320099",
+  "deliveryIntent": "milestone_closeout",
   "deliveryRequired": true,
-  "desiredOutput": "SANITIZED_PAYLOAD_REQUIRED",
+  "deliverySurface": "owner_direct",
+  "evidenceRoot": "sharedspace/runtime-kernel-validation/memory-ledger/m25j_contract_schema_skeleton_20260719T171500+1000",
+  "expiresAt": "2026-07-20T00:00:00Z",
   "idempotencyKey": "idem_replayed_cross_session",
   "jobId": "job_delivery_m25j",
+  "ledgerCompletionAnchor": "ledger_completion_anchor",
   "maxDeliveries": 1,
+  "sanitizationPolicy": "no_raw_identifiers_private_scan_pass",
   "schema": "stickbot.delivery_required_job.v1",
   "schemaVersion": "1.0.0",
-  "sessionScopeHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-  "surfaceScope": "owner_direct_fixture",
-  "terminalAnchor": "terminal_anchor"
+  "terminalPayloadAnchor": "terminal_payload_anchor"
 }
