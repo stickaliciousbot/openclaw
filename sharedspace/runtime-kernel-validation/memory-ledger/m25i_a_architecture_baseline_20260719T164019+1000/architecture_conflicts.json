@@ -1,0 +1,15 @@
+{
+  "blocked": [],
+  "resolved": [
+    "ADR-01 canonical authority",
+    "ADR-02 delivery contract ownership",
+    "ADR-03 explicit boundary receipt",
+    "ADR-04 quiet task compatibility",
+    "ADR-05 receipt persistence",
+    "ADR-06 broker enforcement sequence",
+    "ADR-07 Context Bridge projection",
+    "ADR-08 schema migration"
+  ],
+  "schema": "stickbot.m25i_a.architecture_conflicts.v1",
+  "unknown": []
+}

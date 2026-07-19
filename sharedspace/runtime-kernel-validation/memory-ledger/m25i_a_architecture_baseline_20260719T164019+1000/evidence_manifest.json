@@ -1,0 +1,154 @@
+{
+  "entries": [
+    {
+      "bytes": 350,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25i_a_architecture_baseline_20260719T164019+1000/architecture_alignment.json",
+      "sha256": "bb03d2a756a3638ae6c59f3a84076e842d608db0caf31d296528373631abe6c3"
+    },
+    {
+      "bytes": 416,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25i_a_architecture_baseline_20260719T164019+1000/architecture_conflicts.json",
+      "sha256": "4cfaefce362d133ba31011d9c5e6a580a9168299854215f5a979395dc05ced99"
+    },
+    {
+      "bytes": 3794,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25i_a_architecture_baseline_20260719T164019+1000/contract_dependency_graph.json",
+      "sha256": "bf4417a28a29a6b1b1f36768d26c0a6bb92328ca8207408cc2699657950d72a9"
+    },
+    {
+      "bytes": 567,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25i_a_architecture_baseline_20260719T164019+1000/current_delivery_contract_map.json",
+      "sha256": "d73538a59909710946e8e435db3a7ef46b9783f866c279fcdd0d81e0a4663af1"
+    },
+    {
+      "bytes": 703,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25i_a_architecture_baseline_20260719T164019+1000/design_authority_manifest.json",
+      "sha256": "9543bad47e4723f677c4729a29491cf8ea29ec0f0db52c417e50d909b9c6fb77"
+    },
+    {
+      "bytes": 7902,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25i_a_architecture_baseline_20260719T164019+1000/hard_gates.json",
+      "sha256": "b488b94d43d7450f267ed76621a33842f33642f5acc04355ea97e9d86c12d008"
+    },
+    {
+      "bytes": 12290,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25i_a_architecture_baseline_20260719T164019+1000/health_checks.json",
+      "sha256": "fc49273e38bb61fd932b45f6a23cc245885a7bb4b2edb755e5df89be3526084b"
+    },
+    {
+      "bytes": 385,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25i_a_architecture_baseline_20260719T164019+1000/hydration_readback.json",
+      "sha256": "1cbd50be1e708197ff837ed785a7d003a59eb28129de331a15263425323e472c"
+    },
+    {
+      "bytes": 8382,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25i_a_architecture_baseline_20260719T164019+1000/implementation_inventory.json",
+      "sha256": "b45e9e7809bdc02f73074ce0dc636d547677b86ed933e60e97bf017da3c7bfde"
+    },
+    {
+      "bytes": 347,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25i_a_architecture_baseline_20260719T164019+1000/m25j_readiness.json",
+      "sha256": "6e6739995da45839f98f656bfba9f813c9748f675a9a6542ee13ad9fb4a1d068"
+    },
+    {
+      "bytes": 5333,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25i_a_architecture_baseline_20260719T164019+1000/milestone_plan.json",
+      "sha256": "26ad564b51634e6cd3be36d46f7897be129e60918fffb3d0c987d36f786ca716"
+    },
+    {
+      "bytes": 731,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25i_a_architecture_baseline_20260719T164019+1000/prior_state.json",
+      "sha256": "aa80c71d2845cb52c859744c57fa6f3dbd75d419bc568d8489b9f96da74d3af5"
+    },
+    {
+      "bytes": 1054,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25i_a_architecture_baseline_20260719T164019+1000/rollback_plan.json",
+      "sha256": "6d79ff6d2649afc9cdbbe335862641140385659bd608f985b550fc7a300c3708"
+    },
+    {
+      "bytes": 356,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25i_a_architecture_baseline_20260719T164019+1000/run_config.json",
+      "sha256": "09bcb9478ea7bd8d0f50cd0cdf1bdee65224f6186e1388c9eef8d6db91ccd28a"
+    },
+    {
+      "bytes": 612,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25i_a_architecture_baseline_20260719T164019+1000/safety_report.json",
+      "sha256": "c135efda902199a37b802ba2a1fdb4bba8cb323706bed4bf3070382204134350"
+    },
+    {
+      "bytes": 7190,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25i_a_architecture_baseline_20260719T164019+1000/source_map.json",
+      "sha256": "5c5294cc37ae0873508fca1d9774c97eb050ccc618be4e26b0e0578ce0df543d"
+    },
+    {
+      "bytes": 460,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25i_a_architecture_baseline_20260719T164019+1000/status.json",
+      "sha256": "c92ed5c59051a882625e2b03b5fe1cfcbb003f2981739790823f58c45ff39e84"
+    },
+    {
+      "bytes": 2146,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25i_a_architecture_baseline_20260719T164019+1000/summary.json",
+      "sha256": "e0df7e57bd71ee1d075b4559788f40b6bd14122c820a87d26ebeeecff5eb5288"
+    },
+    {
+      "bytes": 1703,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25i_a_architecture_baseline_20260719T164019+1000/test_plan.json",
+      "sha256": "3540e05fb8f2e6b1318024a5b233e388cb4de53b3471fb228dfb5a42415df8a4"
+    },
+    {
+      "bytes": 358,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25i_a_architecture_baseline_20260719T164019+1000/validation.json",
+      "sha256": "2dcd0540d9da456fb07bc9024cb215a87b7ddc3cd3262eaef99dd5b2c793b078"
+    },
+    {
+      "bytes": 39021,
+      "path": "projects/durable-memory-architecture/M25I_DELIVERY_CONTEXT_BROKER_CONTRACT_LLD.md",
+      "sha256": "fb4e01d28bc829241cc6c330146b4f823baf3579fb0b8c2c6e9fe13adffc63d2"
+    },
+    {
+      "bytes": 8382,
+      "path": "projects/durable-memory-architecture/M25I_SOURCE_AND_IMPLEMENTATION_INVENTORY.json",
+      "sha256": "b45e9e7809bdc02f73074ce0dc636d547677b86ed933e60e97bf017da3c7bfde"
+    },
+    {
+      "bytes": 3794,
+      "path": "projects/durable-memory-architecture/M25I_CONTRACT_DEPENDENCY_GRAPH.json",
+      "sha256": "bf4417a28a29a6b1b1f36768d26c0a6bb92328ca8207408cc2699657950d72a9"
+    },
+    {
+      "bytes": 6597,
+      "path": "projects/durable-memory-architecture/M25I_HARD_GATE_REGISTRY.json",
+      "sha256": "d9fd174a56d0baa793d20a36e1b03383586ab3ac8aa36d16ced5c428203f888f"
+    },
+    {
+      "bytes": 11345,
+      "path": "projects/durable-memory-architecture/M25I_HEALTH_MODEL.json",
+      "sha256": "99e577fd6289c9a5771c15706f5b708bf7b4a40788a953199bb324b575d17d90"
+    },
+    {
+      "bytes": 1568,
+      "path": "projects/durable-memory-architecture/M25J_CONTRACT_SCHEMA_SKELETON_IMPLEMENTATION_PROMPT.md",
+      "sha256": "ada4d3a72448f20e7d9e57999850e083f90ca7d91fde4a259e0d1871e46a69f8"
+    },
+    {
+      "bytes": 54689,
+      "path": "projects/durable-memory-architecture/DURABLE_MEMORY_LEDGER_CONTEXT_CONTRACT_SURFACE_BROKER_LLD.md",
+      "sha256": "edd7284f2f591517b3536300ba476ab9b06abd0d01a02ec3b1500cc748f66de1"
+    },
+    {
+      "bytes": 26557,
+      "path": "state/durable-memory-architecture/delivery-surface-contract-rehydration/latest.json",
+      "sha256": "07d2250b3b17b50932b6e557e56765b7b555f5f99b8c8447305aed658c18117d"
+    },
+    {
+      "bytes": 9239,
+      "path": "state/durable-memory-architecture/compaction-gap-hydration/latest.json",
+      "sha256": "f394a0c2ff76582dc5615281b2e95ea81a94eb68beeacf671f50958afee82328"
+    }
+  ],
+  "preservation_note": "Committed state is verified by external git readback; commit hash is intentionally not self-embedded to avoid self-referential stale hashes.",
+  "schema": "stickbot.m25i_a.evidence_manifest.v1",
+  "self_hash_excluded": true,
+  "status": "PASS",
+  "terminal_status": "M25I_A_ARCHITECTURE_BASELINE_IMPLEMENTATION_READINESS_PASS_NO_APPLY"
+}

@@ -1,0 +1,124 @@
+{
+  "milestones": [
+    {
+      "id": "M25J",
+      "scope": "schema/type skeletons; validation library; positive/negative fixtures; no runtime apply",
+      "successor_requires_owner_authorization": true,
+      "terminal": "M25J_CONTRACT_SCHEMA_SKELETON_TESTS_PASS_NO_LIVE_DELIVERY",
+      "title": "Contract schemas and fixtures"
+    },
+    {
+      "id": "M25K",
+      "scope": "distinguish quiet vs delivery-required; bare NO_REPLY forbidden for delivery-required; no Telegram",
+      "successor_requires_owner_authorization": true,
+      "terminal": "M25K_RUNTIME_DELIVERY_CLASSIFICATION_PASS_NO_TELEGRAM",
+      "title": "Delivery-required runtime classification"
+    },
+    {
+      "id": "M25L",
+      "scope": "explicit allow/hold/reject receipt; no Telegram",
+      "successor_requires_owner_authorization": true,
+      "terminal": "M25L_BOUNDARY_DECISION_ENVELOPE_PASS_NO_TELEGRAM",
+      "title": "Boundary decision envelope"
+    },
+    {
+      "id": "M25M",
+      "scope": "handler allow plus delivery-required contract creates sanitized payload artifact; no Telegram",
+      "successor_requires_owner_authorization": true,
+      "terminal": "M25M_SANITIZED_PAYLOAD_ARTIFACT_PASS_NO_TELEGRAM",
+      "title": "Sanitized payload artifact"
+    },
+    {
+      "id": "M25N",
+      "scope": "one controlled sanitized Telegram send; no retry machinery; idempotency and duplicate suppression",
+      "successor_requires_owner_authorization": true,
+      "terminal": "M25N_TELEGRAM_DELIVERY_ADAPTER_CANARY_PASS_ONE_SEND",
+      "title": "Delivery adapter canary"
+    },
+    {
+      "id": "M25O",
+      "scope": "one new disabled/inert job; exact handler arming; one execution; exactly one sanitized delivery; anchor; disarm/remove",
+      "successor_requires_owner_authorization": true,
+      "terminal": "M25O_ARMED_ONE_SHOT_FINAL_DELIVERY_PASS_LEDGER_V0_1_COMPLETE",
+      "title": "Final armed one-shot proof"
+    },
+    {
+      "id": "M25P",
+      "scope": "no delayed duplicate; handler dormant; no runnable retry; state unchanged",
+      "successor_requires_owner_authorization": true,
+      "terminal": "M25P_POST_COMPLETION_OBSERVATION_PASS",
+      "title": "Post-completion observation"
+    },
+    {
+      "id": "M25Q",
+      "scope": "source/entity/claim/GUID schemas offline only",
+      "successor_requires_owner_authorization": true,
+      "terminal": "M25Q_SOURCE_REGISTRY_CONTEXT_CONTRACT_ALIGNMENT_PASS_NO_RUNTIME_INTEGRATION",
+      "title": "Source registry and context contract alignment"
+    },
+    {
+      "id": "M25R",
+      "scope": "deterministic resolver and atomic records; no live runtime integration",
+      "successor_requires_owner_authorization": true,
+      "terminal": "M25R_OFFLINE_DURABLE_MEMORY_CORE_PASS_NO_RUNTIME_INTEGRATION",
+      "title": "Offline durable-memory core"
+    },
+    {
+      "id": "M25S",
+      "scope": "graph/FTS/vector projections; packet/receipt/source readback; shadow only",
+      "successor_requires_owner_authorization": true,
+      "terminal": "M25S_FORWARD_CONTEXT_RECONSTRUCTION_SHADOW_PASS_NO_PROMPT_INJECTION",
+      "title": "Forward reconstruction graph shadow"
+    },
+    {
+      "id": "M25T",
+      "scope": "grants, budgets, receipts, timeout/cancel; no user-visible answer change",
+      "successor_requires_owner_authorization": true,
+      "terminal": "M25T_RUNTIME_SERVICE_BROKER_SHADOW_PASS_NO_SURFACE_EXPANSION",
+      "title": "Runtime Service Broker shadow path"
+    },
+    {
+      "id": "M25U",
+      "scope": "contract generalized; prose-success prevention; owner-direct no-send fixtures",
+      "successor_requires_owner_authorization": true,
+      "terminal": "M25U_UMC_RECEIPT_POSTCONDITION_PASS_NO_LIVE_SURFACE_CHANGE",
+      "title": "UMC receipt/postcondition integration"
+    },
+    {
+      "id": "M25V",
+      "scope": "identity/session/privacy/render/delivery policy; no new surface",
+      "successor_requires_owner_authorization": true,
+      "terminal": "M25V_SURFACE_SERVICE_BROKER_KERNEL_PASS_NO_NEW_SURFACE",
+      "title": "Surface Service Broker kernel"
+    },
+    {
+      "id": "M25W",
+      "scope": "parity with current accepted owner-direct behavior; bounded canary",
+      "successor_requires_owner_authorization": true,
+      "terminal": "M25W_OWNER_DIRECT_SSB_PARITY_PASS_BOUNDED_SCOPE",
+      "title": "Existing owner-direct path through SSB"
+    },
+    {
+      "id": "M25X",
+      "scope": "narrow owner-direct domain; read-only reconstruction; receipts; rollback proof",
+      "successor_requires_owner_authorization": true,
+      "terminal": "M25X_OWNER_DIRECT_CONTEXT_RECONSTRUCTION_CANARY_PASS_NO_AUTHORITY_PROMOTION",
+      "title": "Selected context reconstruction live canary"
+    },
+    {
+      "id": "M25Y",
+      "scope": "T+0/T+2/T+8/T+24 or approved equivalent; health, dedupe, privacy, no-write",
+      "successor_requires_owner_authorization": true,
+      "terminal": "M25Y_FULL_SYSTEM_OBSERVATION_PASS",
+      "title": "Full-system observation"
+    },
+    {
+      "id": "M25Z",
+      "scope": "docs, rehydrator, rollback, architecture completion; no unresolved UNKNOWN",
+      "successor_requires_owner_authorization": true,
+      "terminal": "M25Z_DELIVERY_CONTEXT_BROKER_CONTRACT_REARCHITECTURE_COMPLETE",
+      "title": "Production closeout"
+    }
+  ],
+  "schema": "stickbot.m25i_a.milestone_plan.v1"
+}

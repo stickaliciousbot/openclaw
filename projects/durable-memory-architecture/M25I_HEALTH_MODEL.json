@@ -1,0 +1,371 @@
+{
+  "groups": {
+    "Canonical data": [
+      "Ledger integrity",
+      "source registry integrity",
+      "source resolution",
+      "graph parity",
+      "index freshness"
+    ],
+    "Runtime services": [
+      "Gateway live/readiness",
+      "RSB live/readiness",
+      "reconstruction service smoke",
+      "contract hash compatibility",
+      "receipt round trip",
+      "timeout/cancel"
+    ],
+    "Safety": [
+      "no-write sentinels",
+      "privacy/injection",
+      "authority bypass",
+      "duplicate receipt",
+      "duplicate delivery",
+      "hydration strict status"
+    ],
+    "Surface/delivery": [
+      "SSB policy intersection",
+      "render/redaction",
+      "delivery/dedupe",
+      "Telegram result",
+      "cross-surface denial"
+    ],
+    "UMC": [
+      "required service/action fixtures",
+      "postcondition verification",
+      "prose-success rejection",
+      "HOLD rendering"
+    ]
+  },
+  "milestone_requirements": {
+    "M25J": {
+      "cadence": "T+0/T+2/T+8/T+24 or milestone-specific approved equivalent",
+      "independent_terminal_sentinel": "required for long-running observer",
+      "observer_owner": "milestone launcher",
+      "permitted_yellow": [
+        "index freshness only when projection not authoritative"
+      ],
+      "red_abort": [
+        "privacy finding",
+        "authority promotion",
+        "unexpected delivery",
+        "bare NO_REPLY for delivery-required",
+        "UNKNOWN closeout"
+      ],
+      "required_green": [
+        "Safety",
+        "EvidenceGit"
+      ]
+    },
+    "M25K": {
+      "cadence": "T+0/T+2/T+8/T+24 or milestone-specific approved equivalent",
+      "independent_terminal_sentinel": "required for long-running observer",
+      "observer_owner": "milestone launcher",
+      "permitted_yellow": [
+        "index freshness only when projection not authoritative"
+      ],
+      "red_abort": [
+        "privacy finding",
+        "authority promotion",
+        "unexpected delivery",
+        "bare NO_REPLY for delivery-required",
+        "UNKNOWN closeout"
+      ],
+      "required_green": [
+        "Safety",
+        "EvidenceGit"
+      ]
+    },
+    "M25L": {
+      "cadence": "T+0/T+2/T+8/T+24 or milestone-specific approved equivalent",
+      "independent_terminal_sentinel": "required for long-running observer",
+      "observer_owner": "milestone launcher",
+      "permitted_yellow": [
+        "index freshness only when projection not authoritative"
+      ],
+      "red_abort": [
+        "privacy finding",
+        "authority promotion",
+        "unexpected delivery",
+        "bare NO_REPLY for delivery-required",
+        "UNKNOWN closeout"
+      ],
+      "required_green": [
+        "Safety",
+        "EvidenceGit"
+      ]
+    },
+    "M25M": {
+      "cadence": "T+0/T+2/T+8/T+24 or milestone-specific approved equivalent",
+      "independent_terminal_sentinel": "required for long-running observer",
+      "observer_owner": "milestone launcher",
+      "permitted_yellow": [
+        "index freshness only when projection not authoritative"
+      ],
+      "red_abort": [
+        "privacy finding",
+        "authority promotion",
+        "unexpected delivery",
+        "bare NO_REPLY for delivery-required",
+        "UNKNOWN closeout"
+      ],
+      "required_green": [
+        "Safety",
+        "EvidenceGit"
+      ]
+    },
+    "M25N": {
+      "cadence": "T+0/T+2/T+8/T+24 or milestone-specific approved equivalent",
+      "independent_terminal_sentinel": "required for long-running observer",
+      "observer_owner": "milestone launcher",
+      "permitted_yellow": [
+        "index freshness only when projection not authoritative"
+      ],
+      "red_abort": [
+        "privacy finding",
+        "authority promotion",
+        "unexpected delivery",
+        "bare NO_REPLY for delivery-required",
+        "UNKNOWN closeout"
+      ],
+      "required_green": [
+        "Safety",
+        "EvidenceGit"
+      ]
+    },
+    "M25O": {
+      "cadence": "T+0/T+2/T+8/T+24 or milestone-specific approved equivalent",
+      "independent_terminal_sentinel": "required for long-running observer",
+      "observer_owner": "milestone launcher",
+      "permitted_yellow": [
+        "index freshness only when projection not authoritative"
+      ],
+      "red_abort": [
+        "privacy finding",
+        "authority promotion",
+        "unexpected delivery",
+        "bare NO_REPLY for delivery-required",
+        "UNKNOWN closeout"
+      ],
+      "required_green": [
+        "Safety",
+        "EvidenceGit"
+      ]
+    },
+    "M25P": {
+      "cadence": "T+0/T+2/T+8/T+24 or milestone-specific approved equivalent",
+      "independent_terminal_sentinel": "required for long-running observer",
+      "observer_owner": "milestone launcher",
+      "permitted_yellow": [
+        "index freshness only when projection not authoritative"
+      ],
+      "red_abort": [
+        "privacy finding",
+        "authority promotion",
+        "unexpected delivery",
+        "bare NO_REPLY for delivery-required",
+        "UNKNOWN closeout"
+      ],
+      "required_green": [
+        "Safety",
+        "EvidenceGit"
+      ]
+    },
+    "M25Q": {
+      "cadence": "T+0/T+2/T+8/T+24 or milestone-specific approved equivalent",
+      "independent_terminal_sentinel": "required for long-running observer",
+      "observer_owner": "milestone launcher",
+      "permitted_yellow": [
+        "index freshness only when projection not authoritative"
+      ],
+      "red_abort": [
+        "privacy finding",
+        "authority promotion",
+        "unexpected delivery",
+        "bare NO_REPLY for delivery-required",
+        "UNKNOWN closeout"
+      ],
+      "required_green": [
+        "Safety",
+        "EvidenceGit"
+      ]
+    },
+    "M25R": {
+      "cadence": "T+0/T+2/T+8/T+24 or milestone-specific approved equivalent",
+      "independent_terminal_sentinel": "required for long-running observer",
+      "observer_owner": "milestone launcher",
+      "permitted_yellow": [
+        "index freshness only when projection not authoritative"
+      ],
+      "red_abort": [
+        "privacy finding",
+        "authority promotion",
+        "unexpected delivery",
+        "bare NO_REPLY for delivery-required",
+        "UNKNOWN closeout"
+      ],
+      "required_green": [
+        "Safety",
+        "EvidenceGit"
+      ]
+    },
+    "M25S": {
+      "cadence": "T+0/T+2/T+8/T+24 or milestone-specific approved equivalent",
+      "independent_terminal_sentinel": "required for long-running observer",
+      "observer_owner": "milestone launcher",
+      "permitted_yellow": [
+        "index freshness only when projection not authoritative"
+      ],
+      "red_abort": [
+        "privacy finding",
+        "authority promotion",
+        "unexpected delivery",
+        "bare NO_REPLY for delivery-required",
+        "UNKNOWN closeout"
+      ],
+      "required_green": [
+        "Safety",
+        "EvidenceGit"
+      ]
+    },
+    "M25T": {
+      "cadence": "T+0/T+2/T+8/T+24 or milestone-specific approved equivalent",
+      "independent_terminal_sentinel": "required for long-running observer",
+      "observer_owner": "milestone launcher",
+      "permitted_yellow": [
+        "index freshness only when projection not authoritative"
+      ],
+      "red_abort": [
+        "privacy finding",
+        "authority promotion",
+        "unexpected delivery",
+        "bare NO_REPLY for delivery-required",
+        "UNKNOWN closeout"
+      ],
+      "required_green": [
+        "Safety",
+        "EvidenceGit"
+      ]
+    },
+    "M25U": {
+      "cadence": "T+0/T+2/T+8/T+24 or milestone-specific approved equivalent",
+      "independent_terminal_sentinel": "required for long-running observer",
+      "observer_owner": "milestone launcher",
+      "permitted_yellow": [
+        "index freshness only when projection not authoritative"
+      ],
+      "red_abort": [
+        "privacy finding",
+        "authority promotion",
+        "unexpected delivery",
+        "bare NO_REPLY for delivery-required",
+        "UNKNOWN closeout"
+      ],
+      "required_green": [
+        "Safety",
+        "EvidenceGit"
+      ]
+    },
+    "M25V": {
+      "cadence": "T+0/T+2/T+8/T+24 or milestone-specific approved equivalent",
+      "independent_terminal_sentinel": "required for long-running observer",
+      "observer_owner": "milestone launcher",
+      "permitted_yellow": [
+        "index freshness only when projection not authoritative"
+      ],
+      "red_abort": [
+        "privacy finding",
+        "authority promotion",
+        "unexpected delivery",
+        "bare NO_REPLY for delivery-required",
+        "UNKNOWN closeout"
+      ],
+      "required_green": [
+        "Safety",
+        "EvidenceGit"
+      ]
+    },
+    "M25W": {
+      "cadence": "T+0/T+2/T+8/T+24 or milestone-specific approved equivalent",
+      "independent_terminal_sentinel": "required for long-running observer",
+      "observer_owner": "milestone launcher",
+      "permitted_yellow": [
+        "index freshness only when projection not authoritative"
+      ],
+      "red_abort": [
+        "privacy finding",
+        "authority promotion",
+        "unexpected delivery",
+        "bare NO_REPLY for delivery-required",
+        "UNKNOWN closeout"
+      ],
+      "required_green": [
+        "Safety",
+        "EvidenceGit"
+      ]
+    },
+    "M25X": {
+      "cadence": "T+0/T+2/T+8/T+24 or milestone-specific approved equivalent",
+      "independent_terminal_sentinel": "required for long-running observer",
+      "observer_owner": "milestone launcher",
+      "permitted_yellow": [
+        "index freshness only when projection not authoritative"
+      ],
+      "red_abort": [
+        "privacy finding",
+        "authority promotion",
+        "unexpected delivery",
+        "bare NO_REPLY for delivery-required",
+        "UNKNOWN closeout"
+      ],
+      "required_green": [
+        "Safety",
+        "EvidenceGit"
+      ]
+    },
+    "M25Y": {
+      "cadence": "T+0/T+2/T+8/T+24 or milestone-specific approved equivalent",
+      "independent_terminal_sentinel": "required for long-running observer",
+      "observer_owner": "milestone launcher",
+      "permitted_yellow": [
+        "index freshness only when projection not authoritative"
+      ],
+      "red_abort": [
+        "privacy finding",
+        "authority promotion",
+        "unexpected delivery",
+        "bare NO_REPLY for delivery-required",
+        "UNKNOWN closeout"
+      ],
+      "required_green": [
+        "Safety",
+        "EvidenceGit"
+      ]
+    },
+    "M25Z": {
+      "cadence": "T+0/T+2/T+8/T+24 or milestone-specific approved equivalent",
+      "independent_terminal_sentinel": "required for long-running observer",
+      "observer_owner": "milestone launcher",
+      "permitted_yellow": [
+        "index freshness only when projection not authoritative"
+      ],
+      "red_abort": [
+        "privacy finding",
+        "authority promotion",
+        "unexpected delivery",
+        "bare NO_REPLY for delivery-required",
+        "UNKNOWN closeout"
+      ],
+      "required_green": [
+        "Safety",
+        "EvidenceGit"
+      ]
+    }
+  },
+  "schema": "stickbot.m25i.health_model.v1",
+  "states": {
+    "GREEN": "all required checks pass; work may continue within approved scope",
+    "RED": "fail closed; stop work, preserve evidence, no successor",
+    "YELLOW": "safe degradation; no authority or delivery success claims; continue only if milestone permits"
+  }
+}

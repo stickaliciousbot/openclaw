@@ -1,0 +1,17 @@
+{
+  "authority_promotion": 0,
+  "context_bridge_mutations": 0,
+  "gateway_restart_reload": 0,
+  "handler_armed": false,
+  "jobs_created_or_run": 0,
+  "ledger_mutations": 0,
+  "m25j_m26_started": false,
+  "plugin_config_change": 0,
+  "preservation_note": "Committed state is verified by external git readback; commit hash is intentionally not self-embedded to avoid self-referential stale hashes.",
+  "private_raw_scan": "PASS",
+  "route_model_config_mutations": 0,
+  "runtime_apply": 0,
+  "schema": "stickbot.m25i_a.safety_report.v1",
+  "telegram_or_delivery_adapter_invoked": 0,
+  "validation_status": "PASS"
+}

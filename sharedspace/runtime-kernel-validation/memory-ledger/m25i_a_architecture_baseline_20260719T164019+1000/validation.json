@@ -1,0 +1,12 @@
+{
+  "json_parse": "PASS",
+  "json_parse_errors": [],
+  "missing_paths": [],
+  "path_validation": "PASS",
+  "private_raw_scan": "PASS",
+  "private_raw_scan_findings": [],
+  "required_path_errors": [],
+  "schema": "stickbot.m25i_a.validation.v1",
+  "status": "PASS",
+  "terminal_status": "M25I_A_ARCHITECTURE_BASELINE_IMPLEMENTATION_READINESS_PASS_NO_APPLY"
+}

@@ -1,0 +1,161 @@
+{
+  "authority_hierarchy": [
+    "1. owner-approved canonical source or authoritative live record",
+    "2. source registry exact version/span/hash",
+    "3. Ledger atomic source-reference/claim/event record",
+    "4. graph/reconstruction projection",
+    "5. FTS/vector candidate",
+    "6. session memory, compacted summary, model prose or hot context",
+    "",
+    "No lower tier may promote itself. Graph, vector, summary, hot context and model prose are navigation only until exact source readback and receipt verification succeed."
+  ],
+  "components": [
+    "Memory Ledger",
+    "Source Registry",
+    "Forward Context Reconstruction Graph",
+    "FTS/vector indexes",
+    "Context Reconstruction Service",
+    "Runtime Service Broker",
+    "UMC",
+    "Surface Service Broker",
+    "Delivery Adapter",
+    "Context Bridge",
+    "Hydrator/Rehydrator",
+    "Boundary Handler"
+  ],
+  "contract_schemas": [
+    "SourceRecord",
+    "SourceResolutionResult",
+    "EntityRecord",
+    "ClaimRecord",
+    "RelationRecord",
+    "ContradictionRecord",
+    "SupersessionRecord",
+    "ContextReconstructionRequest",
+    "ContextReconstructionPacket",
+    "ContextReconstructionReceipt",
+    "ServiceDefinition",
+    "ServiceHealth",
+    "ServiceGrantRequest",
+    "ServiceAuthorityGrant",
+    "ServiceInvocation",
+    "ServiceReceipt",
+    "ServiceDenial",
+    "ServicePostconditionEvidence",
+    "UMC ContractEnvelope extensions",
+    "SurfacePolicy",
+    "DeliveryRequiredJobEnvelope",
+    "BoundaryDecisionEnvelope",
+    "SanitizedPayloadEnvelope",
+    "DeliveryResultEnvelope",
+    "ContextBridgeProjectionRecord"
+  ],
+  "edges": [
+    {
+      "from": "M25J",
+      "requires_owner_authorization": true,
+      "to": "M25K"
+    },
+    {
+      "from": "M25K",
+      "requires_owner_authorization": true,
+      "to": "M25L"
+    },
+    {
+      "from": "M25L",
+      "requires_owner_authorization": true,
+      "to": "M25M"
+    },
+    {
+      "from": "M25M",
+      "requires_owner_authorization": true,
+      "to": "M25N"
+    },
+    {
+      "from": "M25N",
+      "requires_owner_authorization": true,
+      "to": "M25O"
+    },
+    {
+      "from": "M25O",
+      "requires_owner_authorization": true,
+      "to": "M25P"
+    },
+    {
+      "from": "M25P",
+      "requires_owner_authorization": true,
+      "to": "M25Q"
+    },
+    {
+      "from": "M25Q",
+      "requires_owner_authorization": true,
+      "to": "M25R"
+    },
+    {
+      "from": "M25R",
+      "requires_owner_authorization": true,
+      "to": "M25S"
+    },
+    {
+      "from": "M25S",
+      "requires_owner_authorization": true,
+      "to": "M25T"
+    },
+    {
+      "from": "M25T",
+      "requires_owner_authorization": true,
+      "to": "M25U"
+    },
+    {
+      "from": "M25U",
+      "requires_owner_authorization": true,
+      "to": "M25V"
+    },
+    {
+      "from": "M25V",
+      "requires_owner_authorization": true,
+      "to": "M25W"
+    },
+    {
+      "from": "M25W",
+      "requires_owner_authorization": true,
+      "to": "M25X"
+    },
+    {
+      "from": "M25X",
+      "requires_owner_authorization": true,
+      "to": "M25Y"
+    },
+    {
+      "from": "M25Y",
+      "requires_owner_authorization": true,
+      "to": "M25Z"
+    }
+  ],
+  "hard_dependency_notes": [
+    "delivery-required explicit outcome contract precedes live canary",
+    "source/graph core remains offline/shadow before RSB/SSB live integration",
+    "UMC receipt verification precedes prose-success and enforcement",
+    "every successor stops for owner authorization"
+  ],
+  "milestones": [
+    "M25J",
+    "M25K",
+    "M25L",
+    "M25M",
+    "M25N",
+    "M25O",
+    "M25P",
+    "M25Q",
+    "M25R",
+    "M25S",
+    "M25T",
+    "M25U",
+    "M25V",
+    "M25W",
+    "M25X",
+    "M25Y",
+    "M25Z"
+  ],
+  "schema": "stickbot.m25i.contract_dependency_graph.v1"
+}

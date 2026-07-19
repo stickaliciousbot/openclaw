@@ -1,0 +1,16 @@
+{
+  "known_behavior": [
+    "toHookResult HOLD_NO_DELIVERY returns handled true without reply",
+    "runtime maps missing hook reply text to NO_REPLY",
+    "delivery runtime treats exact NO_REPLY as silent/no-payload delivered=false",
+    "M25H focused/offline tests pass but live cron still NO_REPLY"
+  ],
+  "required_new_bindings": [
+    "DeliveryRequiredJobEnvelope",
+    "BoundaryDecisionEnvelope",
+    "SanitizedPayloadEnvelope",
+    "DeliveryResultEnvelope",
+    "UMC postcondition receipt"
+  ],
+  "schema": "stickbot.m25i_a.current_delivery_contract_map.v1"
+}

@@ -1,0 +1,20 @@
+{
+  "no_historical_evidence_rewrite": true,
+  "rollback": {
+    "Context Bridge": "existing sanitized presentation only",
+    "Ledger v0.2": "v0.1 read-only baseline; sidecar discarded if needed",
+    "RSB": "unregister/disable route",
+    "SSB": "previous accepted surface path",
+    "Telegram adapter": "off-switch; pending-send check before and after disable",
+    "UMC adapter": "accepted current baseline",
+    "boundary envelope": "disabled consumption; handler dormant/unarmed",
+    "context reconstruction": "disable service route",
+    "delivery classification": "old quiet behavior only for non-delivery jobs; delivery-required contracts fail closed",
+    "final proof": "disarm handler and remove proof job; never rewrite evidence",
+    "graph/index": "discard/rebuild projections",
+    "payload generation": "disable artifact writer; preserve existing evidence",
+    "schemas": "feature flag disabled; keep draft schemas inert",
+    "source registry": "revert to prior accepted manifest"
+  },
+  "schema": "stickbot.m25i_a.rollback_plan.v1"
+}

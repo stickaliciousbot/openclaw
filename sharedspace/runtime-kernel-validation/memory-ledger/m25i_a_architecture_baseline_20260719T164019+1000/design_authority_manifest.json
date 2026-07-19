@@ -1,0 +1,14 @@
+{
+  "broader_lld": {
+    "original_path": "/home/stickai/.openclaw/media/inbound/DURABLE_MEMORY_LEDGER_CONTEXT_CONTRACT_SURFACE_BROKER_LLD_AN---2dc7d914-0f57-45b4-8153-37f3ee5f9ba1.md",
+    "privacy_scan": "PASS",
+    "sha256": "edd7284f2f591517b3536300ba476ab9b06abd0d01a02ec3b1500cc748f66de1",
+    "tracked_path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/DURABLE_MEMORY_LEDGER_CONTEXT_CONTRACT_SURFACE_BROKER_LLD.md"
+  },
+  "compaction_gap_errors": 0,
+  "compaction_gap_hydration_status": "PASS",
+  "compaction_gap_sources": 7,
+  "compaction_gap_warnings": 0,
+  "m25h_represented": "pushed blocked closeout",
+  "schema": "stickbot.m25i_a.design_authority_manifest.v1"
+}

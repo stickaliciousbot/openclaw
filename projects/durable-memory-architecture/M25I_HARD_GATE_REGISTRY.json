@@ -1,0 +1,240 @@
+{
+  "gates": [
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "Authority",
+      "id": "M25I_HG_001",
+      "rule": "no model/graph/vector/session summary becomes authority"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "Authority",
+      "id": "M25I_HG_002",
+      "rule": "consequential claims require exact source/version/span"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "Authority",
+      "id": "M25I_HG_003",
+      "rule": "UMC success requires valid receipt"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "ReadOnly",
+      "id": "M25I_HG_004",
+      "rule": "no recall-time Ledger writes"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "ReadOnly",
+      "id": "M25I_HG_005",
+      "rule": "no Context Bridge authority mutation"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "ReadOnly",
+      "id": "M25I_HG_006",
+      "rule": "graph/index projections disposable"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "ReadOnly",
+      "id": "M25I_HG_007",
+      "rule": "protected state hashes stable during read paths"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "Privacy",
+      "id": "M25I_HG_008",
+      "rule": "no raw private packets in tracked evidence"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "Privacy",
+      "id": "M25I_HG_009",
+      "rule": "no tokens/auth headers/raw chat/account/message IDs"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "Privacy",
+      "id": "M25I_HG_010",
+      "rule": "surface disclosure matrix enforced"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "Privacy",
+      "id": "M25I_HG_011",
+      "rule": "source content cannot override policy"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "BrokerIntegrity",
+      "id": "M25I_HG_012",
+      "rule": "grant required"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "BrokerIntegrity",
+      "id": "M25I_HG_013",
+      "rule": "wrong scope/surface/session denied"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "BrokerIntegrity",
+      "id": "M25I_HG_014",
+      "rule": "receipt request/grant/packet binding exact"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "BrokerIntegrity",
+      "id": "M25I_HG_015",
+      "rule": "duplicate/forged/replayed receipt denied"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "BrokerIntegrity",
+      "id": "M25I_HG_016",
+      "rule": "bypass count zero once enforced"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "Delivery",
+      "id": "M25I_HG_017",
+      "rule": "delivery-required job cannot end in bare NO_REPLY"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "Delivery",
+      "id": "M25I_HG_018",
+      "rule": "delivery requires boundary allow"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "Delivery",
+      "id": "M25I_HG_019",
+      "rule": "boundary hold/reject cannot deliver"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "Delivery",
+      "id": "M25I_HG_020",
+      "rule": "sanitized payload required"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "Delivery",
+      "id": "M25I_HG_021",
+      "rule": "idempotency key required"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "Delivery",
+      "id": "M25I_HG_022",
+      "rule": "duplicate delivery zero"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "Delivery",
+      "id": "M25I_HG_023",
+      "rule": "delivery result receipt required"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "RuntimeSafety",
+      "id": "M25I_HG_024",
+      "rule": "handler dormant/unarmed outside proof window"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "RuntimeSafety",
+      "id": "M25I_HG_025",
+      "rule": "proof job disabled/inert first"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "RuntimeSafety",
+      "id": "M25I_HG_026",
+      "rule": "no recurring retry"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "RuntimeSafety",
+      "id": "M25I_HG_027",
+      "rule": "proof job removed afterward"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "RuntimeSafety",
+      "id": "M25I_HG_028",
+      "rule": "Gateway health before/after"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "RuntimeSafety",
+      "id": "M25I_HG_029",
+      "rule": "route/model/fallback/memory route unchanged"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "EvidenceGit",
+      "id": "M25I_HG_030",
+      "rule": "evidence manifest verified"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "EvidenceGit",
+      "id": "M25I_HG_031",
+      "rule": "privacy scan PASS"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "EvidenceGit",
+      "id": "M25I_HG_032",
+      "rule": "closeout not UNKNOWN"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "EvidenceGit",
+      "id": "M25I_HG_033",
+      "rule": "tracked diff allowlist"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "EvidenceGit",
+      "id": "M25I_HG_034",
+      "rule": "no DB/WAL/SHM/telemetry/private runtime state"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "EvidenceGit",
+      "id": "M25I_HG_035",
+      "rule": "unrelated workspace dirt excluded through scoped commit/push"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "MilestoneControl",
+      "id": "M25I_HG_036",
+      "rule": "no automatic successor"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "MilestoneControl",
+      "id": "M25I_HG_037",
+      "rule": "no production mutation without owner approval"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "MilestoneControl",
+      "id": "M25I_HG_038",
+      "rule": "rollback/off-switch proven before apply"
+    },
+    {
+      "failure": "STOP_PRESERVE_EVIDENCE",
+      "group": "MilestoneControl",
+      "id": "M25I_HG_039",
+      "rule": "first failed hard gate stops work and preserves evidence"
+    }
+  ],
+  "schema": "stickbot.m25i.hard_gates.v1",
+  "terminal_target": "M25I_A_ARCHITECTURE_BASELINE_IMPLEMENTATION_READINESS_PASS_NO_APPLY"
+}

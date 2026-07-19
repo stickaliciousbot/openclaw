@@ -1,0 +1,13 @@
+{
+  "aligned": [
+    "authority hierarchy frozen",
+    "graph/index non-authoritative",
+    "RSB before SSB expansion",
+    "UMC receipt-bound prose success",
+    "SSB least privilege",
+    "Context Bridge sanitized projection only",
+    "hydrator non-authoritative"
+  ],
+  "schema": "stickbot.m25i_a.architecture_alignment.v1",
+  "status": "PASS"
+}

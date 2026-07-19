@@ -1,0 +1,33 @@
+{
+  "architecture_docs": [
+    "M25I_DELIVERY_CONTEXT_BROKER_CONTRACT_LLD.md",
+    "M25I_SYSTEM_IMPLEMENTATION_PLAN_M25J_TO_M25Z.md",
+    "M25I_GLOBAL_HARD_GATES_AND_HEALTH_MODEL.md",
+    "M25I_FORWARD_CONTEXT_RECONSTRUCTION_GRAPH_CONTRACT.md",
+    "M25I_RUNTIME_SERVICE_BROKER_CONTRACT.md",
+    "M25I_UMC_MODEL_CONTRACT_GENERALIZATION.md",
+    "M25I_SURFACE_SERVICE_BROKER_AND_DELIVERY_CONTRACT.md",
+    "M25I_ROLLBACK_COMPATIBILITY_AND_MIGRATION_PLAN.md",
+    "M25I_TEST_FIXTURE_AND_OBSERVATION_STRATEGY.md",
+    "M25I_ARCHITECTURE_DECISION_RECORDS.md",
+    "M25J_CONTRACT_SCHEMA_SKELETON_IMPLEMENTATION_PROMPT.md"
+  ],
+  "dependency_graph": "projects/durable-memory-architecture/M25I_CONTRACT_DEPENDENCY_GRAPH.json",
+  "design_authority_sha256": "edd7284f2f591517b3536300ba476ab9b06abd0d01a02ec3b1500cc748f66de1",
+  "design_authority_tracked_path": "projects/durable-memory-architecture/DURABLE_MEMORY_LEDGER_CONTEXT_CONTRACT_SURFACE_BROKER_LLD.md",
+  "evidence_root": "sharedspace/runtime-kernel-validation/memory-ledger/m25i_a_architecture_baseline_20260719T164019+1000",
+  "hard_gate_registry": "projects/durable-memory-architecture/M25I_HARD_GATE_REGISTRY.json",
+  "health_model": "projects/durable-memory-architecture/M25I_HEALTH_MODEL.json",
+  "implementation_inventory": "projects/durable-memory-architecture/M25I_SOURCE_AND_IMPLEMENTATION_INVENTORY.json",
+  "m25j_prompt": "projects/durable-memory-architecture/M25J_CONTRACT_SCHEMA_SKELETON_IMPLEMENTATION_PROMPT.md",
+  "m25j_started": false,
+  "m26_started": false,
+  "preservation_note": "Committed state is verified by external git readback; commit hash is intentionally not self-embedded to avoid self-referential stale hashes.",
+  "private_raw_scan": "PASS",
+  "rollback_plan": "projects/durable-memory-architecture/M25I_ROLLBACK_COMPATIBILITY_AND_MIGRATION_PLAN.md",
+  "schema": "stickbot.m25i_a.summary.v1",
+  "terminal_status": "M25I_A_ARCHITECTURE_BASELINE_IMPLEMENTATION_READINESS_PASS_NO_APPLY",
+  "test_matrix": "projects/durable-memory-architecture/M25I_TEST_FIXTURE_AND_OBSERVATION_STRATEGY.md",
+  "unresolved_architecture_conflicts": [],
+  "validation_status": "PASS"
+}

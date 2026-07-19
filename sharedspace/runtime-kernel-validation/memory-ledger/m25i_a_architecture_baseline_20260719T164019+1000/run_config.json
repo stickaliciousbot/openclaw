@@ -1,0 +1,8 @@
+{
+  "constraints_preserved": true,
+  "no_jobs_no_delivery_no_gateway_restart_no_mutation": true,
+  "schema": "stickbot.m25i_a.run_config.v1",
+  "scope": "design_docs_schemas_inventory_evidence_only_no_apply",
+  "started_aest": "2026-07-19T16:40:19.862480+10:00",
+  "terminal_target": "M25I_A_ARCHITECTURE_BASELINE_IMPLEMENTATION_READINESS_PASS_NO_APPLY"
+}

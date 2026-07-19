@@ -1,0 +1,12 @@
+{
+  "compaction_gap_status": "PASS",
+  "errors": 0,
+  "note": "User prompt listed older expected 5-source baseline; actual current rehydrator readback is 7 bounded sources.",
+  "python_compile": "PASS",
+  "schema": "stickbot.m25i_a.hydration_readback.v1",
+  "source_count_observed": 7,
+  "strict_check_only": "PASS",
+  "strict_status": "PASS",
+  "tests": "4/4 PASS",
+  "warnings": 0
+}

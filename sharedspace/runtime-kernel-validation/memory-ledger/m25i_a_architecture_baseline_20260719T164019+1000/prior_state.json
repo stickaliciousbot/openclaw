@@ -1,0 +1,16 @@
+{
+  "branch": "evidence/umc-m3n-post-restart-health-failclosed-20260713",
+  "config_hash": "69fda094eb9c2476db5d4377135f633339094b5cc9a2e6d4340b4564a0da2bc7",
+  "context_bridge_actions_hash": "a7b0d3d4bd1a9c8bb0da20a1f92cc248f3f37dbf551c66a361330076777bba63",
+  "context_bridge_events_hash": "76f4d0f030af56ee03b3484413ca67c7f9a65992f68ecb2b46ed144410b1a9b5",
+  "handler_armed": false,
+  "head": "6c62cf22dddbe828de523d3eb823908b5cb599b3",
+  "old_proof_jobs_absent": true,
+  "old_proof_run_counts_exactly_one": true,
+  "remote_head": "6c62cf22dddbe828de523d3eb823908b5cb599b3",
+  "route_fallbacks": [
+    "ollama/deepseek-v4-pro:cloud"
+  ],
+  "route_primary": "openai-codex/gpt-5.5",
+  "schema": "stickbot.m25i_a.prior_state.v1"
+}

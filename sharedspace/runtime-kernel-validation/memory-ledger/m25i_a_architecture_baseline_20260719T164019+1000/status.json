@@ -1,0 +1,10 @@
+{
+  "abort": false,
+  "blocked": false,
+  "pass": true,
+  "preservation_note": "Committed state is verified by external git readback; commit hash is intentionally not self-embedded to avoid self-referential stale hashes.",
+  "schema": "stickbot.m25i_a.status.v1",
+  "status": "M25I_A_ARCHITECTURE_BASELINE_IMPLEMENTATION_READINESS_PASS_NO_APPLY",
+  "terminal_status": "M25I_A_ARCHITECTURE_BASELINE_IMPLEMENTATION_READINESS_PASS_NO_APPLY",
+  "unknown": false
+}

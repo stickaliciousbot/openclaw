@@ -1,0 +1,8 @@
+{
+  "allowlist_path": "projects/durable-memory-architecture/M25J_FILE_ALLOWLIST_AND_TEST_MATRIX.json",
+  "m25j_started": false,
+  "prompt_path": "projects/durable-memory-architecture/M25J_CONTRACT_SCHEMA_SKELETON_IMPLEMENTATION_PROMPT.md",
+  "ready": true,
+  "requires_owner_authorization": true,
+  "schema": "stickbot.m25i_a.m25j_readiness.v1"
+}

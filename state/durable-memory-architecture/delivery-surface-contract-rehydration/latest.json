@@ -1,0 +1,572 @@
+{
+  "authority": "non_authoritative_navigation_only",
+  "errors": [],
+  "fixed_boundaries": [
+    "No handler arming, retry scheduling, cron run, delivery, Telegram send, Gateway/config mutation, Ledger mutation, Context Bridge mutation, route/model mutation, authority promotion, or M26 start.",
+    "This packet is not automatic prompt injection and not an implementation milestone.",
+    "M25H remains accepted as pushed BLOCKED; future repair requires separate owner authorization."
+  ],
+  "forbidden_content_scans": [
+    {
+      "findings": [],
+      "role": "compaction_gap_proposal"
+    },
+    {
+      "findings": [],
+      "role": "systemic_lld"
+    },
+    {
+      "findings": [],
+      "role": "owner_supplied_broader_lld"
+    },
+    {
+      "findings": [],
+      "role": "integration_order"
+    },
+    {
+      "findings": [],
+      "role": "delivery_surface_notebook"
+    },
+    {
+      "findings": [],
+      "role": "m25i_lld"
+    },
+    {
+      "findings": [],
+      "role": "m25i_plan"
+    },
+    {
+      "findings": [],
+      "role": "m25i_gates_health"
+    },
+    {
+      "findings": [],
+      "role": "m25i_graph_contract"
+    },
+    {
+      "findings": [],
+      "role": "m25i_rsb_contract"
+    },
+    {
+      "findings": [],
+      "role": "m25i_umc_contract"
+    },
+    {
+      "findings": [],
+      "role": "m25i_ssb_delivery_contract"
+    },
+    {
+      "findings": [],
+      "role": "m25i_rollback_plan"
+    },
+    {
+      "findings": [],
+      "role": "m25i_test_strategy"
+    },
+    {
+      "findings": [],
+      "role": "m25i_adrs"
+    },
+    {
+      "findings": [],
+      "role": "m25j_prompt"
+    },
+    {
+      "findings": [],
+      "role": "compaction_gap_latest_manifest"
+    },
+    {
+      "findings": [],
+      "role": "m25h_status"
+    },
+    {
+      "findings": [],
+      "role": "m25h_summary"
+    },
+    {
+      "findings": [],
+      "role": "m25h_post_validation"
+    },
+    {
+      "findings": [],
+      "role": "m25h_safety_report"
+    },
+    {
+      "findings": [],
+      "role": "m25h_evidence_manifest"
+    },
+    {
+      "findings": [],
+      "role": "memory_chunks"
+    },
+    {
+      "findings": [],
+      "role": "m25i_inventory"
+    },
+    {
+      "findings": [],
+      "role": "m25i_dependency_graph"
+    },
+    {
+      "findings": [],
+      "role": "m25i_hard_gate_registry"
+    },
+    {
+      "findings": [],
+      "role": "m25i_health_model"
+    },
+    {
+      "findings": [],
+      "role": "m25j_allowlist"
+    }
+  ],
+  "generated_utc": "2026-07-19T06:46:14.699655Z",
+  "initial_contract_focus": [
+    "Distinguish explicit NO_REPLY/silent policy from missing deliverable payload.",
+    "Bind job/run/session -> boundary decision -> reply payload -> message_sending gate -> delivery runtime -> message_sent receipt -> closeout.",
+    "Make exactly-one delivery and dedupe contract-level properties.",
+    "Keep Surface Service Broker privacy/rendering/delivery policy separate from Runtime Service Broker source authority.",
+    "Require UMC postcondition receipts before prose claims delivery/source success."
+  ],
+  "project_root": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture",
+  "purpose": "rehydrate delivery-surface contract rearchitecture after compaction without authorizing runtime apply",
+  "schema": "stickbot.delivery_surface_contract.rehydration.v1",
+  "source_inventory": [
+    {
+      "authority": "design_reference_non_authoritative",
+      "bytes": 16299,
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/COMPACTION_GAP_RECOVERY_PROPOSAL.md",
+      "role": "compaction_gap_proposal",
+      "sha256": "91d81c0b58addf99e7543007c43ce305df767ee948a4e3c23ca7ee5dca47cc43"
+    },
+    {
+      "authority": "design_reference_non_authoritative",
+      "bytes": 58539,
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/DURABLE_MEMORY_LEDGER_CONTEXT_CONTRACT_SURFACE_BROKER_LLD_AND_IMPLEMENTATION_PLAN.md",
+      "role": "systemic_lld",
+      "sha256": "beb248ec6efdbbe77915a5b1adfa3774661285c32796ff5c5c8acf1bfc7cee61"
+    },
+    {
+      "authority": "owner_supplied_design_reference_non_authoritative",
+      "bytes": 54689,
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/DURABLE_MEMORY_LEDGER_CONTEXT_CONTRACT_SURFACE_BROKER_LLD.md",
+      "role": "owner_supplied_broader_lld",
+      "sha256": "edd7284f2f591517b3536300ba476ab9b06abd0d01a02ec3b1500cc748f66de1"
+    },
+    {
+      "authority": "design_reference_non_authoritative",
+      "bytes": 11935,
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/LEDGER_BROKER_INTEGRATION_AND_BUILD_ORDER.md",
+      "role": "integration_order",
+      "sha256": "1c49f34526c9d360d441108257541c6ab8a96b86dd880018bd5ff6a7c8e2dc3d"
+    },
+    {
+      "authority": "working_notebook_non_authoritative",
+      "bytes": 11616,
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/DELIVERY_SURFACE_CONTRACT_REARCHITECTURE_IMPLEMENTATION_TROUBLESHOOTING_REPAIR_NOTEBOOK.md",
+      "role": "delivery_surface_notebook",
+      "sha256": "ffb73ca9486ac3fdbcf9dd2579fb8053a829b3cca62564d0c917af05153c633c"
+    },
+    {
+      "authority": "m25i_design_baseline_non_authoritative",
+      "bytes": 39021,
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/M25I_DELIVERY_CONTEXT_BROKER_CONTRACT_LLD.md",
+      "role": "m25i_lld",
+      "sha256": "fb4e01d28bc829241cc6c330146b4f823baf3579fb0b8c2c6e9fe13adffc63d2"
+    },
+    {
+      "authority": "m25i_design_baseline_non_authoritative",
+      "bytes": 4641,
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/M25I_SYSTEM_IMPLEMENTATION_PLAN_M25J_TO_M25Z.md",
+      "role": "m25i_plan",
+      "sha256": "e6995abee23acb92f8a841e01e2dc72805017861a7893869aea3063639d4d29c"
+    },
+    {
+      "authority": "m25i_design_baseline_non_authoritative",
+      "bytes": 4730,
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/M25I_GLOBAL_HARD_GATES_AND_HEALTH_MODEL.md",
+      "role": "m25i_gates_health",
+      "sha256": "4dd43ef829b2770ecf06fe767ffa0f9dce155c299b3df0b1d4d9a8985b0d9d11"
+    },
+    {
+      "authority": "m25i_design_baseline_non_authoritative",
+      "bytes": 1862,
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/M25I_FORWARD_CONTEXT_RECONSTRUCTION_GRAPH_CONTRACT.md",
+      "role": "m25i_graph_contract",
+      "sha256": "c729280399f952950c35e12777ec986635936328a9037cca8d5a0b3543ce2e93"
+    },
+    {
+      "authority": "m25i_design_baseline_non_authoritative",
+      "bytes": 1180,
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/M25I_RUNTIME_SERVICE_BROKER_CONTRACT.md",
+      "role": "m25i_rsb_contract",
+      "sha256": "d86ae601a386c078772bc76092d07d93abece4037322fa12f989620558480f20"
+    },
+    {
+      "authority": "m25i_design_baseline_non_authoritative",
+      "bytes": 999,
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/M25I_UMC_MODEL_CONTRACT_GENERALIZATION.md",
+      "role": "m25i_umc_contract",
+      "sha256": "45676b53841645bc37dc899bbb6446b0a836e65333a97076833c48fbb5233dde"
+    },
+    {
+      "authority": "m25i_design_baseline_non_authoritative",
+      "bytes": 1141,
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/M25I_SURFACE_SERVICE_BROKER_AND_DELIVERY_CONTRACT.md",
+      "role": "m25i_ssb_delivery_contract",
+      "sha256": "8a695da69816291759069b95b04a505ac40974d8808aadbc69ac8587701574ed"
+    },
+    {
+      "authority": "m25i_design_baseline_non_authoritative",
+      "bytes": 1218,
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/M25I_ROLLBACK_COMPATIBILITY_AND_MIGRATION_PLAN.md",
+      "role": "m25i_rollback_plan",
+      "sha256": "2fee41002d8403179f3801ee2c92129cc652e01e411a8e4689f9a297a9844aab"
+    },
+    {
+      "authority": "m25i_design_baseline_non_authoritative",
+      "bytes": 1521,
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/M25I_TEST_FIXTURE_AND_OBSERVATION_STRATEGY.md",
+      "role": "m25i_test_strategy",
+      "sha256": "965827f94873767cb97b1480e8552d77bec2bf1e8ed0915c4969251044025f3f"
+    },
+    {
+      "authority": "m25i_design_baseline_non_authoritative",
+      "bytes": 2317,
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/M25I_ARCHITECTURE_DECISION_RECORDS.md",
+      "role": "m25i_adrs",
+      "sha256": "5a77722e5a69617c32fc4325f7a80fde9fe07efed5b151465ab246b0b9e792ea"
+    },
+    {
+      "authority": "m25j_readiness_non_authoritative",
+      "bytes": 1568,
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/M25J_CONTRACT_SCHEMA_SKELETON_IMPLEMENTATION_PROMPT.md",
+      "role": "m25j_prompt",
+      "sha256": "ada4d3a72448f20e7d9e57999850e083f90ca7d91fde4a259e0d1871e46a69f8"
+    },
+    {
+      "authority": "generated_navigation_packet",
+      "bytes": 9239,
+      "path": "/home/stickai/.openclaw/workspace/state/durable-memory-architecture/compaction-gap-hydration/latest.json",
+      "role": "compaction_gap_latest_manifest",
+      "sha256": "f394a0c2ff76582dc5615281b2e95ea81a94eb68beeacf671f50958afee82328"
+    },
+    {
+      "authority": "accepted_blocked_closeout_evidence",
+      "bytes": 465,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25h_delivery_contract_repair_final_proof_20260719T153336+1000/status.json",
+      "role": "m25h_status",
+      "sha256": "91e0a4df84fcc374aaad44a57eb38764a3517135d6dc3567a47959b8ade4a68b"
+    },
+    {
+      "authority": "accepted_blocked_closeout_evidence",
+      "bytes": 1618,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25h_delivery_contract_repair_final_proof_20260719T153336+1000/summary.json",
+      "role": "m25h_summary",
+      "sha256": "7b3d85f98dfd286fbf8adc18287ea3b883020d5fe1d0ab3328cf3670d35f89ff"
+    },
+    {
+      "authority": "accepted_blocked_closeout_evidence",
+      "bytes": 2639,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25h_delivery_contract_repair_final_proof_20260719T153336+1000/post_validation.json",
+      "role": "m25h_post_validation",
+      "sha256": "bda5d0e41b1054530a59ddd5c410eb4d5d730ddc464a73c859afb9089866baf7"
+    },
+    {
+      "authority": "accepted_blocked_closeout_evidence",
+      "bytes": 1676,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25h_delivery_contract_repair_final_proof_20260719T153336+1000/safety_report.json",
+      "role": "m25h_safety_report",
+      "sha256": "f88a2c53c4d50d3387bbdf92d8a382aa26cf29b6959ec9f6c931615f3ce4c9ec"
+    },
+    {
+      "authority": "accepted_blocked_closeout_evidence",
+      "bytes": 5025,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25h_delivery_contract_repair_final_proof_20260719T153336+1000/evidence_manifest.json",
+      "role": "m25h_evidence_manifest",
+      "sha256": "06954e9e7a5ff9c389e7195903a6d91cb81871f42a18893d6fd9fa5a560fc945"
+    },
+    {
+      "authority": "memory_navigation_non_authoritative",
+      "bytes": 4905,
+      "path": "/home/stickai/.openclaw/workspace/memory/notebooks/delivery-surface-contract-rearchitecture-chunks.md",
+      "role": "memory_chunks",
+      "sha256": "d4837cdcac7d5fc2a4d5f43aeeba80d5f408275a4637a544a8d6857bfca9549e"
+    },
+    {
+      "authority": "m25i_design_inventory_non_authoritative",
+      "bytes": 8382,
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/M25I_SOURCE_AND_IMPLEMENTATION_INVENTORY.json",
+      "role": "m25i_inventory",
+      "sha256": "b45e9e7809bdc02f73074ce0dc636d547677b86ed933e60e97bf017da3c7bfde"
+    },
+    {
+      "authority": "m25i_design_inventory_non_authoritative",
+      "bytes": 3794,
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/M25I_CONTRACT_DEPENDENCY_GRAPH.json",
+      "role": "m25i_dependency_graph",
+      "sha256": "bf4417a28a29a6b1b1f36768d26c0a6bb92328ca8207408cc2699657950d72a9"
+    },
+    {
+      "authority": "m25i_design_inventory_non_authoritative",
+      "bytes": 6597,
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/M25I_HARD_GATE_REGISTRY.json",
+      "role": "m25i_hard_gate_registry",
+      "sha256": "d9fd174a56d0baa793d20a36e1b03383586ab3ac8aa36d16ced5c428203f888f"
+    },
+    {
+      "authority": "m25i_design_inventory_non_authoritative",
+      "bytes": 11345,
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/M25I_HEALTH_MODEL.json",
+      "role": "m25i_health_model",
+      "sha256": "99e577fd6289c9a5771c15706f5b708bf7b4a40788a953199bb324b575d17d90"
+    },
+    {
+      "authority": "m25j_readiness_non_authoritative",
+      "bytes": 2466,
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/M25J_FILE_ALLOWLIST_AND_TEST_MATRIX.json",
+      "role": "m25j_allowlist",
+      "sha256": "3b777d9cf370d3b1f2140a84c3a345bf94e1cbb17bbb74bf0243937190f06726"
+    }
+  ],
+  "source_mutation_checks": [
+    {
+      "after_sha256": "91d81c0b58addf99e7543007c43ce305df767ee948a4e3c23ca7ee5dca47cc43",
+      "before_sha256": "91d81c0b58addf99e7543007c43ce305df767ee948a4e3c23ca7ee5dca47cc43",
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/COMPACTION_GAP_RECOVERY_PROPOSAL.md",
+      "unchanged": true
+    },
+    {
+      "after_sha256": "beb248ec6efdbbe77915a5b1adfa3774661285c32796ff5c5c8acf1bfc7cee61",
+      "before_sha256": "beb248ec6efdbbe77915a5b1adfa3774661285c32796ff5c5c8acf1bfc7cee61",
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/DURABLE_MEMORY_LEDGER_CONTEXT_CONTRACT_SURFACE_BROKER_LLD_AND_IMPLEMENTATION_PLAN.md",
+      "unchanged": true
+    },
+    {
+      "after_sha256": "edd7284f2f591517b3536300ba476ab9b06abd0d01a02ec3b1500cc748f66de1",
+      "before_sha256": "edd7284f2f591517b3536300ba476ab9b06abd0d01a02ec3b1500cc748f66de1",
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/DURABLE_MEMORY_LEDGER_CONTEXT_CONTRACT_SURFACE_BROKER_LLD.md",
+      "unchanged": true
+    },
+    {
+      "after_sha256": "1c49f34526c9d360d441108257541c6ab8a96b86dd880018bd5ff6a7c8e2dc3d",
+      "before_sha256": "1c49f34526c9d360d441108257541c6ab8a96b86dd880018bd5ff6a7c8e2dc3d",
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/LEDGER_BROKER_INTEGRATION_AND_BUILD_ORDER.md",
+      "unchanged": true
+    },
+    {
+      "after_sha256": "ffb73ca9486ac3fdbcf9dd2579fb8053a829b3cca62564d0c917af05153c633c",
+      "before_sha256": "ffb73ca9486ac3fdbcf9dd2579fb8053a829b3cca62564d0c917af05153c633c",
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/DELIVERY_SURFACE_CONTRACT_REARCHITECTURE_IMPLEMENTATION_TROUBLESHOOTING_REPAIR_NOTEBOOK.md",
+      "unchanged": true
+    },
+    {
+      "after_sha256": "fb4e01d28bc829241cc6c330146b4f823baf3579fb0b8c2c6e9fe13adffc63d2",
+      "before_sha256": "fb4e01d28bc829241cc6c330146b4f823baf3579fb0b8c2c6e9fe13adffc63d2",
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/M25I_DELIVERY_CONTEXT_BROKER_CONTRACT_LLD.md",
+      "unchanged": true
+    },
+    {
+      "after_sha256": "e6995abee23acb92f8a841e01e2dc72805017861a7893869aea3063639d4d29c",
+      "before_sha256": "e6995abee23acb92f8a841e01e2dc72805017861a7893869aea3063639d4d29c",
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/M25I_SYSTEM_IMPLEMENTATION_PLAN_M25J_TO_M25Z.md",
+      "unchanged": true
+    },
+    {
+      "after_sha256": "4dd43ef829b2770ecf06fe767ffa0f9dce155c299b3df0b1d4d9a8985b0d9d11",
+      "before_sha256": "4dd43ef829b2770ecf06fe767ffa0f9dce155c299b3df0b1d4d9a8985b0d9d11",
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/M25I_GLOBAL_HARD_GATES_AND_HEALTH_MODEL.md",
+      "unchanged": true
+    },
+    {
+      "after_sha256": "c729280399f952950c35e12777ec986635936328a9037cca8d5a0b3543ce2e93",
+      "before_sha256": "c729280399f952950c35e12777ec986635936328a9037cca8d5a0b3543ce2e93",
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/M25I_FORWARD_CONTEXT_RECONSTRUCTION_GRAPH_CONTRACT.md",
+      "unchanged": true
+    },
+    {
+      "after_sha256": "d86ae601a386c078772bc76092d07d93abece4037322fa12f989620558480f20",
+      "before_sha256": "d86ae601a386c078772bc76092d07d93abece4037322fa12f989620558480f20",
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/M25I_RUNTIME_SERVICE_BROKER_CONTRACT.md",
+      "unchanged": true
+    },
+    {
+      "after_sha256": "45676b53841645bc37dc899bbb6446b0a836e65333a97076833c48fbb5233dde",
+      "before_sha256": "45676b53841645bc37dc899bbb6446b0a836e65333a97076833c48fbb5233dde",
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/M25I_UMC_MODEL_CONTRACT_GENERALIZATION.md",
+      "unchanged": true
+    },
+    {
+      "after_sha256": "8a695da69816291759069b95b04a505ac40974d8808aadbc69ac8587701574ed",
+      "before_sha256": "8a695da69816291759069b95b04a505ac40974d8808aadbc69ac8587701574ed",
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/M25I_SURFACE_SERVICE_BROKER_AND_DELIVERY_CONTRACT.md",
+      "unchanged": true
+    },
+    {
+      "after_sha256": "2fee41002d8403179f3801ee2c92129cc652e01e411a8e4689f9a297a9844aab",
+      "before_sha256": "2fee41002d8403179f3801ee2c92129cc652e01e411a8e4689f9a297a9844aab",
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/M25I_ROLLBACK_COMPATIBILITY_AND_MIGRATION_PLAN.md",
+      "unchanged": true
+    },
+    {
+      "after_sha256": "965827f94873767cb97b1480e8552d77bec2bf1e8ed0915c4969251044025f3f",
+      "before_sha256": "965827f94873767cb97b1480e8552d77bec2bf1e8ed0915c4969251044025f3f",
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/M25I_TEST_FIXTURE_AND_OBSERVATION_STRATEGY.md",
+      "unchanged": true
+    },
+    {
+      "after_sha256": "5a77722e5a69617c32fc4325f7a80fde9fe07efed5b151465ab246b0b9e792ea",
+      "before_sha256": "5a77722e5a69617c32fc4325f7a80fde9fe07efed5b151465ab246b0b9e792ea",
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/M25I_ARCHITECTURE_DECISION_RECORDS.md",
+      "unchanged": true
+    },
+    {
+      "after_sha256": "ada4d3a72448f20e7d9e57999850e083f90ca7d91fde4a259e0d1871e46a69f8",
+      "before_sha256": "ada4d3a72448f20e7d9e57999850e083f90ca7d91fde4a259e0d1871e46a69f8",
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/M25J_CONTRACT_SCHEMA_SKELETON_IMPLEMENTATION_PROMPT.md",
+      "unchanged": true
+    },
+    {
+      "after_sha256": "f394a0c2ff76582dc5615281b2e95ea81a94eb68beeacf671f50958afee82328",
+      "before_sha256": "f394a0c2ff76582dc5615281b2e95ea81a94eb68beeacf671f50958afee82328",
+      "path": "/home/stickai/.openclaw/workspace/state/durable-memory-architecture/compaction-gap-hydration/latest.json",
+      "unchanged": true
+    },
+    {
+      "after_sha256": "91e0a4df84fcc374aaad44a57eb38764a3517135d6dc3567a47959b8ade4a68b",
+      "before_sha256": "91e0a4df84fcc374aaad44a57eb38764a3517135d6dc3567a47959b8ade4a68b",
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25h_delivery_contract_repair_final_proof_20260719T153336+1000/status.json",
+      "unchanged": true
+    },
+    {
+      "after_sha256": "7b3d85f98dfd286fbf8adc18287ea3b883020d5fe1d0ab3328cf3670d35f89ff",
+      "before_sha256": "7b3d85f98dfd286fbf8adc18287ea3b883020d5fe1d0ab3328cf3670d35f89ff",
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25h_delivery_contract_repair_final_proof_20260719T153336+1000/summary.json",
+      "unchanged": true
+    },
+    {
+      "after_sha256": "bda5d0e41b1054530a59ddd5c410eb4d5d730ddc464a73c859afb9089866baf7",
+      "before_sha256": "bda5d0e41b1054530a59ddd5c410eb4d5d730ddc464a73c859afb9089866baf7",
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25h_delivery_contract_repair_final_proof_20260719T153336+1000/post_validation.json",
+      "unchanged": true
+    },
+    {
+      "after_sha256": "f88a2c53c4d50d3387bbdf92d8a382aa26cf29b6959ec9f6c931615f3ce4c9ec",
+      "before_sha256": "f88a2c53c4d50d3387bbdf92d8a382aa26cf29b6959ec9f6c931615f3ce4c9ec",
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25h_delivery_contract_repair_final_proof_20260719T153336+1000/safety_report.json",
+      "unchanged": true
+    },
+    {
+      "after_sha256": "06954e9e7a5ff9c389e7195903a6d91cb81871f42a18893d6fd9fa5a560fc945",
+      "before_sha256": "06954e9e7a5ff9c389e7195903a6d91cb81871f42a18893d6fd9fa5a560fc945",
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25h_delivery_contract_repair_final_proof_20260719T153336+1000/evidence_manifest.json",
+      "unchanged": true
+    },
+    {
+      "after_sha256": "d4837cdcac7d5fc2a4d5f43aeeba80d5f408275a4637a544a8d6857bfca9549e",
+      "before_sha256": "d4837cdcac7d5fc2a4d5f43aeeba80d5f408275a4637a544a8d6857bfca9549e",
+      "path": "/home/stickai/.openclaw/workspace/memory/notebooks/delivery-surface-contract-rearchitecture-chunks.md",
+      "unchanged": true
+    },
+    {
+      "after_sha256": "b45e9e7809bdc02f73074ce0dc636d547677b86ed933e60e97bf017da3c7bfde",
+      "before_sha256": "b45e9e7809bdc02f73074ce0dc636d547677b86ed933e60e97bf017da3c7bfde",
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/M25I_SOURCE_AND_IMPLEMENTATION_INVENTORY.json",
+      "unchanged": true
+    },
+    {
+      "after_sha256": "bf4417a28a29a6b1b1f36768d26c0a6bb92328ca8207408cc2699657950d72a9",
+      "before_sha256": "bf4417a28a29a6b1b1f36768d26c0a6bb92328ca8207408cc2699657950d72a9",
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/M25I_CONTRACT_DEPENDENCY_GRAPH.json",
+      "unchanged": true
+    },
+    {
+      "after_sha256": "d9fd174a56d0baa793d20a36e1b03383586ab3ac8aa36d16ced5c428203f888f",
+      "before_sha256": "d9fd174a56d0baa793d20a36e1b03383586ab3ac8aa36d16ced5c428203f888f",
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/M25I_HARD_GATE_REGISTRY.json",
+      "unchanged": true
+    },
+    {
+      "after_sha256": "99e577fd6289c9a5771c15706f5b708bf7b4a40788a953199bb324b575d17d90",
+      "before_sha256": "99e577fd6289c9a5771c15706f5b708bf7b4a40788a953199bb324b575d17d90",
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/M25I_HEALTH_MODEL.json",
+      "unchanged": true
+    },
+    {
+      "after_sha256": "3b777d9cf370d3b1f2140a84c3a345bf94e1cbb17bbb74bf0243937190f06726",
+      "before_sha256": "3b777d9cf370d3b1f2140a84c3a345bf94e1cbb17bbb74bf0243937190f06726",
+      "path": "/home/stickai/.openclaw/workspace/projects/durable-memory-architecture/M25J_FILE_ALLOWLIST_AND_TEST_MATRIX.json",
+      "unchanged": true
+    }
+  ],
+  "status": "PASS",
+  "summaries": {
+    "compaction_gap_latest_manifest": {
+      "schema": "stickbot.durable_memory.compaction_gap_hydration.v1",
+      "status": "PASS"
+    },
+    "m25h_evidence_manifest": {
+      "evidence_root": "sharedspace/runtime-kernel-validation/memory-ledger/m25h_delivery_contract_repair_final_proof_20260719T153336+1000",
+      "restart_sentinel_validation": "PASS_RESTART_SENTINEL_BLOCKED_CLOSEOUT_STILL_SAFE",
+      "schema": "stickbot.memory_ledger.m25h.evidence_manifest.v1",
+      "status": "M25H_BLOCKED_REPAIRED_DELIVERY_STILL_NO_REPLY"
+    },
+    "m25h_post_validation": {
+      "delivery_count": 0,
+      "m25h_run_count": 1,
+      "m26_started": false,
+      "old_jobs_absent_not_runnable": true,
+      "restart_sentinel_validation": "PASS_RESTART_SENTINEL_BLOCKED_CLOSEOUT_STILL_SAFE",
+      "schema": "stickbot.memory_ledger.m25h.post_validation.v1",
+      "status": "PASS_POST_VALIDATION_BLOCKED_SAFE_CLEANUP",
+      "terminal": "M25H_BLOCKED_REPAIRED_DELIVERY_STILL_NO_REPLY"
+    },
+    "m25h_safety_report": {
+      "restart_sentinel_validation": "PASS_RESTART_SENTINEL_BLOCKED_CLOSEOUT_STILL_SAFE",
+      "schema": "stickbot.memory_ledger.m25h.safety_report.v1",
+      "status": "PASS_SAFE_BLOCKED_CLOSEOUT",
+      "terminal": "M25H_BLOCKED_REPAIRED_DELIVERY_STILL_NO_REPLY"
+    },
+    "m25h_status": {
+      "restart_sentinel_validation": "PASS_RESTART_SENTINEL_BLOCKED_CLOSEOUT_STILL_SAFE",
+      "schema": "stickbot.memory_ledger.m25h.status.v1",
+      "status": "M25H_BLOCKED_REPAIRED_DELIVERY_STILL_NO_REPLY",
+      "terminal_status": "M25H_BLOCKED_REPAIRED_DELIVERY_STILL_NO_REPLY"
+    },
+    "m25h_summary": {
+      "authority_promotion": false,
+      "context_bridge_mutations": 0,
+      "delivery_count": 0,
+      "evidence_root": "sharedspace/runtime-kernel-validation/memory-ledger/m25h_delivery_contract_repair_final_proof_20260719T153336+1000",
+      "handler_ended_dormant_unarmed": true,
+      "ledger_mutations": 0,
+      "m25h_job_id_redacted": true,
+      "m25h_job_id_sha256": "7118de2695ec45ac235ffdfac9da86be2ded8e5926a8e2a60d8fd105238e2f8f",
+      "m25h_run_count": 1,
+      "m26_started": false,
+      "restart_sentinel_validation": "PASS_RESTART_SENTINEL_BLOCKED_CLOSEOUT_STILL_SAFE",
+      "retry_absent_not_runnable": true,
+      "route_config_mutation": false,
+      "schema": "stickbot.memory_ledger.m25h.summary.v1",
+      "terminal_status": "M25H_BLOCKED_REPAIRED_DELIVERY_STILL_NO_REPLY"
+    },
+    "m25i_dependency_graph": {
+      "schema": "stickbot.m25i.contract_dependency_graph.v1"
+    },
+    "m25i_hard_gate_registry": {
+      "schema": "stickbot.m25i.hard_gates.v1"
+    },
+    "m25i_health_model": {
+      "schema": "stickbot.m25i.health_model.v1"
+    },
+    "m25i_inventory": {
+      "schema": "stickbot.m25i.source_implementation_inventory.v1"
+    },
+    "m25j_allowlist": {
+      "schema": "stickbot.m25j.file_allowlist_and_test_matrix.v1",
+      "terminal": "M25J_CONTRACT_SCHEMA_SKELETON_TESTS_PASS_NO_LIVE_DELIVERY"
+    }
+  },
+  "warnings": [],
+  "workspace": "/home/stickai/.openclaw/workspace"
+}
