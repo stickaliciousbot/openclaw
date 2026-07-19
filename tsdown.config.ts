@@ -310,6 +310,12 @@ function buildCoreDistEntries(): Record<string, string> {
     "commands/doctor/shared/plugin-registry-migration":
       "src/commands/doctor/shared/plugin-registry-migration.ts",
     "commands/status.summary.runtime": "src/commands/status.summary.runtime.ts",
+    "cron/boundary-decision-envelope": "src/cron/boundary-decision-envelope.ts",
+    "cron/runtime-delivery-classification": "src/cron/runtime-delivery-classification.ts",
+    "cron/sanitized-payload-target-artifact": "src/cron/sanitized-payload-target-artifact.ts",
+    "cron/telegram-delivery-adapter-canary": "src/cron/telegram-delivery-adapter-canary.ts",
+    "cron/m25n-telegram-canary-harness": "src/cron/m25n-telegram-canary-harness.ts",
+    "cron/m25o-packaged-runtime-wiring": "src/cron/m25o-packaged-runtime-wiring.ts",
     "infra/boundary-file-read": "src/infra/boundary-file-read.ts",
     "plugins/provider-discovery.runtime": "src/plugins/provider-discovery.runtime.ts",
     "plugins/provider-runtime.runtime": "src/plugins/provider-runtime.runtime.ts",

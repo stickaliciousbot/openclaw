@@ -90,6 +90,9 @@
   "main": "dist/index.js",
   "exports": {
     ".": "./dist/index.js",
+    "./cron/m25o-packaged-runtime-wiring": {
+      "default": "./dist/cron/m25o-packaged-runtime-wiring.js"
+    },
     "./plugin-sdk": {
       "types": "./dist/plugin-sdk/index.d.ts",
       "default": "./dist/plugin-sdk/index.js"

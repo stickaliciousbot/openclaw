@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
 import { mkdir, readFile, stat, unlink, writeFile } from "node:fs/promises";
 import { dirname } from "node:path";
+import { pathToFileURL } from "node:url";
 import { completeBoundaryDecisionEnvelope } from "./boundary-decision-envelope.js";
 import { classifyRuntimeReply } from "./runtime-delivery-classification.js";
 import {
@@ -209,7 +210,7 @@ function buildCanaryArtifacts(params: {
   return { payload: payloadResult.payload, policy, grant, receipt, request };
 }
 
-async function main() {
+export async function runM25NTelegramCanaryHarness() {
   const mode = (argValue("--mode") ?? "dry-run") as HarnessMode;
   if (mode !== "dry-run" && mode !== "live") throw new Error("MODE_INVALID");
   const registryPath = requireArg("--registry");
@@ -347,4 +348,6 @@ async function main() {
   );
 }
 
-await main();
+if (import.meta.url === pathToFileURL(process.argv[1] ?? "").href) {
+  await runM25NTelegramCanaryHarness();
+}
