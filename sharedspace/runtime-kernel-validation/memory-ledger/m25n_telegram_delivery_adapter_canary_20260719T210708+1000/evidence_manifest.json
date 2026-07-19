@@ -1,0 +1,36 @@
+{
+  "schema": "stickbot.m25n.evidence_manifest.v1",
+  "terminal": "M25N_TELEGRAM_DELIVERY_ADAPTER_CANARY_PASS_ONE_SEND",
+  "files": [
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/harness_result.json",
+      "sha256": "91548cc14f24af9c225fb222be467124ffd0ef2e57fb7556738d80864594a7e0"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/status.json",
+      "sha256": "aeea1d0f261fc264fe4afaa9fb95abdbd5f11ccb9782a076563d02d2f339ceb3"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/summary.json",
+      "sha256": "977cc35e0c2b70800b6882b01d0d69926ded7e494d25d5e61f3c03d9ba93de1a"
+    }
+  ],
+  "counts": {
+    "providerInvocationCount": 1,
+    "telegramDeliveredMessageCount": 1,
+    "duplicateProviderInvocationCount": 0,
+    "duplicateTelegramMessageCount": 0,
+    "pendingDeliveryCount": 0
+  },
+  "privacy": {
+    "rawTargetExposed": false,
+    "providerResultSanitized": true,
+    "registryRemovedAfterLive": true
+  },
+  "no_go": {
+    "gatewayRestartOrReload": false,
+    "handlerArmed": false,
+    "cronRetryJobCreated": false,
+    "pushPerformed": false
+  }
+}

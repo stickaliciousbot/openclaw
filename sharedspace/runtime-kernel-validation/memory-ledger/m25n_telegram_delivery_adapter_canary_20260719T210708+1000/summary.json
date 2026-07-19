@@ -1,0 +1,9 @@
+{
+  "terminal": "M25N_TELEGRAM_DELIVERY_ADAPTER_CANARY_PASS_ONE_SEND",
+  "summary": "M25N completed the Telegram delivery-adapter canary with exactly one sanitized live Telegram send to the approved operator-canary-target alias. The canonical primitive was sendMessageTelegram(to, text, opts) from extensions/telegram/src/send.ts with retry attempts forced to 1. The live delivery result reports providerInvocationCount=1 and telegramDeliveredMessageCount=1. The duplicate invocation returned DUPLICATE_DELIVERY_SUPPRESSED with duplicateProviderInvocationCount=0 and duplicateTelegramMessageCount=0. The private single-alias registry was mode 0600 and removed after live delivery. Tracked evidence contains no raw target or provider message identifiers. No push, Gateway restart/reload, handler arming, cron retry job, Ledger mutation, or Context Bridge mutation was performed.",
+  "evidence": {
+    "harness_result": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/harness_result.json",
+    "status": "sharedspace/runtime-kernel-validation/memory-ledger/m25n_telegram_delivery_adapter_canary_20260719T210708+1000/status.json"
+  },
+  "next_safe_step": "Prepare M25O proposal only after owner review; do not start M25O/M26 automatically."
+}
