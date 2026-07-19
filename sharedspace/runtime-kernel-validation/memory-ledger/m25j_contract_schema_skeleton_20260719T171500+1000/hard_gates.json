@@ -1,0 +1,176 @@
+{
+  "gates": [
+    {
+      "detail": "M25I-A pushed baseline represented",
+      "gate": "M25J_G1",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "gate": "M25J_G2",
+      "status": "PASS"
+    },
+    {
+      "detail": "projects/durable-memory-architecture/contracts/m25j",
+      "gate": "M25J_G3",
+      "status": "PASS"
+    },
+    {
+      "detail": "DeliveryRequiredJobEnvelope",
+      "gate": "M25J_G4",
+      "status": "PASS"
+    },
+    {
+      "detail": "BoundaryDecisionEnvelope",
+      "gate": "M25J_G5",
+      "status": "PASS"
+    },
+    {
+      "detail": "SanitizedPayloadEnvelope",
+      "gate": "M25J_G6",
+      "status": "PASS"
+    },
+    {
+      "detail": "DeliveryResultEnvelope",
+      "gate": "M25J_G7",
+      "status": "PASS"
+    },
+    {
+      "detail": "ContractEnvelope",
+      "gate": "M25J_G10",
+      "status": "PASS"
+    },
+    {
+      "detail": "SurfacePolicy",
+      "gate": "M25J_G11",
+      "status": "PASS"
+    },
+    {
+      "detail": "ContextBridgeProjectionRecord",
+      "gate": "M25J_G12",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "gate": "M25J_G8",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "gate": "M25J_G9",
+      "status": "PASS"
+    },
+    {
+      "detail": "canonicalization tests executed separately plus validator hash checks",
+      "gate": "M25J_G13",
+      "status": "PASS"
+    },
+    {
+      "detail": "contractHash validator implemented",
+      "gate": "M25J_G14",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "gate": "M25J_G15",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "gate": "M25J_G16",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "gate": "M25J_G17",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "gate": "M25J_G18",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "gate": "M25J_G19",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "gate": "M25J_G20",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "gate": "M25J_G21",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "gate": "M25J_G22",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "gate": "M25J_G23",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "gate": "M25J_G24",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "gate": "M25J_G25",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "gate": "M25J_G26",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "gate": "M25J_G27",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "gate": "M25J_G28",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "gate": "M25J_G29",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "gate": "M25J_G30",
+      "status": "PASS"
+    },
+    {
+      "detail": "",
+      "gate": "M25J_G31",
+      "status": "PASS"
+    },
+    {
+      "detail": "scoped allowlist checked by outer git gate",
+      "gate": "M25J_G32",
+      "status": "PASS"
+    },
+    {
+      "detail": "evidence manifest generated with self hash excluded",
+      "gate": "M25J_G33",
+      "status": "PASS"
+    },
+    {
+      "detail": "closeout terminal explicit and not UNKNOWN",
+      "gate": "M25J_G34",
+      "status": "PASS"
+    }
+  ],
+  "schema": "stickbot.m25j.hard_gates.v1",
+  "status": "PASS"
+}

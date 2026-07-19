@@ -1,0 +1,34 @@
+{
+  "allowedSurfaceDisclosure": [
+    "owner_direct_fixture"
+  ],
+  "authorityPolicy": "receipt_required",
+  "consequenceLevel": "medium",
+  "contractEnvelopeId": "umc_m25j_delivery",
+  "contractHash": "33afcd2b0ec0d8b2886da7e289466741787cf67c52623374bd8ae62571e3963e",
+  "deliveryPolicy": "delivery_required_no_no_reply",
+  "prohibitedClaimsWithoutReceipt": [
+    "delivery_success",
+    "source_success"
+  ],
+  "receiptIds": [],
+  "requiredContextSlots": [
+    "delivery",
+    "context",
+    "broker"
+  ],
+  "requiredDelivery": true,
+  "requiredPostconditions": [
+    "delivery_result_receipt_present"
+  ],
+  "requiredServices": [
+    "svc_context_reconstruction"
+  ],
+  "requiredTools": [],
+  "schema": "stickbot.umc.contract_envelope.v1",
+  "schemaVersion": "1.0.0",
+  "successClaims": [
+    "delivery_success"
+  ],
+  "turnId": "turn_alias_m25j"
+}

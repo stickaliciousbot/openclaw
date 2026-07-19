@@ -1,0 +1,15 @@
+{
+  "contractHash": "8c0846f946ad0d92b0a105dd94b74e81f496c98cae94334248a9d1c528f745d9",
+  "schema": "stickbot.context_graph.supersession.v1",
+  "schemaVersion": "1.0.0",
+  "sourceBindings": [
+    {
+      "sourceId": "src_alias_m25j",
+      "sourceVersion": "v1",
+      "spanId": "span_001"
+    }
+  ],
+  "supersededBy": "claim_m25j_001",
+  "supersedes": "claim_old",
+  "supersessionId": "super_m25j_001"
+}

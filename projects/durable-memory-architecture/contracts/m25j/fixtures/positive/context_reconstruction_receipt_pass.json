@@ -1,0 +1,40 @@
+{
+  "contractHash": "2209063f1c0c88e8c391c4c6d42995c7d2d1485d23e911c0b7c4cee393f60ab3",
+  "coveredSlots": [
+    "delivery",
+    "context",
+    "broker"
+  ],
+  "durationMs": 23,
+  "errorCode": "",
+  "expiresAt": "2026-07-19T07:17:00Z",
+  "gates": {
+    "privacy": "PASS"
+  },
+  "grantId": "grant_m25j_001",
+  "idempotencyKey": "idem_recon_m25j",
+  "issuedAt": "2026-07-19T07:12:00Z",
+  "missingSlots": [],
+  "noWriteProof": true,
+  "packetHash": "2222222222222222222222222222222222222222222222222222222222222222",
+  "policyDecision": "allow",
+  "policyEpoch": "policy_epoch_m25j_001",
+  "postconditions": {
+    "coverage": "PASS"
+  },
+  "receiptId": "receipt_recon_pass_m25j",
+  "receiptSha256": "3333333333333333333333333333333333333333333333333333333333333333",
+  "requestId": "req_recon_m25j",
+  "requiredSlots": [
+    "delivery",
+    "context",
+    "broker"
+  ],
+  "schema": "stickbot.context_reconstruction.receipt.v1",
+  "schemaVersion": "1.0.0",
+  "serviceVersion": "svc_v1",
+  "sessionScopeHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "sourceVersionsVerified": true,
+  "surfaceScope": "owner_direct_fixture",
+  "terminal": "PASS"
+}

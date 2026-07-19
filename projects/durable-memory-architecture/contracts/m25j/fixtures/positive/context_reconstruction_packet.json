@@ -1,0 +1,56 @@
+{
+  "authorityLabels": [
+    {
+      "authority": true,
+      "claimId": "claim_m25j_001",
+      "sourceVersion": "v1",
+      "spanId": "span_001"
+    }
+  ],
+  "candidateGuidPaths": [
+    [
+      "src_alias_m25j",
+      "claim_m25j_001"
+    ]
+  ],
+  "contractHash": "45c366d3e4cf14f0ffeff662703125136b09986aeea31a077288695d3cd0122e",
+  "contradictions": [],
+  "coveredSlots": [
+    "delivery",
+    "context",
+    "broker"
+  ],
+  "missingSlots": [],
+  "omissions": [],
+  "packetHash": "2222222222222222222222222222222222222222222222222222222222222222",
+  "packetId": "packet_m25j_001",
+  "privacyDecisions": [
+    "sanitized_only"
+  ],
+  "projectionOnly": true,
+  "rejectedEntities": [],
+  "requestId": "req_recon_m25j",
+  "requiredSlots": [
+    "delivery",
+    "context",
+    "broker"
+  ],
+  "resolvedEntities": [
+    "ent_m25j_001"
+  ],
+  "schema": "stickbot.context_reconstruction.packet.v1",
+  "schemaVersion": "1.0.0",
+  "sourceVersions": [
+    {
+      "sourceId": "src_alias_m25j",
+      "version": "v1"
+    }
+  ],
+  "verifiedSpans": [
+    {
+      "sourceId": "src_alias_m25j",
+      "sourceVersion": "v1",
+      "spanId": "span_001"
+    }
+  ]
+}

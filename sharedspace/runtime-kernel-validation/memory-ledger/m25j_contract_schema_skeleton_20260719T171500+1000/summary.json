@@ -1,0 +1,9 @@
+{
+  "negative": 25,
+  "no_live_delivery": true,
+  "positive": 30,
+  "schema": "stickbot.m25j.summary.v1",
+  "schemas": 25,
+  "security": 7,
+  "terminal_status": "M25J_CONTRACT_SCHEMA_SKELETON_TESTS_PASS_NO_LIVE_DELIVERY"
+}

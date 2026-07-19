@@ -1,0 +1,18 @@
+{
+  "claimIds": [
+    "claim_m25j_001",
+    "claim_m25j_002"
+  ],
+  "contractHash": "2097187fea954b7df74d782c0a604d5f2f15f5d6c9a11065b81ad94992eacc60",
+  "contradictionId": "contra_m25j_001",
+  "disposition": "hold_for_readback",
+  "schema": "stickbot.context_graph.contradiction.v1",
+  "schemaVersion": "1.0.0",
+  "sourceBindings": [
+    {
+      "sourceId": "src_alias_m25j",
+      "sourceVersion": "v1",
+      "spanId": "span_001"
+    }
+  ]
+}

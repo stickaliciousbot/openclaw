@@ -1,0 +1,14 @@
+{
+  "contractHash": "1cdf49d7b3356e5c216a57fe087d4ce352c12602ba9ad86ea02b99a5d16fc811",
+  "deadline": "2026-07-19T07:13:00Z",
+  "grantId": "grant_m25j_001",
+  "idempotencyKey": "idem_invoke_m25j",
+  "inputHash": "5555555555555555555555555555555555555555555555555555555555555555",
+  "invocationId": "invoke_m25j_001",
+  "policyEpoch": "policy_epoch_m25j_001",
+  "schema": "stickbot.runtime_broker.invocation.v1",
+  "schemaVersion": "1.0.0",
+  "serviceId": "svc_context_reconstruction",
+  "sessionScopeHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "surfaceScope": "owner_direct_fixture"
+}

@@ -1,0 +1,16 @@
+{
+  "contractHash": "c47bcb47aea9e0fb3e87855892b74d65aa9153c13b6e95f66850c0e4f5f506a7",
+  "deliveryRequired": true,
+  "jobId": "job_delivery_m25j",
+  "payloadId": "payload_m25j_001",
+  "payloadText": "-----BEGIN PRIVATE KEY-----",
+  "privateScanPassed": true,
+  "rawIdentifiers": [],
+  "redactions": [
+    "raw_ids"
+  ],
+  "renderProfile": "plain_text",
+  "sanitized": true,
+  "schema": "stickbot.sanitized_payload.v1",
+  "schemaVersion": "1.0.0"
+}

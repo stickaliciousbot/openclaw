@@ -1,0 +1,30 @@
+{
+  "allowedMemoryDomains": [
+    "durable_memory_architecture"
+  ],
+  "allowedPrivacyClasses": [
+    "sanitized"
+  ],
+  "approvalRequired": false,
+  "contractHash": "81c5c7cb865621a935ad53e601233a831049c75e0a7834c6e0ce89adca65d5c0",
+  "deliveryDedupePolicy": "suppress_duplicate_idempotency_key",
+  "evidencePolicy": "receipt_required",
+  "externalSendPolicy": "deny_without_policy",
+  "identityScope": "owner_alias",
+  "mayNarrowOnly": true,
+  "permittedDeliverySurfaces": [
+    "owner_direct_fixture"
+  ],
+  "permittedServices": [
+    "svc_context_reconstruction"
+  ],
+  "permittedTools": [],
+  "policyHash": "6666666666666666666666666666666666666666666666666666666666666666",
+  "redactionProfile": "no_raw_identifiers",
+  "renderProfile": "plain_text",
+  "schema": "stickbot.surface_policy.v1",
+  "schemaVersion": "1.0.0",
+  "sessionScope": "offline_contract_fixture",
+  "surfaceId": "surface_owner_direct",
+  "surfaceType": "owner_direct"
+}

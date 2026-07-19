@@ -1,0 +1,6 @@
+{
+  "canonical_schema_root": "projects/durable-memory-architecture/contracts/m25j",
+  "schema": "stickbot.m25j.source_map.v1",
+  "tests": "projects/durable-memory-architecture/test/m25j",
+  "validator": "projects/durable-memory-architecture/scripts/m25j_validate_contracts.py"
+}

@@ -1,0 +1,30 @@
+{
+  "allowedPrivacyClasses": [
+    "sanitized"
+  ],
+  "allowedSourceDomains": [
+    "durable_memory_architecture"
+  ],
+  "budgets": {
+    "deadlineMs": 1000,
+    "maxExcerptTokens": 300,
+    "maxHops": 2,
+    "maxSources": 5
+  },
+  "consequenceLevel": "medium",
+  "contractEnvelopeId": "umc_m25j_delivery",
+  "contractHash": "96b0f474d7c4db5965ef4ca78befe875f651884e0d845794f9fcec46e61f24bb",
+  "deadline": "2026-07-19T07:13:00Z",
+  "freshnessRequirement": "current_baseline",
+  "idempotencyKey": "idem_recon_m25j",
+  "requestId": "req_recon_m25j",
+  "requiredSlots": [
+    "delivery",
+    "context",
+    "broker"
+  ],
+  "schema": "stickbot.context_reconstruction.request.v1",
+  "schemaVersion": "1.0.0",
+  "sessionScopeHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "surfaceScope": "owner_direct_fixture"
+}

@@ -1,0 +1,17 @@
+{
+  "authorityLabel": "verified_source_span",
+  "claimId": "claim_m25j_001",
+  "contractHash": "11ff9f76a50a1d9c12ecc26c2277aafae42deddf9942fb710bb5a97a6c47eb76",
+  "object": "receipts",
+  "predicate": "requires",
+  "schema": "stickbot.context_graph.claim.v1",
+  "schemaVersion": "1.0.0",
+  "sourceBindings": [
+    {
+      "sourceId": "src_alias_m25j",
+      "sourceVersion": "v1",
+      "spanId": "span_001"
+    }
+  ],
+  "subjectId": "ent_m25j_001"
+}

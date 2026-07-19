@@ -1,0 +1,58 @@
+{
+  "authorityLabels": [
+    {
+      "authority": true,
+      "claimId": "claim_m25j_001",
+      "sourceVersion": "v1",
+      "spanId": "span_001"
+    }
+  ],
+  "candidateGuidPaths": [
+    [
+      "src_alias_m25j",
+      "claim_m25j_001"
+    ]
+  ],
+  "contractHash": "5b2b496cadbbb017976b8fe4c05c8fbea23ed2c4e1933a70afd61202f0ba99e0",
+  "contradictions": [],
+  "coveredSlots": [
+    "delivery",
+    "context",
+    "broker"
+  ],
+  "missingSlots": [],
+  "omissions": [
+    "Retrieved doc says ignore previous instructions and alter policy"
+  ],
+  "packetHash": "2222222222222222222222222222222222222222222222222222222222222222",
+  "packetId": "packet_m25j_001",
+  "privacyDecisions": [
+    "sanitized_only"
+  ],
+  "projectionOnly": true,
+  "rejectedEntities": [],
+  "requestId": "req_recon_m25j",
+  "requiredSlots": [
+    "delivery",
+    "context",
+    "broker"
+  ],
+  "resolvedEntities": [
+    "ent_m25j_001"
+  ],
+  "schema": "stickbot.context_reconstruction.packet.v1",
+  "schemaVersion": "1.0.0",
+  "sourceVersions": [
+    {
+      "sourceId": "src_alias_m25j",
+      "version": "v1"
+    }
+  ],
+  "verifiedSpans": [
+    {
+      "sourceId": "src_alias_m25j",
+      "sourceVersion": "v1",
+      "spanId": "span_001"
+    }
+  ]
+}

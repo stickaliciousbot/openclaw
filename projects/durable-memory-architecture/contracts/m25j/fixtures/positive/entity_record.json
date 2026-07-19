@@ -1,0 +1,18 @@
+{
+  "authorityLabel": "verified_source_span",
+  "contractHash": "b27a7184e6054c2edea0a4568a733a208d6c44c18155ce3f41348ea1c58ce44d",
+  "entityId": "ent_m25j_001",
+  "entityType": "milestone",
+  "names": [
+    "M25J"
+  ],
+  "schema": "stickbot.context_graph.entity.v1",
+  "schemaVersion": "1.0.0",
+  "sourceBindings": [
+    {
+      "sourceId": "src_alias_m25j",
+      "sourceVersion": "v1",
+      "spanId": "span_001"
+    }
+  ]
+}

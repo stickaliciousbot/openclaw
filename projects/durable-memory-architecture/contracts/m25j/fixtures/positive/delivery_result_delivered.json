@@ -1,0 +1,15 @@
+{
+  "adapter": "offline_fixture_adapter",
+  "attemptedAt": "2026-07-19T07:12:00Z",
+  "contractHash": "1bf4ade5e6e1329a5cbfbe079ae9af5e4bcdfc20c4fd1c369eb0930ed97b0faf",
+  "delivered": true,
+  "deliveryAttempted": true,
+  "deliveryId": "delivery_m25j_001",
+  "deliveryRequired": true,
+  "duplicateSuppressed": false,
+  "errorClass": "",
+  "jobId": "job_delivery_m25j",
+  "schema": "stickbot.delivery_result.v1",
+  "schemaVersion": "1.0.0",
+  "status": "delivered"
+}

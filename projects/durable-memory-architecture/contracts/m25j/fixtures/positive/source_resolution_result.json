@@ -1,0 +1,13 @@
+{
+  "contractHash": "9aa652c9255f441375871ce5483da5bfa094a280dcb1b9bd875b7ac253be6275",
+  "rejectedSources": [],
+  "requestId": "req_m25j_001",
+  "resolutionId": "res_m25j_001",
+  "resolvedSources": [
+    "src_alias_m25j"
+  ],
+  "schema": "stickbot.source_resolution.result.v1",
+  "schemaVersion": "1.0.0",
+  "stale": false,
+  "terminal": "PASS"
+}

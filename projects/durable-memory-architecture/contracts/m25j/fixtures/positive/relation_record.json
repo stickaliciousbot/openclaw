@@ -1,0 +1,17 @@
+{
+  "authorityLabel": "verified_source_span",
+  "contractHash": "23f3126e2fb07f089f4c34fcbdb775625decf28fe058614d0194826b6c081269",
+  "fromEntity": "ent_m25j_001",
+  "relationId": "rel_m25j_001",
+  "relationType": "supports",
+  "schema": "stickbot.context_graph.relation.v1",
+  "schemaVersion": "1.0.0",
+  "sourceBindings": [
+    {
+      "sourceId": "src_alias_m25j",
+      "sourceVersion": "v1",
+      "spanId": "span_001"
+    }
+  ],
+  "toEntity": "claim_m25j_001"
+}

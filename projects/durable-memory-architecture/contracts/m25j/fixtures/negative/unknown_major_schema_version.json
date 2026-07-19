@@ -1,0 +1,16 @@
+{
+  "contractHash": "233155f15a7e4fc6a4e1875cf03c62a844099b90e3c9a3abaa90192f626db01d",
+  "deliveryRequired": true,
+  "jobId": "job_delivery_m25j",
+  "payloadId": "payload_m25j_001",
+  "payloadText": "M25J sanitized fixture payload",
+  "privateScanPassed": true,
+  "rawIdentifiers": [],
+  "redactions": [
+    "raw_ids"
+  ],
+  "renderProfile": "plain_text",
+  "sanitized": true,
+  "schema": "stickbot.sanitized_payload.v2",
+  "schemaVersion": "2.0.0"
+}

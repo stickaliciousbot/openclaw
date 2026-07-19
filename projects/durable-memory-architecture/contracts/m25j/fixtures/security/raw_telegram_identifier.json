@@ -1,0 +1,16 @@
+{
+  "contractHash": "8dbf7965bbaf349ae87353aed528b5f5b2addf7e9c08a7a3369c6832fc790ff2",
+  "deliveryRequired": true,
+  "jobId": "job_delivery_m25j",
+  "payloadId": "payload_m25j_001",
+  "payloadText": "telegram:123456789 message_id=41672",
+  "privateScanPassed": true,
+  "rawIdentifiers": [],
+  "redactions": [
+    "raw_ids"
+  ],
+  "renderProfile": "plain_text",
+  "sanitized": true,
+  "schema": "stickbot.sanitized_payload.v1",
+  "schemaVersion": "1.0.0"
+}

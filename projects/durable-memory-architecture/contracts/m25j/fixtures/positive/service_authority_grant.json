@@ -1,0 +1,23 @@
+{
+  "budgets": {
+    "deadlineMs": 1000,
+    "maxExcerptTokens": 300,
+    "maxHops": 2,
+    "maxSources": 5
+  },
+  "contractHash": "ba02a5db6d99a474fd842869f4f44625b3332d8cc590d17498900a0508dcd724",
+  "expiresAt": "2026-07-19T07:17:00Z",
+  "grantId": "grant_m25j_001",
+  "issuedAt": "2026-07-19T07:12:00Z",
+  "permissions": [
+    "read_context"
+  ],
+  "policyEpoch": "policy_epoch_m25j_001",
+  "requestId": "grant_req_m25j",
+  "revoked": false,
+  "schema": "stickbot.runtime_broker.authority_grant.v1",
+  "schemaVersion": "1.0.0",
+  "serviceId": "svc_context_reconstruction",
+  "sessionScopeHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "surfaceScope": "owner_direct_fixture"
+}

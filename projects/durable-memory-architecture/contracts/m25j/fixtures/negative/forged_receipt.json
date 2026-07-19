@@ -1,0 +1,21 @@
+{
+  "contractHash": "f1205403e7e0ee569b501b46603a03c442020749d02a810d9e28e1f60b0c7dc9",
+  "durationMs": 15,
+  "errorCode": "",
+  "grantId": "grant_m25j_001",
+  "invocationId": "invoke_m25j_001",
+  "noWriteProof": true,
+  "policyEpoch": "policy_epoch_m25j_001",
+  "receiptBinding": {
+    "grantId": "forged_grant",
+    "policyEpoch": "policy_epoch_m25j_001",
+    "sessionScopeHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "surfaceScope": "owner_direct_fixture"
+  },
+  "receiptId": "svc_receipt_m25j_001",
+  "schema": "stickbot.runtime_broker.receipt.v1",
+  "schemaVersion": "1.0.0",
+  "sessionScopeHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "surfaceScope": "owner_direct_fixture",
+  "terminal": "PASS"
+}

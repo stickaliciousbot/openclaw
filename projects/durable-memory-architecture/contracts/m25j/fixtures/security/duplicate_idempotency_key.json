@@ -1,0 +1,16 @@
+{
+  "closeoutAnchor": "closeout_anchor",
+  "completionAnchor": "completion_anchor",
+  "contractEnvelopeId": "umc_m25j_delivery",
+  "contractHash": "d2bf106b21dcf316203ea8d88c62dfb6de47e83b3109b548440313b127505529",
+  "deliveryRequired": true,
+  "desiredOutput": "SANITIZED_PAYLOAD_REQUIRED",
+  "idempotencyKey": "idem_replayed_cross_session",
+  "jobId": "job_delivery_m25j",
+  "maxDeliveries": 1,
+  "schema": "stickbot.delivery_required_job.v1",
+  "schemaVersion": "1.0.0",
+  "sessionScopeHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "surfaceScope": "owner_direct_fixture",
+  "terminalAnchor": "terminal_anchor"
+}

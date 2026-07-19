@@ -1,0 +1,498 @@
+{
+  "canonicalization": {
+    "encoding": "UTF-8",
+    "hash": "SHA-256 lowercase hex",
+    "numbers": "integers only; floats rejected to avoid ambiguous serializer behavior",
+    "objectKeys": "sorted",
+    "selfHashExclusion": "contractHash is excluded only from its own preimage; additional packet/receipt/policy hashes are shape-checked unless specified by schema invariant",
+    "standard": "JCS-compatible bounded subset",
+    "whitespace": "none"
+  },
+  "schema": "stickbot.m25j.schema_registry.v1",
+  "schemaVersion": "1.0.0",
+  "schemas": [
+    {
+      "extensionsAllowed": false,
+      "name": "SourceRecord",
+      "required": [
+        "schema",
+        "schemaVersion",
+        "sourceId",
+        "sourceVersion",
+        "canonicalUri",
+        "contentSha256",
+        "privacyClass",
+        "authorityTier",
+        "readbackPolicy",
+        "verifiedSpans",
+        "contractHash"
+      ],
+      "schema": "stickbot.source.record.v1"
+    },
+    {
+      "extensionsAllowed": false,
+      "name": "SourceResolutionResult",
+      "required": [
+        "schema",
+        "schemaVersion",
+        "resolutionId",
+        "requestId",
+        "resolvedSources",
+        "rejectedSources",
+        "stale",
+        "terminal",
+        "contractHash"
+      ],
+      "schema": "stickbot.source_resolution.result.v1"
+    },
+    {
+      "extensionsAllowed": false,
+      "name": "EntityRecord",
+      "required": [
+        "schema",
+        "schemaVersion",
+        "entityId",
+        "entityType",
+        "names",
+        "sourceBindings",
+        "authorityLabel",
+        "contractHash"
+      ],
+      "schema": "stickbot.context_graph.entity.v1"
+    },
+    {
+      "extensionsAllowed": false,
+      "name": "ClaimRecord",
+      "required": [
+        "schema",
+        "schemaVersion",
+        "claimId",
+        "subjectId",
+        "predicate",
+        "object",
+        "sourceBindings",
+        "authorityLabel",
+        "contractHash"
+      ],
+      "schema": "stickbot.context_graph.claim.v1"
+    },
+    {
+      "extensionsAllowed": false,
+      "name": "RelationRecord",
+      "required": [
+        "schema",
+        "schemaVersion",
+        "relationId",
+        "fromEntity",
+        "relationType",
+        "toEntity",
+        "sourceBindings",
+        "authorityLabel",
+        "contractHash"
+      ],
+      "schema": "stickbot.context_graph.relation.v1"
+    },
+    {
+      "extensionsAllowed": false,
+      "name": "ContradictionRecord",
+      "required": [
+        "schema",
+        "schemaVersion",
+        "contradictionId",
+        "claimIds",
+        "disposition",
+        "sourceBindings",
+        "contractHash"
+      ],
+      "schema": "stickbot.context_graph.contradiction.v1"
+    },
+    {
+      "extensionsAllowed": false,
+      "name": "SupersessionRecord",
+      "required": [
+        "schema",
+        "schemaVersion",
+        "supersessionId",
+        "supersedes",
+        "supersededBy",
+        "sourceBindings",
+        "contractHash"
+      ],
+      "schema": "stickbot.context_graph.supersession.v1"
+    },
+    {
+      "extensionsAllowed": false,
+      "name": "ContextReconstructionRequest",
+      "required": [
+        "schema",
+        "schemaVersion",
+        "requestId",
+        "idempotencyKey",
+        "contractEnvelopeId",
+        "surfaceScope",
+        "sessionScopeHash",
+        "requiredSlots",
+        "allowedSourceDomains",
+        "allowedPrivacyClasses",
+        "freshnessRequirement",
+        "consequenceLevel",
+        "budgets",
+        "deadline",
+        "contractHash"
+      ],
+      "schema": "stickbot.context_reconstruction.request.v1"
+    },
+    {
+      "extensionsAllowed": false,
+      "name": "ContextReconstructionPacket",
+      "required": [
+        "authorityLabels",
+        "candidateGuidPaths",
+        "contractHash",
+        "contradictions",
+        "coveredSlots",
+        "missingSlots",
+        "omissions",
+        "packetHash",
+        "packetId",
+        "privacyDecisions",
+        "projectionOnly",
+        "rejectedEntities",
+        "requestId",
+        "requiredSlots",
+        "resolvedEntities",
+        "schema",
+        "schemaVersion",
+        "sourceVersions",
+        "verifiedSpans"
+      ],
+      "schema": "stickbot.context_reconstruction.packet.v1"
+    },
+    {
+      "extensionsAllowed": false,
+      "name": "ContextReconstructionReceipt",
+      "required": [
+        "schema",
+        "schemaVersion",
+        "receiptId",
+        "requestId",
+        "grantId",
+        "idempotencyKey",
+        "surfaceScope",
+        "sessionScopeHash",
+        "policyEpoch",
+        "issuedAt",
+        "expiresAt",
+        "terminal",
+        "serviceVersion",
+        "policyDecision",
+        "packetHash",
+        "sourceVersionsVerified",
+        "requiredSlots",
+        "coveredSlots",
+        "missingSlots",
+        "gates",
+        "postconditions",
+        "noWriteProof",
+        "durationMs",
+        "errorCode",
+        "receiptSha256",
+        "contractHash"
+      ],
+      "schema": "stickbot.context_reconstruction.receipt.v1"
+    },
+    {
+      "extensionsAllowed": false,
+      "name": "ServiceDefinition",
+      "required": [
+        "schema",
+        "schemaVersion",
+        "serviceId",
+        "serviceVersion",
+        "serviceHash",
+        "permissions",
+        "mutationCapable",
+        "contractHash"
+      ],
+      "schema": "stickbot.runtime_broker.service_definition.v1"
+    },
+    {
+      "extensionsAllowed": false,
+      "name": "ServiceHealth",
+      "required": [
+        "schema",
+        "schemaVersion",
+        "serviceId",
+        "serviceVersion",
+        "healthy",
+        "watermark",
+        "deadlineResult",
+        "contractHash"
+      ],
+      "schema": "stickbot.runtime_broker.service_health.v1"
+    },
+    {
+      "extensionsAllowed": false,
+      "name": "ServiceGrantRequest",
+      "required": [
+        "schema",
+        "schemaVersion",
+        "requestId",
+        "idempotencyKey",
+        "serviceId",
+        "surfaceScope",
+        "sessionScopeHash",
+        "policyEpoch",
+        "permissions",
+        "budgets",
+        "deadline",
+        "contractHash"
+      ],
+      "schema": "stickbot.runtime_broker.grant_request.v1"
+    },
+    {
+      "extensionsAllowed": false,
+      "name": "ServiceAuthorityGrant",
+      "required": [
+        "schema",
+        "schemaVersion",
+        "grantId",
+        "requestId",
+        "serviceId",
+        "surfaceScope",
+        "sessionScopeHash",
+        "policyEpoch",
+        "issuedAt",
+        "expiresAt",
+        "permissions",
+        "budgets",
+        "revoked",
+        "contractHash"
+      ],
+      "schema": "stickbot.runtime_broker.authority_grant.v1"
+    },
+    {
+      "extensionsAllowed": false,
+      "name": "ServiceInvocation",
+      "required": [
+        "schema",
+        "schemaVersion",
+        "invocationId",
+        "grantId",
+        "idempotencyKey",
+        "serviceId",
+        "surfaceScope",
+        "sessionScopeHash",
+        "policyEpoch",
+        "deadline",
+        "inputHash",
+        "contractHash"
+      ],
+      "schema": "stickbot.runtime_broker.invocation.v1"
+    },
+    {
+      "extensionsAllowed": false,
+      "name": "ServiceReceipt",
+      "required": [
+        "schema",
+        "schemaVersion",
+        "receiptId",
+        "invocationId",
+        "grantId",
+        "surfaceScope",
+        "sessionScopeHash",
+        "policyEpoch",
+        "terminal",
+        "receiptBinding",
+        "noWriteProof",
+        "durationMs",
+        "errorCode",
+        "contractHash"
+      ],
+      "schema": "stickbot.runtime_broker.receipt.v1"
+    },
+    {
+      "extensionsAllowed": false,
+      "name": "ServiceDenial",
+      "required": [
+        "schema",
+        "schemaVersion",
+        "denialId",
+        "requestId",
+        "surfaceScope",
+        "sessionScopeHash",
+        "policyEpoch",
+        "terminal",
+        "reason",
+        "retryable",
+        "contractHash"
+      ],
+      "schema": "stickbot.runtime_broker.denial.v1"
+    },
+    {
+      "extensionsAllowed": false,
+      "name": "ServicePostconditionEvidence",
+      "required": [
+        "schema",
+        "schemaVersion",
+        "evidenceId",
+        "serviceId",
+        "postcondition",
+        "receiptIds",
+        "satisfied",
+        "contractHash"
+      ],
+      "schema": "stickbot.runtime_broker.postcondition_evidence.v1"
+    },
+    {
+      "extensionsAllowed": false,
+      "name": "ContractEnvelope",
+      "required": [
+        "schema",
+        "schemaVersion",
+        "contractEnvelopeId",
+        "turnId",
+        "requiredServices",
+        "requiredContextSlots",
+        "requiredTools",
+        "requiredDelivery",
+        "requiredPostconditions",
+        "allowedSurfaceDisclosure",
+        "prohibitedClaimsWithoutReceipt",
+        "consequenceLevel",
+        "authorityPolicy",
+        "deliveryPolicy",
+        "successClaims",
+        "receiptIds",
+        "contractHash"
+      ],
+      "schema": "stickbot.umc.contract_envelope.v1"
+    },
+    {
+      "extensionsAllowed": false,
+      "name": "SurfacePolicy",
+      "required": [
+        "schema",
+        "schemaVersion",
+        "surfaceId",
+        "surfaceType",
+        "identityScope",
+        "sessionScope",
+        "allowedMemoryDomains",
+        "allowedPrivacyClasses",
+        "permittedServices",
+        "permittedTools",
+        "permittedDeliverySurfaces",
+        "approvalRequired",
+        "renderProfile",
+        "redactionProfile",
+        "deliveryDedupePolicy",
+        "externalSendPolicy",
+        "evidencePolicy",
+        "mayNarrowOnly",
+        "policyHash",
+        "contractHash"
+      ],
+      "schema": "stickbot.surface_policy.v1"
+    },
+    {
+      "extensionsAllowed": false,
+      "name": "DeliveryRequiredJobEnvelope",
+      "required": [
+        "schema",
+        "schemaVersion",
+        "jobId",
+        "idempotencyKey",
+        "contractEnvelopeId",
+        "deliveryRequired",
+        "maxDeliveries",
+        "surfaceScope",
+        "sessionScopeHash",
+        "completionAnchor",
+        "terminalAnchor",
+        "closeoutAnchor",
+        "desiredOutput",
+        "contractHash"
+      ],
+      "schema": "stickbot.delivery_required_job.v1"
+    },
+    {
+      "extensionsAllowed": false,
+      "name": "BoundaryDecisionEnvelope",
+      "required": [
+        "schema",
+        "schemaVersion",
+        "decisionId",
+        "jobId",
+        "decision",
+        "deliveryAllowed",
+        "reason",
+        "surfaceScope",
+        "sessionScopeHash",
+        "policyEpoch",
+        "contractHash"
+      ],
+      "schema": "stickbot.boundary_decision.v1"
+    },
+    {
+      "extensionsAllowed": false,
+      "name": "SanitizedPayloadEnvelope",
+      "required": [
+        "schema",
+        "schemaVersion",
+        "payloadId",
+        "jobId",
+        "deliveryRequired",
+        "payloadText",
+        "sanitized",
+        "privateScanPassed",
+        "rawIdentifiers",
+        "redactions",
+        "renderProfile",
+        "contractHash"
+      ],
+      "schema": "stickbot.sanitized_payload.v1"
+    },
+    {
+      "extensionsAllowed": false,
+      "name": "DeliveryResultEnvelope",
+      "required": [
+        "schema",
+        "schemaVersion",
+        "deliveryId",
+        "jobId",
+        "deliveryRequired",
+        "deliveryAttempted",
+        "delivered",
+        "duplicateSuppressed",
+        "status",
+        "adapter",
+        "errorClass",
+        "attemptedAt",
+        "contractHash"
+      ],
+      "schema": "stickbot.delivery_result.v1"
+    },
+    {
+      "extensionsAllowed": false,
+      "name": "ContextBridgeProjectionRecord",
+      "required": [
+        "schema",
+        "schemaVersion",
+        "projectionId",
+        "milestoneStatusCategory",
+        "healthCategory",
+        "boundedCounts",
+        "keyedReceiptAliases",
+        "projectionWatermark",
+        "timestamp",
+        "privacyScanResult",
+        "authorityPromotion",
+        "writeControlDirectives",
+        "contractHash"
+      ],
+      "schema": "stickbot.context_bridge.projection_record.v1"
+    }
+  ],
+  "status": "inert_no_live_delivery"
+}

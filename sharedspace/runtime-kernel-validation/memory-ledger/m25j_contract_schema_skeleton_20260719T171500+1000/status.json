@@ -1,0 +1,6 @@
+{
+  "schema": "stickbot.m25j.status.v1",
+  "status": "PASS",
+  "terminal_status": "M25J_CONTRACT_SCHEMA_SKELETON_TESTS_PASS_NO_LIVE_DELIVERY",
+  "unknown": false
+}

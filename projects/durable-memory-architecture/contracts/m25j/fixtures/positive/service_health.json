@@ -1,0 +1,10 @@
+{
+  "contractHash": "18aa09ca4054b4efbd1604487ac64359ea700bb2cd45645263330a9431fd8514",
+  "deadlineResult": "within_deadline",
+  "healthy": true,
+  "schema": "stickbot.runtime_broker.service_health.v1",
+  "schemaVersion": "1.0.0",
+  "serviceId": "svc_context_reconstruction",
+  "serviceVersion": "1.0.0",
+  "watermark": "wm_m25j_001"
+}

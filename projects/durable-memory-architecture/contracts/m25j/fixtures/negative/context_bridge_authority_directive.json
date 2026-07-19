@@ -1,0 +1,21 @@
+{
+  "authorityPromotion": true,
+  "boundedCounts": {
+    "contracts": 25,
+    "negative": 24,
+    "positive": 28
+  },
+  "contractHash": "74ac6281aef5fef12cef4c21b6c5e7e12931066ccd9cb30cf3a1b0b860402b46",
+  "healthCategory": "green",
+  "keyedReceiptAliases": {
+    "m25j": "receipt_alias_m25j"
+  },
+  "milestoneStatusCategory": "PASS_NO_LIVE_DELIVERY",
+  "privacyScanResult": "PASS",
+  "projectionId": "projection_m25j_001",
+  "projectionWatermark": "wm_projection_m25j_001",
+  "schema": "stickbot.context_bridge.projection_record.v1",
+  "schemaVersion": "1.0.0",
+  "timestamp": "2026-07-19T07:12:00Z",
+  "writeControlDirectives": false
+}

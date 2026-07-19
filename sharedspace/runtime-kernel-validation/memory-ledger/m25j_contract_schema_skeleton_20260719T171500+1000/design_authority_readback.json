@@ -1,0 +1,5 @@
+{
+  "m25i_a_manifest_sha256": "50f5d348bedf507f7b43f2bf8b03f680e8accadcc1440aca0996b23ab1e06b7a",
+  "owner_lld_sha256": "edd7284f2f591517b3536300ba476ab9b06abd0d01a02ec3b1500cc748f66de1",
+  "schema": "stickbot.m25j.design_authority_readback.v1"
+}

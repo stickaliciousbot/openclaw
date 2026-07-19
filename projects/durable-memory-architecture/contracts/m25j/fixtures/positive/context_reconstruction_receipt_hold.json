@@ -1,0 +1,41 @@
+{
+  "contractHash": "2b476e3cc42d99b68e5bb63dd2123e736fc48d223a8c0b28161c8316ab3652ae",
+  "coveredSlots": [
+    "delivery",
+    "context"
+  ],
+  "durationMs": 23,
+  "errorCode": "",
+  "expiresAt": "2026-07-19T07:17:00Z",
+  "gates": {
+    "privacy": "PASS"
+  },
+  "grantId": "grant_m25j_001",
+  "idempotencyKey": "idem_recon_m25j",
+  "issuedAt": "2026-07-19T07:12:00Z",
+  "missingSlots": [
+    "broker"
+  ],
+  "noWriteProof": true,
+  "packetHash": "2222222222222222222222222222222222222222222222222222222222222222",
+  "policyDecision": "hold",
+  "policyEpoch": "policy_epoch_m25j_001",
+  "postconditions": {
+    "coverage": "HOLD"
+  },
+  "receiptId": "receipt_recon_hold_m25j",
+  "receiptSha256": "3333333333333333333333333333333333333333333333333333333333333333",
+  "requestId": "req_recon_m25j",
+  "requiredSlots": [
+    "delivery",
+    "context",
+    "broker"
+  ],
+  "schema": "stickbot.context_reconstruction.receipt.v1",
+  "schemaVersion": "1.0.0",
+  "serviceVersion": "svc_v1",
+  "sessionScopeHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "sourceVersionsVerified": true,
+  "surfaceScope": "owner_direct_fixture",
+  "terminal": "HOLD"
+}

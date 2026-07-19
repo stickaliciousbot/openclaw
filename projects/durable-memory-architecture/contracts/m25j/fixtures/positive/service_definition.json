@@ -1,0 +1,12 @@
+{
+  "contractHash": "1be249c55ba3cc2a4a462c932e08477e7a0a6d18b0578b22c8e5408973106ea6",
+  "mutationCapable": false,
+  "permissions": [
+    "read_context"
+  ],
+  "schema": "stickbot.runtime_broker.service_definition.v1",
+  "schemaVersion": "1.0.0",
+  "serviceHash": "4444444444444444444444444444444444444444444444444444444444444444",
+  "serviceId": "svc_context_reconstruction",
+  "serviceVersion": "1.0.0"
+}

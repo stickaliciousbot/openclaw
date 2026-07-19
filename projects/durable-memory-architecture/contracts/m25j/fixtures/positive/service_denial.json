@@ -1,0 +1,13 @@
+{
+  "contractHash": "b4b3a455ffdcacedcc6bf07f74fd06dc1640fd36d12d77234919e0850ee57c8f",
+  "denialId": "denial_m25j_001",
+  "policyEpoch": "policy_epoch_m25j_001",
+  "reason": "surface_denied",
+  "requestId": "grant_req_denied_m25j",
+  "retryable": false,
+  "schema": "stickbot.runtime_broker.denial.v1",
+  "schemaVersion": "1.0.0",
+  "sessionScopeHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "surfaceScope": "shared_group_fixture",
+  "terminal": "DENY"
+}

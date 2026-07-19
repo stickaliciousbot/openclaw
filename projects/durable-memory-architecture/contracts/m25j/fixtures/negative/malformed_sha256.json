@@ -1,0 +1,19 @@
+{
+  "authorityTier": "source_registry_exact_readback",
+  "canonicalUri": "source://m25j/fixture/1",
+  "contentSha256": "not-a-sha",
+  "contractHash": "90a05e40252b5a2ab2ffabbbbe230a4bf72ac980dba859f1f2a882bacc1be37f",
+  "privacyClass": "sanitized",
+  "readbackPolicy": "exact_hash",
+  "schema": "stickbot.source.record.v1",
+  "schemaVersion": "1.0.0",
+  "sourceId": "src_alias_m25j",
+  "sourceVersion": "v1",
+  "verifiedSpans": [
+    {
+      "end": 10,
+      "spanId": "span_001",
+      "start": 0
+    }
+  ]
+}

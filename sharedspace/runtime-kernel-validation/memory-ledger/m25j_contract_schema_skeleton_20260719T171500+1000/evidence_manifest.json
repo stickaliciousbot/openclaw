@@ -1,0 +1,468 @@
+{
+  "entries": [
+    {
+      "bytes": 870,
+      "path": "projects/durable-memory-architecture/contracts/m25j/README.md",
+      "sha256": "fa6cf760a86c958048de32b3eb40598cf777c38cc18171511d36e9331f32b91e"
+    },
+    {
+      "bytes": 73,
+      "path": "projects/durable-memory-architecture/contracts/m25j/__init__.py",
+      "sha256": "05f89937395142fdce78a38f01c235e34900720cdbdb21f9a64e4bbb6fa5b0b4"
+    },
+    {
+      "bytes": 1686,
+      "path": "projects/durable-memory-architecture/contracts/m25j/canonical.py",
+      "sha256": "6a61f90ea4d4c232dbadcca9388bf56ad648295bba8365e9d81555e1ae8bb363"
+    },
+    {
+      "bytes": 483,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/boundary_hold_delivery_allowed.json",
+      "sha256": "b0026079c60379bdc91b9cd88e0e13c9d9422842d288df5e067936b8e6b31238"
+    },
+    {
+      "bytes": 489,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/boundary_reject_delivery_allowed.json",
+      "sha256": "7f8a291a2db8bd19a78b8b50ce82d8460c891385021e03a8e3815a9168fc6d13"
+    },
+    {
+      "bytes": 638,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/context_bridge_authority_directive.json",
+      "sha256": "756bd1443edac7110e69927e5fd752cfd9088e915d29394ca7f722ba44488009"
+    },
+    {
+      "bytes": 690,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/context_bridge_raw_packet_content.json",
+      "sha256": "6e87632c62594426dcff1026f9a7cf3fa0e426ed35f30ee2141dcfa9309c0092"
+    },
+    {
+      "bytes": 466,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/delivered_true_without_attempt.json",
+      "sha256": "4b1d2032c771ad6728e54807657278d1b88b05df5ff896664b0fd4fb770d5ec6"
+    },
+    {
+      "bytes": 430,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/delivery_required_bare_no_reply.json",
+      "sha256": "57891e2460fb8bf1ad737a8b00a4b092b30f1ec1e31c18849803487d8bb45b35"
+    },
+    {
+      "bytes": 620,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/delivery_required_without_anchors.json",
+      "sha256": "12f3ec73e50a54440ea638d9e9af3a8c0983c4244dc37f5162d5737a8a5c2019"
+    },
+    {
+      "bytes": 466,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/duplicate_suppression_wrong_status.json",
+      "sha256": "23c4563e5b7b774f27469bc37bb7793b858db89c95e6d823409ac4d88cf99921"
+    },
+    {
+      "bytes": 709,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/expired_grant.json",
+      "sha256": "09d59db5d906fce45e250c16b7ecabcd5f8ea99712fc922fd8dd0cc05abcc968"
+    },
+    {
+      "bytes": 463,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/failed_delivery_missing_error_class.json",
+      "sha256": "b53c15e6d7ef5ad5e782a3b5ec88148f95e483f43262c6f1f436699e579d0b5c"
+    },
+    {
+      "bytes": 770,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/forged_receipt.json",
+      "sha256": "24de7dc9bdc2a5fc1c600ec38c44347f5d62eb72e107ceaf127e9792f70a452f"
+    },
+    {
+      "bytes": 510,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/malformed_sha256.json",
+      "sha256": "24242cd423f0b7fc12ab05a808644f1b54de71d2db14b7d0da5c32222c6e73cc"
+    },
+    {
+      "bytes": 637,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/max_deliveries_gt_one.json",
+      "sha256": "746cb23e2ca1d683f9112de9e823504536a5a6d51c6f08c4cc2b09ec302c560e"
+    },
+    {
+      "bytes": 452,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/mismatched_contract_hash.json",
+      "sha256": "88626d2fb73b456a364bac03dcdea150d9564fde10ee6f418ec516b36601df6e"
+    },
+    {
+      "bytes": 417,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/missing_required_field.json",
+      "sha256": "e43e45d4d1fc9d9c9b88bccea9538f84ccba39f38a6ea7a4a8afab868768d8eb"
+    },
+    {
+      "bytes": 1094,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/packet_authority_without_verified_source_span.json",
+      "sha256": "1fd55b88f325aa441b12a5bc37e62fc81ab309e3a594f3a5c67a72559dbf6b3c"
+    },
+    {
+      "bytes": 453,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/private_scan_false.json",
+      "sha256": "e0c69204d53bcde1db55a8d92fb3c83725c6742f1cf06ebd230b257945f2e86a"
+    },
+    {
+      "bytes": 480,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/raw_identifier_present.json",
+      "sha256": "fda120a6dec2c534665942886e30becea196826972061b63605aeb524ea8a1c8"
+    },
+    {
+      "bytes": 1187,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/reconstruction_pass_missing_required_slot.json",
+      "sha256": "7b1037262f8b67e49f56465455597d585e1bc12bf2c0538b97950e1882cc77d3"
+    },
+    {
+      "bytes": 765,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/replayed_receipt_cross_surface.json",
+      "sha256": "4517f025c45603b2e5a8cc0e2b2dd31902e358666b4533fb7f492118157cbf4d"
+    },
+    {
+      "bytes": 947,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/ssb_policy_widening_grant.json",
+      "sha256": "ddd4f3716fa44bc18e21b0efd525cbbcd6462c43bbb77b94be314b81ae44bac5"
+    },
+    {
+      "bytes": 852,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/umc_success_claim_without_receipt.json",
+      "sha256": "0a42604ce0479cc3d1867e2af1f4109afd440e4a46eab482cc8cf6a46ced5f0e"
+    },
+    {
+      "bytes": 452,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/unknown_major_schema_version.json",
+      "sha256": "a5e690816e385962ecd19097b7a50589b642edfe98c14b1caed2b09711af5c7f"
+    },
+    {
+      "bytes": 453,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/unsanitized_payload.json",
+      "sha256": "e0b0314e055a32338f74ace5e0a916b19e38ac44b3e55b92634896b2ef3392b6"
+    },
+    {
+      "bytes": 765,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/negative/wrong_surface_session_binding.json",
+      "sha256": "6a0ad7c07baeb66cbc51846ab52c4562c6133b3d9b2e2512b70e07980402eac3"
+    },
+    {
+      "bytes": 486,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/boundary_allow.json",
+      "sha256": "bd284147b9cb66885d4bc1adc52fdf8a6217139a9f45dda5dd9c76235d663b61"
+    },
+    {
+      "bytes": 484,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/boundary_hold.json",
+      "sha256": "6a7a643de1ffc845fa8f9d6a32098f1c8c97a532a6b0cb9f335f358330ca8cab"
+    },
+    {
+      "bytes": 490,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/boundary_reject.json",
+      "sha256": "11fce1904644b0ce4d37a9b16549a62b0e2e3285c66072938d64a5fc8977f469"
+    },
+    {
+      "bytes": 452,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/claim_record.json",
+      "sha256": "7794876918cae463aae66b56b1551e5770b246fb00adc8d22fd3ad337ec801b5"
+    },
+    {
+      "bytes": 639,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/context_bridge_projection_record.json",
+      "sha256": "695d3ddb133552817a91bac3fd5d210e619110253d250041436ddee9abd1f8b8"
+    },
+    {
+      "bytes": 1151,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/context_reconstruction_packet.json",
+      "sha256": "fc2e1e1a130c7ba03ceaf2528dde1e312ab98192e8aa182785693b976e3c0045"
+    },
+    {
+      "bytes": 1172,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/context_reconstruction_receipt_hold.json",
+      "sha256": "8038a8bdd3a84562b66932a5d0572e96c8574e85340cbfc5f1b8d40e251dc9c4"
+    },
+    {
+      "bytes": 1171,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/context_reconstruction_receipt_pass.json",
+      "sha256": "af81b25470c4fff00676cb652b574cbfc69ea6f94355be48cf782cd60f2e5ae6"
+    },
+    {
+      "bytes": 838,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/context_reconstruction_request.json",
+      "sha256": "83f1f275a52aef47123e5cb80fd36e23fb05cc62aeb7ccac5fe15f44d7b3b241"
+    },
+    {
+      "bytes": 445,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/contradiction_record.json",
+      "sha256": "183043282e6257841052cb49b361e25771fafd30320381c1f460ced81c771748"
+    },
+    {
+      "bytes": 637,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/delivery_required_job_all_anchors.json",
+      "sha256": "e382dec9d4676c521b11649d5744dab5c478984a02926030b9aeefe8cab1fbfa"
+    },
+    {
+      "bytes": 465,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/delivery_result_delivered.json",
+      "sha256": "8debcf87727f8ded6f865fdb52943181bced02cf7d81307c64f59a1d30242afc"
+    },
+    {
+      "bytes": 467,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/delivery_result_duplicate_suppressed.json",
+      "sha256": "84e9403710143125a2d69e762b090591828642ff949ca6a6a8617b2e5be13068"
+    },
+    {
+      "bytes": 428,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/entity_record.json",
+      "sha256": "59ef492d75144ec3dee69d7146d1ac364888dc6259d67a50b90933613bfe98ec"
+    },
+    {
+      "bytes": 577,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/quiet_job_delivery_not_required.json",
+      "sha256": "bc4fff8bb0d5428e90f3d50ed7defce02abab2aa0afb2af8ba778a3851ead84e"
+    },
+    {
+      "bytes": 468,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/relation_record.json",
+      "sha256": "1b802c0f63f097e338a15f0373dcce861d7bdc298ca809b1073d1d8e9a2ad069"
+    },
+    {
+      "bytes": 452,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/sanitized_payload.json",
+      "sha256": "9a40abb0caae7de9a61ce414903561ca6d8b76da5ea2e21c33da92fdd77cadfa"
+    },
+    {
+      "bytes": 709,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/service_authority_grant.json",
+      "sha256": "90e58b70b1d1f624415e2c0e5f05239d68576a506bd34a8ab01a0ebc0438c06b"
+    },
+    {
+      "bytes": 408,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/service_definition.json",
+      "sha256": "43b2ba9609f6bad19ccb6b682a56a08569c27133dbde32ca7a83644bbfc4806a"
+    },
+    {
+      "bytes": 487,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/service_denial.json",
+      "sha256": "f6fbcec9f775a932e7543fcd25a64e7e15b08be4204adc376ac38298b42eb9e6"
+    },
+    {
+      "bytes": 656,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/service_grant_request.json",
+      "sha256": "d8f69a9456c5eacaf0a676d2a11ff1b580c0caf0298b6081088a613e92d2c1e5"
+    },
+    {
+      "bytes": 336,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/service_health.json",
+      "sha256": "cab8c5b5400457cff06e6f8b51221550097fa4092b5f3d9e7cac93a8841a4c55"
+    },
+    {
+      "bytes": 618,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/service_invocation.json",
+      "sha256": "bebe62db33eb4d64a161f1e777d25421046d54ab3fa2d31d8d3c96484b48fa7d"
+    },
+    {
+      "bytes": 384,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/service_postcondition_evidence.json",
+      "sha256": "a5530867f743c33f44bf40bf36c60d65290138e8d904a53f197f09aec08abbe4"
+    },
+    {
+      "bytes": 772,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/service_receipt.json",
+      "sha256": "0738378553ab667d34c93d51df48133f70c4fc69e8fbbd26b7e183b007e9a1fd"
+    },
+    {
+      "bytes": 565,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/source_record.json",
+      "sha256": "6ef65c0fc6f3ad17f76924dac7ba74de587e09c5469d89758e24365949c5a670"
+    },
+    {
+      "bytes": 348,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/source_resolution_result.json",
+      "sha256": "e90453ce4b06a88e3868e036a18d84f31fb9b6c92c6ea95e80f7e83dbca174db"
+    },
+    {
+      "bytes": 405,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/supersession_record.json",
+      "sha256": "921d0887d9280444e86dd8729879f97429451ebcc285ce6738c2f7f311a86b54"
+    },
+    {
+      "bytes": 946,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/surface_policy_owner_direct.json",
+      "sha256": "5faf91d7e48066f2d79291152d9ca0dace19a016399a3119d5055ef437248f1a"
+    },
+    {
+      "bytes": 879,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/positive/umc_contract_envelope.json",
+      "sha256": "8364a79faf7b62ac0b4407cd67cb8f2796f669426212116e6374577fbdd3ea22"
+    },
+    {
+      "bytes": 772,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/security/cross_session_replay.json",
+      "sha256": "201b51328b881e4e7b3f7526676bede677dca0671fb2eb1529a1d813a5ddbb6d"
+    },
+    {
+      "bytes": 646,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/security/duplicate_idempotency_key.json",
+      "sha256": "0768304735ded9ac781f5c6539e03b6be8178f82687cb517f38837e7baf3f962"
+    },
+    {
+      "bytes": 108,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/security/duplicate_json_key.json",
+      "sha256": "cfe08b2bf8172ed37bb6a237f1b60e3374e2df84a30e99204aa8194010227aef"
+    },
+    {
+      "bytes": 449,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/security/private_key_marker.json",
+      "sha256": "56196d36bd315381be5dbde2ba9b0e11a5ea3770c4ff4f7ac773b62f93e8f6b2"
+    },
+    {
+      "bytes": 457,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/security/raw_telegram_identifier.json",
+      "sha256": "3947c86ee8fa5ea19cd427380e6b2004c6813658a0594f6eb5cdcbda950cfe8d"
+    },
+    {
+      "bytes": 1225,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/security/retrieved_document_policy_attack.json",
+      "sha256": "4cae5d0f2f2c6d1ac3f4d5b1231e541f9d95184f79a366e55872f0dfc47fcff7"
+    },
+    {
+      "bytes": 462,
+      "path": "projects/durable-memory-architecture/contracts/m25j/fixtures/security/token_like_value.json",
+      "sha256": "0c16001dc8134f3d95cafc61532dee3b536c12185a8039c94010cddc671e67f9"
+    },
+    {
+      "bytes": 12099,
+      "path": "projects/durable-memory-architecture/contracts/m25j/schema_registry.json",
+      "sha256": "635d97cc453430c8cb1f5e6c736a9b28b5f896894e6c990314424b7ca037825e"
+    },
+    {
+      "bytes": 1874,
+      "path": "projects/durable-memory-architecture/contracts/m25j/validate_all_fixtures.py",
+      "sha256": "18d288b04f6f73ae972c096c4342804dfa7bf0dfb325d12f7e89bfe190506ec8"
+    },
+    {
+      "bytes": 1227,
+      "path": "projects/durable-memory-architecture/contracts/m25j/validate_contract.py",
+      "sha256": "dd8b57e7c1ee0203b9487ec033838f5ebf82fda31be7cdc5dcf70dddac6fc994"
+    },
+    {
+      "bytes": 8188,
+      "path": "projects/durable-memory-architecture/contracts/m25j/validators.py",
+      "sha256": "7231fd7e004e717a926bfb0e1789574867ed739ee470330758f227fedd7417c1"
+    },
+    {
+      "bytes": 1863,
+      "path": "projects/durable-memory-architecture/test/m25j/test_m25j_broker_umc_surface_contracts.py",
+      "sha256": "417077cd4482a3497a37d766601ce628e248a9f52e00b3876d728a754f0d9f44"
+    },
+    {
+      "bytes": 1515,
+      "path": "projects/durable-memory-architecture/test/m25j/test_m25j_canonicalization.py",
+      "sha256": "db697425cd2a34302039cc30d95319b971ec0c389a5e0b6424a88b3018b9f7a3"
+    },
+    {
+      "bytes": 2030,
+      "path": "projects/durable-memory-architecture/test/m25j/test_m25j_contract_schemas.py",
+      "sha256": "5454436f1cb85094b9a87479cbe159fb9124c6095bdfc80458132e9fca2b0c81"
+    },
+    {
+      "bytes": 2146,
+      "path": "projects/durable-memory-architecture/test/m25j/test_m25j_delivery_contracts.py",
+      "sha256": "e5a753c7ee7cda16aa70de4690a71de2a6a51b7ee27fe1b16f8574c37b8cb2a9"
+    },
+    {
+      "bytes": 1452,
+      "path": "projects/durable-memory-architecture/test/m25j/test_m25j_reconstruction_contracts.py",
+      "sha256": "d0b1162b816d346a29e5e0b3802b61f606057f4fe253d4fc23120ae2b8db930d"
+    },
+    {
+      "bytes": 13505,
+      "path": "projects/durable-memory-architecture/scripts/m25j_validate_contracts.py",
+      "sha256": "4e6ffa8fa5d421db39debafd2e995bce219282690de878d93b2be66b850edebf"
+    },
+    {
+      "bytes": 418,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25j_contract_schema_skeleton_20260719T171500+1000/canonicalization_contract.json",
+      "sha256": "e3bfcebd9c77cff2cf3ac8305a048eb7dc0ef250aaad820ef42a65d1621356a4"
+    },
+    {
+      "bytes": 247,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25j_contract_schema_skeleton_20260719T171500+1000/design_authority_readback.json",
+      "sha256": "c275d88c5e6575433bdbca6b31c85736a7c6c653a51d292c452806acefd7c30f"
+    },
+    {
+      "bytes": 2466,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25j_contract_schema_skeleton_20260719T171500+1000/file_allowlist.json",
+      "sha256": "3b777d9cf370d3b1f2140a84c3a345bf94e1cbb17bbb74bf0243937190f06726"
+    },
+    {
+      "bytes": 15843,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25j_contract_schema_skeleton_20260719T171500+1000/fixture_inventory.json",
+      "sha256": "a048c7a3ea0720833f6cfa5aeda1230182dedc1900b34ef5a11aaf510c9339b8"
+    },
+    {
+      "bytes": 3340,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25j_contract_schema_skeleton_20260719T171500+1000/hard_gates.json",
+      "sha256": "f1d131bd87f97bfca9debbe6be2f74e9d5f3735ba95929ecd4ba8ca184b5bb46"
+    },
+    {
+      "bytes": 120,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25j_contract_schema_skeleton_20260719T171500+1000/health_checks.json",
+      "sha256": "270e3dcf98f494f4ace52fdbe9790fdb200eed959fc531c959f3a5faecb43f76"
+    },
+    {
+      "bytes": 962,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25j_contract_schema_skeleton_20260719T171500+1000/mutation_sentinels.json",
+      "sha256": "694584ed8e8754257a0c29565b2ff2e3450067f13583122312d0572f50747f6c"
+    },
+    {
+      "bytes": 7882,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25j_contract_schema_skeleton_20260719T171500+1000/negative_fixture_results.json",
+      "sha256": "3c28a3a113be5ad4d8dd3276001b7403f243dced21dbf8a4e03c7e1d290fee94"
+    },
+    {
+      "bytes": 1025,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25j_contract_schema_skeleton_20260719T171500+1000/prior_state.json",
+      "sha256": "83f89b4a4dd2fcb01e148a2e96ebc470625bcaa997314b7eebc0b7e8c54ee5a9"
+    },
+    {
+      "bytes": 759,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25j_contract_schema_skeleton_20260719T171500+1000/privacy_scan.json",
+      "sha256": "372e7b861569c20e6c86d655bc9eddfba8e748d2dc1ba535ec8f922371d56dff"
+    },
+    {
+      "bytes": 149,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25j_contract_schema_skeleton_20260719T171500+1000/rollback_proof.json",
+      "sha256": "67f4e7f25bda294e0c5b2722bac3ec2dc93e02a0a32897b2ce36dc7997cf176b"
+    },
+    {
+      "bytes": 156,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25j_contract_schema_skeleton_20260719T171500+1000/run_config.json",
+      "sha256": "4968ffd7e12f2db018f1896ad1b021762776a14b9f1b1e03c18fd0bf90c6c2a4"
+    },
+    {
+      "bytes": 12099,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25j_contract_schema_skeleton_20260719T171500+1000/schema_inventory.json",
+      "sha256": "635d97cc453430c8cb1f5e6c736a9b28b5f896894e6c990314424b7ca037825e"
+    },
+    {
+      "bytes": 279,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25j_contract_schema_skeleton_20260719T171500+1000/source_map.json",
+      "sha256": "5683c5c422352b75bd75bcca51ecb46893919c9cc370986fb97e041136a0254a"
+    },
+    {
+      "bytes": 164,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25j_contract_schema_skeleton_20260719T171500+1000/status.json",
+      "sha256": "d17e17fd561817cafa1a05d3129c2c615a914f1b45ce44214d93bafc3eb8141d"
+    },
+    {
+      "bytes": 223,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25j_contract_schema_skeleton_20260719T171500+1000/summary.json",
+      "sha256": "d68a898974bc5c573ec85acbc288546781352c0e1edcdf9cb39bce553358a0dd"
+    },
+    {
+      "bytes": 16785,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25j_contract_schema_skeleton_20260719T171500+1000/test_results.json",
+      "sha256": "44e51e4de32d97e17d8e53aef62483a331df6c0f755df99ac3943ad315e20f77"
+    }
+  ],
+  "schema": "stickbot.m25j.evidence_manifest.v1",
+  "self_hash_excluded": true,
+  "status": "PASS",
+  "terminal_status": "M25J_CONTRACT_SCHEMA_SKELETON_TESTS_PASS_NO_LIVE_DELIVERY"
+}

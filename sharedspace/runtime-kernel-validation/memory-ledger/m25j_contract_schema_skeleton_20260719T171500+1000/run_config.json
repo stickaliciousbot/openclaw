@@ -1,0 +1,5 @@
+{
+  "no_live_delivery": true,
+  "schema": "stickbot.m25j.run_config.v1",
+  "terminal_target": "M25J_CONTRACT_SCHEMA_SKELETON_TESTS_PASS_NO_LIVE_DELIVERY"
+}

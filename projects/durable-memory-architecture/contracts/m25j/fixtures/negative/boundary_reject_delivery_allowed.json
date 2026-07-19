@@ -1,0 +1,13 @@
+{
+  "contractHash": "95afc43537443d0864906855536c7c1cc25291d6a0cf23b49ce9eba33bfdc210",
+  "decision": "reject",
+  "decisionId": "boundary_reject_m25j",
+  "deliveryAllowed": true,
+  "jobId": "job_delivery_m25j",
+  "policyEpoch": "policy_epoch_m25j_001",
+  "reason": "offline_reject",
+  "schema": "stickbot.boundary_decision.v1",
+  "schemaVersion": "1.0.0",
+  "sessionScopeHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "surfaceScope": "owner_direct_fixture"
+}

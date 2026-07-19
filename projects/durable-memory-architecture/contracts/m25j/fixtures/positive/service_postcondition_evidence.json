@@ -1,0 +1,12 @@
+{
+  "contractHash": "6fecd8b9acc091281ece874252885f2f5e3964e71d2de4d30226b0adcf9366a5",
+  "evidenceId": "post_m25j_001",
+  "postcondition": "reconstruction_receipt_present",
+  "receiptIds": [
+    "svc_receipt_m25j_001"
+  ],
+  "satisfied": true,
+  "schema": "stickbot.runtime_broker.postcondition_evidence.v1",
+  "schemaVersion": "1.0.0",
+  "serviceId": "svc_context_reconstruction"
+}

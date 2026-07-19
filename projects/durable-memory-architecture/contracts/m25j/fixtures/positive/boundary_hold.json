@@ -1,0 +1,13 @@
+{
+  "contractHash": "f49431cfd675841d67329044b47dd4ef91494481765e83f1dcb146a8f85301eb",
+  "decision": "hold",
+  "decisionId": "boundary_hold_m25j",
+  "deliveryAllowed": false,
+  "jobId": "job_delivery_m25j",
+  "policyEpoch": "policy_epoch_m25j_001",
+  "reason": "offline_hold",
+  "schema": "stickbot.boundary_decision.v1",
+  "schemaVersion": "1.0.0",
+  "sessionScopeHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "surfaceScope": "owner_direct_fixture"
+}
