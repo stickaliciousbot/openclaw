@@ -1,0 +1,18 @@
+{
+  "bindings": [
+    "jobId",
+    "deliveryIntent",
+    "deliverySurface",
+    "targetAlias",
+    "send_text capability",
+    "idempotencyKey",
+    "policyEpoch",
+    "anchors",
+    "maxDeliveries",
+    "request/grant/receipt/result IDs",
+    "no raw target exposure",
+    "no-send result semantics"
+  ],
+  "mismatchBehavior": "fail closed TARGET_BINDING_INVALID_NO_DELIVERY",
+  "validator": "validateDeliveryArtifactChain"
+}

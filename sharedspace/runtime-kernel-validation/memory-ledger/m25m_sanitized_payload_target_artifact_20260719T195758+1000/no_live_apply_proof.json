@@ -1,0 +1,18 @@
+{
+  "authorityUnchanged": true,
+  "contextBridgeUnchanged": true,
+  "cronJobsUnchanged": true,
+  "deliveryAdapterInvocation": 0,
+  "gatewayConfigUnchanged": true,
+  "gatewayRestartReload": false,
+  "handlerArmed": false,
+  "installedHandlerDistUnchanged": true,
+  "installedHandlerSourceUnchanged": true,
+  "installedRuntimeUnchanged": true,
+  "ledgerUnchanged": true,
+  "liveTargetRegistry": false,
+  "liveTargetResolution": false,
+  "realJobCreatedRun": false,
+  "routeModelConfigUnchanged": true,
+  "telegramSends": 0
+}

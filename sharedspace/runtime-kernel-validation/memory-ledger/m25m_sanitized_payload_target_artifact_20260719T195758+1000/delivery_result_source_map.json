@@ -1,0 +1,9 @@
+{
+  "adapterBoundary": "not invoked in M25M",
+  "canonicalContract": "stickbot.delivery_result.v1",
+  "delivered": false,
+  "deliveryAttempted": false,
+  "errorClass": "NO_SEND_ARTIFACT_CANARY",
+  "noSendStatus": "suppressed",
+  "sourceImplementation": "src/cron/sanitized-payload-target-artifact.ts"
+}

@@ -1,0 +1,8 @@
+{
+  "canonicalContracts": "projects/durable-memory-architecture/contracts/m25j schema_registry + fixtures read-only",
+  "grant": "test-only opaque runtime-private-ref targetHandleRef, maxDeliveries=1",
+  "noLiveRegistry": true,
+  "receipt": "RESOLVED/HOLD/DENIED/EXPIRED semantics, rawTargetExposed=false",
+  "request": "SurfaceResponseTargetRequest symbolic alias only",
+  "sourceImplementation": "src/cron/sanitized-payload-target-artifact.ts"
+}

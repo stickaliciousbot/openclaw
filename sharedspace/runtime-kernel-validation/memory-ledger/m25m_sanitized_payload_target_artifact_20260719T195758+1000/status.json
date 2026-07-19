@@ -1,0 +1,11 @@
+{
+  "artifactCanaryTerminal": "PASS_SANITIZED_PAYLOAD_TARGET_ARTIFACT_NO_SEND",
+  "closeoutUnknown": false,
+  "m25nStarted": false,
+  "m26Started": false,
+  "pushed": false,
+  "sourceCommit": "5e15c706e7549d827a44156fe5f3360858a3d5d3",
+  "status": "PASS",
+  "terminal": "M25M_SANITIZED_PAYLOAD_TARGET_ARTIFACT_PASS_NO_TELEGRAM",
+  "workspaceEvidenceCommit": "external_git_readback_after_commit"
+}

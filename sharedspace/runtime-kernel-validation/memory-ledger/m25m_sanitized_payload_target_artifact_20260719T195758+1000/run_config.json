@@ -1,0 +1,12 @@
+{
+  "milestone": "M25M",
+  "noLiveApply": true,
+  "noM25NOrM26": true,
+  "noTelegram": true,
+  "schema": "stickbot.m25m.run_config.v1",
+  "sourceBase": "32b218aa9cd8261532a6f039fb3d4f00fb9342c1",
+  "sourceBranch": "sanitized-payload-target-artifact-2026-5-7-backport",
+  "sourceHead": "5e15c706e7549d827a44156fe5f3360858a3d5d3",
+  "terminalExpected": "M25M_SANITIZED_PAYLOAD_TARGET_ARTIFACT_PASS_NO_TELEGRAM",
+  "workspaceBase": "e12db31a7993930c4435e07cc9aa0c727f94a29f"
+}

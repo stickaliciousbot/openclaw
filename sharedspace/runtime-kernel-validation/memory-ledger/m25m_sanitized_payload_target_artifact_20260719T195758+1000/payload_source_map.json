@@ -1,0 +1,15 @@
+{
+  "existingRuntimeClassification": "src/cron/runtime-delivery-classification.ts",
+  "sanitization": "bounded body/title, synthetic raw/private pattern rejection, symbolic alias only",
+  "sourceFiles": [
+    {
+      "canonical": "OpenClaw source",
+      "input": "delivery job + boundary allow + runtime classification + sanitized candidate + policy + symbolic alias",
+      "mutationCapability": "source only; no live runtime apply",
+      "output": "payload or typed no-delivery terminal",
+      "path": "src/cron/sanitized-payload-target-artifact.ts",
+      "responsibility": "SanitizedPayloadEnvelope, target artifacts, no-send DeliveryResultEnvelope, cross-chain validator",
+      "testPath": "src/cron/sanitized-payload-target-artifact.test.ts"
+    }
+  ]
+}

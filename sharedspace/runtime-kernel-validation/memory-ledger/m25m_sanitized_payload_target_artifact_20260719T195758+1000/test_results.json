@@ -1,0 +1,9 @@
+{
+  "diffCheck": "PASS",
+  "focusedM25M": "PASS node --import tsx src/cron/sanitized-payload-target-artifact.test.ts; 12 positive / 28 negative / 6 regression / 7 outcomes",
+  "m25kRegression": "PASS 31 assertions / 10 terminals",
+  "m25lRegression": "PASS 23 reason codes / 11 positive / 22 negative / 6 regression",
+  "srtrPytest": "NOT_RUN pytest unavailable: No module named pytest; contract-suite validator used as evidence",
+  "srtrRegression": "PASS python3 projects/durable-memory-architecture/contracts/m25j/validate_all_fixtures.py; 36 positive / 45 negative / 10 security / 0 errors",
+  "targetedTypecheck": "PASS targeted tsc"
+}

@@ -1,0 +1,43 @@
+{
+  "negative": 28,
+  "negativeCases": [
+    "hold/reject payload attempts",
+    "missing/mismatched anchors",
+    "unsanitized/private payload",
+    "raw target in payload/request/grant",
+    "wrong alias/session/identity/surface/capability",
+    "expired grant",
+    "maxDeliveries>1",
+    "wrong policy epoch",
+    "idempotency mismatch",
+    "rawTargetExposed",
+    "no grant",
+    "fallback target",
+    "deliveryAttempted/delivered true",
+    "duplicate/tamper hash cases"
+  ],
+  "positive": 12,
+  "positiveCases": [
+    "allow sanitized payload",
+    "valid target request",
+    "valid grant",
+    "valid receipt",
+    "valid no-send result",
+    "complete chain",
+    "target HOLD",
+    "target DENIED",
+    "target EXPIRED",
+    "deterministic payload hash",
+    "deterministic receipt hash",
+    "deterministic chain receipt"
+  ],
+  "regression": 6,
+  "regressionCases": [
+    "M25K quiet success",
+    "M25L hold/reject",
+    "bare NO_REPLY invalid",
+    "M25E/G/H cannot bypass chain",
+    "raw Telegram target fixture absent",
+    "SRTR fixtures remain represented"
+  ]
+}

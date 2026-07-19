@@ -1,0 +1,21 @@
+{
+  "authority": "M25J-R SRTR + M25K classification + M25L boundary envelope",
+  "m25mChain": [
+    "DeliveryRequiredJobEnvelope",
+    "BoundaryDecisionEnvelope",
+    "RuntimeReplyClassification",
+    "SanitizedPayloadEnvelope",
+    "SurfaceResponseTargetRequest",
+    "SurfaceResponseTargetGrant",
+    "SurfaceResponseTargetReceipt",
+    "DeliveryResultEnvelope"
+  ],
+  "notInScope": [
+    "live Telegram",
+    "live target registry",
+    "job scheduling",
+    "Gateway restart",
+    "M25N",
+    "M26"
+  ]
+}

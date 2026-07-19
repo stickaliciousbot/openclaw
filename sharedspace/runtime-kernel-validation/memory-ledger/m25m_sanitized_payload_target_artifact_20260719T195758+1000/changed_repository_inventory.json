@@ -1,0 +1,22 @@
+{
+  "contractPackageChanged": false,
+  "repositoriesChanged": [
+    {
+      "base": "32b218aa9cd8261532a6f039fb3d4f00fb9342c1",
+      "branch": "sanitized-payload-target-artifact-2026-5-7-backport",
+      "commit": "Add M25M sanitized payload target artifact chain",
+      "head": "5e15c706e7549d827a44156fe5f3360858a3d5d3",
+      "path": "/home/stickai/.openclaw/workspace/tmp/openclaw-2026-5-7-closeout-backport",
+      "pushed": false,
+      "repo": "OpenClaw source"
+    },
+    {
+      "base": "e12db31a7993930c4435e07cc9aa0c727f94a29f",
+      "branch": "evidence/umc-m3n-post-restart-health-failclosed-20260713",
+      "commit": "pending",
+      "path": "/home/stickai/.openclaw/workspace",
+      "pushed": false,
+      "repo": "workspace evidence"
+    }
+  ]
+}

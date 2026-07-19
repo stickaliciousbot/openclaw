@@ -1,0 +1,6 @@
+{
+  "deliveryRequiredBareNoReplyRejected": "PASS",
+  "quietSuccess": "PASS",
+  "smokeAssertions": 31,
+  "status": "PASS"
+}

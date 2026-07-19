@@ -1,0 +1,10 @@
+{
+  "futureOffSwitch": "M25N delivery-adapter canary must require explicit no-send/live switch before adapter invocation",
+  "liveRollbackRequired": false,
+  "sourceRollback": [
+    "git -C tmp/openclaw-2026-5-7-closeout-backport revert 5e15c706e7549d827a44156fe5f3360858a3d5d3"
+  ],
+  "workspaceRollback": [
+    "revert M25M evidence commit if created"
+  ]
+}

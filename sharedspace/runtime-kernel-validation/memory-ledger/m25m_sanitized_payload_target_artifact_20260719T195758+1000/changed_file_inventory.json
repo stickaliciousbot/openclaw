@@ -1,0 +1,14 @@
+{
+  "installedPluginChanged": false,
+  "installedRuntimeChanged": false,
+  "openclawSourceFiles": [
+    "src/cron/sanitized-payload-target-artifact.ts",
+    "src/cron/sanitized-payload-target-artifact.test.ts"
+  ],
+  "sourceDiffSha256": "86734ed774400fcfac5df79a9d30c99dceff10d735bc840f0cc4377755f2a730",
+  "sourceFileHashes": {
+    "src/cron/sanitized-payload-target-artifact.test.ts": "4b8c086d207807fec76091e152af237689407989390e5623ff670c98675cc4ba",
+    "src/cron/sanitized-payload-target-artifact.ts": "1cb4a5b654671d0bc4e679c394a2c48effb4ab1c3c614a0c2af1a0967c92e0e8"
+  },
+  "workspaceEvidenceRoot": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25m_sanitized_payload_target_artifact_20260719T195758+1000"
+}

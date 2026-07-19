@@ -1,0 +1,67 @@
+{
+  "artifactCanaryTerminal": "PASS_SANITIZED_PAYLOAD_TARGET_ARTIFACT_NO_SEND",
+  "artifactChainImplementationPaths": [
+    "src/cron/sanitized-payload-target-artifact.ts",
+    "src/cron/sanitized-payload-target-artifact.test.ts"
+  ],
+  "authorityPromotion": "none",
+  "chainValidation": "PASS",
+  "contextBridgeMutation": "none",
+  "deliveryResultSourcePaths": [
+    "src/cron/sanitized-payload-target-artifact.ts",
+    "src/cron/sanitized-payload-target-artifact.test.ts"
+  ],
+  "deliveryTelegram": "none",
+  "evidenceRoot": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25m_sanitized_payload_target_artifact_20260719T195758+1000",
+  "fixtures": "12 positive / 28 negative / 6 regression",
+  "focusedM25M": "PASS",
+  "gatewayRestartConfigMutation": "none",
+  "handlerState": "dormant/unarmed",
+  "installedPluginMutation": "none",
+  "installedRuntimeMutation": "none",
+  "ledgerMutation": "none",
+  "liveTargetResolution": "none",
+  "localCommits": {
+    "openclawSource": "5e15c706e7549d827a44156fe5f3360858a3d5d3",
+    "workspaceEvidence": "external_git_readback_after_commit"
+  },
+  "m25kRegression": "PASS",
+  "m25lRegression": "PASS",
+  "m25nM26Started": false,
+  "noSendDeliveryResult": "PASS",
+  "outcomeTaxonomy": [
+    "PAYLOAD_SANITIZATION_FAILED_NO_DELIVERY",
+    "TARGET_RESOLUTION_HOLD_NO_DELIVERY",
+    "TARGET_RESOLUTION_DENIED_NO_DELIVERY",
+    "TARGET_GRANT_EXPIRED_NO_DELIVERY",
+    "TARGET_BINDING_INVALID_NO_DELIVERY",
+    "NO_SEND_ARTIFACT_CANARY",
+    "PASS_SANITIZED_PAYLOAD_TARGET_ARTIFACT_NO_SEND"
+  ],
+  "payloadConstruction": "PASS",
+  "payloadSourcePaths": [
+    "src/cron/sanitized-payload-target-artifact.ts",
+    "src/cron/sanitized-payload-target-artifact.test.ts"
+  ],
+  "privateRawScan": "PASS",
+  "pushed": false,
+  "repositoriesChanged": [
+    "OpenClaw source",
+    "workspace evidence"
+  ],
+  "retryJobState": "none",
+  "routeModelConfigMutation": "none",
+  "sourceBase": "32b218aa9cd8261532a6f039fb3d4f00fb9342c1",
+  "sourceBranch": "sanitized-payload-target-artifact-2026-5-7-backport",
+  "sourceHead": "5e15c706e7549d827a44156fe5f3360858a3d5d3",
+  "srtrPytest": "NOT_RUN pytest unavailable; non-authoritative duplicate runner not used",
+  "srtrRegression": "PASS validate_all_fixtures.py: 36 positive / 45 negative / 10 security / 0 errors",
+  "staticTypecheck": "PASS",
+  "targetArtifactSourcePaths": [
+    "src/cron/sanitized-payload-target-artifact.ts",
+    "src/cron/sanitized-payload-target-artifact.test.ts"
+  ],
+  "targetRegistry": "none",
+  "targetRequestGrantReceipt": "PASS",
+  "terminal": "M25M_SANITIZED_PAYLOAD_TARGET_ARTIFACT_PASS_NO_TELEGRAM"
+}

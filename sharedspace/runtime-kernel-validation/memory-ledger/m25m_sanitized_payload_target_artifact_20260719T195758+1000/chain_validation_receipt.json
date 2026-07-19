@@ -1,0 +1,15 @@
+{
+  "schema": "stickbot.delivery_artifact_chain.validation_receipt.v1",
+  "schemaVersion": "1.0.0",
+  "terminal": "PASS_SANITIZED_PAYLOAD_TARGET_ARTIFACT_NO_SEND",
+  "valid": true,
+  "jobId": "job_m25m_artifact_canary",
+  "payloadSha256": "dfbf3b3dd757f043d9974071a9335daf43fa9e1cccc2bcae8ed7a9eac12512db",
+  "targetReceiptSha256": "46fcbcc97392e96c1d63b953dc6abffbe2fea8685501e321e24129e0d9c26a60",
+  "resultSha256": "4ea846d3f90efca4fa3aa930dff51792829b92c9c8951ab4f19354767b013a56",
+  "idempotencyKey": "m25m-artifact-canary-idempotency",
+  "policyEpoch": "policy_epoch_m25m_001",
+  "errors": [],
+  "chainSha256": "ddeb8d383ffbdcda95a2b4af9217d57c844c2099daff69ad79c9b16db04ec8d2",
+  "contractHash": "761a3d4da41ae250e2accb123cd251123edc2b718467947b27e178be14f4d7ce"
+}

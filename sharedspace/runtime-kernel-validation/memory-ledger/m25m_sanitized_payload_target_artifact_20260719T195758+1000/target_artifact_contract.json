@@ -1,0 +1,15 @@
+{
+  "constraints": [
+    "identity/session verified",
+    "send_text only",
+    "maxDeliveries=1",
+    "no fallback",
+    "expiry enforced",
+    "rawTargetExposed=false"
+  ],
+  "grant": "stickbot.surface_response_target.grant.v1",
+  "receipt": "stickbot.surface_response_target.receipt.v1",
+  "request": "stickbot.surface_response_target.request.v1",
+  "syntheticAlias": "operator-canary-target",
+  "testOnlyHandlePrefix": "runtime-private-ref:test-only:"
+}

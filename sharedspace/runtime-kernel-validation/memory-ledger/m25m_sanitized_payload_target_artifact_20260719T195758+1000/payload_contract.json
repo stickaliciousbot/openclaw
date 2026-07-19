@@ -1,0 +1,33 @@
+{
+  "invariants": [
+    "sanitized=true",
+    "rawIdentifiersPresent=false",
+    "privateScanPass=true",
+    "valid boundary allow required",
+    "hold/reject no payload",
+    "anchors match job",
+    "symbolic targetAlias",
+    "no provider ID",
+    "deterministic hashes"
+  ],
+  "required": [
+    "schema",
+    "schemaVersion",
+    "payloadType",
+    "title",
+    "body",
+    "anchors",
+    "completionStatus",
+    "sanitized",
+    "rawIdentifiersPresent",
+    "privateScanPass",
+    "deliverySurface",
+    "targetAlias",
+    "idempotencyKey",
+    "policyEpoch",
+    "createdAt",
+    "payloadSha256",
+    "contractHash"
+  ],
+  "schema": "stickbot.sanitized_payload.v1"
+}

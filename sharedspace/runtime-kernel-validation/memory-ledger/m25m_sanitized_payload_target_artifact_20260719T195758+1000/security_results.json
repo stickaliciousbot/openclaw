@@ -1,0 +1,8 @@
+{
+  "crossSessionSurfaceReplayRejected": true,
+  "oversizedBodyRejected": true,
+  "rawTargetScansZero": true,
+  "secretLikePayloadRejected": true,
+  "status": "PASS",
+  "syntheticAliasesDoNotResembleProviderIds": true
+}

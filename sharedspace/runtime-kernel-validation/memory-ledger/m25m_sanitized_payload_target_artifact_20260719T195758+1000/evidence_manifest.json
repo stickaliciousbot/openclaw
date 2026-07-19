@@ -1,0 +1,142 @@
+{
+  "entries": [
+    {
+      "bytes": 772,
+      "path": "chain_validation_receipt.json",
+      "sha256": "6c6b802e97b4c50f6fc0154d9107c12a8853cfee51b1bc2293cff4128ac6db32"
+    },
+    {
+      "bytes": 757,
+      "path": "changed_file_inventory.json",
+      "sha256": "995154130ee39a49efbc13e0dc93106da7e4c3d5de857f71ac064a49ce60c55b"
+    },
+    {
+      "bytes": 766,
+      "path": "changed_repository_inventory.json",
+      "sha256": "f3af634fcdd307521ee70aab7e804b88dea757962e941c049c2bd92c5aa7b655"
+    },
+    {
+      "bytes": 427,
+      "path": "cross_binding_contract.json",
+      "sha256": "04146f579fe923f47a71067eae712b8d6217bee2906669e8d02a9ea601828cd7"
+    },
+    {
+      "bytes": 303,
+      "path": "delivery_result_source_map.json",
+      "sha256": "6a2f7a1470acabf6138cbc925008bc7430bc4936517ee6194d13d27d5f38f8d2"
+    },
+    {
+      "bytes": 509,
+      "path": "design_authority_readback.json",
+      "sha256": "65bef1fb00c5cf9c71a38e4c7ca7fe187ddd000997b1657e6bc5bc6b08f1ea4e"
+    },
+    {
+      "bytes": 1085,
+      "path": "fixture_inventory.json",
+      "sha256": "af4dca2cc0d2520b9a5da0033c74f08f000fcc6a248a1a2043b2f3958b5c66b4"
+    },
+    {
+      "bytes": 918,
+      "path": "hard_gates.json",
+      "sha256": "55a9b790fe0cf460b6c95baa7778e42a178570fecbdd8f135e4b96d6986be343"
+    },
+    {
+      "bytes": 459,
+      "path": "health_checks.json",
+      "sha256": "96aa14eb59b4ea94bfc213c39a7f3ddc3f9e76eaba90dce5012c5503c9d12131"
+    },
+    {
+      "bytes": 123,
+      "path": "m25k_regression_results.json",
+      "sha256": "c29c3b2f8100da83b768f5e1bf115fdc49d23dcd34f4d76ad009fbe728e9ed80"
+    },
+    {
+      "bytes": 107,
+      "path": "m25l_regression_results.json",
+      "sha256": "dd05210f6ed43a182f44b6581063910923611876c6e0deb27efd7232889331a6"
+    },
+    {
+      "bytes": 1750,
+      "path": "mutation_sentinels.json",
+      "sha256": "8ab44137c93a15c8b7c8a3306105169bd71d9db958e4162ddc700eb0ba462326"
+    },
+    {
+      "bytes": 523,
+      "path": "no_live_apply_proof.json",
+      "sha256": "a30671c7aa37ef14a1f97dee0b3bbf25bc9756861b05f489bf4447d880f10df4"
+    },
+    {
+      "bytes": 354,
+      "path": "outcome_taxonomy.json",
+      "sha256": "212c2d496434f7efcdbb39b9000913d91bfcdee730b6bc32466fa30ce1ef4583"
+    },
+    {
+      "bytes": 673,
+      "path": "payload_contract.json",
+      "sha256": "02de0e1db946c843b658df3e52ca603b6ec31e980de3401bba1aaaf37f9ddcbb"
+    },
+    {
+      "bytes": 764,
+      "path": "payload_source_map.json",
+      "sha256": "e85f7883c5824c26684473d80e6e28d6c0d69eacb79aecd0ba04fc6b071b7510"
+    },
+    {
+      "bytes": 969,
+      "path": "prior_state.json",
+      "sha256": "88bc3203c4e5b682018d67deea289cbaaa07f9eba6946e27ea56030d3a1f7359"
+    },
+    {
+      "bytes": 135,
+      "path": "privacy_scan.json",
+      "sha256": "c00be00e6b27cce5b275b7b11ca528a8a5f54b1b391b9995296e11a4d485ba71"
+    },
+    {
+      "bytes": 360,
+      "path": "rollback_proof.json",
+      "sha256": "8f61c780ae89f6a7e9df2a51f93932865e9a3eee2b3f3138e9a183ca9c0dbb5f"
+    },
+    {
+      "bytes": 474,
+      "path": "run_config.json",
+      "sha256": "87285516112d18ee470e928fed01b10a20a852ffa70a61ec37f7c72c98a5092d"
+    },
+    {
+      "bytes": 220,
+      "path": "security_results.json",
+      "sha256": "1a6e11f25868c7e5ec12dc7bc40d063c69bf917e070603d2e482b7fe89ed7542"
+    },
+    {
+      "bytes": 397,
+      "path": "status.json",
+      "sha256": "edaf5553fc9adeafd871d46f612bfb85632c7145f2168d61ae9f33f12ff112e8"
+    },
+    {
+      "bytes": 2645,
+      "path": "summary.json",
+      "sha256": "0648b3e2709f606e0aa5531286c969d20a39ccdb1529c5c095825bb692071e23"
+    },
+    {
+      "bytes": 8281,
+      "path": "synthetic_artifact_canary.json",
+      "sha256": "56cbb2b37ba0a13a0fc4c5f1dab5065b69036428abebaca6fb4c09d1159079af"
+    },
+    {
+      "bytes": 458,
+      "path": "target_artifact_contract.json",
+      "sha256": "0512435b122a5d89d21349eb2dd558bc3ed3c06d6b946d3c5fd54c2387885a06"
+    },
+    {
+      "bytes": 448,
+      "path": "target_contract_source_map.json",
+      "sha256": "a523b7d7791775785a9e720d74c07892adb73445781719e52e2f0b291fe4ed3b"
+    },
+    {
+      "bytes": 641,
+      "path": "test_results.json",
+      "sha256": "475051747e1f01ba8d1eaeed40c054fe08e774f9fa7bc4936f96150dcb3cd7ca"
+    }
+  ],
+  "entryCount": 27,
+  "root": "sharedspace/runtime-kernel-validation/memory-ledger/m25m_sanitized_payload_target_artifact_20260719T195758+1000",
+  "schema": "stickbot.m25m.evidence_manifest.v1"
+}
