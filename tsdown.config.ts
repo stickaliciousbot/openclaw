@@ -120,6 +120,16 @@ function buildInputOptions(options: InputOptionsArg): InputOptionsReturn {
 
   return {
     ...options,
+    experimental: {
+      ...(options.experimental ?? {}),
+      // Rolldown defaults experimental.attachDebugInfo to "simple", which
+      // emits generated `//#region <module id>` annotations for bundled
+      // modules. When module ids resolve outside the checkout root, those
+      // non-operational annotations can disclose host-specific absolute build
+      // paths in npm tarballs. Disable the debug annotations at the canonical
+      // generator instead of rewriting dist or packed archives after the build.
+      attachDebugInfo: "none",
+    },
     external(id: string, parentId: string | undefined, isResolved: boolean) {
       return (
         shouldNeverBundleDependency(id) ||
