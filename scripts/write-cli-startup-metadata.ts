@@ -163,6 +163,9 @@ function createIsolatedRootHelpRenderContext(
     LC_ALL: process.env.LC_ALL ?? "C.UTF-8",
     TERM: process.env.TERM ?? "dumb",
     NO_COLOR: "1",
+    // Startup metadata is a generated package artifact. Pin the otherwise
+    // random banner tagline so clean roots produce byte-identical metadata.
+    OPENCLAW_TAGLINE_INDEX: "0",
     OPENCLAW_BUNDLED_PLUGINS_DIR: bundledPluginsDir,
     OPENCLAW_DISABLE_BUNDLED_PLUGINS: "",
     OPENCLAW_STATE_DIR: stateDir,

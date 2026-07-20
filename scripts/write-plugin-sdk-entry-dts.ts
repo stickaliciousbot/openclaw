@@ -70,4 +70,4 @@ for (const entry of pluginSdkEntrypoints) {
 
 const stampPath = path.join(process.cwd(), "dist/plugin-sdk/.boundary-entry-shims.stamp");
 fs.mkdirSync(path.dirname(stampPath), { recursive: true });
-fs.writeFileSync(stampPath, `${new Date().toISOString()}\n`, "utf8");
+fs.writeFileSync(stampPath, "plugin-sdk-boundary-entry-shims-v1\n", "utf8");

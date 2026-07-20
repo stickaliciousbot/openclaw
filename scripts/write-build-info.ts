@@ -34,13 +34,37 @@ const resolveCommit = () => {
   }
 };
 
+const resolveBuildTimestamp = () => {
+  const sourceDateEpoch = process.env.SOURCE_DATE_EPOCH?.trim();
+  if (sourceDateEpoch) {
+    const epochSeconds = Number.parseInt(sourceDateEpoch, 10);
+    if (Number.isFinite(epochSeconds)) {
+      return new Date(epochSeconds * 1000).toISOString();
+    }
+  }
+  try {
+    const commitTimestamp = execSync("git show -s --format=%cI HEAD", {
+      cwd: rootDir,
+      stdio: ["ignore", "pipe", "ignore"],
+    })
+      .toString()
+      .trim();
+    if (commitTimestamp) {
+      return new Date(commitTimestamp).toISOString();
+    }
+  } catch {
+    // Fall through to the legacy wall-clock timestamp outside Git checkouts.
+  }
+  return new Date().toISOString();
+};
+
 const version = readPackageVersion();
 const commit = resolveCommit();
 
 const buildInfo = {
   version,
   commit,
-  builtAt: new Date().toISOString(),
+  builtAt: resolveBuildTimestamp(),
 };
 
 fs.mkdirSync(distDir, { recursive: true });
