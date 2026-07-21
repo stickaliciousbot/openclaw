@@ -1,0 +1,25 @@
+{
+  "artifact_text_embeds_full_source_sha": false,
+  "artifact_text_embeds_short_source_sha": "not required for identity because evidence commit parent is exact source commit",
+  "checked_paths": [
+    "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/status.json",
+    "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/summary.json",
+    "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/hard_gates.json",
+    "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/evidence_manifest.sha256"
+  ],
+  "classification": "P4E_V_EXISTING_EVIDENCE_PASS",
+  "durability": "20 cycles approximately 64 minutes PASS",
+  "final_false_critical_red_count": 0,
+  "isolated_matrix": "14/14 PASS",
+  "manifest_sha_expected": "06186030495cb14a3c9a38b2153c88300bb8cfd4c7d1c1329e22952243c1eec8",
+  "manifest_sha_file_content": "06186030495cb14a3c9a38b2153c88300bb8cfd4c7d1c1329e22952243c1eec8",
+  "manifest_verification": "PASS",
+  "note": "Existing evidence read from b8f28673d object; artifacts not modified.",
+  "private_raw_scan": "PASS",
+  "source_commit_reference_exact": "6c2c96aa3d97bc3ea80347cba2306ebf52726618",
+  "source_commit_reference_proof": "Git object proof: p4e_v evidence commit parent equals exact P4E-V source commit.",
+  "source_commit_reference_proof_commit": "b8f28673db14ae79b7558333134749edc3e600ab",
+  "source_commit_reference_proof_parent": "6c2c96aa3d97bc3ea80347cba2306ebf52726618",
+  "terminal_exact": "M25O_A_I_RDY_P4E_POLLER_TRANSIENT_FAILURE_HARDENING_PASS_CRITICAL_RED_ZERO",
+  "terminal_found": true
+}

@@ -1,0 +1,13 @@
+{
+  "branch": "feature/stickbot-runtime-kernel-poller-heartbeat-repair-20260721",
+  "classification": "COMBINED_SOURCE_TIP_SELECTED_FROM_EXISTING_LINEAR_LINEAGE",
+  "create_branch_only_no_commit": true,
+  "existing_local_branch_tip": null,
+  "expected_repository_verified": true,
+  "lineage_code": "LINEAGE-A",
+  "remote": "origin",
+  "remote_before_absent_or_ancestor": true,
+  "remote_branch_before": null,
+  "remote_url": "https://github.com/stickaliciousbot/webworkspace.git",
+  "selected_combined_source_tip": "afe7c20bd6cf2a802c4ea9ae5af05588f65223b5"
+}

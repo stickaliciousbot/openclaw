@@ -1,0 +1,6 @@
+{
+  "classification": "PRIVACY_SCAN_PASS",
+  "note": "No raw command logs, secrets, tokens, or private payloads intentionally preserved.",
+  "private_raw_findings_count": 0,
+  "scope": "generated_combined_preservation_evidence_and_commit_diffs"
+}

@@ -1,0 +1,16 @@
+{
+  "candidate_install": false,
+  "context_bridge_mutation": false,
+  "gateway_restart": false,
+  "handler_armed": false,
+  "jobs_created": 0,
+  "ledger_mutation": false,
+  "pending_jobs_created": 0,
+  "routes_providers_changed": false,
+  "runtime_apply": false,
+  "source_amend_cherrypick_rebase_merge": false,
+  "source_commit_created": false,
+  "source_modification": false,
+  "token_solver_restart": false,
+  "validation_rerun": false
+}

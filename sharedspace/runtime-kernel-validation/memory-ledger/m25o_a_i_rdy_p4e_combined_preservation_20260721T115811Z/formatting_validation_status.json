@@ -1,0 +1,5 @@
+{
+  "cargo_fmt_check": "NOT_RUN",
+  "reason": "rustfmt not installed",
+  "rustfmt_installed_by_milestone": false
+}

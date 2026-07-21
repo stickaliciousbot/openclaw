@@ -1,0 +1,15 @@
+{
+  "blocked": false,
+  "evidence_commit": "PENDING",
+  "evidence_commit_authority": "external_git_readback_non_circular",
+  "evidence_push": "PENDING",
+  "evidence_push_authority": "external_git_readback_non_circular",
+  "new_evidence_branch": "evidence/m25o-a-i-rdy-p4e-combined-pf-20260721",
+  "note": "This artifact intentionally does not self-reference the evidence commit SHA; final report and Git remote HEAD readback are authoritative.",
+  "pass_terminal_target": "M25O_A_I_RDY_P4E_COMBINED_PF_SOURCE_AND_EVIDENCE_PRESERVATION_PASS_NO_APPLY",
+  "selected_combined_source_tip": "afe7c20bd6cf2a802c4ea9ae5af05588f65223b5",
+  "source_lineage": "P4E_V_SOURCE_ANCESTOR_OF_TIMEOUT_HEARTBEAT_REPAIR",
+  "source_push": "PASS",
+  "source_remote_head": "afe7c20bd6cf2a802c4ea9ae5af05588f65223b5",
+  "terminal": "M25O_A_I_RDY_P4E_COMBINED_PF_SOURCE_AND_EVIDENCE_PRESERVATION_PASS_NO_APPLY"
+}

@@ -1,0 +1,27 @@
+{
+  "classification": "RUNTIME_KERNEL_OBSERVE_ONLY_HEALTH_PASS_OPTIONAL_FIXTURE_YELLOW",
+  "gateway": {
+    "classification": "GATEWAY_READY_WITH_NONBLOCKING_EVENT_LOOP_DEGRADATION",
+    "event_loop_degradation": "mild separately represented",
+    "ready": true,
+    "ready_value": true,
+    "service_down_condition": false
+  },
+  "runtime_kernel": {
+    "critical_red": 0,
+    "journal_writable": true,
+    "mode": "observe_only",
+    "projection_writable": true,
+    "services_green": 6,
+    "services_red": 0,
+    "services_yellow": 1,
+    "sole_yellow": "optional fixture/heartbeat row",
+    "status": "yellow"
+  },
+  "source": "owner-provided current-state plus latest direct status before milestone; no gateway/process/listener rerun by collection script",
+  "telegram": {
+    "classification": "TELEGRAM_ADVISORY_PROXY_ONLY",
+    "independent_telegram_authority_proven": false,
+    "source": "Gateway /health proxy"
+  }
+}

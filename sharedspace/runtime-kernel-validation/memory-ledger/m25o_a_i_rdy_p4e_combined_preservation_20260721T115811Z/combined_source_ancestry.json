@@ -1,0 +1,10 @@
+{
+  "classification": "P4E_V_SOURCE_ANCESTOR_OF_TIMEOUT_HEARTBEAT_REPAIR",
+  "divergent_fail_closed": false,
+  "lineage_code": "LINEAGE-A",
+  "merge_base": "6c2c96aa3d97bc3ea80347cba2306ebf52726618",
+  "p4e_v_source_ancestor_of_timeout_heartbeat": true,
+  "same_object": false,
+  "selected_combined_source_tip": "afe7c20bd6cf2a802c4ea9ae5af05588f65223b5",
+  "timeout_heartbeat_ancestor_of_p4e_v_source": false
+}

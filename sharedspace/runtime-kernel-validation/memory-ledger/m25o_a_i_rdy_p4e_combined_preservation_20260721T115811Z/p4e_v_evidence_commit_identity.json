@@ -1,0 +1,320 @@
+{
+  "changed_files": [
+    {
+      "path": "memory/2026-07-21.md",
+      "raw": "A\tmemory/2026-07-21.md",
+      "status": "A"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/evidence_manifest.json",
+      "raw": "A\tsharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/evidence_manifest.json",
+      "status": "A"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/evidence_manifest.sha256",
+      "raw": "A\tsharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/evidence_manifest.sha256",
+      "status": "A"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/hard_gates.json",
+      "raw": "A\tsharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/hard_gates.json",
+      "status": "A"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/mutation_sentinels.json",
+      "raw": "A\tsharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/mutation_sentinels.json",
+      "status": "A"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_active_poller_implementation.json",
+      "raw": "A\tsharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_active_poller_implementation.json",
+      "status": "A"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_backup_and_rollback.json",
+      "raw": "A\tsharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_backup_and_rollback.json",
+      "status": "A"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_current_health_baseline.json",
+      "raw": "A\tsharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_current_health_baseline.json",
+      "status": "A"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_diagnostics_contract.json",
+      "raw": "A\tsharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_diagnostics_contract.json",
+      "status": "A"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_final_behavior_comparison.json",
+      "raw": "A\tsharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_final_behavior_comparison.json",
+      "status": "A"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_gateway_transition_contract.json",
+      "raw": "A\tsharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_gateway_transition_contract.json",
+      "status": "A"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_isolated_test_matrix.json",
+      "raw": "A\tsharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_isolated_test_matrix.json",
+      "status": "A"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_isolated_validation.json",
+      "raw": "A\tsharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_isolated_validation.json",
+      "status": "A"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_live_cycle_observation.json",
+      "raw": "A\tsharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_live_cycle_observation.json",
+      "status": "A"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_live_durability_result.json",
+      "raw": "A\tsharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_live_durability_result.json",
+      "status": "A"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_plaid_sage_readback.json",
+      "raw": "A\tsharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_plaid_sage_readback.json",
+      "status": "A"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_probe_error_taxonomy.json",
+      "raw": "A\tsharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_probe_error_taxonomy.json",
+      "status": "A"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_repair_approval.json",
+      "raw": "A\tsharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_repair_approval.json",
+      "status": "A"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_repair_decision.json",
+      "raw": "A\tsharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_repair_decision.json",
+      "status": "A"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_repair_receipt.json",
+      "raw": "A\tsharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_repair_receipt.json",
+      "status": "A"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_run_config.json",
+      "raw": "A\tsharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_run_config.json",
+      "status": "A"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_telegram_advisory_contract.json",
+      "raw": "A\tsharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_telegram_advisory_contract.json",
+      "status": "A"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_timeout_retry_policy.json",
+      "raw": "A\tsharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_timeout_retry_policy.json",
+      "status": "A"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/privacy_scan.json",
+      "raw": "A\tsharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/privacy_scan.json",
+      "status": "A"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/provider_send_absence.json",
+      "raw": "A\tsharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/provider_send_absence.json",
+      "status": "A"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/status.json",
+      "raw": "A\tsharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/status.json",
+      "status": "A"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/summary.json",
+      "raw": "A\tsharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/summary.json",
+      "status": "A"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/telegram_delivery_absence.json",
+      "raw": "A\tsharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/telegram_delivery_absence.json",
+      "status": "A"
+    }
+  ],
+  "commit_time": "2026-07-21T20:05:22+10:00",
+  "containing_local_branches": [
+    "evidence/umc-m3n-post-restart-health-failclosed-20260713"
+  ],
+  "containing_remote_branches": [],
+  "diff_stat": " memory/2026-07-21.md                               |  597 +++\n .../evidence_manifest.json                         |  132 +\n .../evidence_manifest.sha256                       |    1 +\n .../hard_gates.json                                |   44 +\n .../mutation_sentinels.json                        |   10 +\n .../p4e_v_active_poller_implementation.json        |   27 +\n .../p4e_v_backup_and_rollback.json                 |   16 +\n .../p4e_v_current_health_baseline.json             |  657 ++++\n .../p4e_v_diagnostics_contract.json                |   29 +\n .../p4e_v_final_behavior_comparison.json           |   10 +\n .../p4e_v_gateway_transition_contract.json         |    7 +\n .../p4e_v_isolated_test_matrix.json                |   25 +\n .../p4e_v_isolated_validation.json                 | 3931 ++++++++++++++++++++\n .../p4e_v_live_cycle_observation.json              | 3556 ++++++++++++++++++\n .../p4e_v_live_durability_result.json              |  389 ++\n .../p4e_v_plaid_sage_readback.json                 |    7 +\n .../p4e_v_probe_error_taxonomy.json                |   10 +\n .../p4e_v_repair_approval.json                     |    7 +\n .../p4e_v_repair_decision.json                     |    4 +\n .../p4e_v_repair_receipt.json                      |    7 +\n .../p4e_v_run_config.json                          |   13 +\n .../p4e_v_telegram_advisory_contract.json          |    6 +\n .../p4e_v_timeout_retry_policy.json                |    8 +\n .../privacy_scan.json                              |    5 +\n .../provider_send_absence.json                     |    4 +\n .../status.json                                    |    5 +\n .../summary.json                                   |   69 +\n .../telegram_delivery_absence.json                 |    4 +\n 28 files changed, 9580 insertions(+)\n create mode 100644 memory/2026-07-21.md\n create mode 100644 sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/evidence_manifest.json\n create mode 100644 sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/evidence_manifest.sha256\n create mode 100644 sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/hard_gates.json\n create mode 100644 sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/mutation_sentinels.json\n create mode 100644 sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_active_poller_implementation.json\n create mode 100644 sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_backup_and_rollback.json\n create mode 100644 sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_current_health_baseline.json\n create mode 100644 sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_diagnostics_contract.json\n create mode 100644 sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_final_behavior_comparison.json\n create mode 100644 sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_gateway_transition_contract.json\n create mode 100644 sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_isolated_test_matrix.json\n create mode 100644 sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_isolated_validation.json\n create mode 100644 sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_live_cycle_observation.json\n create mode 100644 sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_live_durability_result.json\n create mode 100644 sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_plaid_sage_readback.json\n create mode 100644 sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_probe_error_taxonomy.json\n create mode 100644 sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_repair_approval.json\n create mode 100644 sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_repair_decision.json\n create mode 100644 sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_repair_receipt.json\n create mode 100644 sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_run_config.json\n create mode 100644 sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_telegram_advisory_contract.json\n create mode 100644 sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_timeout_retry_policy.json\n create mode 100644 sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/privacy_scan.json\n create mode 100644 sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/provider_send_absence.json\n create mode 100644 sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/status.json\n create mode 100644 sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/summary.json\n create mode 100644 sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/telegram_delivery_absence.json\n",
+  "evidence_branch_worktree": "current repository; commit identity resolved by Git object database",
+  "evidence_commit_parent_is_exact_p4e_v_source_commit": true,
+  "evidence_commit_parent_proof": {
+    "evidence_commit": "b8f28673db14ae79b7558333134749edc3e600ab",
+    "expected_p4e_v_source_commit": "6c2c96aa3d97bc3ea80347cba2306ebf52726618",
+    "parent_sha": "6c2c96aa3d97bc3ea80347cba2306ebf52726618",
+    "pass": true
+  },
+  "full_sha": "b8f28673db14ae79b7558333134749edc3e600ab",
+  "manifest_locations": [
+    "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/evidence_manifest.sha256"
+  ],
+  "manifest_records": [
+    {
+      "content": "06186030495cb14a3c9a38b2153c88300bb8cfd4c7d1c1329e22952243c1eec8",
+      "matches_expected": true,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/evidence_manifest.sha256"
+    }
+  ],
+  "manifest_sha_expected": "06186030495cb14a3c9a38b2153c88300bb8cfd4c7d1c1329e22952243c1eec8",
+  "numstat": [
+    {
+      "additions": "597",
+      "deletions": "0",
+      "path": "memory/2026-07-21.md"
+    },
+    {
+      "additions": "132",
+      "deletions": "0",
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/evidence_manifest.json"
+    },
+    {
+      "additions": "1",
+      "deletions": "0",
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/evidence_manifest.sha256"
+    },
+    {
+      "additions": "44",
+      "deletions": "0",
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/hard_gates.json"
+    },
+    {
+      "additions": "10",
+      "deletions": "0",
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/mutation_sentinels.json"
+    },
+    {
+      "additions": "27",
+      "deletions": "0",
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_active_poller_implementation.json"
+    },
+    {
+      "additions": "16",
+      "deletions": "0",
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_backup_and_rollback.json"
+    },
+    {
+      "additions": "657",
+      "deletions": "0",
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_current_health_baseline.json"
+    },
+    {
+      "additions": "29",
+      "deletions": "0",
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_diagnostics_contract.json"
+    },
+    {
+      "additions": "10",
+      "deletions": "0",
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_final_behavior_comparison.json"
+    },
+    {
+      "additions": "7",
+      "deletions": "0",
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_gateway_transition_contract.json"
+    },
+    {
+      "additions": "25",
+      "deletions": "0",
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_isolated_test_matrix.json"
+    },
+    {
+      "additions": "3931",
+      "deletions": "0",
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_isolated_validation.json"
+    },
+    {
+      "additions": "3556",
+      "deletions": "0",
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_live_cycle_observation.json"
+    },
+    {
+      "additions": "389",
+      "deletions": "0",
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_live_durability_result.json"
+    },
+    {
+      "additions": "7",
+      "deletions": "0",
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_plaid_sage_readback.json"
+    },
+    {
+      "additions": "10",
+      "deletions": "0",
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_probe_error_taxonomy.json"
+    },
+    {
+      "additions": "7",
+      "deletions": "0",
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_repair_approval.json"
+    },
+    {
+      "additions": "4",
+      "deletions": "0",
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_repair_decision.json"
+    },
+    {
+      "additions": "7",
+      "deletions": "0",
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_repair_receipt.json"
+    },
+    {
+      "additions": "13",
+      "deletions": "0",
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_run_config.json"
+    },
+    {
+      "additions": "6",
+      "deletions": "0",
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_telegram_advisory_contract.json"
+    },
+    {
+      "additions": "8",
+      "deletions": "0",
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/p4e_v_timeout_retry_policy.json"
+    },
+    {
+      "additions": "5",
+      "deletions": "0",
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/privacy_scan.json"
+    },
+    {
+      "additions": "4",
+      "deletions": "0",
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/provider_send_absence.json"
+    },
+    {
+      "additions": "5",
+      "deletions": "0",
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/status.json"
+    },
+    {
+      "additions": "69",
+      "deletions": "0",
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/summary.json"
+    },
+    {
+      "additions": "4",
+      "deletions": "0",
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z/telegram_delivery_absence.json"
+    }
+  ],
+  "parent_sha": "6c2c96aa3d97bc3ea80347cba2306ebf52726618",
+  "parents": [
+    "6c2c96aa3d97bc3ea80347cba2306ebf52726618"
+  ],
+  "prefix": "b8f28673d",
+  "remote": "https://github.com/stickaliciousbot/webworkspace.git",
+  "repository_root": "/home/stickai/.openclaw/workspace",
+  "subject": "P4E-V: preserve poller hardening evidence"
+}

@@ -1,0 +1,7 @@
+{
+  "classification": "PERSISTENT_SERVICE_AUTHORITY_GAP_EXPLICIT",
+  "persistent_managed_serve_path_producer_installed": false,
+  "production_heartbeat_supervision_claimed": false,
+  "runtime_kernel_service_created": false,
+  "timer_created": false
+}

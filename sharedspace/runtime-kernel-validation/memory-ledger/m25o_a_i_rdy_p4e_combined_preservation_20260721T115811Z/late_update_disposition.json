@@ -1,0 +1,7 @@
+{
+  "classification": "STALE_GIT_INSPECTION_TIMEOUT_NO_MUTATION_NO_GOVERNING_EFFECT",
+  "delete_historical_evidence": false,
+  "invalidates_source_commits": false,
+  "treated_as_scope_pass": false,
+  "trigger_cleanup": false
+}

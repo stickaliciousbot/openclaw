@@ -1,0 +1,30 @@
+{
+  "classification": "P4E_V_SOURCE_SCOPE_PASS",
+  "diff_sha256": "06545740dd271d213ea7c3e36d6632a1e8413bef6f794977e44ee78e4fd06434",
+  "file_count": 2,
+  "generated_files": false,
+  "mutable_state": false,
+  "numstat": [
+    {
+      "additions": "92",
+      "deletions": "0",
+      "path": "projects/stickbot-runtime-kernel/config/registry.yaml"
+    },
+    {
+      "additions": "700",
+      "deletions": "0",
+      "path": "projects/stickbot-runtime-kernel/src/kernel.rs"
+    }
+  ],
+  "paths": [
+    "projects/stickbot-runtime-kernel/config/registry.yaml",
+    "projects/stickbot-runtime-kernel/src/kernel.rs"
+  ],
+  "private_raw_findings": {
+    "pattern_hit_count": 0,
+    "private_raw_finding_count": 0,
+    "suspicious_path_count": 0,
+    "suspicious_paths": []
+  },
+  "represented_completed_validation": "M25O_A_I_RDY_P4E_POLLER_TRANSIENT_FAILURE_HARDENING_PASS_CRITICAL_RED_ZERO"
+}

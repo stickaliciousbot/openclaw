@@ -1,0 +1,13 @@
+{
+  "branch": "feature/stickbot-runtime-kernel-poller-heartbeat-repair-20260721",
+  "force": false,
+  "local_branch_tip": "afe7c20bd6cf2a802c4ea9ae5af05588f65223b5",
+  "local_remote_equality": "PASS",
+  "push_mode": "non-force",
+  "remote": "origin",
+  "remote_branch_after": "afe7c20bd6cf2a802c4ea9ae5af05588f65223b5",
+  "remote_branch_before": "ABSENT",
+  "remote_head_exact": "PASS",
+  "selected_combined_source_tip": "afe7c20bd6cf2a802c4ea9ae5af05588f65223b5",
+  "status": "SOURCE_PUSH_PASS"
+}

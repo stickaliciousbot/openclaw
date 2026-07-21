@@ -1,0 +1,84 @@
+{
+  "p4e_v_source": {
+    "changed_files": [
+      {
+        "path": "projects/stickbot-runtime-kernel/config/registry.yaml",
+        "raw": "A\tprojects/stickbot-runtime-kernel/config/registry.yaml",
+        "status": "A"
+      },
+      {
+        "path": "projects/stickbot-runtime-kernel/src/kernel.rs",
+        "raw": "A\tprojects/stickbot-runtime-kernel/src/kernel.rs",
+        "status": "A"
+      }
+    ],
+    "commit_time": "2026-07-21T19:32:56+10:00",
+    "containing_local_branches": [
+      "evidence/umc-m3n-post-restart-health-failclosed-20260713"
+    ],
+    "containing_remote_branches": [],
+    "diff_stat": " .../stickbot-runtime-kernel/config/registry.yaml   |  92 +++\n projects/stickbot-runtime-kernel/src/kernel.rs     | 700 +++++++++++++++++++++\n 2 files changed, 792 insertions(+)\n create mode 100644 projects/stickbot-runtime-kernel/config/registry.yaml\n create mode 100644 projects/stickbot-runtime-kernel/src/kernel.rs\n",
+    "full_sha": "6c2c96aa3d97bc3ea80347cba2306ebf52726618",
+    "numstat": [
+      {
+        "additions": "92",
+        "deletions": "0",
+        "path": "projects/stickbot-runtime-kernel/config/registry.yaml"
+      },
+      {
+        "additions": "700",
+        "deletions": "0",
+        "path": "projects/stickbot-runtime-kernel/src/kernel.rs"
+      }
+    ],
+    "parent_sha": "27277043671231cf2d95e573c5faf5e7a6c9a08a",
+    "parents": [
+      "27277043671231cf2d95e573c5faf5e7a6c9a08a"
+    ],
+    "prefix": "6c2c96aa3",
+    "remote": "https://github.com/stickaliciousbot/webworkspace.git",
+    "repository_root": "/home/stickai/.openclaw/workspace",
+    "subject": "P4E-V: Runtime Kernel poller transient-failure hardening (V-B)"
+  },
+  "timeout_heartbeat_source": {
+    "changed_files": [
+      {
+        "path": "projects/stickbot-runtime-kernel/src/kernel.rs",
+        "raw": "M\tprojects/stickbot-runtime-kernel/src/kernel.rs",
+        "status": "M"
+      },
+      {
+        "path": "projects/stickbot-runtime-kernel/src/server.rs",
+        "raw": "A\tprojects/stickbot-runtime-kernel/src/server.rs",
+        "status": "A"
+      }
+    ],
+    "commit_time": "2026-07-21T20:33:55+10:00",
+    "containing_local_branches": [
+      "evidence/umc-m3n-post-restart-health-failclosed-20260713"
+    ],
+    "containing_remote_branches": [],
+    "diff_stat": " projects/stickbot-runtime-kernel/src/kernel.rs | 136 +++++++++++++++++++---\n projects/stickbot-runtime-kernel/src/server.rs | 149 +++++++++++++++++++++++++\n 2 files changed, 271 insertions(+), 14 deletions(-)\n create mode 100644 projects/stickbot-runtime-kernel/src/server.rs\n",
+    "full_sha": "afe7c20bd6cf2a802c4ea9ae5af05588f65223b5",
+    "numstat": [
+      {
+        "additions": "122",
+        "deletions": "14",
+        "path": "projects/stickbot-runtime-kernel/src/kernel.rs"
+      },
+      {
+        "additions": "149",
+        "deletions": "0",
+        "path": "projects/stickbot-runtime-kernel/src/server.rs"
+      }
+    ],
+    "parent_sha": "b8f28673db14ae79b7558333134749edc3e600ab",
+    "parents": [
+      "b8f28673db14ae79b7558333134749edc3e600ab"
+    ],
+    "prefix": "afe7c20bd",
+    "remote": "https://github.com/stickaliciousbot/webworkspace.git",
+    "repository_root": "/home/stickai/.openclaw/workspace",
+    "subject": "Repair Runtime Kernel timeout and heartbeat supervision"
+  }
+}

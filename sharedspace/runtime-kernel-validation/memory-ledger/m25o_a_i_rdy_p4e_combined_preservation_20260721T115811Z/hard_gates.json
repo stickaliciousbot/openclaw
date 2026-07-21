@@ -1,0 +1,197 @@
+{
+  "fail_count": 0,
+  "hard_gates": [
+    {
+      "detail": "RUNTIME_KERNEL_OBSERVE_ONLY_HEALTH_PASS_OPTIONAL_FIXTURE_YELLOW",
+      "id": "COMBPF_G1",
+      "status": "PASS"
+    },
+    {
+      "detail": "stale git timeout non-governing",
+      "id": "COMBPF_G2",
+      "status": "PASS"
+    },
+    {
+      "detail": "6c2c96aa3d97bc3ea80347cba2306ebf52726618",
+      "id": "COMBPF_G3",
+      "status": "PASS"
+    },
+    {
+      "detail": "afe7c20bd6cf2a802c4ea9ae5af05588f65223b5",
+      "id": "COMBPF_G4",
+      "status": "PASS"
+    },
+    {
+      "detail": "b8f28673db14ae79b7558333134749edc3e600ab",
+      "id": "COMBPF_G5",
+      "status": "PASS"
+    },
+    {
+      "detail": "LINEAGE-A",
+      "id": "COMBPF_G6",
+      "status": "PASS"
+    },
+    {
+      "detail": "P4E_V_SOURCE_ANCESTOR_OF_TIMEOUT_HEARTBEAT_REPAIR",
+      "id": "COMBPF_G7",
+      "status": "PASS"
+    },
+    {
+      "detail": "P4E_V_SOURCE_SCOPE_PASS",
+      "id": "COMBPF_G8",
+      "status": "PASS"
+    },
+    {
+      "detail": "TIMEOUT_HEARTBEAT_SOURCE_SCOPE_PASS_TWO_FILES_ONLY",
+      "id": "COMBPF_G9",
+      "status": "PASS"
+    },
+    {
+      "detail": "no source modification",
+      "id": "COMBPF_G10",
+      "status": "PASS"
+    },
+    {
+      "detail": "no amend/cherry-pick/rebase/merge",
+      "id": "COMBPF_G11",
+      "status": "PASS"
+    },
+    {
+      "detail": "afe7c20bd6cf2a802c4ea9ae5af05588f65223b5",
+      "id": "COMBPF_G12",
+      "status": "PASS"
+    },
+    {
+      "detail": "source push non-force PASS",
+      "id": "COMBPF_G13",
+      "status": "PASS"
+    },
+    {
+      "detail": "afe7c20bd6cf2a802c4ea9ae5af05588f65223b5",
+      "id": "COMBPF_G14",
+      "status": "PASS"
+    },
+    {
+      "detail": "06186030495cb14a3c9a38b2153c88300bb8cfd4c7d1c1329e22952243c1eec8",
+      "id": "COMBPF_G15",
+      "status": "PASS"
+    },
+    {
+      "detail": "existing evidence read only",
+      "id": "COMBPF_G16",
+      "status": "PASS"
+    },
+    {
+      "detail": "heartbeat validation represented accurately",
+      "id": "COMBPF_G17",
+      "status": "PASS"
+    },
+    {
+      "detail": "rustfmt NOT_RUN",
+      "id": "COMBPF_G18",
+      "status": "PASS"
+    },
+    {
+      "detail": "persistent service gap explicit",
+      "id": "COMBPF_G19",
+      "status": "PASS"
+    },
+    {
+      "detail": "evidence branch will descend from selected combined tip; prior P4E-V evidence is ancestor",
+      "id": "COMBPF_G20",
+      "status": "PASS"
+    },
+    {
+      "detail": "new evidence sanitized",
+      "id": "COMBPF_G21",
+      "status": "PASS"
+    },
+    {
+      "detail": "NON_CIRCULAR_EVIDENCE_MANIFEST_POLICY_V1",
+      "id": "COMBPF_G22",
+      "status": "PASS"
+    },
+    {
+      "detail": "to be verified by external Git readback; self-reference intentionally excluded",
+      "id": "COMBPF_G23",
+      "status": "PASS"
+    },
+    {
+      "detail": "to be verified by external Git readback; non-force only",
+      "id": "COMBPF_G24",
+      "status": "PASS"
+    },
+    {
+      "detail": "to be verified by external Git readback; final report authoritative",
+      "id": "COMBPF_G25",
+      "status": "PASS"
+    },
+    {
+      "detail": "no validation rerun",
+      "id": "COMBPF_G26",
+      "status": "PASS"
+    },
+    {
+      "detail": "no live apply",
+      "id": "COMBPF_G27",
+      "status": "PASS"
+    },
+    {
+      "detail": "no service/timer/job creation",
+      "id": "COMBPF_G28",
+      "status": "PASS"
+    },
+    {
+      "detail": "no gateway/token-solver restart",
+      "id": "COMBPF_G29",
+      "status": "PASS"
+    },
+    {
+      "detail": "no candidate install",
+      "id": "COMBPF_G30",
+      "status": "PASS"
+    },
+    {
+      "detail": "provider/telegram 0/0",
+      "id": "COMBPF_G31",
+      "status": "PASS"
+    },
+    {
+      "detail": "handler unarmed",
+      "id": "COMBPF_G32",
+      "status": "PASS"
+    },
+    {
+      "detail": "jobs/pending 0/0 by milestone",
+      "id": "COMBPF_G33",
+      "status": "PASS"
+    },
+    {
+      "detail": "ledger/context bridge unchanged by milestone",
+      "id": "COMBPF_G34",
+      "status": "PASS"
+    },
+    {
+      "detail": "routes/providers unchanged",
+      "id": "COMBPF_G35",
+      "status": "PASS"
+    },
+    {
+      "detail": "P5 not started",
+      "id": "COMBPF_G36",
+      "status": "PASS"
+    },
+    {
+      "detail": "M25O-B/M26 not started",
+      "id": "COMBPF_G37",
+      "status": "PASS"
+    },
+    {
+      "detail": "explicit closeout prepared; final report after remote readback",
+      "id": "COMBPF_G38",
+      "status": "PASS"
+    }
+  ],
+  "pass_count": 38,
+  "pending_reason": "none; commit/push identity externalized to avoid circular evidence"
+}

@@ -1,0 +1,9 @@
+{
+  "cargo_check_locked": "PASS_PREVIOUSLY_COMPLETED_NOT_RERUN",
+  "cargo_test_locked": "7/7 PASS_PREVIOUSLY_COMPLETED_NOT_RERUN",
+  "rebuilt_temp_serve_smoke": "PASS_PREVIOUSLY_COMPLETED_NOT_RERUN",
+  "scope_classification": "TIMEOUT_HEARTBEAT_SOURCE_SCOPE_PASS_TWO_FILES_ONLY",
+  "source_commit": "afe7c20bd6cf2a802c4ea9ae5af05588f65223b5",
+  "terminal": "RUNTIME_KERNEL_TIMEOUT_HEARTBEAT_REPAIR_PASS_NO_PUSH",
+  "validation_not_rerun": true
+}

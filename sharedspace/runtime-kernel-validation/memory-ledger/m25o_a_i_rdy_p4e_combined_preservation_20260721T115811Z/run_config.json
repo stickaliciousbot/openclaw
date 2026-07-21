@@ -1,0 +1,9 @@
+{
+  "created_at_utc": "20260721T115811Z",
+  "evidence_root": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_combined_preservation_20260721T115811Z",
+  "forbidden_actions_observed": "not_performed_by_collection_script",
+  "milestone": "M25O-A-I-RDY-P4E-COMBINED-PF",
+  "non_circular_manifest_policy": "NON_CIRCULAR_EVIDENCE_MANIFEST_POLICY_V1",
+  "operator_instruction": "preservation_no_apply_no_validation_rerun",
+  "terminal_pass": "M25O_A_I_RDY_P4E_COMBINED_PF_SOURCE_AND_EVIDENCE_PRESERVATION_PASS_NO_APPLY"
+}

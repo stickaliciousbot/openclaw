@@ -1,0 +1,47 @@
+{
+  "absent_checks": {
+    ".lock": true,
+    ".log": true,
+    ".pid": true,
+    ".service": true,
+    ".timer": true,
+    "/target/": true,
+    "leases": true,
+    "registry.yaml": true,
+    "service": true,
+    "state/": true,
+    "target/": true,
+    "token-solver": true,
+    "token_solver": true
+  },
+  "classification": "TIMEOUT_HEARTBEAT_SOURCE_SCOPE_PASS_TWO_FILES_ONLY",
+  "diff_sha256": "06e35b0ddf369d0b4ec1a4ee94041b4c9cfa8a188b26a6b933c81904edbd4182",
+  "file_count": 2,
+  "numstat": [
+    {
+      "additions": "122",
+      "deletions": "14",
+      "path": "projects/stickbot-runtime-kernel/src/kernel.rs"
+    },
+    {
+      "additions": "149",
+      "deletions": "0",
+      "path": "projects/stickbot-runtime-kernel/src/server.rs"
+    }
+  ],
+  "paths": [
+    "projects/stickbot-runtime-kernel/src/kernel.rs",
+    "projects/stickbot-runtime-kernel/src/server.rs"
+  ],
+  "private_raw_findings": {
+    "pattern_hit_count": 0,
+    "private_raw_finding_count": 0,
+    "suspicious_path_count": 0,
+    "suspicious_paths": []
+  },
+  "required_changed_file_count": 2,
+  "required_exact_files": [
+    "projects/stickbot-runtime-kernel/src/kernel.rs",
+    "projects/stickbot-runtime-kernel/src/server.rs"
+  ]
+}

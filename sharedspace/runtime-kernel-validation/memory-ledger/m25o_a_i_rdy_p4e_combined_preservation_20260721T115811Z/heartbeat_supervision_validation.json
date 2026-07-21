@@ -1,0 +1,10 @@
+{
+  "actual_child_worker_pid_observed": "PREVIOUSLY_OBSERVED",
+  "duplicate_worker_detection": "PASS",
+  "fixture_heartbeat_green_live_ready_in_rebuilt_smoke": "PASS_PREVIOUSLY_COMPLETED_NOT_RERUN",
+  "m3_6_heartbeat_proof": "PASS_PREVIOUSLY_COMPLETED_NOT_RERUN",
+  "persistent_production_deployment": "NOT_PERFORMED",
+  "replacement_worker": "PASS",
+  "restart_budget_and_quarantine": "PASS",
+  "stale_lease_rejection": "PASS"
+}

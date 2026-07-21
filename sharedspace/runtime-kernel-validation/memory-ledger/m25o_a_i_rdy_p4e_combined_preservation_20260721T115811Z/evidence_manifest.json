@@ -1,0 +1,124 @@
+{
+  "evidence_root": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_combined_preservation_20260721T115811Z",
+  "file_count": 23,
+  "files": [
+    {
+      "bytes": 412,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_combined_preservation_20260721T115811Z/combined_source_ancestry.json",
+      "sha256": "ee5e13ef0a5d616dbb03769bc1975a87a0b29c50356a35a55ca3441e2581903a"
+    },
+    {
+      "bytes": 3316,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_combined_preservation_20260721T115811Z/combined_source_commit_identities.json",
+      "sha256": "76eeb49ff805f51bd30e7e88445d99a83642b0c1ff0d46f6511ee34880691a61"
+    },
+    {
+      "bytes": 560,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_combined_preservation_20260721T115811Z/combined_source_preservation_decision.json",
+      "sha256": "3bf8f0d65f5e1e9bb685a76e092bb2ddfa33eb585f86d45408441a02956492b8"
+    },
+    {
+      "bytes": 498,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_combined_preservation_20260721T115811Z/combined_source_push_proof.json",
+      "sha256": "ace8805d3c1be96d6a02dd586ee3b482ebe85c612ac2792a80a0446a8a0558b7"
+    },
+    {
+      "bytes": 929,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_combined_preservation_20260721T115811Z/current_live_health.json",
+      "sha256": "6638624877a6fbe4e97307d8dd2cb40852201e232af07d614335d7bbd7aa8ac4"
+    },
+    {
+      "bytes": 115,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_combined_preservation_20260721T115811Z/formatting_validation_status.json",
+      "sha256": "bdecff4bba216d1c55979d4c66c68421013a327eadb0f1098cd42ee986200b9a"
+    },
+    {
+      "bytes": 4643,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_combined_preservation_20260721T115811Z/hard_gates.json",
+      "sha256": "b984912db40ce0022258240baf6eb288ead2acb71672717eebb5fe325e50de7d"
+    },
+    {
+      "bytes": 430,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_combined_preservation_20260721T115811Z/heartbeat_supervision_validation.json",
+      "sha256": "b84b5dc54b53d6990cee4b5cc814944da36d980f0563a8252293f6e3aef56834"
+    },
+    {
+      "bytes": 227,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_combined_preservation_20260721T115811Z/late_update_disposition.json",
+      "sha256": "91cb845f443d8d02dfb1e6cbf2ef1f9b2931603955e21e2e54732668dc71b5e3"
+    },
+    {
+      "bytes": 441,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_combined_preservation_20260721T115811Z/mutation_sentinels.json",
+      "sha256": "0ab19240a9b326a3adc7e8bff9854af62ca4d84db801cbae142fcab54a0f59a4"
+    },
+    {
+      "bytes": 162,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_combined_preservation_20260721T115811Z/next_milestone_boundary.json",
+      "sha256": "91e19d5c26a39a4a7aa731734f2338daec1bc44633f30e768157b10c015d885d"
+    },
+    {
+      "bytes": 22657,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_combined_preservation_20260721T115811Z/p4e_v_evidence_commit_identity.json",
+      "sha256": "7cd5c4bb7e0020315872cb36e10e806dc5a1a3079751b2e38b87e80458fcf472"
+    },
+    {
+      "bytes": 1738,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_combined_preservation_20260721T115811Z/p4e_v_existing_evidence_verification.json",
+      "sha256": "b1d42e9a6508b24ab7b3abd44566247246afbe87ad179c3a2c55857fa1c85f04"
+    },
+    {
+      "bytes": 889,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_combined_preservation_20260721T115811Z/p4e_v_source_scope.json",
+      "sha256": "788addc885011c8cc343df25a5107b34ed3697ca6c3735b462cd6fe59bf732f9"
+    },
+    {
+      "bytes": 251,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_combined_preservation_20260721T115811Z/persistent_service_authority_gap.json",
+      "sha256": "95183a0ad659ab0ab8825cc749ad931517f4cb8fdb47d78fd6ab01a3952a355d"
+    },
+    {
+      "bytes": 247,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_combined_preservation_20260721T115811Z/privacy_scan.json",
+      "sha256": "ba961d90f124c6a1f2aea7bbc1898b17c5d2b8674570d404c13e51be081534db"
+    },
+    {
+      "bytes": 140,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_combined_preservation_20260721T115811Z/provider_send_absence.json",
+      "sha256": "7b7139f558e4a3f9ba60bfcc2c3f5972997907931b94cb580eab98fe518d6bbc"
+    },
+    {
+      "bytes": 537,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_combined_preservation_20260721T115811Z/run_config.json",
+      "sha256": "83c8391bd8b5d07b63f6ebd6e8eabf7e9328b3873d4f46784f0d8ab5abd5d3e0"
+    },
+    {
+      "bytes": 889,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_combined_preservation_20260721T115811Z/status.json",
+      "sha256": "950bb39ce41e35e5f816aa6428b5aa7a723b2ee5d58edf8e9c895685fdd7fef4"
+    },
+    {
+      "bytes": 1922,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_combined_preservation_20260721T115811Z/summary.json",
+      "sha256": "b41638b6ddded50a8c7384735c88cf7da202b5d326db2d53e89b067dbe3132e4"
+    },
+    {
+      "bytes": 134,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_combined_preservation_20260721T115811Z/telegram_delivery_absence.json",
+      "sha256": "65e1489ac2fd80ed74ada20439248ff2c959f3a7b94b6df4ccef66d57aea304b"
+    },
+    {
+      "bytes": 446,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_combined_preservation_20260721T115811Z/timeout_heartbeat_repair_validation.json",
+      "sha256": "4824bd9fa0352f6d21aa6ac46ae18badab51bc1081874720173e1ceb44bee390"
+    },
+    {
+      "bytes": 1215,
+      "path": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_combined_preservation_20260721T115811Z/timeout_heartbeat_source_scope.json",
+      "sha256": "47555e063a654348195798d48b8124a9b7a56bad9f20e21745522464b089f37d"
+    }
+  ],
+  "policy": "NON_CIRCULAR_EVIDENCE_MANIFEST_POLICY_V1",
+  "self_reference_policy": "evidence commit and evidence remote HEAD are verified externally in final report, not embedded in committed evidence",
+  "updated_for": "final_pre_commit_content"
+}
