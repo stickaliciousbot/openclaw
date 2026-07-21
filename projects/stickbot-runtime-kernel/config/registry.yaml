@@ -1,0 +1,92 @@
+kernel:
+  id: stickbot-runtime-kernel
+  mode: observe_only
+  state_dir: /home/stickai/.openclaw/workspace/state/runtime-kernel
+  poll_interval_ms: 15000
+
+services:
+  - id: openclaw-gateway
+    display_name: OpenClaw Gateway
+    kind: external_observed
+    ownership: external_observed
+    criticality: critical
+    write_domain: none
+    restart_authority: none
+    critical: true
+    # Canonical Gateway readiness endpoint. Do not use `/` or `/status` here:
+    # those can be 503 when Control UI static assets are absent while the Gateway API is healthy.
+    health_url: http://127.0.0.1:18789/ready
+    capabilities: [gateway, control_surface]
+
+  - id: telegram-channel
+    display_name: Telegram Channel
+    kind: external_observed
+    ownership: external_observed
+    # Advisory until an independent Telegram/channel readiness authority is added.
+    # Do not double-count Gateway root `/` UI-static 503 as Telegram critical failure.
+    criticality: important
+    write_domain: none
+    restart_authority: none
+    critical: false
+    health_url: http://127.0.0.1:18789/health
+    capabilities: [telegram, direct_chat]
+
+  - id: ollama-local
+    display_name: Local Ollama
+    kind: external_observed
+    ownership: external_observed
+    criticality: important
+    write_domain: none
+    restart_authority: none
+    critical: false
+    health_url: http://127.0.0.1:11434/api/tags
+    capabilities: [local_models]
+
+  - id: ollama-remote
+    display_name: Remote Ollama
+    kind: external_observed
+    ownership: external_observed
+    criticality: important
+    write_domain: none
+    restart_authority: none
+    critical: false
+    health_url: http://192.168.1.109:11434/api/tags
+    capabilities: [remote_models]
+    required_inventory: [gemma4:e2b, nomic-embed-text, qwen3]
+
+  # Legacy solver lanes v1/v2 decommissioned from active observation on 2026-07-21.
+  # They are not dependencies of the only cared-about route, v4-Mesh/auto.
+
+  - id: token-solver-v3
+    display_name: Token Solver v3
+    kind: external_observed
+    ownership: external_observed
+    criticality: important
+    write_domain: lane_status
+    restart_authority: none
+    critical: false
+    health_url: http://127.0.0.1:8799/health
+    capabilities: [model_routing]
+
+
+  - id: token-solver-v4
+    display_name: Token Solver v4
+    kind: external_observed
+    ownership: external_observed
+    criticality: important
+    write_domain: lane_status
+    restart_authority: none
+    critical: false
+    health_url: http://127.0.0.1:8800/health
+    catalog_url: http://127.0.0.1:8800/v1/models
+    capabilities: [model_routing, canary, durable_service]
+
+  - id: runtime-heartbeat-worker
+    display_name: Runtime Heartbeat Worker Fixture
+    kind: fixture_supervised
+    ownership: kernel_supervised
+    criticality: optional
+    write_domain: fixture_only
+    restart_authority: runtime_kernel
+    critical: false
+    capabilities: [lease_test, heartbeat]
