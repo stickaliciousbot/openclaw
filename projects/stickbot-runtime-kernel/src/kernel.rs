@@ -10,9 +10,12 @@ use serde_json::json;
 use std::collections::BTreeMap;
 use std::fs::{self, OpenOptions};
 use std::path::{Path, PathBuf};
+use std::process::Stdio;
 use std::sync::Arc;
 use std::time::{Duration, Instant};
+use tokio::process::{Child, Command};
 use tokio::sync::{broadcast, Mutex, RwLock};
+use uuid::Uuid;
 
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct SupervisedWorkerRuntime {
@@ -38,6 +41,10 @@ const CRITICAL_FAILURE_CYCLES: u32 = 3;
 const RECOVERY_SUCCESS_CYCLES: u32 = 2;
 const POLLER_LOCK_FILE: &str = "poller-cycle.lock";
 const POLLER_STATE_FILE: &str = "poller-state.json";
+const FIXTURE_HEARTBEAT_INTERVAL_MS: u64 = 1_000;
+const FIXTURE_HEARTBEAT_LEASE_TTL_MS: i64 = 10_000;
+const FIXTURE_HEARTBEAT_RESTART_BUDGET: u64 = 5;
+const FIXTURE_HEARTBEAT_RESTART_BACKOFF_MS: u64 = 1_000;
 
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 struct PollerServiceState {
@@ -454,6 +461,113 @@ impl KernelState {
         Ok(())
     }
 
+    async fn refresh_fixture_status(&self, service_id: &str) -> Result<()> {
+        let supervised = self.supervised.read().await.get(service_id).cloned();
+        let mut statuses = self.services.write().await;
+        if let Some(status) = statuses.iter_mut().find(|s| s.id == service_id) {
+            status.fresh = true;
+            status.last_checked = Some(Utc::now());
+            status.metadata.insert("supervision_scope".into(), json!("fixture_only"));
+            status.metadata.insert("heartbeat_policy".into(), json!("kernel_supervised_child_process"));
+            status.metadata.insert("heartbeat_interval_ms".into(), json!(FIXTURE_HEARTBEAT_INTERVAL_MS));
+            status.metadata.insert("lease_ttl_ms".into(), json!(FIXTURE_HEARTBEAT_LEASE_TTL_MS));
+            status.metadata.insert("restart_budget".into(), json!(FIXTURE_HEARTBEAT_RESTART_BUDGET));
+            status.metadata.insert("accepted_heartbeats".into(), json!(supervised.as_ref().map(|s| s.accepted_heartbeats).unwrap_or(0)));
+            status.metadata.insert("rejected_heartbeats".into(), json!(supervised.as_ref().map(|s| s.rejected_heartbeats).unwrap_or(0)));
+            status.metadata.insert("restart_attempts".into(), json!(supervised.as_ref().map(|s| s.restart_attempts).unwrap_or(0)));
+            status.metadata.insert("expected_pid".into(), json!(supervised.as_ref().and_then(|s| s.expected_pid)));
+            if supervised.as_ref().map(|s| s.quarantined).unwrap_or(false) {
+                status.color = HealthColor::Quarantined;
+                status.live = false;
+                status.ready = false;
+                status.degraded_reason = Some("restart_budget_exhausted_quarantined".into());
+            } else if supervised.as_ref().map(|s| s.expected_pid.is_some() && s.accepted_heartbeats > 0).unwrap_or(false) {
+                status.color = HealthColor::Green;
+                status.live = true;
+                status.ready = true;
+                status.degraded_reason = None;
+            } else if supervised.as_ref().and_then(|s| s.expected_pid).is_some() {
+                status.color = HealthColor::Yellow;
+                status.live = true;
+                status.ready = false;
+                status.degraded_reason = Some("worker_started_awaiting_heartbeat".into());
+            } else {
+                status.color = HealthColor::Yellow;
+                status.live = false;
+                status.ready = false;
+                status.degraded_reason = Some("fixture_worker_not_started".into());
+            }
+        }
+        Ok(())
+    }
+
+    async fn start_heartbeat_worker_process(&self, service_id: &str, runtime_url: &str) -> Result<Child> {
+        let lease = self.issue_worker_lease(service_id, FIXTURE_HEARTBEAT_LEASE_TTL_MS, FIXTURE_HEARTBEAT_RESTART_BUDGET).await?;
+        let exe = std::env::current_exe()?;
+        let mut cmd = Command::new(exe);
+        cmd.arg("heartbeat-worker")
+            .env("STICK_SERVICE_ID", service_id)
+            .env("STICK_LEASE_ID", &lease.lease_id)
+            .env("STICK_LEASE_EPOCH", lease.epoch.to_string())
+            .env("STICK_RUNTIME_URL", runtime_url)
+            .env("STICK_HEARTBEAT_INTERVAL_MS", FIXTURE_HEARTBEAT_INTERVAL_MS.to_string())
+            .env("STICK_LEASE_TTL_MS", FIXTURE_HEARTBEAT_LEASE_TTL_MS.to_string())
+            .stdin(Stdio::null())
+            .stdout(Stdio::null())
+            .stderr(Stdio::null())
+            .kill_on_drop(true);
+        let child = cmd.spawn().context("spawn runtime-heartbeat-worker")?;
+        let pid = child.id().context("spawned worker pid")?;
+        self.register_worker_process(service_id, pid, format!("managed_{}", Uuid::new_v4().simple())).await?;
+        Ok(child)
+    }
+
+    pub fn spawn_supervised_fixture_workers(&self, runtime_url: String) {
+        let service_ids: Vec<String> = self.registry.services.iter()
+            .filter(|s| s.kind == ServiceKind::FixtureSupervised
+                && s.ownership == Ownership::KernelSupervised
+                && s.restart_authority == RestartAuthority::RuntimeKernel)
+            .map(|s| s.id.clone())
+            .collect();
+        for service_id in service_ids {
+            let state = self.clone();
+            let runtime_url = runtime_url.clone();
+            tokio::spawn(async move {
+                tokio::time::sleep(Duration::from_millis(250)).await;
+                loop {
+                    if state.supervised_runtime(&service_id).await.map(|s| s.quarantined).unwrap_or(false) {
+                        break;
+                    }
+                    match state.start_heartbeat_worker_process(&service_id, &runtime_url).await {
+                        Ok(mut child) => {
+                            let pid = child.id();
+                            let exit_reason = match child.wait().await {
+                                Ok(status) => format!("heartbeat_worker_exit_status={}", status),
+                                Err(e) => format!("heartbeat_worker_wait_error={}", e),
+                            };
+                            if let Some(pid) = pid {
+                                let _ = state.record_worker_exit(&service_id, pid, &exit_reason).await;
+                            }
+                        }
+                        Err(e) => {
+                            let _ = state.append_event(NewRuntimeEvent {
+                                source: "runtime-kernel".into(),
+                                event_type: "worker.start_failed".into(),
+                                service_id: Some(service_id.clone()),
+                                correlation_id: None,
+                                severity: Severity::Warn,
+                                payload: json!({"error": e.to_string(), "supervision_scope": "fixture_only"}),
+                                dedupe_key: None,
+                                schema_version: 1,
+                            }).await;
+                        }
+                    }
+                    tokio::time::sleep(Duration::from_millis(FIXTURE_HEARTBEAT_RESTART_BACKOFF_MS)).await;
+                }
+            });
+        }
+    }
+
     pub async fn health(&self) -> KernelHealth {
         let services = self.services.read().await;
         let mut green = 0;
@@ -547,22 +661,18 @@ impl KernelState {
             .connect_timeout(Duration::from_secs(CONNECT_TIMEOUT_SECONDS))
             .timeout(Duration::from_secs(REQUEST_TIMEOUT_SECONDS))
             .build()?;
-        let mut statuses = self.services.write().await;
-        let mut probe_states = self.probe_states.write().await;
-        for status in statuses.iter_mut() {
-            let Some(service) = self.registry.services.iter().find(|s| s.id == status.id) else { continue; };
+        let services = self.registry.services.iter().cloned().collect::<Vec<_>>();
+        for service in services {
             if service.kind == ServiceKind::FixtureSupervised {
-                status.color = HealthColor::Yellow;
-                status.live = true;
-                status.ready = true;
-                status.fresh = true;
-                status.degraded_reason = Some("fixture_only_not_production_supervised".into());
-                status.last_checked = Some(Utc::now());
+                self.refresh_fixture_status(&service.id).await?;
                 continue;
             }
-            let Some(url) = &service.health_url else { continue; };
+            let Some(url) = service.health_url.clone() else { continue; };
             let checked_at = Utc::now();
-            let probe = probe_http(&client, url).await;
+            let probe = probe_http(&client, &url).await;
+            let mut statuses = self.services.write().await;
+            let mut probe_states = self.probe_states.write().await;
+            let Some(status) = statuses.iter_mut().find(|s| s.id == service.id) else { continue; };
             let state = probe_states.entry(status.id.clone()).or_default();
             let previous_color = status.color.clone();
             let previous_failed_cycles = state.consecutive_failed_cycles;
@@ -652,8 +762,6 @@ impl KernelState {
             status.metadata.insert("state_transition_reason".into(), json!(status.degraded_reason));
             status.last_checked = Some(checked_at);
         }
-        drop(probe_states);
-        drop(statuses);
         self.save_probe_states().await?;
         let cycle_completed_at = Utc::now();
         let cycle_duration_ms = cycle_started_instant.elapsed().as_millis();
