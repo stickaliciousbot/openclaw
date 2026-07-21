@@ -1,0 +1,6 @@
+{
+  "critical": false,
+  "critical_red_contribution": 0,
+  "health_url": "http://127.0.0.1:18789/health",
+  "independent_telegram_health_proven": false
+}

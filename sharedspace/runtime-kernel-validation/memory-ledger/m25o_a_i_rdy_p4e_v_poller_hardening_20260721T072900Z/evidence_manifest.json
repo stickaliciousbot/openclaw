@@ -1,0 +1,132 @@
+{
+  "entries": [
+    {
+      "name": "hard_gates.json",
+      "sha256": "4e382cf8106fb46e7f6cd8d383a0f826e098fdcab80c51248d80a9d24e00b217",
+      "size": 917
+    },
+    {
+      "name": "mutation_sentinels.json",
+      "sha256": "0005b35c1e96ea4964beb935ebe5daea7080af6a3aab368b7039cb6c57ba56ce",
+      "size": 298
+    },
+    {
+      "name": "p4e_v_active_poller_implementation.json",
+      "sha256": "952521a1a5823932596b4dd25351e33bddf26505dc89696f2344d1db4f4ae8d3",
+      "size": 1607
+    },
+    {
+      "name": "p4e_v_backup_and_rollback.json",
+      "sha256": "55210b2284029e271e7781ed3012000b49f2a4a0f9f2a143463a17a134c79517",
+      "size": 942
+    },
+    {
+      "name": "p4e_v_current_health_baseline.json",
+      "sha256": "7835c07069d0647e431914b61df96e12676b5183e8310b86c42fbb457f003183",
+      "size": 48704
+    },
+    {
+      "name": "p4e_v_diagnostics_contract.json",
+      "sha256": "e8732cf47770c0ce329e21ac51a3a0841664d85118450dde9fa98cdc91727839",
+      "size": 698
+    },
+    {
+      "name": "p4e_v_final_behavior_comparison.json",
+      "sha256": "7553987cf31f5601d1cb974df911f210e4ad5a8f2f10f5c53041f1f2f9b5a33c",
+      "size": 576
+    },
+    {
+      "name": "p4e_v_gateway_transition_contract.json",
+      "sha256": "9ef0ab5b48442b49141a52d0af4427c894ee3027088a76fab6dc3fc05ed5aa7e",
+      "size": 427
+    },
+    {
+      "name": "p4e_v_isolated_test_matrix.json",
+      "sha256": "397fa3f7de7940cd6ebae9d364b915219fdd898813aec5d7e8d05bd78c2aee2d",
+      "size": 728
+    },
+    {
+      "name": "p4e_v_isolated_validation.json",
+      "sha256": "bf5a7b25eb8449dfc54d67db703e0f4ab116f71db7aec9bcb0bbe3f52c794f20",
+      "size": 175878
+    },
+    {
+      "name": "p4e_v_live_cycle_observation.json",
+      "sha256": "5555174bb8480c55785c6cc5444446bd4b3187003f9c4779d12fbe53701bb311",
+      "size": 134129
+    },
+    {
+      "name": "p4e_v_live_durability_result.json",
+      "sha256": "08fa7d6f8f42f1b2313a1666316180e1664119279677d704432db16043cd90fa",
+      "size": 14408
+    },
+    {
+      "name": "p4e_v_plaid_sage_readback.json",
+      "sha256": "80ad650103a548556f50b76b90f89b66e4befda1cd9c4b06c6083f57430965e2",
+      "size": 170
+    },
+    {
+      "name": "p4e_v_probe_error_taxonomy.json",
+      "sha256": "d83833674357725d1e5c087620f586ffaada141523ed5ab0f70498bf06e37288",
+      "size": 187
+    },
+    {
+      "name": "p4e_v_repair_approval.json",
+      "sha256": "6eb4c2555b67f99699e58850d374babc129cf4601be59234db6f3c05d5519571",
+      "size": 349
+    },
+    {
+      "name": "p4e_v_repair_decision.json",
+      "sha256": "0b62033b04389c48d2db60ba4b5148a0ce50f77fcd340efceeb3f7040e3a3a2c",
+      "size": 301
+    },
+    {
+      "name": "p4e_v_repair_receipt.json",
+      "sha256": "4f3cd5b48b2ec2496046e3ffacb1cc4c2c8b34c654d07629501bfa64f9d5ce3e",
+      "size": 326
+    },
+    {
+      "name": "p4e_v_run_config.json",
+      "sha256": "aac65751f3bf900b44338d745364eaa2620a54e532dc00d4c736de46ec626a05",
+      "size": 586
+    },
+    {
+      "name": "p4e_v_telegram_advisory_contract.json",
+      "sha256": "cefacab0aea602a25bb2bb53438d443cbd1f4748796ad8bc7c76813b5813c82b",
+      "size": 153
+    },
+    {
+      "name": "p4e_v_timeout_retry_policy.json",
+      "sha256": "ad283f945c9c93642ac96addc5f5a339b76b0396bcab9e48329bb63c0a1d0a68",
+      "size": 229
+    },
+    {
+      "name": "privacy_scan.json",
+      "sha256": "97747f9f1a5b53548022043fb22cebda6bcb4a30916b00531cbfe26beea94956",
+      "size": 235
+    },
+    {
+      "name": "provider_send_absence.json",
+      "sha256": "f44ec50f1d417e995d5a14fc04e51670cdec58ef5e1c35dfce0559936b28138b",
+      "size": 95
+    },
+    {
+      "name": "status.json",
+      "sha256": "8bbfac7d2b3eb633dd2a9f104a8e064bbf1bc9ee7af35e5ce293eea7a3872418",
+      "size": 167
+    },
+    {
+      "name": "summary.json",
+      "sha256": "cfed4a5414f1c8608cd8fe581b35d856ca526eeca54881663604b316eb5966b7",
+      "size": 2489
+    },
+    {
+      "name": "telegram_delivery_absence.json",
+      "sha256": "c75f4ba930fd1c3f65d0e1ae677a10d8d35f93c9f93980bcdf5d6f428e452382",
+      "size": 86
+    }
+  ],
+  "generated_at": "2026-07-21T08:39:48.323697+00:00",
+  "policy": "NON_CIRCULAR_EVIDENCE_MANIFEST_POLICY_V1",
+  "run_id": "m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z"
+}

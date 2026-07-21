@@ -1,0 +1,657 @@
+{
+  "captured_utc": "2026-07-21T07:54:26.986726+00:00",
+  "classification": "M25O_A_I_RDY_CURRENT_RUNTIME_HEALTH_PASS_OPTIONAL_FIXTURE_YELLOW",
+  "delivery_counters": {
+    "provider_deliveries": 0,
+    "telegram_sends": 0
+  },
+  "gateway_health": {
+    "cmd": [
+      "curl",
+      "-fsS",
+      "http://127.0.0.1:18789/health"
+    ],
+    "code": 0,
+    "duration_ms": 109,
+    "stderr": "",
+    "stdout": "{\"ok\":true,\"status\":\"live\"}"
+  },
+  "gateway_pid": {
+    "cmd": [
+      "systemctl",
+      "--user",
+      "show",
+      "openclaw-gateway.service",
+      "-p",
+      "MainPID",
+      "-p",
+      "ActiveState",
+      "-p",
+      "SubState",
+      "--no-pager"
+    ],
+    "code": 0,
+    "duration_ms": 16,
+    "stderr": "",
+    "stdout": "MainPID=2987161\nActiveState=active\nSubState=running\n"
+  },
+  "gateway_ready": {
+    "cmd": [
+      "curl",
+      "-fsS",
+      "http://127.0.0.1:18789/ready"
+    ],
+    "code": 0,
+    "duration_ms": 147,
+    "stderr": "",
+    "stdout": "{\"ready\":true,\"failing\":[],\"uptimeMs\":81000054,\"eventLoop\":{\"degraded\":true,\"reasons\":[\"event_loop_delay\"],\"intervalMs\":27891,\"delayP99Ms\":1095.8,\"delayMaxMs\":13421.8,\"utilization\":0.761,\"cpuCoreRatio\":0.732}}"
+  },
+  "handler_jobs_pending": {
+    "handler": "unarmed_not_changed_by_p4e",
+    "jobs_pending": "0/0"
+  },
+  "marker": "P4E_V_HEALTHY_BASELINE_CAPTURE_PASS",
+  "runtime_kernel_artifact": {
+    "content": {
+      "health": {
+        "critical_red": 0,
+        "event_journal_writable": true,
+        "generated_at": "2026-07-21T07:53:38.794915003Z",
+        "kernel_id": "stickbot-runtime-kernel",
+        "last_event_seq": 78994,
+        "mode": "observe_only",
+        "projection_writable": true,
+        "services_green": 6,
+        "services_quarantined": 0,
+        "services_red": 0,
+        "services_total": 7,
+        "services_yellow": 1,
+        "status": "yellow"
+      },
+      "services": [
+        {
+          "capabilities": [
+            "gateway",
+            "control_surface"
+          ],
+          "color": "external_observed",
+          "critical": true,
+          "criticality": "critical",
+          "degraded_reason": null,
+          "display_name": "OpenClaw Gateway",
+          "fresh": true,
+          "id": "openclaw-gateway",
+          "kind": "external_observed",
+          "last_checked": "2026-07-21T07:53:25.807703612Z",
+          "last_event_seq": 78994,
+          "live": true,
+          "metadata": {
+            "attempt_latencies_ms": [
+              1510
+            ],
+            "configured_connect_timeout_seconds": 2,
+            "configured_max_attempts": 2,
+            "configured_timeout_seconds": 8,
+            "consecutive_failed_cycles": 0,
+            "consecutive_successful_cycles": 4,
+            "critical_failure_cycles": 3,
+            "error_class": "PROBE_SUCCESS",
+            "error_detail_code": null,
+            "freshness_state": "fresh",
+            "health_url": "http://127.0.0.1:18789/ready",
+            "http_status": 200,
+            "last_failure_at": null,
+            "last_success_age_seconds": 10,
+            "last_success_at": "2026-07-21T07:53:25.807703612Z",
+            "latency_ms": 1511,
+            "max_last_success_age_seconds": 45,
+            "policy_version": "p4e_v1_bounded_retry_hysteresis",
+            "poll_cycle_started_at": "2026-07-21T07:53:25.807384610Z",
+            "probe_attempts": 1,
+            "producer_identity": "stickbot-runtime-kernel:poll_once",
+            "recovery_success_cycles": 2,
+            "retry_backoff_ms": 500,
+            "retry_jitter_ms": 250,
+            "state_transition": "ExternalObserved->ExternalObserved",
+            "state_transition_reason": null,
+            "successful_attempt": 1,
+            "using_last_known_good": false
+          },
+          "ownership": "external_observed",
+          "ready": true,
+          "restart_authority": "none",
+          "write_domain": "none"
+        },
+        {
+          "capabilities": [
+            "telegram",
+            "direct_chat"
+          ],
+          "color": "external_observed",
+          "critical": false,
+          "criticality": "important",
+          "degraded_reason": null,
+          "display_name": "Telegram Channel",
+          "fresh": true,
+          "id": "telegram-channel",
+          "kind": "external_observed",
+          "last_checked": "2026-07-21T07:53:27.318879298Z",
+          "last_event_seq": 78994,
+          "live": true,
+          "metadata": {
+            "attempt_latencies_ms": [
+              9
+            ],
+            "configured_connect_timeout_seconds": 2,
+            "configured_max_attempts": 2,
+            "configured_timeout_seconds": 8,
+            "consecutive_failed_cycles": 0,
+            "consecutive_successful_cycles": 4,
+            "critical_failure_cycles": 3,
+            "error_class": "PROBE_SUCCESS",
+            "error_detail_code": null,
+            "freshness_state": "fresh",
+            "health_url": "http://127.0.0.1:18789/health",
+            "http_status": 200,
+            "last_failure_at": null,
+            "last_success_age_seconds": 11,
+            "last_success_at": "2026-07-21T07:53:27.318879298Z",
+            "latency_ms": 9,
+            "max_last_success_age_seconds": 45,
+            "policy_version": "p4e_v1_bounded_retry_hysteresis",
+            "poll_cycle_started_at": "2026-07-21T07:53:25.807384610Z",
+            "probe_attempts": 1,
+            "producer_identity": "stickbot-runtime-kernel:poll_once",
+            "recovery_success_cycles": 2,
+            "retry_backoff_ms": 500,
+            "retry_jitter_ms": 250,
+            "state_transition": "ExternalObserved->ExternalObserved",
+            "state_transition_reason": null,
+            "successful_attempt": 1,
+            "using_last_known_good": false
+          },
+          "ownership": "external_observed",
+          "ready": true,
+          "restart_authority": "none",
+          "write_domain": "none"
+        },
+        {
+          "capabilities": [
+            "local_models"
+          ],
+          "color": "external_observed",
+          "critical": false,
+          "criticality": "important",
+          "degraded_reason": null,
+          "display_name": "Local Ollama",
+          "fresh": true,
+          "id": "ollama-local",
+          "kind": "external_observed",
+          "last_checked": "2026-07-21T07:53:27.328618962Z",
+          "last_event_seq": 78994,
+          "live": true,
+          "metadata": {
+            "attempt_latencies_ms": [
+              4
+            ],
+            "configured_connect_timeout_seconds": 2,
+            "configured_max_attempts": 2,
+            "configured_timeout_seconds": 8,
+            "consecutive_failed_cycles": 0,
+            "consecutive_successful_cycles": 4,
+            "critical_failure_cycles": 3,
+            "error_class": "PROBE_SUCCESS",
+            "error_detail_code": null,
+            "freshness_state": "fresh",
+            "health_url": "http://127.0.0.1:11434/api/tags",
+            "http_status": 200,
+            "last_failure_at": null,
+            "last_success_age_seconds": 11,
+            "last_success_at": "2026-07-21T07:53:27.328618962Z",
+            "latency_ms": 4,
+            "max_last_success_age_seconds": 45,
+            "policy_version": "p4e_v1_bounded_retry_hysteresis",
+            "poll_cycle_started_at": "2026-07-21T07:53:25.807384610Z",
+            "probe_attempts": 1,
+            "producer_identity": "stickbot-runtime-kernel:poll_once",
+            "recovery_success_cycles": 2,
+            "retry_backoff_ms": 500,
+            "retry_jitter_ms": 250,
+            "state_transition": "ExternalObserved->ExternalObserved",
+            "state_transition_reason": null,
+            "successful_attempt": 1,
+            "using_last_known_good": false
+          },
+          "ownership": "external_observed",
+          "ready": true,
+          "restart_authority": "none",
+          "write_domain": "none"
+        },
+        {
+          "capabilities": [
+            "remote_models"
+          ],
+          "color": "external_observed",
+          "critical": false,
+          "criticality": "important",
+          "degraded_reason": null,
+          "display_name": "Remote Ollama",
+          "fresh": true,
+          "id": "ollama-remote",
+          "kind": "external_observed",
+          "last_checked": "2026-07-21T07:53:27.333220393Z",
+          "last_event_seq": 78994,
+          "live": true,
+          "metadata": {
+            "attempt_latencies_ms": [
+              256
+            ],
+            "configured_connect_timeout_seconds": 2,
+            "configured_max_attempts": 2,
+            "configured_timeout_seconds": 8,
+            "consecutive_failed_cycles": 0,
+            "consecutive_successful_cycles": 4,
+            "critical_failure_cycles": 3,
+            "error_class": "PROBE_SUCCESS",
+            "error_detail_code": null,
+            "freshness_state": "fresh",
+            "health_url": "http://192.168.1.109:11434/api/tags",
+            "http_status": 200,
+            "last_failure_at": null,
+            "last_success_age_seconds": 9,
+            "last_success_at": "2026-07-21T07:53:27.333220393Z",
+            "latency_ms": 256,
+            "max_last_success_age_seconds": 45,
+            "policy_version": "p4e_v1_bounded_retry_hysteresis",
+            "poll_cycle_started_at": "2026-07-21T07:53:25.807384610Z",
+            "probe_attempts": 1,
+            "producer_identity": "stickbot-runtime-kernel:poll_once",
+            "recovery_success_cycles": 2,
+            "retry_backoff_ms": 500,
+            "retry_jitter_ms": 250,
+            "state_transition": "ExternalObserved->ExternalObserved",
+            "state_transition_reason": null,
+            "successful_attempt": 1,
+            "using_last_known_good": false
+          },
+          "ownership": "external_observed",
+          "ready": true,
+          "restart_authority": "none",
+          "write_domain": "none"
+        },
+        {
+          "capabilities": [
+            "model_routing"
+          ],
+          "color": "external_observed",
+          "critical": false,
+          "criticality": "important",
+          "degraded_reason": null,
+          "display_name": "Token Solver v3",
+          "fresh": true,
+          "id": "token-solver-v3",
+          "kind": "external_observed",
+          "last_checked": "2026-07-21T07:53:27.589607786Z",
+          "last_event_seq": 78994,
+          "live": true,
+          "metadata": {
+            "attempt_latencies_ms": [
+              6
+            ],
+            "configured_connect_timeout_seconds": 2,
+            "configured_max_attempts": 2,
+            "configured_timeout_seconds": 8,
+            "consecutive_failed_cycles": 0,
+            "consecutive_successful_cycles": 4,
+            "critical_failure_cycles": 3,
+            "error_class": "PROBE_SUCCESS",
+            "error_detail_code": null,
+            "freshness_state": "fresh",
+            "health_url": "http://127.0.0.1:8799/health",
+            "http_status": 200,
+            "last_failure_at": null,
+            "last_success_age_seconds": 9,
+            "last_success_at": "2026-07-21T07:53:27.589607786Z",
+            "latency_ms": 6,
+            "max_last_success_age_seconds": 45,
+            "policy_version": "p4e_v1_bounded_retry_hysteresis",
+            "poll_cycle_started_at": "2026-07-21T07:53:25.807384610Z",
+            "probe_attempts": 1,
+            "producer_identity": "stickbot-runtime-kernel:poll_once",
+            "recovery_success_cycles": 2,
+            "retry_backoff_ms": 500,
+            "retry_jitter_ms": 250,
+            "state_transition": "ExternalObserved->ExternalObserved",
+            "state_transition_reason": null,
+            "successful_attempt": 1,
+            "using_last_known_good": false
+          },
+          "ownership": "external_observed",
+          "ready": true,
+          "restart_authority": "none",
+          "write_domain": "lane_status"
+        },
+        {
+          "capabilities": [
+            "model_routing",
+            "canary",
+            "durable_service"
+          ],
+          "color": "external_observed",
+          "critical": false,
+          "criticality": "important",
+          "degraded_reason": null,
+          "display_name": "Token Solver v4",
+          "fresh": true,
+          "id": "token-solver-v4",
+          "kind": "external_observed",
+          "last_checked": "2026-07-21T07:53:27.595940528Z",
+          "last_event_seq": 78994,
+          "live": true,
+          "metadata": {
+            "attempt_latencies_ms": [
+              8
+            ],
+            "configured_connect_timeout_seconds": 2,
+            "configured_max_attempts": 2,
+            "configured_timeout_seconds": 8,
+            "consecutive_failed_cycles": 0,
+            "consecutive_successful_cycles": 4,
+            "critical_failure_cycles": 3,
+            "error_class": "PROBE_SUCCESS",
+            "error_detail_code": null,
+            "freshness_state": "fresh",
+            "health_url": "http://127.0.0.1:8800/health",
+            "http_status": 200,
+            "last_failure_at": null,
+            "last_success_age_seconds": 9,
+            "last_success_at": "2026-07-21T07:53:27.595940528Z",
+            "latency_ms": 8,
+            "max_last_success_age_seconds": 45,
+            "policy_version": "p4e_v1_bounded_retry_hysteresis",
+            "poll_cycle_started_at": "2026-07-21T07:53:25.807384610Z",
+            "probe_attempts": 1,
+            "producer_identity": "stickbot-runtime-kernel:poll_once",
+            "recovery_success_cycles": 2,
+            "retry_backoff_ms": 500,
+            "retry_jitter_ms": 250,
+            "state_transition": "ExternalObserved->ExternalObserved",
+            "state_transition_reason": null,
+            "successful_attempt": 1,
+            "using_last_known_good": false
+          },
+          "ownership": "external_observed",
+          "ready": true,
+          "restart_authority": "none",
+          "write_domain": "lane_status"
+        },
+        {
+          "capabilities": [
+            "lease_test",
+            "heartbeat"
+          ],
+          "color": "yellow",
+          "critical": false,
+          "criticality": "optional",
+          "degraded_reason": "fixture_only_not_production_supervised",
+          "display_name": "Runtime Heartbeat Worker Fixture",
+          "fresh": true,
+          "id": "runtime-heartbeat-worker",
+          "kind": "fixture_supervised",
+          "last_checked": "2026-07-21T07:53:27.604431584Z",
+          "last_event_seq": 78994,
+          "live": true,
+          "metadata": {},
+          "ownership": "kernel_supervised",
+          "ready": true,
+          "restart_authority": "runtime_kernel",
+          "write_domain": "fixture_only"
+        }
+      ]
+    },
+    "path": "/home/stickai/.openclaw/workspace/state/runtime-kernel/latest-health.json",
+    "sha256": "ab67286dcff1a377d65b9647f6f63db92ffb32df59ac1084a4e58f4f69990bf0"
+  },
+  "source_hashes": {
+    "kernel_rs": "227a22ed75ab02747694e9cec6ac5140bf59db571b9f9c2f1786e6d4eca85de0",
+    "registry_yaml": "0c195fcc7ace47bbc1aebae71ab8c3858bf6968c714bc8b47085eec63e04d19a"
+  },
+  "token_solver_artifact": {
+    "content": {
+      "actions": [],
+      "active_route_model_id": "token-solver-v4/auto",
+      "failed": [],
+      "finished_at": "2026-07-21T07:42:09.219855Z",
+      "legacy_output_token": "token_solver_fleet_ok",
+      "mode": "ensure",
+      "ok": true,
+      "root": "/home/stickai/.openclaw/workspace",
+      "route_scope": "v4-Mesh/auto",
+      "run_id": "token-solvers-20260721T074100Z",
+      "semantic_contract": "token_solver_fleet_means_v4_mesh_auto",
+      "solvers": [
+        {
+          "after": {
+            "check_script": {
+              "cmd": [
+                "bash",
+                "/home/stickai/.openclaw/workspace/scripts/check_token_solver_v4.sh"
+              ],
+              "code": 0,
+              "duration_ms": 67371,
+              "ok": true,
+              "stderr": "",
+              "stdout": "token_solver_v4_dir_exists=true path=/home/stickai/.openclaw/workspace/services/token-solver-v4\n\n> token-solver-v4@0.1.0 test:all\n> npm run check && npm run test:scoring && npm run test:handoff && npm run test:run-result-handoff && npm run test:boundary && npm run test:precedence && npm run test:turn-contract && npm run test:architecture && npm run test:short-ambiguous-memory && npm run test:v5-shadow\n\n\n> token-solver-v4@0.1.0 check\n> node --check src/server.js && node --check src/scoring.js && node --check src/forward.js && node --check src/handoff.js && node --check src/resultHandoffPayload.js && node --check src/boundaryGuard.js && node --check src/turnContract.js && node --check src/v5Contract.js && node --check scripts/v4_scoring_fixture_test.mjs && node --check scripts/v4_handoff_fixture_test.mjs && node --check scripts/v4_run_result_handoff_test.mjs && node --check scripts/v4_boundary_guard_fixture_test.mjs && node --check scripts/v4_prompt_precedence_fixture_test.mjs && node --check scripts/v4_turn_contract_fixture_test.mjs && node --check scripts/v4_tool_boundary_memory_leak_regression_test.mjs && node --check scripts/v4_routing_architecture_fixture_test.mjs && node --check scripts/v4_short_ambiguous_memory_eval.mjs && node --check scripts/v4_short_ambiguous_live_smoke.mjs && node --check scripts/v4_v5_shadow_contract_fixture_test.mjs\n\n\n> token-solver-v4@0.1.0 test:scoring\n> node scripts/v4_scoring_fixture_test.mjs\n\n{\"ok\":true,\"name\":\"conversation routes nano\",\"lane\":\"nano-fast\",\"intent\":\"conversation\",\"hardGate\":null}\n{\"ok\":true,\"name\":\"neutral short prompt stays nano\",\"lane\":\"nano-fast\",\"intent\":\"conversation\",\"hardGate\":null}\n{\"ok\":true,\"name\":\"wrapped simple greeting routes nano\",\"lane\":\"nano-fast\",\"intent\":\"conversation\",\"hardGate\":null}\n{\"ok\":true,\"name\":\"wrapped project proof still hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"complex_planning\",\"hardGate\":\"memory_obligation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"simple summarize local fast\",\"lane\":\"local-fast\",\"intent\":\"simple_local\",\"hardGate\":null}\n{\"ok\":true,\"name\":\"read-only analysis local reasoning\",\"lane\":\"local-reasoning\",\"intent\":\"read_only_analysis\",\"hardGate\":null}\n{\"ok\":true,\"name\":\"repo mutation hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"coding\",\"hardGate\":\"operation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"routing scorer repair hard gates codex via composite score\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"coding\",\"hardGate\":\"complex_coding_or_schema_sensitive\"}\n{\"ok\":true,\"name\":\"production soak operations hard gates codex via composite score\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"ops\",\"hardGate\":\"operation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"combined routing repair and production soak hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"complex_planning\",\"hardGate\":\"memory_obligation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"complex planning hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"complex_planning\",\"hardGate\":\"config_change_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"ops recovery hard gates ops\",\"lane\":\"ops-maint\",\"intent\":\"ops\",\"hardGate\":\"ops_incident_or_recovery\"}\n{\"ok\":true,\"name\":\"full DR hotpatched state hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"complex_planning\",\"hardGate\":\"dr_hotpatch_or_memory_benchmark_requires_codex_high\"}\n{\"ok\":true,\"name\":\"thinmem native memory comparison hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"complex_planning\",\"hardGate\":\"memory_obligation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"context bridge status prompt hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"ops\",\"hardGate\":\"runtime_check_obligation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"project portfolio status prompt hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"complex_planning\",\"hardGate\":\"project_portfolio_status_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"explicit memory and context bridge check hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"complex_planning\",\"hardGate\":\"context_bridge_obligation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"project proof memory prompt hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"complex_planning\",\"hardGate\":\"memory_obligation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"context bridge heartbeat read prompt hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"complex_planning\",\"hardGate\":\"context_bridge_obligation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"runtime status prompt hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"ops\",\"hardGate\":\"runtime_check_obligation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"current model lane prompt hard gates codex without fleet assumption\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"ops\",\"hardGate\":\"runtime_check_obligation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"route model next prompt hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"ops\",\"hardGate\":\"runtime_check_obligation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"runtime milestone summary hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"ops\",\"hardGate\":\"runtime_check_obligation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"memory routing leak debug hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"complex_planning\",\"hardGate\":\"memory_obligation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"v4 wiring diagnosis hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"complex_planning\",\"hardGate\":\"context_bridge_obligation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"subagent envelope hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"complex_planning\",\"hardGate\":\"operation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"explicit mutating tool hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"coding\",\"hardGate\":\"tool_profile:dev_mutating\"}\n{\"ok\":true,\"name\":\"filing write intent with destination and date hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"complex_planning\",\"hardGate\":\"operation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"archive write intent with ledger update hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"complex_planning\",\"hardGate\":\"operation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"tool-backed artifact follow-up hard gates codex tool lane\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"complex_planning\",\"hardGate\":\"operation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"conversation to coding transition injectable\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"coding\",\"hardGate\":\"coding_or_planning_default_strong\"}\n{\"ok\":true,\"name\":\"short ambiguous continuation inherits coding context\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"complex_planning\",\"hardGate\":\"short_ambiguous_continuation_inherits_context\"}\n{\"ok\":true,\"name\":\"short ambiguous continuation without context stays safe chat\",\"lane\":\"nano-fast\",\"intent\":\"conversation\",\"hardGate\":null}\n{\"ok\":true,\"name\":\"verification flag hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"conversation\",\"hardGate\":\"verification_or_strong_cloud_lane\"}\n\n> token-solver-v4@0.1.0 test:handoff\n> node scripts/v4_handoff_fixture_test.mjs\n\n{\"ok\":true,\"name\":\"transition handoff injection\",\"lane\":\"ollama-cloud-heavy-coder\"}\n\n> token-solver-v4@0.1.0 test:run-result-handoff\n> node scripts/v4_run_result_handoff_test.mjs\n\n{\"ok\":true,\"name\":\"run result handoff payload\",\"cases\":6}\n\n> token-solver-v4@0.1.0 test:boundary\n> node scripts/v4_boundary_guard_fixture_test.mjs\n\n{\"ok\":true,\"name\":\"v4 boundary guard fixtures\"}\n\n> token-solver-v4@0.1.0 test:precedence\n> node scripts/v4_prompt_precedence_fixture_test.mjs\n\n{\"ok\":true,\"name\":\"v4_prompt_precedence_fixture_test\"}\n\n> token-solver-v4@0.1.0 test:turn-contract\n> node scripts/v4_turn_contract_fixture_test.mjs\n\n{\"ok\":true,\"name\":\"v4_turn_contract_fixture_test\"}\n\n> token-solver-\n...[truncated 11556 chars]"
+            },
+            "checked_at": "2026-07-21T07:42:09.219823Z",
+            "health_probe": {
+              "attempts": [
+                {
+                  "duration_ms": 1091,
+                  "error": null,
+                  "ok": true,
+                  "status": 200,
+                  "url": "http://localhost:8800/health"
+                }
+              ],
+              "body": "{\"ok\":true,\"service\":\"token-solver-v4\",\"port\":8800,\"upstream_v3_base_url\":\"http://127.0.0.1:8799\",\"upstream_v3\":{\"ok\":true,\"status\":200,\"body\":{\"ok\":true,\"service\":\"token-solver-v3\",\"readiness_ok\":true,\"readiness_reason\":null,\"readiness_age_sec\":null,\"local_fast_model\":\"ollama/gemma4:e2b\",\"local_agentic_model\":\"ollama/gemma4:e2b\",\"local_reasoning_model\":\"ollama/qwen3\",\"local_embed_model\":\"ollama/nomic-embed-text\",\"codex_high_model\":\"openai-codex/gpt-5.5\",\"codex_5_3_codex_model\":\"openai-codex/gpt-5.3-codex\",\"intent_preselector_v5\":{\"enabled\":true,\"mode\":\"shadow_contract_only\",\"enforced\":false,\"trace_enabled\":false},\"ollama_base_url\":\"http://192.168.1.109:11434\"}},\"scoring\":\"deterministic-local-only\",\"required_strong_model_policy\":\"openai-codex/gpt-5.5\",\"nano_model_policy\":\"gpt-5.4\"}",
+              "duration_ms": 1091,
+              "json": {
+                "nano_model_policy": "gpt-5.4",
+                "ok": true,
+                "port": 8800,
+                "required_strong_model_policy": "openai-codex/gpt-5.5",
+                "scoring": "deterministic-local-only",
+                "service": "token-solver-v4",
+                "upstream_v3": {
+                  "body": {
+                    "codex_5_3_codex_model": "openai-codex/gpt-5.3-codex",
+                    "codex_high_model": "openai-codex/gpt-5.5",
+                    "intent_preselector_v5": {
+                      "enabled": true,
+                      "enforced": false,
+                      "mode": "shadow_contract_only",
+                      "trace_enabled": false
+                    },
+                    "local_agentic_model": "ollama/gemma4:e2b",
+                    "local_embed_model": "ollama/nomic-embed-text",
+                    "local_fast_model": "ollama/gemma4:e2b",
+                    "local_reasoning_model": "ollama/qwen3",
+                    "ok": true,
+                    "ollama_base_url": "http://192.168.1.109:11434",
+                    "readiness_age_sec": null,
+                    "readiness_ok": true,
+                    "readiness_reason": null,
+                    "service": "token-solver-v3"
+                  },
+                  "ok": true,
+                  "status": 200
+                },
+                "upstream_v3_base_url": "http://127.0.0.1:8799"
+              },
+              "ok": true,
+              "status": 200,
+              "url": "http://localhost:8800/health"
+            },
+            "id": "token-solver-v4",
+            "models_probe": {
+              "attempts": [
+                {
+                  "duration_ms": 3,
+                  "error": null,
+                  "ok": true,
+                  "status": 200,
+                  "url": "http://localhost:8800/v1/models"
+                }
+              ],
+              "body": "{\"object\":\"list\",\"data\":[{\"id\":\"token-solver-v4/default\",\"object\":\"model\",\"created\":1777600000,\"owned_by\":\"local-token-solver-v4\",\"token_solver_v4\":{\"lane\":\"nano-fast\",\"upstream\":\"token-solver-v3/nano-fast\",\"description\":\"deterministic prehandler default; conversational routes to nano\"}},{\"id\":\"token-solver-v4/auto\",\"object\":\"model\",\"created\":1777600000,\"owned_by\":\"local-token-solver-v4\",\"token_solver_v4\":{\"lane\":\"nano-fast\",\"upstream\":\"token-solver-v3/nano-fast\",\"description\":\"deterministic sentiment+intent auto router\"}},{\"id\":\"token-solver-v4/nano-fast\",\"object\":\"model\",\"created\":1777600000,\"owned_by\":\"local-token-solver-v4\",\"token_solver_v4\":{\"lane\":\"nano-fast\",\"upstream\":\"token-solver-v3/nano-fast\",\"description\":\"conversation-only nano lane policy gpt-5.4\"}},{\"id\":\"token-solver-v4/local-fast\",\"object\":\"model\",\"created\":1777600000,\"owned_by\":\"local-token-solver-v4\",\"token_solver_v4\":{\"lane\":\"local-fast\",\"upstream\":\"token-solver-v3/local-fast\",\"description\":\"simple local v3 lane\"}},{\"id\":\"token-solver-v4/local-agentic\",\"object\":\"model\",\"created\":1777600000,\"owned_by\":\"local-token-solver-v4\",\"token_solver_v4\":{\"lane\":\"local-agentic\",\"upstream\":\"token-solver-v3/local-agentic\",\"description\":\"bounded local agentic v3 lane\"}},{\"id\":\"token-solver-v4/local-reasoning\",\"object\":\"model\",\"created\":1777600000,\"owned_by\":\"local-token-solver-v4\",\"token_solver_v4\":{\"lane\":\"local-reasoning\",\"upstream\":\"token-solver-v3/local-reasoning\",\"description\":\"bounded local reasoning v3 lane\"}},{\"id\":\"token-solver-v4/ollama-cloud-heavy-coder\",\"object\":\"model\",\"created\":1777600000,\"owned_by\":\"local-token-solver-v4\",\"token_solver_v4\":{\"lane\":\"ollama-cloud-heavy-coder\",\"upstream\":\"token-solver-v3/ollama-cloud-heavy-coder\",\"description\":\"controlled Ollama Cloud heavy-coder lane policy ollama/deepseek-v4-pro:cloud\"}},{\"id\":\"token-solver-v4/codex-high\",\"object\":\"model\",\"created\":1777600000,\"owned_by\":\"local-token-solver-v4\",\"token_solver_v4\":{\"lane\":\"codex-high\",\"upstream\":\"token-solver-v3/codex-high\",\"description\":\"strong coding/planning lane policy openai-codex/gpt-5.5\"}},{\"id\":\"token-solver-v4/ops-maint\",\"object\":\"model\",\"created\":1777600000,\"owned_by\":\"local-token-solver-v4\",\"token_solver_v4\":{\"lane\":\"ops-maint\",\"upstream\":\"token-solver-v3/ops-maint\",\"description\":\"safe operational maintenance lane\"}},{\"id\":\"token-solver-v4/canary\",\"object\":\"model\",\"created\":1777600000,\"owned_by\":\"local-token-solver-v4\",\"token_solver_v4\":{\"lane\":\"canary\",\"upstream\":\"token-solver-v3/default\",\"description\":\"explicit deterministic OpenClaw route canary for token-solver-v4 ingress\"}}]}",
+              "duration_ms": 3,
+              "json": {
+                "ids": [
+                  "token-solver-v4/default",
+                  "token-solver-v4/auto",
+                  "token-solver-v4/nano-fast",
+                  "token-solver-v4/local-fast",
+                  "token-solver-v4/local-agentic",
+                  "token-solver-v4/local-reasoning",
+                  "token-solver-v4/ollama-cloud-heavy-coder",
+                  "token-solver-v4/codex-high",
+                  "token-solver-v4/ops-maint",
+                  "token-solver-v4/canary"
+                ],
+                "model_count": 10,
+                "object": "list"
+              },
+              "ok": true,
+              "status": 200,
+              "url": "http://localhost:8800/v1/models"
+            },
+            "ok": true,
+            "port": 8800,
+            "probe_attempts": [
+              {
+                "attempt": 1,
+                "checked_at": "2026-07-21T07:42:09.219823Z",
+                "ok": true,
+                "reasons": []
+              }
+            ],
+            "reasons": []
+          },
+          "before": {
+            "check_script": {
+              "cmd": [
+                "bash",
+                "/home/stickai/.openclaw/workspace/scripts/check_token_solver_v4.sh"
+              ],
+              "code": 0,
+              "duration_ms": 67371,
+              "ok": true,
+              "stderr": "",
+              "stdout": "token_solver_v4_dir_exists=true path=/home/stickai/.openclaw/workspace/services/token-solver-v4\n\n> token-solver-v4@0.1.0 test:all\n> npm run check && npm run test:scoring && npm run test:handoff && npm run test:run-result-handoff && npm run test:boundary && npm run test:precedence && npm run test:turn-contract && npm run test:architecture && npm run test:short-ambiguous-memory && npm run test:v5-shadow\n\n\n> token-solver-v4@0.1.0 check\n> node --check src/server.js && node --check src/scoring.js && node --check src/forward.js && node --check src/handoff.js && node --check src/resultHandoffPayload.js && node --check src/boundaryGuard.js && node --check src/turnContract.js && node --check src/v5Contract.js && node --check scripts/v4_scoring_fixture_test.mjs && node --check scripts/v4_handoff_fixture_test.mjs && node --check scripts/v4_run_result_handoff_test.mjs && node --check scripts/v4_boundary_guard_fixture_test.mjs && node --check scripts/v4_prompt_precedence_fixture_test.mjs && node --check scripts/v4_turn_contract_fixture_test.mjs && node --check scripts/v4_tool_boundary_memory_leak_regression_test.mjs && node --check scripts/v4_routing_architecture_fixture_test.mjs && node --check scripts/v4_short_ambiguous_memory_eval.mjs && node --check scripts/v4_short_ambiguous_live_smoke.mjs && node --check scripts/v4_v5_shadow_contract_fixture_test.mjs\n\n\n> token-solver-v4@0.1.0 test:scoring\n> node scripts/v4_scoring_fixture_test.mjs\n\n{\"ok\":true,\"name\":\"conversation routes nano\",\"lane\":\"nano-fast\",\"intent\":\"conversation\",\"hardGate\":null}\n{\"ok\":true,\"name\":\"neutral short prompt stays nano\",\"lane\":\"nano-fast\",\"intent\":\"conversation\",\"hardGate\":null}\n{\"ok\":true,\"name\":\"wrapped simple greeting routes nano\",\"lane\":\"nano-fast\",\"intent\":\"conversation\",\"hardGate\":null}\n{\"ok\":true,\"name\":\"wrapped project proof still hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"complex_planning\",\"hardGate\":\"memory_obligation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"simple summarize local fast\",\"lane\":\"local-fast\",\"intent\":\"simple_local\",\"hardGate\":null}\n{\"ok\":true,\"name\":\"read-only analysis local reasoning\",\"lane\":\"local-reasoning\",\"intent\":\"read_only_analysis\",\"hardGate\":null}\n{\"ok\":true,\"name\":\"repo mutation hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"coding\",\"hardGate\":\"operation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"routing scorer repair hard gates codex via composite score\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"coding\",\"hardGate\":\"complex_coding_or_schema_sensitive\"}\n{\"ok\":true,\"name\":\"production soak operations hard gates codex via composite score\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"ops\",\"hardGate\":\"operation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"combined routing repair and production soak hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"complex_planning\",\"hardGate\":\"memory_obligation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"complex planning hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"complex_planning\",\"hardGate\":\"config_change_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"ops recovery hard gates ops\",\"lane\":\"ops-maint\",\"intent\":\"ops\",\"hardGate\":\"ops_incident_or_recovery\"}\n{\"ok\":true,\"name\":\"full DR hotpatched state hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"complex_planning\",\"hardGate\":\"dr_hotpatch_or_memory_benchmark_requires_codex_high\"}\n{\"ok\":true,\"name\":\"thinmem native memory comparison hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"complex_planning\",\"hardGate\":\"memory_obligation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"context bridge status prompt hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"ops\",\"hardGate\":\"runtime_check_obligation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"project portfolio status prompt hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"complex_planning\",\"hardGate\":\"project_portfolio_status_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"explicit memory and context bridge check hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"complex_planning\",\"hardGate\":\"context_bridge_obligation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"project proof memory prompt hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"complex_planning\",\"hardGate\":\"memory_obligation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"context bridge heartbeat read prompt hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"complex_planning\",\"hardGate\":\"context_bridge_obligation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"runtime status prompt hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"ops\",\"hardGate\":\"runtime_check_obligation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"current model lane prompt hard gates codex without fleet assumption\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"ops\",\"hardGate\":\"runtime_check_obligation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"route model next prompt hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"ops\",\"hardGate\":\"runtime_check_obligation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"runtime milestone summary hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"ops\",\"hardGate\":\"runtime_check_obligation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"memory routing leak debug hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"complex_planning\",\"hardGate\":\"memory_obligation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"v4 wiring diagnosis hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"complex_planning\",\"hardGate\":\"context_bridge_obligation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"subagent envelope hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"complex_planning\",\"hardGate\":\"operation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"explicit mutating tool hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"coding\",\"hardGate\":\"tool_profile:dev_mutating\"}\n{\"ok\":true,\"name\":\"filing write intent with destination and date hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"complex_planning\",\"hardGate\":\"operation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"archive write intent with ledger update hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"complex_planning\",\"hardGate\":\"operation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"tool-backed artifact follow-up hard gates codex tool lane\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"complex_planning\",\"hardGate\":\"operation_requires_tool_capable_lane\"}\n{\"ok\":true,\"name\":\"conversation to coding transition injectable\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"coding\",\"hardGate\":\"coding_or_planning_default_strong\"}\n{\"ok\":true,\"name\":\"short ambiguous continuation inherits coding context\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"complex_planning\",\"hardGate\":\"short_ambiguous_continuation_inherits_context\"}\n{\"ok\":true,\"name\":\"short ambiguous continuation without context stays safe chat\",\"lane\":\"nano-fast\",\"intent\":\"conversation\",\"hardGate\":null}\n{\"ok\":true,\"name\":\"verification flag hard gates codex\",\"lane\":\"ollama-cloud-heavy-coder\",\"intent\":\"conversation\",\"hardGate\":\"verification_or_strong_cloud_lane\"}\n\n> token-solver-v4@0.1.0 test:handoff\n> node scripts/v4_handoff_fixture_test.mjs\n\n{\"ok\":true,\"name\":\"transition handoff injection\",\"lane\":\"ollama-cloud-heavy-coder\"}\n\n> token-solver-v4@0.1.0 test:run-result-handoff\n> node scripts/v4_run_result_handoff_test.mjs\n\n{\"ok\":true,\"name\":\"run result handoff payload\",\"cases\":6}\n\n> token-solver-v4@0.1.0 test:boundary\n> node scripts/v4_boundary_guard_fixture_test.mjs\n\n{\"ok\":true,\"name\":\"v4 boundary guard fixtures\"}\n\n> token-solver-v4@0.1.0 test:precedence\n> node scripts/v4_prompt_precedence_fixture_test.mjs\n\n{\"ok\":true,\"name\":\"v4_prompt_precedence_fixture_test\"}\n\n> token-solver-v4@0.1.0 test:turn-contract\n> node scripts/v4_turn_contract_fixture_test.mjs\n\n{\"ok\":true,\"name\":\"v4_turn_contract_fixture_test\"}\n\n> token-solver-\n...[truncated 11556 chars]"
+            },
+            "checked_at": "2026-07-21T07:42:09.219823Z",
+            "health_probe": {
+              "attempts": [
+                {
+                  "duration_ms": 1091,
+                  "error": null,
+                  "ok": true,
+                  "status": 200,
+                  "url": "http://localhost:8800/health"
+                }
+              ],
+              "body": "{\"ok\":true,\"service\":\"token-solver-v4\",\"port\":8800,\"upstream_v3_base_url\":\"http://127.0.0.1:8799\",\"upstream_v3\":{\"ok\":true,\"status\":200,\"body\":{\"ok\":true,\"service\":\"token-solver-v3\",\"readiness_ok\":true,\"readiness_reason\":null,\"readiness_age_sec\":null,\"local_fast_model\":\"ollama/gemma4:e2b\",\"local_agentic_model\":\"ollama/gemma4:e2b\",\"local_reasoning_model\":\"ollama/qwen3\",\"local_embed_model\":\"ollama/nomic-embed-text\",\"codex_high_model\":\"openai-codex/gpt-5.5\",\"codex_5_3_codex_model\":\"openai-codex/gpt-5.3-codex\",\"intent_preselector_v5\":{\"enabled\":true,\"mode\":\"shadow_contract_only\",\"enforced\":false,\"trace_enabled\":false},\"ollama_base_url\":\"http://192.168.1.109:11434\"}},\"scoring\":\"deterministic-local-only\",\"required_strong_model_policy\":\"openai-codex/gpt-5.5\",\"nano_model_policy\":\"gpt-5.4\"}",
+              "duration_ms": 1091,
+              "json": {
+                "nano_model_policy": "gpt-5.4",
+                "ok": true,
+                "port": 8800,
+                "required_strong_model_policy": "openai-codex/gpt-5.5",
+                "scoring": "deterministic-local-only",
+                "service": "token-solver-v4",
+                "upstream_v3": {
+                  "body": {
+                    "codex_5_3_codex_model": "openai-codex/gpt-5.3-codex",
+                    "codex_high_model": "openai-codex/gpt-5.5",
+                    "intent_preselector_v5": {
+                      "enabled": true,
+                      "enforced": false,
+                      "mode": "shadow_contract_only",
+                      "trace_enabled": false
+                    },
+                    "local_agentic_model": "ollama/gemma4:e2b",
+                    "local_embed_model": "ollama/nomic-embed-text",
+                    "local_fast_model": "ollama/gemma4:e2b",
+                    "local_reasoning_model": "ollama/qwen3",
+                    "ok": true,
+                    "ollama_base_url": "http://192.168.1.109:11434",
+                    "readiness_age_sec": null,
+                    "readiness_ok": true,
+                    "readiness_reason": null,
+                    "service": "token-solver-v3"
+                  },
+                  "ok": true,
+                  "status": 200
+                },
+                "upstream_v3_base_url": "http://127.0.0.1:8799"
+              },
+              "ok": true,
+              "status": 200,
+              "url": "http://localhost:8800/health"
+            },
+            "id": "token-solver-v4",
+            "models_probe": {
+              "attempts": [
+                {
+                  "duration_ms": 3,
+                  "error": null,
+                  "ok": true,
+                  "status": 200,
+                  "url": "http://localhost:8800/v1/models"
+                }
+              ],
+              "body": "{\"object\":\"list\",\"data\":[{\"id\":\"token-solver-v4/default\",\"object\":\"model\",\"created\":1777600000,\"owned_by\":\"local-token-solver-v4\",\"token_solver_v4\":{\"lane\":\"nano-fast\",\"upstream\":\"token-solver-v3/nano-fast\",\"description\":\"deterministic prehandler default; conversational routes to nano\"}},{\"id\":\"token-solver-v4/auto\",\"object\":\"model\",\"created\":1777600000,\"owned_by\":\"local-token-solver-v4\",\"token_solver_v4\":{\"lane\":\"nano-fast\",\"upstream\":\"token-solver-v3/nano-fast\",\"description\":\"deterministic sentiment+intent auto router\"}},{\"id\":\"token-solver-v4/nano-fast\",\"object\":\"model\",\"created\":1777600000,\"owned_by\":\"local-token-solver-v4\",\"token_solver_v4\":{\"lane\":\"nano-fast\",\"upstream\":\"token-solver-v3/nano-fast\",\"description\":\"conversation-only nano lane policy gpt-5.4\"}},{\"id\":\"token-solver-v4/local-fast\",\"object\":\"model\",\"created\":1777600000,\"owned_by\":\"local-token-solver-v4\",\"token_solver_v4\":{\"lane\":\"local-fast\",\"upstream\":\"token-solver-v3/local-fast\",\"description\":\"simple local v3 lane\"}},{\"id\":\"token-solver-v4/local-agentic\",\"object\":\"model\",\"created\":1777600000,\"owned_by\":\"local-token-solver-v4\",\"token_solver_v4\":{\"lane\":\"local-agentic\",\"upstream\":\"token-solver-v3/local-agentic\",\"description\":\"bounded local agentic v3 lane\"}},{\"id\":\"token-solver-v4/local-reasoning\",\"object\":\"model\",\"created\":1777600000,\"owned_by\":\"local-token-solver-v4\",\"token_solver_v4\":{\"lane\":\"local-reasoning\",\"upstream\":\"token-solver-v3/local-reasoning\",\"description\":\"bounded local reasoning v3 lane\"}},{\"id\":\"token-solver-v4/ollama-cloud-heavy-coder\",\"object\":\"model\",\"created\":1777600000,\"owned_by\":\"local-token-solver-v4\",\"token_solver_v4\":{\"lane\":\"ollama-cloud-heavy-coder\",\"upstream\":\"token-solver-v3/ollama-cloud-heavy-coder\",\"description\":\"controlled Ollama Cloud heavy-coder lane policy ollama/deepseek-v4-pro:cloud\"}},{\"id\":\"token-solver-v4/codex-high\",\"object\":\"model\",\"created\":1777600000,\"owned_by\":\"local-token-solver-v4\",\"token_solver_v4\":{\"lane\":\"codex-high\",\"upstream\":\"token-solver-v3/codex-high\",\"description\":\"strong coding/planning lane policy openai-codex/gpt-5.5\"}},{\"id\":\"token-solver-v4/ops-maint\",\"object\":\"model\",\"created\":1777600000,\"owned_by\":\"local-token-solver-v4\",\"token_solver_v4\":{\"lane\":\"ops-maint\",\"upstream\":\"token-solver-v3/ops-maint\",\"description\":\"safe operational maintenance lane\"}},{\"id\":\"token-solver-v4/canary\",\"object\":\"model\",\"created\":1777600000,\"owned_by\":\"local-token-solver-v4\",\"token_solver_v4\":{\"lane\":\"canary\",\"upstream\":\"token-solver-v3/default\",\"description\":\"explicit deterministic OpenClaw route canary for token-solver-v4 ingress\"}}]}",
+              "duration_ms": 3,
+              "json": {
+                "ids": [
+                  "token-solver-v4/default",
+                  "token-solver-v4/auto",
+                  "token-solver-v4/nano-fast",
+                  "token-solver-v4/local-fast",
+                  "token-solver-v4/local-agentic",
+                  "token-solver-v4/local-reasoning",
+                  "token-solver-v4/ollama-cloud-heavy-coder",
+                  "token-solver-v4/codex-high",
+                  "token-solver-v4/ops-maint",
+                  "token-solver-v4/canary"
+                ],
+                "model_count": 10,
+                "object": "list"
+              },
+              "ok": true,
+              "status": 200,
+              "url": "http://localhost:8800/v1/models"
+            },
+            "ok": true,
+            "port": 8800,
+            "probe_attempts": [
+              {
+                "attempt": 1,
+                "checked_at": "2026-07-21T07:42:09.219823Z",
+                "ok": true,
+                "reasons": []
+              }
+            ],
+            "reasons": []
+          },
+          "id": "token-solver-v4",
+          "restart": null
+        }
+      ],
+      "started_at": "2026-07-21T07:41:00.750849Z"
+    },
+    "path": "/home/stickai/.openclaw/workspace/state/token-solvers/latest.json",
+    "sha256": "bb21e5bb76c3c679f849b553fef82583b536420651639c3132f1519b2be367f0"
+  }
+}

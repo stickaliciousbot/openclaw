@@ -1,0 +1,13 @@
+{
+  "constraints": {
+    "candidate_install": "forbidden",
+    "gateway_restart": "forbidden",
+    "provider_telegram_send": "forbidden",
+    "push": "forbidden"
+  },
+  "evidence_dir": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z",
+  "milestone": "M25O-A-I-RDY-P4E-V",
+  "run_id": "m25o_a_i_rdy_p4e_v_poller_hardening_20260721T072900Z",
+  "started_utc": "2026-07-21T07:54:26.986340+00:00",
+  "terminal_expected": "M25O_A_I_RDY_P4E_POLLER_TRANSIENT_FAILURE_HARDENING_PASS_CRITICAL_RED_ZERO"
+}

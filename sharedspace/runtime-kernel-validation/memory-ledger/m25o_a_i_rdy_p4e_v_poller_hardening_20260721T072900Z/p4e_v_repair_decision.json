@@ -1,0 +1,4 @@
+{
+  "decision": "V-B",
+  "reason": "Endpoint mapping and bounded retry existed from quick repair, but full hysteresis, cross-process cycle lock, bounded last-success, transition state, and diagnostics contract were missing. Applied only missing hardening features; did not reapply endpoint mapping."
+}

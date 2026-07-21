@@ -1,0 +1,7 @@
+{
+  "binary_build": "target/debug binary exists; cargo build process timed/SIGTERM after producing binary; isolated matrix executed binary PASS",
+  "compile_gate": "rustup run stable cargo check --locked PASS",
+  "config_edit_this_phase": "no",
+  "marker": "M25O_A_I_RDY_P4E_POLLER_HARDENING_APPLIED",
+  "source_edit": "yes"
+}

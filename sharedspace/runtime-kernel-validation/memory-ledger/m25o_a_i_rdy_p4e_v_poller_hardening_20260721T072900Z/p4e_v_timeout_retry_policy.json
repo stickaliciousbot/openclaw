@@ -1,0 +1,8 @@
+{
+  "connect_timeout_seconds": 2,
+  "max_attempts_per_cycle": 2,
+  "request_timeout_seconds": 8,
+  "retry_backoff_ms": 500,
+  "retry_jitter_ms": 250,
+  "retry_storm_prevention": "bounded_attempts_per_cycle_and_non_overlap_lock"
+}

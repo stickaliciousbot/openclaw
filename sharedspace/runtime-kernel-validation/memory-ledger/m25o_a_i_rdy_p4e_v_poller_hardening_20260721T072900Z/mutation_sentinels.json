@@ -1,0 +1,10 @@
+{
+  "candidate_install": "no",
+  "gateway_config_mutation": "no",
+  "gateway_restart": "no",
+  "ledger_context_bridge_mutation": "no",
+  "m25o_b_m26": "not_started",
+  "route_provider_fallback_mutation": "no",
+  "runtime_kernel_config_edit_this_phase": "no",
+  "runtime_kernel_source_edit": "yes"
+}

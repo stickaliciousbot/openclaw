@@ -1,0 +1,27 @@
+{
+  "config_path": "/home/stickai/.openclaw/workspace/projects/stickbot-runtime-kernel/config/registry.yaml",
+  "config_sha256": "0c195fcc7ace47bbc1aebae71ab8c3858bf6968c714bc8b47085eec63e04d19a",
+  "features": {
+    "A single transport error does not immediately become critical": "IMPLEMENTED_AND_ACTIVE",
+    "Attempts per cycle are bounded": "IMPLEMENTED_AND_ACTIVE",
+    "Diagnostic attempt/latency/transition fields exist": "IMPLEMENTED_AND_ACTIVE",
+    "Gateway source is /ready": "IMPLEMENTED_AND_ACTIVE",
+    "Last-success age is bounded": "IMPLEMENTED_AND_ACTIVE",
+    "Poll cycles cannot overlap": "IMPLEMENTED_AND_ACTIVE",
+    "Recovery uses confirmation/hysteresis": "IMPLEMENTED_AND_ACTIVE",
+    "Sustained failures become critical": "IMPLEMENTED_AND_ACTIVE",
+    "Telegram source is advisory /health": "IMPLEMENTED_AND_ACTIVE",
+    "Transport errors are distinct from explicit unready responses": "IMPLEMENTED_AND_ACTIVE"
+  },
+  "producer_invocation": "scripts/stick-runtime status --json -> cargo run --locked --quiet -- check --registry projects/stickbot-runtime-kernel/config/registry.yaml --db state/runtime-kernel/events.sqlite",
+  "request_client_construction": {
+    "connect_timeout_seconds": 2,
+    "max_attempts_per_cycle": 2,
+    "request_timeout_seconds": 8,
+    "retry_backoff_ms": 500,
+    "retry_jitter_ms": 250
+  },
+  "source_path": "/home/stickai/.openclaw/workspace/projects/stickbot-runtime-kernel/src/kernel.rs",
+  "source_sha256": "227a22ed75ab02747694e9cec6ac5140bf59db571b9f9c2f1786e6d4eca85de0",
+  "tracked_status": "untracked_under_projects/stickbot-runtime-kernel"
+}

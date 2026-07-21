@@ -1,0 +1,5 @@
+{
+  "notes": "Artifacts contain health/status metadata and bounded mock outputs; no provider responses, Telegram messages, secrets, or sensitive bodies persisted.",
+  "raw_private_response_bodies_persisted": false,
+  "status": "PASS"
+}

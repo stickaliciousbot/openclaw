@@ -1,0 +1,7 @@
+{
+  "allow_once_commands": [
+    "rustup run stable cargo check --locked",
+    "runtime-kernel producer refresh via scripts/stick-runtime status --json"
+  ],
+  "approval_mode": "owner instruction allowed active poller source/config inspection and missing bounded hardening; live producer mutation via source compile/check only; no Gateway restart"
+}

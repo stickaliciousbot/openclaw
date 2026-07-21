@@ -1,0 +1,7 @@
+{
+  "critical": "red after 3 consecutive failed cycles or stale last success age > max(30s,3*poll_interval)",
+  "explicit_unready": "red:GATEWAY_READINESS_EXPLICIT_UNREADY_CONFIRMED",
+  "one_transport_failed_cycle": "yellow:GATEWAY_READINESS_TRANSIENT_PROBE_ERROR",
+  "recovery": "first success yellow recovering, second success external_observed",
+  "second_failed_cycle": "yellow:GATEWAY_READINESS_PROBE_FAILURE_CONFIRMING"
+}

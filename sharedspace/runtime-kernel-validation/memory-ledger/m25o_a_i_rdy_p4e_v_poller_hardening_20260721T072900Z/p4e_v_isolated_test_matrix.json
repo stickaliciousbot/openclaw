@@ -1,0 +1,25 @@
+{
+  "cases": [
+    "fast_healthy_readiness",
+    "six_second_slow_healthy_response",
+    "first_attempt_timeout_retry_succeeds",
+    "one_failed_cycle_followed_by_healthy",
+    "two_failed_cycles_followed_by_healthy",
+    "three_consecutive_transport_failures",
+    "explicit_ready_false_confirmed",
+    "http_503_ready_confirmed",
+    "malformed_readiness_json",
+    "recovery_from_sustained_red",
+    "telegram_proxy_timeout_advisory",
+    "gateway_healthy_ui_root_503",
+    "overlapping_invocation_attempt",
+    "last_success_grace_expiry"
+  ],
+  "summary": {
+    "fail_count": 0,
+    "ok": true,
+    "pass_count": 14,
+    "result_count": 14,
+    "terminal": "M25O_A_I_RDY_P4E_ISOLATED_POLLER_HARDENING_VALIDATION_PASS"
+  }
+}

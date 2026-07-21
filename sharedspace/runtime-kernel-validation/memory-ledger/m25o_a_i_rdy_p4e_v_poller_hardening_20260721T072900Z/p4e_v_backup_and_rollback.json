@@ -1,0 +1,16 @@
+{
+  "after_sha": {
+    "kernel_rs": "227a22ed75ab02747694e9cec6ac5140bf59db571b9f9c2f1786e6d4eca85de0",
+    "registry_yaml": "0c195fcc7ace47bbc1aebae71ab8c3858bf6968c714bc8b47085eec63e04d19a"
+  },
+  "backup_dir": "/home/stickai/.openclaw/backups/runtime-kernel-projection-false-red-20260721T1615",
+  "before_sha": {
+    "kernel_rs": "2320f5c0d19b1f5b53d7b919df6d1289e4fa469329d1aa9672b582872858c14a",
+    "registry_yaml": "0c195fcc7ace47bbc1aebae71ab8c3858bf6968c714bc8b47085eec63e04d19a"
+  },
+  "marker": "P4E_V_BACKUP_ROLLBACK_READY",
+  "restore_commands": [
+    "cp /home/stickai/.openclaw/backups/runtime-kernel-projection-false-red-20260721T1615/kernel.rs /home/stickai/.openclaw/workspace/projects/stickbot-runtime-kernel/src/kernel.rs",
+    "cp /home/stickai/.openclaw/backups/runtime-kernel-projection-false-red-20260721T1615/registry.yaml /home/stickai/.openclaw/workspace/projects/stickbot-runtime-kernel/config/registry.yaml"
+  ]
+}

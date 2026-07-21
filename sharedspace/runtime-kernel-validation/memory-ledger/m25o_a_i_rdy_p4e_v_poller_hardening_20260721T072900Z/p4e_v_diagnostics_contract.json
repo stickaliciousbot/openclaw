@@ -1,0 +1,29 @@
+{
+  "artifact_fields": [
+    "poll_cycle_started_at",
+    "poll_cycle_completed_at",
+    "poll_cycle_duration_ms",
+    "producer_identity",
+    "policy_version"
+  ],
+  "sensitive_response_bodies_persisted": false,
+  "service_fields": [
+    "probe_attempts",
+    "successful_attempt",
+    "latency_ms",
+    "attempt_latencies_ms",
+    "error_class",
+    "error_detail_code",
+    "consecutive_failed_cycles",
+    "consecutive_successful_cycles",
+    "last_success_at",
+    "last_success_age_seconds",
+    "last_failure_at",
+    "state_transition",
+    "state_transition_reason",
+    "using_last_known_good",
+    "freshness_state",
+    "configured_timeout_seconds",
+    "configured_max_attempts"
+  ]
+}

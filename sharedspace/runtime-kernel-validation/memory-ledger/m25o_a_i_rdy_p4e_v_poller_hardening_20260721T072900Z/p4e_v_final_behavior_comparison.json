@@ -1,0 +1,10 @@
+{
+  "control_ui": "separate",
+  "evidence": "Cycle 18 natural transient: Gateway /health timed out, Runtime Kernel correctly detected PROBE_TIMEOUT, transitioned to red via PROBE_STALE_LAST_SUCCESS, then recovered to external_observed after 2 successful cycles. No false critical red while Gateway was healthy.",
+  "explicit_unready": "still_fail_closed",
+  "old_root_mapping_bug": "fixed",
+  "one_shot_timeout_false_red": "prevented_by_policy",
+  "runtime_kernel": "reliable_enough_for_canonicalization",
+  "sustained_failure": "still_fail_closed",
+  "telegram": "advisory"
+}
