@@ -1,0 +1,26 @@
+{
+  "classification": "PASS_T48_SIDE_EFFECT_ABSENCE_RECONFIRMED",
+  "gate_results": {
+    "P5BUS1C_G23_provider_tool_delivery_zero": "PASS",
+    "P5BUS1C_G24_production_mutations_zero": "PASS",
+    "P5BUS1C_G25_no_enforcement": "PASS"
+  },
+  "generated_at": "2026-07-23T21:49:00Z",
+  "ledger_bridge_mutations_zero": true,
+  "no_enforcement": true,
+  "production_mutation_sentinels": {
+    "deliveries_by_shadow": 0,
+    "ledger_context_bridge_mutations_by_shadow": 0,
+    "provider_calls_by_shadow": 0,
+    "route_mutations_by_shadow": 0,
+    "tool_calls_by_shadow": 0
+  },
+  "provider_tool_delivery_zero": true,
+  "route_mutations_zero": true,
+  "shadow_status": {
+    "duration_seconds": 172820,
+    "generated_at": "2026-07-23T21:41:32Z",
+    "marker": "UNIVERSAL_KERNEL_SHADOW_ONLY_NO_PRODUCTION_AUTHORITY",
+    "status": "STOPPED_SHADOW_OBSERVATION"
+  }
+}

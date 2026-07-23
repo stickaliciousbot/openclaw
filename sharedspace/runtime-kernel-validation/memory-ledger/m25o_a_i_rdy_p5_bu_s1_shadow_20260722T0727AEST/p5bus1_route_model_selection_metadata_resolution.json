@@ -1,0 +1,88 @@
+{
+  "classification": "PASS_ROUTE_MODEL_SELECTION_METADATA_RESOLVED_READ_ONLY",
+  "config_path": "/home/stickai/.openclaw/openclaw.json",
+  "config_sha256": "da09bba59b71b472dc0017f4e386dbdc2080e1964f4705ae7ee38ec8e6e17e70",
+  "configuration_mutated": false,
+  "generated_at": "2026-07-23T21:49:00Z",
+  "routes": [
+    {
+      "agent": "keyed_alias_or_unavailable",
+      "correlation_completeness": "pending_full_window",
+      "delivery_path": "not_invoked_by_shadow",
+      "direct_provider_indicator": false,
+      "entry_surfaces": [
+        "internal_jobs",
+        "telegram"
+      ],
+      "kernel_shadow_visibility": "SHADOW_OBSERVED_PARTIAL",
+      "note": "Effective default/channel model; metadata read-only resolution only.",
+      "primary_fallback_local_cloud": "unknown_pending_route_metadata",
+      "provider": null,
+      "resolution_sources": [
+        "agents.defaults.model.primary",
+        "channels.modelByChannel.telegram.8495203551"
+      ],
+      "resolved_provider": "openai-codex",
+      "resolved_selected_model_metadata": "openai-codex/gpt-5.5",
+      "route_class": "SHADOW_OBSERVED_PARTIAL",
+      "route_id_alias": "unknown_route_alias",
+      "selected_model": null,
+      "selection_altered": false,
+      "tool_path": "not_invoked_by_shadow"
+    },
+    {
+      "agent": "keyed_alias_or_unavailable",
+      "correlation_completeness": "pending_full_window",
+      "delivery_path": "not_invoked_by_shadow",
+      "direct_provider_indicator": false,
+      "entry_surfaces": [
+        "scheduled_jobs",
+        "telegram"
+      ],
+      "kernel_shadow_visibility": "SHADOW_OBSERVED_PARTIAL",
+      "note": "OpenAI Codex configured effective model; no route selection altered.",
+      "primary_fallback_local_cloud": "unknown_pending_route_metadata",
+      "provider": "openai-codex",
+      "resolution_sources": [
+        "agents.defaults.model.primary",
+        "channels.modelByChannel.telegram.8495203551"
+      ],
+      "resolved_provider": "openai-codex",
+      "resolved_selected_model_metadata": "openai-codex/gpt-5.5",
+      "route_class": "SHADOW_OBSERVED_PARTIAL",
+      "route_id_alias": "45d24a7511f0c0fa2d552781",
+      "selected_model": null,
+      "selection_altered": false,
+      "tool_path": "not_invoked_by_shadow"
+    },
+    {
+      "agent": "keyed_alias_or_unavailable",
+      "correlation_completeness": "pending_full_window",
+      "delivery_path": "not_invoked_by_shadow",
+      "direct_provider_indicator": false,
+      "entry_surfaces": [
+        "scheduled_jobs",
+        "telegram"
+      ],
+      "kernel_shadow_visibility": "SHADOW_OBSERVED_PARTIAL",
+      "note": "Configured fallback route metadata only; not used for this closeout due strict model pin.",
+      "primary_fallback_local_cloud": "unknown_pending_route_metadata",
+      "provider": "ollama",
+      "resolution_sources": [
+        "agents.defaults.model.fallbacks[0]"
+      ],
+      "resolved_provider": "ollama",
+      "resolved_selected_model_metadata": "ollama/deepseek-v4-pro:cloud",
+      "route_class": "SHADOW_OBSERVED_PARTIAL",
+      "route_id_alias": "e81a588fce1f57f29fac1ab8",
+      "selected_model": null,
+      "selection_altered": false,
+      "tool_path": "not_invoked_by_shadow"
+    }
+  ],
+  "summary": {
+    "routes_resolved": 3,
+    "selection_altered": false,
+    "strict_closeout_model_used": "openai-codex/gpt-5.5"
+  }
+}

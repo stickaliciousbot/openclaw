@@ -1,0 +1,32 @@
+{
+  "blockers": [
+    {
+      "blocker_id": "S2-B1",
+      "evidence": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p5_bu_s1_shadow_20260722T0727AEST/p5bus1_final_universal_coverage_matrix.json",
+      "status": "BLOCKS_ENFORCEMENT_NOT_S1_SHADOW_COVERAGE",
+      "title": "Independent health authority missing/advisory for production surfaces"
+    },
+    {
+      "blocker_id": "S2-B2",
+      "evidence": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p5_bu_s1_shadow_20260722T0727AEST/p5bus1_route_model_selection_metadata_resolution.json",
+      "status": "BLOCKS_ENFORCEMENT_NOT_S1_SHADOW_COVERAGE",
+      "title": "Route execution/delivery correlation remains shadow-partial; model metadata resolved read-only"
+    },
+    {
+      "blocker_id": "S2-B3",
+      "evidence": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p5_bu_s1_shadow_20260722T0727AEST/p5bus1_t48_side_effect_absence_reconfirmation.json",
+      "status": "REQUIRED_NO_ENFORCEMENT_CONSTRAINT",
+      "title": "No production enforcement hook armed; candidate remains uninstalled/unarmed"
+    },
+    {
+      "blocker_id": "S2-B4",
+      "evidence": "user hard constraint in cron closeout request",
+      "status": "WAIT_FOR_OWNER",
+      "title": "Owner authorization required before any S2/M25O-B/M26 action"
+    }
+  ],
+  "classification": "S2_BLOCKED_PACKAGE_CREATED_S1_PASS_NO_ENFORCEMENT",
+  "generated_at": "2026-07-23T21:49:00Z",
+  "m25ob_m26_started": false,
+  "s2_start_authorized": false
+}

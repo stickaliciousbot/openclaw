@@ -1,0 +1,29 @@
+{
+  "bytes_reduced_in_copy": 61875506,
+  "classification": "PASS_RETENTION_COMPACTION_VALIDATED_ON_COPIED_STATE_ONLY",
+  "compacted_copy_root": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p5_bu_s1_shadow_20260722T0727AEST/t48_copy_retention_fixture_validation/shadow_state_copy_compacted",
+  "copy_after_compaction": {
+    "file_count": 15,
+    "root": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p5_bu_s1_shadow_20260722T0727AEST/t48_copy_retention_fixture_validation/shadow_state_copy_compacted",
+    "total_bytes": 23417552
+  },
+  "copy_before_compaction": {
+    "file_count": 17,
+    "root": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p5_bu_s1_shadow_20260722T0727AEST/t48_copy_retention_fixture_validation/shadow_state_copy",
+    "total_bytes": 85293058
+  },
+  "copy_root": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p5_bu_s1_shadow_20260722T0727AEST/t48_copy_retention_fixture_validation/shadow_state_copy",
+  "gate_results": {
+    "P5BUS1C_G18_retention_validated": "PASS"
+  },
+  "generated_at": "2026-07-23T21:49:00Z",
+  "live_state_mutated": false,
+  "required_terminal_checkpoints_retained": {
+    "p5bus1_checkpoint_final.json": true,
+    "p5bus1_checkpoint_t0.json": true,
+    "p5bus1_checkpoint_t24h.json": true,
+    "p5bus1_checkpoint_t2h.json": true,
+    "p5bus1_checkpoint_t8h.json": true
+  },
+  "source_live_shadow_root": "/home/stickai/.local/state/stickbot-universal-runtime-kernel-shadow"
+}

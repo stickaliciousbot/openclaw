@@ -1,0 +1,17 @@
+{
+  "classification": "PASS_FINAL_DIVERGENCE_PRIVACY_REVIEW",
+  "dangerous_divergences": 0,
+  "direct_bypasses": 0,
+  "dropped_events": 0,
+  "duplicate_correlations": 0,
+  "fixture_payload_privacy": "synthetic_keyed_alias_metadata_only",
+  "gate_results": {
+    "P5BUS1C_G20_dangerous_divergences_zero": "PASS",
+    "P5BUS1C_G21_shadow_weaker_zero": "PASS",
+    "P5BUS1C_G22_privacy_errors_zero": "PASS"
+  },
+  "generated_at": "2026-07-23T21:49:00Z",
+  "privacy_errors": 0,
+  "privacy_mode": "keyed_alias_metadata_only",
+  "shadow_weaker_than_live_count": 0
+}

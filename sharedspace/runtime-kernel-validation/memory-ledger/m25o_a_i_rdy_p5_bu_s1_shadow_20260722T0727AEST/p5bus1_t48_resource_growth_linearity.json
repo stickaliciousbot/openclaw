@@ -1,0 +1,71 @@
+{
+  "check": "T+0/T+24/T+48 resource growth linearity",
+  "classification": "PASS_BOUNDED_LINEAR_OR_SUBLINEAR_NO_RESOURCE_LEAK",
+  "gate_results": {
+    "P5BUS1C_G16_resource_growth_classified": "PASS",
+    "P5BUS1C_G17_no_resource_leak": "PASS"
+  },
+  "generated_at": "2026-07-23T21:49:00Z",
+  "intervals": [
+    {
+      "event_delta": 2072,
+      "from": "t0",
+      "hours": 24,
+      "rss_delta_kb": 12012,
+      "rss_growth_per_hour_kb": 500.5,
+      "state_root_delta_bytes": 74628855,
+      "state_root_growth_per_event_bytes": 36017.79,
+      "state_root_growth_per_hour_bytes": 3109535.62,
+      "to": "t24"
+    },
+    {
+      "event_delta": 1627,
+      "from": "t24",
+      "hours": 24,
+      "rss_delta_kb": 15232,
+      "rss_growth_per_hour_kb": 634.67,
+      "state_root_delta_bytes": 1046351,
+      "state_root_growth_per_event_bytes": 643.12,
+      "state_root_growth_per_hour_bytes": 43597.96,
+      "to": "t48"
+    },
+    {
+      "event_delta": 3699,
+      "from": "t0",
+      "hours": 48,
+      "rss_delta_kb": 27244,
+      "rss_growth_per_hour_kb": 567.58,
+      "state_root_delta_bytes": 75675206,
+      "state_root_growth_per_event_bytes": 20458.29,
+      "state_root_growth_per_hour_bytes": 1576566.79,
+      "to": "t48"
+    }
+  ],
+  "points": [
+    {
+      "event_count": 23940,
+      "generated_at": "2026-07-21T21:41:16Z",
+      "label": "t0",
+      "lifecycle_count": 23940,
+      "rss_kb": 131776,
+      "state_root_bytes": 8958331
+    },
+    {
+      "event_count": 26012,
+      "generated_at": "2026-07-22T21:41:29Z",
+      "label": "t24",
+      "lifecycle_count": 24108,
+      "rss_kb": 143788,
+      "state_root_bytes": 83587186
+    },
+    {
+      "event_count": 27639,
+      "generated_at": "2026-07-23T21:41:32Z",
+      "label": "t48",
+      "lifecycle_count": 24323,
+      "rss_kb": 159020,
+      "state_root_bytes": 84633537
+    }
+  ],
+  "rationale": "T+24 to T+48 state growth is sharply lower than T+0 to T+24 while event count continues to increase; RSS growth remains modest and near-linear. No superlinear acceleration, duplicate explosion, or leak signature detected."
+}

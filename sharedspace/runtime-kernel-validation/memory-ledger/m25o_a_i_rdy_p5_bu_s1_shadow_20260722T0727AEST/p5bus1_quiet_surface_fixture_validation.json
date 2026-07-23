@@ -1,0 +1,45 @@
+{
+  "classification": "PASS_6_QUIET_SURFACE_FIXTURES_MIRRORABLE_ISOLATED_ONLY",
+  "fixture_root": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p5_bu_s1_shadow_20260722T0727AEST/t48_copy_retention_fixture_validation/quiet_surface_fixtures_isolated",
+  "fixtures_are_natural_traffic": false,
+  "generated_at": "2026-07-23T21:49:00Z",
+  "production_calls_attempted": false,
+  "provider_tool_delivery_calls_by_fixture": 0,
+  "summary": {
+    "fail": 0,
+    "pass": 6,
+    "surfaces_tested": 6
+  },
+  "surfaces": [
+    {
+      "result": "MIRRORABLE_NO_NATURAL_TRAFFIC_CONFIRMED",
+      "state_scope": "isolated_copy_only",
+      "surface": "web_control_ui"
+    },
+    {
+      "result": "MIRRORABLE_NO_NATURAL_TRAFFIC_CONFIRMED",
+      "state_scope": "isolated_copy_only",
+      "surface": "gmail_email"
+    },
+    {
+      "result": "MIRRORABLE_NO_NATURAL_TRAFFIC_CONFIRMED",
+      "state_scope": "isolated_copy_only",
+      "surface": "http_hooks"
+    },
+    {
+      "result": "MIRRORABLE_NO_NATURAL_TRAFFIC_CONFIRMED",
+      "state_scope": "isolated_copy_only",
+      "surface": "webhooks"
+    },
+    {
+      "result": "MIRRORABLE_NO_NATURAL_TRAFFIC_CONFIRMED",
+      "state_scope": "isolated_copy_only",
+      "surface": "agent_to_agent"
+    },
+    {
+      "result": "MIRRORABLE_NO_NATURAL_TRAFFIC_CONFIRMED",
+      "state_scope": "isolated_copy_only",
+      "surface": "cli_admin"
+    }
+  ]
+}

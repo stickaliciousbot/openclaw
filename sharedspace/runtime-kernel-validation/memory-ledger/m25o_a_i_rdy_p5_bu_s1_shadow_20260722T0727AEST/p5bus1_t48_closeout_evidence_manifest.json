@@ -1,0 +1,85 @@
+{
+  "artifacts": [
+    {
+      "bytes": 2570,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p5_bu_s1_shadow_20260722T0727AEST/p5bus1_checkpoint_t48h.json",
+      "sha256": "70395e5f1f37f20ada34fbee3e6d7099ae132157501fe4068bad17719c7130fd"
+    },
+    {
+      "bytes": 2111,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p5_bu_s1_shadow_20260722T0727AEST/p5bus1_t48_resource_growth_linearity.json",
+      "sha256": "27d60e83e11735127e0270b8e22391b442589de6b461ca208068ac8b42f30fab"
+    },
+    {
+      "bytes": 1637,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p5_bu_s1_shadow_20260722T0727AEST/p5bus1_retention_compaction_copy_validation.json",
+      "sha256": "1f41b161fee0461ec41e93c80e8c20c516cb805d8ce3b2658bc91747aba3f7fd"
+    },
+    {
+      "bytes": 1446,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p5_bu_s1_shadow_20260722T0727AEST/p5bus1_quiet_surface_fixture_validation.json",
+      "sha256": "4398ba0e9817bca51f78e9605a631f6707ffcb0ebe1ecc6da87ba397df348691"
+    },
+    {
+      "bytes": 3370,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p5_bu_s1_shadow_20260722T0727AEST/p5bus1_route_model_selection_metadata_resolution.json",
+      "sha256": "2d557b4c1456958722b0ba39e48c4595f1c8bfe5f7d3e0f7220624facb87c615"
+    },
+    {
+      "bytes": 6856,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p5_bu_s1_shadow_20260722T0727AEST/p5bus1_final_universal_coverage_matrix.json",
+      "sha256": "329eb9e3789929fc7a2e5cf694c192aab4474f42397c3b2266026638363bc483"
+    },
+    {
+      "bytes": 861,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p5_bu_s1_shadow_20260722T0727AEST/p5bus1_t48_side_effect_absence_reconfirmation.json",
+      "sha256": "2961d108d216737d9085d5c28e936a2cecdbc45d944cee7d2b9af0ae2c81c047"
+    },
+    {
+      "bytes": 560,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p5_bu_s1_shadow_20260722T0727AEST/p5bus1_final_divergence_privacy_review.json",
+      "sha256": "50d4b4b9e76f4a2470198d4f17308fc2d956fc994efc0cc3151dc000dc35d581"
+    },
+    {
+      "bytes": 1626,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p5_bu_s1_shadow_20260722T0727AEST/p5bus1_s2_blocker_package.json",
+      "sha256": "99046c87b01f79a64081f3666047e0e68f94c0b86b31a28ec8b6449474a89732"
+    },
+    {
+      "bytes": 2693,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p5_bu_s1_shadow_20260722T0727AEST/p5bus1_final_enforcement_readiness_decision.json",
+      "sha256": "b9f573597868dbf2a67b0211ad69c0af584f3f02a6d318957b170f13e25b520e"
+    },
+    {
+      "bytes": 197,
+      "path": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p5_bu_s1_shadow_20260722T0727AEST/p5bus1_final_terminal.json",
+      "sha256": "fdced0d25087f1fc2ede7b0bc448a29312764293036060d924686aa3b0b31f81"
+    }
+  ],
+  "classification": "PASS_CLOSEOUT_TERMINAL_ARTIFACTS_EXIST",
+  "generated_at": "2026-07-23T21:49:00Z",
+  "harness_evidence": {
+    "detached_child_needed": false,
+    "harness_path": "/home/stickai/.openclaw/workspace/scripts/long_running_cron_observer_harness.py",
+    "harness_sha256": "d54e31559ef73d40993dc6fc58330213fb0280b5b2f24b3cad55eb0fbf735e6d",
+    "pattern_guarantees_read_and_applied": [
+      "no shell command construction for detached child launch",
+      "artifact directory before child launch",
+      "required terminal evidence files before PASS anchor",
+      "registry updated atomically before PASS anchor",
+      "semantic PASS remains child responsibility"
+    ],
+    "reason_no_harness_launch": "T+48 checkpoint already terminal in shadow state; closeout work is bounded local artifact generation, not long-running detached observation."
+  },
+  "model_evidence": {
+    "active_model": "openai-codex/gpt-5.5",
+    "fallback_policy": "HOLD_MODEL_PIN_UNAVAILABLE_DO_NOT_PASS_FROM_FALLBACK",
+    "fallbacks_configured_but_not_used": [
+      "ollama/deepseek-v4-pro:cloud"
+    ],
+    "session_status_checked_before_work": true,
+    "strict_pin": "openai-codex/gpt-5.5"
+  },
+  "terminal_status": "M25O_A_I_RDY_P5_BU_S1_UNIVERSAL_LIVE_SHADOW_COVERAGE_PASS_NO_ENFORCEMENT",
+  "validation_copy_root": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p5_bu_s1_shadow_20260722T0727AEST/t48_copy_retention_fixture_validation"
+}

@@ -1,0 +1,19 @@
+{
+  "expected_result": "MIRRORABLE_NO_NATURAL_TRAFFIC_CONFIRMED",
+  "fixture_id": "p5bus1_t48_quiet_agent_to_agent",
+  "is_natural_traffic": false,
+  "observability_path": {
+    "closeout": "synthetic_terminal_stage",
+    "egress": "not_applicable_no_delivery",
+    "execution": "synthetic_lifecycle_stage",
+    "ingress": "synthetic_metadata_event",
+    "progress": "not_applicable_for_quiet_fixture"
+  },
+  "privacy_payload": "keyed_alias_metadata_only",
+  "production_delivery_attempted": false,
+  "provider_call_attempted": false,
+  "state_scope": "isolated_copy_only",
+  "surface": "agent_to_agent",
+  "synthetic_fixture": true,
+  "tool_call_attempted": false
+}

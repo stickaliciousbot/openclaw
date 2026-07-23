@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-07-23T21:49:00Z",
+  "live_shadow_state_deleted_or_compacted": false,
+  "retention_policy": "retain checkpoint snapshots and inventories; summarize lifecycle/events; discard copied intermediate lifecycle detail only",
+  "source_copy_dir": "/home/stickai/.openclaw/workspace/sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p5_bu_s1_shadow_20260722T0727AEST/t48_copy_retention_fixture_validation/shadow_state_copy",
+  "source_files_summarized": [
+    {
+      "bytes": 51245992,
+      "relPath": "p5bus1_live_lifecycle_reconstruction.json",
+      "sha256": null
+    },
+    {
+      "bytes": 7134795,
+      "relPath": "events.jsonl",
+      "sha256": "c8dd0e30ce072bf6ae8184e9eb01f567b568229634c1fdb96a1c6e1739e308f8"
+    }
+  ]
+}
