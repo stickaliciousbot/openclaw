@@ -7,5 +7,5 @@
   "evidence_commit": "c477ca44a2b70b4be6ddd2a98cb4c267ac20b979",
   "production_mutation_allowed": false,
   "checkpoint_creation_allowed": false,
-  "terminal": "M25O_A_I_RDY_P5_BU_S3_PREAUTH_BLOCKED_ROLLBACK_TOOLING_NOT_PROVEN"
+  "terminal": "M25O_A_I_RDY_P5_BU_S3_PREAUTH_EXACT_PACKAGE_AND_OWNER_APPROVAL_READY_NO_MUTATION"
 }

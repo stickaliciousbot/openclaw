@@ -1,6 +1,6 @@
 {
   "schema": "p5bus3preauth.owner_approval_package.v1",
-  "status": "HOLD_BLOCKED_UNTIL_FRESH_PREFLIGHT_AND_EVIDENCE_COMMIT",
+  "status": "HOLD_FOR_OWNER_APPROVAL_OF_APPROVAL_1_ONLY",
   "release_id": "p5bus2re-20260724-2fe8a112a202-868f02f34e7d",
   "source_commit": "2fe8a112a2025acb266ad83c1b805fb50e46b61f",
   "evidence_commit": "c477ca44a2b70b4be6ddd2a98cb4c267ac20b979",
@@ -18,5 +18,5 @@
   "checkpoint_maximum_age_seconds": 900,
   "abort_conditions": ["hash mismatch", "baseline drift", "incomplete restoration set", "permission failure", "checkpoint collision", "any non-checkpoint production mutation"],
   "do_not_request_approval_2_in_preauth": true,
-  "next_action": "HOLD for owner approval of Approval 1 only after fresh PREAUTH preflight/evidence commit completes"
+  "next_action": "HOLD for owner approval of Approval 1 only"
 }

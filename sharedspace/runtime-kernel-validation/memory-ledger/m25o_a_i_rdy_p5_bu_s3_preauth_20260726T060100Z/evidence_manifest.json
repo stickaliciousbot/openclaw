@@ -1,6 +1,6 @@
 {
   "schema": "NON_CIRCULAR_EVIDENCE_MANIFEST_POLICY_V1",
-  "terminal": "M25O_A_I_RDY_P5_BU_S3_PREAUTH_BLOCKED_ROLLBACK_TOOLING_NOT_PROVEN",
+  "terminal": "M25O_A_I_RDY_P5_BU_S3_PREAUTH_EXACT_PACKAGE_AND_OWNER_APPROVAL_READY_NO_MUTATION",
   "entry_count": 20,
   "entries": [
     {
@@ -10,8 +10,8 @@
     },
     {
       "path": "hard_gates.json",
-      "sha256": "1247f7f617fcd2979d4474dd44508f77ab82cf7b26336bcfbb362a0ca58e178e",
-      "size": 1618
+      "sha256": "5fa6842646d926520f41402104d23ab1abd9eefdfb0f30b84ec5465bbce71d45",
+      "size": 1597
     },
     {
       "path": "p5bus3preauth_approval_sequence_verification.json",
@@ -25,13 +25,13 @@
     },
     {
       "path": "p5bus3preauth_owner_approval_package.json",
-      "sha256": "659932382fe5af4265a8189dafe8da74f702eb03fd6f486d952aa8adc596813f",
-      "size": 2541
+      "sha256": "9343e30c092ccce37d99386870897ffc825bd75ae6557d0ac54aac47644e9348",
+      "size": 2473
     },
     {
       "path": "p5bus3preauth_precheckpoint_preflight.json",
-      "sha256": "17b61d832a18e57b66c4bed8b5aab4c5229e280fab9b4dbb28a15463ddba8b19",
-      "size": 850
+      "sha256": "c70df42e74050f310280ec4b4415df5cafc5b353277408fe2bc3a17caee125c6",
+      "size": 778
     },
     {
       "path": "p5bus3preauth_production_service_contract.json",
@@ -50,8 +50,8 @@
     },
     {
       "path": "p5bus3preauth_run_config.json",
-      "sha256": "f6d4de15f00cf03d78739580cb821ffba4a2c408c893cceaa3bd946e6c6e1d0c",
-      "size": 479
+      "sha256": "6f323f64aa4d6756b9aa228c3377f36298d7ba6a5d4729e3285512a9fd2ba2f5",
+      "size": 494
     },
     {
       "path": "p5bus3preauth_s2re_lineage_verification.json",
@@ -85,13 +85,13 @@
     },
     {
       "path": "status.json",
-      "sha256": "e8af41c3bbe5a81b68cd8ebe7fdd7a0f381bf6e6ebf5913b999b204299e1ea20",
-      "size": 668
+      "sha256": "c34838601a0f06e7c61b7a7537c225e58e7ff2ea13d44876ea55618b91ace6f4",
+      "size": 612
     },
     {
       "path": "summary.json",
-      "sha256": "1b21ce4a2dfb22750b69f0dc26527c43f0e0562ee45566940e1414721ba812e2",
-      "size": 1032
+      "sha256": "3c4d70aa6b4b43579c03cd470f6d8c1ef26577a0ab2ba0be0a8a14f2776f549a",
+      "size": 1109
     },
     {
       "path": "telegram_delivery_absence.json",

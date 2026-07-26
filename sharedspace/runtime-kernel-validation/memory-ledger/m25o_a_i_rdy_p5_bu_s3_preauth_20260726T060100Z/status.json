@@ -1,8 +1,7 @@
 {
   "schema": "p5bus3preauth.status.v1",
-  "terminal": "M25O_A_I_RDY_P5_BU_S3_PREAUTH_BLOCKED_ROLLBACK_TOOLING_NOT_PROVEN",
-  "classification": "BLOCKED",
-  "blocker": "Fresh PREAUTH packaged precheckpoint preflight execution approval-gated; evidence commit/push not complete.",
+  "terminal": "M25O_A_I_RDY_P5_BU_S3_PREAUTH_EXACT_PACKAGE_AND_OWNER_APPROVAL_READY_NO_MUTATION",
+  "classification": "PASS",
   "production_mutation": 0,
   "provider_tool_delivery": "0/0/0",
   "gateway_token_solver_restart": "none",
@@ -11,5 +10,6 @@
   "ledger_context_bridge": "unchanged",
   "s3": "not yet mutated",
   "m25ob_m26": "not started",
-  "next_action": "HOLD for approval of read-only preflight/evidence finalization, then owner Approval 1 only if PASS"
+  "precheckpoint_preflight": {"exit": 2, "nonzero_expected": true, "failed_prerequisite": "CHECKPOINT_ABSENT"},
+  "next_action": "HOLD for owner approval of Approval 1 only"
 }
