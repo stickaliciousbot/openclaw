@@ -1,0 +1,22 @@
+{
+  "schema": "p5bus3preauth.owner_approval_package.v1",
+  "status": "HOLD_BLOCKED_UNTIL_FRESH_PREFLIGHT_AND_EVIDENCE_COMMIT",
+  "release_id": "p5bus2re-20260724-2fe8a112a202-868f02f34e7d",
+  "source_commit": "2fe8a112a2025acb266ad83c1b805fb50e46b61f",
+  "evidence_commit": "c477ca44a2b70b4be6ddd2a98cb4c267ac20b979",
+  "archive_path": "/tmp/p5bus2re-release-build/p5bus2re-20260724-2fe8a112a202-868f02f34e7d.a.tar.gz",
+  "archive_sha256": "983b3cbfa244555651a7abf15afc7566ce3dd2414d632ec67687c68643cd0a22",
+  "release_manifest_path": "/tmp/p5bus2re-release-build/p5bus2re-20260724-2fe8a112a202-868f02f34e7d/release-manifest.json",
+  "release_manifest_sha256": "d67ba0c25e393cb8d26e86cd486c85c1ae3dd9be2f227921b153cc074551543b",
+  "binary_path": "/tmp/p5bus2re-release-build/p5bus2re-20260724-2fe8a112a202-868f02f34e7d/bin/stickbot-runtime-kernel",
+  "binary_sha256": "868f02f34e7d6070b514b690a8e9a4b0bef1a31571ea895815aa6732afedd086",
+  "exact_s3_package_path": "/tmp/p5bus2re-release-build/p5bus2re-20260724-2fe8a112a202-868f02f34e7d.a.tar.gz",
+  "exact_s3_package_sha256": "983b3cbfa244555651a7abf15afc7566ce3dd2414d632ec67687c68643cd0a22",
+  "approval_1_command": "bash /tmp/p5bus2re-release-build/p5bus2re-20260724-2fe8a112a202-868f02f34e7d/bin/create_preinstall_checkpoint.sh --release-id p5bus2re-20260724-2fe8a112a202-868f02f34e7d --release-manifest-sha d67ba0c25e393cb8d26e86cd486c85c1ae3dd9be2f227921b153cc074551543b --expected-baseline-manifest <p5bus3preauth_current_production_baseline.json> --checkpoint-id p5bus3-s2re-preinstall-<UTC>",
+  "approval_1_expected_mutation_list": ["checkpoint artifacts only", "checkpoint directory", "copied restoration files", "checkpoint manifest", "checkpoint receipt"],
+  "approval_1_prohibited_mutation_list": ["everything else", "release install", "service start", "systemd reload", "Gateway restart", "token-solver restart", "mediation mutation", "policy activation", "surface adapter change", "model/provider route change", "provider invocation", "Telegram/email delivery", "Ledger mutation", "Context Bridge mutation", "M25O candidate install", "handler arm", "proof/retry jobs", "M25O-B/M26 start"],
+  "checkpoint_maximum_age_seconds": 900,
+  "abort_conditions": ["hash mismatch", "baseline drift", "incomplete restoration set", "permission failure", "checkpoint collision", "any non-checkpoint production mutation"],
+  "do_not_request_approval_2_in_preauth": true,
+  "next_action": "HOLD for owner approval of Approval 1 only after fresh PREAUTH preflight/evidence commit completes"
+}

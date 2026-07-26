@@ -1,0 +1,26 @@
+{
+  "schema": "p5bus3preauth.release_artifact_inventory.v1",
+  "classification": "S2RE_RELEASE_IDENTITY_COMPLETE_AND_EXACT",
+  "release_id": "p5bus2re-20260724-2fe8a112a202-868f02f34e7d",
+  "archive": {"path": "/tmp/p5bus2re-release-build/p5bus2re-20260724-2fe8a112a202-868f02f34e7d.a.tar.gz", "sha256": "983b3cbfa244555651a7abf15afc7566ce3dd2414d632ec67687c68643cd0a22", "size": 4369273, "mode": "664"},
+  "release_manifest": {"path": "/tmp/p5bus2re-release-build/p5bus2re-20260724-2fe8a112a202-868f02f34e7d/release-manifest.json", "sha256": "d67ba0c25e393cb8d26e86cd486c85c1ae3dd9be2f227921b153cc074551543b"},
+  "binary": {"path": "/tmp/p5bus2re-release-build/p5bus2re-20260724-2fe8a112a202-868f02f34e7d/bin/stickbot-runtime-kernel", "sha256": "868f02f34e7d6070b514b690a8e9a4b0bef1a31571ea895815aa6732afedd086", "size": 10741960, "mode": "755"},
+  "systemd_unit": {"path": "/tmp/p5bus2re-release-build/p5bus2re-20260724-2fe8a112a202-868f02f34e7d/systemd/stickbot-universal-runtime-kernel.service", "sha256": "59b7d40916eebc796649f7a8f77c809c22adbbd0eb6927eb7e336fd387ffbd91"},
+  "runtime_config": {"path": "/tmp/p5bus2re-release-build/p5bus2re-20260724-2fe8a112a202-868f02f34e7d/config/runtime.toml", "sha256": "54aef42bf4d865072816601f187834ffc4b63e35195be6801d43c77deeb17a8f"},
+  "registry": {"path": "/tmp/p5bus2re-release-build/p5bus2re-20260724-2fe8a112a202-868f02f34e7d/config/registry.yaml", "sha256": "7a990b24fef444257d5260a035f52f231d9199e0a38093f8b0c0d3a1ff6dd7fc"},
+  "startup_verifier": {"path": "lib/p5bus2r_wait_ready.py", "sha256": "dcf6ba44c2696e99a23047cd25ed4e582d63cadd19bd716b6bb746a7e6636b90"},
+  "tools": {
+    "create_preinstall_checkpoint.sh": "cac2ee047cca21dd86609ff3dcfbcefbfe805abba40335ddcb924e52dd18dd5c",
+    "verify_preinstall_checkpoint.sh": "212e45beadae1f03e576e3e3a4daf7711945a83b04f5d3ecad9449f5149aae52",
+    "revalidate_preinstall_checkpoint.sh": "bd8d53da663d011c5be43409978b8785bac4097bcf4c90a75a7f996da67833c5",
+    "preflight_production_apply.sh": "79ac58b09c23993c7a1e32ac4255308eaad20cf62b5f46820a2e2337b276d1d5",
+    "install_universal_kernel.sh": "79ac58b09c23993c7a1e32ac4255308eaad20cf62b5f46820a2e2337b276d1d5",
+    "rollback_universal_kernel.sh": "79ac58b09c23993c7a1e32ac4255308eaad20cf62b5f46820a2e2337b276d1d5",
+    "mediation_transaction.sh": "79ac58b09c23993c7a1e32ac4255308eaad20cf62b5f46820a2e2337b276d1d5",
+    "policy_epoch_activate.sh": "79ac58b09c23993c7a1e32ac4255308eaad20cf62b5f46820a2e2337b276d1d5"
+  },
+  "missing_artifacts": 0,
+  "hash_mismatches": 0,
+  "placeholders": 0,
+  "production_v1v2_references": 0
+}

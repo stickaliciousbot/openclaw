@@ -1,0 +1,18 @@
+{
+  "schema": "p5bus3preauth.surface_health_install_readiness.v1",
+  "classification": "SURFACE_HEALTH_INSTALL_READINESS_PASS",
+  "blocked_mandatory_surface_prerequisites": 0,
+  "common_proofs": {
+    "credentials_are_references_not_embedded_values": true,
+    "installation_paths_exist_in_package": true,
+    "state_sources_available": true,
+    "validation_commands_exact": true,
+    "gateway_health_dependency_only": true,
+    "web_runtime_separate_from_ui_assets": true,
+    "gmail_watch_and_send_draft_health_separate": true,
+    "api_ingress_and_webhook_callback_health_separate": true,
+    "scheduler_and_job_closeout_health_separate": true
+  },
+  "surfaces": ["agent_to_agent", "cli_admin", "email_gmail", "http_api", "internal_jobs", "scheduled_jobs", "telegram", "web_runtime", "webhook"],
+  "readiness": "INSTALLABLE_AND_VALIDATABLE"
+}

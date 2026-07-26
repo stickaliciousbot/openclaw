@@ -1,0 +1,14 @@
+{
+  "schema": "p5bus3preauth.approval_sequence_verification.v1",
+  "classification": "S3_APPROVAL_BOUNDARIES_EXACT_AND_SEPARATE",
+  "approval_1": {
+    "operation": "create preinstall rollback checkpoint only",
+    "expected_mutation_scope": ["checkpoint directory", "copied restoration files", "checkpoint manifest", "checkpoint receipt"],
+    "read_only_followup_gate": ["verify checkpoint", "revalidate checkpoint", "rerun preflight"]
+  },
+  "approval_2": {"operation": "install exact release disabled", "not_requested_in_preauth": true},
+  "approval_3": {"operation": "start service in shadow/allow", "not_requested_in_preauth": true},
+  "approval_4": {"operation": "atomic universal mediation", "not_requested_in_preauth": true},
+  "approvals_5_to_10": {"operation": "activate E0-E5 individually", "not_requested_in_preauth": true},
+  "combined_approval_boundaries": false
+}

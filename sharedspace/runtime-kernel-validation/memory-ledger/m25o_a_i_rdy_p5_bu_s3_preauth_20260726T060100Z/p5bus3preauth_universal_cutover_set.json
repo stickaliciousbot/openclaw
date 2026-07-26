@@ -1,0 +1,26 @@
+{
+  "schema": "p5bus3preauth.universal_cutover_set.v1",
+  "surfaces": [
+    {"name": "Telegram", "classification": "ACTIVE_INCLUDED"},
+    {"name": "Web runtime", "classification": "ACTIVE_INCLUDED"},
+    {"name": "email/Gmail", "classification": "CONFIGURED_INACTIVE_INCLUDED_FOR_MEDIATION"},
+    {"name": "HTTP API", "classification": "ACTIVE_INCLUDED"},
+    {"name": "webhook", "classification": "CONFIGURED_INACTIVE_INCLUDED_FOR_MEDIATION"},
+    {"name": "scheduled jobs", "classification": "CONFIGURED_INACTIVE_INCLUDED_FOR_MEDIATION"},
+    {"name": "internal jobs", "classification": "CONFIGURED_INACTIVE_INCLUDED_FOR_MEDIATION"},
+    {"name": "agent-to-agent", "classification": "NONPRODUCTION_BLOCKED"},
+    {"name": "CLI/admin", "classification": "ACTIVE_INCLUDED"}
+  ],
+  "routes": [
+    {"name": "primary", "value": "openai-codex/gpt-5.5"},
+    {"name": "fallback", "value": "ollama/deepseek-v4-pro:cloud"},
+    {"name": "token-solver-v4", "value": "token-solver-v4/* non-v1v2 aliases available"},
+    {"name": "token-broker-vmesh", "value": "token-broker-vmesh/auto"},
+    {"name": "explicit_model_pins", "value": "included_by_policy_and_adapter_manifests"}
+  ],
+  "excluded_active_surfaces": 0,
+  "unknown_surfaces": 0,
+  "excluded_production_routes": 0,
+  "unknown_routes": 0,
+  "active_bypass": 0
+}

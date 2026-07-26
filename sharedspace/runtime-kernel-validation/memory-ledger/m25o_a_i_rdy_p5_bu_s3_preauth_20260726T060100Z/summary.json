@@ -1,0 +1,20 @@
+{
+  "schema": "p5bus3preauth.summary.v1",
+  "terminal": "M25O_A_I_RDY_P5_BU_S3_PREAUTH_BLOCKED_ROLLBACK_TOOLING_NOT_PROVEN",
+  "release_id": "p5bus2re-20260724-2fe8a112a202-868f02f34e7d",
+  "source_commit": "2fe8a112a2025acb266ad83c1b805fb50e46b61f",
+  "evidence_commit": "c477ca44a2b70b4be6ddd2a98cb4c267ac20b979",
+  "archive_sha256": "983b3cbfa244555651a7abf15afc7566ce3dd2414d632ec67687c68643cd0a22",
+  "release_manifest_sha256": "d67ba0c25e393cb8d26e86cd486c85c1ae3dd9be2f227921b153cc074551543b",
+  "binary_sha256": "868f02f34e7d6070b514b690a8e9a4b0bef1a31571ea895815aa6732afedd086",
+  "cutover_surface_count": 9,
+  "cutover_route_count": 5,
+  "active_bypass_count": 0,
+  "surface_health_install_readiness": "PASS",
+  "approval_sequence_result": "S3_APPROVAL_BOUNDARIES_EXACT_AND_SEPARATE",
+  "production_mutation": 0,
+  "provider_tool_delivery": "0/0/0",
+  "s3_not_yet_mutated": true,
+  "m25ob_m26_not_started": true,
+  "next_action": "HOLD; complete fresh PREAUTH preflight and evidence commit/push before owner Approval 1"
+}

@@ -1,0 +1,18 @@
+{
+  "production_mutation": 0,
+  "checkpoint_created": false,
+  "release_installed": false,
+  "service_started": false,
+  "mediation_mutated": false,
+  "policy_activated": false,
+  "gateway_restart": "none",
+  "token_solver_restart": "none",
+  "candidate_install": "no",
+  "handler": "unarmed",
+  "jobs": "absent",
+  "ledger": "unchanged",
+  "context_bridge": "unchanged",
+  "s3": "not_yet_mutated",
+  "m25ob": "not_started",
+  "m26": "not_started"
+}

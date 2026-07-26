@@ -1,0 +1,19 @@
+{
+  "schema": "p5bus3preauth.release_hash_verification.v1",
+  "classification": "S2RE_RELEASE_IDENTITY_COMPLETE_AND_EXACT",
+  "archive_sha256_verified": true,
+  "release_manifest_sha256_verified": true,
+  "binary_sha256_verified": true,
+  "service_unit_sha256_verified": true,
+  "runtime_config_sha256_verified": true,
+  "registry_sha256_verified": true,
+  "checkpoint_tools_verified": true,
+  "installer_rollback_mediation_policy_tools_verified": true,
+  "e0_e5_policy_artifacts_verified": true,
+  "nine_adapter_manifests_verified": true,
+  "nine_health_authorities_verified": true,
+  "missing_artifacts": 0,
+  "hash_mismatches": 0,
+  "placeholders": 0,
+  "production_v1v2_references": 0
+}

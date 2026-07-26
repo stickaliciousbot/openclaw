@@ -1,0 +1,23 @@
+{
+  "schema": "p5bus3preauth.current_production_baseline.v1",
+  "read_only": true,
+  "gateway": {
+    "pid": 3098351,
+    "start_time": "Wed Jul 22 05:08:50 2026",
+    "health_http": 200,
+    "ready_http": 200,
+    "event_loop_degraded": false
+  },
+  "model_routing": {
+    "primary": "openai-codex/gpt-5.5",
+    "fallback": "ollama/deepseek-v4-pro:cloud",
+    "default_alias": "openai-codex/gpt-5.5",
+    "active_v1v2_routes": 0,
+    "config_sha256": "ff88eec0f08d2f21ba8cde2a49608ea07dc202c5b30e55f1e9e7d3f773d6d2f3"
+  },
+  "token_solver_v4_health": {"http": 200, "service": "token-broker-vmesh", "status": "ok"},
+  "runtime_kernel": {"candidate_installed": false, "handler_armed": false, "jobs_pending": 0},
+  "surfaces": {"count": 9, "configured_for_cutover_inventory": true},
+  "protected_state": {"ledger": "unchanged", "context_bridge": "unchanged"},
+  "production_mutation": 0
+}

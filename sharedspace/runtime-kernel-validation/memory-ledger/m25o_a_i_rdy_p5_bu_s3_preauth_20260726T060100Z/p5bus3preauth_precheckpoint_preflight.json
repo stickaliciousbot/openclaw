@@ -1,0 +1,20 @@
+{
+  "schema": "p5bus3preauth.precheckpoint_preflight.v1",
+  "classification": "PRECHECKPOINT_FAIL_CLOSED_PREFLIGHT_EXPECTED_PASS_PRESERVED_S2RE_RECEIPT_ONLY",
+  "fresh_preauth_execution": "BLOCKED_APPROVAL_GATED",
+  "preserved_s2re_receipt": "p5bus2re_no_checkpoint_preflight_expected_nonzero.receipt.json",
+  "preserved_result": {
+    "ok": false,
+    "apply_ready": false,
+    "rollback_readiness": false,
+    "failed_prerequisite": "CHECKPOINT_ABSENT",
+    "checkpoint_status": "CHECKPOINT_ABSENT",
+    "read_only": true,
+    "provider_invocation": 0,
+    "tool_invocation": 0,
+    "delivery_invocation": 0,
+    "gateway_restart": false,
+    "token_solver_restart": false
+  },
+  "blocking_note": "Fresh PREAUTH run of packaged preflight was not completed because the safe temp extraction/execution path required native approval. PASS withheld."
+}

@@ -1,0 +1,20 @@
+{
+  "schema": "p5bus3preauth.production_service_contract.v1",
+  "production_heartbeat_mode": "production_internal",
+  "fixture_test_mode": "disabled_in_production",
+  "fixture_state": "excluded_from_production_state",
+  "bounded_startup_bind_timeout_seconds": 15,
+  "bounded_readiness_timeout_seconds": 30,
+  "health_endpoints": ["/health", "/ready", "/v1/health", "/v1/services"],
+  "systemd_exec_start": "%h/.local/libexec/stickbot-universal-runtime-kernel/current/bin/stickbot-runtime-kernel serve --registry %h/.local/libexec/stickbot-universal-runtime-kernel/current/config/registry.yaml --db %h/.local/state/stickbot-universal-runtime-kernel/journal/events.sqlite --bind 127.0.0.1:18890",
+  "working_directory": "%h/.local/libexec/stickbot-universal-runtime-kernel/current",
+  "config_registry_paths": ["config/runtime.toml", "config/registry.yaml"],
+  "state_journal_paths": ["%h/.local/state/stickbot-universal-runtime-kernel", "%h/.local/state/stickbot-universal-runtime-kernel/journal/events.sqlite"],
+  "restart_policy": "systemd user unit defined; bounded startup verifier command present",
+  "duplicate_writer_prevention": true,
+  "graceful_stop": true,
+  "production_fixture_quarantine_authority": "absent",
+  "v1v2_dependency": "absent",
+  "health_endpoint_aliases": "present",
+  "production_like_rehearsal_reference": {"cycles": 121, "duration_seconds": 3601.147, "endpoints_200": ["/health", "/ready", "/v1/health", "/v1/services"]}
+}

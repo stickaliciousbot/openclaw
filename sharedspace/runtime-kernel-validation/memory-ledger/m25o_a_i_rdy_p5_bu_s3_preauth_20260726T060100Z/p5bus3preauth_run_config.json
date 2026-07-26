@@ -1,0 +1,11 @@
+{
+  "schema": "p5bus3preauth.run_config.v1",
+  "milestone": "M25O-A-I-RDY-P5-BU-S3-PREAUTH",
+  "mode": "read_only_preauth",
+  "release_id": "p5bus2re-20260724-2fe8a112a202-868f02f34e7d",
+  "source_commit": "2fe8a112a2025acb266ad83c1b805fb50e46b61f",
+  "evidence_commit": "c477ca44a2b70b4be6ddd2a98cb4c267ac20b979",
+  "production_mutation_allowed": false,
+  "checkpoint_creation_allowed": false,
+  "terminal": "M25O_A_I_RDY_P5_BU_S3_PREAUTH_BLOCKED_ROLLBACK_TOOLING_NOT_PROVEN"
+}

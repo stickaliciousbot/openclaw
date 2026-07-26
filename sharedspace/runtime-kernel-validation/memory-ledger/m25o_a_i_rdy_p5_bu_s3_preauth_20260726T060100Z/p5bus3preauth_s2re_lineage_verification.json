@@ -1,0 +1,25 @@
+{
+  "schema": "p5bus3preauth.s2re_lineage_verification.v1",
+  "classification": "S2RE_SOURCE_EVIDENCE_LINEAGE_PASS",
+  "source": {
+    "branch": "feature/stickbot-universal-runtime-kernel-p5bu-s2r-e-20260724",
+    "commit": "2fe8a112a2025acb266ad83c1b805fb50e46b61f",
+    "remote_head": "2fe8a112a2025acb266ad83c1b805fb50e46b61f",
+    "parent": "b9fa5f64e49d23de105e45def79922416ba6c82f",
+    "subject": "Preserve executable readiness helpers in S2R-E installs",
+    "remote_url": "https://github.com/stickaliciousbot/webworkspace.git",
+    "remote_alignment": "clean"
+  },
+  "evidence": {
+    "branch": "evidence/m25o-a-i-rdy-p5-bu-s2r-e-20260724",
+    "commit": "c477ca44a2b70b4be6ddd2a98cb4c267ac20b979",
+    "remote_head": "c477ca44a2b70b4be6ddd2a98cb4c267ac20b979",
+    "parent": "98268fa1869e3fe22e01182ed00c232c76c954ae",
+    "subject": "M25O P5-BU S2R-E heartbeat v1v2 repair evidence",
+    "root": "sharedspace/runtime-kernel-validation/memory-ledger/m25o_a_i_rdy_p5_bu_s2r_e_heartbeat_v1v2_repair_20260724T125425Z",
+    "manifest_sha256": "c427e228c7c221a07aa8dbc729557f98a96be065472d488836afb24100abb775",
+    "manifest_verification": "PASS"
+  },
+  "s2rd_blocked_lineage_preserved": true,
+  "s3_abort_rollback_lineage_preserved": true
+}

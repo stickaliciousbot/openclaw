@@ -1,0 +1,107 @@
+{
+  "schema": "NON_CIRCULAR_EVIDENCE_MANIFEST_POLICY_V1",
+  "terminal": "M25O_A_I_RDY_P5_BU_S3_PREAUTH_BLOCKED_ROLLBACK_TOOLING_NOT_PROVEN",
+  "entry_count": 20,
+  "entries": [
+    {
+      "path": "email_delivery_absence.json",
+      "sha256": "c5b79e92603f68a265baef1e174e8dab4f4c176318706c92a873b55553a7381f",
+      "size": 61
+    },
+    {
+      "path": "hard_gates.json",
+      "sha256": "1247f7f617fcd2979d4474dd44508f77ab82cf7b26336bcfbb362a0ca58e178e",
+      "size": 1618
+    },
+    {
+      "path": "p5bus3preauth_approval_sequence_verification.json",
+      "sha256": "63e4756637d3d606eefa6d08d18426f6f2f8c8da33d408576ed3bba6bb2a2c84",
+      "size": 880
+    },
+    {
+      "path": "p5bus3preauth_current_production_baseline.json",
+      "sha256": "b191609a8828adbc6058a2ae4934a3533cae1114abc3736e7c2547bdb413751a",
+      "size": 887
+    },
+    {
+      "path": "p5bus3preauth_owner_approval_package.json",
+      "sha256": "659932382fe5af4265a8189dafe8da74f702eb03fd6f486d952aa8adc596813f",
+      "size": 2541
+    },
+    {
+      "path": "p5bus3preauth_precheckpoint_preflight.json",
+      "sha256": "17b61d832a18e57b66c4bed8b5aab4c5229e280fab9b4dbb28a15463ddba8b19",
+      "size": 850
+    },
+    {
+      "path": "p5bus3preauth_production_service_contract.json",
+      "sha256": "1c92e86549ed6323acc2f12a5de63cb307ff4dff7adb4a82e5716c55806efbe9",
+      "size": 1452
+    },
+    {
+      "path": "p5bus3preauth_release_artifact_inventory.json",
+      "sha256": "d34235db0bc3f6291101848dd77a0ca3d0cf80977f1a0d700b1dddfe1e23ac08",
+      "size": 2580
+    },
+    {
+      "path": "p5bus3preauth_release_hash_verification.json",
+      "sha256": "b184940a432ea6c75b846274cf1297a2b50d8790e1c8ff0b64913c24c3ccd45f",
+      "size": 691
+    },
+    {
+      "path": "p5bus3preauth_run_config.json",
+      "sha256": "f6d4de15f00cf03d78739580cb821ffba4a2c408c893cceaa3bd946e6c6e1d0c",
+      "size": 479
+    },
+    {
+      "path": "p5bus3preauth_s2re_lineage_verification.json",
+      "sha256": "307d549dd2fd96605ca6974db66aa4ee4600eb4f4968c43356377df8962ba53f",
+      "size": 1248
+    },
+    {
+      "path": "p5bus3preauth_surface_health_install_readiness.json",
+      "sha256": "d3a6ca25130b86400a5f399d4f015b57ade5183bab32d46de47d3b8f19168ce7",
+      "size": 847
+    },
+    {
+      "path": "p5bus3preauth_universal_cutover_set.json",
+      "sha256": "16da444968615c1df67c36169c70f8ad2f0aa2f6ebc4dc7c5d5805a7558872f0",
+      "size": 1314
+    },
+    {
+      "path": "privacy_scan.json",
+      "sha256": "7dfe228dcf9bd84d94d60e2dae8a7e56934e82db3bce1abaab74759d60a85acc",
+      "size": 141
+    },
+    {
+      "path": "production_mutation_absence.json",
+      "sha256": "c947804933701ffde93ed80e89b928d46f212198cdd666a370cf15edd19b7527",
+      "size": 450
+    },
+    {
+      "path": "provider_send_absence.json",
+      "sha256": "4aba38f52767ba3d14380eb6e04b457199dda2cab050341186ee6c2575b56935",
+      "size": 46
+    },
+    {
+      "path": "status.json",
+      "sha256": "e8af41c3bbe5a81b68cd8ebe7fdd7a0f381bf6e6ebf5913b999b204299e1ea20",
+      "size": 668
+    },
+    {
+      "path": "summary.json",
+      "sha256": "1b21ce4a2dfb22750b69f0dc26527c43f0e0562ee45566940e1414721ba812e2",
+      "size": 1032
+    },
+    {
+      "path": "telegram_delivery_absence.json",
+      "sha256": "6c3d3d0dbb7a6494d43b63a0fea71e851ba548ec8065f088256c5b65d2f37ade",
+      "size": 42
+    },
+    {
+      "path": "tool_invocation_absence.json",
+      "sha256": "55ff6b0c10aa39c8adcdc32acd64e465d1f5dfda6a9158e66b8c35bcadeb42f9",
+      "size": 53
+    }
+  ]
+}
