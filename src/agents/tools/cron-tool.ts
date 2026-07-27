@@ -1,6 +1,6 @@
 import { Type, type TSchema } from "typebox";
 import { getRuntimeConfig } from "../../config/config.js";
-import { normalizeCronJobCreate, normalizeCronJobPatch } from "../../cron/normalize.js";
+import { normalizeCronJobCreate } from "../../cron/normalize.js";
 import type { CronDelivery, CronMessageChannel } from "../../cron/types.js";
 import { normalizeHttpWebhookUrl } from "../../cron/webhook-url.js";
 import {
@@ -29,7 +29,17 @@ import { resolveInternalSessionKey, resolveMainSessionAlias } from "./sessions-h
 // We spell out job/patch properties so that LLMs know what fields to send.
 // Nested unions are avoided; runtime validation happens in normalizeCronJob*.
 
-const CRON_ACTIONS = ["status", "list", "add", "update", "remove", "run", "runs", "wake"] as const;
+const CRON_ACTIONS = [
+  "status",
+  "list",
+  "add",
+  "validate_update",
+  "update",
+  "remove",
+  "run",
+  "runs",
+  "wake",
+] as const;
 
 const CRON_SCHEDULE_KINDS = ["at", "every", "cron"] as const;
 const CRON_WAKE_MODES = ["now", "next-heartbeat"] as const;
@@ -130,10 +140,6 @@ function hasCronCreateSignal(value: Record<string, unknown>): boolean {
 
 function nullableStringSchema(description: string) {
   return Type.Optional(Type.String({ description }));
-}
-
-function nullableStringArraySchema(description: string) {
-  return Type.Optional(Type.Array(Type.String(), { description }));
 }
 
 function cronPayloadObjectSchema(params: { toolsAllow: TSchema }) {
@@ -268,24 +274,51 @@ const CronJobObjectSchema = Type.Optional(
 const CronPatchObjectSchema = Type.Optional(
   Type.Object(
     {
-      name: Type.Optional(Type.String({ description: "Job name" })),
-      schedule: CronScheduleSchema,
-      sessionTarget: Type.Optional(Type.String({ description: "Session target" })),
-      wakeMode: optionalStringEnum(CRON_WAKE_MODES),
-      payload: Type.Optional(
-        cronPayloadObjectSchema({
-          toolsAllow: nullableStringArraySchema("Allowed tool ids, or null to clear"),
-        }),
-      ),
-      delivery: CronDeliverySchema,
-      description: Type.Optional(Type.String()),
       enabled: Type.Optional(Type.Boolean()),
-      deleteAfterRun: Type.Optional(Type.Boolean()),
-      agentId: nullableStringSchema("Agent id, or null to clear it"),
-      sessionKey: nullableStringSchema("Explicit session key, or null to clear it"),
-      failureAlert: CronFailureAlertSchema,
     },
-    { additionalProperties: true },
+    { additionalProperties: false },
+  ),
+);
+
+const CronGuardedPreconditionsSchema = Type.Optional(
+  Type.Object(
+    {
+      expected_enabled: Type.Boolean(),
+      expected_revision: Type.Optional(Type.String()),
+      expected_definition_sha: Type.String({ pattern: "^[a-f0-9]{64}$" }),
+    },
+    { additionalProperties: false },
+  ),
+);
+
+const CronGuardedExecutionPolicySchema = Type.Optional(
+  Type.Object(
+    {
+      run_immediately: Type.Literal(false),
+      catch_up: Type.Literal(false),
+    },
+    { additionalProperties: false },
+  ),
+);
+
+const CronGuardedApprovalSchema = Type.Optional(
+  Type.Object(
+    {
+      approval_id: Type.String(),
+      nonce: Type.String(),
+      tool_name: Type.Literal("cron"),
+      action: Type.Literal("update"),
+      gateway_method: Type.Literal("cron.guarded_update"),
+      session_key: Type.String(),
+      admin_identity: Type.String(),
+      job_id: Type.String(),
+      enabled: Type.Boolean(),
+      expected_definition_sha: Type.String({ pattern: "^[a-f0-9]{64}$" }),
+      expected_revision: Type.Optional(Type.String()),
+      request_digest: Type.String({ pattern: "^[a-f0-9]{64}$" }),
+      expires_at_ms: Type.Number(),
+    },
+    { additionalProperties: false },
   ),
 );
 
@@ -299,8 +332,15 @@ export const CronToolSchema = Type.Object(
     includeDisabled: Type.Optional(Type.Boolean()),
     job: CronJobObjectSchema,
     jobId: Type.Optional(Type.String()),
+    job_id: Type.Optional(Type.String()),
     id: Type.Optional(Type.String()),
     patch: CronPatchObjectSchema,
+    preconditions: CronGuardedPreconditionsSchema,
+    execution_policy: CronGuardedExecutionPolicySchema,
+    reason: Type.Optional(Type.String()),
+    approval: CronGuardedApprovalSchema,
+    session_key: Type.Optional(Type.String()),
+    admin_identity: Type.Optional(Type.String()),
     text: Type.Optional(Type.String()),
     mode: optionalStringEnum(CRON_WAKE_MODES),
     runMode: optionalStringEnum(CRON_RUN_MODES),
@@ -346,7 +386,50 @@ function truncateText(input: string, maxLen: number) {
 }
 
 function readCronJobIdParam(params: Record<string, unknown>) {
-  return readStringParam(params, "jobId") ?? readStringParam(params, "id");
+  return readStringParam(params, "job_id") ?? readStringParam(params, "jobId") ?? readStringParam(params, "id");
+}
+
+function buildGuardedCronUpdateParams(params: Record<string, unknown>, requireApproval: boolean) {
+  const jobId = readCronJobIdParam(params);
+  if (!jobId) {
+    throw new Error("job_id required (jobId/id accepted for compatibility)");
+  }
+  if (!isRecord(params.patch) || typeof params.patch.enabled !== "boolean") {
+    throw new Error("patch.enabled boolean required; cron tool update does not permit other patch fields");
+  }
+  const patchKeys = Object.keys(params.patch);
+  if (patchKeys.length !== 1 || patchKeys[0] !== "enabled") {
+    throw new Error("cron tool update only permits patch.enabled");
+  }
+  if (!isRecord(params.preconditions)) {
+    throw new Error("preconditions required");
+  }
+  if (!isRecord(params.execution_policy)) {
+    throw new Error("execution_policy required");
+  }
+  const reason = readStringParam(params, "reason", { required: true });
+  const request: Record<string, unknown> = {
+    job_id: jobId,
+    patch: { enabled: params.patch.enabled },
+    preconditions: params.preconditions,
+    execution_policy: params.execution_policy,
+    reason,
+  };
+  const sessionKey = readStringParam(params, "session_key");
+  if (sessionKey) {
+    request.session_key = sessionKey;
+  }
+  const adminIdentity = readStringParam(params, "admin_identity");
+  if (adminIdentity) {
+    request.admin_identity = adminIdentity;
+  }
+  if (requireApproval) {
+    if (!isRecord(params.approval)) {
+      throw new Error("approval required for cron update");
+    }
+    request.approval = params.approval;
+  }
+  return request;
 }
 
 function assertCronSelfRemoveScope(
@@ -572,7 +655,8 @@ ACTIONS:
 - status: Check cron scheduler status
 - list: List jobs (use includeDisabled:true to include disabled)
 - add: Create job (requires job object, see schema below)
-- update: Modify job (requires jobId + patch object)
+- validate_update: Dry-run a guarded enabled-only update (requires job_id, patch.enabled, preconditions, execution_policy, reason)
+- update: Apply a guarded enabled-only update (requires validate_update fields plus approval)
 - remove: Delete job (requires jobId)
 - run: Trigger job immediately (requires jobId)
 - runs: Get job run history (requires jobId)
@@ -770,39 +854,22 @@ Use jobId as the canonical identifier; id is accepted for compatibility. Use con
           }
           return jsonResult(await callGateway("cron.add", gatewayOpts, job));
         }
-        case "update": {
-          const id = readCronJobIdParam(params);
-          if (!id) {
-            throw new Error("jobId required (id accepted for backward compatibility)");
-          }
-
-          // Flat-params recovery for patch
-          let recoveredFlatPatch = false;
-          if (isMissingOrEmptyObject(params.patch)) {
-            const synthetic = recoverCronObjectFromFlatParams(params);
-            if (synthetic.found) {
-              params.patch = synthetic.value;
-              recoveredFlatPatch = true;
-            }
-          }
-
-          if (!params.patch || typeof params.patch !== "object") {
-            throw new Error("patch required");
-          }
-          const patch = normalizeCronJobPatch(params.patch) ?? params.patch;
-          if (
-            recoveredFlatPatch &&
-            typeof patch === "object" &&
-            patch !== null &&
-            Object.keys(patch as Record<string, unknown>).length === 0
-          ) {
-            throw new Error("patch required");
-          }
+        case "validate_update": {
           return jsonResult(
-            await callGateway("cron.update", gatewayOpts, {
-              id,
-              patch,
-            }),
+            await callGateway(
+              "cron.validate_update",
+              gatewayOpts,
+              buildGuardedCronUpdateParams(params, false),
+            ),
+          );
+        }
+        case "update": {
+          return jsonResult(
+            await callGateway(
+              "cron.guarded_update",
+              gatewayOpts,
+              buildGuardedCronUpdateParams(params, true),
+            ),
           );
         }
         case "remove": {

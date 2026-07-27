@@ -96,32 +96,19 @@ describe("cron tool flat-params", () => {
     });
   });
 
-  it("recovers flat cron schedule shorthand for update", async () => {
+  it("rejects flat cron schedule shorthand for protected update", async () => {
     const tool = createCronTool(undefined, { callGatewayTool: callGatewayToolMock });
 
-    await tool.execute("call-flat-cron-update", {
-      action: "update",
-      jobId: "job-123",
-      cron: "15 8 * * 1-5",
-      tz: "America/Los_Angeles",
-      staggerMs: 30_000,
-    });
+    await expect(
+      tool.execute("call-flat-cron-update", {
+        action: "update",
+        jobId: "job-123",
+        cron: "15 8 * * 1-5",
+        tz: "America/Los_Angeles",
+        staggerMs: 30_000,
+      }),
+    ).rejects.toThrow(/patch.enabled/);
 
-    const [method, _gatewayOpts, params] = callGatewayToolMock.mock.calls[0] as [
-      string,
-      unknown,
-      {
-        id?: string;
-        patch?: { schedule?: unknown };
-      },
-    ];
-    expect(method).toBe("cron.update");
-    expect(params.id).toBe("job-123");
-    expect(params.patch?.schedule).toEqual({
-      kind: "cron",
-      expr: "15 8 * * 1-5",
-      tz: "America/Los_Angeles",
-      staggerMs: 30_000,
-    });
+    expect(callGatewayToolMock).not.toHaveBeenCalled();
   });
 });

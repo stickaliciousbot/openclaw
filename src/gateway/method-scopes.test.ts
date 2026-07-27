@@ -199,6 +199,21 @@ describe("core gateway method classification", () => {
     );
     expect(unclassified).toEqual([]);
   });
+
+  it("classifies guarded cron enabled-state methods as administrative", async () => {
+    const { authorizeOperatorScopesForMethod } = await import("./method-scopes.js");
+    expect(isGatewayMethodClassified("cron.validate_update")).toBe(true);
+    expect(isGatewayMethodClassified("cron.guarded_update")).toBe(true);
+    expect(
+      authorizeOperatorScopesForMethod("cron.validate_update", ["operator.admin"]).allowed,
+    ).toBe(true);
+    expect(
+      authorizeOperatorScopesForMethod("cron.guarded_update", ["operator.admin"]).allowed,
+    ).toBe(true);
+    expect(
+      authorizeOperatorScopesForMethod("cron.guarded_update", ["operator.read"]).allowed,
+    ).toBe(false);
+  });
 });
 
 describe("CLI default operator scopes", () => {

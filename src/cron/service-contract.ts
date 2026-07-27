@@ -2,6 +2,9 @@ import type { CronListPageOptions, CronListPageResult } from "./service/list-pag
 import type {
   CronAddInput,
   CronAddResult,
+  CronGuardedUpdateCaller,
+  CronGuardedUpdateRequest,
+  CronGuardedUpdateResult,
   CronListResult,
   CronRemoveResult,
   CronRunMode,
@@ -25,6 +28,14 @@ export interface CronServiceContract {
   listPage(opts?: CronListPageOptions): Promise<CronListPageResult>;
   add(input: CronAddInput): Promise<CronAddResult>;
   update(id: string, patch: CronUpdateInput): Promise<CronUpdateResult>;
+  validateGuardedUpdate(
+    request: CronGuardedUpdateRequest | unknown,
+    caller?: CronGuardedUpdateCaller,
+  ): Promise<CronGuardedUpdateResult>;
+  guardedUpdate(
+    request: CronGuardedUpdateRequest | unknown,
+    caller: CronGuardedUpdateCaller,
+  ): Promise<CronGuardedUpdateResult>;
   remove(id: string): Promise<CronRemoveResult>;
   run(id: string, mode?: CronRunMode): Promise<CronServiceRunResult>;
   enqueueRun(id: string, mode?: CronRunMode): Promise<CronServiceRunResult>;

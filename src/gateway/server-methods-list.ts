@@ -143,6 +143,8 @@ const BASE_METHODS = [
   "cron.list",
   "cron.status",
   "cron.add",
+  "cron.validate_update",
+  "cron.guarded_update",
   "cron.update",
   "cron.remove",
   "cron.run",

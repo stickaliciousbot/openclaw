@@ -122,6 +122,8 @@ import {
   ConnectParamsSchema,
   type CronAddParams,
   CronAddParamsSchema,
+  type CronGuardedUpdateParams,
+  CronGuardedUpdateParamsSchema,
   type CronJob,
   CronJobSchema,
   type CronListParams,
@@ -137,6 +139,8 @@ import {
   CronStatusParamsSchema,
   type CronUpdateParams,
   CronUpdateParamsSchema,
+  type CronValidateGuardedUpdateParams,
+  CronValidateGuardedUpdateParamsSchema,
   type DevicePairApproveParams,
   DevicePairApproveParamsSchema,
   type DevicePairListParams,
@@ -560,6 +564,11 @@ export const validateSkillsDetailParams = ajv.compile<SkillsDetailParams>(Skills
 export const validateCronListParams = ajv.compile<CronListParams>(CronListParamsSchema);
 export const validateCronStatusParams = ajv.compile<CronStatusParams>(CronStatusParamsSchema);
 export const validateCronAddParams = ajv.compile<CronAddParams>(CronAddParamsSchema);
+export const validateCronValidateGuardedUpdateParams =
+  ajv.compile<CronValidateGuardedUpdateParams>(CronValidateGuardedUpdateParamsSchema);
+export const validateCronGuardedUpdateParams = ajv.compile<CronGuardedUpdateParams>(
+  CronGuardedUpdateParamsSchema,
+);
 export const validateCronUpdateParams = ajv.compile<CronUpdateParams>(CronUpdateParamsSchema);
 export const validateCronRemoveParams = ajv.compile<CronRemoveParams>(CronRemoveParamsSchema);
 export const validateCronRunParams = ajv.compile<CronRunParams>(CronRunParamsSchema);

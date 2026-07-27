@@ -10,6 +10,14 @@ import { createCronRunDiagnosticsFromError } from "../run-diagnostics.js";
 import { createCronExecutionId } from "../run-id.js";
 import type { CronJob, CronJobCreate, CronJobPatch } from "../types.js";
 import {
+  assertAuthorizedGuardedUpdateCaller,
+  assertGuardedUpdateApproval,
+  computeCronJobDefinitionSha,
+  computeGuardedUpdateRequestDigest,
+  normalizeGuardedUpdateRequest,
+  snapshotGuardedJobState,
+} from "./guarded-update.js";
+import {
   applyJobPatch,
   assertSupportedJobSpec,
   computeJobNextRunAtMs,
@@ -30,7 +38,13 @@ import type {
   CronSortDir,
 } from "./list-page-types.js";
 import { locked } from "./locked.js";
-import type { CronServiceState } from "./state.js";
+import type {
+  CronGuardedUpdateCaller,
+  CronGuardedUpdateReceipt,
+  CronGuardedUpdateRequest,
+  CronGuardedUpdateResult,
+  CronServiceState,
+} from "./state.js";
 import { ensureLoaded, persist, warnIfDisabled } from "./store.js";
 import {
   applyJobResult,
@@ -348,66 +362,299 @@ export async function add(state: CronServiceState, input: CronJobCreate) {
   });
 }
 
+async function updateLoadedJobCore(state: CronServiceState, id: string, patch: CronJobPatch) {
+  const job = findJobOrThrow(state, id);
+  const now = state.deps.nowMs();
+  const nextJob = structuredClone(job);
+  applyJobPatch(nextJob, patch, { defaultAgentId: state.deps.defaultAgentId });
+  if (nextJob.schedule.kind === "every") {
+    const anchor = nextJob.schedule.anchorMs;
+    if (typeof anchor !== "number" || !Number.isFinite(anchor)) {
+      const patchSchedule = patch.schedule;
+      const fallbackAnchorMs =
+        patchSchedule?.kind === "every"
+          ? now
+          : typeof nextJob.createdAtMs === "number" && Number.isFinite(nextJob.createdAtMs)
+            ? nextJob.createdAtMs
+            : now;
+      nextJob.schedule = {
+        ...nextJob.schedule,
+        anchorMs: Math.max(0, Math.floor(fallbackAnchorMs)),
+      };
+    }
+  }
+  const scheduleChanged = patch.schedule !== undefined;
+  const enabledChanged = patch.enabled !== undefined;
+
+  if (scheduleChanged && nextJob.schedule.kind === "cron" && !isJobEnabled(nextJob)) {
+    computeJobNextRunAtMs({ ...nextJob, enabled: true }, now);
+  }
+
+  nextJob.updatedAtMs = now;
+  if (scheduleChanged || enabledChanged) {
+    if (isJobEnabled(nextJob)) {
+      nextJob.state.nextRunAtMs = computeJobNextRunAtMs(nextJob, now);
+    } else {
+      nextJob.state.nextRunAtMs = undefined;
+      nextJob.state.runningAtMs = undefined;
+    }
+  } else if (isJobEnabled(nextJob) && !hasScheduledNextRunAtMs(nextJob.state.nextRunAtMs)) {
+    nextJob.state.nextRunAtMs = computeJobNextRunAtMs(nextJob, now);
+  }
+
+  if (state.store) {
+    const index = state.store.jobs.findIndex((entry) => entry.id === id);
+    if (index >= 0) {
+      state.store.jobs[index] = nextJob;
+    }
+  }
+
+  await persist(state);
+  armTimer(state);
+  emit(state, {
+    jobId: id,
+    action: "updated",
+    job: nextJob,
+    nextRunAtMs: nextJob.state.nextRunAtMs,
+  });
+  return nextJob;
+}
+
 export async function update(state: CronServiceState, id: string, patch: CronJobPatch) {
   return await locked(state, async () => {
     warnIfDisabled(state, "update");
     await ensureLoaded(state, { skipRecompute: true });
-    const job = findJobOrThrow(state, id);
-    const now = state.deps.nowMs();
-    const nextJob = structuredClone(job);
-    applyJobPatch(nextJob, patch, { defaultAgentId: state.deps.defaultAgentId });
-    if (nextJob.schedule.kind === "every") {
-      const anchor = nextJob.schedule.anchorMs;
-      if (typeof anchor !== "number" || !Number.isFinite(anchor)) {
-        const patchSchedule = patch.schedule;
-        const fallbackAnchorMs =
-          patchSchedule?.kind === "every"
-            ? now
-            : typeof nextJob.createdAtMs === "number" && Number.isFinite(nextJob.createdAtMs)
-              ? nextJob.createdAtMs
-              : now;
-        nextJob.schedule = {
-          ...nextJob.schedule,
-          anchorMs: Math.max(0, Math.floor(fallbackAnchorMs)),
-        };
-      }
-    }
-    const scheduleChanged = patch.schedule !== undefined;
-    const enabledChanged = patch.enabled !== undefined;
-
-    if (scheduleChanged && nextJob.schedule.kind === "cron" && !isJobEnabled(nextJob)) {
-      computeJobNextRunAtMs({ ...nextJob, enabled: true }, now);
-    }
-
-    nextJob.updatedAtMs = now;
-    if (scheduleChanged || enabledChanged) {
-      if (isJobEnabled(nextJob)) {
-        nextJob.state.nextRunAtMs = computeJobNextRunAtMs(nextJob, now);
-      } else {
-        nextJob.state.nextRunAtMs = undefined;
-        nextJob.state.runningAtMs = undefined;
-      }
-    } else if (isJobEnabled(nextJob) && !hasScheduledNextRunAtMs(nextJob.state.nextRunAtMs)) {
-      nextJob.state.nextRunAtMs = computeJobNextRunAtMs(nextJob, now);
-    }
-
-    if (state.store) {
-      const index = state.store.jobs.findIndex((entry) => entry.id === id);
-      if (index >= 0) {
-        state.store.jobs[index] = nextJob;
-      }
-    }
-
-    await persist(state);
-    armTimer(state);
-    emit(state, {
-      jobId: id,
-      action: "updated",
-      job: nextJob,
-      nextRunAtMs: nextJob.state.nextRunAtMs,
-    });
-    return nextJob;
+    return await updateLoadedJobCore(state, id, patch);
   });
+}
+
+function verifyGuardedPreconditions(params: {
+  job: CronJob;
+  request: CronGuardedUpdateRequest;
+  currentDefinitionSha: string;
+}) {
+  if (params.job.id !== params.request.jobId) {
+    throw new Error("cron guarded update immutable job id mismatch");
+  }
+  if (params.job.enabled !== params.request.preconditions.expectedEnabled) {
+    throw new Error("cron guarded update precondition failed: expected_enabled mismatch");
+  }
+  const revision = String(params.job.updatedAtMs);
+  if (
+    params.request.preconditions.expectedRevision !== undefined &&
+    params.request.preconditions.expectedRevision !== revision
+  ) {
+    throw new Error("cron guarded update precondition failed: expected_revision mismatch");
+  }
+  if (params.request.preconditions.expectedDefinitionSha !== params.currentDefinitionSha) {
+    throw new Error("cron guarded update precondition failed: expected_definition_sha mismatch");
+  }
+  if (typeof params.job.state.runningAtMs === "number") {
+    throw new Error("cron guarded update rejected: job is currently running");
+  }
+  if (
+    params.request.executionPolicy.runImmediately !== false ||
+    params.request.executionPolicy.catchUp !== false
+  ) {
+    throw new Error("cron guarded update requires no-run/no-catch-up execution policy");
+  }
+}
+
+function createPredictedGuardedAfter(params: {
+  before: CronJob;
+  request: CronGuardedUpdateRequest;
+  now: number;
+}) {
+  const predicted = structuredClone(params.before);
+  predicted.enabled = params.request.patch.enabled;
+  if (predicted.enabled) {
+    predicted.state.nextRunAtMs = computeJobNextRunAtMs(predicted, params.now);
+  } else {
+    predicted.state.nextRunAtMs = undefined;
+    predicted.state.runningAtMs = undefined;
+  }
+  return predicted;
+}
+
+function createGuardedReceipt(params: {
+  request: CronGuardedUpdateRequest;
+  caller?: CronGuardedUpdateCaller;
+  requestDigest: string;
+  before: CronJob;
+  predictedAfter: CronJob;
+  after?: CronJob;
+  dryRun: boolean;
+  changed: boolean;
+  now: number;
+}): CronGuardedUpdateReceipt {
+  const beforeSnapshot = snapshotGuardedJobState(params.before);
+  const predictedAfterSnapshot = snapshotGuardedJobState(params.predictedAfter);
+  const afterSnapshot = params.after ? snapshotGuardedJobState(params.after) : undefined;
+  const terminal = params.dryRun
+    ? params.changed
+      ? "CRON_UPDATE_VALIDATION_PASS"
+      : "CRON_UPDATE_VALIDATION_IDEMPOTENT"
+    : params.changed
+      ? "CRON_UPDATE_APPLIED"
+      : "CRON_UPDATE_ALREADY_DESIRED_STATE";
+  const finalSnapshot = afterSnapshot ?? predictedAfterSnapshot;
+  const rollbackRequest: CronGuardedUpdateRequest | undefined = params.dryRun
+    ? undefined
+    : {
+        jobId: params.request.jobId,
+        patch: { enabled: params.before.enabled },
+        preconditions: {
+          expectedEnabled: finalSnapshot.enabled,
+          expectedRevision: finalSnapshot.revision,
+          expectedDefinitionSha: finalSnapshot.definitionSha,
+        },
+        executionPolicy: { runImmediately: false, catchUp: false },
+        reason: `rollback guarded cron update ${params.requestDigest}`,
+      };
+  return {
+    schema: params.dryRun
+      ? "stickbot.openclaw.cron-update-validation-receipt.v1"
+      : "stickbot.openclaw.cron-update-receipt.v1",
+    terminal,
+    gatewayMethod: params.dryRun ? "cron.validate_update" : "cron.guarded_update",
+    jobId: params.request.jobId,
+    requestDigest: params.requestDigest,
+    caller: params.caller ?? {},
+    approval: params.dryRun ? undefined : params.request.approval,
+    before: beforeSnapshot,
+    predictedAfter: predictedAfterSnapshot,
+    after: afterSnapshot,
+    preconditions: params.request.preconditions,
+    preconditionResults: {
+      expectedEnabled: true,
+      expectedRevision:
+        params.request.preconditions.expectedRevision === undefined ? undefined : true,
+      expectedDefinitionSha: true,
+    },
+    changedFields: params.changed ? ["enabled"] : [],
+    preservedFieldDigestBefore: beforeSnapshot.definitionSha,
+    preservedFieldDigestAfter: finalSnapshot.definitionSha,
+    definitionShaBefore: beforeSnapshot.definitionSha,
+    definitionShaAfter: finalSnapshot.definitionSha,
+    revisionBefore: beforeSnapshot.revision,
+    revisionAfter: finalSnapshot.revision,
+    mutation: !params.dryRun && params.changed,
+    runTriggered: false,
+    catchUpTriggered: false,
+    rollbackRequest,
+    completedAtMs: params.now,
+  };
+}
+
+async function guardedUpdateLoadedCore(params: {
+  state: CronServiceState;
+  rawRequest: unknown;
+  caller?: CronGuardedUpdateCaller;
+  dryRun: boolean;
+}): Promise<CronGuardedUpdateResult> {
+  const request = normalizeGuardedUpdateRequest(params.rawRequest);
+  const requestDigest = computeGuardedUpdateRequestDigest(request);
+  if (!params.dryRun) {
+    assertGuardedUpdateApproval({
+      request,
+      caller: params.caller ?? {},
+      requestDigest,
+      nowMs: params.state.deps.nowMs(),
+      usedNonces: params.state.usedGuardedUpdateApprovalNonces,
+    });
+  } else {
+    assertAuthorizedGuardedUpdateCaller(params.caller);
+  }
+
+  return await locked(params.state, async () => {
+    warnIfDisabled(params.state, params.dryRun ? "validateGuardedUpdate" : "guardedUpdate");
+    await ensureLoaded(params.state, { skipRecompute: true });
+    const before = structuredClone(findJobOrThrow(params.state, request.jobId));
+    const currentDefinitionSha = computeCronJobDefinitionSha(before);
+    verifyGuardedPreconditions({ job: before, request, currentDefinitionSha });
+    const now = params.state.deps.nowMs();
+    const predictedAfter = createPredictedGuardedAfter({ before, request, now });
+    const changed = before.enabled !== request.patch.enabled;
+    if (computeCronJobDefinitionSha(predictedAfter) !== currentDefinitionSha) {
+      throw new Error("cron guarded update definition preservation failed before mutation");
+    }
+
+    if (params.dryRun) {
+      return {
+        ok: true,
+        dryRun: true,
+        changed,
+        receipt: createGuardedReceipt({
+          request,
+          caller: params.caller,
+          requestDigest,
+          before,
+          predictedAfter,
+          dryRun: true,
+          changed,
+          now,
+        }),
+      };
+    }
+
+    if (request.approval) {
+      if (params.state.usedGuardedUpdateApprovalNonces.has(request.approval.nonce)) {
+        throw new Error("cron.guarded_update approval nonce already used");
+      }
+      params.state.usedGuardedUpdateApprovalNonces.add(request.approval.nonce);
+    }
+
+    let after = before;
+    if (changed) {
+      after = await updateLoadedJobCore(params.state, request.jobId, { enabled: request.patch.enabled });
+    }
+    const reread = structuredClone(findJobOrThrow(params.state, request.jobId));
+    if (reread.enabled !== request.patch.enabled) {
+      throw new Error("cron guarded update verification failed: enabled state mismatch after mutation");
+    }
+    if (computeCronJobDefinitionSha(reread) !== currentDefinitionSha) {
+      throw new Error("cron guarded update verification failed: omitted fields changed");
+    }
+    if (reread.state.lastRunAtMs !== before.state.lastRunAtMs) {
+      throw new Error("cron guarded update verification failed: run was triggered");
+    }
+    if (reread.state.runningAtMs !== before.state.runningAtMs) {
+      throw new Error("cron guarded update verification failed: running state changed");
+    }
+
+    return {
+      ok: true,
+      dryRun: false,
+      changed,
+      receipt: createGuardedReceipt({
+        request,
+        caller: params.caller,
+        requestDigest,
+        before,
+        predictedAfter,
+        after: changed ? after : reread,
+        dryRun: false,
+        changed,
+        now,
+      }),
+    };
+  });
+}
+
+export async function validateGuardedUpdate(
+  state: CronServiceState,
+  request: unknown,
+  caller?: CronGuardedUpdateCaller,
+): Promise<CronGuardedUpdateResult> {
+  return await guardedUpdateLoadedCore({ state, rawRequest: request, caller, dryRun: true });
+}
+
+export async function guardedUpdate(
+  state: CronServiceState,
+  request: unknown,
+  caller: CronGuardedUpdateCaller,
+): Promise<CronGuardedUpdateResult> {
+  return await guardedUpdateLoadedCore({ state, rawRequest: request, caller, dryRun: false });
 }
 
 export async function remove(state: CronServiceState, id: string) {

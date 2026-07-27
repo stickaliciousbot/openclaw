@@ -101,6 +101,7 @@ import {
 } from "./config.js";
 import {
   CronAddParamsSchema,
+  CronGuardedUpdateParamsSchema,
   CronJobSchema,
   CronListParamsSchema,
   CronRemoveParamsSchema,
@@ -109,6 +110,7 @@ import {
   CronRunsParamsSchema,
   CronStatusParamsSchema,
   CronUpdateParamsSchema,
+  CronValidateGuardedUpdateParamsSchema,
 } from "./cron.js";
 import {
   DevicePairApproveParamsSchema,
@@ -391,6 +393,8 @@ export const ProtocolSchemas = {
   CronListParams: CronListParamsSchema,
   CronStatusParams: CronStatusParamsSchema,
   CronAddParams: CronAddParamsSchema,
+  CronValidateGuardedUpdateParams: CronValidateGuardedUpdateParamsSchema,
+  CronGuardedUpdateParams: CronGuardedUpdateParamsSchema,
   CronUpdateParams: CronUpdateParamsSchema,
   CronRemoveParams: CronRemoveParamsSchema,
   CronRunParams: CronRunParamsSchema,

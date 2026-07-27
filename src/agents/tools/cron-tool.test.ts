@@ -224,25 +224,12 @@ describe("cron tool", () => {
     const tool = createTestCronTool();
     const parameters = tool.parameters as SchemaLike;
     const jobThreadId = parameters.properties?.job?.properties?.delivery?.properties?.threadId;
-    const patchThreadId = parameters.properties?.patch?.properties?.delivery?.properties?.threadId;
 
-    for (const threadId of [jobThreadId, patchThreadId]) {
-      expect(threadId?.description).toContain("Thread/topic id");
-      expect(threadId?.anyOf?.map((entry) => entry.type)).toEqual(["string", "number"]);
-    }
+    expect(jobThreadId?.description).toContain("Thread/topic id");
+    expect(jobThreadId?.anyOf?.map((entry) => entry.type)).toEqual(["string", "number"]);
   });
 
   it.each([
-    [
-      "update",
-      { action: "update", jobId: "job-1", patch: { foo: "bar" } },
-      { id: "job-1", patch: { foo: "bar" } },
-    ],
-    [
-      "update",
-      { action: "update", id: "job-2", patch: { foo: "bar" } },
-      { id: "job-2", patch: { foo: "bar" } },
-    ],
     ["remove", { action: "remove", jobId: "job-1" }, { id: "job-1" }],
     ["remove", { action: "remove", id: "job-2" }, { id: "job-2" }],
     ["run", { action: "run", jobId: "job-1" }, { id: "job-1", mode: "force" }],
@@ -921,259 +908,86 @@ describe("cron tool", () => {
     expect(callGatewayMock).toHaveBeenCalledTimes(0);
   });
 
-  it("recovers flat patch params for update action", async () => {
+  it("routes validate_update to the guarded validation RPC", async () => {
     callGatewayMock.mockResolvedValueOnce({ ok: true });
 
     const tool = createTestCronTool();
-    await tool.execute("call-update-flat", {
-      action: "update",
-      jobId: "job-1",
-      name: "new-name",
-      enabled: false,
+    await tool.execute("call-validate-update", {
+      action: "validate_update",
+      job_id: "job-1",
+      patch: { enabled: true },
+      preconditions: {
+        expected_enabled: false,
+        expected_revision: "1",
+        expected_definition_sha: "a".repeat(64),
+      },
+      execution_policy: { run_immediately: false, catch_up: false },
+      reason: "protected memory writer resume",
+      session_key: "agent:main:telegram:direct:8495203551",
+      admin_identity: "stick",
     });
 
-    const params = expectSingleGatewayCallMethod("cron.update") as
-      | { id?: string; patch?: { name?: string; enabled?: boolean } }
+    const params = expectSingleGatewayCallMethod("cron.validate_update") as
+      | { job_id?: string; patch?: { enabled?: boolean } }
       | undefined;
-    expect(params?.id).toBe("job-1");
-    expect(params?.patch?.name).toBe("new-name");
-    expect(params?.patch?.enabled).toBe(false);
+    expect(params?.job_id).toBe("job-1");
+    expect(params?.patch?.enabled).toBe(true);
   });
 
-  it("recovers additional flat patch params for update action", async () => {
+  it("routes update to the guarded mutation RPC, not broad cron.update", async () => {
     callGatewayMock.mockResolvedValueOnce({ ok: true });
 
     const tool = createTestCronTool();
-    await tool.execute("call-update-flat-extra", {
+    await tool.execute("call-guarded-update", {
       action: "update",
-      id: "job-2",
-      sessionTarget: "main",
-      failureAlert: { after: 3, cooldownMs: 60_000 },
+      job_id: "job-1",
+      patch: { enabled: false },
+      preconditions: {
+        expected_enabled: true,
+        expected_revision: "2",
+        expected_definition_sha: "a".repeat(64),
+      },
+      execution_policy: { run_immediately: false, catch_up: false },
+      reason: "protected memory writer freeze rollback",
+      session_key: "agent:main:telegram:direct:8495203551",
+      admin_identity: "stick",
+      approval: {
+        approval_id: "approval-1",
+        nonce: "nonce-1",
+        tool_name: "cron",
+        action: "update",
+        gateway_method: "cron.guarded_update",
+        session_key: "agent:main:telegram:direct:8495203551",
+        admin_identity: "stick",
+        job_id: "job-1",
+        enabled: false,
+        expected_definition_sha: "a".repeat(64),
+        expected_revision: "2",
+        request_digest: "b".repeat(64),
+        expires_at_ms: 1_800_000_000_000,
+      },
     });
 
-    const params = expectSingleGatewayCallMethod("cron.update") as
-      | {
-          id?: string;
-          patch?: {
-            sessionTarget?: string;
-            failureAlert?: { after?: number; cooldownMs?: number };
-          };
-        }
-      | undefined;
-    expect(params?.id).toBe("job-2");
-    expect(params?.patch?.sessionTarget).toBe("main");
-    expect(params?.patch?.failureAlert).toEqual({ after: 3, cooldownMs: 60_000 });
-  });
-  it("passes through failureAlert=false for update", async () => {
-    callGatewayMock.mockResolvedValueOnce({ ok: true });
-
-    const tool = createTestCronTool();
-    await tool.execute("call-update-disable-alerts", {
-      action: "update",
-      id: "job-4",
-      patch: { failureAlert: false },
-    });
-
-    const params = expectSingleGatewayCallMethod("cron.update") as
-      | { id?: string; patch?: { failureAlert?: unknown } }
-      | undefined;
-    expect(params?.id).toBe("job-4");
-    expect(params?.patch?.failureAlert).toBe(false);
-  });
-
-  it("recovers flattened payload patch params for update action", async () => {
-    callGatewayMock.mockResolvedValueOnce({ ok: true });
-
-    const tool = createTestCronTool();
-    await tool.execute("call-update-flat-payload", {
-      action: "update",
-      id: "job-3",
-      message: "run report",
-      model: " openrouter/deepseek/deepseek-r1 ",
-      thinking: " high ",
-      timeoutSeconds: 45,
-      lightContext: true,
-    });
-
-    const params = expectSingleGatewayCallMethod("cron.update") as
-      | {
-          id?: string;
-          patch?: {
-            payload?: {
-              kind?: string;
-              message?: string;
-              model?: string;
-              thinking?: string;
-              timeoutSeconds?: number;
-              lightContext?: boolean;
-            };
-          };
-        }
-      | undefined;
-    expect(params?.id).toBe("job-3");
-    expect(params?.patch?.payload).toEqual({
-      kind: "agentTurn",
-      message: "run report",
-      model: "openrouter/deepseek/deepseek-r1",
-      thinking: "high",
-      timeoutSeconds: 45,
-      lightContext: true,
-    });
+    const call = readGatewayCall();
+    expect(call.method).toBe("cron.guarded_update");
+    expect(call.method).not.toBe("cron.update");
+    expect((call.params as { job_id?: string })?.job_id).toBe("job-1");
   });
 
-  it("recovers flattened model-only payload patch params for update action", async () => {
-    callGatewayMock.mockResolvedValueOnce({ ok: true });
-
-    const tool = createTestCronTool();
-    await tool.execute("call-update-flat-model-only", {
-      action: "update",
-      id: "job-5",
-      model: " openrouter/deepseek/deepseek-r1 ",
-      fallbacks: [" openrouter/gpt-4.1-mini ", "anthropic/claude-haiku-3-5"],
-      toolsAllow: [" exec ", " read "],
-    });
-
-    const params = expectSingleGatewayCallMethod("cron.update") as
-      | {
-          id?: string;
-          patch?: {
-            payload?: {
-              kind?: string;
-              model?: string;
-              fallbacks?: string[];
-              toolsAllow?: string[];
-            };
-          };
-        }
-      | undefined;
-    expect(params?.id).toBe("job-5");
-    expect(params?.patch?.payload).toEqual({
-      kind: "agentTurn",
-      model: "openrouter/deepseek/deepseek-r1",
-      fallbacks: ["openrouter/gpt-4.1-mini", "anthropic/claude-haiku-3-5"],
-      toolsAllow: ["exec", "read"],
-    });
-  });
-
-  it("rejects malformed flattened fallback-only payload patch params for update action", async () => {
+  it("rejects broad update fields at the agent tool boundary", async () => {
     const tool = createTestCronTool();
 
     await expect(
-      tool.execute("call-update-flat-invalid-fallbacks", {
+      tool.execute("call-update-broad-rejected", {
         action: "update",
-        id: "job-9",
-        fallbacks: [123],
+        job_id: "job-1",
+        patch: { enabled: true, schedule: { kind: "every", everyMs: 1_000 } },
+        preconditions: { expected_enabled: false, expected_definition_sha: "a".repeat(64) },
+        execution_policy: { run_immediately: false, catch_up: false },
+        reason: "bad broad patch",
+        approval: {},
       }),
-    ).rejects.toThrow("patch required");
+    ).rejects.toThrow(/only permits patch.enabled/);
     expect(callGatewayMock).toHaveBeenCalledTimes(0);
-  });
-
-  it("rejects malformed flattened toolsAllow-only payload patch params for update action", async () => {
-    const tool = createTestCronTool();
-
-    await expect(
-      tool.execute("call-update-flat-invalid-tools", {
-        action: "update",
-        id: "job-10",
-        toolsAllow: [123],
-      }),
-    ).rejects.toThrow("patch required");
-    expect(callGatewayMock).toHaveBeenCalledTimes(0);
-  });
-
-  it("infers kind for nested fallback-only payload patches on update", async () => {
-    callGatewayMock.mockResolvedValueOnce({ ok: true });
-
-    const tool = createTestCronTool();
-    await tool.execute("call-update-nested-fallbacks-only", {
-      action: "update",
-      id: "job-6",
-      patch: {
-        payload: {
-          fallbacks: [" openrouter/gpt-4.1-mini ", "anthropic/claude-haiku-3-5"],
-        },
-      },
-    });
-
-    const params = expectSingleGatewayCallMethod("cron.update") as
-      | {
-          id?: string;
-          patch?: {
-            payload?: {
-              kind?: string;
-              fallbacks?: string[];
-            };
-          };
-        }
-      | undefined;
-    expect(params?.id).toBe("job-6");
-    expect(params?.patch?.payload).toEqual({
-      kind: "agentTurn",
-      fallbacks: ["openrouter/gpt-4.1-mini", "anthropic/claude-haiku-3-5"],
-    });
-  });
-
-  it("infers kind for nested toolsAllow-only payload patches on update", async () => {
-    callGatewayMock.mockResolvedValueOnce({ ok: true });
-
-    const tool = createTestCronTool();
-    await tool.execute("call-update-nested-tools-only", {
-      action: "update",
-      id: "job-7",
-      patch: {
-        payload: {
-          toolsAllow: [" exec ", " read "],
-        },
-      },
-    });
-
-    const params = expectSingleGatewayCallMethod("cron.update") as
-      | {
-          id?: string;
-          patch?: {
-            payload?: {
-              kind?: string;
-              toolsAllow?: string[];
-            };
-          };
-        }
-      | undefined;
-    expect(params?.id).toBe("job-7");
-    expect(params?.patch?.payload).toEqual({
-      kind: "agentTurn",
-      toolsAllow: ["exec", "read"],
-    });
-  });
-
-  it("preserves null toolsAllow payload patches on update", async () => {
-    callGatewayMock.mockResolvedValueOnce({ ok: true });
-
-    const tool = createTestCronTool();
-    await tool.execute("call-update-clear-tools", {
-      action: "update",
-      id: "job-8",
-      patch: {
-        payload: {
-          toolsAllow: null,
-        },
-      },
-    });
-
-    const params = expectSingleGatewayCallMethod("cron.update") as
-      | {
-          id?: string;
-          patch?: {
-            payload?: {
-              kind?: string;
-              toolsAllow?: string[] | null;
-            };
-          };
-        }
-      | undefined;
-    expect(params?.id).toBe("job-8");
-    expect(params?.patch?.payload).toEqual({
-      kind: "agentTurn",
-      toolsAllow: null,
-    });
   });
 });

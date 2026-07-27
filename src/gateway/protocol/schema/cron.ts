@@ -134,6 +134,32 @@ function cronIdOrJobIdParams(extraFields: Record<string, TSchema>) {
   ]);
 }
 
+function guardedCronJobIdParams(extraFields: Record<string, TSchema>) {
+  return Type.Union([
+    Type.Object(
+      {
+        job_id: NonEmptyString,
+        ...extraFields,
+      },
+      { additionalProperties: false },
+    ),
+    Type.Object(
+      {
+        jobId: NonEmptyString,
+        ...extraFields,
+      },
+      { additionalProperties: false },
+    ),
+    Type.Object(
+      {
+        id: NonEmptyString,
+        ...extraFields,
+      },
+      { additionalProperties: false },
+    ),
+  ]);
+}
+
 const CronRunLogJobIdSchema = Type.String({
   minLength: 1,
   // Prevent path traversal via separators in cron.runs id/jobId.
@@ -380,6 +406,65 @@ export const CronJobPatchSchema = Type.Object(
 
 export const CronUpdateParamsSchema = cronIdOrJobIdParams({
   patch: CronJobPatchSchema,
+});
+
+const CronGuardedUpdatePatchSchema = Type.Object(
+  { enabled: Type.Boolean() },
+  { additionalProperties: false },
+);
+
+const CronGuardedUpdatePreconditionsSchema = Type.Object(
+  {
+    expected_enabled: Type.Boolean(),
+    expected_revision: Type.Optional(Type.String()),
+    expected_definition_sha: Type.String({ pattern: "^[a-f0-9]{64}$" }),
+  },
+  { additionalProperties: false },
+);
+
+const CronGuardedUpdateExecutionPolicySchema = Type.Object(
+  {
+    run_immediately: Type.Literal(false),
+    catch_up: Type.Literal(false),
+  },
+  { additionalProperties: false },
+);
+
+const CronGuardedUpdateApprovalSchema = Type.Object(
+  {
+    approval_id: NonEmptyString,
+    nonce: NonEmptyString,
+    tool_name: Type.Literal("cron"),
+    action: Type.Literal("update"),
+    gateway_method: Type.Literal("cron.guarded_update"),
+    session_key: NonEmptyString,
+    admin_identity: NonEmptyString,
+    job_id: NonEmptyString,
+    enabled: Type.Boolean(),
+    expected_definition_sha: Type.String({ pattern: "^[a-f0-9]{64}$" }),
+    expected_revision: Type.Optional(Type.String()),
+    request_digest: Type.String({ pattern: "^[a-f0-9]{64}$" }),
+    expires_at_ms: Type.Integer({ minimum: 0 }),
+  },
+  { additionalProperties: false },
+);
+
+const CronGuardedUpdateCommonFields = {
+  patch: CronGuardedUpdatePatchSchema,
+  preconditions: CronGuardedUpdatePreconditionsSchema,
+  execution_policy: CronGuardedUpdateExecutionPolicySchema,
+  reason: NonEmptyString,
+  session_key: Type.Optional(NonEmptyString),
+  admin_identity: Type.Optional(NonEmptyString),
+};
+
+export const CronValidateGuardedUpdateParamsSchema = guardedCronJobIdParams({
+  ...CronGuardedUpdateCommonFields,
+});
+
+export const CronGuardedUpdateParamsSchema = guardedCronJobIdParams({
+  ...CronGuardedUpdateCommonFields,
+  approval: CronGuardedUpdateApprovalSchema,
 });
 
 export const CronRemoveParamsSchema = cronIdOrJobIdParams({});

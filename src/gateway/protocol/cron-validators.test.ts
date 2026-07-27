@@ -1,11 +1,13 @@
 import { describe, expect, it } from "vitest";
 import {
   validateCronAddParams,
+  validateCronGuardedUpdateParams,
   validateCronListParams,
   validateCronRemoveParams,
   validateCronRunParams,
   validateCronRunsParams,
   validateCronUpdateParams,
+  validateCronValidateGuardedUpdateParams,
 } from "./index.js";
 
 const minimalAddParams = {
@@ -14,6 +16,37 @@ const minimalAddParams = {
   sessionTarget: "main",
   wakeMode: "next-heartbeat",
   payload: { kind: "systemEvent", text: "tick" },
+} as const;
+
+const guardedValidationParams = {
+  job_id: "job-1",
+  patch: { enabled: true },
+  preconditions: {
+    expected_enabled: false,
+    expected_revision: "123",
+    expected_definition_sha: "a".repeat(64),
+  },
+  execution_policy: { run_immediately: false, catch_up: false },
+  reason: "protected memory writer resume",
+} as const;
+
+const guardedUpdateParams = {
+  ...guardedValidationParams,
+  approval: {
+    approval_id: "approval-1",
+    nonce: "nonce-1",
+    tool_name: "cron",
+    action: "update",
+    gateway_method: "cron.guarded_update",
+    session_key: "agent:main:telegram:direct:8495203551",
+    admin_identity: "stick",
+    job_id: "job-1",
+    enabled: true,
+    expected_definition_sha: "a".repeat(64),
+    expected_revision: "123",
+    request_digest: "b".repeat(64),
+    expires_at_ms: 1_800_000_000_000,
+  },
 } as const;
 
 describe("cron protocol validators", () => {
@@ -52,6 +85,53 @@ describe("cron protocol validators", () => {
   it("accepts update params for id and jobId selectors", () => {
     expect(validateCronUpdateParams({ id: "job-1", patch: { enabled: false } })).toBe(true);
     expect(validateCronUpdateParams({ jobId: "job-2", patch: { enabled: true } })).toBe(true);
+  });
+
+  it("preserves broad cron.update schema compatibility", () => {
+    expect(
+      validateCronUpdateParams({
+        id: "job-1",
+        patch: {
+          schedule: { kind: "every", everyMs: 120_000 },
+          payload: { kind: "systemEvent", text: "tick" },
+          delivery: { mode: "announce", channel: "telegram", to: "123" },
+        },
+      }),
+    ).toBe(true);
+  });
+
+  it("accepts guarded validation and guarded update params", () => {
+    expect(validateCronValidateGuardedUpdateParams(guardedValidationParams)).toBe(true);
+    expect(validateCronGuardedUpdateParams(guardedUpdateParams)).toBe(true);
+  });
+
+  it("rejects invalid guarded update shapes", () => {
+    expect(
+      validateCronValidateGuardedUpdateParams({
+        ...guardedValidationParams,
+        patch: { enabled: true, schedule: { kind: "every", everyMs: 1_000 } },
+      }),
+    ).toBe(false);
+    expect(
+      validateCronValidateGuardedUpdateParams({
+        ...guardedValidationParams,
+        execution_policy: { run_immediately: true, catch_up: false },
+      }),
+    ).toBe(false);
+    expect(
+      validateCronValidateGuardedUpdateParams({
+        ...guardedValidationParams,
+        execution_policy: { run_immediately: false, catch_up: true },
+      }),
+    ).toBe(false);
+    expect(
+      validateCronValidateGuardedUpdateParams({
+        ...guardedValidationParams,
+        preconditions: { expected_enabled: false },
+      }),
+    ).toBe(false);
+    expect(validateCronValidateGuardedUpdateParams({ patch: { enabled: true } })).toBe(false);
+    expect(validateCronGuardedUpdateParams(guardedValidationParams)).toBe(false);
   });
 
   it("accepts delivery threadId on add and update params", () => {

@@ -181,6 +181,8 @@ const METHOD_SCOPE_GROUPS: Record<OperatorScope, readonly string[]> = {
     "secrets.reload",
     "secrets.resolve",
     "cron.add",
+    "cron.validate_update",
+    "cron.guarded_update",
     "cron.update",
     "cron.remove",
     "cron.run",

@@ -75,6 +75,8 @@ function createCronContext(currentJob?: CronJob) {
     cron: {
       add: vi.fn(async () => ({ id: "cron-1" })),
       update: vi.fn(async () => ({ id: "cron-1" })),
+      validateGuardedUpdate: vi.fn(async () => ({ ok: true, dryRun: true })),
+      guardedUpdate: vi.fn(async () => ({ ok: true, dryRun: false })),
       getDefaultAgentId: vi.fn(() => "main"),
       getJob: vi.fn(() => currentJob),
     },
@@ -83,6 +85,66 @@ function createCronContext(currentJob?: CronJob) {
     },
     getRuntimeConfig: () => getRuntimeConfig(),
   };
+}
+
+function createAdminClient(sessionKey = "agent:main:telegram:direct:8495203551") {
+  return {
+    connect: {
+      minProtocol: 1,
+      maxProtocol: 1,
+      client: { id: "stick", version: "test", platform: "test", mode: "cli" },
+      scopes: ["operator.admin"],
+    },
+    connId: "conn-1",
+    sessionKey,
+  };
+}
+
+const guardedValidationParams = {
+  job_id: "cron-1",
+  patch: { enabled: true },
+  preconditions: {
+    expected_enabled: false,
+    expected_revision: "1",
+    expected_definition_sha: "a".repeat(64),
+  },
+  execution_policy: { run_immediately: false, catch_up: false },
+  reason: "protected memory writer resume",
+  session_key: "agent:main:telegram:direct:8495203551",
+  admin_identity: "stick",
+} as const;
+
+const guardedUpdateParams = {
+  ...guardedValidationParams,
+  approval: {
+    approval_id: "approval-1",
+    nonce: "nonce-1",
+    tool_name: "cron",
+    action: "update",
+    gateway_method: "cron.guarded_update",
+    session_key: "agent:main:telegram:direct:8495203551",
+    admin_identity: "stick",
+    job_id: "cron-1",
+    enabled: true,
+    expected_definition_sha: "a".repeat(64),
+    expected_revision: "1",
+    request_digest: "b".repeat(64),
+    expires_at_ms: 1_800_000_000_000,
+  },
+} as const;
+
+async function invokeGuardedCron(method: "cron.validate_update" | "cron.guarded_update", params: Record<string, unknown>, client = createAdminClient()) {
+  const context = createCronContext(createCronJob());
+  const respond = vi.fn();
+  await cronHandlers[method]({
+    req: {} as never,
+    params: params as never,
+    respond: respond as never,
+    context: context as never,
+    client: client as never,
+    isWebchatConnect: () => false,
+  });
+  return { context, respond };
 }
 
 async function invokeCronAdd(params: Record<string, unknown>) {
@@ -138,6 +200,61 @@ describe("cron method validation", () => {
 
   afterEach(() => {
     resetPluginRuntimeStateForTest();
+  });
+
+  it("routes cron.validate_update to guarded dry-run service without broad update", async () => {
+    const { context, respond } = await invokeGuardedCron(
+      "cron.validate_update",
+      guardedValidationParams,
+    );
+
+    expect(context.cron.validateGuardedUpdate).toHaveBeenCalledWith(
+      guardedValidationParams,
+      expect.objectContaining({
+        authenticated: true,
+        adminSchedulerEnabledState: true,
+        sessionKey: "agent:main:telegram:direct:8495203551",
+        adminIdentity: "stick",
+      }),
+    );
+    expect(context.cron.update).not.toHaveBeenCalled();
+    expect(respond).toHaveBeenCalledWith(true, { ok: true, dryRun: true }, undefined);
+  });
+
+  it("routes cron.guarded_update to guarded service and rejects missing approval", async () => {
+    const { context, respond } = await invokeGuardedCron("cron.guarded_update", guardedUpdateParams);
+    expect(context.cron.guardedUpdate).toHaveBeenCalledWith(
+      guardedUpdateParams,
+      expect.objectContaining({ adminSchedulerEnabledState: true }),
+    );
+    expect(context.cron.update).not.toHaveBeenCalled();
+    expect(respond).toHaveBeenCalledWith(true, { ok: true, dryRun: false }, undefined);
+
+    const missingApproval = await invokeGuardedCron(
+      "cron.guarded_update",
+      guardedValidationParams,
+    );
+    expect(missingApproval.context.cron.guardedUpdate).not.toHaveBeenCalled();
+    expect(missingApproval.respond.mock.calls[0]?.[0]).toBe(false);
+  });
+
+  it("preserves broad cron.update routing for existing administrative callers", async () => {
+    const current = createCronJob();
+    const { context, respond } = await invokeCronUpdate(
+      {
+        id: "cron-1",
+        patch: {
+          schedule: { kind: "every", everyMs: 120_000 },
+          payload: { kind: "agentTurn", message: "updated" },
+          delivery: { mode: "none" },
+        },
+      },
+      current,
+    );
+
+    expect(context.cron.update).toHaveBeenCalled();
+    expect(context.cron.guardedUpdate).not.toHaveBeenCalled();
+    expect(respond.mock.calls[0]?.[0]).toBe(true);
   });
 
   it("accepts threadId on announce delivery add params", async () => {

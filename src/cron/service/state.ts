@@ -155,6 +155,7 @@ export type CronServiceState = {
   warnedMissingSessionTargetJobIds: Set<string>;
   storeLoadedAtMs: number | null;
   storeFileMtimeMs: number | null;
+  usedGuardedUpdateApprovalNonces: Set<string>;
 };
 
 export function createCronServiceState(deps: CronServiceDeps): CronServiceState {
@@ -168,6 +169,7 @@ export function createCronServiceState(deps: CronServiceDeps): CronServiceState 
     warnedMissingSessionTargetJobIds: new Set<string>(),
     storeLoadedAtMs: null,
     storeFileMtimeMs: null,
+    usedGuardedUpdateApprovalNonces: new Set<string>(),
   };
 }
 
@@ -196,3 +198,105 @@ export type CronUpdateResult = CronJob;
 export type CronListResult = CronJob[];
 export type CronAddInput = CronJobCreate;
 export type CronUpdateInput = CronJobPatch;
+
+export type CronGuardedUpdatePatch = {
+  enabled: boolean;
+};
+
+export type CronGuardedUpdatePreconditions = {
+  expectedEnabled: boolean;
+  expectedRevision?: string;
+  expectedDefinitionSha: string;
+};
+
+export type CronGuardedUpdateExecutionPolicy = {
+  runImmediately: false;
+  catchUp: false;
+};
+
+export type CronGuardedUpdateApproval = {
+  approvalId: string;
+  nonce: string;
+  toolName: "cron";
+  action: "update";
+  gatewayMethod: "cron.guarded_update";
+  sessionKey: string;
+  adminIdentity: string;
+  jobId: string;
+  enabled: boolean;
+  expectedDefinitionSha: string;
+  expectedRevision?: string;
+  requestDigest: string;
+  expiresAtMs: number;
+};
+
+export type CronGuardedUpdateRequest = {
+  jobId: string;
+  patch: CronGuardedUpdatePatch;
+  preconditions: CronGuardedUpdatePreconditions;
+  executionPolicy: CronGuardedUpdateExecutionPolicy;
+  reason: string;
+  approval?: CronGuardedUpdateApproval;
+};
+
+export type CronGuardedUpdateCaller = {
+  sessionKey?: string;
+  adminIdentity?: string;
+  adminSchedulerEnabledState?: boolean;
+  sharedOrGroupSession?: boolean;
+  authenticated?: boolean;
+};
+
+export type CronGuardedJobStateSnapshot = {
+  enabled: boolean;
+  revision: string;
+  definitionSha: string;
+  stateDigest: string;
+  nextRunAtMs?: number;
+  lastRunAtMs?: number;
+  runningAtMs?: number;
+};
+
+export type CronGuardedUpdateReceipt = {
+  schema:
+    | "stickbot.openclaw.cron-update-validation-receipt.v1"
+    | "stickbot.openclaw.cron-update-receipt.v1";
+  terminal:
+    | "CRON_UPDATE_VALIDATION_PASS"
+    | "CRON_UPDATE_VALIDATION_IDEMPOTENT"
+    | "CRON_UPDATE_APPLIED"
+    | "CRON_UPDATE_ALREADY_DESIRED_STATE";
+  gatewayMethod: "cron.validate_update" | "cron.guarded_update";
+  jobId: string;
+  requestDigest: string;
+  caller: CronGuardedUpdateCaller;
+  approval?: CronGuardedUpdateApproval;
+  before: CronGuardedJobStateSnapshot;
+  predictedAfter: CronGuardedJobStateSnapshot;
+  after?: CronGuardedJobStateSnapshot;
+  preconditions: CronGuardedUpdatePreconditions;
+  preconditionResults: {
+    expectedEnabled: true;
+    expectedRevision?: true;
+    expectedDefinitionSha: true;
+  };
+  changedFields: Array<"enabled">;
+  preservedFieldDigestBefore: string;
+  preservedFieldDigestAfter: string;
+  definitionShaBefore: string;
+  definitionShaAfter: string;
+  revisionBefore: string;
+  revisionAfter?: string;
+  mutation: boolean;
+  runTriggered: false;
+  catchUpTriggered: false;
+  rollbackRequest?: CronGuardedUpdateRequest;
+  completedAtMs: number;
+};
+
+export type CronGuardedUpdateResult = {
+  ok: true;
+  dryRun: boolean;
+  changed: boolean;
+  receipt: CronGuardedUpdateReceipt;
+};

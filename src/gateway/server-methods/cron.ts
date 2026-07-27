@@ -7,6 +7,7 @@ import {
   resolveCronRunLogPath,
 } from "../../cron/run-log.js";
 import { applyJobPatch } from "../../cron/service/jobs.js";
+import type { CronGuardedUpdateCaller } from "../../cron/service/state.js";
 import { isInvalidCronSessionTargetIdError } from "../../cron/session-target.js";
 import type { CronDelivery, CronJob, CronJobCreate, CronJobPatch } from "../../cron/types.js";
 import { validateScheduleTimestamp } from "../../cron/validate-timestamp.js";
@@ -22,15 +23,18 @@ import {
   errorShape,
   formatValidationErrors,
   validateCronAddParams,
+  validateCronGuardedUpdateParams,
   validateCronListParams,
   validateCronRemoveParams,
   validateCronRunParams,
   validateCronRunsParams,
   validateCronStatusParams,
   validateCronUpdateParams,
+  validateCronValidateGuardedUpdateParams,
   validateWakeParams,
 } from "../protocol/index.js";
-import type { GatewayRequestHandlers } from "./types.js";
+import { ADMIN_SCOPE } from "../method-scopes.js";
+import type { GatewayClient, GatewayRequestHandlers } from "./types.js";
 
 function listConfiguredAnnounceChannelIds(cfg: OpenClawConfig): string[] {
   return listConfiguredAnnounceChannelIdsForConfig({
@@ -157,6 +161,47 @@ function assertValidCronUpdateDelivery(params: {
     cfg: params.cfg,
     delivery: nextJob.delivery,
   });
+}
+
+function resolveGuardedCronCaller(params: {
+  client: GatewayClient | null;
+  requestParams: Record<string, unknown>;
+}): CronGuardedUpdateCaller {
+  const scopes = params.client?.connect.scopes ?? [];
+  const caps = params.client?.connect.caps ?? [];
+  const permissions = params.client?.connect.permissions ?? {};
+  const role = params.client?.connect.role;
+  const sessionKey =
+    typeof params.requestParams.session_key === "string"
+      ? params.requestParams.session_key
+      : typeof params.requestParams.sessionKey === "string"
+        ? params.requestParams.sessionKey
+        : undefined;
+  const adminIdentity =
+    typeof params.requestParams.admin_identity === "string"
+      ? params.requestParams.admin_identity
+      : typeof params.requestParams.adminIdentity === "string"
+        ? params.requestParams.adminIdentity
+        : params.client?.connect.client.id;
+  const adminSchedulerEnabledState =
+    role === "admin" ||
+    scopes.includes(ADMIN_SCOPE) ||
+    scopes.includes("admin.scheduler.enabled-state") ||
+    caps.includes("admin.scheduler.enabled-state") ||
+    permissions[ADMIN_SCOPE] === true ||
+    permissions["admin.scheduler.enabled-state"] === true;
+  const sharedOrGroupSession =
+    typeof sessionKey === "string" &&
+    (sessionKey.includes(":group:") ||
+      sessionKey.includes(":channel:") ||
+      sessionKey.includes(":thread:"));
+  return {
+    sessionKey,
+    adminIdentity,
+    adminSchedulerEnabledState,
+    sharedOrGroupSession,
+    authenticated: Boolean(params.client),
+  };
 }
 
 export const cronHandlers: GatewayRequestHandlers = {
@@ -307,6 +352,68 @@ export const cronHandlers: GatewayRequestHandlers = {
     }
     context.logGateway.info("cron: job created", { jobId: job.id, schedule: jobCreate.schedule });
     respond(true, job, undefined);
+  },
+  "cron.validate_update": async ({ params, respond, context, client }) => {
+    if (!validateCronValidateGuardedUpdateParams(params)) {
+      respond(
+        false,
+        undefined,
+        errorShape(
+          ErrorCodes.INVALID_REQUEST,
+          `invalid cron.validate_update params: ${formatValidationErrors(validateCronValidateGuardedUpdateParams.errors)}`,
+        ),
+      );
+      return;
+    }
+    try {
+      const p = params as Record<string, unknown>;
+      const result = await context.cron.validateGuardedUpdate(
+        p,
+        resolveGuardedCronCaller({ client, requestParams: p }),
+      );
+      respond(true, result, undefined);
+    } catch (err) {
+      respond(
+        false,
+        undefined,
+        errorShape(
+          ErrorCodes.INVALID_REQUEST,
+          `invalid cron.validate_update params: ${formatErrorMessage(err)}`,
+        ),
+      );
+    }
+  },
+  "cron.guarded_update": async ({ params, respond, context, client }) => {
+    if (!validateCronGuardedUpdateParams(params)) {
+      respond(
+        false,
+        undefined,
+        errorShape(
+          ErrorCodes.INVALID_REQUEST,
+          `invalid cron.guarded_update params: ${formatValidationErrors(validateCronGuardedUpdateParams.errors)}`,
+        ),
+      );
+      return;
+    }
+    try {
+      const p = params as Record<string, unknown>;
+      const result = await context.cron.guardedUpdate(
+        p,
+        resolveGuardedCronCaller({ client, requestParams: p }),
+      );
+      const jobId = String(p.job_id ?? p.jobId ?? p.id);
+      context.logGateway.info("cron: guarded enabled-state update completed", { jobId });
+      respond(true, result, undefined);
+    } catch (err) {
+      respond(
+        false,
+        undefined,
+        errorShape(
+          ErrorCodes.INVALID_REQUEST,
+          `invalid cron.guarded_update params: ${formatErrorMessage(err)}`,
+        ),
+      );
+    }
   },
   "cron.update": async ({ params, respond, context }) => {
     let normalizedPatch: ReturnType<typeof normalizeCronJobPatch>;

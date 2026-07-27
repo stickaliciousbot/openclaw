@@ -99,6 +99,27 @@ describe("createLazyGatewayCronState", () => {
     expect(cron.wake).not.toHaveBeenCalled();
   });
 
+  it("delegates guarded validation and update through the lazy service", async () => {
+    const cron = createCronService();
+    hoisted.setState(createCronState(cron));
+    const lazy = createLazyGatewayCronState(createParams());
+    const caller = { authenticated: true, adminSchedulerEnabledState: true };
+    const request = {
+      jobId: "job-1",
+      patch: { enabled: true },
+      preconditions: { expectedEnabled: false, expectedDefinitionSha: "a".repeat(64) },
+      executionPolicy: { runImmediately: false, catchUp: false },
+      reason: "test",
+    };
+
+    await lazy.cron.validateGuardedUpdate(request, caller);
+    await lazy.cron.guardedUpdate(request, caller);
+
+    expect(hoisted.buildGatewayCronService).toHaveBeenCalledTimes(1);
+    expect(cron.validateGuardedUpdate).toHaveBeenCalledWith(request, caller);
+    expect(cron.guardedUpdate).toHaveBeenCalledWith(request, caller);
+  });
+
   it("preserves the startup cron enabled flag without loading cron runtime", () => {
     vi.stubEnv("OPENCLAW_SKIP_CRON", "1");
 
@@ -136,6 +157,8 @@ function createCronService(): CronServiceContract {
     listPage: vi.fn(async () => ({ items: [], total: 0 }) as never),
     add: vi.fn(async () => ({ ok: true }) as never),
     update: vi.fn(async () => ({ ok: true }) as never),
+    validateGuardedUpdate: vi.fn(async () => ({ ok: true }) as never),
+    guardedUpdate: vi.fn(async () => ({ ok: true }) as never),
     remove: vi.fn(async () => ({ ok: true }) as never),
     run: vi.fn(async () => ({ ok: true, ran: false, reason: "invalid-spec" }) as never),
     enqueueRun: vi.fn(async () => ({ ok: true, ran: false, reason: "invalid-spec" }) as never),
