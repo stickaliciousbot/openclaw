@@ -34,13 +34,24 @@ const resolveCommit = () => {
   }
 };
 
+const resolveBuildTimestamp = () => {
+  const sourceDateEpoch = process.env.SOURCE_DATE_EPOCH?.trim();
+  if (sourceDateEpoch) {
+    const seconds = Number.parseInt(sourceDateEpoch, 10);
+    if (Number.isFinite(seconds) && seconds >= 0) {
+      return new Date(seconds * 1000).toISOString();
+    }
+  }
+  return new Date().toISOString();
+};
+
 const version = readPackageVersion();
 const commit = resolveCommit();
 
 const buildInfo = {
   version,
   commit,
-  builtAt: new Date().toISOString(),
+  builtAt: resolveBuildTimestamp(),
 };
 
 fs.mkdirSync(distDir, { recursive: true });

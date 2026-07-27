@@ -51,6 +51,15 @@ type BundledChannelCatalog = {
 
 type RootHelpRenderContext = Pick<RootHelpRenderOptions, "config" | "env">;
 
+function resolveDeterministicTaglineIndex(
+  env: NodeJS.ProcessEnv = process.env,
+): string | undefined {
+  if (env.OPENCLAW_TAGLINE_INDEX !== undefined) {
+    return env.OPENCLAW_TAGLINE_INDEX;
+  }
+  return env.SOURCE_DATE_EPOCH !== undefined ? "0" : undefined;
+}
+
 function resolveRootHelpBundleIdentity(
   distDirOverride: string = distDir,
 ): { bundleName: string; signature: string } | null {
@@ -167,6 +176,10 @@ function createIsolatedRootHelpRenderContext(
     OPENCLAW_DISABLE_BUNDLED_PLUGINS: "",
     OPENCLAW_STATE_DIR: stateDir,
   };
+  const taglineIndex = resolveDeterministicTaglineIndex();
+  if (taglineIndex !== undefined) {
+    env.OPENCLAW_TAGLINE_INDEX = taglineIndex;
+  }
   const config: OpenClawConfig = {
     agents: {
       defaults: {

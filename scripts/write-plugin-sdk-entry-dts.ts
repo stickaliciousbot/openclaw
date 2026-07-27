@@ -37,6 +37,17 @@ const RUNTIME_SHIMS: Partial<Record<string, string>> = {
   ].join("\n"),
 };
 
+function resolveBuildTimestamp(): string {
+  const sourceDateEpoch = process.env.SOURCE_DATE_EPOCH?.trim();
+  if (sourceDateEpoch) {
+    const seconds = Number.parseInt(sourceDateEpoch, 10);
+    if (Number.isFinite(seconds) && seconds >= 0) {
+      return new Date(seconds * 1000).toISOString();
+    }
+  }
+  return new Date().toISOString();
+}
+
 // TypeScript declaration emit writes files under `dist/plugin-sdk/src/plugin-sdk/*` because the
 // source lives at `src/plugin-sdk/*` and `rootDir` is `.` (repo root, to support
 // cross-src/extensions refs).
@@ -70,4 +81,4 @@ for (const entry of pluginSdkEntrypoints) {
 
 const stampPath = path.join(process.cwd(), "dist/plugin-sdk/.boundary-entry-shims.stamp");
 fs.mkdirSync(path.dirname(stampPath), { recursive: true });
-fs.writeFileSync(stampPath, `${new Date().toISOString()}\n`, "utf8");
+fs.writeFileSync(stampPath, `${resolveBuildTimestamp()}\n`, "utf8");
