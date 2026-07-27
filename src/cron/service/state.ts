@@ -294,11 +294,23 @@ export type CronGuardedUpdateReceipt = {
   changedFields: Array<"enabled">;
   preservedFieldDigestBefore: string;
   preservedFieldDigestAfter: string;
+  nonTargetFieldDigestBefore: string;
+  nonTargetFieldDigestAfter: string;
   definitionShaBefore: string;
   definitionShaAfter: string;
   revisionBefore: string;
   revisionAfter?: string;
   mutation: boolean;
+  persistenceCompleted: boolean;
+  reloadVerification: boolean;
+  rollbackAttempted: boolean;
+  rollbackCompleted: boolean;
+  finalDurableState:
+    | "dry-run"
+    | "unchanged-noop"
+    | "verified-success"
+    | "rolled-back"
+    | "rollback-failed";
   runTriggered: false;
   catchUpTriggered: false;
   rollbackRequest?: CronGuardedUpdateRequest;

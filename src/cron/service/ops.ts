@@ -59,6 +59,27 @@ import {
 
 const STARTUP_INTERRUPTED_ERROR = "cron: job interrupted by gateway restart";
 
+type GuardedUpdateTestHooks = {
+  failPersistBeforeWriteOnce?: boolean;
+  failPostconditionAfterWriteOnce?: boolean;
+  failReloadVerificationOnce?: boolean;
+  failRollbackPersistOnce?: boolean;
+};
+
+let guardedUpdateTestHooks: GuardedUpdateTestHooks | undefined;
+
+export function setGuardedUpdateTestHooksForTest(hooks?: GuardedUpdateTestHooks): void {
+  guardedUpdateTestHooks = hooks;
+}
+
+function consumeGuardedUpdateTestHook(name: keyof GuardedUpdateTestHooks): boolean {
+  if (guardedUpdateTestHooks?.[name] !== true) {
+    return false;
+  }
+  guardedUpdateTestHooks[name] = false;
+  return true;
+}
+
 type InterruptedStartupRun = {
   jobId: string;
   runAtMs: number;
@@ -467,6 +488,7 @@ function createPredictedGuardedAfter(params: {
 }) {
   const predicted = structuredClone(params.before);
   predicted.enabled = params.request.patch.enabled;
+  predicted.updatedAtMs = params.now;
   if (predicted.enabled) {
     predicted.state.nextRunAtMs = computeJobNextRunAtMs(predicted, params.now);
   } else {
@@ -487,6 +509,11 @@ function createGuardedReceipt(params: {
   dryRun: boolean;
   changed: boolean;
   now: number;
+  persistenceCompleted?: boolean;
+  reloadVerification?: boolean;
+  rollbackAttempted?: boolean;
+  rollbackCompleted?: boolean;
+  finalDurableState?: CronGuardedUpdateReceipt["finalDurableState"];
 }): CronGuardedUpdateReceipt {
   const beforeSnapshot = snapshotGuardedJobState(params.before);
   const predictedAfterSnapshot = snapshotGuardedJobState(params.predictedAfter);
@@ -535,16 +562,97 @@ function createGuardedReceipt(params: {
     changedFields: params.changed ? ["enabled"] : [],
     preservedFieldDigestBefore: beforeSnapshot.definitionSha,
     preservedFieldDigestAfter: finalSnapshot.definitionSha,
+    nonTargetFieldDigestBefore: beforeSnapshot.definitionSha,
+    nonTargetFieldDigestAfter: finalSnapshot.definitionSha,
     definitionShaBefore: beforeSnapshot.definitionSha,
     definitionShaAfter: finalSnapshot.definitionSha,
     revisionBefore: beforeSnapshot.revision,
     revisionAfter: finalSnapshot.revision,
     mutation: !params.dryRun && params.changed,
+    persistenceCompleted: params.persistenceCompleted === true,
+    reloadVerification: params.reloadVerification === true,
+    rollbackAttempted: params.rollbackAttempted === true,
+    rollbackCompleted: params.rollbackCompleted === true,
+    finalDurableState:
+      params.finalDurableState ??
+      (params.dryRun ? "dry-run" : params.changed ? "verified-success" : "unchanged-noop"),
     runTriggered: false,
     catchUpTriggered: false,
     rollbackRequest,
     completedAtMs: params.now,
   };
+}
+
+function replaceStoreJobOrThrow(state: CronServiceState, id: string, job: CronJob): void {
+  if (!state.store) {
+    throw new Error("cron guarded update requires loaded store");
+  }
+  const index = state.store.jobs.findIndex((entry) => entry.id === id);
+  if (index < 0) {
+    throw new Error("cron guarded update target disappeared from loaded store");
+  }
+  state.store.jobs[index] = job;
+}
+
+function assertGuardedEnabledOnlyPostconditions(params: {
+  before: CronJob;
+  after: CronJob;
+  request: CronGuardedUpdateRequest;
+  currentDefinitionSha: string;
+}): void {
+  if (params.after.enabled !== params.request.patch.enabled) {
+    throw new Error(
+      "cron guarded update verification failed: enabled state mismatch after mutation",
+    );
+  }
+  if (computeCronJobDefinitionSha(params.after) !== params.currentDefinitionSha) {
+    throw new Error("cron guarded update verification failed: omitted fields changed");
+  }
+  if (params.after.state.lastRunAtMs !== params.before.state.lastRunAtMs) {
+    throw new Error("cron guarded update verification failed: run was triggered");
+  }
+  if (params.after.state.runningAtMs !== params.before.state.runningAtMs) {
+    throw new Error("cron guarded update verification failed: running state changed");
+  }
+}
+
+async function reloadGuardedStoreForVerification(state: CronServiceState): Promise<void> {
+  await ensureLoaded(state, { forceReload: true, skipRecompute: true });
+}
+
+async function rollbackGuardedUpdateOrThrow(params: {
+  state: CronServiceState;
+  beforeStore: NonNullable<CronServiceState["store"]>;
+  before: CronJob;
+  reason: unknown;
+}): Promise<never> {
+  try {
+    if (consumeGuardedUpdateTestHook("failRollbackPersistOnce")) {
+      throw new Error("injected guarded update rollback persistence failure");
+    }
+    params.state.store = structuredClone(params.beforeStore);
+    await persist(params.state);
+    await reloadGuardedStoreForVerification(params.state);
+    const restored = findJobOrThrow(params.state, params.before.id);
+    if (computeCronJobDefinitionSha(restored) !== computeCronJobDefinitionSha(params.before)) {
+      throw new Error("rollback verification failed: definition SHA mismatch");
+    }
+    if (restored.enabled !== params.before.enabled) {
+      throw new Error("rollback verification failed: enabled mismatch");
+    }
+    if (restored.state.lastRunAtMs !== params.before.state.lastRunAtMs) {
+      throw new Error("rollback verification failed: lastRunAtMs mismatch");
+    }
+    throw params.reason;
+  } catch (rollbackError) {
+    if (rollbackError === params.reason) {
+      throw rollbackError;
+    }
+    throw new Error(
+      `cron guarded update rollback failed after postcondition failure: ${String(rollbackError)}`,
+      { cause: rollbackError },
+    );
+  }
 }
 
 async function guardedUpdateLoadedCore(params: {
@@ -571,6 +679,10 @@ async function guardedUpdateLoadedCore(params: {
   return await locked(params.state, async () => {
     warnIfDisabled(params.state, params.dryRun ? "validateGuardedUpdate" : "guardedUpdate");
     await ensureLoaded(params.state, { skipRecompute: true });
+    if (!params.state.store) {
+      throw new Error("cron guarded update requires loaded store");
+    }
+    const beforeStore = structuredClone(params.state.store);
     const before = structuredClone(findJobOrThrow(params.state, request.jobId));
     const currentDefinitionSha = computeCronJobDefinitionSha(before);
     verifyGuardedPreconditions({ job: before, request, currentDefinitionSha });
@@ -595,6 +707,9 @@ async function guardedUpdateLoadedCore(params: {
           dryRun: true,
           changed,
           now,
+          persistenceCompleted: false,
+          reloadVerification: false,
+          finalDurableState: "dry-run",
         }),
       };
     }
@@ -606,45 +721,89 @@ async function guardedUpdateLoadedCore(params: {
       params.state.usedGuardedUpdateApprovalNonces.add(command.approval.nonce);
     }
 
-    let after = before;
-    if (changed) {
-      after = await updateLoadedJobCore(params.state, request.jobId, {
-        enabled: request.patch.enabled,
-      });
-    }
-    const reread = structuredClone(findJobOrThrow(params.state, request.jobId));
-    if (reread.enabled !== request.patch.enabled) {
-      throw new Error(
-        "cron guarded update verification failed: enabled state mismatch after mutation",
-      );
-    }
-    if (computeCronJobDefinitionSha(reread) !== currentDefinitionSha) {
-      throw new Error("cron guarded update verification failed: omitted fields changed");
-    }
-    if (reread.state.lastRunAtMs !== before.state.lastRunAtMs) {
-      throw new Error("cron guarded update verification failed: run was triggered");
-    }
-    if (reread.state.runningAtMs !== before.state.runningAtMs) {
-      throw new Error("cron guarded update verification failed: running state changed");
-    }
-
-    return {
-      ok: true,
-      dryRun: false,
-      changed,
-      receipt: createGuardedReceipt({
-        request,
-        caller: command.caller,
-        approval: command.approval,
-        requestDigest,
-        before,
-        predictedAfter,
-        after: changed ? after : reread,
+    if (!changed) {
+      return {
+        ok: true,
         dryRun: false,
         changed,
-        now,
-      }),
-    };
+        receipt: createGuardedReceipt({
+          request,
+          caller: command.caller,
+          approval: command.approval,
+          requestDigest,
+          before,
+          predictedAfter,
+          after: before,
+          dryRun: false,
+          changed,
+          now,
+          persistenceCompleted: false,
+          reloadVerification: true,
+          finalDurableState: "unchanged-noop",
+        }),
+      };
+    }
+
+    try {
+      const nextStore = structuredClone(beforeStore);
+      params.state.store = nextStore;
+      replaceStoreJobOrThrow(params.state, request.jobId, predictedAfter);
+
+      if (consumeGuardedUpdateTestHook("failPersistBeforeWriteOnce")) {
+        throw new Error("injected guarded update persistence failure before write");
+      }
+      await persist(params.state);
+      if (consumeGuardedUpdateTestHook("failReloadVerificationOnce")) {
+        throw new Error("injected guarded update reload verification failure");
+      }
+      await reloadGuardedStoreForVerification(params.state);
+      const reread = structuredClone(findJobOrThrow(params.state, request.jobId));
+      if (consumeGuardedUpdateTestHook("failPostconditionAfterWriteOnce")) {
+        throw new Error("injected guarded update postcondition failure after write");
+      }
+      assertGuardedEnabledOnlyPostconditions({
+        before,
+        after: reread,
+        request,
+        currentDefinitionSha,
+      });
+
+      armTimer(params.state);
+      emit(params.state, {
+        jobId: request.jobId,
+        action: "updated",
+        job: reread,
+        nextRunAtMs: reread.state.nextRunAtMs,
+      });
+
+      return {
+        ok: true,
+        dryRun: false,
+        changed,
+        receipt: createGuardedReceipt({
+          request,
+          caller: command.caller,
+          approval: command.approval,
+          requestDigest,
+          before,
+          predictedAfter,
+          after: reread,
+          dryRun: false,
+          changed,
+          now,
+          persistenceCompleted: true,
+          reloadVerification: true,
+          finalDurableState: "verified-success",
+        }),
+      };
+    } catch (error) {
+      return await rollbackGuardedUpdateOrThrow({
+        state: params.state,
+        beforeStore,
+        before,
+        reason: error,
+      });
+    }
   });
 }
 

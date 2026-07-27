@@ -154,6 +154,7 @@ export async function withCronServiceForTest(
   },
   run: (context: {
     cron: CronService;
+    storePath: string;
     enqueueSystemEvent: ReturnType<typeof vi.fn>;
     requestHeartbeat: ReturnType<typeof vi.fn>;
   }) => Promise<void>,
@@ -174,7 +175,7 @@ export async function withCronServiceForTest(
 
   await cron.start();
   try {
-    await run({ cron, enqueueSystemEvent, requestHeartbeat });
+    await run({ cron, storePath: store.storePath, enqueueSystemEvent, requestHeartbeat });
   } finally {
     cron.stop();
     await store.cleanup();
