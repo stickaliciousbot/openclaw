@@ -6,8 +6,17 @@ import {
   readCronRunLogEntriesPageAll,
   resolveCronRunLogPath,
 } from "../../cron/run-log.js";
+import {
+  assertAuthorizedGuardedUpdateCaller,
+  computeGuardedUpdateRequestDigest,
+  normalizeGuardedUpdateRequest,
+  normalizeVerifiedGuardedCronApproval,
+} from "../../cron/service/guarded-update.js";
 import { applyJobPatch } from "../../cron/service/jobs.js";
-import type { CronGuardedUpdateCaller } from "../../cron/service/state.js";
+import type {
+  GuardedCronCallerContext,
+  GuardedCronInternalCommand,
+} from "../../cron/service/state.js";
 import { isInvalidCronSessionTargetIdError } from "../../cron/session-target.js";
 import type { CronDelivery, CronJob, CronJobCreate, CronJobPatch } from "../../cron/types.js";
 import { validateScheduleTimestamp } from "../../cron/validate-timestamp.js";
@@ -18,6 +27,7 @@ import {
 } from "../../infra/outbound/channel-target-prefix.js";
 import { listConfiguredAnnounceChannelIdsForConfig } from "../../plugins/channel-plugin-ids.js";
 import { normalizeMessageChannel } from "../../utils/message-channel.js";
+import { ADMIN_SCOPE } from "../method-scopes.js";
 import {
   ErrorCodes,
   errorShape,
@@ -33,7 +43,6 @@ import {
   validateCronValidateGuardedUpdateParams,
   validateWakeParams,
 } from "../protocol/index.js";
-import { ADMIN_SCOPE } from "../method-scopes.js";
 import type { GatewayClient, GatewayRequestHandlers } from "./types.js";
 
 function listConfiguredAnnounceChannelIds(cfg: OpenClawConfig): string[] {
@@ -163,26 +172,33 @@ function assertValidCronUpdateDelivery(params: {
   });
 }
 
+function isClientIdentitySpoofFieldPresent(value: unknown): boolean {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return false;
+  }
+  const record = value as Record<string, unknown>;
+  return (
+    record.session_key !== undefined ||
+    record.sessionKey !== undefined ||
+    record.admin_identity !== undefined ||
+    record.adminIdentity !== undefined ||
+    record.authenticated_identity !== undefined ||
+    record.authenticatedIdentity !== undefined
+  );
+}
+
 function resolveGuardedCronCaller(params: {
   client: GatewayClient | null;
-  requestParams: Record<string, unknown>;
-}): CronGuardedUpdateCaller {
+}): GuardedCronCallerContext {
   const scopes = params.client?.connect.scopes ?? [];
   const caps = params.client?.connect.caps ?? [];
   const permissions = params.client?.connect.permissions ?? {};
   const role = params.client?.connect.role;
   const sessionKey =
-    typeof params.requestParams.session_key === "string"
-      ? params.requestParams.session_key
-      : typeof params.requestParams.sessionKey === "string"
-        ? params.requestParams.sessionKey
-        : undefined;
-  const adminIdentity =
-    typeof params.requestParams.admin_identity === "string"
-      ? params.requestParams.admin_identity
-      : typeof params.requestParams.adminIdentity === "string"
-        ? params.requestParams.adminIdentity
-        : params.client?.connect.client.id;
+    params.client?.trustedSessionKey ??
+    (params.client?.connId ? `gateway-connection:${params.client.connId}` : "");
+  const authenticatedIdentity =
+    params.client?.trustedAuthenticatedIdentity ?? params.client?.connect.client.id ?? "";
   const adminSchedulerEnabledState =
     role === "admin" ||
     scopes.includes(ADMIN_SCOPE) ||
@@ -190,18 +206,61 @@ function resolveGuardedCronCaller(params: {
     caps.includes("admin.scheduler.enabled-state") ||
     permissions[ADMIN_SCOPE] === true ||
     permissions["admin.scheduler.enabled-state"] === true;
-  const sharedOrGroupSession =
-    typeof sessionKey === "string" &&
+  const capabilities = new Set<string>();
+  if (adminSchedulerEnabledState) {
+    capabilities.add("admin.scheduler.enabled-state");
+  }
+  for (const cap of caps) {
+    capabilities.add(cap);
+  }
+  for (const scope of scopes) {
+    capabilities.add(scope);
+  }
+  const channelKind =
+    params.client?.trustedChannelKind ??
     (sessionKey.includes(":group:") ||
-      sessionKey.includes(":channel:") ||
-      sessionKey.includes(":thread:"));
+    sessionKey.includes(":channel:") ||
+    sessionKey.includes(":thread:")
+      ? "group"
+      : params.client
+        ? "direct"
+        : "shared");
   return {
     sessionKey,
-    adminIdentity,
-    adminSchedulerEnabledState,
-    sharedOrGroupSession,
-    authenticated: Boolean(params.client),
+    authenticatedIdentity,
+    isAdmin: Boolean(params.client) && adminSchedulerEnabledState,
+    capabilities: [...capabilities].toSorted(),
+    connectionId: params.client?.connId,
+    channelKind,
   };
+}
+
+export function buildGuardedCronInternalCommand(params: {
+  params: Record<string, unknown>;
+  client: GatewayClient | null;
+  requireApproval: boolean;
+}): GuardedCronInternalCommand {
+  if (isClientIdentitySpoofFieldPresent(params.params)) {
+    throw new Error("guarded cron update rejects client-supplied session/admin identity fields");
+  }
+  const approvalRaw = params.params.approval;
+  if (isClientIdentitySpoofFieldPresent(approvalRaw)) {
+    throw new Error("guarded cron update rejects client-supplied approval identity fields");
+  }
+  const { approval: _approval, ...requestRaw } = params.params;
+  const request = normalizeGuardedUpdateRequest(requestRaw);
+  const caller = resolveGuardedCronCaller({ client: params.client });
+  assertAuthorizedGuardedUpdateCaller(caller);
+  const approval = params.requireApproval
+    ? normalizeVerifiedGuardedCronApproval(approvalRaw, caller)
+    : undefined;
+  if (
+    params.requireApproval &&
+    approval?.requestDigest !== computeGuardedUpdateRequestDigest(request)
+  ) {
+    throw new Error("cron.guarded_update approval request digest mismatch");
+  }
+  return { request, caller, approval };
 }
 
 export const cronHandlers: GatewayRequestHandlers = {
@@ -368,8 +427,7 @@ export const cronHandlers: GatewayRequestHandlers = {
     try {
       const p = params as Record<string, unknown>;
       const result = await context.cron.validateGuardedUpdate(
-        p,
-        resolveGuardedCronCaller({ client, requestParams: p }),
+        buildGuardedCronInternalCommand({ params: p, client, requireApproval: false }),
       );
       respond(true, result, undefined);
     } catch (err) {
@@ -398,8 +456,7 @@ export const cronHandlers: GatewayRequestHandlers = {
     try {
       const p = params as Record<string, unknown>;
       const result = await context.cron.guardedUpdate(
-        p,
-        resolveGuardedCronCaller({ client, requestParams: p }),
+        buildGuardedCronInternalCommand({ params: p, client, requireApproval: true }),
       );
       const jobId = String(p.job_id ?? p.jobId ?? p.id);
       context.logGateway.info("cron: guarded enabled-state update completed", { jobId });

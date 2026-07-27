@@ -87,11 +87,11 @@ export function createLazyGatewayCronState(params: LazyGatewayCronParams): Gatew
     async update(id, patch) {
       return await (await load()).state.cron.update(id, patch);
     },
-    async validateGuardedUpdate(request, caller) {
-      return await (await load()).state.cron.validateGuardedUpdate(request, caller);
+    async validateGuardedUpdate(command) {
+      return await (await load()).state.cron.validateGuardedUpdate(command);
     },
-    async guardedUpdate(request, caller) {
-      return await (await load()).state.cron.guardedUpdate(request, caller);
+    async guardedUpdate(command) {
+      return await (await load()).state.cron.guardedUpdate(command);
     },
     async remove(id) {
       return await (await load()).state.cron.remove(id);

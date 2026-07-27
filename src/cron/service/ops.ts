@@ -14,7 +14,7 @@ import {
   assertGuardedUpdateApproval,
   computeCronJobDefinitionSha,
   computeGuardedUpdateRequestDigest,
-  normalizeGuardedUpdateRequest,
+  normalizeGuardedUpdateInternalCommand,
   snapshotGuardedJobState,
 } from "./guarded-update.js";
 import {
@@ -39,7 +39,7 @@ import type {
 } from "./list-page-types.js";
 import { locked } from "./locked.js";
 import type {
-  CronGuardedUpdateCaller,
+  GuardedCronInternalCommand,
   CronGuardedUpdateReceipt,
   CronGuardedUpdateRequest,
   CronGuardedUpdateResult,
@@ -478,7 +478,8 @@ function createPredictedGuardedAfter(params: {
 
 function createGuardedReceipt(params: {
   request: CronGuardedUpdateRequest;
-  caller?: CronGuardedUpdateCaller;
+  caller: GuardedCronInternalCommand["caller"];
+  approval?: GuardedCronInternalCommand["approval"];
   requestDigest: string;
   before: CronJob;
   predictedAfter: CronJob;
@@ -519,8 +520,8 @@ function createGuardedReceipt(params: {
     gatewayMethod: params.dryRun ? "cron.validate_update" : "cron.guarded_update",
     jobId: params.request.jobId,
     requestDigest: params.requestDigest,
-    caller: params.caller ?? {},
-    approval: params.dryRun ? undefined : params.request.approval,
+    caller: params.caller,
+    approval: params.dryRun ? undefined : params.approval,
     before: beforeSnapshot,
     predictedAfter: predictedAfterSnapshot,
     after: afterSnapshot,
@@ -548,22 +549,23 @@ function createGuardedReceipt(params: {
 
 async function guardedUpdateLoadedCore(params: {
   state: CronServiceState;
-  rawRequest: unknown;
-  caller?: CronGuardedUpdateCaller;
+  rawCommand: unknown;
   dryRun: boolean;
 }): Promise<CronGuardedUpdateResult> {
-  const request = normalizeGuardedUpdateRequest(params.rawRequest);
+  const command = normalizeGuardedUpdateInternalCommand(params.rawCommand);
+  const request = command.request;
   const requestDigest = computeGuardedUpdateRequestDigest(request);
   if (!params.dryRun) {
     assertGuardedUpdateApproval({
       request,
-      caller: params.caller ?? {},
+      caller: command.caller,
+      approval: command.approval,
       requestDigest,
       nowMs: params.state.deps.nowMs(),
       usedNonces: params.state.usedGuardedUpdateApprovalNonces,
     });
   } else {
-    assertAuthorizedGuardedUpdateCaller(params.caller);
+    assertAuthorizedGuardedUpdateCaller(command.caller);
   }
 
   return await locked(params.state, async () => {
@@ -586,7 +588,7 @@ async function guardedUpdateLoadedCore(params: {
         changed,
         receipt: createGuardedReceipt({
           request,
-          caller: params.caller,
+          caller: command.caller,
           requestDigest,
           before,
           predictedAfter,
@@ -597,20 +599,24 @@ async function guardedUpdateLoadedCore(params: {
       };
     }
 
-    if (request.approval) {
-      if (params.state.usedGuardedUpdateApprovalNonces.has(request.approval.nonce)) {
+    if (command.approval) {
+      if (params.state.usedGuardedUpdateApprovalNonces.has(command.approval.nonce)) {
         throw new Error("cron.guarded_update approval nonce already used");
       }
-      params.state.usedGuardedUpdateApprovalNonces.add(request.approval.nonce);
+      params.state.usedGuardedUpdateApprovalNonces.add(command.approval.nonce);
     }
 
     let after = before;
     if (changed) {
-      after = await updateLoadedJobCore(params.state, request.jobId, { enabled: request.patch.enabled });
+      after = await updateLoadedJobCore(params.state, request.jobId, {
+        enabled: request.patch.enabled,
+      });
     }
     const reread = structuredClone(findJobOrThrow(params.state, request.jobId));
     if (reread.enabled !== request.patch.enabled) {
-      throw new Error("cron guarded update verification failed: enabled state mismatch after mutation");
+      throw new Error(
+        "cron guarded update verification failed: enabled state mismatch after mutation",
+      );
     }
     if (computeCronJobDefinitionSha(reread) !== currentDefinitionSha) {
       throw new Error("cron guarded update verification failed: omitted fields changed");
@@ -628,7 +634,8 @@ async function guardedUpdateLoadedCore(params: {
       changed,
       receipt: createGuardedReceipt({
         request,
-        caller: params.caller,
+        caller: command.caller,
+        approval: command.approval,
         requestDigest,
         before,
         predictedAfter,
@@ -643,18 +650,16 @@ async function guardedUpdateLoadedCore(params: {
 
 export async function validateGuardedUpdate(
   state: CronServiceState,
-  request: unknown,
-  caller?: CronGuardedUpdateCaller,
+  command: GuardedCronInternalCommand | unknown,
 ): Promise<CronGuardedUpdateResult> {
-  return await guardedUpdateLoadedCore({ state, rawRequest: request, caller, dryRun: true });
+  return await guardedUpdateLoadedCore({ state, rawCommand: command, dryRun: true });
 }
 
 export async function guardedUpdate(
   state: CronServiceState,
-  request: unknown,
-  caller: CronGuardedUpdateCaller,
+  command: GuardedCronInternalCommand | unknown,
 ): Promise<CronGuardedUpdateResult> {
-  return await guardedUpdateLoadedCore({ state, rawRequest: request, caller, dryRun: false });
+  return await guardedUpdateLoadedCore({ state, rawCommand: command, dryRun: false });
 }
 
 export async function remove(state: CronServiceState, id: string) {

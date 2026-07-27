@@ -1,6 +1,10 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import type { ChannelPlugin } from "../../channels/plugins/types.public.js";
 import type { OpenClawConfig } from "../../config/types.openclaw.js";
+import {
+  computeGuardedUpdateRequestDigest,
+  normalizeGuardedUpdateRequest,
+} from "../../cron/service/guarded-update.js";
 import type { CronJob } from "../../cron/types.js";
 import { resetPluginRuntimeStateForTest, setActivePluginRegistry } from "../../plugins/runtime.js";
 import {
@@ -87,16 +91,25 @@ function createCronContext(currentJob?: CronJob) {
   };
 }
 
-function createAdminClient(sessionKey = "agent:main:telegram:direct:8495203551") {
+function createAdminClient(
+  sessionKey = "agent:main:telegram:direct:8495203551",
+  opts: {
+    scopes?: string[];
+    trustedChannelKind?: "direct" | "group" | "shared" | "system";
+    trustedAuthenticatedIdentity?: string;
+  } = {},
+) {
   return {
     connect: {
       minProtocol: 1,
       maxProtocol: 1,
       client: { id: "stick", version: "test", platform: "test", mode: "cli" },
-      scopes: ["operator.admin"],
+      scopes: opts.scopes ?? ["operator.admin"],
     },
     connId: "conn-1",
-    sessionKey,
+    trustedSessionKey: sessionKey,
+    trustedAuthenticatedIdentity: opts.trustedAuthenticatedIdentity ?? "stick",
+    trustedChannelKind: opts.trustedChannelKind ?? "direct",
   };
 }
 
@@ -110,8 +123,6 @@ const guardedValidationParams = {
   },
   execution_policy: { run_immediately: false, catch_up: false },
   reason: "protected memory writer resume",
-  session_key: "agent:main:telegram:direct:8495203551",
-  admin_identity: "stick",
 } as const;
 
 const guardedUpdateParams = {
@@ -122,18 +133,25 @@ const guardedUpdateParams = {
     tool_name: "cron",
     action: "update",
     gateway_method: "cron.guarded_update",
-    session_key: "agent:main:telegram:direct:8495203551",
-    admin_identity: "stick",
     job_id: "cron-1",
     enabled: true,
+    expected_enabled: false,
     expected_definition_sha: "a".repeat(64),
     expected_revision: "1",
-    request_digest: "b".repeat(64),
+    run_immediately: false,
+    catch_up: false,
+    request_digest: computeGuardedUpdateRequestDigest(
+      normalizeGuardedUpdateRequest(guardedValidationParams),
+    ),
     expires_at_ms: 1_800_000_000_000,
   },
 } as const;
 
-async function invokeGuardedCron(method: "cron.validate_update" | "cron.guarded_update", params: Record<string, unknown>, client = createAdminClient()) {
+async function invokeGuardedCron(
+  method: "cron.validate_update" | "cron.guarded_update",
+  params: Record<string, unknown>,
+  client = createAdminClient(),
+) {
   const context = createCronContext(createCronJob());
   const respond = vi.fn();
   await cronHandlers[method]({
@@ -209,12 +227,15 @@ describe("cron method validation", () => {
     );
 
     expect(context.cron.validateGuardedUpdate).toHaveBeenCalledWith(
-      guardedValidationParams,
       expect.objectContaining({
-        authenticated: true,
-        adminSchedulerEnabledState: true,
-        sessionKey: "agent:main:telegram:direct:8495203551",
-        adminIdentity: "stick",
+        request: expect.objectContaining({ jobId: "cron-1", patch: { enabled: true } }),
+        caller: expect.objectContaining({
+          isAdmin: true,
+          capabilities: expect.arrayContaining(["admin.scheduler.enabled-state"]),
+          sessionKey: "agent:main:telegram:direct:8495203551",
+          authenticatedIdentity: "stick",
+          channelKind: "direct",
+        }),
       }),
     );
     expect(context.cron.update).not.toHaveBeenCalled();
@@ -222,20 +243,68 @@ describe("cron method validation", () => {
   });
 
   it("routes cron.guarded_update to guarded service and rejects missing approval", async () => {
-    const { context, respond } = await invokeGuardedCron("cron.guarded_update", guardedUpdateParams);
-    expect(context.cron.guardedUpdate).toHaveBeenCalledWith(
+    const { context, respond } = await invokeGuardedCron(
+      "cron.guarded_update",
       guardedUpdateParams,
-      expect.objectContaining({ adminSchedulerEnabledState: true }),
+    );
+    expect(context.cron.guardedUpdate).toHaveBeenCalledWith(
+      expect.objectContaining({
+        request: expect.objectContaining({ jobId: "cron-1", patch: { enabled: true } }),
+        caller: expect.objectContaining({ isAdmin: true }),
+        approval: expect.objectContaining({
+          sessionKey: "agent:main:telegram:direct:8495203551",
+          authenticatedIdentity: "stick",
+        }),
+      }),
     );
     expect(context.cron.update).not.toHaveBeenCalled();
     expect(respond).toHaveBeenCalledWith(true, { ok: true, dryRun: false }, undefined);
 
-    const missingApproval = await invokeGuardedCron(
-      "cron.guarded_update",
-      guardedValidationParams,
-    );
+    const missingApproval = await invokeGuardedCron("cron.guarded_update", guardedValidationParams);
     expect(missingApproval.context.cron.guardedUpdate).not.toHaveBeenCalled();
     expect(missingApproval.respond.mock.calls[0]?.[0]).toBe(false);
+  });
+
+  it("rejects spoofable client identity fields before the guarded service", async () => {
+    const topLevelSpoof = await invokeGuardedCron("cron.validate_update", {
+      ...guardedValidationParams,
+      session_key: "agent:main:telegram:direct:spoof",
+    });
+    expect(topLevelSpoof.context.cron.validateGuardedUpdate).not.toHaveBeenCalled();
+    expect(topLevelSpoof.respond.mock.calls[0]?.[0]).toBe(false);
+
+    const approvalSpoof = await invokeGuardedCron("cron.guarded_update", {
+      ...guardedUpdateParams,
+      approval: { ...guardedUpdateParams.approval, admin_identity: "spoof" },
+    });
+    expect(approvalSpoof.context.cron.guardedUpdate).not.toHaveBeenCalled();
+    expect(approvalSpoof.respond.mock.calls[0]?.[0]).toBe(false);
+  });
+
+  it("derives caller context from trusted Gateway client state and denies group/shared/non-admin callers", async () => {
+    const group = await invokeGuardedCron(
+      "cron.validate_update",
+      guardedValidationParams,
+      createAdminClient("agent:main:telegram:group:-100", { trustedChannelKind: "group" }),
+    );
+    expect(group.context.cron.validateGuardedUpdate).not.toHaveBeenCalled();
+    expect(group.respond.mock.calls[0]?.[0]).toBe(false);
+
+    const shared = await invokeGuardedCron(
+      "cron.validate_update",
+      guardedValidationParams,
+      createAdminClient("gateway-shared", { trustedChannelKind: "shared" }),
+    );
+    expect(shared.context.cron.validateGuardedUpdate).not.toHaveBeenCalled();
+    expect(shared.respond.mock.calls[0]?.[0]).toBe(false);
+
+    const nonAdmin = await invokeGuardedCron(
+      "cron.validate_update",
+      guardedValidationParams,
+      createAdminClient("agent:main:telegram:direct:8495203551", { scopes: [] }),
+    );
+    expect(nonAdmin.context.cron.validateGuardedUpdate).not.toHaveBeenCalled();
+    expect(nonAdmin.respond.mock.calls[0]?.[0]).toBe(false);
   });
 
   it("preserves broad cron.update routing for existing administrative callers", async () => {

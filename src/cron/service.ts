@@ -2,8 +2,7 @@ import type { CronServiceContract, CronServiceRunResult } from "./service-contra
 import type { CronListPageOptions } from "./service/list-page-types.js";
 import * as ops from "./service/ops.js";
 import {
-  type CronGuardedUpdateCaller,
-  type CronGuardedUpdateRequest,
+  type GuardedCronInternalCommand,
   type CronServiceDeps,
   createCronServiceState,
 } from "./service/state.js";
@@ -45,15 +44,12 @@ export class CronService implements CronServiceContract {
     return await ops.update(this.state, id, patch);
   }
 
-  async validateGuardedUpdate(
-    request: CronGuardedUpdateRequest | unknown,
-    caller?: CronGuardedUpdateCaller,
-  ) {
-    return await ops.validateGuardedUpdate(this.state, request, caller);
+  async validateGuardedUpdate(command: GuardedCronInternalCommand | unknown) {
+    return await ops.validateGuardedUpdate(this.state, command);
   }
 
-  async guardedUpdate(request: CronGuardedUpdateRequest | unknown, caller: CronGuardedUpdateCaller) {
-    return await ops.guardedUpdate(this.state, request, caller);
+  async guardedUpdate(command: GuardedCronInternalCommand | unknown) {
+    return await ops.guardedUpdate(this.state, command);
   }
 
   async remove(id: string) {

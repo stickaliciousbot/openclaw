@@ -309,12 +309,13 @@ const CronGuardedApprovalSchema = Type.Optional(
       tool_name: Type.Literal("cron"),
       action: Type.Literal("update"),
       gateway_method: Type.Literal("cron.guarded_update"),
-      session_key: Type.String(),
-      admin_identity: Type.String(),
       job_id: Type.String(),
       enabled: Type.Boolean(),
+      expected_enabled: Type.Boolean(),
       expected_definition_sha: Type.String({ pattern: "^[a-f0-9]{64}$" }),
       expected_revision: Type.Optional(Type.String()),
+      run_immediately: Type.Literal(false),
+      catch_up: Type.Literal(false),
       request_digest: Type.String({ pattern: "^[a-f0-9]{64}$" }),
       expires_at_ms: Type.Number(),
     },
@@ -339,8 +340,6 @@ export const CronToolSchema = Type.Object(
     execution_policy: CronGuardedExecutionPolicySchema,
     reason: Type.Optional(Type.String()),
     approval: CronGuardedApprovalSchema,
-    session_key: Type.Optional(Type.String()),
-    admin_identity: Type.Optional(Type.String()),
     text: Type.Optional(Type.String()),
     mode: optionalStringEnum(CRON_WAKE_MODES),
     runMode: optionalStringEnum(CRON_RUN_MODES),
@@ -386,7 +385,11 @@ function truncateText(input: string, maxLen: number) {
 }
 
 function readCronJobIdParam(params: Record<string, unknown>) {
-  return readStringParam(params, "job_id") ?? readStringParam(params, "jobId") ?? readStringParam(params, "id");
+  return (
+    readStringParam(params, "job_id") ??
+    readStringParam(params, "jobId") ??
+    readStringParam(params, "id")
+  );
 }
 
 function buildGuardedCronUpdateParams(params: Record<string, unknown>, requireApproval: boolean) {
@@ -395,7 +398,9 @@ function buildGuardedCronUpdateParams(params: Record<string, unknown>, requireAp
     throw new Error("job_id required (jobId/id accepted for compatibility)");
   }
   if (!isRecord(params.patch) || typeof params.patch.enabled !== "boolean") {
-    throw new Error("patch.enabled boolean required; cron tool update does not permit other patch fields");
+    throw new Error(
+      "patch.enabled boolean required; cron tool update does not permit other patch fields",
+    );
   }
   const patchKeys = Object.keys(params.patch);
   if (patchKeys.length !== 1 || patchKeys[0] !== "enabled") {
@@ -415,14 +420,6 @@ function buildGuardedCronUpdateParams(params: Record<string, unknown>, requireAp
     execution_policy: params.execution_policy,
     reason,
   };
-  const sessionKey = readStringParam(params, "session_key");
-  if (sessionKey) {
-    request.session_key = sessionKey;
-  }
-  const adminIdentity = readStringParam(params, "admin_identity");
-  if (adminIdentity) {
-    request.admin_identity = adminIdentity;
-  }
   if (requireApproval) {
     if (!isRecord(params.approval)) {
       throw new Error("approval required for cron update");

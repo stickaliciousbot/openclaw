@@ -21,6 +21,10 @@ export type GatewayClient = {
   connect: ConnectParams;
   connId?: string;
   clientIp?: string;
+  trustedSessionKey?: string;
+  trustedAuthenticatedIdentity?: string;
+  trustedChannelKind?: "direct" | "group" | "shared" | "system";
+  usesSharedGatewayAuth?: boolean;
   canvasHostUrl?: string;
   canvasCapability?: string;
   canvasCapabilityExpiresAtMs?: number;

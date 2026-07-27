@@ -38,12 +38,13 @@ const guardedUpdateParams = {
     tool_name: "cron",
     action: "update",
     gateway_method: "cron.guarded_update",
-    session_key: "agent:main:telegram:direct:8495203551",
-    admin_identity: "stick",
     job_id: "job-1",
     enabled: true,
+    expected_enabled: false,
     expected_definition_sha: "a".repeat(64),
     expected_revision: "123",
+    run_immediately: false,
+    catch_up: false,
     request_digest: "b".repeat(64),
     expires_at_ms: 1_800_000_000_000,
   },
@@ -132,6 +133,18 @@ describe("cron protocol validators", () => {
     ).toBe(false);
     expect(validateCronValidateGuardedUpdateParams({ patch: { enabled: true } })).toBe(false);
     expect(validateCronGuardedUpdateParams(guardedValidationParams)).toBe(false);
+    expect(
+      validateCronValidateGuardedUpdateParams({
+        ...guardedValidationParams,
+        session_key: "agent:main:telegram:direct:spoof",
+      }),
+    ).toBe(false);
+    expect(
+      validateCronGuardedUpdateParams({
+        ...guardedUpdateParams,
+        approval: { ...guardedUpdateParams.approval, admin_identity: "spoof" },
+      }),
+    ).toBe(false);
   });
 
   it("accepts delivery threadId on add and update params", () => {

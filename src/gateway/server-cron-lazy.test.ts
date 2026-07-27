@@ -103,7 +103,13 @@ describe("createLazyGatewayCronState", () => {
     const cron = createCronService();
     hoisted.setState(createCronState(cron));
     const lazy = createLazyGatewayCronState(createParams());
-    const caller = { authenticated: true, adminSchedulerEnabledState: true };
+    const caller = {
+      sessionKey: "gateway-connection:conn-1",
+      authenticatedIdentity: "stick",
+      isAdmin: true,
+      capabilities: ["admin.scheduler.enabled-state"],
+      channelKind: "direct" as const,
+    };
     const request = {
       jobId: "job-1",
       patch: { enabled: true },
@@ -112,12 +118,13 @@ describe("createLazyGatewayCronState", () => {
       reason: "test",
     };
 
-    await lazy.cron.validateGuardedUpdate(request, caller);
-    await lazy.cron.guardedUpdate(request, caller);
+    const command = { request, caller };
+    await lazy.cron.validateGuardedUpdate(command);
+    await lazy.cron.guardedUpdate(command);
 
     expect(hoisted.buildGatewayCronService).toHaveBeenCalledTimes(1);
-    expect(cron.validateGuardedUpdate).toHaveBeenCalledWith(request, caller);
-    expect(cron.guardedUpdate).toHaveBeenCalledWith(request, caller);
+    expect(cron.validateGuardedUpdate).toHaveBeenCalledWith(command);
+    expect(cron.guardedUpdate).toHaveBeenCalledWith(command);
   });
 
   it("preserves the startup cron enabled flag without loading cron runtime", () => {

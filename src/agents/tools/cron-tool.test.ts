@@ -923,8 +923,6 @@ describe("cron tool", () => {
       },
       execution_policy: { run_immediately: false, catch_up: false },
       reason: "protected memory writer resume",
-      session_key: "agent:main:telegram:direct:8495203551",
-      admin_identity: "stick",
     });
 
     const params = expectSingleGatewayCallMethod("cron.validate_update") as
@@ -949,20 +947,19 @@ describe("cron tool", () => {
       },
       execution_policy: { run_immediately: false, catch_up: false },
       reason: "protected memory writer freeze rollback",
-      session_key: "agent:main:telegram:direct:8495203551",
-      admin_identity: "stick",
       approval: {
         approval_id: "approval-1",
         nonce: "nonce-1",
         tool_name: "cron",
         action: "update",
         gateway_method: "cron.guarded_update",
-        session_key: "agent:main:telegram:direct:8495203551",
-        admin_identity: "stick",
         job_id: "job-1",
         enabled: false,
+        expected_enabled: true,
         expected_definition_sha: "a".repeat(64),
         expected_revision: "2",
+        run_immediately: false,
+        catch_up: false,
         request_digest: "b".repeat(64),
         expires_at_ms: 1_800_000_000_000,
       },

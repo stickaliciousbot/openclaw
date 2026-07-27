@@ -437,12 +437,13 @@ const CronGuardedUpdateApprovalSchema = Type.Object(
     tool_name: Type.Literal("cron"),
     action: Type.Literal("update"),
     gateway_method: Type.Literal("cron.guarded_update"),
-    session_key: NonEmptyString,
-    admin_identity: NonEmptyString,
     job_id: NonEmptyString,
     enabled: Type.Boolean(),
+    expected_enabled: Type.Boolean(),
     expected_definition_sha: Type.String({ pattern: "^[a-f0-9]{64}$" }),
     expected_revision: Type.Optional(Type.String()),
+    run_immediately: Type.Literal(false),
+    catch_up: Type.Literal(false),
     request_digest: Type.String({ pattern: "^[a-f0-9]{64}$" }),
     expires_at_ms: Type.Integer({ minimum: 0 }),
   },
@@ -454,8 +455,6 @@ const CronGuardedUpdateCommonFields = {
   preconditions: CronGuardedUpdatePreconditionsSchema,
   execution_policy: CronGuardedUpdateExecutionPolicySchema,
   reason: NonEmptyString,
-  session_key: Type.Optional(NonEmptyString),
-  admin_identity: Type.Optional(NonEmptyString),
 };
 
 export const CronValidateGuardedUpdateParamsSchema = guardedCronJobIdParams({

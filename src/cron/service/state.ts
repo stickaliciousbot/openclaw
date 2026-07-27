@@ -214,18 +214,21 @@ export type CronGuardedUpdateExecutionPolicy = {
   catchUp: false;
 };
 
-export type CronGuardedUpdateApproval = {
+export type VerifiedGuardedCronApproval = {
   approvalId: string;
   nonce: string;
   toolName: "cron";
   action: "update";
   gatewayMethod: "cron.guarded_update";
   sessionKey: string;
-  adminIdentity: string;
+  authenticatedIdentity: string;
   jobId: string;
   enabled: boolean;
+  expectedEnabled: boolean;
   expectedDefinitionSha: string;
   expectedRevision?: string;
+  runImmediately: false;
+  catchUp: false;
   requestDigest: string;
   expiresAtMs: number;
 };
@@ -236,16 +239,24 @@ export type CronGuardedUpdateRequest = {
   preconditions: CronGuardedUpdatePreconditions;
   executionPolicy: CronGuardedUpdateExecutionPolicy;
   reason: string;
-  approval?: CronGuardedUpdateApproval;
 };
 
-export type CronGuardedUpdateCaller = {
-  sessionKey?: string;
-  adminIdentity?: string;
-  adminSchedulerEnabledState?: boolean;
-  sharedOrGroupSession?: boolean;
-  authenticated?: boolean;
+export type GuardedCronCallerContext = {
+  sessionKey: string;
+  authenticatedIdentity: string;
+  isAdmin: boolean;
+  capabilities: readonly string[];
+  connectionId?: string;
+  channelKind: "direct" | "group" | "shared" | "system";
 };
+
+export type GuardedCronInternalCommand = {
+  request: CronGuardedUpdateRequest;
+  caller: GuardedCronCallerContext;
+  approval?: VerifiedGuardedCronApproval;
+};
+
+export type CronGuardedUpdateCaller = GuardedCronCallerContext;
 
 export type CronGuardedJobStateSnapshot = {
   enabled: boolean;
@@ -269,8 +280,8 @@ export type CronGuardedUpdateReceipt = {
   gatewayMethod: "cron.validate_update" | "cron.guarded_update";
   jobId: string;
   requestDigest: string;
-  caller: CronGuardedUpdateCaller;
-  approval?: CronGuardedUpdateApproval;
+  caller: GuardedCronCallerContext;
+  approval?: VerifiedGuardedCronApproval;
   before: CronGuardedJobStateSnapshot;
   predictedAfter: CronGuardedJobStateSnapshot;
   after?: CronGuardedJobStateSnapshot;
