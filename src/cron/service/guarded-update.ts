@@ -28,6 +28,8 @@ const PRECONDITION_KEYS = new Set([
 ]);
 const EXECUTION_POLICY_KEYS = new Set(["runImmediately", "run_immediately", "catchUp", "catch_up"]);
 const APPROVAL_KEYS = new Set([
+  "approvalKind",
+  "approval_kind",
   "approvalId",
   "approval_id",
   "nonce",
@@ -57,6 +59,8 @@ const APPROVAL_KEYS = new Set([
   "catch_up",
   "requestDigest",
   "request_digest",
+  "actionDigest",
+  "action_digest",
   "expiresAtMs",
   "expires_at_ms",
 ]);
@@ -150,7 +154,7 @@ export function canonicalizeForSha(value: unknown): string {
   const record = value as Record<string, unknown>;
   return `{${Object.keys(record)
     .filter((key) => record[key] !== undefined)
-    .sort()
+    .toSorted()
     .map((key) => `${JSON.stringify(key)}:${canonicalizeForSha(record[key])}`)
     .join(",")}}`;
 }
@@ -202,6 +206,31 @@ export function computeGuardedUpdateRequestDigest(request: CronGuardedUpdateRequ
       preconditions: request.preconditions,
       executionPolicy: request.executionPolicy,
       reason: request.reason,
+    }),
+  );
+}
+
+export function computeGuardedUpdateActionDigest(params: {
+  request: CronGuardedUpdateRequest;
+  caller: GuardedCronCallerContext;
+  requestDigest: string;
+}): string {
+  return sha256Hex(
+    canonicalizeForSha({
+      approvalKind: "cron.guarded_update",
+      gatewayMethod: "cron.guarded_update",
+      toolName: "cron",
+      action: "update",
+      requestDigest: params.requestDigest,
+      jobId: params.request.jobId,
+      patch: params.request.patch,
+      preconditions: params.request.preconditions,
+      executionPolicy: params.request.executionPolicy,
+      caller: {
+        sessionKey: params.caller.sessionKey,
+        authenticatedIdentity: params.caller.authenticatedIdentity,
+        channelKind: params.caller.channelKind,
+      },
     }),
   );
 }
@@ -313,6 +342,9 @@ export function normalizeVerifiedGuardedCronApproval(
     throw new Error("guarded cron update approval requires no-run/no-catch-up binding");
   }
   return {
+    approvalKind: readString(value, "approvalKind", "approval_kind") as
+      | "cron.guarded_update"
+      | undefined,
     approvalId: readString(value, "approvalId", "approval_id") ?? "",
     nonce: readString(value, "nonce") ?? "",
     toolName: readString(value, "toolName", "tool_name") as "cron",
@@ -332,6 +364,7 @@ export function normalizeVerifiedGuardedCronApproval(
     runImmediately,
     catchUp,
     requestDigest: readString(value, "requestDigest", "request_digest") ?? "",
+    actionDigest: readString(value, "actionDigest", "action_digest"),
     expiresAtMs: readNumber(value, "expiresAtMs", "expires_at_ms") ?? Number.NaN,
   };
 }
@@ -401,6 +434,9 @@ export function assertGuardedUpdateApproval(params: {
   if (approval.toolName !== "cron" || approval.action !== "update") {
     throw new Error("cron.guarded_update approval tool/action binding mismatch");
   }
+  if (approval.approvalKind !== undefined && approval.approvalKind !== "cron.guarded_update") {
+    throw new Error("cron.guarded_update approval kind binding mismatch");
+  }
   if (approval.gatewayMethod !== "cron.guarded_update") {
     throw new Error("cron.guarded_update approval method binding mismatch");
   }
@@ -430,6 +466,14 @@ export function assertGuardedUpdateApproval(params: {
   }
   if (approval.requestDigest !== params.requestDigest) {
     throw new Error("cron.guarded_update approval request digest mismatch");
+  }
+  const expectedActionDigest = computeGuardedUpdateActionDigest({
+    request: params.request,
+    caller: params.caller,
+    requestDigest: params.requestDigest,
+  });
+  if (approval.actionDigest !== undefined && approval.actionDigest !== expectedActionDigest) {
+    throw new Error("cron.guarded_update approval action digest mismatch");
   }
   if (!Number.isFinite(approval.expiresAtMs) || approval.expiresAtMs < params.nowMs) {
     throw new Error("cron.guarded_update approval expired");

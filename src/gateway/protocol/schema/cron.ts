@@ -432,6 +432,7 @@ const CronGuardedUpdateExecutionPolicySchema = Type.Object(
 
 const CronGuardedUpdateApprovalSchema = Type.Object(
   {
+    approval_kind: Type.Literal("cron.guarded_update"),
     approval_id: NonEmptyString,
     nonce: NonEmptyString,
     tool_name: Type.Literal("cron"),
@@ -445,7 +446,16 @@ const CronGuardedUpdateApprovalSchema = Type.Object(
     run_immediately: Type.Literal(false),
     catch_up: Type.Literal(false),
     request_digest: Type.String({ pattern: "^[a-f0-9]{64}$" }),
+    action_digest: Type.String({ pattern: "^[a-f0-9]{64}$" }),
     expires_at_ms: Type.Integer({ minimum: 0 }),
+  },
+  { additionalProperties: false },
+);
+
+export const CronApprovalResolveParamsSchema = Type.Object(
+  {
+    id: NonEmptyString,
+    decision: Type.Union([Type.Literal("allow-once"), Type.Literal("deny")]),
   },
   { additionalProperties: false },
 );
@@ -463,7 +473,7 @@ export const CronValidateGuardedUpdateParamsSchema = guardedCronJobIdParams({
 
 export const CronGuardedUpdateParamsSchema = guardedCronJobIdParams({
   ...CronGuardedUpdateCommonFields,
-  approval: CronGuardedUpdateApprovalSchema,
+  approval: Type.Optional(CronGuardedUpdateApprovalSchema),
 });
 
 export const CronRemoveParamsSchema = cronIdOrJobIdParams({});

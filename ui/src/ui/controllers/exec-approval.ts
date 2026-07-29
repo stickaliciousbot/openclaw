@@ -13,12 +13,13 @@ export type ExecApprovalRequestPayload = {
 
 export type ExecApprovalRequest = {
   id: string;
-  kind: "exec" | "plugin";
+  kind: "exec" | "plugin" | "cron";
   request: ExecApprovalRequestPayload;
   pluginTitle?: string;
   pluginDescription?: string | null;
   pluginSeverity?: string | null;
   pluginId?: string | null;
+  approvalKind?: string | null;
   createdAtMs: number;
   expiresAtMs: number;
 };
@@ -108,10 +109,11 @@ export function parsePluginApprovalRequested(payload: unknown): ExecApprovalRequ
   const description = typeof request.description === "string" ? request.description : null;
   const severity = typeof request.severity === "string" ? request.severity : null;
   const pluginId = typeof request.pluginId === "string" ? request.pluginId : null;
+  const approvalKind = typeof request.approvalKind === "string" ? request.approvalKind : null;
 
   return {
     id,
-    kind: "plugin",
+    kind: approvalKind === "cron.guarded_update" ? "cron" : "plugin",
     request: {
       command: title,
       agentId: typeof request.agentId === "string" ? request.agentId : null,
@@ -121,6 +123,7 @@ export function parsePluginApprovalRequested(payload: unknown): ExecApprovalRequ
     pluginDescription: description,
     pluginSeverity: severity,
     pluginId,
+    approvalKind,
     createdAtMs,
     expiresAtMs,
   };

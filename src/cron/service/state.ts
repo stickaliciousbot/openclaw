@@ -215,6 +215,7 @@ export type CronGuardedUpdateExecutionPolicy = {
 };
 
 export type VerifiedGuardedCronApproval = {
+  approvalKind?: "cron.guarded_update";
   approvalId: string;
   nonce: string;
   toolName: "cron";
@@ -230,6 +231,7 @@ export type VerifiedGuardedCronApproval = {
   runImmediately: false;
   catchUp: false;
   requestDigest: string;
+  actionDigest?: string;
   expiresAtMs: number;
 };
 

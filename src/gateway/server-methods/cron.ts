@@ -1,3 +1,4 @@
+import { randomUUID } from "node:crypto";
 import type { OpenClawConfig } from "../../config/types.openclaw.js";
 import { resolveCronDeliveryPreviews } from "../../cron/delivery-preview.js";
 import { normalizeCronJobCreate, normalizeCronJobPatch } from "../../cron/normalize.js";
@@ -8,6 +9,7 @@ import {
 } from "../../cron/run-log.js";
 import {
   assertAuthorizedGuardedUpdateCaller,
+  computeGuardedUpdateActionDigest,
   computeGuardedUpdateRequestDigest,
   normalizeGuardedUpdateRequest,
   normalizeVerifiedGuardedCronApproval,
@@ -21,10 +23,13 @@ import { isInvalidCronSessionTargetIdError } from "../../cron/session-target.js"
 import type { CronDelivery, CronJob, CronJobCreate, CronJobPatch } from "../../cron/types.js";
 import { validateScheduleTimestamp } from "../../cron/validate-timestamp.js";
 import { formatErrorMessage } from "../../infra/errors.js";
+import type { ExecApprovalDecision } from "../../infra/exec-approvals.js";
 import {
   resolveTargetPrefixedChannel,
   validateTargetProviderPrefix,
 } from "../../infra/outbound/channel-target-prefix.js";
+import type { PluginApprovalRequestPayload } from "../../infra/plugin-approvals.js";
+import { DEFAULT_PLUGIN_APPROVAL_TIMEOUT_MS } from "../../infra/plugin-approvals.js";
 import { listConfiguredAnnounceChannelIdsForConfig } from "../../plugins/channel-plugin-ids.js";
 import { normalizeMessageChannel } from "../../utils/message-channel.js";
 import { ADMIN_SCOPE } from "../method-scopes.js";
@@ -32,6 +37,7 @@ import {
   ErrorCodes,
   errorShape,
   formatValidationErrors,
+  validateCronApprovalResolveParams,
   validateCronAddParams,
   validateCronGuardedUpdateParams,
   validateCronListParams,
@@ -43,7 +49,475 @@ import {
   validateCronValidateGuardedUpdateParams,
   validateWakeParams,
 } from "../protocol/index.js";
-import type { GatewayClient, GatewayRequestHandlers } from "./types.js";
+import type {
+  GatewayClient,
+  GatewayRequestContext,
+  GatewayRequestHandlers,
+  RespondFn,
+} from "./types.js";
+
+const CRON_GUARDED_UPDATE_APPROVAL_TIMEOUT_MS = DEFAULT_PLUGIN_APPROVAL_TIMEOUT_MS;
+
+type CronGuardedUpdateApprovalPayload = PluginApprovalRequestPayload & {
+  approvalKind: "cron.guarded_update";
+  gatewayMethod: "cron.guarded_update";
+  action: "update";
+  requestDigest: string;
+  actionDigest: string;
+  jobId: string;
+  enabled: boolean;
+  expectedEnabled: boolean;
+  expectedDefinitionSha: string;
+  expectedRevision?: string;
+  runImmediately: false;
+  catchUp: false;
+  reason: string;
+  callerSessionKey: string;
+  callerAuthenticatedIdentity: string;
+  callerConnectionId?: string;
+  callerChannelKind: GuardedCronCallerContext["channelKind"];
+  callerCapabilities: readonly string[];
+  eligibleSurfaces: readonly ["control-ui"];
+};
+
+function isCronGuardedUpdateApprovalPayload(
+  value: PluginApprovalRequestPayload,
+): value is CronGuardedUpdateApprovalPayload {
+  const record = value as Record<string, unknown>;
+  return (
+    record.approvalKind === "cron.guarded_update" &&
+    record.gatewayMethod === "cron.guarded_update" &&
+    record.action === "update" &&
+    typeof record.requestDigest === "string" &&
+    typeof record.actionDigest === "string" &&
+    typeof record.callerSessionKey === "string" &&
+    typeof record.callerAuthenticatedIdentity === "string"
+  );
+}
+
+function findPendingCronGuardedUpdateApproval(params: {
+  manager: NonNullable<GatewayRequestContext["pluginApprovalManager"]>;
+  requestDigest: string;
+  caller: GuardedCronCallerContext;
+}) {
+  return params.manager.listPendingRecords().find((record) => {
+    const request = record.request;
+    return (
+      isCronGuardedUpdateApprovalPayload(request) &&
+      request.requestDigest === params.requestDigest &&
+      request.actionDigest ===
+        computeGuardedUpdateActionDigest({
+          request: normalizeGuardedUpdateRequest({
+            job_id: request.jobId,
+            patch: { enabled: request.enabled },
+            preconditions: {
+              expected_enabled: request.expectedEnabled,
+              expected_definition_sha: request.expectedDefinitionSha,
+              expected_revision: request.expectedRevision,
+            },
+            execution_policy: { run_immediately: false, catch_up: false },
+            reason: request.reason,
+          }),
+          caller: params.caller,
+          requestDigest: params.requestDigest,
+        }) &&
+      request.callerSessionKey === params.caller.sessionKey &&
+      request.callerAuthenticatedIdentity === params.caller.authenticatedIdentity
+    );
+  });
+}
+
+function buildCronGuardedUpdateApprovalPayload(params: {
+  command: GuardedCronInternalCommand;
+  requestDigest: string;
+  actionDigest: string;
+  jobName?: string;
+}): CronGuardedUpdateApprovalPayload {
+  const { request, caller } = params.command;
+  return {
+    approvalKind: "cron.guarded_update",
+    pluginId: "openclaw.cron",
+    title: "Cron guarded update approval required",
+    description: [
+      `Approval kind: cron.guarded_update`,
+      `Target job ID: ${request.jobId}`,
+      `Target job name: ${params.jobName ?? request.jobId}`,
+      `Change: enabled:${String(request.preconditions.expectedEnabled)} → ${String(
+        request.patch.enabled,
+      )}`,
+      "run_immediately=false",
+      "catch_up=false",
+      `Reason: ${request.reason}`,
+    ].join("\n"),
+    severity: "warning",
+    toolName: "cron",
+    toolCallId: request.jobId,
+    allowedDecisions: ["allow-once", "deny"],
+    sessionKey: caller.sessionKey,
+    gatewayMethod: "cron.guarded_update",
+    action: "update",
+    requestDigest: params.requestDigest,
+    actionDigest: params.actionDigest,
+    jobId: request.jobId,
+    enabled: request.patch.enabled,
+    expectedEnabled: request.preconditions.expectedEnabled,
+    expectedDefinitionSha: request.preconditions.expectedDefinitionSha,
+    expectedRevision: request.preconditions.expectedRevision,
+    runImmediately: false,
+    catchUp: false,
+    reason: request.reason,
+    callerSessionKey: caller.sessionKey,
+    callerAuthenticatedIdentity: caller.authenticatedIdentity,
+    callerConnectionId: caller.connectionId,
+    callerChannelKind: caller.channelKind,
+    callerCapabilities: caller.capabilities,
+    eligibleSurfaces: ["control-ui"],
+  };
+}
+
+function mintVerifiedCronGuardedUpdateApproval(params: {
+  approvalId: string;
+  command: GuardedCronInternalCommand;
+  requestDigest: string;
+  actionDigest: string;
+  expiresAtMs: number;
+}) {
+  const { request, caller } = params.command;
+  return {
+    approvalKind: "cron.guarded_update" as const,
+    approvalId: params.approvalId,
+    nonce: `cron:${randomUUID()}`,
+    toolName: "cron" as const,
+    action: "update" as const,
+    gatewayMethod: "cron.guarded_update" as const,
+    sessionKey: caller.sessionKey,
+    authenticatedIdentity: caller.authenticatedIdentity,
+    jobId: request.jobId,
+    enabled: request.patch.enabled,
+    expectedEnabled: request.preconditions.expectedEnabled,
+    expectedDefinitionSha: request.preconditions.expectedDefinitionSha,
+    expectedRevision: request.preconditions.expectedRevision,
+    runImmediately: false as const,
+    catchUp: false as const,
+    requestDigest: params.requestDigest,
+    actionDigest: params.actionDigest,
+    expiresAtMs: params.expiresAtMs,
+  };
+}
+
+function buildCronGuardedUpdateCommandFromApprovalPayload(
+  payload: CronGuardedUpdateApprovalPayload,
+): GuardedCronInternalCommand {
+  return {
+    request: normalizeGuardedUpdateRequest({
+      job_id: payload.jobId,
+      patch: { enabled: payload.enabled },
+      preconditions: {
+        expected_enabled: payload.expectedEnabled,
+        expected_definition_sha: payload.expectedDefinitionSha,
+        expected_revision: payload.expectedRevision,
+      },
+      execution_policy: { run_immediately: false, catch_up: false },
+      reason: payload.reason,
+    }),
+    caller: {
+      sessionKey: payload.callerSessionKey,
+      authenticatedIdentity: payload.callerAuthenticatedIdentity,
+      isAdmin: true,
+      capabilities: payload.callerCapabilities,
+      connectionId: payload.callerConnectionId,
+      channelKind: payload.callerChannelKind,
+    },
+  };
+}
+
+function assertCronApprovalResolverTrusted(params: {
+  payload: CronGuardedUpdateApprovalPayload;
+  client: GatewayClient | null;
+}): void {
+  const resolver = resolveGuardedCronCaller({ client: params.client });
+  assertAuthorizedGuardedUpdateCaller(resolver);
+  if (resolver.sessionKey !== params.payload.callerSessionKey) {
+    throw new Error("cron.approval.resolve denied: session binding mismatch");
+  }
+  if (resolver.authenticatedIdentity !== params.payload.callerAuthenticatedIdentity) {
+    throw new Error("cron.approval.resolve denied: owner/admin binding mismatch");
+  }
+  if (
+    params.payload.callerConnectionId &&
+    resolver.connectionId !== params.payload.callerConnectionId
+  ) {
+    throw new Error("cron.approval.resolve denied: surface binding mismatch");
+  }
+}
+
+async function handleCronApprovalResolve(params: {
+  params: unknown;
+  respond: RespondFn;
+  context: GatewayRequestContext;
+  client: GatewayClient | null;
+}): Promise<void> {
+  const manager = params.context.pluginApprovalManager;
+  if (!manager) {
+    params.respond(
+      false,
+      undefined,
+      errorShape(ErrorCodes.INVALID_REQUEST, "cron approval surface unavailable"),
+    );
+    return;
+  }
+  if (!validateCronApprovalResolveParams(params.params)) {
+    params.respond(
+      false,
+      undefined,
+      errorShape(
+        ErrorCodes.INVALID_REQUEST,
+        `invalid cron.approval.resolve params: ${formatValidationErrors(
+          validateCronApprovalResolveParams.errors,
+        )}`,
+      ),
+    );
+    return;
+  }
+  const p = params.params as { id: string; decision: ExecApprovalDecision };
+  const resolvedId = manager.lookupApprovalId(p.id, { includeResolved: true });
+  if (resolvedId.kind !== "exact" && resolvedId.kind !== "prefix") {
+    params.respond(
+      false,
+      undefined,
+      errorShape(ErrorCodes.INVALID_REQUEST, "unknown or expired cron approval id"),
+    );
+    return;
+  }
+  const snapshot = manager.getSnapshot(resolvedId.id);
+  const request = snapshot?.request;
+  if (!snapshot || !request || !isCronGuardedUpdateApprovalPayload(request)) {
+    params.respond(
+      false,
+      undefined,
+      errorShape(ErrorCodes.INVALID_REQUEST, "approval id is not a cron.guarded_update approval"),
+    );
+    return;
+  }
+  const recordedDecision = snapshot.decision ?? snapshot.consumedDecision;
+  try {
+    assertCronApprovalResolverTrusted({ payload: request, client: params.client });
+  } catch (err) {
+    params.respond(
+      false,
+      undefined,
+      errorShape(ErrorCodes.INVALID_REQUEST, formatErrorMessage(err)),
+    );
+    return;
+  }
+  if (snapshot.resolvedAtMs !== undefined) {
+    if (recordedDecision === p.decision) {
+      params.respond(
+        true,
+        { ok: true, id: resolvedId.id, terminal: "CRON_APPROVAL_DECISION_IDEMPOTENT" },
+        undefined,
+      );
+      return;
+    }
+    params.respond(
+      false,
+      undefined,
+      errorShape(ErrorCodes.INVALID_REQUEST, "cron approval already resolved"),
+    );
+    return;
+  }
+
+  const command = buildCronGuardedUpdateCommandFromApprovalPayload(request);
+  const requestDigest = computeGuardedUpdateRequestDigest(command.request);
+  const actionDigest = computeGuardedUpdateActionDigest({
+    request: command.request,
+    caller: command.caller,
+    requestDigest,
+  });
+  if (requestDigest !== request.requestDigest || actionDigest !== request.actionDigest) {
+    params.respond(
+      false,
+      undefined,
+      errorShape(ErrorCodes.INVALID_REQUEST, "cron approval digest binding mismatch"),
+    );
+    return;
+  }
+
+  if (!manager.resolve(resolvedId.id, p.decision, params.client?.connect.client.id ?? null)) {
+    params.respond(
+      false,
+      undefined,
+      errorShape(ErrorCodes.INVALID_REQUEST, "unknown or expired cron approval id"),
+    );
+    return;
+  }
+
+  const resolvedEvent = {
+    id: resolvedId.id,
+    decision: p.decision,
+    request,
+    approvalKind: "cron.guarded_update",
+    ts: Date.now(),
+  };
+  params.context.broadcast("cron.approval.resolved", resolvedEvent, { dropIfSlow: true });
+  params.context.broadcast("plugin.approval.resolved", resolvedEvent, { dropIfSlow: true });
+
+  if (p.decision === "deny") {
+    params.respond(
+      true,
+      { ok: true, id: resolvedId.id, terminal: "CRON_APPROVAL_DENIED_ZERO_MUTATION" },
+      undefined,
+    );
+    return;
+  }
+
+  if (!manager.consumeAllowOnce(resolvedId.id)) {
+    params.respond(
+      false,
+      undefined,
+      errorShape(ErrorCodes.INVALID_REQUEST, "cron approval already consumed"),
+    );
+    return;
+  }
+
+  try {
+    const result = await params.context.cron.guardedUpdate({
+      ...command,
+      approval: mintVerifiedCronGuardedUpdateApproval({
+        approvalId: resolvedId.id,
+        command,
+        requestDigest,
+        actionDigest,
+        expiresAtMs: snapshot.expiresAtMs,
+      }),
+    });
+    params.respond(
+      true,
+      { ok: true, id: resolvedId.id, terminal: "CRON_APPROVAL_ALLOW_ONCE_APPLIED", result },
+      undefined,
+    );
+  } catch (err) {
+    params.respond(
+      false,
+      undefined,
+      errorShape(
+        ErrorCodes.INVALID_REQUEST,
+        `invalid cron.guarded_update params: ${formatErrorMessage(err)}`,
+      ),
+    );
+  }
+}
+
+async function handleCronGuardedUpdateApprovalRequest(params: {
+  params: Record<string, unknown>;
+  respond: RespondFn;
+  context: GatewayRequestContext;
+  client: GatewayClient | null;
+}): Promise<void> {
+  const manager = params.context.pluginApprovalManager;
+  if (!manager) {
+    params.respond(
+      false,
+      undefined,
+      errorShape(ErrorCodes.INVALID_REQUEST, "cron.guarded_update approval surface unavailable"),
+    );
+    return;
+  }
+
+  let command: GuardedCronInternalCommand;
+  let validationResult: unknown;
+  try {
+    command = buildGuardedCronInternalCommand({
+      params: params.params,
+      client: params.client,
+      requireApproval: false,
+    });
+    validationResult = await params.context.cron.validateGuardedUpdate(command);
+  } catch (err) {
+    params.respond(
+      false,
+      undefined,
+      errorShape(
+        ErrorCodes.INVALID_REQUEST,
+        `invalid cron.guarded_update params: ${formatErrorMessage(err)}`,
+      ),
+    );
+    return;
+  }
+
+  const requestDigest = computeGuardedUpdateRequestDigest(command.request);
+  const actionDigest = computeGuardedUpdateActionDigest({
+    request: command.request,
+    caller: command.caller,
+    requestDigest,
+  });
+  let record = findPendingCronGuardedUpdateApproval({
+    manager,
+    requestDigest,
+    caller: command.caller,
+  });
+  let created = false;
+
+  if (!record) {
+    const payload = buildCronGuardedUpdateApprovalPayload({
+      command,
+      requestDigest,
+      actionDigest,
+      jobName: params.context.cron.getJob(command.request.jobId)?.name,
+    });
+    record = manager.create(
+      payload,
+      CRON_GUARDED_UPDATE_APPROVAL_TIMEOUT_MS,
+      `cron:${randomUUID()}`,
+    );
+    try {
+      manager.register(record, CRON_GUARDED_UPDATE_APPROVAL_TIMEOUT_MS);
+      created = true;
+    } catch (err) {
+      params.respond(
+        false,
+        undefined,
+        errorShape(ErrorCodes.INVALID_REQUEST, `registration failed: ${String(err)}`),
+      );
+      return;
+    }
+  }
+
+  const requestEvent = {
+    id: record.id,
+    request: record.request,
+    createdAtMs: record.createdAtMs,
+    expiresAtMs: record.expiresAtMs,
+  };
+
+  if (created) {
+    params.context.broadcast("cron.approval.requested", requestEvent, { dropIfSlow: true });
+    params.context.broadcast("plugin.approval.requested", requestEvent, { dropIfSlow: true });
+  }
+
+  const hasApprovalClients =
+    params.context.hasExecApprovalClients?.(params.client?.connId) ?? false;
+  if (!hasApprovalClients && created) {
+    manager.expire(record.id, "no-approval-route");
+  }
+
+  params.respond(
+    true,
+    {
+      status: "hold",
+      terminal: "HOLD_APPROVAL_REQUIRED",
+      id: record.id,
+      approvalKind: "cron.guarded_update",
+      requestDigest,
+      actionDigest,
+      createdAtMs: record.createdAtMs,
+      expiresAtMs: record.expiresAtMs,
+      eligibleSurfaces: ["control-ui"],
+      validation: validationResult,
+    },
+    undefined,
+  );
+}
 
 function listConfiguredAnnounceChannelIds(cfg: OpenClawConfig): string[] {
   return listConfiguredAnnounceChannelIdsForConfig({
@@ -442,7 +916,18 @@ export const cronHandlers: GatewayRequestHandlers = {
     }
   },
   "cron.guarded_update": async ({ params, respond, context, client }) => {
+    const p = params as Record<string, unknown> | null;
+    const approvalMissing = !p || p.approval == null;
     if (!validateCronGuardedUpdateParams(params)) {
+      if (approvalMissing && validateCronValidateGuardedUpdateParams(params)) {
+        await handleCronGuardedUpdateApprovalRequest({
+          params: params as Record<string, unknown>,
+          respond,
+          context,
+          client,
+        });
+        return;
+      }
       respond(
         false,
         undefined,
@@ -453,12 +938,21 @@ export const cronHandlers: GatewayRequestHandlers = {
       );
       return;
     }
+    if (approvalMissing) {
+      await handleCronGuardedUpdateApprovalRequest({
+        params: params as Record<string, unknown>,
+        respond,
+        context,
+        client,
+      });
+      return;
+    }
+    const approvedParams = p as Record<string, unknown>;
     try {
-      const p = params as Record<string, unknown>;
       const result = await context.cron.guardedUpdate(
-        buildGuardedCronInternalCommand({ params: p, client, requireApproval: true }),
+        buildGuardedCronInternalCommand({ params: approvedParams, client, requireApproval: true }),
       );
-      const jobId = String(p.job_id ?? p.jobId ?? p.id);
+      const jobId = String(approvedParams.job_id ?? approvedParams.jobId ?? approvedParams.id);
       context.logGateway.info("cron: guarded enabled-state update completed", { jobId });
       respond(true, result, undefined);
     } catch (err) {
@@ -471,6 +965,9 @@ export const cronHandlers: GatewayRequestHandlers = {
         ),
       );
     }
+  },
+  "cron.approval.resolve": async ({ params, respond, context, client }) => {
+    await handleCronApprovalResolve({ params, respond, context, client });
   },
   "cron.update": async ({ params, respond, context }) => {
     let normalizedPatch: ReturnType<typeof normalizeCronJobPatch>;

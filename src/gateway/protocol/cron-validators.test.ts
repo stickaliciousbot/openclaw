@@ -33,6 +33,7 @@ const guardedValidationParams = {
 const guardedUpdateParams = {
   ...guardedValidationParams,
   approval: {
+    approval_kind: "cron.guarded_update",
     approval_id: "approval-1",
     nonce: "nonce-1",
     tool_name: "cron",
@@ -46,6 +47,7 @@ const guardedUpdateParams = {
     run_immediately: false,
     catch_up: false,
     request_digest: "b".repeat(64),
+    action_digest: "c".repeat(64),
     expires_at_ms: 1_800_000_000_000,
   },
 } as const;
@@ -103,6 +105,8 @@ describe("cron protocol validators", () => {
 
   it("accepts guarded validation and guarded update params", () => {
     expect(validateCronValidateGuardedUpdateParams(guardedValidationParams)).toBe(true);
+    // cron.guarded_update without an approval is the guarded approval-surface request shape.
+    expect(validateCronGuardedUpdateParams(guardedValidationParams)).toBe(true);
     expect(validateCronGuardedUpdateParams(guardedUpdateParams)).toBe(true);
   });
 
@@ -132,7 +136,6 @@ describe("cron protocol validators", () => {
       }),
     ).toBe(false);
     expect(validateCronValidateGuardedUpdateParams({ patch: { enabled: true } })).toBe(false);
-    expect(validateCronGuardedUpdateParams(guardedValidationParams)).toBe(false);
     expect(
       validateCronValidateGuardedUpdateParams({
         ...guardedValidationParams,

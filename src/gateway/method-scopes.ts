@@ -50,6 +50,7 @@ const METHOD_SCOPE_GROUPS: Record<OperatorScope, readonly string[]> = {
     "plugin.approval.request",
     "plugin.approval.waitDecision",
     "plugin.approval.resolve",
+    "cron.approval.resolve",
   ],
   [PAIRING_SCOPE]: [
     "node.pair.request",

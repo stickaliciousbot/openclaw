@@ -47,6 +47,25 @@ describe("parsePluginApprovalRequested", () => {
     expect(result!.expiresAtMs).toBe(120_000);
   });
 
+  it("classifies cron approval compatibility payloads with kind 'cron'", () => {
+    const result = parsePluginApprovalRequested({
+      ...validPayload,
+      id: "cron:approval-1",
+      request: {
+        ...validPayload.request,
+        approvalKind: "cron.guarded_update",
+        title: "Cron guarded update approval required",
+        description:
+          "Allow cron.guarded_update for cron-1 (cron job): enabled:true → false; run_immediately=false; catch_up=false",
+      },
+    });
+    expect(result).not.toBeNull();
+    expect(result!.kind).toBe("cron");
+    expect(result!.approvalKind).toBe("cron.guarded_update");
+    expect(result!.pluginTitle).toBe("Cron guarded update approval required");
+    expect(result!.pluginDescription).toContain("run_immediately=false");
+  });
+
   it("returns null when title is missing from request", () => {
     const {
       request: { title: _, ...restRequest },

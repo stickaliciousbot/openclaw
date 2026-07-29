@@ -24,6 +24,15 @@ import {
 } from "./approval-shared.js";
 import type { GatewayRequestHandlers } from "./types.js";
 
+function isCronApprovalPayloadLike(value: PluginApprovalRequestPayload): boolean {
+  const record = value as Record<string, unknown>;
+  return (
+    record.approvalKind === "cron.guarded_update" ||
+    record.gatewayMethod === "cron.guarded_update" ||
+    (typeof record.toolName === "string" && record.toolName === "cron")
+  );
+}
+
 export function createPluginApprovalHandlers(
   manager: ExecApprovalManager<PluginApprovalRequestPayload>,
   opts?: { forwarder?: ExecApprovalForwarder },
@@ -185,14 +194,21 @@ export function createPluginApprovalHandlers(
         client,
         exposeAmbiguousPrefixError: false,
         validateDecision: (snapshot) =>
-          resolvePluginApprovalRequestAllowedDecisions(snapshot.request).includes(decision)
-            ? null
-            : {
-                message: `${decision} is unavailable for this plugin approval`,
-                details: {
-                  allowedDecisions: resolvePluginApprovalRequestAllowedDecisions(snapshot.request),
+          isCronApprovalPayloadLike(snapshot.request)
+            ? {
+                message: "plugin.approval.resolve cannot resolve cron.guarded_update approvals",
+                details: { approvalKind: "cron.guarded_update" },
+              }
+            : resolvePluginApprovalRequestAllowedDecisions(snapshot.request).includes(decision)
+              ? null
+              : {
+                  message: `${decision} is unavailable for this plugin approval`,
+                  details: {
+                    allowedDecisions: resolvePluginApprovalRequestAllowedDecisions(
+                      snapshot.request,
+                    ),
+                  },
                 },
-              },
         resolvedEventName: "plugin.approval.resolved",
         buildResolvedEvent: ({ approvalId, decision, resolvedBy, snapshot, nowMs }) => ({
           id: approvalId,

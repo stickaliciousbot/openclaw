@@ -2,15 +2,18 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import type { ChannelPlugin } from "../../channels/plugins/types.public.js";
 import type { OpenClawConfig } from "../../config/types.openclaw.js";
 import {
+  computeGuardedUpdateActionDigest,
   computeGuardedUpdateRequestDigest,
   normalizeGuardedUpdateRequest,
 } from "../../cron/service/guarded-update.js";
 import type { CronJob } from "../../cron/types.js";
+import type { PluginApprovalRequestPayload } from "../../infra/plugin-approvals.js";
 import { resetPluginRuntimeStateForTest, setActivePluginRegistry } from "../../plugins/runtime.js";
 import {
   createChannelTestPluginBase,
   createTestRegistry,
 } from "../../test-utils/channel-plugins.js";
+import { ExecApprovalManager } from "../exec-approval-manager.js";
 
 const getRuntimeConfig = vi.hoisted(() =>
   vi.fn<() => OpenClawConfig>(() => ({}) as OpenClawConfig),
@@ -26,6 +29,7 @@ vi.mock("../../config/config.js", async () => {
 });
 
 import { cronHandlers } from "./cron.js";
+import { createPluginApprovalHandlers } from "./plugin-approval.js";
 
 function createPrefixOnlyChannelPlugin(
   id: string,
@@ -75,6 +79,8 @@ function setCronValidationTestRegistry(): void {
 }
 
 function createCronContext(currentJob?: CronJob) {
+  const broadcasts: Array<{ event: string; payload: unknown }> = [];
+  const pluginApprovalManager = new ExecApprovalManager<PluginApprovalRequestPayload>();
   return {
     cron: {
       add: vi.fn(async () => ({ id: "cron-1" })),
@@ -86,8 +92,15 @@ function createCronContext(currentJob?: CronJob) {
     },
     logGateway: {
       info: vi.fn(),
+      error: vi.fn(),
     },
     getRuntimeConfig: () => getRuntimeConfig(),
+    pluginApprovalManager,
+    hasExecApprovalClients: vi.fn(() => false),
+    broadcast: vi.fn((event: string, payload: unknown) => {
+      broadcasts.push({ event, payload });
+    }),
+    broadcasts,
   };
 }
 
@@ -97,6 +110,7 @@ function createAdminClient(
     scopes?: string[];
     trustedChannelKind?: "direct" | "group" | "shared" | "system";
     trustedAuthenticatedIdentity?: string;
+    connId?: string;
   } = {},
 ) {
   return {
@@ -106,7 +120,7 @@ function createAdminClient(
       client: { id: "stick", version: "test", platform: "test", mode: "cli" },
       scopes: opts.scopes ?? ["operator.admin"],
     },
-    connId: "conn-1",
+    connId: opts.connId ?? "conn-1",
     trustedSessionKey: sessionKey,
     trustedAuthenticatedIdentity: opts.trustedAuthenticatedIdentity ?? "stick",
     trustedChannelKind: opts.trustedChannelKind ?? "direct",
@@ -125,9 +139,26 @@ const guardedValidationParams = {
   reason: "protected memory writer resume",
 } as const;
 
+const guardedRequestDigest = computeGuardedUpdateRequestDigest(
+  normalizeGuardedUpdateRequest(guardedValidationParams),
+);
+const guardedActionDigest = computeGuardedUpdateActionDigest({
+  request: normalizeGuardedUpdateRequest(guardedValidationParams),
+  caller: {
+    sessionKey: "agent:main:telegram:direct:8495203551",
+    authenticatedIdentity: "stick",
+    isAdmin: true,
+    capabilities: ["admin.scheduler.enabled-state", "operator.admin"],
+    connectionId: "conn-1",
+    channelKind: "direct",
+  },
+  requestDigest: guardedRequestDigest,
+});
+
 const guardedUpdateParams = {
   ...guardedValidationParams,
   approval: {
+    approval_kind: "cron.guarded_update",
     approval_id: "approval-1",
     nonce: "nonce-1",
     tool_name: "cron",
@@ -140,9 +171,8 @@ const guardedUpdateParams = {
     expected_revision: "1",
     run_immediately: false,
     catch_up: false,
-    request_digest: computeGuardedUpdateRequestDigest(
-      normalizeGuardedUpdateRequest(guardedValidationParams),
-    ),
+    request_digest: guardedRequestDigest,
+    action_digest: guardedActionDigest,
     expires_at_ms: 1_800_000_000_000,
   },
 } as const;
@@ -191,6 +221,18 @@ async function invokeCronUpdate(params: Record<string, unknown>, currentJob: Cro
     isWebchatConnect: () => false,
   });
   return { context, respond };
+}
+
+function cronApprovalIdFromBroadcasts(
+  broadcasts: Array<{ event: string; payload: unknown }>,
+): string {
+  const payload = broadcasts.find((entry) => entry.event === "cron.approval.requested")?.payload as
+    | { id?: string }
+    | undefined;
+  if (!payload?.id) {
+    throw new Error("cron.approval.requested broadcast missing");
+  }
+  return payload.id;
 }
 
 function createCronJob(overrides: Partial<CronJob> = {}): CronJob {
@@ -242,7 +284,7 @@ describe("cron method validation", () => {
     expect(respond).toHaveBeenCalledWith(true, { ok: true, dryRun: true }, undefined);
   });
 
-  it("routes cron.guarded_update to guarded service and rejects missing approval", async () => {
+  it("routes cron.guarded_update to guarded service and surfaces missing approval as a typed HOLD request", async () => {
     const { context, respond } = await invokeGuardedCron(
       "cron.guarded_update",
       guardedUpdateParams,
@@ -252,8 +294,10 @@ describe("cron method validation", () => {
         request: expect.objectContaining({ jobId: "cron-1", patch: { enabled: true } }),
         caller: expect.objectContaining({ isAdmin: true }),
         approval: expect.objectContaining({
+          approvalKind: "cron.guarded_update",
           sessionKey: "agent:main:telegram:direct:8495203551",
           authenticatedIdentity: "stick",
+          actionDigest: guardedActionDigest,
         }),
       }),
     );
@@ -262,7 +306,257 @@ describe("cron method validation", () => {
 
     const missingApproval = await invokeGuardedCron("cron.guarded_update", guardedValidationParams);
     expect(missingApproval.context.cron.guardedUpdate).not.toHaveBeenCalled();
-    expect(missingApproval.respond.mock.calls[0]?.[0]).toBe(false);
+    expect(missingApproval.context.cron.validateGuardedUpdate).toHaveBeenCalledWith(
+      expect.objectContaining({
+        request: expect.objectContaining({ jobId: "cron-1", patch: { enabled: true } }),
+        caller: expect.objectContaining({ isAdmin: true }),
+      }),
+    );
+    const missingRequested = missingApproval.context.broadcasts.find(
+      (entry) => entry.event === "cron.approval.requested",
+    );
+    expect(missingRequested).toEqual(
+      expect.objectContaining({
+        event: "cron.approval.requested",
+        payload: expect.objectContaining({
+          id: expect.stringMatching(/^cron:/),
+          request: expect.objectContaining({
+            approvalKind: "cron.guarded_update",
+            gatewayMethod: "cron.guarded_update",
+            action: "update",
+            requestDigest: guardedRequestDigest,
+            actionDigest: guardedActionDigest,
+            jobId: "cron-1",
+            enabled: true,
+            eligibleSurfaces: ["control-ui"],
+            allowedDecisions: ["allow-once", "deny"],
+          }),
+        }),
+      }),
+    );
+    expect(missingApproval.respond).toHaveBeenCalledWith(
+      true,
+      expect.objectContaining({
+        status: "hold",
+        terminal: "HOLD_APPROVAL_REQUIRED",
+        approvalKind: "cron.guarded_update",
+        actionDigest: guardedActionDigest,
+        eligibleSurfaces: ["control-ui"],
+      }),
+      undefined,
+    );
+  });
+
+  it("does not mutate when a surfaced cron guarded update approval is denied", async () => {
+    const context = createCronContext(createCronJob());
+    context.hasExecApprovalClients.mockReturnValue(true);
+    const respond = vi.fn();
+    await cronHandlers["cron.guarded_update"]({
+      req: {} as never,
+      params: guardedValidationParams as never,
+      respond: respond as never,
+      context: context as never,
+      client: createAdminClient() as never,
+      isWebchatConnect: () => false,
+    });
+
+    const approvalId = cronApprovalIdFromBroadcasts(context.broadcasts);
+    const resolveRespond = vi.fn();
+    await cronHandlers["cron.approval.resolve"]({
+      req: {} as never,
+      params: { id: approvalId, decision: "deny" } as never,
+      respond: resolveRespond as never,
+      context: context as never,
+      client: createAdminClient() as never,
+      isWebchatConnect: () => false,
+    });
+
+    expect(context.cron.guardedUpdate).not.toHaveBeenCalled();
+    expect(respond.mock.calls[0]?.[0]).toBe(true);
+    expect(resolveRespond).toHaveBeenCalledWith(
+      true,
+      expect.objectContaining({ terminal: "CRON_APPROVAL_DENIED_ZERO_MUTATION" }),
+      undefined,
+    );
+  });
+
+  it("allows a surfaced cron guarded update exactly once across duplicate requests", async () => {
+    const context = createCronContext(createCronJob());
+    context.hasExecApprovalClients.mockReturnValue(true);
+    const respondA = vi.fn();
+    const respondB = vi.fn();
+
+    await cronHandlers["cron.guarded_update"]({
+      req: {} as never,
+      params: guardedValidationParams as never,
+      respond: respondA as never,
+      context: context as never,
+      client: createAdminClient() as never,
+      isWebchatConnect: () => false,
+    });
+    await cronHandlers["cron.guarded_update"]({
+      req: {} as never,
+      params: guardedValidationParams as never,
+      respond: respondB as never,
+      context: context as never,
+      client: createAdminClient() as never,
+      isWebchatConnect: () => false,
+    });
+
+    expect(
+      context.broadcasts.filter((entry) => entry.event === "cron.approval.requested"),
+    ).toHaveLength(1);
+    const approvalId = cronApprovalIdFromBroadcasts(context.broadcasts);
+    const resolveRespond = vi.fn();
+    await cronHandlers["cron.approval.resolve"]({
+      req: {} as never,
+      params: { id: approvalId, decision: "allow-once" } as never,
+      respond: resolveRespond as never,
+      context: context as never,
+      client: createAdminClient() as never,
+      isWebchatConnect: () => false,
+    });
+
+    expect(context.cron.guardedUpdate).toHaveBeenCalledTimes(1);
+    expect(context.cron.guardedUpdate).toHaveBeenCalledWith(
+      expect.objectContaining({
+        approval: expect.objectContaining({
+          approvalKind: "cron.guarded_update",
+          approvalId,
+          nonce: expect.stringMatching(/^cron:/),
+          toolName: "cron",
+          action: "update",
+          gatewayMethod: "cron.guarded_update",
+          sessionKey: "agent:main:telegram:direct:8495203551",
+          authenticatedIdentity: "stick",
+          requestDigest: guardedRequestDigest,
+          actionDigest: guardedActionDigest,
+        }),
+      }),
+    );
+    expect(resolveRespond.mock.calls[0]?.[1]).toEqual(
+      expect.objectContaining({ terminal: "CRON_APPROVAL_ALLOW_ONCE_APPLIED" }),
+    );
+
+    const replayRespond = vi.fn();
+    await cronHandlers["cron.approval.resolve"]({
+      req: {} as never,
+      params: { id: approvalId, decision: "allow-once" } as never,
+      respond: replayRespond as never,
+      context: context as never,
+      client: createAdminClient() as never,
+      isWebchatConnect: () => false,
+    });
+    expect(context.cron.guardedUpdate).toHaveBeenCalledTimes(1);
+    expect(replayRespond.mock.calls[0]?.[1]).toEqual(
+      expect.objectContaining({ terminal: "CRON_APPROVAL_DECISION_IDEMPOTENT" }),
+    );
+  });
+
+  it("rejects plugin resolution for cron approvals and uses cron-specific resolution", async () => {
+    const context = createCronContext(createCronJob());
+    context.hasExecApprovalClients.mockReturnValue(true);
+    const respond = vi.fn();
+    await cronHandlers["cron.guarded_update"]({
+      req: {} as never,
+      params: guardedValidationParams as never,
+      respond: respond as never,
+      context: context as never,
+      client: createAdminClient() as never,
+      isWebchatConnect: () => false,
+    });
+
+    const approvalId = cronApprovalIdFromBroadcasts(context.broadcasts);
+    const pluginRespond = vi.fn();
+    const pluginHandlers = createPluginApprovalHandlers(context.pluginApprovalManager);
+    await pluginHandlers["plugin.approval.resolve"]({
+      req: {} as never,
+      params: { id: approvalId, decision: "allow-once" } as never,
+      respond: pluginRespond as never,
+      context: context as never,
+      client: createAdminClient() as never,
+      isWebchatConnect: () => false,
+    });
+
+    expect(pluginRespond.mock.calls[0]?.[0]).toBe(false);
+    expect(String(pluginRespond.mock.calls[0]?.[2]?.message)).toContain(
+      "cannot resolve cron.guarded_update",
+    );
+    expect(context.cron.guardedUpdate).not.toHaveBeenCalled();
+
+    const cronRespond = vi.fn();
+    await cronHandlers["cron.approval.resolve"]({
+      req: {} as never,
+      params: { id: approvalId, decision: "allow-once" } as never,
+      respond: cronRespond as never,
+      context: context as never,
+      client: createAdminClient() as never,
+      isWebchatConnect: () => false,
+    });
+    expect(cronRespond.mock.calls[0]?.[1]).toEqual(
+      expect.objectContaining({ terminal: "CRON_APPROVAL_ALLOW_ONCE_APPLIED" }),
+    );
+    expect(context.cron.guardedUpdate).toHaveBeenCalledTimes(1);
+    expect(context.broadcasts.map((entry) => entry.event)).toContain("plugin.approval.resolved");
+  });
+
+  it("rejects cross-route and wrong-owner idempotent replay after cron approval resolution", async () => {
+    const context = createCronContext(createCronJob());
+    context.hasExecApprovalClients.mockReturnValue(true);
+    const respond = vi.fn();
+    await cronHandlers["cron.guarded_update"]({
+      req: {} as never,
+      params: guardedValidationParams as never,
+      respond: respond as never,
+      context: context as never,
+      client: createAdminClient() as never,
+      isWebchatConnect: () => false,
+    });
+
+    const approvalId = cronApprovalIdFromBroadcasts(context.broadcasts);
+    const cronRespond = vi.fn();
+    await cronHandlers["cron.approval.resolve"]({
+      req: {} as never,
+      params: { id: approvalId, decision: "allow-once" } as never,
+      respond: cronRespond as never,
+      context: context as never,
+      client: createAdminClient() as never,
+      isWebchatConnect: () => false,
+    });
+    expect(cronRespond.mock.calls[0]?.[1]).toEqual(
+      expect.objectContaining({ terminal: "CRON_APPROVAL_ALLOW_ONCE_APPLIED" }),
+    );
+    expect(context.cron.guardedUpdate).toHaveBeenCalledTimes(1);
+
+    const pluginRespond = vi.fn();
+    const pluginHandlers = createPluginApprovalHandlers(context.pluginApprovalManager);
+    await pluginHandlers["plugin.approval.resolve"]({
+      req: {} as never,
+      params: { id: approvalId, decision: "allow-once" } as never,
+      respond: pluginRespond as never,
+      context: context as never,
+      client: createAdminClient() as never,
+      isWebchatConnect: () => false,
+    });
+    expect(pluginRespond.mock.calls[0]?.[0]).toBe(false);
+    expect(String(pluginRespond.mock.calls[0]?.[2]?.message)).toContain(
+      "cannot resolve cron.guarded_update",
+    );
+
+    const wrongOwnerRespond = vi.fn();
+    await cronHandlers["cron.approval.resolve"]({
+      req: {} as never,
+      params: { id: approvalId, decision: "allow-once" } as never,
+      respond: wrongOwnerRespond as never,
+      context: context as never,
+      client: createAdminClient("agent:main:telegram:direct:wrong-owner", {
+        trustedAuthenticatedIdentity: "wrong-owner",
+        connId: "conn-2",
+      }) as never,
+      isWebchatConnect: () => false,
+    });
+    expect(wrongOwnerRespond.mock.calls[0]?.[0]).toBe(false);
+    expect(context.cron.guardedUpdate).toHaveBeenCalledTimes(1);
   });
 
   it("rejects spoofable client identity fields before the guarded service", async () => {
@@ -279,6 +573,23 @@ describe("cron method validation", () => {
     });
     expect(approvalSpoof.context.cron.guardedUpdate).not.toHaveBeenCalled();
     expect(approvalSpoof.respond.mock.calls[0]?.[0]).toBe(false);
+
+    const crossAction = await invokeGuardedCron("cron.guarded_update", {
+      ...guardedUpdateParams,
+      approval: { ...guardedUpdateParams.approval, action: "run" },
+    });
+    expect(crossAction.context.cron.guardedUpdate).not.toHaveBeenCalled();
+    expect(crossAction.respond.mock.calls[0]?.[0]).toBe(false);
+
+    const wrongOwner = await invokeGuardedCron("cron.guarded_update", {
+      ...guardedUpdateParams,
+      approval: {
+        ...guardedUpdateParams.approval,
+        session_key: "agent:main:telegram:direct:wrong-owner",
+      },
+    });
+    expect(wrongOwner.context.cron.guardedUpdate).not.toHaveBeenCalled();
+    expect(wrongOwner.respond.mock.calls[0]?.[0]).toBe(false);
   });
 
   it("derives caller context from trusted Gateway client state and denies group/shared/non-admin callers", async () => {
