@@ -1,0 +1,22 @@
+{
+  "schema": "critical_apply.initial_implementation_validation.v1",
+  "generated_utc": "2026-07-30T06:45:00Z",
+  "branch": "feature/critical-apply-harness-observer-20260730",
+  "scope": "M0/M1 skeleton plus OpenClaw npm read-only classifiers",
+  "production_mutation_performed": false,
+  "gateway_restart_performed": false,
+  "cron_mutation_performed": false,
+  "provider_or_delivery_call_performed": false,
+  "validation": {
+    "py_compile": {
+      "command": "python3 -m py_compile scripts/critical_apply_contracts.py scripts/critical_apply_observer_runner.py scripts/critical_apply_plugins/openclaw_npm_package.py",
+      "status": "PASS"
+    },
+    "unit_tests": {
+      "command": "python3 -m unittest scripts/test_critical_apply_runner.py scripts/test_openclaw_npm_package_plugin.py",
+      "status": "PASS",
+      "tests_run": 10
+    }
+  },
+  "terminal": "M0_M1_INITIAL_IMPLEMENTATION_VALIDATION_PASS_NO_PRODUCTION_MUTATION"
+}

@@ -1,0 +1,38 @@
+{
+  "schema": "critical_apply.project_hydrator.v1",
+  "generated_utc": "2026-07-30T06:40:00Z",
+  "active_project": "critical-apply-harness",
+  "branch": "feature/critical-apply-harness-observer-20260730",
+  "paused_project": "Universal Runtime Kernel",
+  "implementation_level": "M0/M1 skeleton; execute refuses mutation",
+  "canonical_docs": [
+    "sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_OBSERVER_LOW_LEVEL_DESIGN_AND_BUILD_PLAN_20260730.md",
+    "sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_OBSERVATION_HARNESS_ARCHITECTURE_20260730.md",
+    "sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_CONTRACT.md",
+    "sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_TROUBLESHOOTING_AND_REPAIR_NOTEBOOK.md",
+    "sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_RESTORE_SCRIPT_REPURPOSE_NOTES_20260730.md",
+    "sharedspace/runtime-kernel-validation/critical-apply/PROJECT_HYDRATOR.md"
+  ],
+  "implementation_files": [
+    "scripts/critical_apply_contracts.py",
+    "scripts/critical_apply_observer_runner.py",
+    "scripts/critical_apply_plugins/__init__.py",
+    "scripts/critical_apply_plugins/openclaw_npm_package.py",
+    "scripts/test_critical_apply_runner.py",
+    "scripts/test_openclaw_npm_package_plugin.py"
+  ],
+  "next_milestone": {
+    "id": "M0",
+    "name": "Critical Apply Contract Finalization",
+    "terminal": "M0_PASS_CRITICAL_APPLY_CONTRACT_FINALIZED_NO_MUTATION"
+  },
+  "absolute_prohibitions_until_gates_pass": [
+    "npm install",
+    "package root mutation",
+    "Gateway restart/reload",
+    "cron mutation/calls",
+    "provider/Gmail/Telegram/delivery smoke",
+    "foreground critical apply",
+    "production mutation before M0-M9 pass"
+  ]
+}
