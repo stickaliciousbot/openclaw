@@ -1,9 +1,10 @@
 {
   "schema": "critical_apply.project_hydrator.v2",
-  "generated_utc": "2026-07-30T06:55:00Z",
+  "generated_utc": "2026-07-30T07:05:24Z",
   "active_project": "critical-apply-harness",
   "branch": "feature/critical-apply-harness-observer-20260730",
   "latest_known_pushed_baseline_before_v2": "a0e1be27ebaaa17a9329385b3ca3a70057822b66",
+  "latest_pushed_v2_adoption_commit_before_closeout": "aa3da4efc8a2166fd4847185d07e4155d14523bd",
   "paused_project": "Universal Runtime Kernel",
   "implementation_level": "M0-v2 adoption scaffold; execute refuses mutation; no HRL-3 service exists yet",
   "verified_v2_artifacts": [
@@ -28,6 +29,7 @@
     "sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_OBSERVER_LOW_LEVEL_DESIGN_AND_BUILD_PLAN_V2_20260730.md",
     "sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_HARNESS_V2_REVIEW_AND_STRENGTHENING_SUMMARY_20260730.md",
     "sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_HARNESS_V2_SHA256SUMS_20260730.txt",
+    "sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_REHYDRATION_CLOSEOUT_20260730T1705AEST.md",
     "sharedspace/runtime-kernel-validation/critical-apply/PROJECT_HYDRATOR.md"
   ],
   "implementation_files": [
@@ -53,5 +55,7 @@
     "foreground critical apply",
     "ad hoc detached critical apply",
     "production mutation before M0-v2 through M10 pass"
-  ]
+  ],
+  "latest_safe_action": "Receive and verify missing architecture v2.0 artifact, then continue M0-v2 strict contract closure only.",
+  "production_mutation_performed_by_this_update": false
 }

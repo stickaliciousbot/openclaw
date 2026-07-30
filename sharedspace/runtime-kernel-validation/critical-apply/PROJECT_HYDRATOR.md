@@ -14,6 +14,8 @@ Current branch:
 
 Latest pushed baseline before v2 adoption: `a0e1be27ebaaa17a9329385b3ca3a70057822b66`.
 
+Latest pushed v2 adoption commit before this rehydration closeout update: `aa3da4efc8a2166fd4847185d07e4155d14523bd`.
+
 ## Safety rules to load first
 
 1. Read `AGENTS.md` Execution Governance critical apply hard rule.
@@ -45,6 +47,7 @@ Read these first:
 - `sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_OBSERVER_LOW_LEVEL_DESIGN_AND_BUILD_PLAN_V2_20260730.md`
 - `sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_HARNESS_V2_REVIEW_AND_STRENGTHENING_SUMMARY_20260730.md`
 - `sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_HARNESS_V2_SHA256SUMS_20260730.txt`
+- `sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_REHYDRATION_CLOSEOUT_20260730T1705AEST.md`
 
 Initial scaffold docs retained for lineage:
 
@@ -113,7 +116,8 @@ Expected terminal:
 2. Confirm branch `feature/critical-apply-harness-observer-20260730`.
 3. Read this hydrator.
 4. Read the v2 adoption review and verified v2 low-level design.
-5. Check whether architecture v2.0 was received; verify SHA before using it.
-6. Run tests only if continuing implementation:
+5. Read `CRITICAL_APPLY_REHYDRATION_CLOSEOUT_20260730T1705AEST.md` for the latest closeout status.
+6. Check whether architecture v2.0 was received; verify SHA before using it.
+7. Run tests only if continuing implementation:
    - `python3 -m unittest scripts/test_critical_apply_runner.py scripts/test_openclaw_npm_package_plugin.py`
-7. Continue at M0-v2; do not skip to bootstrap/live apply.
+8. Continue at M0-v2; do not skip to bootstrap/live apply.
