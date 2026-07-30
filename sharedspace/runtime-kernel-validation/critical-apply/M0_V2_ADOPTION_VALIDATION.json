@@ -1,0 +1,38 @@
+{
+  "schema": "critical_apply.v2_adoption_validation.v1",
+  "generated_utc": "2026-07-30T06:58:00Z",
+  "branch": "feature/critical-apply-harness-observer-20260730",
+  "scope": "M0-v2 source/docs adoption of Stick amendments",
+  "production_mutation_performed": false,
+  "gateway_restart_performed": false,
+  "cron_mutation_performed": false,
+  "provider_or_delivery_call_performed": false,
+  "package_mutation_performed": false,
+  "verified_inbound_artifacts": [
+    {
+      "name": "CRITICAL_APPLY_OBSERVER_LOW_LEVEL_DESIGN_AND_BUILD_PLAN_v2.0_20260730.md",
+      "sha256": "66243ebdf5baf3ccccbf864faa83ad26872906de5a1d1b95aef6e155025b3f6b",
+      "status": "PASS"
+    },
+    {
+      "name": "CRITICAL_APPLY_HARNESS_V2_REVIEW_AND_STRENGTHENING_SUMMARY_20260730.md",
+      "sha256": "13b641a6503b134216f9c94dadc2f2b72d4f551268085e8a3ac32eff50aa868c",
+      "status": "PASS"
+    }
+  ],
+  "hold_artifacts": [
+    {
+      "name": "critical-apply-observation-harness-architecture-v2.0-2026-07-30.md",
+      "expected_sha256": "1fecc6b04d6fce0baffcb86ea1bfd7ea5da559e83c14032d4eb95792d6f5ec3b",
+      "status": "MISSING_FILE_CHECKSUM_ONLY"
+    }
+  ],
+  "scaffold_changes": [
+    "added v2 phase/terminal/state-vector enums",
+    "tightened transaction-id random suffix to 128 bits",
+    "added HRL-3/ad-hoc-detach-forbidden approval-boundary metadata",
+    "copied verified v2 docs/checksum list into project folder",
+    "updated contract/hydrator docs to mark v2 as governing and architecture-v2 as HOLD"
+  ],
+  "terminal": "M0_V2_ADOPTION_SOURCE_DOCS_PASS_ARCHITECTURE_V2_FILE_HOLD_NO_PRODUCTION_MUTATION"
+}

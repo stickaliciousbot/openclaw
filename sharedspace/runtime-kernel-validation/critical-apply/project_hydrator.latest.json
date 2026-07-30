@@ -1,16 +1,33 @@
 {
-  "schema": "critical_apply.project_hydrator.v1",
-  "generated_utc": "2026-07-30T06:40:00Z",
+  "schema": "critical_apply.project_hydrator.v2",
+  "generated_utc": "2026-07-30T06:55:00Z",
   "active_project": "critical-apply-harness",
   "branch": "feature/critical-apply-harness-observer-20260730",
+  "latest_known_pushed_baseline_before_v2": "a0e1be27ebaaa17a9329385b3ca3a70057822b66",
   "paused_project": "Universal Runtime Kernel",
-  "implementation_level": "M0/M1 skeleton; execute refuses mutation",
+  "implementation_level": "M0-v2 adoption scaffold; execute refuses mutation; no HRL-3 service exists yet",
+  "verified_v2_artifacts": [
+    {
+      "path": "sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_OBSERVER_LOW_LEVEL_DESIGN_AND_BUILD_PLAN_V2_20260730.md",
+      "sha256": "66243ebdf5baf3ccccbf864faa83ad26872906de5a1d1b95aef6e155025b3f6b"
+    },
+    {
+      "path": "sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_HARNESS_V2_REVIEW_AND_STRENGTHENING_SUMMARY_20260730.md",
+      "sha256": "13b641a6503b134216f9c94dadc2f2b72d4f551268085e8a3ac32eff50aa868c"
+    }
+  ],
+  "hold_artifacts": [
+    {
+      "expected_name": "critical-apply-observation-harness-architecture-v2.0-2026-07-30.md",
+      "expected_sha256": "1fecc6b04d6fce0baffcb86ea1bfd7ea5da559e83c14032d4eb95792d6f5ec3b",
+      "status": "MISSING_IN_VISIBLE_INBOUND_MEDIA_DURING_V2_ADOPTION_PASS"
+    }
+  ],
   "canonical_docs": [
-    "sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_OBSERVER_LOW_LEVEL_DESIGN_AND_BUILD_PLAN_20260730.md",
-    "sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_OBSERVATION_HARNESS_ARCHITECTURE_20260730.md",
-    "sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_CONTRACT.md",
-    "sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_TROUBLESHOOTING_AND_REPAIR_NOTEBOOK.md",
-    "sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_RESTORE_SCRIPT_REPURPOSE_NOTES_20260730.md",
+    "sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_V2_ADOPTION_REVIEW_20260730.md",
+    "sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_OBSERVER_LOW_LEVEL_DESIGN_AND_BUILD_PLAN_V2_20260730.md",
+    "sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_HARNESS_V2_REVIEW_AND_STRENGTHENING_SUMMARY_20260730.md",
+    "sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_HARNESS_V2_SHA256SUMS_20260730.txt",
     "sharedspace/runtime-kernel-validation/critical-apply/PROJECT_HYDRATOR.md"
   ],
   "implementation_files": [
@@ -22,17 +39,19 @@
     "scripts/test_openclaw_npm_package_plugin.py"
   ],
   "next_milestone": {
-    "id": "M0",
-    "name": "Critical Apply Contract Finalization",
-    "terminal": "M0_PASS_CRITICAL_APPLY_CONTRACT_FINALIZED_NO_MUTATION"
+    "id": "M0-v2",
+    "name": "Critical Apply v2 Strict Contract Finalization",
+    "terminal": "M0_PASS_CRITICAL_APPLY_V2_CONTRACT_FINALIZED_NO_MUTATION"
   },
   "absolute_prohibitions_until_gates_pass": [
     "npm install",
     "package root mutation",
+    "critical apply service activation/bootstrap unless explicitly approved as separate later milestone",
     "Gateway restart/reload",
     "cron mutation/calls",
     "provider/Gmail/Telegram/delivery smoke",
     "foreground critical apply",
-    "production mutation before M0-M9 pass"
+    "ad hoc detached critical apply",
+    "production mutation before M0-v2 through M10 pass"
   ]
 }

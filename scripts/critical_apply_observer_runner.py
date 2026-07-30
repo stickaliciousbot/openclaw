@@ -74,7 +74,7 @@ def load_spec(path: Path) -> dict[str, Any]:
 
 def transaction_id(scope_name: str) -> str:
     safe_scope = "".join(c if c.isalnum() or c == "-" else "-" for c in scope_name.lower()).strip("-") or "unknown"
-    return f"critical-apply-{safe_scope}-{utc_id()}-{secrets.token_hex(4)}"
+    return f"critical-apply-{safe_scope}-{utc_id()}-{secrets.token_hex(16)}"
 
 
 def write_heartbeat(root: Path, phase: str, message: str) -> None:
@@ -123,6 +123,8 @@ def prepare(args: argparse.Namespace) -> dict[str, Any]:
             transaction_id=tx_id,
             requires_owner_approval=True,
             approval_mode="explicit-transaction-approval-required",
+            hrl_required="HRL-3-before-production",
+            current_runner_capability="M0_PREPARE_ONLY_EXECUTE_REFUSES_MUTATION",
             allowed_mutations=spec.get("allowed_mutations", []),
             forbidden_mutations=spec.get("forbidden", []),
             exact_apply_argv=apply_argv,
@@ -131,6 +133,8 @@ def prepare(args: argparse.Namespace) -> dict[str, Any]:
             restart_in_scope=tx.restart_in_scope,
             functional_smoke_in_scope=tx.functional_smoke_in_scope,
             foreground_apply_forbidden=True,
+            ad_hoc_detach_forbidden=True,
+            service_supervised_observer_required_before_production=True,
         )
         write_json(root / "approval-boundary.json", approval)
 

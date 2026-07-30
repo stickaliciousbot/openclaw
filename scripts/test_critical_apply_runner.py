@@ -25,7 +25,7 @@ RUNNER = SCRIPTS / "critical_apply_observer_runner.py"
 
 class ContractTests(unittest.TestCase):
     def test_transaction_id_validation(self):
-        self.assertTrue(validate_transaction_id("critical-apply-openclaw-npm-package-20260730T010203Z-abcdef12").ok)
+        self.assertTrue(validate_transaction_id("critical-apply-openclaw-npm-package-20260730T010203Z-0123456789abcdef0123456789abcdef").ok)
         self.assertFalse(validate_transaction_id("bad-id").ok)
 
     def test_argv_hash_and_exact_validation(self):
