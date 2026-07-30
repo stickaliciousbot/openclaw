@@ -1,0 +1,13 @@
+{
+  "schema": "critical_apply.surface_profiles_fixture.v2",
+  "profiles_required": [
+    "package_apply",
+    "package_only_recovery",
+    "gateway_restart",
+    "functional_smoke",
+    "guarded_cron_update",
+    "protected_memory_writer_state",
+    "model_route_apply"
+  ],
+  "note": "Generated and validated from scripts.critical_apply_contracts.fixture_surface_profiles; fixtures only, no plugins implemented."
+}
