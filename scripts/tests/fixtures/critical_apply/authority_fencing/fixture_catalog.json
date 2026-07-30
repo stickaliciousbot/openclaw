@@ -1,0 +1,14 @@
+{
+  "schema": "critical_apply.authority_fencing_fixture_catalog.v2",
+  "deterministic_seed": "critical-apply-m2-authority-fencing-20260730",
+  "fixture_only": true,
+  "surfaces": [
+    "surface:openclaw-official-package-root",
+    "surface:npm-executable-link",
+    "surface:npm-metadata",
+    "surface:gateway-lifecycle",
+    "surface:strict-cron-definitions",
+    "surface:protected-memory"
+  ],
+  "forbidden": "No production locks, no live approvals, no mutation runners, no restore implementation"
+}
