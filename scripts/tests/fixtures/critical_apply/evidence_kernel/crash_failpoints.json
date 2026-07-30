@@ -1,0 +1,22 @@
+{
+  "schema": "critical_apply.evidence_kernel_crash_failpoints_fixture.v2",
+  "atomic_write_failpoints": [
+    "before_temp_create",
+    "after_temp_create",
+    "during_partial_write",
+    "after_complete_write_before_file_fsync",
+    "after_file_fsync",
+    "immediately_before_publication",
+    "immediately_after_publication",
+    "before_parent_dir_fsync",
+    "after_parent_dir_fsync",
+    "before_final_digest_verification",
+    "after_final_digest_verification"
+  ],
+  "accepted_states": [
+    "old_complete_artifact",
+    "new_complete_artifact",
+    "no_published_artifact_with_classified_temp",
+    "explicit_evidence_integrity_failure"
+  ]
+}

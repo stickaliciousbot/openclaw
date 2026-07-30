@@ -1,0 +1,12 @@
+{
+  "schema": "critical_apply.evidence_kernel_fixture_catalog.v2",
+  "deterministic_seed": "critical-apply-m1-evidence-kernel-20260730",
+  "fixtures": [
+    "atomic_write_failpoints",
+    "journal_corruption_states",
+    "projection_parity_states",
+    "manifest_terminal_seal_states",
+    "evidence_reserve_enospc_states"
+  ],
+  "scope": "isolated temporary roots only; no production mutation; no M2 authority semantics"
+}

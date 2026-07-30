@@ -1,0 +1,14 @@
+{
+  "schema": "critical_apply.evidence_kernel_journal_classifications_fixture.v2",
+  "genesis_previous_event_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "classifications": [
+    "JOURNAL_VALID",
+    "JOURNAL_VALID_WITH_UNCOMMITTED_COMPLETE_TAIL",
+    "JOURNAL_TORN_TAIL",
+    "JOURNAL_HEAD_AHEAD_OF_DURABLE_DATA",
+    "JOURNAL_CHAIN_INVALID",
+    "JOURNAL_TAMPERED",
+    "JOURNAL_IDENTITY_MISMATCH",
+    "JOURNAL_UNKNOWN"
+  ]
+}
