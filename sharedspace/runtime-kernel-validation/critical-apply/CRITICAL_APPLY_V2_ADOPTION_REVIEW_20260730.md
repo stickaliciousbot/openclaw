@@ -13,12 +13,11 @@ Stick provided three v2 artifact checksums:
 
 Received and verified:
 
+- Architecture v2.0 matched `1fecc6b04d6fce0baffcb86ea1bfd7ea5da559e83c14032d4eb95792d6f5ec3b` and is stored at `critical-apply-observation-harness-architecture-v2.0-2026-07-30.md`.
 - Low-level design v2.0 matched `66243ebdf5baf3ccccbf864faa83ad26872906de5a1d1b95aef6e155025b3f6b`.
 - Review/strengthening summary matched `13b641a6503b134216f9c94dadc2f2b72d4f551268085e8a3ac32eff50aa868c`.
 
-HOLD:
-
-- The architecture v2.0 file itself was not present in the visible inbound media or project tree during this pass; only its checksum was present. Do not claim architecture-v2 content equivalence until the exact file is received and verified against `1fecc6b04d6fce0baffcb86ea1bfd7ea5da559e83c14032d4eb95792d6f5ec3b`.
+The prior architecture-v2 HOLD is cleared.
 
 ## Review result
 
@@ -35,13 +34,13 @@ Key v2 adoption decisions:
 7. Package apply, Gateway restart, and functional smoke remain separate transactions and approvals; no authority inheritance.
 8. M6B service bootstrap is a separate milestone before any production OpenClaw package mutation can be governed by the service.
 
-## Scaffold adjustments made in this pass
+## Scaffold adjustments made
 
 - Added v2 phase, terminal, execution, official package, substrate, guard, and recovery enums to `scripts/critical_apply_contracts.py` while retaining v1 skeleton compatibility.
 - Tightened generated transaction IDs to use 128-bit random suffixes.
 - Added HRL-3/ad-hoc-detach-forbidden metadata to the skeleton approval boundary.
-- Copied verified v2 low-level design, review summary, and checksum list into the project folder.
-- Updated project/hydrator docs to mark v2 as the governing contract direction and architecture-v2 file as missing/HOLD.
+- Copied verified architecture v2.0, v2 low-level design, review summary, and checksum list into the project folder.
+- Updated project/hydrator docs to mark v2 as the governing contract direction and architecture-v2 as verified.
 
 ## Non-authority statement
 
@@ -51,7 +50,6 @@ This pass performed source/docs/test updates only. It did not deploy, install, a
 
 Continue M0-v2 only:
 
-- receive/verify architecture v2.0 file;
 - finalize strict schemas/enums;
 - write transition and terminal derivation tables;
 - add v2 state-machine tests;

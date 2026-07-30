@@ -1,14 +1,19 @@
 {
-  "schema": "critical_apply.v2_adoption_validation.v1",
-  "generated_utc": "2026-07-30T06:58:00Z",
+  "schema": "critical_apply.v2_adoption_validation.v2",
+  "generated_utc": "2026-07-30T07:27:11Z",
   "branch": "feature/critical-apply-harness-observer-20260730",
-  "scope": "M0-v2 source/docs adoption of Stick amendments",
+  "scope": "M0-v2 source/docs adoption of Stick amendments with complete verified v2 documentation set",
   "production_mutation_performed": false,
   "gateway_restart_performed": false,
   "cron_mutation_performed": false,
   "provider_or_delivery_call_performed": false,
   "package_mutation_performed": false,
   "verified_inbound_artifacts": [
+    {
+      "name": "critical-apply-observation-harness-architecture-v2.0-2026-07-30.md",
+      "sha256": "1fecc6b04d6fce0baffcb86ea1bfd7ea5da559e83c14032d4eb95792d6f5ec3b",
+      "status": "PASS"
+    },
     {
       "name": "CRITICAL_APPLY_OBSERVER_LOW_LEVEL_DESIGN_AND_BUILD_PLAN_v2.0_20260730.md",
       "sha256": "66243ebdf5baf3ccccbf864faa83ad26872906de5a1d1b95aef6e155025b3f6b",
@@ -20,19 +25,13 @@
       "status": "PASS"
     }
   ],
-  "hold_artifacts": [
-    {
-      "name": "critical-apply-observation-harness-architecture-v2.0-2026-07-30.md",
-      "expected_sha256": "1fecc6b04d6fce0baffcb86ea1bfd7ea5da559e83c14032d4eb95792d6f5ec3b",
-      "status": "MISSING_FILE_CHECKSUM_ONLY"
-    }
-  ],
+  "hold_artifacts": [],
   "scaffold_changes": [
     "added v2 phase/terminal/state-vector enums",
     "tightened transaction-id random suffix to 128 bits",
     "added HRL-3/ad-hoc-detach-forbidden approval-boundary metadata",
     "copied verified v2 docs/checksum list into project folder",
-    "updated contract/hydrator docs to mark v2 as governing and architecture-v2 as HOLD"
+    "updated contract/hydrator docs to mark v2 as governing and architecture-v2 as verified"
   ],
-  "terminal": "M0_V2_ADOPTION_SOURCE_DOCS_PASS_ARCHITECTURE_V2_FILE_HOLD_NO_PRODUCTION_MUTATION"
+  "terminal": "M0_V2_ADOPTION_SOURCE_DOCS_PASS_COMPLETE_V2_DOC_SET_VERIFIED_NO_PRODUCTION_MUTATION"
 }

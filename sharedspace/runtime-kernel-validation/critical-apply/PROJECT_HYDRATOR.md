@@ -14,7 +14,9 @@ Current branch:
 
 Latest pushed baseline before v2 adoption: `a0e1be27ebaaa17a9329385b3ca3a70057822b66`.
 
-Latest pushed v2 adoption commit before this rehydration closeout update: `aa3da4efc8a2166fd4847185d07e4155d14523bd`.
+Latest pushed v2 adoption commit before rehydration closeout update: `aa3da4efc8a2166fd4847185d07e4155d14523bd`.
+
+Latest pushed rehydration closeout commit before architecture-v2 verification: `a586295fee5cea2cd329733d86c6838f39e32a14`.
 
 ## Safety rules to load first
 
@@ -31,23 +33,24 @@ Stick supplied strengthened v2 materials on 2026-07-30. The v2 contract supersed
 
 Verified v2 artifacts received:
 
+- `sharedspace/runtime-kernel-validation/critical-apply/critical-apply-observation-harness-architecture-v2.0-2026-07-30.md` — SHA256 `1fecc6b04d6fce0baffcb86ea1bfd7ea5da559e83c14032d4eb95792d6f5ec3b`
 - `sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_OBSERVER_LOW_LEVEL_DESIGN_AND_BUILD_PLAN_V2_20260730.md` — SHA256 `66243ebdf5baf3ccccbf864faa83ad26872906de5a1d1b95aef6e155025b3f6b`
 - `sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_HARNESS_V2_REVIEW_AND_STRENGTHENING_SUMMARY_20260730.md` — SHA256 `13b641a6503b134216f9c94dadc2f2b72d4f551268085e8a3ac32eff50aa868c`
 - `sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_HARNESS_V2_SHA256SUMS_20260730.txt`
 
-HOLD artifact:
-
-- `critical-apply-observation-harness-architecture-v2.0-2026-07-30.md` is referenced by checksum `1fecc6b04d6fce0baffcb86ea1bfd7ea5da559e83c14032d4eb95792d6f5ec3b`, but the file itself was not visible in inbound media during the v2 adoption pass. Do not claim architecture-v2 equivalence until received and verified.
+Architecture-v2 HOLD is cleared as of 2026-07-30 17:27 AEST.
 
 ## Canonical docs
 
 Read these first:
 
+- `sharedspace/runtime-kernel-validation/critical-apply/critical-apply-observation-harness-architecture-v2.0-2026-07-30.md`
 - `sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_V2_ADOPTION_REVIEW_20260730.md`
 - `sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_OBSERVER_LOW_LEVEL_DESIGN_AND_BUILD_PLAN_V2_20260730.md`
 - `sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_HARNESS_V2_REVIEW_AND_STRENGTHENING_SUMMARY_20260730.md`
 - `sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_HARNESS_V2_SHA256SUMS_20260730.txt`
 - `sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_REHYDRATION_CLOSEOUT_20260730T1705AEST.md`
+- `sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_ARCHITECTURE_V2_VERIFICATION_20260730T1727AEST.md`
 
 Initial scaffold docs retained for lineage:
 
@@ -85,7 +88,7 @@ M0-v2 — Strict Contract Finalization.
 
 Pass criteria:
 
-- architecture v2.0 file received and checksum-verified;
+- architecture v2.0 file checksum-verified (DONE);
 - strict schemas/enums validate;
 - transition table and terminal derivation table exist;
 - authority envelope and one-time consumption model are specified;
@@ -115,9 +118,8 @@ Expected terminal:
 1. `git status --short --branch`
 2. Confirm branch `feature/critical-apply-harness-observer-20260730`.
 3. Read this hydrator.
-4. Read the v2 adoption review and verified v2 low-level design.
-5. Read `CRITICAL_APPLY_REHYDRATION_CLOSEOUT_20260730T1705AEST.md` for the latest closeout status.
-6. Check whether architecture v2.0 was received; verify SHA before using it.
-7. Run tests only if continuing implementation:
+4. Read `CRITICAL_APPLY_ARCHITECTURE_V2_VERIFICATION_20260730T1727AEST.md`.
+5. Read the architecture v2.0, v2 adoption review, and verified v2 low-level design.
+6. Run tests only if continuing implementation:
    - `python3 -m unittest scripts/test_critical_apply_runner.py scripts/test_openclaw_npm_package_plugin.py`
-8. Continue at M0-v2; do not skip to bootstrap/live apply.
+7. Continue at M0-v2; do not skip to bootstrap/live apply.

@@ -1,13 +1,18 @@
 {
   "schema": "critical_apply.project_hydrator.v2",
-  "generated_utc": "2026-07-30T07:05:24Z",
+  "generated_utc": "2026-07-30T07:27:11Z",
   "active_project": "critical-apply-harness",
   "branch": "feature/critical-apply-harness-observer-20260730",
   "latest_known_pushed_baseline_before_v2": "a0e1be27ebaaa17a9329385b3ca3a70057822b66",
   "latest_pushed_v2_adoption_commit_before_closeout": "aa3da4efc8a2166fd4847185d07e4155d14523bd",
+  "latest_pushed_closeout_commit_before_architecture_v2_verification": "a586295fee5cea2cd329733d86c6838f39e32a14",
   "paused_project": "Universal Runtime Kernel",
   "implementation_level": "M0-v2 adoption scaffold; execute refuses mutation; no HRL-3 service exists yet",
   "verified_v2_artifacts": [
+    {
+      "path": "sharedspace/runtime-kernel-validation/critical-apply/critical-apply-observation-harness-architecture-v2.0-2026-07-30.md",
+      "sha256": "1fecc6b04d6fce0baffcb86ea1bfd7ea5da559e83c14032d4eb95792d6f5ec3b"
+    },
     {
       "path": "sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_OBSERVER_LOW_LEVEL_DESIGN_AND_BUILD_PLAN_V2_20260730.md",
       "sha256": "66243ebdf5baf3ccccbf864faa83ad26872906de5a1d1b95aef6e155025b3f6b"
@@ -17,14 +22,10 @@
       "sha256": "13b641a6503b134216f9c94dadc2f2b72d4f551268085e8a3ac32eff50aa868c"
     }
   ],
-  "hold_artifacts": [
-    {
-      "expected_name": "critical-apply-observation-harness-architecture-v2.0-2026-07-30.md",
-      "expected_sha256": "1fecc6b04d6fce0baffcb86ea1bfd7ea5da559e83c14032d4eb95792d6f5ec3b",
-      "status": "MISSING_IN_VISIBLE_INBOUND_MEDIA_DURING_V2_ADOPTION_PASS"
-    }
-  ],
+  "hold_artifacts": [],
   "canonical_docs": [
+    "sharedspace/runtime-kernel-validation/critical-apply/critical-apply-observation-harness-architecture-v2.0-2026-07-30.md",
+    "sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_ARCHITECTURE_V2_VERIFICATION_20260730T1727AEST.md",
     "sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_V2_ADOPTION_REVIEW_20260730.md",
     "sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_OBSERVER_LOW_LEVEL_DESIGN_AND_BUILD_PLAN_V2_20260730.md",
     "sharedspace/runtime-kernel-validation/critical-apply/CRITICAL_APPLY_HARNESS_V2_REVIEW_AND_STRENGTHENING_SUMMARY_20260730.md",
@@ -56,6 +57,6 @@
     "ad hoc detached critical apply",
     "production mutation before M0-v2 through M10 pass"
   ],
-  "latest_safe_action": "Receive and verify missing architecture v2.0 artifact, then continue M0-v2 strict contract closure only.",
+  "latest_safe_action": "Continue M0-v2 strict contract closure only; do not proceed to bootstrap/live apply.",
   "production_mutation_performed_by_this_update": false
 }

@@ -11,8 +11,9 @@ This document is a local scaffold summary. The governing v2 materials are:
 - `CRITICAL_APPLY_OBSERVER_LOW_LEVEL_DESIGN_AND_BUILD_PLAN_V2_20260730.md`
 - `CRITICAL_APPLY_HARNESS_V2_REVIEW_AND_STRENGTHENING_SUMMARY_20260730.md`
 - `CRITICAL_APPLY_V2_ADOPTION_REVIEW_20260730.md`
+- `critical-apply-observation-harness-architecture-v2.0-2026-07-30.md`
 
-The v2 architecture file is currently HOLD until the exact artifact matching SHA256 `1fecc6b04d6fce0baffcb86ea1bfd7ea5da559e83c14032d4eb95792d6f5ec3b` is received and verified.
+The v2 architecture file is received and verified: SHA256 `1fecc6b04d6fce0baffcb86ea1bfd7ea5da559e83c14032d4eb95792d6f5ec3b`.
 
 ## Production mutation boundary
 
@@ -60,7 +61,7 @@ The runner currently supports `prepare`, `status`, `final-report`, `validate`, a
 
 M0-v2 strict contract finalization only:
 
-- receive/verify architecture v2.0;
+- architecture v2.0 verified;
 - strict schemas/enums;
 - transition table;
 - terminal derivation table;
