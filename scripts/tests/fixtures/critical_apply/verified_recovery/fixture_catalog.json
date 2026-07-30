@@ -1,0 +1,26 @@
+{
+  "schema": "critical_apply.verified_recovery_fixture_catalog.v2",
+  "deterministic_seed": "critical-apply-m3-verified-recovery-20260730",
+  "fixture_only": true,
+  "target_states": [
+    "TARGET_MISSING",
+    "TARGET_EMPTY",
+    "TARGET_INCOMPLETE",
+    "TARGET_COHERENT_PRE_GENERATION",
+    "TARGET_COHERENT_CANDIDATE_GENERATION",
+    "TARGET_COHERENT_OTHER_GENERATION",
+    "TARGET_CONFLICTING",
+    "TARGET_UNKNOWN"
+  ],
+  "shadow_surfaces": [
+    "package.json",
+    "openclaw.mjs",
+    "dist/index.js",
+    "dist/extensions/speech-core/runtime-api.js",
+    "executable-link-fixture",
+    "npm-metadata-fixture",
+    "strict-cron-sentinel",
+    "protected-memory-sentinel"
+  ],
+  "forbidden": "No production restore, npm action, Gateway lifecycle, cron, provider, delivery, or live hidden generation inspection"
+}
