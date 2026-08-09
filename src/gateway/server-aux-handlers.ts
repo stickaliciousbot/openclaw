@@ -16,6 +16,7 @@ import {
   type ChannelKind,
   type GatewayReloadPlan,
 } from "./config-reload-plan.js";
+import { ApprovalGrantBroker } from "./approval-grant-broker.js";
 import { createExecApprovalIosPushDelivery } from "./exec-approval-ios-push.js";
 import { ExecApprovalManager } from "./exec-approval-manager.js";
 import type { GatewayRequestHandler, GatewayRequestHandlers } from "./server-methods/types.js";
@@ -76,6 +77,12 @@ export function createGatewayAuxHandlers(params: {
     ));
   const buildReloadPlan = params.buildReloadPlan ?? buildGatewayReloadPlan;
   const pluginApprovalManager = new ExecApprovalManager<PluginApprovalRequestPayload>();
+  const approvalGrantBroker = new ApprovalGrantBroker({ enabled: false });
+  let approvalGrantHandlersPromise: Promise<GatewayRequestHandlers> | null = null;
+  const loadApprovalGrantHandlers = () =>
+    (approvalGrantHandlersPromise ??= import("./server-methods/approval-grant.js").then(
+      ({ createApprovalGrantHandlers }) => createApprovalGrantHandlers(approvalGrantBroker),
+    ));
   let pluginApprovalHandlersPromise: Promise<GatewayRequestHandlers> | null = null;
   const loadPluginApprovalHandlers = () =>
     (pluginApprovalHandlersPromise ??= import("./server-methods/plugin-approval.js").then(
@@ -243,6 +250,7 @@ export function createGatewayAuxHandlers(params: {
   return {
     execApprovalManager,
     pluginApprovalManager,
+    approvalGrantBroker,
     extraHandlers: {
       "exec.approval.get": createLazyHandler("exec.approval.get", loadExecApprovalHandlers),
       "exec.approval.list": createLazyHandler("exec.approval.list", loadExecApprovalHandlers),
@@ -252,6 +260,9 @@ export function createGatewayAuxHandlers(params: {
         loadExecApprovalHandlers,
       ),
       "exec.approval.resolve": createLazyHandler("exec.approval.resolve", loadExecApprovalHandlers),
+      "approval.grant.issue": createLazyHandler("approval.grant.issue", loadApprovalGrantHandlers),
+      "approval.grant.consume": createLazyHandler("approval.grant.consume", loadApprovalGrantHandlers),
+      "approval.grant.observe": createLazyHandler("approval.grant.observe", loadApprovalGrantHandlers),
       "plugin.approval.list": createLazyHandler("plugin.approval.list", loadPluginApprovalHandlers),
       "plugin.approval.request": createLazyHandler(
         "plugin.approval.request",
