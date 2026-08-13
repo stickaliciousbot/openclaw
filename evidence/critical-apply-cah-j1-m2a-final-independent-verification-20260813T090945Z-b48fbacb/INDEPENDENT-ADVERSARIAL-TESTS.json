@@ -1,0 +1,258 @@
+{
+  "case_count": 26,
+  "rejected_count": 8,
+  "results": [
+    {
+      "errors": [
+        "missing_owner"
+      ],
+      "expected_rejection": "missing_owner",
+      "file": "PATH-OWNERSHIP-MATRIX.json",
+      "gate_result": "PASS_REJECTED",
+      "id": "ADV01_MISSING_PATH_OWNER",
+      "unsafe_mutation_should_reject": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "duplicate_paths"
+      ],
+      "expected_rejection": "duplicate_paths",
+      "file": "PATH-OWNERSHIP-MATRIX.json",
+      "gate_result": "PASS_REJECTED",
+      "id": "ADV02_DUPLICATE_PATH",
+      "unsafe_mutation_should_reject": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "permissive_crash_window"
+      ],
+      "expected_rejection": "permissive_crash_window",
+      "file": "SUPERVISOR-CRASH-VECTORS.json",
+      "gate_result": "PASS_REJECTED",
+      "id": "ADV03_PERMISSIVE_CRASH_BOUNDARY",
+      "unsafe_mutation_should_reject": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "authority_order"
+      ],
+      "expected_rejection": "authority_order",
+      "file": "RECOVERY-AUTHORITY-ORDER.json",
+      "gate_result": "PASS_REJECTED",
+      "id": "ADV04_STALE_PROGRESS_AUTHORITY",
+      "unsafe_mutation_should_reject": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "contention_thresholds"
+      ],
+      "expected_rejection": "contention_thresholds",
+      "file": "CONCURRENCY-FENCING-VECTORS.json",
+      "gate_result": "PASS_REJECTED",
+      "id": "ADV05_OMIT_20_CONTENTION",
+      "unsafe_mutation_should_reject": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [],
+      "expected_rejection": "must reject dual-active overlap",
+      "file": "CONCURRENCY-FENCING-VECTORS.json",
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "ADV06_OVERLAP_DUAL_ACTIVE",
+      "unsafe_mutation_should_reject": true,
+      "validator_rejected": false
+    },
+    {
+      "errors": [],
+      "expected_rejection": "must reject child self-registration/path creation",
+      "file": "CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "ADV07_CHILD_SELF_REGISTRATION_AND_PATH_CREATE",
+      "unsafe_mutation_should_reject": true,
+      "validator_rejected": false
+    },
+    {
+      "errors": [],
+      "expected_rejection": "must reject ACK before sync/bind",
+      "file": "INGRESS-IDEMPOTENCY-CONTRACT.json",
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "ADV08_ACK_BEFORE_SYNC_BIND",
+      "unsafe_mutation_should_reject": true,
+      "validator_rejected": false
+    },
+    {
+      "errors": [],
+      "expected_rejection": "must reject replay conflict acceptance",
+      "file": "ACK-REPLAY-VECTORS.json",
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "ADV09_REPLAY_CONFLICT_ALLOWED",
+      "unsafe_mutation_should_reject": true,
+      "validator_rejected": false
+    },
+    {
+      "errors": [],
+      "expected_rejection": "must reject stale fence acceptance",
+      "file": "CONCURRENCY-FENCING-VECTORS.json",
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "ADV10_STALE_FENCE_EPOCH_ACCEPTED",
+      "unsafe_mutation_should_reject": true,
+      "validator_rejected": false
+    },
+    {
+      "errors": [],
+      "expected_rejection": "must reject contradictory N04 bypass",
+      "file": "CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "ADV11_N04_CONTRADICTORY_BYPASS",
+      "unsafe_mutation_should_reject": true,
+      "validator_rejected": false
+    },
+    {
+      "errors": [
+        "N07_weakened"
+      ],
+      "expected_rejection": "N07_weakened",
+      "file": "CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+      "gate_result": "PASS_REJECTED",
+      "id": "ADV12_N07_REMOVE_JOURNAL_STEP",
+      "unsafe_mutation_should_reject": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [],
+      "expected_rejection": "must reject intervening canonical close event",
+      "file": "SUPERVISOR-STATE-MACHINE.json",
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "ADV13_CANONICAL_INTERVENING_CLOSE_EVENT",
+      "unsafe_mutation_should_reject": true,
+      "validator_rejected": false
+    },
+    {
+      "errors": [],
+      "expected_rejection": "must reject notification authority",
+      "file": "RECOVERY-AUTHORITY-ORDER.json",
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "ADV14_NOTIFICATION_AUTHORITY",
+      "unsafe_mutation_should_reject": true,
+      "validator_rejected": false
+    },
+    {
+      "errors": [],
+      "expected_rejection": "must reject witness semantic authority",
+      "file": "COMPONENT-TRUST-BOUNDARIES.json",
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "ADV15_WITNESS_TERMINAL_AUTHORITY",
+      "unsafe_mutation_should_reject": true,
+      "validator_rejected": false
+    },
+    {
+      "errors": [],
+      "expected_rejection": "must reject unknown outcome retry",
+      "file": "CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "ADV16_UNKNOWN_OUTCOME_RETRY",
+      "unsafe_mutation_should_reject": true,
+      "validator_rejected": false
+    },
+    {
+      "errors": [
+        "runtime_or_production_authority"
+      ],
+      "expected_rejection": "runtime_or_production_authority",
+      "file": "COMPONENT-TRUST-BOUNDARIES.json",
+      "gate_result": "PASS_REJECTED",
+      "id": "ADV17_RUNTIME_AUTHORITY",
+      "unsafe_mutation_should_reject": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "zero_effect_boundary"
+      ],
+      "expected_rejection": "zero_effect_boundary",
+      "file": "ZERO-EFFECT-CONTRACT.json",
+      "gate_result": "PASS_REJECTED",
+      "id": "ADV18_SHADOW_AUTHORITY",
+      "unsafe_mutation_should_reject": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [],
+      "expected_rejection": "must reject missing exact side",
+      "file": "SUPERVISOR-CRASH-VECTORS.json",
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "ADV19_MISSING_TRANSITION_SIDE",
+      "unsafe_mutation_should_reject": true,
+      "validator_rejected": false
+    },
+    {
+      "errors": [],
+      "expected_rejection": "must reject non-exact proof",
+      "file": "SUPERVISOR-CRASH-VECTORS.json",
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "ADV20_GENERIC_RECOVERY_PROOF",
+      "unsafe_mutation_should_reject": true,
+      "validator_rejected": false
+    },
+    {
+      "errors": [],
+      "expected_rejection": "must enforce exact N07 identity",
+      "file": "CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "ADV21_NONCE_SUFFIX_SEMANTICS",
+      "unsafe_mutation_should_reject": true,
+      "validator_rejected": false
+    },
+    {
+      "errors": [],
+      "expected_rejection": "must reject provider call eligibility before N05/N06",
+      "file": "SUPERVISOR-STATE-MACHINE.json",
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "ADV22_STATE_CALL_BEFORE_NONCE",
+      "unsafe_mutation_should_reject": true,
+      "validator_rejected": false
+    },
+    {
+      "errors": [],
+      "expected_rejection": "must reject action eligibility before scope",
+      "file": "SUPERVISOR-STATE-MACHINE.json",
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "ADV23_STATE_ACTION_BEFORE_SCOPE",
+      "unsafe_mutation_should_reject": true,
+      "validator_rejected": false
+    },
+    {
+      "errors": [],
+      "expected_rejection": "must reject permissive ingress envelope",
+      "file": "INGRESS-ENVELOPE-CONTRACT.json",
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "ADV24_PERMISSIVE_UNKNOWN_FIELDS",
+      "unsafe_mutation_should_reject": true,
+      "validator_rejected": false
+    },
+    {
+      "errors": [],
+      "expected_rejection": "must reject multiple path writers",
+      "file": "PATH-OWNERSHIP-MATRIX.json",
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "ADV25_MULTIPLE_PATH_WRITERS",
+      "unsafe_mutation_should_reject": true,
+      "validator_rejected": false
+    },
+    {
+      "errors": [],
+      "expected_rejection": "must reject meaningless ACK vector",
+      "file": "ACK-REPLAY-VECTORS.json",
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "ADV26_ACK_VECTOR_BEFORE_SYNC",
+      "unsafe_mutation_should_reject": true,
+      "validator_rejected": false
+    }
+  ],
+  "status": "HOLD_VALIDATOR_WEAK",
+  "unsafe_accepted_count": 18
+}

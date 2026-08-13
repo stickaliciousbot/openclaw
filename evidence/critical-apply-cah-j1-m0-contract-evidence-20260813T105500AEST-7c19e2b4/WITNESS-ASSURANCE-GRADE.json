@@ -1,0 +1,45 @@
+{
+  "schema": "critical_apply.witness_assurance_grade.v1",
+  "status": "FROZEN_OFFLINE_CONTRACT",
+  "grade": "WITNESS_GRADE_1_SAME_HOST_SAME_UID_INDEPENDENT_PROCESS_DETECTION",
+  "witness_owner": "IndependentChecker",
+  "witness_store": "WitnessDB",
+  "assures": [
+    "detection of accidental or out-of-contract later journal truncation",
+    "detection of replacement of an earlier witnessed journal head",
+    "independent observation of terminal decision head and terminal seal",
+    "same-host persistence of historical witness rows under authority-grade SQLite rules"
+  ],
+  "does_not_assure": [
+    "hostile same-UID tamper prevention",
+    "protection against a fully compromised host or privileged administrator",
+    "distributed consensus",
+    "remote immutable notarization",
+    "semantic authority",
+    "notification delivery"
+  ],
+  "required_witness_bindings": [
+    "transaction_id",
+    "contract_sha256",
+    "semantic_reduction_head_sequence",
+    "semantic_reduction_head_sha256",
+    "terminal_decision_head_sequence",
+    "terminal_decision_head_sha256",
+    "terminal_seal_sha256",
+    "witnessed_at_utc",
+    "checker_identity_sha256"
+  ],
+  "mismatch_policy": "HOLD_TRUSTWORTHY_CLOSEOUT_WITHOUT_REWRITING_SEALED_SEMANTIC_RESULT",
+  "upgrade_path": [
+    "separate_UID_append_only_service",
+    "privileged_append_only_service",
+    "remote_host_witness",
+    "hardware_or_external_immutable_transparency_log"
+  ],
+  "invariants": [
+    "WitnessDB is independently owned from the supervisor.",
+    "A witness mismatch cannot turn PASS into a different semantic terminal; it blocks trustworthy closeout instead.",
+    "Absence of Grade 1 witness does not grant authority to a projection or process-lifecycle signal.",
+    "Any claim stronger than Grade 1 requires a separately frozen isolation contract."
+  ]
+}

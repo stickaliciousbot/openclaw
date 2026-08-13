@@ -1,0 +1,16 @@
+{
+  "schema": "critical_apply.cah_j1_m0_r1_final_independent_validator_run.v1",
+  "candidate_root": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-r1-contract-repair-20260813T013000Z-8d2f6c41",
+  "tool": "validate_m0_r1_contracts.py",
+  "tool_expected_sha256": "096f9a0a694b7ea3d72b4661f5c71991ee8ec41a37d6888d2bd3fd16ff1f3d32",
+  "tool_observed_sha256": "096f9a0a694b7ea3d72b4661f5c71991ee8ec41a37d6888d2bd3fd16ff1f3d32",
+  "tool_identity_exact": true,
+  "command": "python3 validate_m0_r1_contracts.py",
+  "working_directory": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-r1-contract-repair-20260813T013000Z-8d2f6c41",
+  "exit_code": 0,
+  "stdout": "{\"cas_steps\": 13, \"cas_vectors\": 38, \"closeout_vectors\": 12, \"errors\": [], \"nonce_transitions\": 11, \"nonce_vectors\": 82, \"required_files\": 20, \"status\": \"PASS\"}\n",
+  "stderr": "",
+  "result": "PASS",
+  "read_only_observation": "Candidate pre/post metadata and cryptographic identities were unchanged by validator execution.",
+  "scope_note": "Construction validator checks selected presence/count/order predicates; it does not detect the independent closeout circularity or transition-specific nonce ordering contradictions found in FINDINGS.json."
+}

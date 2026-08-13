@@ -1,0 +1,458 @@
+{
+  "status": "PASS",
+  "positive_fixture_count": 1,
+  "case_count": 55,
+  "rejected_count": 55,
+  "results": [
+    {
+      "id": "ORIG01_remove_owner",
+      "expected_error": "path_multiple_or_missing_writer",
+      "pass": true,
+      "errors": [
+        "path_multiple_or_missing_writer"
+      ]
+    },
+    {
+      "id": "ORIG02_allow_action_crash",
+      "expected_error": "crash_permissive",
+      "pass": true,
+      "errors": [
+        "crash_permissive"
+      ]
+    },
+    {
+      "id": "ORIG03_reorder_authority",
+      "expected_error": "recovery_authority",
+      "pass": true,
+      "errors": [
+        "recovery_authority"
+      ]
+    },
+    {
+      "id": "ORIG04_weaken_N07",
+      "expected_error": "N07_exact_order",
+      "pass": true,
+      "errors": [
+        "N07_exact_order"
+      ]
+    },
+    {
+      "id": "ORIG05_weaken_N04",
+      "expected_error": "N04_exact_no_bypass",
+      "pass": true,
+      "errors": [
+        "N04_exact_no_bypass"
+      ]
+    },
+    {
+      "id": "ORIG06_progress_authoritative",
+      "expected_error": "recovery_authority",
+      "pass": true,
+      "errors": [
+        "recovery_authority"
+      ]
+    },
+    {
+      "id": "ORIG07_omit_20_contention",
+      "expected_error": "contention_thresholds",
+      "pass": true,
+      "errors": [
+        "contention_thresholds",
+        "disjoint_scope"
+      ]
+    },
+    {
+      "id": "ORIG08_runner_mkdir_nonce",
+      "expected_error": "path_runner_create",
+      "pass": true,
+      "errors": [
+        "path_runner_create"
+      ]
+    },
+    {
+      "id": "ORIG09_runtime_authority",
+      "expected_error": "component_authority",
+      "pass": true,
+      "errors": [
+        "component_authority"
+      ]
+    },
+    {
+      "id": "ORIG10_drop_crash_vectors",
+      "expected_error": "crash_count",
+      "pass": true,
+      "errors": [
+        "crash_count",
+        "crash_exact_sides"
+      ]
+    },
+    {
+      "id": "ORIG11_duplicate_vector_id",
+      "expected_error": "ack_vector_ids",
+      "pass": true,
+      "errors": [
+        "ack_vector_ids",
+        "ack_vector_content"
+      ]
+    },
+    {
+      "id": "ORIG12_missing_design_xref",
+      "expected_error": "design_xref:ACK-REPLAY-VECTORS.json",
+      "pass": true,
+      "errors": [
+        "design_xref:ACK-REPLAY-VECTORS.json"
+      ]
+    },
+    {
+      "id": "B01_intervening_canonical_event",
+      "expected_error": "canonical_exact_chain",
+      "pass": true,
+      "errors": [
+        "canonical_exact_chain",
+        "crash_exact_sides"
+      ]
+    },
+    {
+      "id": "B01_wrong_close_from",
+      "expected_error": "canonical_adjacency",
+      "pass": true,
+      "errors": [
+        "canonical_adjacency",
+        "canonical_close_adjacency",
+        "crash_transition_binding"
+      ]
+    },
+    {
+      "id": "B01_promote_preimage_state",
+      "expected_error": "preimage_promoted_canonical",
+      "pass": true,
+      "errors": [
+        "preimage_promoted_canonical"
+      ]
+    },
+    {
+      "id": "B01_artifact_wrong_head",
+      "expected_error": "artifact_preparation_binding",
+      "pass": true,
+      "errors": [
+        "artifact_preparation_binding"
+      ]
+    },
+    {
+      "id": "B02_N07_optional",
+      "expected_error": "N07_exact_order",
+      "pass": true,
+      "errors": [
+        "N07_exact_order"
+      ]
+    },
+    {
+      "id": "B02_N07_skip_CAS",
+      "expected_error": "N07_exact_order",
+      "pass": true,
+      "errors": [
+        "N07_exact_order"
+      ]
+    },
+    {
+      "id": "B02_N07_fake_CAS",
+      "expected_error": "N07_exact_order",
+      "pass": true,
+      "errors": [
+        "N07_exact_order"
+      ]
+    },
+    {
+      "id": "B02_N07_bind_early",
+      "expected_error": "N07_exact_order",
+      "pass": true,
+      "errors": [
+        "N07_exact_order"
+      ]
+    },
+    {
+      "id": "B03_provider_true",
+      "expected_error": "provider_call_gate",
+      "pass": true,
+      "errors": [
+        "provider_call_gate"
+      ]
+    },
+    {
+      "id": "B03_call_alias_true",
+      "expected_error": "provider_call_gate",
+      "pass": true,
+      "errors": [
+        "provider_call_gate"
+      ]
+    },
+    {
+      "id": "B03_action_prescope",
+      "expected_error": "action_gate",
+      "pass": true,
+      "errors": [
+        "action_gate"
+      ]
+    },
+    {
+      "id": "B03_action_before_launch_barrier",
+      "expected_error": "action_gate",
+      "pass": true,
+      "errors": [
+        "action_gate"
+      ]
+    },
+    {
+      "id": "B03_action_after_execution",
+      "expected_error": "action_gate",
+      "pass": true,
+      "errors": [
+        "action_gate"
+      ]
+    },
+    {
+      "id": "B03_child_provider_authority",
+      "expected_error": "child_provider_authority",
+      "pass": true,
+      "errors": [
+        "child_provider_authority"
+      ]
+    },
+    {
+      "id": "B04_suffix",
+      "expected_error": "nonce_exact_identity_order",
+      "pass": true,
+      "errors": [
+        "nonce_exact_identity_order"
+      ]
+    },
+    {
+      "id": "B04_semantic_action",
+      "expected_error": "nonce_exact_semantics",
+      "pass": true,
+      "errors": [
+        "nonce_exact_semantics"
+      ]
+    },
+    {
+      "id": "B04_order",
+      "expected_error": "nonce_exact_identity_order",
+      "pass": true,
+      "errors": [
+        "nonce_exact_identity_order"
+      ]
+    },
+    {
+      "id": "B04_duplicate",
+      "expected_error": "nonce_exact_identity_order",
+      "pass": true,
+      "errors": [
+        "nonce_exact_identity_order"
+      ]
+    },
+    {
+      "id": "B04_missing",
+      "expected_error": "nonce_exact_identity_order",
+      "pass": true,
+      "errors": [
+        "nonce_exact_identity_order",
+        "nonce_exact_semantics"
+      ]
+    },
+    {
+      "id": "B04_predicate_removed",
+      "expected_error": "nonce_exact_predicates",
+      "pass": true,
+      "errors": [
+        "nonce_exact_predicates"
+      ]
+    },
+    {
+      "id": "B05_missing_side",
+      "expected_error": "crash_count",
+      "pass": true,
+      "errors": [
+        "crash_count",
+        "crash_exact_sides"
+      ]
+    },
+    {
+      "id": "B05_duplicate_side",
+      "expected_error": "crash_exact_sides",
+      "pass": true,
+      "errors": [
+        "crash_exact_sides",
+        "crash_duplicate_or_extra"
+      ]
+    },
+    {
+      "id": "B05_wrong_observed",
+      "expected_error": "crash_transition_binding",
+      "pass": true,
+      "errors": [
+        "crash_transition_binding"
+      ]
+    },
+    {
+      "id": "B05_generic_proof",
+      "expected_error": "crash_transition_binding",
+      "pass": true,
+      "errors": [
+        "crash_transition_binding"
+      ]
+    },
+    {
+      "id": "B05_wrong_transition_binding",
+      "expected_error": "crash_exact_sides",
+      "pass": true,
+      "errors": [
+        "crash_exact_sides",
+        "crash_duplicate_or_extra"
+      ]
+    },
+    {
+      "id": "B05_provider_permissive",
+      "expected_error": "crash_permissive",
+      "pass": true,
+      "errors": [
+        "crash_permissive"
+      ]
+    },
+    {
+      "id": "B05_artifact_count",
+      "expected_error": "artifact_crash_vectors",
+      "pass": true,
+      "errors": [
+        "artifact_crash_vectors"
+      ]
+    },
+    {
+      "id": "B05_artifact_promoted",
+      "expected_error": "artifact_crash_vectors",
+      "pass": true,
+      "errors": [
+        "artifact_crash_vectors"
+      ]
+    },
+    {
+      "id": "B06_overlap_dual_active",
+      "expected_error": "overlap_exclusion",
+      "pass": true,
+      "errors": [
+        "overlap_exclusion"
+      ]
+    },
+    {
+      "id": "B06_stale_epoch_accept",
+      "expected_error": "stale_epoch_fence_rejection",
+      "pass": true,
+      "errors": [
+        "stale_epoch_fence_rejection"
+      ]
+    },
+    {
+      "id": "B06_child_create",
+      "expected_error": "child_path_creation",
+      "pass": true,
+      "errors": [
+        "child_path_creation"
+      ]
+    },
+    {
+      "id": "B06_ack_early",
+      "expected_error": "ack_order_replay",
+      "pass": true,
+      "errors": [
+        "ack_order_replay"
+      ]
+    },
+    {
+      "id": "B06_replay_execute",
+      "expected_error": "ack_order_replay",
+      "pass": true,
+      "errors": [
+        "ack_order_replay"
+      ]
+    },
+    {
+      "id": "B06_N04_bypass",
+      "expected_error": "N04_exact_no_bypass",
+      "pass": true,
+      "errors": [
+        "N04_exact_no_bypass"
+      ]
+    },
+    {
+      "id": "B06_notification_authority",
+      "expected_error": "recovery_authority",
+      "pass": true,
+      "errors": [
+        "recovery_authority"
+      ]
+    },
+    {
+      "id": "B06_witness_authority",
+      "expected_error": "component_authority",
+      "pass": true,
+      "errors": [
+        "component_authority"
+      ]
+    },
+    {
+      "id": "B06_unknown_retry",
+      "expected_error": "unknown_outcome_terminal",
+      "pass": true,
+      "errors": [
+        "unknown_outcome_terminal"
+      ]
+    },
+    {
+      "id": "B06_ingress_unknown",
+      "expected_error": "ingress_strict",
+      "pass": true,
+      "errors": [
+        "ingress_strict"
+      ]
+    },
+    {
+      "id": "B06_ingress_path",
+      "expected_error": "ingress_strict",
+      "pass": true,
+      "errors": [
+        "ingress_strict"
+      ]
+    },
+    {
+      "id": "B06_multiple_writer",
+      "expected_error": "path_multiple_or_missing_writer",
+      "pass": true,
+      "errors": [
+        "path_multiple_or_missing_writer"
+      ]
+    },
+    {
+      "id": "B06_meaningless_ack",
+      "expected_error": "ack_vector_content",
+      "pass": true,
+      "errors": [
+        "ack_vector_content"
+      ]
+    },
+    {
+      "id": "B06_shadow_authority",
+      "expected_error": "zero_effect_boundary",
+      "pass": true,
+      "errors": [
+        "zero_effect_boundary"
+      ]
+    },
+    {
+      "id": "B06_runtime_authority",
+      "expected_error": "component_authority",
+      "pass": true,
+      "errors": [
+        "component_authority"
+      ]
+    }
+  ]
+}

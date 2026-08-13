@@ -1,0 +1,22 @@
+{
+  "candidate_semantic_blockers": 0,
+  "failed_gates": [
+    "zero_effect"
+  ],
+  "gates": {
+    "M2B_started_false": true,
+    "applicable_supplied_suites": true,
+    "archive_mode_hash_members": true,
+    "direct_contracts": true,
+    "fresh_adversarial_79": true,
+    "immutable_extraction_parity": true,
+    "live_authority_rehash_after_snapshot": true,
+    "privacy": true,
+    "process_leak": true,
+    "proof_audit_52": true,
+    "tracked_hash_mode_parity": true,
+    "zero_effect": false
+  },
+  "status": "HOLD",
+  "verifier_boundary_blockers": 1
+}

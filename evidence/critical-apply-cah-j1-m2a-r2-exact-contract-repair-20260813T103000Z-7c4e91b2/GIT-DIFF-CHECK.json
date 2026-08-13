@@ -1,0 +1,7 @@
+{
+  "new_paths_only": "R2 design and R2 evidence root",
+  "note": "No staging/index/config/ref operation performed.",
+  "schema": "critical_apply.m2a_r2.git_diff_check.v1",
+  "status": "PASS",
+  "tracked_pre_post_equal": true
+}

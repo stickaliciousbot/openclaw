@@ -1,0 +1,44 @@
+{
+  "blocking_count": 0,
+  "blocking_findings": [],
+  "candidate_root": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-r3-contract-repair-20260813T020500Z-5e1b7a63",
+  "identity": {
+    "governing_inputs_exact": true,
+    "manifest_bytes": 4947,
+    "manifest_sha256": "40183db63570673cac1e2d3d3fc3e0abe0f4d2d75f34a12ae35aae57a6709929",
+    "privacy_receipt_bytes": 1634,
+    "privacy_receipt_sha256": "9e15e506d03cda11054ede870fbb40cf701da8dcf4a4c2ea095d3af219e9ec76"
+  },
+  "inventory": {
+    "candidate_files": 30,
+    "hash_size_mismatches": 0,
+    "json_parse_failures": 0,
+    "manifest_listed_artifacts": 28,
+    "subdirectories": 0,
+    "symlinks": 0,
+    "unaccounted_files": 0
+  },
+  "prior_blocker": "RESOLVED_BLOCK_R2_01_NONCANONICAL_PREIMAGE_DIRECT_CLOSE_ADJACENCY",
+  "privacy": "PASS",
+  "requirements_review": {
+    "B1": "PASS",
+    "B2": "PASS",
+    "B3": "PASS",
+    "B4": "PASS",
+    "B5": "PASS",
+    "B6": "PASS",
+    "R18_path_creator_repair": "PASS",
+    "S1": "PASS",
+    "S2": "PASS",
+    "S3": "PASS",
+    "S4": "PASS",
+    "semantic_terminal_beats_stale_projection": "PASS",
+    "unaffected_prior_verified_artifacts_byte_exact": "PASS"
+  },
+  "schema": "critical_apply.cah_j1_m0_r3_final_independent_verification_receipt.v1",
+  "status": "PASS_CAH_J1_M0_R3_FINAL_INDEPENDENT_VERIFICATION",
+  "terminal": "PASS_CAH_J1_M0_R3_ZERO_BLOCKERS_M0_ARCHITECTURE_FREEZE_VERIFIED_NO_PRODUCTION_EFFECT",
+  "verified_at_utc": "2026-08-13T02:29:00Z",
+  "verifier_root": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-r3-final-independent-verification-20260813T022900Z-a61f0c9e",
+  "zero_effect": "PASS"
+}

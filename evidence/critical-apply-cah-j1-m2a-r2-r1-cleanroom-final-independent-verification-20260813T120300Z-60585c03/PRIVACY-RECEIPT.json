@@ -1,0 +1,14 @@
+{
+  "candidate_receipt": "PRIVACY-CANDIDATE-RECEIPT.json",
+  "candidate_status": "R6_R6_PHASE_A_BOUNDED_PRIVACY_SCAN_PASS",
+  "evidence_receipt": "PRIVACY-POST-LATE-COMPLETION-RECEIPT.json",
+  "evidence_status": "R6_R6_PHASE_A_BOUNDED_PRIVACY_SCAN_PASS",
+  "exact_scanner_sha256": "ce38bf7811561c096bfe72ef12fc799712986d77ff86cb62b8e099eedc481115",
+  "blocking_count_total": 0,
+  "recursive_receipt_exclusion": {
+    "mechanism": "Each exact scanner invocation excludes only its explicit --out path from that invocation. Candidate receipt is outside candidate root. The post-late-completion evidence receipt did not pre-exist during its own scan, so there was no recursive receipt to scan; it is frozen after creation and covered by the regenerated manifest. Earlier receipts were scanned as ordinary evidence files by this pass.",
+    "candidate_outside_scanned_root": true,
+    "evidence_output_self_excluded_by_exact_path": true
+  },
+  "status": "PASS"
+}

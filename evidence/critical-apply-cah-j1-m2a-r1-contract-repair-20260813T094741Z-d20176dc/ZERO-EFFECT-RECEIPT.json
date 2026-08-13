@@ -1,0 +1,20 @@
+{
+  "M2B_started": false,
+  "forbidden_effects_observed": 0,
+  "parity": {
+    "head_equal": true,
+    "independent_hold_manifest_immutable": true,
+    "index_equal": true,
+    "original_candidate_manifest_immutable": true,
+    "tracked_status_equal": true
+  },
+  "schema": "critical_apply.m2a_r1.zero_effect_receipt.v1",
+  "source_runtime_install_git_stage_commit_push_gateway_config_provider_network_production_cron_systemd_external_message_count": 0,
+  "status": "PASS",
+  "writes": [
+    "new design artifact",
+    "fresh evidence root",
+    "disposable /tmp mutation copies",
+    "abandoned failed fresh evidence root preserved"
+  ]
+}

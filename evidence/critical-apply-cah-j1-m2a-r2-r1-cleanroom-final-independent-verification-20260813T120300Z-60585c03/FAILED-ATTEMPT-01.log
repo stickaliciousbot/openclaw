@@ -1,0 +1,1 @@
+Attempt 1: setup_baseline BASE.mkdir(parents=True) raised FileNotFoundError followed by FileExistsError for verifier-owned /tmp/.../work/baseline, consistent with a confined setup race/stale directory. No path outside verifier roots was written. Corrected to idempotent exist_ok=True.

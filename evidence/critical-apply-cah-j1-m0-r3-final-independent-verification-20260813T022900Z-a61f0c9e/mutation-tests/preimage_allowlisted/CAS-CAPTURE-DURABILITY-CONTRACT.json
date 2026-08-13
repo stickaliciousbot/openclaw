@@ -1,0 +1,58 @@
+{
+  "concurrency": {
+    "existing_different_bytes": "HASH_COLLISION_OR_CORRUPTION_FATAL",
+    "existing_same_hash": "reopen_rehash_and_deduplicate",
+    "source_identity_or_size_changes": "CAPTURE_REJECTED_HOLD"
+  },
+  "crash_policy": {
+    "journal_reference_without_durable_object": "INTEGRITY_FAIL",
+    "orphan_unreferenced_object": "permitted_preserve_until_separately_proven_GC",
+    "path_replacement_during_capture": "does_not_change_open_descriptor_bytes_but_identity_change_fixture_must_classify"
+  },
+  "descriptor_binding": [
+    "fstat_before",
+    "require_regular_file",
+    "bind_st_dev",
+    "bind_st_ino",
+    "bind_st_uid",
+    "bind_st_gid",
+    "bind_st_mode",
+    "bind_st_nlink",
+    "bind_st_size",
+    "hard_link_policy_nlink_equals_1_unless_explicit_allowlist",
+    "hash_and_copy_from_same_open_fd",
+    "fstat_after_matches_before_except_atime",
+    "EOF_and_size_match"
+  ],
+  "forbidden": [
+    "path_validate_then_reopen_by_name",
+    "follow_symlink",
+    "overwrite_existing_CAS",
+    "ACK_before_object_and_journal_durable",
+    "garbage_collect_referenced_or_unproven_objects"
+  ],
+  "publication_order": [
+    "create_same_filesystem_temp_exclusive",
+    "stream_from_source_fd_and_SHA256",
+    "fdatasync_temp_object",
+    "publish_without_overwrite_by_link_or_rename_noreplace",
+    "fsync_CAS_shard_parent",
+    "fsync_CAS_root_if_new_shard",
+    "reopen_published_object_O_NOFOLLOW",
+    "fstat_and_rehash_exact",
+    "append_CAS_CAPTURED_event_binding_descriptor_metadata_and_hash",
+    "fdatasync_journal",
+    "fsync_journal_parent_if_created_or_rotated",
+    "reopen_verify_journal_event",
+    "ACK"
+  ],
+  "registration_preconditions": [
+    "immutable_semantic_path_registration_verified",
+    "registered_root_directory_descriptor_opened_O_DIRECTORY_O_NOFOLLOW",
+    "relative_path_validated_no_dotdot_no_absolute",
+    "leaf_openat_O_RDONLY_O_NOFOLLOW"
+  ],
+  "schema": "critical_apply.cas_capture_durability_contract.v1",
+  "semantic_role": "immutable_governing_bytes_not_independent_semantic_authority",
+  "status": "FROZEN_FOR_M0_B6"
+}

@@ -1,0 +1,14 @@
+{
+  "schema": "critical_apply.cah_j1_m0_r2_final_independent_status.v1",
+  "status": "HOLD_CAH_J1_M0_R2_FINAL_INDEPENDENT_VERIFICATION",
+  "terminal": "HOLD_CAH_J1_M0_R2_FOR_PREIMAGE_RECORD_EVENT_CLOSE_COORDINATE_CYCLE_NO_PRODUCTION_EFFECT",
+  "blocking_count": 1,
+  "blocking_ids": [
+    "BLOCK-R2-01-PREIMAGE-RECORD-EVENT-CLOSE-COORDINATE-CYCLE"
+  ],
+  "mechanical_integrity": "PASS",
+  "privacy": "PASS",
+  "N04_N07_repair": "PASS",
+  "candidate_validator": "PASS_BUT_INCOMPLETE_FOR_FULL_CLOSEOUT_CHAIN",
+  "zero_effect": true
+}

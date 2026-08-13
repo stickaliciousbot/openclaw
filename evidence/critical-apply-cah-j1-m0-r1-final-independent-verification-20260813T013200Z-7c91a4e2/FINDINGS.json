@@ -1,0 +1,87 @@
+{
+  "schema": "critical_apply.cah_j1_m0_r1_final_independent_findings.v1",
+  "candidate_root": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-r1-contract-repair-20260813T013000Z-8d2f6c41",
+  "governing_adjudication_sha256": "1d2853fba832ebc243423c3c2dac00def80c3c2b56d892ee8c83aeff96c34427",
+  "prior_blocker_adjudication": [
+    {
+      "prior_id": "BLOCK-01-POST-FREEZE-SEMANTIC-ALLOWLIST-CONTRADICTION",
+      "result": "RESOLVED",
+      "evidence": [
+        "TERMINAL-HEADS-AND-FENCE-CONTRACT.json removes OWNED_CHILD_RECONCILIATION_RECORDED and CLEANUP_RECORDED from allowed_post_freeze_event_types and enumerates them in events_rejected_after_fence.",
+        "LIFECYCLE-TRANSITION-TABLE.json requires reconciliation and cleanup before TERMINAL_REDUCTION_PREPARED.",
+        "The canonical nonsemantic terminal seal event is explicitly named TERMINAL_SEAL_RECORDED."
+      ]
+    },
+    {
+      "prior_id": "BLOCK-02-CLOSEOUT-HEAD-RECEIPT-ORDER-UNDER-SPECIFIED",
+      "result": "NOT_RESOLVED_NEW_EXACT_DEFECT",
+      "evidence": [
+        "The repair adds preimage, future SUPERVISOR_CLOSED precomputation, final-event commit, post-close receipt publication, and closeout kill boundaries.",
+        "However, TERMINAL-HEADS-AND-FENCE-CONTRACT.json makes preimage_sha256 cover preimage_required_fields including close_event_payload_sha256, while SUPERVISOR_CLOSED payload binds preimage_sha256 and close_event_payload_sha256 is the digest of that payload.",
+        "This creates the fixed-point dependency preimage_sha256 -> close_event_payload_sha256 -> SUPERVISOR_CLOSED payload -> preimage_sha256, contradicting circularity_rule and preventing deterministic construction by the listed finite algorithm."
+      ]
+    },
+    {
+      "prior_id": "BLOCK-03-REQUIRED-CRASH-MATRICES-NOT-EXHAUSTIVE",
+      "result": "NOT_RESOLVED_NEW_EXACT_DEFECTS",
+      "evidence": [
+        "CAS matrix covers all 13 publication steps pre/post and the required fault vectors, and closeout matrix covers preimage construction through transaction-lock release.",
+        "Nonce matrix has vectors for all N01-N11 transitions and external ambiguity, but transition-specific ordering is wrong for N04 and N07.",
+        "N04 state machine requires CALL_SAFE_RESUME_AUTHORIZED committed and synced as a precondition before the AuthorityDB rebinding transaction; the matrix instead places DB mutation/commit before that journal append and invents a post-DB required journal bind.",
+        "N07 state machine orders CALL_OUTCOME_RECORDED journal commit/sync before BEGIN IMMEDIATE and AuthorityDB outcome binding; the matrix instead places AuthorityDB mutation/commit first and the outcome append afterward."
+      ]
+    }
+  ],
+  "blocking_findings": [
+    {
+      "id": "BLOCK-R1-01-CLOSEOUT-PREIMAGE-FIXED-POINT-CIRCULARITY",
+      "requirements": ["B4", "S1", "deterministic_noncircular_crash_complete_closeout"],
+      "evidence": [
+        "completion_receipt_protocol.preimage says canonicalize preimage_without_closeout_head and compute preimage_sha256.",
+        "completion_receipt_protocol.preimage_required_fields includes close_event_payload_sha256.",
+        "completion_receipt_protocol.preimage says construct SUPERVISOR_CLOSED payload binding preimage_sha256.",
+        "Therefore the included close_event_payload_sha256 cannot be known until the payload containing preimage_sha256 is known, while preimage_sha256 cannot be known until close_event_payload_sha256 is known.",
+        "The later instruction to recompute final close preimage exactly does not define a terminating fixed-point construction and contradicts circularity_rule."
+      ],
+      "defect": "The exact future SUPERVISOR_CLOSED event and completion-receipt preimage are circular, so the final close event is not deterministically precomputable and recovery cannot be executable as frozen.",
+      "required_correction": "Define disjoint canonical hash domains. For example, exclude close_event_payload_sha256 and all close-event-derived values from the preimage hash bound by SUPERVISOR_CLOSED; deterministically derive the close payload/event from that immutable preimage hash; then let the post-close receipt bind the immutable preimage plus the actual closeout head. Add an executable fixture proving one-pass canonical serialization and exact reconstruction after each closeout crash boundary."
+    },
+    {
+      "id": "BLOCK-R1-02-NONCE-MATRIX-N04-N07-ORDER-CONTRADICTIONS",
+      "requirements": ["B2", "exhaustive_transition_specific_nonce_crash_matrix"],
+      "evidence": [
+        "N04_SAFE_RESUME_REBIND preconditions require CALL_SAFE_RESUME_AUTHORIZED committed and synced before its BEGIN_IMMEDIATE AuthorityDB rebinding.",
+        "N04 matrix vectors -01 through -04 model AuthorityDB mutation/commit before the journal append, and -05/-06 model CALL_SAFE_RESUME_AUTHORIZED afterward.",
+        "N07_RECORD_VERIFIED_OUTCOME normative ordering is response capture, CALL_OUTCOME_RECORDED append/sync, BEGIN_IMMEDIATE, AuthorityDB bind, COMMIT_FULL.",
+        "N07 matrix vectors -01 through -04 model AuthorityDB mutation/commit first, while -05/-06 model CALL_OUTCOME_RECORDED append/sync after DB commit.",
+        "Generic matrix recovery language consequently refers to nonexistent required post-DB journal binds for those transitions."
+      ],
+      "defect": "Although all transition IDs have rows, N04 and N07 rows exercise a different cross-store protocol than the frozen state machine. Count completeness is not semantic boundary completeness, and recovery behavior at the real boundaries remains unproven.",
+      "required_correction": "Regenerate N04 and N07 vectors from their normative order. N04 must cover journal precondition append/sync/ACK before DB BEGIN/change/COMMIT/reread and post-transition state. N07 must cover response/CAS capture, outcome append/sync/ACK, then DB BEGIN/change/COMMIT/reread. Give every vector exact journal and AuthorityDB states, ACK behavior, idempotent recovery, and fail-closed result. Strengthen the validator to compare each transition's declared ordering rather than only count vectors."
+    }
+  ],
+  "nonblocking_observations": [
+    {
+      "id": "OBS-R1-01-IDENTITIES",
+      "result": "Expected manifest and privacy receipt identities are exact; all 25 manifest-listed hashes and byte sizes match; all 25 candidate JSON files parse; all four governing input identities are exact."
+    },
+    {
+      "id": "OBS-R1-02-B1-B3-B5-B6-S2-S3-S4",
+      "result": "B1, B3, B5, B6 core plus CAS coverage, S2, S3, and S4 are substantively frozen. B4/S1 remain blocked only by the closeout fixed-point defect; B2 remains blocked only by nonce matrix contradictions."
+    },
+    {
+      "id": "OBS-R1-03-SOLE-SEMANTIC-AUTHORITY",
+      "result": "No second semantic authority was found. Canonical journal remains sole semantic/transaction-fact authority; AuthorityDB is cross-transaction lease/nonce authority only; WitnessDB is detect-only history witness; ProgressDB is disposable acceleration; CAS stores governing bytes but is not independent semantic authority."
+    },
+    {
+      "id": "OBS-R1-04-BRIDGES",
+      "result": "Immutable semantic-path registration is shared by all consumers; semantic terminal outranks stale RUNNING/PID projections; nonce-ledger has one creator and runner never creates it."
+    },
+    {
+      "id": "OBS-R1-05-PRIVACY-ZERO-EFFECT",
+      "result": "Privacy receipt identity is exact, reports zero findings/issues and exact scanner identities. Candidate effect counters are all zero. This independent review made no candidate, runtime, Gateway, configuration, Git, install, provider, Terra, production, cron/systemd, or external-message mutation."
+    }
+  ],
+  "blocking_count": 2,
+  "status": "HOLD"
+}

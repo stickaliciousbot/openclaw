@@ -1,0 +1,3 @@
+Command: python3 -B -m py_compile scripts/critical_apply_journal.py scripts/critical_apply_progress.py scripts/critical_apply_cas.py scripts/critical_apply_authority_db.py scripts/tests/test_critical_apply_journal_idempotency.py scripts/tests/test_critical_apply_cas.py scripts/tests/test_critical_apply_authority_db.py
+Terminal: exit 0
+Result: PASS

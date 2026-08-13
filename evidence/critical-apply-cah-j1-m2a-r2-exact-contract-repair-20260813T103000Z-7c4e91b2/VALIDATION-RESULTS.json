@@ -1,0 +1,15 @@
+{
+  "M2B_started": false,
+  "artifact_lifecycle_proof_count": 6,
+  "artifact_preparation_vector_count": 2,
+  "canonical_proof_count": 46,
+  "canonical_transition_count": 23,
+  "canonical_vector_count": 46,
+  "design_sha256": "3269bbdccd2b5c62566692bbc3dcf17bf4a86a85fb491bedfcdea7ead80d143b",
+  "error_count": 0,
+  "lifecycle_vector_count": 4,
+  "schema": "critical_apply.m2a_r2.validation_results.v1",
+  "schema_registry_artifact_count": 17,
+  "status": "PASS",
+  "total_proof_count": 52
+}

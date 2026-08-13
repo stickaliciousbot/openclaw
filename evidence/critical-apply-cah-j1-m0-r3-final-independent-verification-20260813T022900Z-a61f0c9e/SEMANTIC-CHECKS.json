@@ -1,0 +1,568 @@
+{
+  "errors": [],
+  "groups": {
+    "close_chain": {
+      "canonical_allowlist_excludes_preimage_record": {
+        "detail": null,
+        "pass": true
+      },
+      "close_event_hash_exact": {
+        "detail": null,
+        "pass": true
+      },
+      "direct_event_types_exact": {
+        "detail": null,
+        "pass": true
+      },
+      "direct_hash_adjacency": {
+        "detail": null,
+        "pass": true
+      },
+      "direct_sequence_adjacency": {
+        "detail": null,
+        "pass": true
+      },
+      "event_payload_exact": {
+        "detail": null,
+        "pass": true
+      },
+      "lifecycle_direct_close": {
+        "detail": null,
+        "pass": true
+      },
+      "lifecycle_preimage_does_not_advance_head": {
+        "detail": null,
+        "pass": true
+      },
+      "lifecycle_preimage_step_noncanonical": {
+        "detail": null,
+        "pass": true
+      },
+      "one_pass_no_fixed_point": {
+        "detail": null,
+        "pass": true
+      },
+      "payload_hash_exact": {
+        "detail": null,
+        "pass": true
+      },
+      "preimage_declared_noncanonical": {
+        "detail": null,
+        "pass": true
+      },
+      "preimage_forbidden_fields_absent": {
+        "detail": null,
+        "pass": true
+      },
+      "preimage_hash_exact": {
+        "detail": {
+          "computed": "3dd0eff2b99e5144bce3862752baaaff7b208a759dc4b43aab6904e6034e0ee1",
+          "recorded": "3dd0eff2b99e5144bce3862752baaaff7b208a759dc4b43aab6904e6034e0ee1"
+        },
+        "pass": true
+      },
+      "preimage_not_event_envelope": {
+        "detail": null,
+        "pass": true
+      },
+      "preimage_required_fields_exact": {
+        "detail": {
+          "actual": [
+            "close_event_id",
+            "expected_close_sequence",
+            "expected_prev_event_sha256",
+            "journal_hash_algorithm_id",
+            "lease_release_outcome",
+            "notification_outcome",
+            "production_effects",
+            "provider_effects",
+            "schema",
+            "terminal_decision_head",
+            "terminal_seal_sha256",
+            "transaction_id",
+            "witness_outcome"
+          ],
+          "required": [
+            "close_event_id",
+            "expected_close_sequence",
+            "expected_prev_event_sha256",
+            "journal_hash_algorithm_id",
+            "lease_release_outcome",
+            "notification_outcome",
+            "production_effects",
+            "provider_effects",
+            "schema",
+            "terminal_decision_head",
+            "terminal_seal_sha256",
+            "transaction_id",
+            "witness_outcome"
+          ]
+        },
+        "pass": true
+      },
+      "prior_event_hash_exact": {
+        "detail": {
+          "computed": "c048da927d303ad9383d9f63ac586dae716494a730afac6cfc579946e050fa46",
+          "recorded": "c048da927d303ad9383d9f63ac586dae716494a730afac6cfc579946e050fa46"
+        },
+        "pass": true
+      }
+    },
+    "closeout_matrix": {
+      "all_no_post_close_append": {
+        "detail": null,
+        "pass": true
+      },
+      "all_no_semantic_rewrite": {
+        "detail": null,
+        "pass": true
+      },
+      "all_recovery_declared": {
+        "detail": null,
+        "pass": true
+      },
+      "boundaries_exact": {
+        "detail": null,
+        "pass": true
+      },
+      "count_exact": {
+        "detail": null,
+        "pass": true
+      },
+      "direct_predecessor": {
+        "detail": null,
+        "pass": true
+      },
+      "preimage_event_false": {
+        "detail": null,
+        "pass": true
+      }
+    },
+    "governing_inputs": {
+      "input_receipt_pass": {
+        "detail": null,
+        "pass": true
+      },
+      "m0_adjudication": {
+        "detail": {
+          "actual_sha256": "1d2853fba832ebc243423c3c2dac00def80c3c2b56d892ee8c83aeff96c34427",
+          "bytes": 13195,
+          "copied_sha256": "1d2853fba832ebc243423c3c2dac00def80c3c2b56d892ee8c83aeff96c34427",
+          "exact": true,
+          "expected_sha256": "1d2853fba832ebc243423c3c2dac00def80c3c2b56d892ee8c83aeff96c34427",
+          "path": "/home/stickai/.openclaw/workspace/design/critical-apply-supervisor-owned-event-journal-owner-revision-m0-adjudication-2026-08-13.md",
+          "role": "m0_adjudication"
+        },
+        "pass": true
+      },
+      "owner_revision": {
+        "detail": {
+          "actual_sha256": "6d80167ba92e1a68c9d17d6027135b289f88c6b9f3d6fd9e24ea86aedab459af",
+          "bytes": 55288,
+          "copied_sha256": "6d80167ba92e1a68c9d17d6027135b289f88c6b9f3d6fd9e24ea86aedab459af",
+          "exact": true,
+          "expected_sha256": "6d80167ba92e1a68c9d17d6027135b289f88c6b9f3d6fd9e24ea86aedab459af",
+          "path": "/home/stickai/.openclaw/workspace/design/critical-apply-supervisor-owned-event-journal-owner-revision-2026-08-13.md",
+          "role": "owner_revision"
+        },
+        "pass": true
+      },
+      "r2_hold_receipt": {
+        "detail": {
+          "actual_sha256": "d57ced95b7bf7d544c395141ba1d1d003405ec1abdad8a45751462423f79c336",
+          "bytes": 3220,
+          "copied_sha256": "d57ced95b7bf7d544c395141ba1d1d003405ec1abdad8a45751462423f79c336",
+          "exact": true,
+          "expected_sha256": "d57ced95b7bf7d544c395141ba1d1d003405ec1abdad8a45751462423f79c336",
+          "path": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-r2-final-independent-verification-20260813T014916Z-c0744878/INDEPENDENT-RECEIPT.json",
+          "role": "r2_hold_receipt"
+        },
+        "pass": true
+      },
+      "r2_manifest": {
+        "detail": {
+          "actual_sha256": "697e1eb6ad2e6a263b539c3d1ccf353c3b635f17d77841083d11cf99f8cbb235",
+          "bytes": 4785,
+          "copied_sha256": "697e1eb6ad2e6a263b539c3d1ccf353c3b635f17d77841083d11cf99f8cbb235",
+          "exact": true,
+          "expected_sha256": "697e1eb6ad2e6a263b539c3d1ccf353c3b635f17d77841083d11cf99f8cbb235",
+          "path": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-r2-contract-repair-20260813T014000Z-3a6e9d52/manifest.json",
+          "role": "r2_manifest"
+        },
+        "pass": true
+      }
+    },
+    "identity": {
+      "manifest_external_abbreviated_identity": {
+        "detail": {
+          "actual": "40183db63570673cac1e2d3d3fc3e0abe0f4d2d75f34a12ae35aae57a6709929",
+          "expected_abbreviation": "40183db6\u20269929"
+        },
+        "pass": true
+      },
+      "manifest_frozen": {
+        "detail": null,
+        "pass": true
+      },
+      "manifest_schema": {
+        "detail": null,
+        "pass": true
+      },
+      "privacy_schema": {
+        "detail": null,
+        "pass": true
+      }
+    },
+    "inventory": {
+      "all_json_parse": {
+        "detail": [],
+        "pass": true
+      },
+      "all_manifest_hashes_and_sizes_exact": {
+        "detail": [],
+        "pass": true
+      },
+      "artifact_count_28": {
+        "detail": null,
+        "pass": true
+      },
+      "copied_hashes_and_sizes_exact": {
+        "detail": [],
+        "pass": true
+      },
+      "no_missing_listed_files": {
+        "detail": [],
+        "pass": true
+      },
+      "no_subdirectories": {
+        "detail": [],
+        "pass": true
+      },
+      "no_symlinks": {
+        "detail": [],
+        "pass": true
+      },
+      "no_unaccounted_files": {
+        "detail": [],
+        "pass": true
+      }
+    },
+    "mutations": {
+      "canonical_intervening_event": {
+        "detail": {
+          "candidate_exit_code": 1,
+          "candidate_rejected": true,
+          "candidate_stderr": "",
+          "candidate_stdout": "{\"closeout_vectors\": 12, \"direct_adjacency\": true, \"errors\": [\"intervening_event\"], \"fixture\": \"PASS_ONE_PASS_NONCIRCULAR_DIRECT_ADJACENCY\", \"required_files\": 21, \"status\": \"HOLD\"}\n",
+          "case": "canonical_intervening_event",
+          "independent_rejected": true,
+          "rejected": true
+        },
+        "pass": true
+      },
+      "hash_adjacency": {
+        "detail": {
+          "candidate_exit_code": 1,
+          "candidate_rejected": true,
+          "candidate_stderr": "",
+          "candidate_stdout": "{\"closeout_vectors\": 12, \"direct_adjacency\": true, \"errors\": [\"hash_adjacency\", \"close_hash\"], \"fixture\": \"PASS_ONE_PASS_NONCIRCULAR_DIRECT_ADJACENCY\", \"required_files\": 21, \"status\": \"HOLD\"}\n",
+          "case": "hash_adjacency",
+          "independent_rejected": true,
+          "rejected": true
+        },
+        "pass": true
+      },
+      "matrix_canonical_preimage": {
+        "detail": {
+          "candidate_exit_code": 1,
+          "candidate_rejected": true,
+          "candidate_stderr": "",
+          "candidate_stdout": "{\"closeout_vectors\": 12, \"direct_adjacency\": true, \"errors\": [\"matrix_preimage_event\"], \"fixture\": \"PASS_ONE_PASS_NONCIRCULAR_DIRECT_ADJACENCY\", \"required_files\": 21, \"status\": \"HOLD\"}\n",
+          "case": "matrix_canonical_preimage",
+          "independent_rejected": true,
+          "rejected": true
+        },
+        "pass": true
+      },
+      "preimage_allowlisted": {
+        "detail": {
+          "candidate_exit_code": 1,
+          "candidate_rejected": true,
+          "candidate_stderr": "",
+          "candidate_stdout": "{\"closeout_vectors\": 12, \"direct_adjacency\": true, \"errors\": [\"preimage_event_allowlisted\"], \"fixture\": \"PASS_ONE_PASS_NONCIRCULAR_DIRECT_ADJACENCY\", \"required_files\": 21, \"status\": \"HOLD\"}\n",
+          "case": "preimage_allowlisted",
+          "independent_rejected": true,
+          "rejected": true
+        },
+        "pass": true
+      },
+      "preimage_claims_authority": {
+        "detail": {
+          "candidate_exit_code": 1,
+          "candidate_rejected": true,
+          "candidate_stderr": "",
+          "candidate_stdout": "{\"closeout_vectors\": 12, \"direct_adjacency\": true, \"errors\": [\"preimage_authority\"], \"fixture\": \"PASS_ONE_PASS_NONCIRCULAR_DIRECT_ADJACENCY\", \"required_files\": 21, \"status\": \"HOLD\"}\n",
+          "case": "preimage_claims_authority",
+          "independent_rejected": true,
+          "rejected": true
+        },
+        "pass": true
+      },
+      "production_effect": {
+        "detail": {
+          "candidate_exit_code": 1,
+          "candidate_rejected": true,
+          "candidate_stderr": "",
+          "candidate_stdout": "{\"closeout_vectors\": 12, \"direct_adjacency\": true, \"errors\": [\"effects\"], \"fixture\": \"PASS_ONE_PASS_NONCIRCULAR_DIRECT_ADJACENCY\", \"required_files\": 21, \"status\": \"HOLD\"}\n",
+          "case": "production_effect",
+          "independent_rejected": true,
+          "rejected": true
+        },
+        "pass": true
+      },
+      "receipt_head_unbound": {
+        "detail": {
+          "candidate_exit_code": 0,
+          "candidate_rejected": false,
+          "candidate_stderr": "",
+          "candidate_stdout": "{\"closeout_vectors\": 12, \"direct_adjacency\": true, \"errors\": [], \"fixture\": \"PASS_ONE_PASS_NONCIRCULAR_DIRECT_ADJACENCY\", \"required_files\": 21, \"status\": \"PASS\"}\n",
+          "case": "receipt_head_unbound",
+          "independent_rejected": true,
+          "rejected": true
+        },
+        "pass": true
+      },
+      "receipt_preimage_unbound": {
+        "detail": {
+          "candidate_exit_code": 0,
+          "candidate_rejected": false,
+          "candidate_stderr": "",
+          "candidate_stdout": "{\"closeout_vectors\": 12, \"direct_adjacency\": true, \"errors\": [], \"fixture\": \"PASS_ONE_PASS_NONCIRCULAR_DIRECT_ADJACENCY\", \"required_files\": 21, \"status\": \"PASS\"}\n",
+          "case": "receipt_preimage_unbound",
+          "independent_rejected": true,
+          "rejected": true
+        },
+        "pass": true
+      },
+      "sequence_adjacency": {
+        "detail": {
+          "candidate_exit_code": 1,
+          "candidate_rejected": true,
+          "candidate_stderr": "",
+          "candidate_stdout": "{\"closeout_vectors\": 12, \"direct_adjacency\": true, \"errors\": [\"sequence_adjacency\", \"close_hash\"], \"fixture\": \"PASS_ONE_PASS_NONCIRCULAR_DIRECT_ADJACENCY\", \"required_files\": 21, \"status\": \"HOLD\"}\n",
+          "case": "sequence_adjacency",
+          "independent_rejected": true,
+          "rejected": true
+        },
+        "pass": true
+      }
+    },
+    "nonce": {
+      "N04_N07_no_retry": {
+        "detail": null,
+        "pass": true
+      },
+      "N04_exact": {
+        "detail": null,
+        "pass": true
+      },
+      "N07_exact": {
+        "detail": null,
+        "pass": true
+      },
+      "all_vectors_no_retry": {
+        "detail": null,
+        "pass": true
+      },
+      "exhaustive_counts": {
+        "detail": null,
+        "pass": true
+      },
+      "no_generic_DB_first_contradictions": {
+        "detail": null,
+        "pass": true
+      },
+      "unknown_consumed_terminal": {
+        "detail": null,
+        "pass": true
+      }
+    },
+    "privacy": {
+      "claim_scope_honest": {
+        "detail": null,
+        "pass": true
+      },
+      "receipt_copy_hash_size_exact": {
+        "detail": {
+          "bytes": 1634,
+          "sha256": "9e15e506d03cda11054ede870fbb40cf701da8dcf4a4c2ea095d3af219e9ec76"
+        },
+        "pass": true
+      },
+      "scanner_detector_exact": {
+        "detail": null,
+        "pass": true
+      },
+      "status_pass": {
+        "detail": null,
+        "pass": true
+      },
+      "zero_findings": {
+        "detail": null,
+        "pass": true
+      }
+    },
+    "receipt": {
+      "actual_closeout_head_exact": {
+        "detail": {
+          "actual": {
+            "event_sha256": "e452a26477ad46c4086fa8296ef79b97a07dd47179394af5d3676af33048453c",
+            "payload_sha256": "696caa167d93e5733bba03ea002e1da7dc61f4152edae192b09820dc42bc364f",
+            "sequence": 97
+          },
+          "expected": {
+            "event_sha256": "e452a26477ad46c4086fa8296ef79b97a07dd47179394af5d3676af33048453c",
+            "payload_sha256": "696caa167d93e5733bba03ea002e1da7dc61f4152edae192b09820dc42bc364f",
+            "sequence": 97
+          }
+        },
+        "pass": true
+      },
+      "preimage_projection_exact": {
+        "detail": null,
+        "pass": true
+      },
+      "preimage_sha_binding_exact": {
+        "detail": null,
+        "pass": true
+      },
+      "published_after_close_no_append": {
+        "detail": null,
+        "pass": true
+      },
+      "terminal_seal_binding_exact": {
+        "detail": null,
+        "pass": true
+      }
+    },
+    "recovery": {
+      "changed_head_quarantine": {
+        "detail": null,
+        "pass": true
+      },
+      "close_reopen_byte_hash_verify": {
+        "detail": null,
+        "pass": true
+      },
+      "existing_close_reconstruct_receipt": {
+        "detail": null,
+        "pass": true
+      },
+      "lock_head_reread_before_append": {
+        "detail": null,
+        "pass": true
+      },
+      "matching_orphan_exact_append": {
+        "detail": null,
+        "pass": true
+      },
+      "mismatch_discards_before_append": {
+        "detail": null,
+        "pass": true
+      }
+    },
+    "requirements": {
+      "B1": {
+        "detail": null,
+        "pass": true
+      },
+      "B2": {
+        "detail": null,
+        "pass": true
+      },
+      "B3": {
+        "detail": null,
+        "pass": true
+      },
+      "B4": {
+        "detail": null,
+        "pass": true
+      },
+      "B5": {
+        "detail": null,
+        "pass": true
+      },
+      "B6": {
+        "detail": null,
+        "pass": true
+      },
+      "R18_path_creator_repair": {
+        "detail": null,
+        "pass": true
+      },
+      "S1": {
+        "detail": null,
+        "pass": true
+      },
+      "S2": {
+        "detail": null,
+        "pass": true
+      },
+      "S3": {
+        "detail": null,
+        "pass": true
+      },
+      "S4": {
+        "detail": null,
+        "pass": true
+      },
+      "semantic_terminal_beats_stale_projection": {
+        "detail": null,
+        "pass": true
+      },
+      "unaffected_prior_verified_artifacts_byte_exact": {
+        "detail": {},
+        "pass": true
+      }
+    },
+    "validator": {
+      "base_pass": {
+        "detail": {
+          "exit_code": 0,
+          "pass": true,
+          "stderr": "",
+          "stdout": "{\"closeout_vectors\": 12, \"direct_adjacency\": true, \"errors\": [], \"fixture\": \"PASS_ONE_PASS_NONCIRCULAR_DIRECT_ADJACENCY\", \"required_files\": 21, \"status\": \"PASS\"}\n"
+        },
+        "pass": true
+      }
+    },
+    "zero_effect": {
+      "all_effects_zero": {
+        "detail": {
+          "consumed_production_authority": 0,
+          "cron_or_systemd_mutations": 0,
+          "deployments": 0,
+          "external_messages": 0,
+          "gateway_config_mutations": 0,
+          "gateway_restarts": 0,
+          "git_stage_commit_push": 0,
+          "production_mutations": 0,
+          "provider_calls": 0,
+          "runtime_installs": 0,
+          "terra_calls": 0
+        },
+        "pass": true
+      },
+      "status_pass": {
+        "detail": null,
+        "pass": true
+      },
+      "writes_candidate_only": {
+        "detail": null,
+        "pass": true
+      }
+    }
+  },
+  "schema": "critical_apply.cah_j1_m0_r3_independent_semantic_checks.v1",
+  "status": "PASS"
+}

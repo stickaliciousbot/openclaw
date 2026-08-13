@@ -1,0 +1,12 @@
+{
+  "schema": "critical_apply.cah_j1_m0_final_independent_validator_run.v1",
+  "validator_path": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-integrated-contract-freeze-20260813T011000Z-c4f87a2e/validate_m0_contracts.py",
+  "validator_sha256": "c0cd4452ddab42d7cae48d8b5e5d576c476cad86b3697a40126f18484faa5816",
+  "mode": "read_only_against_candidate",
+  "command": "python3 evidence/critical-apply-cah-j1-m0-integrated-contract-freeze-20260813T011000Z-c4f87a2e/validate_m0_contracts.py",
+  "stdout": "{\"errors\": [], \"required_files\": 16, \"status\": \"PASS\"}\n",
+  "stderr": "",
+  "exit_code": 0,
+  "result": "PASS",
+  "note": "The candidate validator is a construction/schema spot-check. Its PASS does not resolve the independent blocking contract defects in FINDINGS.json."
+}

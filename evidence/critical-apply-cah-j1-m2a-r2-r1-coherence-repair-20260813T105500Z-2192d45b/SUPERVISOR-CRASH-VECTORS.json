@@ -1,0 +1,2195 @@
+{
+  "action_or_provider_before_exact_proof": false,
+  "artifact_preparation_vector_count": 2,
+  "artifact_vectors": [
+    {
+      "action_allowed": false,
+      "artifact_preparation_id": "AP01_COMPLETION_RECEIPT_PREIMAGE",
+      "call_allowed": false,
+      "canonical": false,
+      "id": "AV-AP01_COMPLETION_RECEIPT_PREIMAGE-BEFORE_COMMIT",
+      "may_mutate_closeout_head": false,
+      "may_mutate_semantic_head": false,
+      "may_mutate_terminal_decision_head": false,
+      "observed_state": "SCOPE_LEASE_RELEASE_RECORDED",
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "ALP-AP01_COMPLETION_RECEIPT_PREIMAGE-BEFORE_COMMIT"
+      ],
+      "semantic_authority": false,
+      "side": "BEFORE_COMMIT"
+    },
+    {
+      "action_allowed": false,
+      "artifact_preparation_id": "AP01_COMPLETION_RECEIPT_PREIMAGE",
+      "call_allowed": false,
+      "canonical": false,
+      "id": "AV-AP01_COMPLETION_RECEIPT_PREIMAGE-AFTER_COMMIT",
+      "may_mutate_closeout_head": false,
+      "may_mutate_semantic_head": false,
+      "may_mutate_terminal_decision_head": false,
+      "observed_state": "COMPLETION_RECEIPT_PREIMAGE_DURABLE_NONCANONICAL",
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "ALP-AP01_COMPLETION_RECEIPT_PREIMAGE-AFTER_COMMIT"
+      ],
+      "semantic_authority": false,
+      "side": "AFTER_COMMIT"
+    }
+  ],
+  "canonical_transition_count": 23,
+  "canonical_vector_count": 46,
+  "lifecycle_vector_count": 4,
+  "lifecycle_vectors": [
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "canonical": false,
+      "id": "LV-LO01_COMPLETION_RECEIPT_PUBLICATION-BEFORE_COMMIT",
+      "lifecycle_operation_id": "LO01_COMPLETION_RECEIPT_PUBLICATION",
+      "may_mutate_closeout_head": false,
+      "may_mutate_semantic_head": false,
+      "may_mutate_terminal_decision_head": false,
+      "observed_state": "SUPERVISOR_CLOSED",
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "ALP-LO01_COMPLETION_RECEIPT_PUBLICATION-BEFORE_COMMIT"
+      ],
+      "semantic_authority": false,
+      "side": "BEFORE_COMMIT"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "canonical": false,
+      "id": "LV-LO01_COMPLETION_RECEIPT_PUBLICATION-AFTER_COMMIT",
+      "lifecycle_operation_id": "LO01_COMPLETION_RECEIPT_PUBLICATION",
+      "may_mutate_closeout_head": false,
+      "may_mutate_semantic_head": false,
+      "may_mutate_terminal_decision_head": false,
+      "observed_state": "COMPLETION_RECEIPT_PUBLICATION_RECEIPT_VERIFIED",
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "ALP-LO01_COMPLETION_RECEIPT_PUBLICATION-AFTER_COMMIT"
+      ],
+      "semantic_authority": false,
+      "side": "AFTER_COMMIT"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "canonical": false,
+      "id": "LV-LO02_TRANSACTION_LOCK_RELEASE-BEFORE_COMMIT",
+      "lifecycle_operation_id": "LO02_TRANSACTION_LOCK_RELEASE",
+      "may_mutate_closeout_head": false,
+      "may_mutate_semantic_head": false,
+      "may_mutate_terminal_decision_head": false,
+      "observed_state": "COMPLETION_RECEIPT_PUBLICATION_RECEIPT_VERIFIED",
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "ALP-LO02_TRANSACTION_LOCK_RELEASE-BEFORE_COMMIT"
+      ],
+      "semantic_authority": false,
+      "side": "BEFORE_COMMIT"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "canonical": false,
+      "id": "LV-LO02_TRANSACTION_LOCK_RELEASE-AFTER_COMMIT",
+      "lifecycle_operation_id": "LO02_TRANSACTION_LOCK_RELEASE",
+      "may_mutate_closeout_head": false,
+      "may_mutate_semantic_head": false,
+      "may_mutate_terminal_decision_head": false,
+      "observed_state": "OS_TRANSACTION_LOCK_RELEASED",
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "ALP-LO02_TRANSACTION_LOCK_RELEASE-AFTER_COMMIT"
+      ],
+      "semantic_authority": false,
+      "side": "AFTER_COMMIT"
+    }
+  ],
+  "proof_registry": {
+    "ALP-AP01_COMPLETION_RECEIPT_PREIMAGE-AFTER_COMMIT": {
+      "id": "ALP-AP01_COMPLETION_RECEIPT_PREIMAGE-AFTER_COMMIT",
+      "observed_state": "COMPLETION_RECEIPT_PREIMAGE_DURABLE_NONCANONICAL",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "ARTIFACT_PREIMAGE_DURABLE_NONCANONICAL_EXACT_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "RETIRED_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch);NO_ACTIVE_FENCE",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T20_AUTHORITYDB_RELEASED",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_RELEASED_AND_CANONIC_RELEASE_RECORDED",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)",
+        "CAS_CHILD_RESULT=sha256(exact child result bytes bound to launch_intent_event_sha256)",
+        "CAS_EXECUTION_EVIDENCE=sha256(execution-and-evidence bundle bytes)",
+        "CAS_TERMINAL_SEAL=sha256(terminal decision seal bytes)",
+        "CAS_COMPLETION_RECEIPT_PREIMAGE=sha256(exact completion receipt preimage bytes bound to release head)"
+      ],
+      "required_journal_events": [
+        "SCOPE_LEASE_RELEASE_RECORDED"
+      ],
+      "required_journal_hashes": [
+        "IMMUTABLE_CANONICAL_HEAD=sha256(SCOPE_LEASE_RELEASE_RECORDED event bytes)"
+      ],
+      "side": "AFTER_COMMIT",
+      "terminal_on_ambiguity": "HOLD_WITH_LOCK_RETAINED_NO_SEMANTIC_MUTATION",
+      "transition_id": "AP01_COMPLETION_RECEIPT_PREIMAGE"
+    },
+    "ALP-AP01_COMPLETION_RECEIPT_PREIMAGE-BEFORE_COMMIT": {
+      "id": "ALP-AP01_COMPLETION_RECEIPT_PREIMAGE-BEFORE_COMMIT",
+      "observed_state": "SCOPE_LEASE_RELEASE_RECORDED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "ARTIFACT_PREIMAGE_ABSENT_BEFORE_EXACT_PREPARATION_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "RETIRED_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch);NO_ACTIVE_FENCE",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T20_AUTHORITYDB_RELEASED",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_RELEASED_AND_CANONIC_RELEASE_RECORDED",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)",
+        "CAS_CHILD_RESULT=sha256(exact child result bytes bound to launch_intent_event_sha256)",
+        "CAS_EXECUTION_EVIDENCE=sha256(execution-and-evidence bundle bytes)",
+        "CAS_TERMINAL_SEAL=sha256(terminal decision seal bytes)"
+      ],
+      "required_journal_events": [
+        "SCOPE_LEASE_RELEASE_RECORDED"
+      ],
+      "required_journal_hashes": [
+        "IMMUTABLE_CANONICAL_HEAD=sha256(SCOPE_LEASE_RELEASE_RECORDED event bytes)"
+      ],
+      "side": "BEFORE_COMMIT",
+      "terminal_on_ambiguity": "HOLD_WITH_LOCK_RETAINED_NO_SEMANTIC_MUTATION",
+      "transition_id": "AP01_COMPLETION_RECEIPT_PREIMAGE"
+    },
+    "ALP-LO01_COMPLETION_RECEIPT_PUBLICATION-AFTER_COMMIT": {
+      "id": "ALP-LO01_COMPLETION_RECEIPT_PUBLICATION-AFTER_COMMIT",
+      "observed_state": "COMPLETION_RECEIPT_PUBLICATION_RECEIPT_VERIFIED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "PUBLICATION_RECEIPT_VERIFIED_NONCANONICAL_EXACT_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "RETIRED_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch);NO_ACTIVE_FENCE",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T20_AUTHORITYDB_RELEASED",
+      "required_authoritydb_state": "AUTHORITYDB=SUPERVISOR_CLOSED_SCOPE_RELEASED",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)",
+        "CAS_CHILD_RESULT=sha256(exact child result bytes bound to launch_intent_event_sha256)",
+        "CAS_EXECUTION_EVIDENCE=sha256(execution-and-evidence bundle bytes)",
+        "CAS_TERMINAL_SEAL=sha256(terminal decision seal bytes)",
+        "CAS_COMPLETION_RECEIPT_PREIMAGE=sha256(exact completion receipt preimage bytes bound to release head)",
+        "CAS_COMPLETION_RECEIPT_PUBLICATION_RECEIPT=sha256(exact noncanonical publication receipt bytes bound to closeout head)"
+      ],
+      "required_journal_events": [
+        "SUPERVISOR_CLOSED"
+      ],
+      "required_journal_hashes": [
+        "IMMUTABLE_CANONICAL_HEAD=sha256(SUPERVISOR_CLOSED event bytes)"
+      ],
+      "side": "AFTER_COMMIT",
+      "terminal_on_ambiguity": "HOLD_WITH_LOCK_RETAINED_NO_SEMANTIC_MUTATION",
+      "transition_id": "LO01_COMPLETION_RECEIPT_PUBLICATION"
+    },
+    "ALP-LO01_COMPLETION_RECEIPT_PUBLICATION-BEFORE_COMMIT": {
+      "id": "ALP-LO01_COMPLETION_RECEIPT_PUBLICATION-BEFORE_COMMIT",
+      "observed_state": "SUPERVISOR_CLOSED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "PUBLICATION_NOT_YET_RECEIPTED_EXACT_CLOSED_HEAD_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "RETIRED_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch);NO_ACTIVE_FENCE",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T20_AUTHORITYDB_RELEASED",
+      "required_authoritydb_state": "AUTHORITYDB=SUPERVISOR_CLOSED_SCOPE_RELEASED",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)",
+        "CAS_CHILD_RESULT=sha256(exact child result bytes bound to launch_intent_event_sha256)",
+        "CAS_EXECUTION_EVIDENCE=sha256(execution-and-evidence bundle bytes)",
+        "CAS_TERMINAL_SEAL=sha256(terminal decision seal bytes)",
+        "CAS_COMPLETION_RECEIPT_PREIMAGE=sha256(exact completion receipt preimage bytes bound to release head)"
+      ],
+      "required_journal_events": [
+        "SUPERVISOR_CLOSED"
+      ],
+      "required_journal_hashes": [
+        "IMMUTABLE_CANONICAL_HEAD=sha256(SUPERVISOR_CLOSED event bytes)"
+      ],
+      "side": "BEFORE_COMMIT",
+      "terminal_on_ambiguity": "HOLD_WITH_LOCK_RETAINED_NO_SEMANTIC_MUTATION",
+      "transition_id": "LO01_COMPLETION_RECEIPT_PUBLICATION"
+    },
+    "ALP-LO02_TRANSACTION_LOCK_RELEASE-AFTER_COMMIT": {
+      "id": "ALP-LO02_TRANSACTION_LOCK_RELEASE-AFTER_COMMIT",
+      "observed_state": "OS_TRANSACTION_LOCK_RELEASED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "LOCK_RELEASED_NONCANONICAL_EXACT_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "RETIRED_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch);NO_ACTIVE_FENCE",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T20_AUTHORITYDB_RELEASED",
+      "required_authoritydb_state": "AUTHORITYDB=SUPERVISOR_CLOSED_SCOPE_RELEASED",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)",
+        "CAS_CHILD_RESULT=sha256(exact child result bytes bound to launch_intent_event_sha256)",
+        "CAS_EXECUTION_EVIDENCE=sha256(execution-and-evidence bundle bytes)",
+        "CAS_TERMINAL_SEAL=sha256(terminal decision seal bytes)",
+        "CAS_COMPLETION_RECEIPT_PREIMAGE=sha256(exact completion receipt preimage bytes bound to release head)",
+        "CAS_COMPLETION_RECEIPT_PUBLICATION_RECEIPT=sha256(exact noncanonical publication receipt bytes bound to closeout head)",
+        "CAS_TRANSACTION_LOCK_RELEASE_RECEIPT=sha256(exact OS lock-release receipt bytes bound to transaction_id)"
+      ],
+      "required_journal_events": [
+        "SUPERVISOR_CLOSED"
+      ],
+      "required_journal_hashes": [
+        "IMMUTABLE_CANONICAL_HEAD=sha256(SUPERVISOR_CLOSED event bytes)"
+      ],
+      "side": "AFTER_COMMIT",
+      "terminal_on_ambiguity": "HOLD_WITH_LOCK_RETAINED_NO_SEMANTIC_MUTATION",
+      "transition_id": "LO02_TRANSACTION_LOCK_RELEASE"
+    },
+    "ALP-LO02_TRANSACTION_LOCK_RELEASE-BEFORE_COMMIT": {
+      "id": "ALP-LO02_TRANSACTION_LOCK_RELEASE-BEFORE_COMMIT",
+      "observed_state": "COMPLETION_RECEIPT_PUBLICATION_RECEIPT_VERIFIED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "LOCK_HELD_AFTER_VERIFIED_PUBLICATION_EXACT_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "RETIRED_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch);NO_ACTIVE_FENCE",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T20_AUTHORITYDB_RELEASED",
+      "required_authoritydb_state": "AUTHORITYDB=SUPERVISOR_CLOSED_SCOPE_RELEASED",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)",
+        "CAS_CHILD_RESULT=sha256(exact child result bytes bound to launch_intent_event_sha256)",
+        "CAS_EXECUTION_EVIDENCE=sha256(execution-and-evidence bundle bytes)",
+        "CAS_TERMINAL_SEAL=sha256(terminal decision seal bytes)",
+        "CAS_COMPLETION_RECEIPT_PREIMAGE=sha256(exact completion receipt preimage bytes bound to release head)",
+        "CAS_COMPLETION_RECEIPT_PUBLICATION_RECEIPT=sha256(exact noncanonical publication receipt bytes bound to closeout head)"
+      ],
+      "required_journal_events": [
+        "SUPERVISOR_CLOSED"
+      ],
+      "required_journal_hashes": [
+        "IMMUTABLE_CANONICAL_HEAD=sha256(SUPERVISOR_CLOSED event bytes)"
+      ],
+      "side": "BEFORE_COMMIT",
+      "terminal_on_ambiguity": "HOLD_WITH_LOCK_RETAINED_NO_SEMANTIC_MUTATION",
+      "transition_id": "LO02_TRANSACTION_LOCK_RELEASE"
+    },
+    "RP-T00-AFTER_COMMIT": {
+      "id": "RP-T00-AFTER_COMMIT",
+      "observed_state": "ROOT_REGISTERED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T00_AFTER_COMMIT_ROOT_REGISTERED_OR_HOLD",
+      "required_authoritydb_epoch": "NONE_EPOCH_NOT_COMMITTED",
+      "required_authoritydb_fence": "NONE_SCOPE_NOT_RESERVED",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T00_REGISTER_TRANSACTION_ROOT",
+      "required_authoritydb_state": "AUTHORITYDB=TRANSACTION_ROOT_REGISTERED(transaction_id,root_sha256)",
+      "required_cas_refs": [],
+      "required_journal_events": [
+        "REGISTER_TRANSACTION_ROOT"
+      ],
+      "required_journal_hashes": [
+        "CURRENT_HEAD=sha256(REGISTER_TRANSACTION_ROOT event bytes)"
+      ],
+      "side": "AFTER_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T00"
+    },
+    "RP-T00-BEFORE_COMMIT": {
+      "id": "RP-T00-BEFORE_COMMIT",
+      "observed_state": "NONE",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T00_BEFORE_COMMIT_NONE_OR_HOLD",
+      "required_authoritydb_epoch": "NONE_NOT_INITIALIZED",
+      "required_authoritydb_fence": "NONE_NOT_INITIALIZED",
+      "required_authoritydb_receipt": "NONE_NO_AUTHORITYDB_RECEIPT",
+      "required_authoritydb_state": "NONE_NOT_INITIALIZED",
+      "required_cas_refs": [],
+      "required_journal_events": [
+        "NONE_PRE_ROOT"
+      ],
+      "required_journal_hashes": [
+        "PREDECESSOR_HEAD=NONE_PRE_ROOT"
+      ],
+      "side": "BEFORE_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T00"
+    },
+    "RP-T01-AFTER_COMMIT": {
+      "id": "RP-T01-AFTER_COMMIT",
+      "observed_state": "JOURNAL_GENESIS_COMMITTED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T01_AFTER_COMMIT_JOURNAL_GENESIS_COMMITTED_OR_HOLD",
+      "required_authoritydb_epoch": "NONE_EPOCH_NOT_COMMITTED",
+      "required_authoritydb_fence": "NONE_SCOPE_NOT_RESERVED",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T00_REGISTER_TRANSACTION_ROOT",
+      "required_authoritydb_state": "AUTHORITYDB=TRANSACTION_ROOT_REGISTERED_AWAITING_EPOCH",
+      "required_cas_refs": [],
+      "required_journal_events": [
+        "JOURNAL_GENESIS"
+      ],
+      "required_journal_hashes": [
+        "CURRENT_HEAD=sha256(JOURNAL_GENESIS event bytes)"
+      ],
+      "side": "AFTER_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T01"
+    },
+    "RP-T01-BEFORE_COMMIT": {
+      "id": "RP-T01-BEFORE_COMMIT",
+      "observed_state": "ROOT_REGISTERED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T01_BEFORE_COMMIT_ROOT_REGISTERED_OR_HOLD",
+      "required_authoritydb_epoch": "NONE_EPOCH_NOT_COMMITTED",
+      "required_authoritydb_fence": "NONE_SCOPE_NOT_RESERVED",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T00_REGISTER_TRANSACTION_ROOT",
+      "required_authoritydb_state": "AUTHORITYDB=TRANSACTION_ROOT_REGISTERED(transaction_id,root_sha256)",
+      "required_cas_refs": [],
+      "required_journal_events": [
+        "REGISTER_TRANSACTION_ROOT"
+      ],
+      "required_journal_hashes": [
+        "PREDECESSOR_HEAD=sha256(REGISTER_TRANSACTION_ROOT event bytes)"
+      ],
+      "side": "BEFORE_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T01"
+    },
+    "RP-T02-AFTER_COMMIT": {
+      "id": "RP-T02-AFTER_COMMIT",
+      "observed_state": "EPOCH_COMMITTED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T02_AFTER_COMMIT_EPOCH_COMMITTED_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "NONE_SCOPE_NOT_RESERVED",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T02_SUPERVISOR_EPOCH_COMMITTED",
+      "required_authoritydb_state": "AUTHORITYDB=EPOCH_COMMITTED_SCOPE_UNRESERVED",
+      "required_cas_refs": [],
+      "required_journal_events": [
+        "SUPERVISOR_EPOCH_COMMITTED"
+      ],
+      "required_journal_hashes": [
+        "CURRENT_HEAD=sha256(SUPERVISOR_EPOCH_COMMITTED event bytes)"
+      ],
+      "side": "AFTER_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T02"
+    },
+    "RP-T02-BEFORE_COMMIT": {
+      "id": "RP-T02-BEFORE_COMMIT",
+      "observed_state": "JOURNAL_GENESIS_COMMITTED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T02_BEFORE_COMMIT_JOURNAL_GENESIS_COMMITTED_OR_HOLD",
+      "required_authoritydb_epoch": "NONE_EPOCH_NOT_COMMITTED",
+      "required_authoritydb_fence": "NONE_SCOPE_NOT_RESERVED",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T00_REGISTER_TRANSACTION_ROOT",
+      "required_authoritydb_state": "AUTHORITYDB=TRANSACTION_ROOT_REGISTERED_AWAITING_EPOCH",
+      "required_cas_refs": [],
+      "required_journal_events": [
+        "JOURNAL_GENESIS"
+      ],
+      "required_journal_hashes": [
+        "PREDECESSOR_HEAD=sha256(JOURNAL_GENESIS event bytes)"
+      ],
+      "side": "BEFORE_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T02"
+    },
+    "RP-T03-AFTER_COMMIT": {
+      "id": "RP-T03-AFTER_COMMIT",
+      "observed_state": "ENVELOPE_CAS_CAPTURED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T03_AFTER_COMMIT_ENVELOPE_CAS_CAPTURED_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "NONE_SCOPE_NOT_RESERVED",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T02_SUPERVISOR_EPOCH_COMMITTED",
+      "required_authoritydb_state": "AUTHORITYDB=EPOCH_COMMITTED_SCOPE_UNRESERVED",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)"
+      ],
+      "required_journal_events": [
+        "INGRESS_ENVELOPE_CAPTURED"
+      ],
+      "required_journal_hashes": [
+        "CURRENT_HEAD=sha256(INGRESS_ENVELOPE_CAPTURED event bytes)"
+      ],
+      "side": "AFTER_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T03"
+    },
+    "RP-T03-BEFORE_COMMIT": {
+      "id": "RP-T03-BEFORE_COMMIT",
+      "observed_state": "EPOCH_COMMITTED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T03_BEFORE_COMMIT_EPOCH_COMMITTED_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "NONE_SCOPE_NOT_RESERVED",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T02_SUPERVISOR_EPOCH_COMMITTED",
+      "required_authoritydb_state": "AUTHORITYDB=EPOCH_COMMITTED_SCOPE_UNRESERVED",
+      "required_cas_refs": [],
+      "required_journal_events": [
+        "SUPERVISOR_EPOCH_COMMITTED"
+      ],
+      "required_journal_hashes": [
+        "PREDECESSOR_HEAD=sha256(SUPERVISOR_EPOCH_COMMITTED event bytes)"
+      ],
+      "side": "BEFORE_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T03"
+    },
+    "RP-T04-AFTER_COMMIT": {
+      "id": "RP-T04-AFTER_COMMIT",
+      "observed_state": "INGRESS_ACCEPTED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T04_AFTER_COMMIT_INGRESS_ACCEPTED_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "NONE_SCOPE_NOT_RESERVED",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T02_SUPERVISOR_EPOCH_COMMITTED",
+      "required_authoritydb_state": "AUTHORITYDB=EPOCH_COMMITTED_SCOPE_UNRESERVED",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)"
+      ],
+      "required_journal_events": [
+        "INGRESS_ACCEPTED"
+      ],
+      "required_journal_hashes": [
+        "CURRENT_HEAD=sha256(INGRESS_ACCEPTED event bytes)"
+      ],
+      "side": "AFTER_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T04"
+    },
+    "RP-T04-BEFORE_COMMIT": {
+      "id": "RP-T04-BEFORE_COMMIT",
+      "observed_state": "ENVELOPE_CAS_CAPTURED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T04_BEFORE_COMMIT_ENVELOPE_CAS_CAPTURED_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "NONE_SCOPE_NOT_RESERVED",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T02_SUPERVISOR_EPOCH_COMMITTED",
+      "required_authoritydb_state": "AUTHORITYDB=EPOCH_COMMITTED_SCOPE_UNRESERVED",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)"
+      ],
+      "required_journal_events": [
+        "INGRESS_ENVELOPE_CAPTURED"
+      ],
+      "required_journal_hashes": [
+        "PREDECESSOR_HEAD=sha256(INGRESS_ENVELOPE_CAPTURED event bytes)"
+      ],
+      "side": "BEFORE_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T04"
+    },
+    "RP-T05-AFTER_COMMIT": {
+      "id": "RP-T05-AFTER_COMMIT",
+      "observed_state": "SCOPE_RESERVED_PENDING_JOURNAL",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T05_AFTER_COMMIT_SCOPE_RESERVED_PENDING_JOURNAL_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "RESERVED_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch)",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T05_SCOPE_LEASE_RESERVED",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_RESERVED_PENDING_JOURNAL",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)"
+      ],
+      "required_journal_events": [
+        "SCOPE_LEASE_RESERVED"
+      ],
+      "required_journal_hashes": [
+        "CURRENT_HEAD=sha256(SCOPE_LEASE_RESERVED event bytes)"
+      ],
+      "side": "AFTER_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T05"
+    },
+    "RP-T05-BEFORE_COMMIT": {
+      "id": "RP-T05-BEFORE_COMMIT",
+      "observed_state": "INGRESS_ACCEPTED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T05_BEFORE_COMMIT_INGRESS_ACCEPTED_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "NONE_SCOPE_NOT_RESERVED",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T02_SUPERVISOR_EPOCH_COMMITTED",
+      "required_authoritydb_state": "AUTHORITYDB=EPOCH_COMMITTED_SCOPE_UNRESERVED",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)"
+      ],
+      "required_journal_events": [
+        "INGRESS_ACCEPTED"
+      ],
+      "required_journal_hashes": [
+        "PREDECESSOR_HEAD=sha256(INGRESS_ACCEPTED event bytes)"
+      ],
+      "side": "BEFORE_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T05"
+    },
+    "RP-T06-AFTER_COMMIT": {
+      "id": "RP-T06-AFTER_COMMIT",
+      "observed_state": "SCOPE_JOURNAL_BOUND",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T06_AFTER_COMMIT_SCOPE_JOURNAL_BOUND_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "BOUND_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch,journal_head)",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T06_SCOPE_LEASE_JOURNAL_COMMITTED",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_JOURNAL_BOUND_NOT_ACTIVE",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)"
+      ],
+      "required_journal_events": [
+        "SCOPE_LEASE_JOURNAL_COMMITTED"
+      ],
+      "required_journal_hashes": [
+        "CURRENT_HEAD=sha256(SCOPE_LEASE_JOURNAL_COMMITTED event bytes)"
+      ],
+      "side": "AFTER_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T06"
+    },
+    "RP-T06-BEFORE_COMMIT": {
+      "id": "RP-T06-BEFORE_COMMIT",
+      "observed_state": "SCOPE_RESERVED_PENDING_JOURNAL",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T06_BEFORE_COMMIT_SCOPE_RESERVED_PENDING_JOURNAL_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "RESERVED_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch)",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T05_SCOPE_LEASE_RESERVED",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_RESERVED_PENDING_JOURNAL",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)"
+      ],
+      "required_journal_events": [
+        "SCOPE_LEASE_RESERVED"
+      ],
+      "required_journal_hashes": [
+        "PREDECESSOR_HEAD=sha256(SCOPE_LEASE_RESERVED event bytes)"
+      ],
+      "side": "BEFORE_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T06"
+    },
+    "RP-T07-AFTER_COMMIT": {
+      "id": "RP-T07-AFTER_COMMIT",
+      "observed_state": "SCOPE_ACTIVE",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T07_AFTER_COMMIT_SCOPE_ACTIVE_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "ACTIVE_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch,owner_transaction_id)",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T07_SCOPE_LEASE_ACTIVE",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_ACTIVE_EXACT_OWNER",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)"
+      ],
+      "required_journal_events": [
+        "SCOPE_LEASE_ACTIVE"
+      ],
+      "required_journal_hashes": [
+        "CURRENT_HEAD=sha256(SCOPE_LEASE_ACTIVE event bytes)"
+      ],
+      "side": "AFTER_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T07"
+    },
+    "RP-T07-BEFORE_COMMIT": {
+      "id": "RP-T07-BEFORE_COMMIT",
+      "observed_state": "SCOPE_JOURNAL_BOUND",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T07_BEFORE_COMMIT_SCOPE_JOURNAL_BOUND_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "BOUND_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch,journal_head)",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T06_SCOPE_LEASE_JOURNAL_COMMITTED",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_JOURNAL_BOUND_NOT_ACTIVE",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)"
+      ],
+      "required_journal_events": [
+        "SCOPE_LEASE_JOURNAL_COMMITTED"
+      ],
+      "required_journal_hashes": [
+        "PREDECESSOR_HEAD=sha256(SCOPE_LEASE_JOURNAL_COMMITTED event bytes)"
+      ],
+      "side": "BEFORE_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T07"
+    },
+    "RP-T08-AFTER_COMMIT": {
+      "id": "RP-T08-AFTER_COMMIT",
+      "observed_state": "CHILD_LAUNCH_INTENT_COMMITTED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T08_AFTER_COMMIT_CHILD_LAUNCH_INTENT_COMMITTED_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "ACTIVE_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch,owner_transaction_id)",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T07_SCOPE_LEASE_ACTIVE",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_ACTIVE_EXACT_OWNER",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)"
+      ],
+      "required_journal_events": [
+        "CHILD_LAUNCH_INTENT"
+      ],
+      "required_journal_hashes": [
+        "CURRENT_HEAD=sha256(CHILD_LAUNCH_INTENT event bytes)"
+      ],
+      "side": "AFTER_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T08"
+    },
+    "RP-T08-BEFORE_COMMIT": {
+      "id": "RP-T08-BEFORE_COMMIT",
+      "observed_state": "SCOPE_ACTIVE",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T08_BEFORE_COMMIT_SCOPE_ACTIVE_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "ACTIVE_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch,owner_transaction_id)",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T07_SCOPE_LEASE_ACTIVE",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_ACTIVE_EXACT_OWNER",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)"
+      ],
+      "required_journal_events": [
+        "SCOPE_LEASE_ACTIVE"
+      ],
+      "required_journal_hashes": [
+        "PREDECESSOR_HEAD=sha256(SCOPE_LEASE_ACTIVE event bytes)"
+      ],
+      "side": "BEFORE_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T08"
+    },
+    "RP-T09-AFTER_COMMIT": {
+      "id": "RP-T09-AFTER_COMMIT",
+      "observed_state": "CHILD_STARTED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T09_AFTER_COMMIT_CHILD_STARTED_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "ACTIVE_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch,owner_transaction_id)",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T07_SCOPE_LEASE_ACTIVE",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_ACTIVE_EXACT_OWNER",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)"
+      ],
+      "required_journal_events": [
+        "CHILD_STARTED"
+      ],
+      "required_journal_hashes": [
+        "CURRENT_HEAD=sha256(CHILD_STARTED event bytes)"
+      ],
+      "side": "AFTER_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T09"
+    },
+    "RP-T09-BEFORE_COMMIT": {
+      "id": "RP-T09-BEFORE_COMMIT",
+      "observed_state": "CHILD_LAUNCH_INTENT_COMMITTED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T09_BEFORE_COMMIT_CHILD_LAUNCH_INTENT_COMMITTED_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "ACTIVE_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch,owner_transaction_id)",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T07_SCOPE_LEASE_ACTIVE",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_ACTIVE_EXACT_OWNER",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)"
+      ],
+      "required_journal_events": [
+        "CHILD_LAUNCH_INTENT"
+      ],
+      "required_journal_hashes": [
+        "PREDECESSOR_HEAD=sha256(CHILD_LAUNCH_INTENT event bytes)"
+      ],
+      "side": "BEFORE_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T09"
+    },
+    "RP-T10-AFTER_COMMIT": {
+      "id": "RP-T10-AFTER_COMMIT",
+      "observed_state": "CHILD_RESULT_CAPTURED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T10_AFTER_COMMIT_CHILD_RESULT_CAPTURED_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "ACTIVE_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch,owner_transaction_id)",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T07_SCOPE_LEASE_ACTIVE",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_ACTIVE_EXACT_OWNER",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)",
+        "CAS_CHILD_RESULT=sha256(exact child result bytes bound to launch_intent_event_sha256)"
+      ],
+      "required_journal_events": [
+        "CHILD_RESULT_CAPTURED"
+      ],
+      "required_journal_hashes": [
+        "CURRENT_HEAD=sha256(CHILD_RESULT_CAPTURED event bytes)"
+      ],
+      "side": "AFTER_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T10"
+    },
+    "RP-T10-BEFORE_COMMIT": {
+      "id": "RP-T10-BEFORE_COMMIT",
+      "observed_state": "CHILD_STARTED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T10_BEFORE_COMMIT_CHILD_STARTED_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "ACTIVE_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch,owner_transaction_id)",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T07_SCOPE_LEASE_ACTIVE",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_ACTIVE_EXACT_OWNER",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)"
+      ],
+      "required_journal_events": [
+        "CHILD_STARTED"
+      ],
+      "required_journal_hashes": [
+        "PREDECESSOR_HEAD=sha256(CHILD_STARTED event bytes)"
+      ],
+      "side": "BEFORE_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T10"
+    },
+    "RP-T11-AFTER_COMMIT": {
+      "id": "RP-T11-AFTER_COMMIT",
+      "observed_state": "EXECUTION_AND_EVIDENCE_COMMITTED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T11_AFTER_COMMIT_EXECUTION_AND_EVIDENCE_COMMITTED_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "ACTIVE_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch,owner_transaction_id)",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T07_SCOPE_LEASE_ACTIVE",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_ACTIVE_EXACT_OWNER",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)",
+        "CAS_CHILD_RESULT=sha256(exact child result bytes bound to launch_intent_event_sha256)",
+        "CAS_EXECUTION_EVIDENCE=sha256(execution-and-evidence bundle bytes)"
+      ],
+      "required_journal_events": [
+        "EXECUTION_AND_EVIDENCE_COMMITTED"
+      ],
+      "required_journal_hashes": [
+        "CURRENT_HEAD=sha256(EXECUTION_AND_EVIDENCE_COMMITTED event bytes)"
+      ],
+      "side": "AFTER_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T11"
+    },
+    "RP-T11-BEFORE_COMMIT": {
+      "id": "RP-T11-BEFORE_COMMIT",
+      "observed_state": "CHILD_RESULT_CAPTURED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T11_BEFORE_COMMIT_CHILD_RESULT_CAPTURED_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "ACTIVE_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch,owner_transaction_id)",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T07_SCOPE_LEASE_ACTIVE",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_ACTIVE_EXACT_OWNER",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)",
+        "CAS_CHILD_RESULT=sha256(exact child result bytes bound to launch_intent_event_sha256)"
+      ],
+      "required_journal_events": [
+        "CHILD_RESULT_CAPTURED"
+      ],
+      "required_journal_hashes": [
+        "PREDECESSOR_HEAD=sha256(CHILD_RESULT_CAPTURED event bytes)"
+      ],
+      "side": "BEFORE_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T11"
+    },
+    "RP-T12-AFTER_COMMIT": {
+      "id": "RP-T12-AFTER_COMMIT",
+      "observed_state": "OWNED_CHILDREN_RECONCILED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T12_AFTER_COMMIT_OWNED_CHILDREN_RECONCILED_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "ACTIVE_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch,owner_transaction_id)",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T07_SCOPE_LEASE_ACTIVE",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_ACTIVE_EXACT_OWNER",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)",
+        "CAS_CHILD_RESULT=sha256(exact child result bytes bound to launch_intent_event_sha256)",
+        "CAS_EXECUTION_EVIDENCE=sha256(execution-and-evidence bundle bytes)"
+      ],
+      "required_journal_events": [
+        "OWNED_CHILDREN_RECONCILED"
+      ],
+      "required_journal_hashes": [
+        "CURRENT_HEAD=sha256(OWNED_CHILDREN_RECONCILED event bytes)"
+      ],
+      "side": "AFTER_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T12"
+    },
+    "RP-T12-BEFORE_COMMIT": {
+      "id": "RP-T12-BEFORE_COMMIT",
+      "observed_state": "EXECUTION_AND_EVIDENCE_COMMITTED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T12_BEFORE_COMMIT_EXECUTION_AND_EVIDENCE_COMMITTED_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "ACTIVE_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch,owner_transaction_id)",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T07_SCOPE_LEASE_ACTIVE",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_ACTIVE_EXACT_OWNER",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)",
+        "CAS_CHILD_RESULT=sha256(exact child result bytes bound to launch_intent_event_sha256)",
+        "CAS_EXECUTION_EVIDENCE=sha256(execution-and-evidence bundle bytes)"
+      ],
+      "required_journal_events": [
+        "EXECUTION_AND_EVIDENCE_COMMITTED"
+      ],
+      "required_journal_hashes": [
+        "PREDECESSOR_HEAD=sha256(EXECUTION_AND_EVIDENCE_COMMITTED event bytes)"
+      ],
+      "side": "BEFORE_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T12"
+    },
+    "RP-T13-AFTER_COMMIT": {
+      "id": "RP-T13-AFTER_COMMIT",
+      "observed_state": "CLEANUP_RECORDED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T13_AFTER_COMMIT_CLEANUP_RECORDED_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "ACTIVE_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch,owner_transaction_id)",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T07_SCOPE_LEASE_ACTIVE",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_ACTIVE_EXACT_OWNER",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)",
+        "CAS_CHILD_RESULT=sha256(exact child result bytes bound to launch_intent_event_sha256)",
+        "CAS_EXECUTION_EVIDENCE=sha256(execution-and-evidence bundle bytes)"
+      ],
+      "required_journal_events": [
+        "CLEANUP_RECORDED"
+      ],
+      "required_journal_hashes": [
+        "CURRENT_HEAD=sha256(CLEANUP_RECORDED event bytes)"
+      ],
+      "side": "AFTER_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T13"
+    },
+    "RP-T13-BEFORE_COMMIT": {
+      "id": "RP-T13-BEFORE_COMMIT",
+      "observed_state": "OWNED_CHILDREN_RECONCILED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T13_BEFORE_COMMIT_OWNED_CHILDREN_RECONCILED_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "ACTIVE_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch,owner_transaction_id)",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T07_SCOPE_LEASE_ACTIVE",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_ACTIVE_EXACT_OWNER",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)",
+        "CAS_CHILD_RESULT=sha256(exact child result bytes bound to launch_intent_event_sha256)",
+        "CAS_EXECUTION_EVIDENCE=sha256(execution-and-evidence bundle bytes)"
+      ],
+      "required_journal_events": [
+        "OWNED_CHILDREN_RECONCILED"
+      ],
+      "required_journal_hashes": [
+        "PREDECESSOR_HEAD=sha256(OWNED_CHILDREN_RECONCILED event bytes)"
+      ],
+      "side": "BEFORE_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T13"
+    },
+    "RP-T14-AFTER_COMMIT": {
+      "id": "RP-T14-AFTER_COMMIT",
+      "observed_state": "TERMINAL_REDUCTION_PREPARED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T14_AFTER_COMMIT_TERMINAL_REDUCTION_PREPARED_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "ACTIVE_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch,owner_transaction_id)",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T07_SCOPE_LEASE_ACTIVE",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_ACTIVE_EXACT_OWNER",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)",
+        "CAS_CHILD_RESULT=sha256(exact child result bytes bound to launch_intent_event_sha256)",
+        "CAS_EXECUTION_EVIDENCE=sha256(execution-and-evidence bundle bytes)"
+      ],
+      "required_journal_events": [
+        "TERMINAL_REDUCTION_PREPARED"
+      ],
+      "required_journal_hashes": [
+        "CURRENT_HEAD=sha256(TERMINAL_REDUCTION_PREPARED event bytes)"
+      ],
+      "side": "AFTER_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T14"
+    },
+    "RP-T14-BEFORE_COMMIT": {
+      "id": "RP-T14-BEFORE_COMMIT",
+      "observed_state": "CLEANUP_RECORDED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T14_BEFORE_COMMIT_CLEANUP_RECORDED_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "ACTIVE_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch,owner_transaction_id)",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T07_SCOPE_LEASE_ACTIVE",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_ACTIVE_EXACT_OWNER",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)",
+        "CAS_CHILD_RESULT=sha256(exact child result bytes bound to launch_intent_event_sha256)",
+        "CAS_EXECUTION_EVIDENCE=sha256(execution-and-evidence bundle bytes)"
+      ],
+      "required_journal_events": [
+        "CLEANUP_RECORDED"
+      ],
+      "required_journal_hashes": [
+        "PREDECESSOR_HEAD=sha256(CLEANUP_RECORDED event bytes)"
+      ],
+      "side": "BEFORE_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T14"
+    },
+    "RP-T15-AFTER_COMMIT": {
+      "id": "RP-T15-AFTER_COMMIT",
+      "observed_state": "TERMINAL_DECISION",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T15_AFTER_COMMIT_TERMINAL_DECISION_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "ACTIVE_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch,owner_transaction_id)",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T07_SCOPE_LEASE_ACTIVE",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_ACTIVE_EXACT_OWNER",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)",
+        "CAS_CHILD_RESULT=sha256(exact child result bytes bound to launch_intent_event_sha256)",
+        "CAS_EXECUTION_EVIDENCE=sha256(execution-and-evidence bundle bytes)"
+      ],
+      "required_journal_events": [
+        "TERMINAL_DECISION"
+      ],
+      "required_journal_hashes": [
+        "CURRENT_HEAD=sha256(TERMINAL_DECISION event bytes)"
+      ],
+      "side": "AFTER_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T15"
+    },
+    "RP-T15-BEFORE_COMMIT": {
+      "id": "RP-T15-BEFORE_COMMIT",
+      "observed_state": "TERMINAL_REDUCTION_PREPARED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T15_BEFORE_COMMIT_TERMINAL_REDUCTION_PREPARED_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "ACTIVE_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch,owner_transaction_id)",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T07_SCOPE_LEASE_ACTIVE",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_ACTIVE_EXACT_OWNER",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)",
+        "CAS_CHILD_RESULT=sha256(exact child result bytes bound to launch_intent_event_sha256)",
+        "CAS_EXECUTION_EVIDENCE=sha256(execution-and-evidence bundle bytes)"
+      ],
+      "required_journal_events": [
+        "TERMINAL_REDUCTION_PREPARED"
+      ],
+      "required_journal_hashes": [
+        "PREDECESSOR_HEAD=sha256(TERMINAL_REDUCTION_PREPARED event bytes)"
+      ],
+      "side": "BEFORE_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T15"
+    },
+    "RP-T16-AFTER_COMMIT": {
+      "id": "RP-T16-AFTER_COMMIT",
+      "observed_state": "TERMINAL_SEAL_RECORDED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T16_AFTER_COMMIT_TERMINAL_SEAL_RECORDED_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "ACTIVE_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch,owner_transaction_id)",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T07_SCOPE_LEASE_ACTIVE",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_ACTIVE_EXACT_OWNER",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)",
+        "CAS_CHILD_RESULT=sha256(exact child result bytes bound to launch_intent_event_sha256)",
+        "CAS_EXECUTION_EVIDENCE=sha256(execution-and-evidence bundle bytes)",
+        "CAS_TERMINAL_SEAL=sha256(terminal decision seal bytes)"
+      ],
+      "required_journal_events": [
+        "TERMINAL_SEAL_RECORDED"
+      ],
+      "required_journal_hashes": [
+        "CURRENT_HEAD=sha256(TERMINAL_SEAL_RECORDED event bytes)"
+      ],
+      "side": "AFTER_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T16"
+    },
+    "RP-T16-BEFORE_COMMIT": {
+      "id": "RP-T16-BEFORE_COMMIT",
+      "observed_state": "TERMINAL_DECISION",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T16_BEFORE_COMMIT_TERMINAL_DECISION_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "ACTIVE_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch,owner_transaction_id)",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T07_SCOPE_LEASE_ACTIVE",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_ACTIVE_EXACT_OWNER",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)",
+        "CAS_CHILD_RESULT=sha256(exact child result bytes bound to launch_intent_event_sha256)",
+        "CAS_EXECUTION_EVIDENCE=sha256(execution-and-evidence bundle bytes)"
+      ],
+      "required_journal_events": [
+        "TERMINAL_DECISION"
+      ],
+      "required_journal_hashes": [
+        "PREDECESSOR_HEAD=sha256(TERMINAL_DECISION event bytes)"
+      ],
+      "side": "BEFORE_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T16"
+    },
+    "RP-T17-AFTER_COMMIT": {
+      "id": "RP-T17-AFTER_COMMIT",
+      "observed_state": "NOTIFICATION_OUTCOME_RECORDED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T17_AFTER_COMMIT_NOTIFICATION_OUTCOME_RECORDED_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "ACTIVE_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch,owner_transaction_id)",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T07_SCOPE_LEASE_ACTIVE",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_ACTIVE_EXACT_OWNER",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)",
+        "CAS_CHILD_RESULT=sha256(exact child result bytes bound to launch_intent_event_sha256)",
+        "CAS_EXECUTION_EVIDENCE=sha256(execution-and-evidence bundle bytes)",
+        "CAS_TERMINAL_SEAL=sha256(terminal decision seal bytes)"
+      ],
+      "required_journal_events": [
+        "NOTIFICATION_OUTCOME_RECORDED"
+      ],
+      "required_journal_hashes": [
+        "CURRENT_HEAD=sha256(NOTIFICATION_OUTCOME_RECORDED event bytes)"
+      ],
+      "side": "AFTER_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T17"
+    },
+    "RP-T17-BEFORE_COMMIT": {
+      "id": "RP-T17-BEFORE_COMMIT",
+      "observed_state": "TERMINAL_SEAL_RECORDED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T17_BEFORE_COMMIT_TERMINAL_SEAL_RECORDED_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "ACTIVE_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch,owner_transaction_id)",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T07_SCOPE_LEASE_ACTIVE",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_ACTIVE_EXACT_OWNER",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)",
+        "CAS_CHILD_RESULT=sha256(exact child result bytes bound to launch_intent_event_sha256)",
+        "CAS_EXECUTION_EVIDENCE=sha256(execution-and-evidence bundle bytes)",
+        "CAS_TERMINAL_SEAL=sha256(terminal decision seal bytes)"
+      ],
+      "required_journal_events": [
+        "TERMINAL_SEAL_RECORDED"
+      ],
+      "required_journal_hashes": [
+        "PREDECESSOR_HEAD=sha256(TERMINAL_SEAL_RECORDED event bytes)"
+      ],
+      "side": "BEFORE_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T17"
+    },
+    "RP-T18-AFTER_COMMIT": {
+      "id": "RP-T18-AFTER_COMMIT",
+      "observed_state": "INDEPENDENT_WITNESS_RECORDED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T18_AFTER_COMMIT_INDEPENDENT_WITNESS_RECORDED_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "ACTIVE_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch,owner_transaction_id)",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T07_SCOPE_LEASE_ACTIVE",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_ACTIVE_EXACT_OWNER",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)",
+        "CAS_CHILD_RESULT=sha256(exact child result bytes bound to launch_intent_event_sha256)",
+        "CAS_EXECUTION_EVIDENCE=sha256(execution-and-evidence bundle bytes)",
+        "CAS_TERMINAL_SEAL=sha256(terminal decision seal bytes)"
+      ],
+      "required_journal_events": [
+        "INDEPENDENT_WITNESS_RECORDED"
+      ],
+      "required_journal_hashes": [
+        "CURRENT_HEAD=sha256(INDEPENDENT_WITNESS_RECORDED event bytes)"
+      ],
+      "side": "AFTER_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T18"
+    },
+    "RP-T18-BEFORE_COMMIT": {
+      "id": "RP-T18-BEFORE_COMMIT",
+      "observed_state": "NOTIFICATION_OUTCOME_RECORDED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T18_BEFORE_COMMIT_NOTIFICATION_OUTCOME_RECORDED_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "ACTIVE_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch,owner_transaction_id)",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T07_SCOPE_LEASE_ACTIVE",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_ACTIVE_EXACT_OWNER",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)",
+        "CAS_CHILD_RESULT=sha256(exact child result bytes bound to launch_intent_event_sha256)",
+        "CAS_EXECUTION_EVIDENCE=sha256(execution-and-evidence bundle bytes)",
+        "CAS_TERMINAL_SEAL=sha256(terminal decision seal bytes)"
+      ],
+      "required_journal_events": [
+        "NOTIFICATION_OUTCOME_RECORDED"
+      ],
+      "required_journal_hashes": [
+        "PREDECESSOR_HEAD=sha256(NOTIFICATION_OUTCOME_RECORDED event bytes)"
+      ],
+      "side": "BEFORE_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T18"
+    },
+    "RP-T19-AFTER_COMMIT": {
+      "id": "RP-T19-AFTER_COMMIT",
+      "observed_state": "SCOPE_LEASE_RELEASE_INTENT",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T19_AFTER_COMMIT_SCOPE_LEASE_RELEASE_INTENT_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "ACTIVE_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch,owner_transaction_id)",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T07_SCOPE_LEASE_ACTIVE",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_ACTIVE_RELEASE_INTENT_JOURNALED",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)",
+        "CAS_CHILD_RESULT=sha256(exact child result bytes bound to launch_intent_event_sha256)",
+        "CAS_EXECUTION_EVIDENCE=sha256(execution-and-evidence bundle bytes)",
+        "CAS_TERMINAL_SEAL=sha256(terminal decision seal bytes)"
+      ],
+      "required_journal_events": [
+        "SCOPE_LEASE_RELEASE_INTENT"
+      ],
+      "required_journal_hashes": [
+        "CURRENT_HEAD=sha256(SCOPE_LEASE_RELEASE_INTENT event bytes)"
+      ],
+      "side": "AFTER_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T19"
+    },
+    "RP-T19-BEFORE_COMMIT": {
+      "id": "RP-T19-BEFORE_COMMIT",
+      "observed_state": "INDEPENDENT_WITNESS_RECORDED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T19_BEFORE_COMMIT_INDEPENDENT_WITNESS_RECORDED_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "ACTIVE_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch,owner_transaction_id)",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T07_SCOPE_LEASE_ACTIVE",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_ACTIVE_EXACT_OWNER",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)",
+        "CAS_CHILD_RESULT=sha256(exact child result bytes bound to launch_intent_event_sha256)",
+        "CAS_EXECUTION_EVIDENCE=sha256(execution-and-evidence bundle bytes)",
+        "CAS_TERMINAL_SEAL=sha256(terminal decision seal bytes)"
+      ],
+      "required_journal_events": [
+        "INDEPENDENT_WITNESS_RECORDED"
+      ],
+      "required_journal_hashes": [
+        "PREDECESSOR_HEAD=sha256(INDEPENDENT_WITNESS_RECORDED event bytes)"
+      ],
+      "side": "BEFORE_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T19"
+    },
+    "RP-T20-AFTER_COMMIT": {
+      "id": "RP-T20-AFTER_COMMIT",
+      "observed_state": "AUTHORITYDB_RELEASED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T20_AFTER_COMMIT_AUTHORITYDB_RELEASED_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "RETIRED_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch);NO_ACTIVE_FENCE",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T20_AUTHORITYDB_RELEASED",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_RELEASED_EXACT",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)",
+        "CAS_CHILD_RESULT=sha256(exact child result bytes bound to launch_intent_event_sha256)",
+        "CAS_EXECUTION_EVIDENCE=sha256(execution-and-evidence bundle bytes)",
+        "CAS_TERMINAL_SEAL=sha256(terminal decision seal bytes)"
+      ],
+      "required_journal_events": [
+        "AUTHORITYDB_RELEASED"
+      ],
+      "required_journal_hashes": [
+        "CURRENT_HEAD=sha256(AUTHORITYDB_RELEASED event bytes)"
+      ],
+      "side": "AFTER_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T20"
+    },
+    "RP-T20-BEFORE_COMMIT": {
+      "id": "RP-T20-BEFORE_COMMIT",
+      "observed_state": "SCOPE_LEASE_RELEASE_INTENT",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T20_BEFORE_COMMIT_SCOPE_LEASE_RELEASE_INTENT_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "ACTIVE_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch,owner_transaction_id)",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T07_SCOPE_LEASE_ACTIVE",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_ACTIVE_RELEASE_INTENT_JOURNALED",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)",
+        "CAS_CHILD_RESULT=sha256(exact child result bytes bound to launch_intent_event_sha256)",
+        "CAS_EXECUTION_EVIDENCE=sha256(execution-and-evidence bundle bytes)",
+        "CAS_TERMINAL_SEAL=sha256(terminal decision seal bytes)"
+      ],
+      "required_journal_events": [
+        "SCOPE_LEASE_RELEASE_INTENT"
+      ],
+      "required_journal_hashes": [
+        "PREDECESSOR_HEAD=sha256(SCOPE_LEASE_RELEASE_INTENT event bytes)"
+      ],
+      "side": "BEFORE_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T20"
+    },
+    "RP-T21-AFTER_COMMIT": {
+      "id": "RP-T21-AFTER_COMMIT",
+      "observed_state": "SCOPE_LEASE_RELEASE_RECORDED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T21_AFTER_COMMIT_SCOPE_LEASE_RELEASE_RECORDED_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "RETIRED_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch);NO_ACTIVE_FENCE",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T20_AUTHORITYDB_RELEASED",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_RELEASED_AND_CANONIC_RELEASE_RECORDED",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)",
+        "CAS_CHILD_RESULT=sha256(exact child result bytes bound to launch_intent_event_sha256)",
+        "CAS_EXECUTION_EVIDENCE=sha256(execution-and-evidence bundle bytes)",
+        "CAS_TERMINAL_SEAL=sha256(terminal decision seal bytes)"
+      ],
+      "required_journal_events": [
+        "SCOPE_LEASE_RELEASE_RECORDED"
+      ],
+      "required_journal_hashes": [
+        "CURRENT_HEAD=sha256(SCOPE_LEASE_RELEASE_RECORDED event bytes)"
+      ],
+      "side": "AFTER_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T21"
+    },
+    "RP-T21-BEFORE_COMMIT": {
+      "id": "RP-T21-BEFORE_COMMIT",
+      "observed_state": "AUTHORITYDB_RELEASED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T21_BEFORE_COMMIT_AUTHORITYDB_RELEASED_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "RETIRED_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch);NO_ACTIVE_FENCE",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T20_AUTHORITYDB_RELEASED",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_RELEASED_EXACT",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)",
+        "CAS_CHILD_RESULT=sha256(exact child result bytes bound to launch_intent_event_sha256)",
+        "CAS_EXECUTION_EVIDENCE=sha256(execution-and-evidence bundle bytes)",
+        "CAS_TERMINAL_SEAL=sha256(terminal decision seal bytes)"
+      ],
+      "required_journal_events": [
+        "AUTHORITYDB_RELEASED"
+      ],
+      "required_journal_hashes": [
+        "PREDECESSOR_HEAD=sha256(AUTHORITYDB_RELEASED event bytes)"
+      ],
+      "side": "BEFORE_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T21"
+    },
+    "RP-T22-AFTER_COMMIT": {
+      "id": "RP-T22-AFTER_COMMIT",
+      "observed_state": "SUPERVISOR_CLOSED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T22_AFTER_COMMIT_SUPERVISOR_CLOSED_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "RETIRED_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch);NO_ACTIVE_FENCE",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T20_AUTHORITYDB_RELEASED",
+      "required_authoritydb_state": "AUTHORITYDB=SUPERVISOR_CLOSED_SCOPE_RELEASED",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)",
+        "CAS_CHILD_RESULT=sha256(exact child result bytes bound to launch_intent_event_sha256)",
+        "CAS_EXECUTION_EVIDENCE=sha256(execution-and-evidence bundle bytes)",
+        "CAS_TERMINAL_SEAL=sha256(terminal decision seal bytes)"
+      ],
+      "required_journal_events": [
+        "SUPERVISOR_CLOSED"
+      ],
+      "required_journal_hashes": [
+        "CURRENT_HEAD=sha256(SUPERVISOR_CLOSED event bytes)"
+      ],
+      "side": "AFTER_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T22"
+    },
+    "RP-T22-BEFORE_COMMIT": {
+      "id": "RP-T22-BEFORE_COMMIT",
+      "observed_state": "SCOPE_LEASE_RELEASE_RECORDED",
+      "prohibited_actions": [
+        "child action until exact phase/side proof verifies",
+        "provider call",
+        "canonical append based on ambiguity",
+        "semantic/terminal/closeout head rewrite"
+      ],
+      "recovery_classification": "EXACT_T22_BEFORE_COMMIT_SCOPE_LEASE_RELEASE_RECORDED_OR_HOLD",
+      "required_authoritydb_epoch": "EPOCH=exact(supervisor_epoch_sha256_committed_by_T02)",
+      "required_authoritydb_fence": "RETIRED_FENCE=exact(scope_sha256,fencing_token,supervisor_epoch);NO_ACTIVE_FENCE",
+      "required_authoritydb_receipt": "AUTHORITYDB_RECEIPT=T20_AUTHORITYDB_RELEASED",
+      "required_authoritydb_state": "AUTHORITYDB=SCOPE_LEASE_RELEASED_AND_CANONIC_RELEASE_RECORDED",
+      "required_cas_refs": [
+        "CAS_INGRESS_ENVELOPE=sha256(canonical ingress envelope bytes)",
+        "CAS_CHILD_RESULT=sha256(exact child result bytes bound to launch_intent_event_sha256)",
+        "CAS_EXECUTION_EVIDENCE=sha256(execution-and-evidence bundle bytes)",
+        "CAS_TERMINAL_SEAL=sha256(terminal decision seal bytes)"
+      ],
+      "required_journal_events": [
+        "SCOPE_LEASE_RELEASE_RECORDED"
+      ],
+      "required_journal_hashes": [
+        "PREDECESSOR_HEAD=sha256(SCOPE_LEASE_RELEASE_RECORDED event bytes)"
+      ],
+      "side": "BEFORE_COMMIT",
+      "terminal_on_ambiguity": "HOLD_NO_ACTION_NO_PROVIDER_CALL_NO_RETRY",
+      "transition_id": "T22"
+    }
+  },
+  "proof_registry_authoritative_artifact": "RECOVERY-PROOF-REGISTRY.json",
+  "schema": "critical_apply.m2a_r2.supervisor_crash_vectors.v1",
+  "vectors": [
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T00-BEFORE_COMMIT",
+      "observed_state": "NONE",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T00-BEFORE_COMMIT"
+      ],
+      "side": "BEFORE_COMMIT",
+      "transition_id": "T00"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T00-AFTER_COMMIT",
+      "observed_state": "ROOT_REGISTERED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T00-AFTER_COMMIT"
+      ],
+      "side": "AFTER_COMMIT",
+      "transition_id": "T00"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T01-BEFORE_COMMIT",
+      "observed_state": "ROOT_REGISTERED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T01-BEFORE_COMMIT"
+      ],
+      "side": "BEFORE_COMMIT",
+      "transition_id": "T01"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T01-AFTER_COMMIT",
+      "observed_state": "JOURNAL_GENESIS_COMMITTED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T01-AFTER_COMMIT"
+      ],
+      "side": "AFTER_COMMIT",
+      "transition_id": "T01"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T02-BEFORE_COMMIT",
+      "observed_state": "JOURNAL_GENESIS_COMMITTED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T02-BEFORE_COMMIT"
+      ],
+      "side": "BEFORE_COMMIT",
+      "transition_id": "T02"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T02-AFTER_COMMIT",
+      "observed_state": "EPOCH_COMMITTED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T02-AFTER_COMMIT"
+      ],
+      "side": "AFTER_COMMIT",
+      "transition_id": "T02"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T03-BEFORE_COMMIT",
+      "observed_state": "EPOCH_COMMITTED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T03-BEFORE_COMMIT"
+      ],
+      "side": "BEFORE_COMMIT",
+      "transition_id": "T03"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T03-AFTER_COMMIT",
+      "observed_state": "ENVELOPE_CAS_CAPTURED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T03-AFTER_COMMIT"
+      ],
+      "side": "AFTER_COMMIT",
+      "transition_id": "T03"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T04-BEFORE_COMMIT",
+      "observed_state": "ENVELOPE_CAS_CAPTURED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T04-BEFORE_COMMIT"
+      ],
+      "side": "BEFORE_COMMIT",
+      "transition_id": "T04"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T04-AFTER_COMMIT",
+      "observed_state": "INGRESS_ACCEPTED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T04-AFTER_COMMIT"
+      ],
+      "side": "AFTER_COMMIT",
+      "transition_id": "T04"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T05-BEFORE_COMMIT",
+      "observed_state": "INGRESS_ACCEPTED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T05-BEFORE_COMMIT"
+      ],
+      "side": "BEFORE_COMMIT",
+      "transition_id": "T05"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T05-AFTER_COMMIT",
+      "observed_state": "SCOPE_RESERVED_PENDING_JOURNAL",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T05-AFTER_COMMIT"
+      ],
+      "side": "AFTER_COMMIT",
+      "transition_id": "T05"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T06-BEFORE_COMMIT",
+      "observed_state": "SCOPE_RESERVED_PENDING_JOURNAL",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T06-BEFORE_COMMIT"
+      ],
+      "side": "BEFORE_COMMIT",
+      "transition_id": "T06"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T06-AFTER_COMMIT",
+      "observed_state": "SCOPE_JOURNAL_BOUND",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T06-AFTER_COMMIT"
+      ],
+      "side": "AFTER_COMMIT",
+      "transition_id": "T06"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T07-BEFORE_COMMIT",
+      "observed_state": "SCOPE_JOURNAL_BOUND",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T07-BEFORE_COMMIT"
+      ],
+      "side": "BEFORE_COMMIT",
+      "transition_id": "T07"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T07-AFTER_COMMIT",
+      "observed_state": "SCOPE_ACTIVE",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T07-AFTER_COMMIT"
+      ],
+      "side": "AFTER_COMMIT",
+      "transition_id": "T07"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T08-BEFORE_COMMIT",
+      "observed_state": "SCOPE_ACTIVE",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T08-BEFORE_COMMIT"
+      ],
+      "side": "BEFORE_COMMIT",
+      "transition_id": "T08"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T08-AFTER_COMMIT",
+      "observed_state": "CHILD_LAUNCH_INTENT_COMMITTED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T08-AFTER_COMMIT"
+      ],
+      "side": "AFTER_COMMIT",
+      "transition_id": "T08"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T09-BEFORE_COMMIT",
+      "observed_state": "CHILD_LAUNCH_INTENT_COMMITTED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T09-BEFORE_COMMIT"
+      ],
+      "side": "BEFORE_COMMIT",
+      "transition_id": "T09"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T09-AFTER_COMMIT",
+      "observed_state": "CHILD_STARTED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T09-AFTER_COMMIT"
+      ],
+      "side": "AFTER_COMMIT",
+      "transition_id": "T09"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T10-BEFORE_COMMIT",
+      "observed_state": "CHILD_STARTED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T10-BEFORE_COMMIT"
+      ],
+      "side": "BEFORE_COMMIT",
+      "transition_id": "T10"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T10-AFTER_COMMIT",
+      "observed_state": "CHILD_RESULT_CAPTURED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T10-AFTER_COMMIT"
+      ],
+      "side": "AFTER_COMMIT",
+      "transition_id": "T10"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T11-BEFORE_COMMIT",
+      "observed_state": "CHILD_RESULT_CAPTURED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T11-BEFORE_COMMIT"
+      ],
+      "side": "BEFORE_COMMIT",
+      "transition_id": "T11"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T11-AFTER_COMMIT",
+      "observed_state": "EXECUTION_AND_EVIDENCE_COMMITTED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T11-AFTER_COMMIT"
+      ],
+      "side": "AFTER_COMMIT",
+      "transition_id": "T11"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T12-BEFORE_COMMIT",
+      "observed_state": "EXECUTION_AND_EVIDENCE_COMMITTED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T12-BEFORE_COMMIT"
+      ],
+      "side": "BEFORE_COMMIT",
+      "transition_id": "T12"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T12-AFTER_COMMIT",
+      "observed_state": "OWNED_CHILDREN_RECONCILED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T12-AFTER_COMMIT"
+      ],
+      "side": "AFTER_COMMIT",
+      "transition_id": "T12"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T13-BEFORE_COMMIT",
+      "observed_state": "OWNED_CHILDREN_RECONCILED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T13-BEFORE_COMMIT"
+      ],
+      "side": "BEFORE_COMMIT",
+      "transition_id": "T13"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T13-AFTER_COMMIT",
+      "observed_state": "CLEANUP_RECORDED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T13-AFTER_COMMIT"
+      ],
+      "side": "AFTER_COMMIT",
+      "transition_id": "T13"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T14-BEFORE_COMMIT",
+      "observed_state": "CLEANUP_RECORDED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T14-BEFORE_COMMIT"
+      ],
+      "side": "BEFORE_COMMIT",
+      "transition_id": "T14"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T14-AFTER_COMMIT",
+      "observed_state": "TERMINAL_REDUCTION_PREPARED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T14-AFTER_COMMIT"
+      ],
+      "side": "AFTER_COMMIT",
+      "transition_id": "T14"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T15-BEFORE_COMMIT",
+      "observed_state": "TERMINAL_REDUCTION_PREPARED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T15-BEFORE_COMMIT"
+      ],
+      "side": "BEFORE_COMMIT",
+      "transition_id": "T15"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T15-AFTER_COMMIT",
+      "observed_state": "TERMINAL_DECISION",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T15-AFTER_COMMIT"
+      ],
+      "side": "AFTER_COMMIT",
+      "transition_id": "T15"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T16-BEFORE_COMMIT",
+      "observed_state": "TERMINAL_DECISION",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T16-BEFORE_COMMIT"
+      ],
+      "side": "BEFORE_COMMIT",
+      "transition_id": "T16"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T16-AFTER_COMMIT",
+      "observed_state": "TERMINAL_SEAL_RECORDED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T16-AFTER_COMMIT"
+      ],
+      "side": "AFTER_COMMIT",
+      "transition_id": "T16"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T17-BEFORE_COMMIT",
+      "observed_state": "TERMINAL_SEAL_RECORDED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T17-BEFORE_COMMIT"
+      ],
+      "side": "BEFORE_COMMIT",
+      "transition_id": "T17"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T17-AFTER_COMMIT",
+      "observed_state": "NOTIFICATION_OUTCOME_RECORDED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T17-AFTER_COMMIT"
+      ],
+      "side": "AFTER_COMMIT",
+      "transition_id": "T17"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T18-BEFORE_COMMIT",
+      "observed_state": "NOTIFICATION_OUTCOME_RECORDED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T18-BEFORE_COMMIT"
+      ],
+      "side": "BEFORE_COMMIT",
+      "transition_id": "T18"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T18-AFTER_COMMIT",
+      "observed_state": "INDEPENDENT_WITNESS_RECORDED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T18-AFTER_COMMIT"
+      ],
+      "side": "AFTER_COMMIT",
+      "transition_id": "T18"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T19-BEFORE_COMMIT",
+      "observed_state": "INDEPENDENT_WITNESS_RECORDED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T19-BEFORE_COMMIT"
+      ],
+      "side": "BEFORE_COMMIT",
+      "transition_id": "T19"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T19-AFTER_COMMIT",
+      "observed_state": "SCOPE_LEASE_RELEASE_INTENT",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T19-AFTER_COMMIT"
+      ],
+      "side": "AFTER_COMMIT",
+      "transition_id": "T19"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T20-BEFORE_COMMIT",
+      "observed_state": "SCOPE_LEASE_RELEASE_INTENT",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T20-BEFORE_COMMIT"
+      ],
+      "side": "BEFORE_COMMIT",
+      "transition_id": "T20"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T20-AFTER_COMMIT",
+      "observed_state": "AUTHORITYDB_RELEASED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T20-AFTER_COMMIT"
+      ],
+      "side": "AFTER_COMMIT",
+      "transition_id": "T20"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T21-BEFORE_COMMIT",
+      "observed_state": "AUTHORITYDB_RELEASED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T21-BEFORE_COMMIT"
+      ],
+      "side": "BEFORE_COMMIT",
+      "transition_id": "T21"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T21-AFTER_COMMIT",
+      "observed_state": "SCOPE_LEASE_RELEASE_RECORDED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T21-AFTER_COMMIT"
+      ],
+      "side": "AFTER_COMMIT",
+      "transition_id": "T21"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T22-BEFORE_COMMIT",
+      "observed_state": "SCOPE_LEASE_RELEASE_RECORDED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T22-BEFORE_COMMIT"
+      ],
+      "side": "BEFORE_COMMIT",
+      "transition_id": "T22"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T22-AFTER_COMMIT",
+      "observed_state": "SUPERVISOR_CLOSED",
+      "proof_required_before_action_or_provider": true,
+      "provider_call_allowed": false,
+      "recovery_proof_ids": [
+        "RP-T22-AFTER_COMMIT"
+      ],
+      "side": "AFTER_COMMIT",
+      "transition_id": "T22"
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "boundary": {
+    "consumed_production_authority": 0,
+    "gateway_config_runtime_mutations": 0,
+    "mode": "PREP_ONLY",
+    "production_mutations": 0,
+    "provider_model_calls": 0
+  },
+  "completion_receipt_acyclicity": {
+    "SUPERVISOR_CLOSED_payload": "binds prepared_body_sha256, terminal seal, notification outcome, release outcome and effects",
+    "final_receipt": "adds closeout_head reference and may include content hash in an external manifest only; no event points to final self-dependent hash",
+    "prepared_body": "all receipt fields except closeout_head and final receipt self-hash"
+  },
+  "created_utc": "2026-08-13T00:55:00Z",
+  "failure_branches": [
+    {
+      "at": "notification",
+      "rule": "commit bounded failed/unknown outcome and continue closeout; semantic_result unchanged"
+    },
+    {
+      "at": "independent witness",
+      "rule": "record attempt/outcome; a witness integrity mismatch blocks trustworthy clean closeout without replacing semantic decision"
+    },
+    {
+      "at": "AuthorityDB release",
+      "rule": "retain transaction lock, enter lease-release HOLD/recovery, prohibit protected actions because release intent already fenced them, and do not commit clean SUPERVISOR_CLOSED"
+    },
+    {
+      "at": "completion receipt publication after SUPERVISOR_CLOSED",
+      "rule": "recover by deterministic rematerialization; append no event"
+    }
+  ],
+  "ordered_transitions": [
+    {
+      "event_or_action": "OWNED_PROCESS_CLEANUP_COMPLETE committed",
+      "from": "CLEANUP",
+      "gate": "all owned children reconciled; unowned processes not killed",
+      "order": 1,
+      "to": "TERMINAL_REDUCING"
+    },
+    {
+      "event_or_action": "TERMINAL_REDUCTION_PREPARED committed and ACKed",
+      "from": "TERMINAL_REDUCING",
+      "gate": "semantic_input_closed=true; exact reducer and post-freeze allowlist bound",
+      "order": 2,
+      "to": "SEMANTIC_INPUT_FROZEN"
+    },
+    {
+      "event_or_action": "pure deterministic reduction and verification",
+      "from": "SEMANTIC_INPUT_FROZEN",
+      "gate": "same prefix, contract and reducer identity",
+      "order": 3,
+      "to": "REDUCTION_VERIFIED"
+    },
+    {
+      "event_or_action": "TERMINAL_DECISION committed and ACKed",
+      "from": "REDUCTION_VERIFIED",
+      "gate": "decision equals deterministic candidate",
+      "order": 4,
+      "to": "TERMINAL_DECIDED"
+    },
+    {
+      "event_or_action": "verification replay",
+      "from": "TERMINAL_DECIDED",
+      "gate": "candidate and committed decision equal",
+      "order": 5,
+      "to": "TERMINAL_REPLAY_VERIFIED"
+    },
+    {
+      "event_or_action": "MANIFEST_CREATED then TERMINAL_SEAL_CREATED then RUN_SEALED committed",
+      "from": "TERMINAL_REPLAY_VERIFIED",
+      "gate": "manifest and seal bind terminal_decision_head; immutable create-once publication",
+      "order": 6,
+      "to": "SEALED"
+    },
+    {
+      "event_or_action": "bounded notification request/submission and one terminal notification outcome",
+      "from": "SEALED",
+      "gate": "DELIVERED_CONFIRMED or DELIVERY_FAILED or DELIVERY_UNKNOWN committed by deadline",
+      "order": 7,
+      "to": "NOTIFICATION_TERMINAL"
+    },
+    {
+      "event_or_action": "independent terminal witness attempt/result",
+      "from": "NOTIFICATION_TERMINAL",
+      "gate": "witness outcome recorded without semantic rewrite",
+      "order": 8,
+      "to": "WITNESS_ATTEMPT_COMPLETE"
+    },
+    {
+      "event_or_action": "SCOPE_LEASE_RELEASE_INTENT committed and ACKed",
+      "from": "WITNESS_ATTEMPT_COMPLETE",
+      "gate": "no protected action legal after acknowledged intent",
+      "order": 9,
+      "to": "EXECUTION_PERMANENTLY_FENCED"
+    },
+    {
+      "event_or_action": "AuthorityDB transition to RELEASE_PENDING then RELEASED with durable readback",
+      "from": "EXECUTION_PERMANENTLY_FENCED",
+      "gate": "exact transaction, epoch, fencing token, scope and journal release-intent binding",
+      "order": 10,
+      "to": "AUTHORITYDB_RELEASED"
+    },
+    {
+      "event_or_action": "SCOPE_LEASE_RELEASE_RECORDED committed and ACKed",
+      "from": "AUTHORITYDB_RELEASED",
+      "gate": "exact durable release receipt bound",
+      "order": 11,
+      "to": "LEASE_RELEASE_RECORDED"
+    },
+    {
+      "event_or_action": "prepare canonical completion-receipt body excluding not-yet-known closeout_head",
+      "from": "LEASE_RELEASE_RECORDED",
+      "gate": "template digest binds seal, notification, release and effects without self-hash cycle",
+      "order": 12,
+      "to": "COMPLETION_RECEIPT_PREPARED"
+    },
+    {
+      "event_or_action": "SUPERVISOR_CLOSED committed and ACKed",
+      "from": "COMPLETION_RECEIPT_PREPARED",
+      "gate": "event is closeout_head and final canonical event; clean close requires release proof",
+      "order": 13,
+      "to": "CLOSED"
+    },
+    {
+      "event_or_action": "materialize COMPLETION-RECEIPT.json, fsync, parent fsync and readback",
+      "from": "CLOSED",
+      "gate": "receipt binds closeout_head and prepared body",
+      "order": 14,
+      "to": "RECEIPT_DURABLE"
+    },
+    {
+      "event_or_action": "release transaction flock",
+      "from": "RECEIPT_DURABLE",
+      "gate": "receipt verified; no journal append permitted",
+      "order": 15,
+      "to": "LOCK_RELEASED"
+    }
+  ],
+  "planes_separate": [
+    "semantic_result",
+    "execution_state",
+    "process_health",
+    "recovery_state",
+    "notification_state",
+    "lease_release_state",
+    "owner_closeout_status"
+  ],
+  "resolves": [
+    "S1"
+  ],
+  "schema": "critical_apply.closeout_lifecycle_transition_table.v1"
+}

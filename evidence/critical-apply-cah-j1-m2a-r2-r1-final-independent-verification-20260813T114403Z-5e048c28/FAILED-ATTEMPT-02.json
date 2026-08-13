@@ -1,0 +1,10 @@
+{
+  "classification": "VERIFIER_HARNESS_DISPOSABLE_DESIGN_COPY_MODE",
+  "candidate_defect": false,
+  "exit_code": 1,
+  "failure": "PermissionError overwriting verifier-owned design-copy.md preserved as mode 0444",
+  "m2b_started": false,
+  "production_effect": false,
+  "remediation": "unlink and recreate only the verifier-owned disposable design copy",
+  "status": "FAILED_ATTEMPT_RETAINED"
+}

@@ -1,0 +1,14 @@
+CAH-J1 M1 post-seal delayed-completion attestation
+
+Delayed approved privacy-result write completed successfully with exit 0.
+The resulting privacy-scan-results.json remains byte-identical to the sealed result:
+SHA-256 5b281dc08cc1cb936df542fccc7397d53507a2425580c726916509acc3530b3d
+Status PASS; file_count 9; findings 0.
+
+A delayed approved manifest-generation command also incorporated SEAL.txt into EVIDENCE-SHA256.txt after the original seal was issued. The resulting complete manifest was verified with `sha256sum -c` and every entry passed.
+Current EVIDENCE-SHA256.txt SHA-256:
+5715ccefbe651104ad607a7b1bf49c9f30a0ee1382b11153085fd21e0ddcd64f
+Original SEAL.txt is included in and validates against that manifest; SEAL.txt SHA-256:
+1e1fcf053aa5b4c7308e90d1a371192d5d16906bb8d47f4f3b9e17ea19a56e6b
+
+Disposition remains PASS_VERIFIED. This detached attestation is intentionally not used to regenerate the manifest, avoiding a recursive seal mutation.

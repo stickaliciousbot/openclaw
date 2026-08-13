@@ -1,0 +1,30 @@
+{
+  "ProgressDB_may_decide": false,
+  "acceptance_order": [
+    "capture payload bytes into CAS",
+    "append canonical acceptance event",
+    "fsync journal",
+    "reopen and verify exact event bytes",
+    "bind required AuthorityDB receipt if event reserves authority",
+    "return ACK"
+  ],
+  "ack_authority": "verified canonical journal bytes and required CAS/AuthorityDB bindings only",
+  "ack_fields": [
+    "transaction_id",
+    "event_id",
+    "proposal_sha256",
+    "journal_sequence",
+    "journal_event_sha256",
+    "journal_head_sha256",
+    "authority_receipt_sha256_or_null"
+  ],
+  "different_proposal_same_event_id": "INTEGRITY_CONFLICT_HOLD_NO_ACTION_NO_CALL",
+  "map_key": [
+    "transaction_id",
+    "event_id"
+  ],
+  "proposal_digest": "sha256(canonical accepted envelope)",
+  "same_proposal": "return original journal-derived ACK without append",
+  "schema": "critical_apply.m2a.ingress_idempotency.v1",
+  "stale_progressdb": "discard/rebuild; never decide"
+}

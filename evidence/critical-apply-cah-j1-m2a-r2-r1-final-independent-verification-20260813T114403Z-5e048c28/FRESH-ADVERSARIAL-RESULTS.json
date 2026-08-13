@@ -1,0 +1,1097 @@
+{
+  "case_count": 79,
+  "families": [
+    "authority",
+    "canonical",
+    "crash",
+    "fencing",
+    "ingress",
+    "lifecycle",
+    "nonce_ack",
+    "ownership",
+    "proof_phase",
+    "strict_schema",
+    "zero_effect"
+  ],
+  "rejected_count": 79,
+  "results": [
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T00-BEFORE_COMMIT",
+      "ordinal": 1,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T00-AFTER_COMMIT",
+      "ordinal": 2,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T01-BEFORE_COMMIT",
+      "ordinal": 3,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T01-AFTER_COMMIT",
+      "ordinal": 4,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T02-BEFORE_COMMIT",
+      "ordinal": 5,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T02-AFTER_COMMIT",
+      "ordinal": 6,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T03-BEFORE_COMMIT",
+      "ordinal": 7,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T03-AFTER_COMMIT",
+      "ordinal": 8,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T04-BEFORE_COMMIT",
+      "ordinal": 9,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T04-AFTER_COMMIT",
+      "ordinal": 10,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T05-BEFORE_COMMIT",
+      "ordinal": 11,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T05-AFTER_COMMIT",
+      "ordinal": 12,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T06-BEFORE_COMMIT",
+      "ordinal": 13,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T06-AFTER_COMMIT",
+      "ordinal": 14,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T07-BEFORE_COMMIT",
+      "ordinal": 15,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T07-AFTER_COMMIT",
+      "ordinal": 16,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T08-BEFORE_COMMIT",
+      "ordinal": 17,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T08-AFTER_COMMIT",
+      "ordinal": 18,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T09-BEFORE_COMMIT",
+      "ordinal": 19,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T09-AFTER_COMMIT",
+      "ordinal": 20,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T10-BEFORE_COMMIT",
+      "ordinal": 21,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T10-AFTER_COMMIT",
+      "ordinal": 22,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T11-BEFORE_COMMIT",
+      "ordinal": 23,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T11-AFTER_COMMIT",
+      "ordinal": 24,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T12-BEFORE_COMMIT",
+      "ordinal": 25,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T12-AFTER_COMMIT",
+      "ordinal": 26,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T13-BEFORE_COMMIT",
+      "ordinal": 27,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T13-AFTER_COMMIT",
+      "ordinal": 28,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T14-BEFORE_COMMIT",
+      "ordinal": 29,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T14-AFTER_COMMIT",
+      "ordinal": 30,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T15-BEFORE_COMMIT",
+      "ordinal": 31,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T15-AFTER_COMMIT",
+      "ordinal": 32,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T16-BEFORE_COMMIT",
+      "ordinal": 33,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T16-AFTER_COMMIT",
+      "ordinal": 34,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T17-BEFORE_COMMIT",
+      "ordinal": 35,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T17-AFTER_COMMIT",
+      "ordinal": 36,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T18-BEFORE_COMMIT",
+      "ordinal": 37,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T18-AFTER_COMMIT",
+      "ordinal": 38,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T19-BEFORE_COMMIT",
+      "ordinal": 39,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T19-AFTER_COMMIT",
+      "ordinal": 40,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T20-BEFORE_COMMIT",
+      "ordinal": 41,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T20-AFTER_COMMIT",
+      "ordinal": 42,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T21-BEFORE_COMMIT",
+      "ordinal": 43,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T21-AFTER_COMMIT",
+      "ordinal": 44,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T22-BEFORE_COMMIT",
+      "ordinal": 45,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_RP-T22-AFTER_COMMIT",
+      "ordinal": 46,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_ALP-AP01_COMPLETION_RECEIPT_PREIMAGE-BEFORE_COMMIT",
+      "ordinal": 47,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_ALP-AP01_COMPLETION_RECEIPT_PREIMAGE-AFTER_COMMIT",
+      "ordinal": 48,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_ALP-LO01_COMPLETION_RECEIPT_PUBLICATION-BEFORE_COMMIT",
+      "ordinal": 49,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_ALP-LO01_COMPLETION_RECEIPT_PUBLICATION-AFTER_COMMIT",
+      "ordinal": 50,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_ALP-LO02_TRANSACTION_LOCK_RELEASE-BEFORE_COMMIT",
+      "ordinal": 51,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "expected_error": "proof_semantic_inventory",
+      "family": "proof_phase",
+      "id": "FRESH_PROOF_ALP-LO02_TRANSACTION_LOCK_RELEASE-AFTER_COMMIT",
+      "ordinal": 52,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:R1-AUTHORITY-ROLES.json",
+        "authority_role_coherence"
+      ],
+      "expected_error": "authority_role_coherence",
+      "family": "authority",
+      "id": "AUTH_FINAL_FALSE",
+      "ordinal": 53,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:R1-AUTHORITY-ROLES.json",
+        "authority_role_coherence"
+      ],
+      "expected_error": "authority_role_coherence",
+      "family": "authority",
+      "id": "AUTH_PRELIM_TRUE",
+      "ordinal": 54,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:R1-AUTHORITY-ROLES.json",
+        "authority_role_coherence"
+      ],
+      "expected_error": "authority_role_coherence",
+      "family": "authority",
+      "id": "AUTH_FINAL_HASH_SWAP",
+      "ordinal": 55,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:IMMUTABLE-INPUT-SEALS.json",
+        "immutable_hold_binding",
+        "immutable_authority_rehash",
+        "authority_role_coherence"
+      ],
+      "expected_error": "authority_role_coherence",
+      "family": "authority",
+      "id": "AUTH_SEAL_HASH_SWAP",
+      "ordinal": 56,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "design_contract_digest",
+        "design_xref:ACK-REPLAY-VECTORS.json"
+      ],
+      "expected_error": "design_contract_digest",
+      "family": "authority",
+      "id": "DESIGN_CONTRADICTION",
+      "ordinal": 57,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:SUPERVISOR-STATE-MACHINE.json",
+        "canonical_exact_chain",
+        "canonical_projection",
+        "canonical_adjacency",
+        "canonical_close_adjacency",
+        "preimage_promoted_canonical",
+        "artifact_preparation_binding",
+        "action_semantics",
+        "action_gate",
+        "provider_call_gate",
+        "provider_call_semantics",
+        "state_authority",
+        "lifecycle_noncanonical",
+        "lifecycle_cross_artifact"
+      ],
+      "expected_error": "lifecycle_noncanonical",
+      "family": "lifecycle",
+      "id": "LIFE_CANONICAL",
+      "ordinal": 58,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:SUPERVISOR-STATE-MACHINE.json",
+        "canonical_exact_chain",
+        "canonical_projection",
+        "canonical_adjacency",
+        "canonical_close_adjacency",
+        "preimage_promoted_canonical",
+        "artifact_preparation_binding",
+        "action_semantics",
+        "action_gate",
+        "provider_call_gate",
+        "provider_call_semantics",
+        "state_authority",
+        "lifecycle_noncanonical",
+        "lifecycle_cross_artifact"
+      ],
+      "expected_error": "lifecycle_noncanonical",
+      "family": "lifecycle",
+      "id": "LIFE_CLOSEOUT_MUTABLE",
+      "ordinal": 59,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:SUPERVISOR-STATE-MACHINE.json",
+        "canonical_exact_chain",
+        "canonical_projection",
+        "canonical_adjacency",
+        "canonical_close_adjacency",
+        "preimage_promoted_canonical",
+        "artifact_preparation_binding",
+        "action_semantics",
+        "action_gate",
+        "provider_call_gate",
+        "provider_call_semantics",
+        "state_authority",
+        "lifecycle_noncanonical",
+        "lifecycle_cross_artifact",
+        "lifecycle_order"
+      ],
+      "expected_error": "lifecycle_order",
+      "family": "lifecycle",
+      "id": "LIFE_RELEASE_NO_PUBLICATION",
+      "ordinal": 60,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:SUPERVISOR-STATE-MACHINE.json",
+        "canonical_exact_chain",
+        "canonical_projection",
+        "canonical_adjacency",
+        "canonical_close_adjacency",
+        "preimage_promoted_canonical",
+        "artifact_preparation_binding",
+        "action_semantics",
+        "action_gate",
+        "provider_call_gate",
+        "provider_call_semantics",
+        "state_authority",
+        "lifecycle_noncanonical",
+        "proof_semantic_phase_head",
+        "proof_semantic_epoch",
+        "proof_semantic_fence",
+        "proof_semantic_cas"
+      ],
+      "expected_error": "canonical_exact_chain",
+      "family": "canonical",
+      "id": "STATE_CANONICAL_RECEIPT",
+      "ordinal": 61,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:SUPERVISOR-STATE-MACHINE.json",
+        "canonical_exact_chain",
+        "canonical_projection",
+        "canonical_adjacency",
+        "canonical_close_adjacency",
+        "preimage_promoted_canonical",
+        "artifact_preparation_binding",
+        "action_semantics",
+        "action_gate",
+        "provider_call_gate",
+        "provider_call_semantics",
+        "state_authority",
+        "lifecycle_noncanonical",
+        "proof_semantic_phase_head",
+        "proof_semantic_lifecycle_journal"
+      ],
+      "expected_error": "canonical_exact_chain",
+      "family": "canonical",
+      "id": "STATE_FINAL_EVENT_WRONG",
+      "ordinal": 62,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:INGRESS-ENVELOPE-CONTRACT.json",
+        "ingress_strict",
+        "ingress_schema"
+      ],
+      "expected_error": "ingress_strict",
+      "family": "ingress",
+      "id": "INGRESS_UNKNOWN_ALLOW",
+      "ordinal": 63,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:INGRESS-ENVELOPE-CONTRACT.json",
+        "ingress_strict",
+        "ingress_schema"
+      ],
+      "expected_error": "ingress_strict",
+      "family": "ingress",
+      "id": "INGRESS_PATH_ALLOW",
+      "ordinal": 64,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:INGRESS-ENVELOPE-CONTRACT.json",
+        "ingress_strict",
+        "ingress_schema"
+      ],
+      "expected_error": "ingress_strict",
+      "family": "ingress",
+      "id": "INGRESS_FIELD_ASYMMETRY",
+      "ordinal": 65,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+        "N07_exact_order",
+        "N04_exact_no_bypass",
+        "nonce_exact_identity_order",
+        "nonce_exact_semantics",
+        "nonce_exact_predicates",
+        "unknown_outcome_terminal",
+        "child_boundary",
+        "child_provider_authority",
+        "child_cross_artifact"
+      ],
+      "expected_error": "N07_exact_order",
+      "family": "nonce_ack",
+      "id": "NONCE_N07_REVERSE",
+      "ordinal": 66,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+        "N07_exact_order",
+        "N04_exact_no_bypass",
+        "nonce_exact_identity_order",
+        "nonce_exact_semantics",
+        "nonce_exact_predicates",
+        "unknown_outcome_terminal",
+        "child_boundary",
+        "child_provider_authority",
+        "child_cross_artifact"
+      ],
+      "expected_error": "N04_exact_no_bypass",
+      "family": "nonce_ack",
+      "id": "NONCE_N04_BYPASS",
+      "ordinal": 67,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+        "N07_exact_order",
+        "N04_exact_no_bypass",
+        "nonce_exact_identity_order",
+        "nonce_exact_semantics",
+        "nonce_exact_predicates",
+        "unknown_outcome_terminal",
+        "child_boundary",
+        "child_provider_authority",
+        "child_cross_artifact",
+        "child_provider_cross_artifact"
+      ],
+      "expected_error": "child_provider_cross_artifact",
+      "family": "nonce_ack",
+      "id": "CHILD_PROVIDER_TRUE",
+      "ordinal": 68,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:ACK-REPLAY-VECTORS.json",
+        "ack_vector_ids",
+        "ack_vector_content",
+        "child_cross_artifact",
+        "child_ack_cross_artifact"
+      ],
+      "expected_error": "child_ack_cross_artifact",
+      "family": "nonce_ack",
+      "id": "ACK_RESULT_REVERSE",
+      "ordinal": 69,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:ACK-REPLAY-VECTORS.json",
+        "ack_vector_ids",
+        "ack_vector_content",
+        "child_cross_artifact"
+      ],
+      "expected_error": "ack_vector_content",
+      "family": "nonce_ack",
+      "id": "ACK_BARRIERS_EMPTY",
+      "ordinal": 70,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:CONCURRENCY-FENCING-VECTORS.json",
+        "contention_thresholds",
+        "concurrency_global",
+        "overlap_exclusion",
+        "disjoint_scope",
+        "stale_epoch_fence_rejection"
+      ],
+      "expected_error": "stale_epoch_fence_rejection",
+      "family": "fencing",
+      "id": "FENCE_STALE_ACCEPT",
+      "ordinal": 71,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:CONCURRENCY-FENCING-VECTORS.json",
+        "contention_thresholds",
+        "concurrency_global",
+        "overlap_exclusion",
+        "disjoint_scope",
+        "stale_epoch_fence_rejection"
+      ],
+      "expected_error": "overlap_exclusion",
+      "family": "fencing",
+      "id": "FENCE_OVERLAP_TWO",
+      "ordinal": 72,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:PATH-OWNERSHIP-MATRIX.json",
+        "path_multiple_or_missing_writer",
+        "path_exact_ownership",
+        "path_runner_create",
+        "child_path_creation"
+      ],
+      "expected_error": "path_multiple_or_missing_writer",
+      "family": "ownership",
+      "id": "PATH_MULTI_WRITER",
+      "ordinal": 73,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:COMPONENT-TRUST-BOUNDARIES.json",
+        "component_authority",
+        "nonsemantic_component_authority",
+        "component_exact_roles"
+      ],
+      "expected_error": "component_authority",
+      "family": "authority",
+      "id": "COMP_RUNTIME_AUTH",
+      "ordinal": 74,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:ZERO-EFFECT-CONTRACT.json",
+        "zero_effect_boundary"
+      ],
+      "expected_error": "zero_effect_boundary",
+      "family": "zero_effect",
+      "id": "ZERO_SHADOW_AUTH",
+      "ordinal": 75,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:M2B-PROMOTION-GATES.json",
+        "M2B_boundary"
+      ],
+      "expected_error": "M2B_boundary",
+      "family": "zero_effect",
+      "id": "M2B_RUNTIME_TRUE",
+      "ordinal": 76,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution"
+      ],
+      "expected_error": "crash_permissive",
+      "family": "crash",
+      "id": "CRASH_ACTION_TRUE",
+      "ordinal": 77,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution"
+      ],
+      "expected_error": "typed_proof_resolution",
+      "family": "crash",
+      "id": "CRASH_WRONG_PROOF",
+      "ordinal": 78,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    },
+    {
+      "errors": [
+        "exact_contract:INGRESS-ENVELOPE-CONTRACT.json",
+        "ingress_strict",
+        "ingress_schema"
+      ],
+      "expected_error": "exact_contract:INGRESS-ENVELOPE-CONTRACT.json",
+      "family": "strict_schema",
+      "id": "STRICT_NESTED_EXTENSION",
+      "ordinal": 79,
+      "specific_gate_observed": true,
+      "validator_rejected": true
+    }
+  ],
+  "schema": "critical_apply.m2a_r2_r1.final_independent.fresh_adversarial.v1",
+  "specific_gate_pass_count": 79,
+  "status": "PASS",
+  "unsafe_accepted_count": 0
+}

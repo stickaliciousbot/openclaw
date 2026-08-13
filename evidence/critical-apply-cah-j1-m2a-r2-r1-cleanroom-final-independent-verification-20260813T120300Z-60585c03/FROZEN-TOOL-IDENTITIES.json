@@ -1,0 +1,16 @@
+{
+  "candidate_validator": {
+    "source": "/tmp/cah-j1-m2a-r2-r1-cleanroom-20260813T120300Z-60585c03/candidate/validate_m2a_r2.py",
+    "writable_copy": "/tmp/cah-j1-m2a-r2-r1-cleanroom-20260813T120300Z-60585c03/work/baseline/validate_m2a_r2.py",
+    "sha256": "d4aad801e5b9833355448211fec2dbace1d97fffe0463e4c1d87ab239015cd74"
+  },
+  "privacy_scanner": {
+    "source": "/tmp/cah-j1-m2a-r2-r1-cleanroom-20260813T120300Z-60585c03/candidate/bin/r6_bounded_privacy_scanner.py",
+    "evidence_copy": "bin/r6_bounded_privacy_scanner.py",
+    "sha256": "ce38bf7811561c096bfe72ef12fc799712986d77ff86cb62b8e099eedc481115"
+  },
+  "fresh_verifier": {
+    "path": "FRESH-INDEPENDENT-TESTS.py",
+    "authorship": "new clean-room verifier source"
+  }
+}

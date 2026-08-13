@@ -1,0 +1,86 @@
+{
+  "boundary": {
+    "consumed_production_authority": 0,
+    "gateway_config_runtime_mutations": 0,
+    "mode": "PREP_ONLY",
+    "production_mutations": 0,
+    "provider_model_calls": 0
+  },
+  "created_utc": "2026-08-13T00:55:00Z",
+  "effects": {
+    "config_runtime_mutations": 0,
+    "gateway_mutations": 0,
+    "production_authority_consumed": 0,
+    "production_mutations": 0,
+    "provider_model_calls": 0
+  },
+  "governing_m0_status": "HOLD_FOR_CAH_J1_M0_REMAINING_B1_B2_B6_S2_S4_CONTRACT_FREEZE_AND_INDEPENDENT_FULL_PACKET_VERIFICATION",
+  "milestone": "CAH-J1-M0",
+  "next_authority_boundary": "Integrate remaining M0 correction contracts and run independent full-packet verification; no implementation or production action is authorized.",
+  "resolved": {
+    "B3": "canonical TERMINAL_REDUCTION_PREPARED fence frozen",
+    "B4": "three distinct heads and artifact bindings frozen",
+    "B5": "journal-derived idempotency frozen",
+    "S1": "release/close/receipt/lock order frozen",
+    "S3": "bounded notification and late-receipt behavior frozen"
+  },
+  "schema": "critical_apply.cah_j1_m0_scoped_contract_freeze_status.v1",
+  "scope": [
+    "B3",
+    "B4",
+    "B5",
+    "S1",
+    "S3"
+  ],
+  "scoped_status": "PASS_CAH_J1_M0_B3_B4_B5_S1_S3_TERMINAL_IDEMPOTENCY_LIFECYCLE_AND_NOTIFICATION_CONTRACTS_FROZEN_PREP_ONLY_NO_PRODUCTION_EFFECT",
+  "supporting_artifacts": [
+    {
+      "bytes": 5602,
+      "path": "CLOSEOUT-LIFECYCLE-TRANSITION-TABLE.json",
+      "sha256": "f7978b9dbecb8a11c9c83165e9ea9680b5bed4e418fe58e61e4ef72e16ab6ec3"
+    },
+    {
+      "bytes": 3949,
+      "path": "CRASH-RECOVERY-TEST-VECTORS.json",
+      "sha256": "4165faf4391d3b9917a86dd5b6e976e3884da1fed3dc58cdbc0574ed38a0ac62"
+    },
+    {
+      "bytes": 2771,
+      "path": "CROSS-CONTRACT-VERIFICATION.json",
+      "sha256": "7b14f047247ede77a44c33baf10f997066b9f420d39548926c0065d6597b7088"
+    },
+    {
+      "bytes": 3830,
+      "path": "EVENT-IDEMPOTENCY-CONTRACT.json",
+      "sha256": "30aa547cf8ab1ba0e0a3d3e882532753d5e8d4bea7143abcf1562fd965e9fb4d"
+    },
+    {
+      "bytes": 2352,
+      "path": "LATE-NOTIFICATION-CONTRACT.json",
+      "sha256": "f24b8f9399ec4db7ffa9824a92f55e90beae424c35814ad3d0f6344e32ff3951"
+    },
+    {
+      "bytes": 1579,
+      "path": "SOURCE-AUTHORITY.json",
+      "sha256": "0797a8eff0c0304c4893f80c01ffae5b0a98949151451afa34a682ee1a3a0ead"
+    },
+    {
+      "bytes": 5528,
+      "path": "TERMINAL-HEADS-AND-FENCE-CONTRACT.json",
+      "sha256": "15b84c88f6deec5437ca89b27c914fb631b4f3e8c6ca74d351e888bd22a77147"
+    }
+  ],
+  "unresolved_outside_scope": [
+    "B1 AuthorityDB cross-store crash consistency full contract integration",
+    "B2 at-most-once nonce/call protocol",
+    "B6 descriptor-bound CAS durability",
+    "S2 witness assurance grade",
+    "S4 authority-grade SQLite storage"
+  ],
+  "validation_required": [
+    "JSON parse all eight artifacts",
+    "recompute listed SHA-256 values",
+    "cross-contract enum/order validation",
+    "independent reviewer acceptance"
+  ]
+}

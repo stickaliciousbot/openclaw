@@ -1,0 +1,25 @@
+{
+  "all_required_statements_exactly_present": true,
+  "design_path": "design/critical-apply-supervisor-ingress-m2a-r2-exact-contract-repair-2026-08-13.md",
+  "design_sha256": "3269bbdccd2b5c62566692bbc3dcf17bf4a86a85fb491bedfcdea7ead80d143b",
+  "filename_presence_is_authority": false,
+  "required_statements": [
+    "CANONICAL_FINAL_EVENT=SUPERVISOR_CLOSED",
+    "CANONICAL_TRANSITION_COUNT=23",
+    "COMPLETION_RECEIPT_PUBLICATION_CANONICAL=false",
+    "TRANSACTION_LOCK_RELEASE_CANONICAL=false",
+    "NONCANONICAL_OPERATIONS_MAY_MUTATE_SEMANTIC_HEAD=false",
+    "NONCANONICAL_OPERATIONS_MAY_MUTATE_TERMINAL_DECISION_HEAD=false",
+    "NONCANONICAL_OPERATIONS_MAY_MUTATE_CLOSEOUT_HEAD=false",
+    "LOCK_RELEASE_REQUIRES_VERIFIED_PUBLICATION_RECEIPT=true",
+    "CANONICAL_CRASH_VECTOR_COUNT=46",
+    "ARTIFACT_PREPARATION_VECTOR_COUNT=2",
+    "LIFECYCLE_VECTOR_COUNT=4",
+    "TYPED_PROOF_COUNT=52",
+    "PROVIDER_CALL_ALLOWED_IN_M2A=false",
+    "M2B_STARTED=false",
+    "TERMINAL=PASS_CONSTRUCTION_HOLD_FOR_FRESH_INDEPENDENT_VERIFICATION"
+  ],
+  "required_statements_canonical_digest_sha256": "81c20e2c1bc86f9ce8c189e14fc3807a33067393bcd6636949dcdb297dc2c5a0",
+  "schema": "critical_apply.m2a_r2.design_contract.v1"
+}

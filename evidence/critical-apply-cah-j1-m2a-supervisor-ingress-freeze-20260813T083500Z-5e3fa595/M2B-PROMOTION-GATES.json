@@ -1,0 +1,22 @@
+{
+  "M2A_terminal": "STOP_BEFORE_M2B",
+  "M2B_implementation_gates": [
+    "owner authorizes separate M2B",
+    "independent M2A PASS_VERIFIED",
+    "clean disposable implementation worktree",
+    "all contracts implemented without weakening validator",
+    "unit/property/crash/concurrency suites pass",
+    "no runtime integration"
+  ],
+  "M2C_shadow_gate": [
+    "owner separately authorizes M2C",
+    "M2B independently verified",
+    "shadow-only adapter installed only through separately authorized critical apply transaction",
+    "no action/provider/network authority",
+    "2/5/20 and crash replay in shadow",
+    "independent observer/check wiring and bounded closeout"
+  ],
+  "production_promotion": "not authorized by M2A M2B or M2C",
+  "runtime_integration_allowed_now": false,
+  "schema": "critical_apply.m2a.promotion_gates.v1"
+}

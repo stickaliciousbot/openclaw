@@ -1,0 +1,153 @@
+{
+  "completion_receipt_protocol": {
+    "circularity_rule": "No intervening canonical preimage event exists. After SCOPE_LEASE_RELEASE_RECORDED, the fixed receipt preimage is a noncanonical durable artifact whose expected close sequence/prev hash are the direct next journal coordinates. SUPERVISOR_CLOSED is derived once and appended directly.",
+    "commit": [
+      "append exact derived SUPERVISOR_CLOSED directly as next canonical event; no preimage-record event",
+      "fdatasync journal",
+      "fsync parent when required",
+      "reopen and verify actual event equals derived event byte-for-byte and hash-for-hash",
+      "journal is closed"
+    ],
+    "forbidden": [
+      "append_COMPLETION_RECEIPT_PREIMAGE_RECORDED",
+      "treat_preimage_as_journal_head",
+      "append_any_event_between_preimage_snapshot_and_SUPERVISOR_CLOSED",
+      "reuse_preimage_if_prior_head_changed",
+      "append_after_SUPERVISOR_CLOSED"
+    ],
+    "precompute": [
+      "read and verify current canonical head after SCOPE_LEASE_RELEASE_RECORDED",
+      "set expected_close_sequence=current_sequence+1 and expected_prev_event_sha256=current_event_sha256",
+      "freeze all other receipt_preimage_v1 fields",
+      "canonicalize and hash receipt_preimage_v1 exactly once",
+      "derive SUPERVISOR_CLOSED payload and exact event envelope from fixed preimage hash and those direct-next coordinates",
+      "compute payload and event hashes; none feed back into preimage",
+      "atomically persist fdatasync fsync-parent and reopen-verify COMPLETION-RECEIPT-PREIMAGE.json plus derived event fixture",
+      "re-read journal head under exclusive transaction lock; require it still equals expected prior head or discard preparation and recompute before any append"
+    ],
+    "preimage_forbidden_fields": [
+      "close_event_payload_sha256",
+      "close_event_sha256",
+      "closeout_head",
+      "actual_close_sequence",
+      "any_value_derived_from_SUPERVISOR_CLOSED_serialization"
+    ],
+    "preimage_required_fields": [
+      "schema",
+      "transaction_id",
+      "terminal_decision_head",
+      "terminal_seal_sha256",
+      "notification_outcome",
+      "witness_outcome",
+      "lease_release_outcome",
+      "provider_effects",
+      "production_effects",
+      "expected_close_sequence",
+      "expected_prev_event_sha256",
+      "close_event_id",
+      "journal_hash_algorithm_id"
+    ],
+    "publish_after_close": [
+      "construct COMPLETION-RECEIPT.json with receipt_preimage_v1 fields receipt_preimage_sha256 and actual closeout_head",
+      "actual closeout_head contains close sequence close event sha256 and payload sha256",
+      "atomic exclusive same-filesystem publication",
+      "fdatasync receipt",
+      "fsync parent",
+      "reopen rehash and verify preimage projection and actual close event",
+      "release transaction lock only after verification"
+    ],
+    "recovery": "If only preimage artifact exists and journal head remains its expected prior head, verify and append exact derived close event. If head differs, discard/quarantine orphan preparation and recompute only if journal remains open and lifecycle permits. If close event exists, reconstruct final receipt from verified preimage and actual close event. Preimage never grants semantics or authority."
+  },
+  "heads": {
+    "closeout_head": {
+      "binds": [
+        "receipt_preimage_sha256",
+        "terminal_decision_head",
+        "terminal_seal_sha256",
+        "notification_outcome",
+        "witness_outcome",
+        "lease_release_outcome",
+        "provider_effects",
+        "production_effects"
+      ],
+      "consumer": "COMPLETION-RECEIPT.json_published_after_close_event",
+      "event": "SUPERVISOR_CLOSED",
+      "meaning": "final canonical journal event; no append follows"
+    },
+    "semantic_reduction_head": {
+      "consumer": "REDUCTION.json",
+      "event": "TERMINAL_REDUCTION_PREPARED",
+      "meaning": "frozen semantic prefix ending at fence"
+    },
+    "terminal_decision_head": {
+      "binds": [
+        "semantic_reduction_head",
+        "reduction_sha256",
+        "semantic_result"
+      ],
+      "consumers": [
+        "MANIFEST.json",
+        "TERMINAL-SEAL.json"
+      ],
+      "event": "TERMINAL_DECISION"
+    }
+  },
+  "invariants": [
+    "fence_is_committed_event_not_memory_flag",
+    "reducer_reads_only_verified_journal_and_CAS",
+    "terminal_decision_exactly_once_or_identical_idempotent_ACK",
+    "seal_binds_terminal_decision_head_not_closeout_head",
+    "closed_journal_rejects_all_append",
+    "cleanup_and_owned_child_reconciliation_are_forbidden_after_fence",
+    "completion_receipt_final_publication_occurs_after_SUPERVISOR_CLOSED_without_journal_append",
+    "SUPERVISOR_CLOSED_event_hash_is_precomputed_from_exact_next_sequence_prev_hash_and_payload",
+    "transaction_lock_released_only_after_final_receipt_verified",
+    "receipt_preimage_hash_domain_excludes_all_close_event_derived_fields",
+    "close_event_is_one_pass_function_of_fixed_preimage_hash_and_prior_journal_head",
+    "final_receipt_adds_actual_closeout_head_outside_preimage_hash_domain",
+    "receipt_preimage_is_noncanonical_nonsemantic_preparation",
+    "SUPERVISOR_CLOSED_directly_follows_SCOPE_LEASE_RELEASE_RECORDED",
+    "no_canonical_event_between_preimage_coordinate_snapshot_and_close",
+    "exclusive_lock_and_head_reread_prevent_coordinate_drift"
+  ],
+  "mandatory_fence": {
+    "allowed_post_freeze_event_types": [
+      "TERMINAL_DECISION",
+      "TERMINAL_SEAL_RECORDED",
+      "NOTIFICATION_OUTCOME_RECORDED",
+      "INDEPENDENT_WITNESS_RECORDED",
+      "SCOPE_LEASE_RELEASE_INTENT",
+      "SCOPE_LEASE_RELEASE_RECORDED",
+      "SUPERVISOR_CLOSED",
+      "COMPLETION_RECEIPT_PREIMAGE_RECORDED"
+    ],
+    "durable_ack_required": true,
+    "event_type": "TERMINAL_REDUCTION_PREPARED",
+    "events_rejected_after_fence": [
+      "OWNED_CHILD_RECONCILIATION_RECORDED",
+      "CLEANUP_RECORDED",
+      "SEMANTIC_EVIDENCE_PROPOSED",
+      "PASS_READINESS_CHANGED"
+    ],
+    "fields": [
+      "semantic_input_closed",
+      "freeze_sequence",
+      "freeze_event_sha256",
+      "contract_sha256",
+      "reducer_sha256",
+      "allowed_post_freeze_event_types"
+    ],
+    "noncanonical_closeout_preparation": "COMPLETION-RECEIPT-PREIMAGE.json may be persisted and fsynced by the supervisor but is not a canonical event, is not semantic authority, and does not advance the journal head.",
+    "post_fence_semantic_evidence": "REJECT_AND_INTEGRITY_HOLD",
+    "semantic_input_closed": true,
+    "terminal_seal_rule": "TERMINAL-SEAL.json is CAS-published after TERMINAL_DECISION; TERMINAL_SEAL_RECORDED is the canonical nonsemantic closeout event binding its hash."
+  },
+  "recovery": {
+    "conflicting_terminal_decision": "INTEGRITY_FAULT_HOLD_NEVER_SEVERITY_PRECEDENCE",
+    "crash_during_reduction": "replay_exact_verified_prefix_through_semantic_reduction_head_with_exact_reducer",
+    "later_closeout_events": "cannot_rewrite_semantic_result"
+  },
+  "schema": "critical_apply.terminal_heads_and_fence_contract.v1.r3",
+  "semantic_authority": "canonical_append_only_journal_only",
+  "status": "FROZEN_FOR_M0_R3_B3_B4"
+}

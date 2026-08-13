@@ -1,0 +1,70 @@
+{
+  "artifact_preparations": [
+    {
+      "bound_to_release_event": "SCOPE_LEASE_RELEASE_RECORDED",
+      "bound_to_release_head_sha256": true,
+      "canonical": false,
+      "event": "COMPLETION_RECEIPT_PREIMAGE_DURABLE_NONCANONICAL",
+      "id": "AP01_COMPLETION_RECEIPT_PREIMAGE",
+      "introduces_canonical_state": false,
+      "may_mutate_closeout_head": false,
+      "may_mutate_semantic_head": false,
+      "may_mutate_terminal_decision_head": false,
+      "prerequisite_exact_release_head": "sha256(SCOPE_LEASE_RELEASE_RECORDED event bytes)",
+      "required_before_canonical_event": "SUPERVISOR_CLOSED",
+      "semantic_authority": false
+    }
+  ],
+  "canonical": false,
+  "canonical_closeout_head_immutable": true,
+  "lifecycle_operations": [
+    {
+      "canonical": false,
+      "id": "LO01_COMPLETION_RECEIPT_PUBLICATION",
+      "may_mutate_closeout_head": false,
+      "may_mutate_semantic_head": false,
+      "may_mutate_terminal_decision_head": false,
+      "operation": "COMPLETION_RECEIPT_PUBLISHED",
+      "order": 1,
+      "prerequisite_closeout_event": "SUPERVISOR_CLOSED",
+      "prerequisite_exact_immutable_closeout_head": "sha256(SUPERVISOR_CLOSED event bytes)",
+      "produces": [
+        "COMPLETION_RECEIPT_PUBLICATION_RECEIPT_VERIFIED"
+      ],
+      "requires": [
+        "SUPERVISOR_CLOSED exact event reopened",
+        "closeout_head immutable and exact",
+        "completion receipt bytes hash-bound to closeout_head"
+      ],
+      "semantic_authority": false
+    },
+    {
+      "canonical": false,
+      "id": "LO02_TRANSACTION_LOCK_RELEASE",
+      "may_mutate_closeout_head": false,
+      "may_mutate_semantic_head": false,
+      "may_mutate_terminal_decision_head": false,
+      "operation": "TRANSACTION_LOCK_RELEASED",
+      "order": 2,
+      "prerequisite_closeout_event": "SUPERVISOR_CLOSED",
+      "prerequisite_exact_immutable_closeout_head": "sha256(SUPERVISOR_CLOSED event bytes)",
+      "produces": [
+        "OS_TRANSACTION_LOCK_RELEASED"
+      ],
+      "requires": [
+        "SUPERVISOR_CLOSED exact event reopened",
+        "closeout_head immutable and exact",
+        "COMPLETION_RECEIPT_PUBLICATION_RECEIPT_VERIFIED"
+      ],
+      "semantic_authority": false
+    }
+  ],
+  "operation_order": [
+    "AP01_COMPLETION_RECEIPT_PREIMAGE",
+    "LO01_COMPLETION_RECEIPT_PUBLICATION",
+    "LO02_TRANSACTION_LOCK_RELEASE"
+  ],
+  "publication_receipt_verified_before_lock_release": true,
+  "schema": "critical_apply.m2a_r2.artifact_lifecycle_contract.v1",
+  "semantic_authority": false
+}

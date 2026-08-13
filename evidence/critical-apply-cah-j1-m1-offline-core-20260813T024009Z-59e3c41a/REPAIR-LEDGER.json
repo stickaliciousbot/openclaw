@@ -1,0 +1,13 @@
+{
+  "schema": "critical_apply.cah_j1_m1_repair_ledger.v1",
+  "status": "COMPLETE_PENDING_INDEPENDENT_VERIFICATION",
+  "repairs": [
+    {"id":"M1-R01","area":"journal","defect":"concurrent appends could race the canonical head","repair":"per-journal flock serializes validation, append, sync, and reopen verification","tests":["raw append concurrency 20","idempotent concurrency 2/5/20"]},
+    {"id":"M1-R02","area":"progress_db","defect":"reuse checked only count/head and could accept same-cardinality content tamper or wrong transaction","repair":"validate transaction identity and every canonical idempotency row; rebuild temp-first with fsync and atomic replace","tests":["same-count content tamper rebuild","transaction mismatch rebuild","corrupt/deleted/stale rebuild"]},
+    {"id":"M1-R03","area":"authority_db","defect":"creation/version initialization and durable reopen identity were split and weak","repair":"exclusive no-follow leaf creation, owner/mode checks, one schema/version/metadata transaction, DB and parent fsync, reopen with WAL/FULL and exact identity/schema/chain verification","tests":["pragma/schema/mode","identity mismatch refusal","busy fail closed"]},
+    {"id":"M1-R04","area":"authority_bindings","defect":"receipt/event transitions did not require all frozen transaction, epoch, contract, authority, request, and prior-receipt bindings","repair":"strict common journal context and event binding checks plus current-row receipt chain-head verification","tests":["scope two-store gate","nonce barriers","stale fence","receipt chain"]},
+    {"id":"M1-R05","area":"nonce_N04","defect":"safe resume lacked recovered-new-epoch and prerequisite predicates","repair":"require new SUPERVISOR_RECOVERED epoch, forbidden-history absence, and explicit safe-resume predicates","tests":["N04 recovered epoch and predicates"]},
+    {"id":"M1-R06","area":"nonce_N07","defect":"outcome journal record did not prove CAS-backed response bytes","repair":"CAS capture supports protected extra bindings; authority verifies canonical CAS path, digest, byte count, capture schema, response digest and prior receipt","tests":["N07 fake non-CAS outcome rejection","full CAS outcome path"]},
+    {"id":"M1-R07","area":"cas","defect":"existing published objects were not rejected when hardlinked","repair":"require one link for published CAS objects while preserving explicit descriptor-bound source hardlink policy","tests":["published extra hardlink rejection","explicit source hardlink allowlist"]}
+  ]
+}

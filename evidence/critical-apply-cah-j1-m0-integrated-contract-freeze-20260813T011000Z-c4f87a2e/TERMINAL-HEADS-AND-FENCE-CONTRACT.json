@@ -1,0 +1,73 @@
+{
+  "heads": {
+    "closeout_head": {
+      "binds": [
+        "terminal_decision_head",
+        "terminal_seal_sha256",
+        "notification_outcome",
+        "witness_outcome",
+        "lease_release_outcome",
+        "provider_effects",
+        "production_effects"
+      ],
+      "consumer": "COMPLETION-RECEIPT.json",
+      "event": "SUPERVISOR_CLOSED"
+    },
+    "semantic_reduction_head": {
+      "consumer": "REDUCTION.json",
+      "event": "TERMINAL_REDUCTION_PREPARED",
+      "meaning": "frozen semantic prefix ending at fence"
+    },
+    "terminal_decision_head": {
+      "binds": [
+        "semantic_reduction_head",
+        "reduction_sha256",
+        "semantic_result"
+      ],
+      "consumers": [
+        "MANIFEST.json",
+        "TERMINAL-SEAL.json"
+      ],
+      "event": "TERMINAL_DECISION"
+    }
+  },
+  "invariants": [
+    "fence_is_committed_event_not_memory_flag",
+    "reducer_reads_only_verified_journal_and_CAS",
+    "terminal_decision_exactly_once_or_identical_idempotent_ACK",
+    "seal_binds_terminal_decision_head_not_closeout_head",
+    "closed_journal_rejects_all_append"
+  ],
+  "mandatory_fence": {
+    "allowed_post_freeze_event_types": [
+      "TERMINAL_DECISION",
+      "OWNED_CHILD_RECONCILIATION_RECORDED",
+      "CLEANUP_RECORDED",
+      "NOTIFICATION_OUTCOME_RECORDED",
+      "INDEPENDENT_WITNESS_RECORDED",
+      "SCOPE_LEASE_RELEASE_INTENT",
+      "SCOPE_LEASE_RELEASE_RECORDED",
+      "SUPERVISOR_CLOSED"
+    ],
+    "durable_ack_required": true,
+    "event_type": "TERMINAL_REDUCTION_PREPARED",
+    "fields": [
+      "semantic_input_closed",
+      "freeze_sequence",
+      "freeze_event_sha256",
+      "contract_sha256",
+      "reducer_sha256",
+      "allowed_post_freeze_event_types"
+    ],
+    "post_fence_semantic_evidence": "REJECT_AND_INTEGRITY_HOLD",
+    "semantic_input_closed": true
+  },
+  "recovery": {
+    "conflicting_terminal_decision": "INTEGRITY_FAULT_HOLD_NEVER_SEVERITY_PRECEDENCE",
+    "crash_during_reduction": "replay_exact_verified_prefix_through_semantic_reduction_head_with_exact_reducer",
+    "later_closeout_events": "cannot_rewrite_semantic_result"
+  },
+  "schema": "critical_apply.terminal_heads_and_fence_contract.v1",
+  "semantic_authority": "canonical_append_only_journal_only",
+  "status": "FROZEN_FOR_M0_B3_B4"
+}

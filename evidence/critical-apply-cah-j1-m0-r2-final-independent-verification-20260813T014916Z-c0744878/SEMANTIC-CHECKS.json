@@ -1,0 +1,83 @@
+{
+  "closeout_checks": {
+    "all_no_append_after_close": true,
+    "boundary_array_exact": true,
+    "fixed_preimage_hash_excludes_future_close_envelope_coordinates": false,
+    "fixture_models_preimage_record_event": false,
+    "fixture_proves_close_prev_equals_preimage_record_hash": false,
+    "no_semantic_rewrite": true,
+    "preimage_record_event_is_mandatory_before_close": true,
+    "recovery_declared_all": true
+  },
+  "coverage_checks": {
+    "all_vectors_no_auto_retry": true,
+    "every_transition_has_vectors": true,
+    "transition_count_exact": true,
+    "transition_ids_exact": true,
+    "unclassified_fail_closed": true,
+    "vector_count_exact": true
+  },
+  "errors": [
+    "CLOSEOUT_CHAIN_CONSTRUCTION"
+  ],
+  "fixture_checks": {
+    "event_payload_projection_exact": true,
+    "event_payload_sha_field_exact": true,
+    "event_prior_head_exact": true,
+    "event_sha_exact": true,
+    "forbidden_fields_absent": true,
+    "payload_only_binds_fixed_preimage_and_frozen_refs": true,
+    "payload_sha_exact": true,
+    "preimage_hash_independent_of_close_derived_fields": true,
+    "preimage_sha_exact": true,
+    "receipt_actual_head_exact": true,
+    "receipt_preimage_projection_exact": true,
+    "receipt_preimage_sha_exact": true,
+    "required_fields_exact": true
+  },
+  "nonce_checks": {
+    "N04_boundaries_exact": true,
+    "N04_count_10": true,
+    "N04_journal_ACK_before_DB_BEGIN": true,
+    "N04_vector_orders_exact": true,
+    "N07_boundaries_exact": true,
+    "N07_count_12": true,
+    "N07_response_then_journal_ACK_before_DB_BEGIN": true,
+    "N07_vector_orders_exact": true,
+    "all_N04_N07_no_retry": true,
+    "declared_N04_order_exact": true,
+    "declared_N07_order_exact": true,
+    "no_N04_generic_DB_first_rows": true,
+    "no_N07_generic_DB_first_rows": true
+  },
+  "privacy_checks": {
+    "blocking_zero": true,
+    "detector_identity": true,
+    "expected_identity": true,
+    "findings_empty": true,
+    "issues_empty": true,
+    "no_git_or_gca_claim": true,
+    "scanner_identity": true,
+    "status_pass": true
+  },
+  "schema": "critical_apply.cah_j1_m0_r2_independent_semantic_checks.v1",
+  "status": "HOLD",
+  "transition_vector_counts": {
+    "N01_RESERVE": 6,
+    "N02_COMMIT_RESERVATION_EVENT": 4,
+    "N03_BIND_RESERVATION": 8,
+    "N04_SAFE_RESUME_REBIND": 10,
+    "N05_COMMIT_CALL_START_BARRIER": 4,
+    "N06_DURABLY_CONSUME": 10,
+    "N07_RECORD_VERIFIED_OUTCOME": 12,
+    "N08_CLASSIFY_UNKNOWN": 9,
+    "N09_RETIRE_RECORDED_OUTCOME": 8,
+    "N10_ABANDON_BEFORE_CALL": 8,
+    "N11_QUARANTINE_ORPHAN_RESERVATION": 8
+  },
+  "zero_checks": {
+    "all_effects_zero": true,
+    "authorized_writes_candidate_only": true,
+    "candidate_status": true
+  }
+}

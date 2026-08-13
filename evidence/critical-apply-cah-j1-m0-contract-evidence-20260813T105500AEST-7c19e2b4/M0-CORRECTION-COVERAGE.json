@@ -1,0 +1,84 @@
+{
+  "schema": "critical_apply.cah_j1_m0.correction_coverage.v1",
+  "status": "PASS_ALL_M0_ADJUDICATION_ITEMS_REPRESENTED",
+  "source_adjudication": {
+    "path": "design/critical-apply-supervisor-owned-event-journal-owner-revision-m0-adjudication-2026-08-13.md",
+    "sha256": "1d2853fba832ebc243423c3c2dac00def80c3c2b56d892ee8c83aeff96c34427"
+  },
+  "coverage": [
+    {
+      "item": "B1",
+      "name": "AuthorityDB canonical journal crash consistency",
+      "artifacts": ["SOURCE-AUTHORITY.json", "SQLITE-AUTHORITY-STORAGE-CONTRACT.json"],
+      "external_bound_contract": "evidence/critical-apply-cah-j1-m0-contract-freeze-20260813T003900Z-a7c4e219/AUTHORITYDB-FENCING-PROTOCOL.md",
+      "status": "COVERED"
+    },
+    {
+      "item": "B2",
+      "name": "complete at-most-once nonce call protocol",
+      "artifacts": ["NONCE-AT-MOST-ONCE-STATE-MACHINE.json", "R18-NONCE-LEDGER-STALE-RUNNING-ADJUDICATION.json"],
+      "status": "COVERED"
+    },
+    {
+      "item": "B3",
+      "name": "canonical terminal input-freeze event",
+      "artifacts": ["TERMINAL-HEADS-AND-FENCE-CONTRACT.json"],
+      "status": "COVERED"
+    },
+    {
+      "item": "B4",
+      "name": "three distinct journal heads",
+      "artifacts": ["TERMINAL-HEADS-AND-FENCE-CONTRACT.json"],
+      "status": "COVERED"
+    },
+    {
+      "item": "B5",
+      "name": "journal-derived event idempotency",
+      "artifacts": ["EVENT-IDEMPOTENCY-CONTRACT.json", "R18-NONCE-LEDGER-STALE-RUNNING-ADJUDICATION.json"],
+      "status": "COVERED"
+    },
+    {
+      "item": "B6",
+      "name": "descriptor-bound crash-durable CAS publication",
+      "artifacts": ["CAS-CAPTURE-DURABILITY-CONTRACT.json"],
+      "status": "COVERED"
+    },
+    {
+      "item": "S1",
+      "name": "lease release and supervisor close ordering",
+      "artifacts": ["TERMINAL-HEADS-AND-FENCE-CONTRACT.json"],
+      "external_bound_contract": "evidence/critical-apply-cah-j1-m0-contract-freeze-20260813T003900Z-a7c4e219/AUTHORITYDB-FENCING-PROTOCOL.md",
+      "status": "COVERED"
+    },
+    {
+      "item": "S2",
+      "name": "WitnessDB assurance grade",
+      "artifacts": ["WITNESS-ASSURANCE-GRADE.json"],
+      "status": "COVERED"
+    },
+    {
+      "item": "S3",
+      "name": "late notification receipt behavior",
+      "artifacts": ["TERMINAL-HEADS-AND-FENCE-CONTRACT.json"],
+      "policy": "A bounded notification outcome is canonical before close; any later receipt is notification-plane evidence or a new transaction and cannot append to the closed journal or rewrite semantics.",
+      "status": "COVERED"
+    },
+    {
+      "item": "S4",
+      "name": "authority-grade SQLite WAL contract",
+      "artifacts": ["SQLITE-AUTHORITY-STORAGE-CONTRACT.json"],
+      "status": "COVERED"
+    }
+  ],
+  "no_second_semantic_authority_check": {
+    "AuthorityDB": "scope exclusion and nonce/call consumption only",
+    "CAS": "immutable evidence bytes only",
+    "ProgressDB": "rebuildable cache only",
+    "WitnessDB": "historical detection only",
+    "projections": "rebuildable views only",
+    "canonical_journal": "sole transaction-fact authority",
+    "result": "PASS"
+  },
+  "implementation_or_fixture_execution_claimed": false,
+  "freeze_scope": "contract evidence only"
+}

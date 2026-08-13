@@ -1,0 +1,20 @@
+{
+  "schema": "critical_apply.cah_j1_m2a.zero_effect_receipt.v1",
+  "status": "PASS_ZERO_EFFECT",
+  "created": [
+    "design/critical-apply-supervisor-ingress-m2a-architecture-freeze-2026-08-13.md",
+    "evidence/critical-apply-cah-j1-m2a-supervisor-ingress-freeze-20260813T083500Z-5e3fa595/",
+    "disposable /tmp builder/privacy files"
+  ],
+  "production_worktree_source_implementation_changed": false,
+  "git_index_stage_commit_push": false,
+  "install_or_activation": false,
+  "gateway_config_runtime_provider_network_production_changed": false,
+  "cron_or_systemd_changed": false,
+  "external_messages_sent": false,
+  "production_authority_consumed": false,
+  "shadow_output_authoritative": false,
+  "stop_before_M2B": true,
+  "baseline_repository_was_dirty": true,
+  "preexisting_or_concurrent_changes_not_claimed": true
+}

@@ -1,0 +1,21 @@
+{
+  "schema": "critical_apply.cah_j1_m1_offline_core_status.v1",
+  "status": "PASS_CONSTRUCTION_HOLD_FOR_INDEPENDENT_VERIFICATION",
+  "terminal": "PASS_CAH_J1_M1_OFFLINE_CORE_CONSTRUCTED_VALIDATED_PRIVACY_PASS_ZERO_EFFECT",
+  "independent_verification": "REQUIRED",
+  "production_effect": false,
+  "activation": false,
+  "base_commit": "b48fbacb12f07de334a0195e13992ce7237db910",
+  "frozen_contract_bundle": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-r3-contract-repair-20260813T020500Z-5e1b7a63",
+  "worktree": "/tmp/cah-j1-m1-core-20260813T1240AEST/worktree",
+  "validation": {
+    "source_compile": "PASS",
+    "focused_core_tests": "PASS",
+    "predecessor_authority_concurrency_idempotency": "PASS_81_TESTS",
+    "broad_commit_suite": "PASS_59_TESTS",
+    "npm_plugin_suite": "PASS_5_TESTS",
+    "m0_r3_contract_validator": "PASS",
+    "bounded_privacy": "PASS_BLOCKING_COUNT_0",
+    "git_diff_check": "PASS"
+  }
+}

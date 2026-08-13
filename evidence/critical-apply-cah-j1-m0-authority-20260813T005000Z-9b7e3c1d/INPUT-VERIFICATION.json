@@ -1,0 +1,56 @@
+{
+  "schema": "critical_apply.cah_j1_m0_authority_input_verification.v1",
+  "verification_result": "PASS",
+  "verified_inputs": [
+    {
+      "role": "owner_revision_governing_input",
+      "path": "/home/stickai/.openclaw/workspace/design/critical-apply-supervisor-owned-event-journal-owner-revision-2026-08-13.md",
+      "expected_sha256": "6d80167ba92e1a68c9d17d6027135b289f88c6b9f3d6fd9e24ea86aedab459af",
+      "observed_sha256": "6d80167ba92e1a68c9d17d6027135b289f88c6b9f3d6fd9e24ea86aedab459af",
+      "sha256_match": true,
+      "bytes": 55288,
+      "lines": 2990,
+      "read_scope": "design_input_only",
+      "authority_interpretation": "governing_owner_authored_M0_input"
+    },
+    {
+      "role": "m0_adjudication_required_correction_ledger",
+      "path": "/home/stickai/.openclaw/workspace/design/critical-apply-supervisor-owned-event-journal-owner-revision-m0-adjudication-2026-08-13.md",
+      "expected_sha256": "1d2853fba832ebc243423c3c2dac00def80c3c2b56d892ee8c83aeff96c34427",
+      "observed_sha256": "1d2853fba832ebc243423c3c2dac00def80c3c2b56d892ee8c83aeff96c34427",
+      "sha256_match": true,
+      "bytes": 13195,
+      "lines": 350,
+      "read_scope": "design_input_only",
+      "authority_interpretation": "required_M0_correction_ledger"
+    }
+  ],
+  "adjudicated_items_in_this_package": {
+    "B1_AuthorityDB_canonical_journal_crash_consistency": "RESOLVED",
+    "B2_complete_at_most_once_nonce_call_protocol": "RESOLVED",
+    "S4_authority_grade_SQLite_WAL_contract": "RESOLVED"
+  },
+  "explicitly_outside_this_subpackage": [
+    "B3_terminal_input_freeze",
+    "B4_three_journal_heads",
+    "B5_journal_derived_event_idempotency",
+    "B6_descriptor_bound_CAS_publication",
+    "S1_release_and_close_order_except_the_release_order_needed_for_B1",
+    "S2_witness_assurance_beyond_storage_grade",
+    "S3_late_notification_receipts"
+  ],
+  "authority_partition_verified": {
+    "canonical_journal": "sole_semantic_and_transaction_fact_authority",
+    "AuthorityDB": "cross_transaction_scope_and_nonce_authority_only",
+    "ProgressDB": "rebuildable_non_authoritative_projection",
+    "WitnessDB": "independent_history_witness_not_semantic_authority"
+  },
+  "verification_method": [
+    "SHA-256 computed from workspace input bytes",
+    "line and byte counts measured",
+    "B1 B2 S4 requirements read from adjudication",
+    "relevant owner-revision storage authority lifecycle barrier recovery and invariant sections reconciled"
+  ],
+  "mismatch_policy": "HOLD_NO_CONTRACT_FREEZE",
+  "all_expected_hashes_match": true
+}

@@ -1,0 +1,20 @@
+{
+  "schema": "critical_apply.cah_j1_m2a.status.v1",
+  "status": "PASS_CONSTRUCTION_HOLD_FOR_INDEPENDENT_VERIFICATION",
+  "terminal": "PASS_CAH_J1_M2A_SUPERVISOR_INGRESS_ARCHITECTURE_AND_EXECUTABLE_CONTRACTS_FROZEN_VALIDATED_PRIVACY_PASS_ZERO_EFFECT_STOP_BEFORE_M2B",
+  "independent_verification": "REQUIRED",
+  "runtime_integration": false,
+  "production_effect": false,
+  "M2B_started": false,
+  "validation": {
+    "py_compile": "PASS",
+    "validator": "PASS",
+    "mutation_tests": "PASS_12",
+    "crash_vectors": 52,
+    "concurrency_vectors": 7,
+    "ack_vectors": 8,
+    "privacy": "PASS_BLOCKING_0",
+    "git_diff_check": "PASS",
+    "zero_effect": "PASS"
+  }
+}

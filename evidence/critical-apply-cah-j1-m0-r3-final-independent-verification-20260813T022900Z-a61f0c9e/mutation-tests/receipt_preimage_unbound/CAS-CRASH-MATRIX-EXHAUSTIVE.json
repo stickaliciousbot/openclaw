@@ -1,0 +1,344 @@
+{
+  "all_boundaries_covered": true,
+  "edge_vectors": 26,
+  "fault_vectors": 12,
+  "publication_step_count": 13,
+  "publication_steps": [
+    "create_same_filesystem_temp_exclusive",
+    "stream_from_source_fd_and_SHA256",
+    "fdatasync_temp_object",
+    "publish_without_overwrite_by_link_or_rename_noreplace",
+    "fsync_CAS_shard_parent",
+    "fsync_CAS_root_if_new_shard",
+    "reopen_published_object_O_NOFOLLOW",
+    "fstat_and_rehash_exact",
+    "append_CAS_CAPTURED_event_binding_descriptor_metadata_and_hash",
+    "fdatasync_journal",
+    "fsync_journal_parent_if_created_or_rotated",
+    "reopen_verify_journal_event",
+    "ACK"
+  ],
+  "schema": "critical_apply.cas_crash_matrix_exhaustive.v1",
+  "status": "FROZEN_FOR_M0_R1_B6",
+  "vector_count": 38,
+  "vectors": [
+    {
+      "ACK": false,
+      "boundary": "before_step",
+      "id": "CAS-STEP-01-BEFORE",
+      "journal_reference": false,
+      "object_state": "no_temp",
+      "recovery": "inspect descriptors,temp,published_object,and_verified_journal; resume exact idempotent step or HOLD",
+      "step": "create_same_filesystem_temp_exclusive"
+    },
+    {
+      "ACK": false,
+      "boundary": "after_step_before_next",
+      "id": "CAS-STEP-01-AFTER",
+      "journal_reference": false,
+      "object_state": "create_same_filesystem_temp_exclusive",
+      "recovery": "orphan object allowed before durable journal; durable journal returns original ACK; referenced object must reopen and rehash or integrity FAIL",
+      "step": "create_same_filesystem_temp_exclusive"
+    },
+    {
+      "ACK": false,
+      "boundary": "before_step",
+      "id": "CAS-STEP-02-BEFORE",
+      "journal_reference": false,
+      "object_state": "state_after_previous_step",
+      "recovery": "inspect descriptors,temp,published_object,and_verified_journal; resume exact idempotent step or HOLD",
+      "step": "stream_from_source_fd_and_SHA256"
+    },
+    {
+      "ACK": false,
+      "boundary": "after_step_before_next",
+      "id": "CAS-STEP-02-AFTER",
+      "journal_reference": false,
+      "object_state": "stream_from_source_fd_and_SHA256",
+      "recovery": "orphan object allowed before durable journal; durable journal returns original ACK; referenced object must reopen and rehash or integrity FAIL",
+      "step": "stream_from_source_fd_and_SHA256"
+    },
+    {
+      "ACK": false,
+      "boundary": "before_step",
+      "id": "CAS-STEP-03-BEFORE",
+      "journal_reference": false,
+      "object_state": "state_after_previous_step",
+      "recovery": "inspect descriptors,temp,published_object,and_verified_journal; resume exact idempotent step or HOLD",
+      "step": "fdatasync_temp_object"
+    },
+    {
+      "ACK": false,
+      "boundary": "after_step_before_next",
+      "id": "CAS-STEP-03-AFTER",
+      "journal_reference": false,
+      "object_state": "fdatasync_temp_object",
+      "recovery": "orphan object allowed before durable journal; durable journal returns original ACK; referenced object must reopen and rehash or integrity FAIL",
+      "step": "fdatasync_temp_object"
+    },
+    {
+      "ACK": false,
+      "boundary": "before_step",
+      "id": "CAS-STEP-04-BEFORE",
+      "journal_reference": false,
+      "object_state": "state_after_previous_step",
+      "recovery": "inspect descriptors,temp,published_object,and_verified_journal; resume exact idempotent step or HOLD",
+      "step": "publish_without_overwrite_by_link_or_rename_noreplace"
+    },
+    {
+      "ACK": false,
+      "boundary": "after_step_before_next",
+      "id": "CAS-STEP-04-AFTER",
+      "journal_reference": false,
+      "object_state": "publish_without_overwrite_by_link_or_rename_noreplace",
+      "recovery": "orphan object allowed before durable journal; durable journal returns original ACK; referenced object must reopen and rehash or integrity FAIL",
+      "step": "publish_without_overwrite_by_link_or_rename_noreplace"
+    },
+    {
+      "ACK": false,
+      "boundary": "before_step",
+      "id": "CAS-STEP-05-BEFORE",
+      "journal_reference": false,
+      "object_state": "state_after_previous_step",
+      "recovery": "inspect descriptors,temp,published_object,and_verified_journal; resume exact idempotent step or HOLD",
+      "step": "fsync_CAS_shard_parent"
+    },
+    {
+      "ACK": false,
+      "boundary": "after_step_before_next",
+      "id": "CAS-STEP-05-AFTER",
+      "journal_reference": false,
+      "object_state": "fsync_CAS_shard_parent",
+      "recovery": "orphan object allowed before durable journal; durable journal returns original ACK; referenced object must reopen and rehash or integrity FAIL",
+      "step": "fsync_CAS_shard_parent"
+    },
+    {
+      "ACK": false,
+      "boundary": "before_step",
+      "id": "CAS-STEP-06-BEFORE",
+      "journal_reference": false,
+      "object_state": "state_after_previous_step",
+      "recovery": "inspect descriptors,temp,published_object,and_verified_journal; resume exact idempotent step or HOLD",
+      "step": "fsync_CAS_root_if_new_shard"
+    },
+    {
+      "ACK": false,
+      "boundary": "after_step_before_next",
+      "id": "CAS-STEP-06-AFTER",
+      "journal_reference": false,
+      "object_state": "fsync_CAS_root_if_new_shard",
+      "recovery": "orphan object allowed before durable journal; durable journal returns original ACK; referenced object must reopen and rehash or integrity FAIL",
+      "step": "fsync_CAS_root_if_new_shard"
+    },
+    {
+      "ACK": false,
+      "boundary": "before_step",
+      "id": "CAS-STEP-07-BEFORE",
+      "journal_reference": false,
+      "object_state": "state_after_previous_step",
+      "recovery": "inspect descriptors,temp,published_object,and_verified_journal; resume exact idempotent step or HOLD",
+      "step": "reopen_published_object_O_NOFOLLOW"
+    },
+    {
+      "ACK": false,
+      "boundary": "after_step_before_next",
+      "id": "CAS-STEP-07-AFTER",
+      "journal_reference": false,
+      "object_state": "reopen_published_object_O_NOFOLLOW",
+      "recovery": "orphan object allowed before durable journal; durable journal returns original ACK; referenced object must reopen and rehash or integrity FAIL",
+      "step": "reopen_published_object_O_NOFOLLOW"
+    },
+    {
+      "ACK": false,
+      "boundary": "before_step",
+      "id": "CAS-STEP-08-BEFORE",
+      "journal_reference": false,
+      "object_state": "state_after_previous_step",
+      "recovery": "inspect descriptors,temp,published_object,and_verified_journal; resume exact idempotent step or HOLD",
+      "step": "fstat_and_rehash_exact"
+    },
+    {
+      "ACK": false,
+      "boundary": "after_step_before_next",
+      "id": "CAS-STEP-08-AFTER",
+      "journal_reference": false,
+      "object_state": "fstat_and_rehash_exact",
+      "recovery": "orphan object allowed before durable journal; durable journal returns original ACK; referenced object must reopen and rehash or integrity FAIL",
+      "step": "fstat_and_rehash_exact"
+    },
+    {
+      "ACK": false,
+      "boundary": "before_step",
+      "id": "CAS-STEP-09-BEFORE",
+      "journal_reference": "depends_on_verified_journal",
+      "object_state": "state_after_previous_step",
+      "recovery": "inspect descriptors,temp,published_object,and_verified_journal; resume exact idempotent step or HOLD",
+      "step": "append_CAS_CAPTURED_event_binding_descriptor_metadata_and_hash"
+    },
+    {
+      "ACK": false,
+      "boundary": "after_step_before_next",
+      "id": "CAS-STEP-09-AFTER",
+      "journal_reference": false,
+      "object_state": "append_CAS_CAPTURED_event_binding_descriptor_metadata_and_hash",
+      "recovery": "orphan object allowed before durable journal; durable journal returns original ACK; referenced object must reopen and rehash or integrity FAIL",
+      "step": "append_CAS_CAPTURED_event_binding_descriptor_metadata_and_hash"
+    },
+    {
+      "ACK": false,
+      "boundary": "before_step",
+      "id": "CAS-STEP-10-BEFORE",
+      "journal_reference": "depends_on_verified_journal",
+      "object_state": "state_after_previous_step",
+      "recovery": "inspect descriptors,temp,published_object,and_verified_journal; resume exact idempotent step or HOLD",
+      "step": "fdatasync_journal"
+    },
+    {
+      "ACK": false,
+      "boundary": "after_step_before_next",
+      "id": "CAS-STEP-10-AFTER",
+      "journal_reference": true,
+      "object_state": "fdatasync_journal",
+      "recovery": "orphan object allowed before durable journal; durable journal returns original ACK; referenced object must reopen and rehash or integrity FAIL",
+      "step": "fdatasync_journal"
+    },
+    {
+      "ACK": false,
+      "boundary": "before_step",
+      "id": "CAS-STEP-11-BEFORE",
+      "journal_reference": "depends_on_verified_journal",
+      "object_state": "state_after_previous_step",
+      "recovery": "inspect descriptors,temp,published_object,and_verified_journal; resume exact idempotent step or HOLD",
+      "step": "fsync_journal_parent_if_created_or_rotated"
+    },
+    {
+      "ACK": false,
+      "boundary": "after_step_before_next",
+      "id": "CAS-STEP-11-AFTER",
+      "journal_reference": true,
+      "object_state": "fsync_journal_parent_if_created_or_rotated",
+      "recovery": "orphan object allowed before durable journal; durable journal returns original ACK; referenced object must reopen and rehash or integrity FAIL",
+      "step": "fsync_journal_parent_if_created_or_rotated"
+    },
+    {
+      "ACK": false,
+      "boundary": "before_step",
+      "id": "CAS-STEP-12-BEFORE",
+      "journal_reference": "depends_on_verified_journal",
+      "object_state": "state_after_previous_step",
+      "recovery": "inspect descriptors,temp,published_object,and_verified_journal; resume exact idempotent step or HOLD",
+      "step": "reopen_verify_journal_event"
+    },
+    {
+      "ACK": false,
+      "boundary": "after_step_before_next",
+      "id": "CAS-STEP-12-AFTER",
+      "journal_reference": true,
+      "object_state": "reopen_verify_journal_event",
+      "recovery": "orphan object allowed before durable journal; durable journal returns original ACK; referenced object must reopen and rehash or integrity FAIL",
+      "step": "reopen_verify_journal_event"
+    },
+    {
+      "ACK": false,
+      "boundary": "before_step",
+      "id": "CAS-STEP-13-BEFORE",
+      "journal_reference": "depends_on_verified_journal",
+      "object_state": "state_after_previous_step",
+      "recovery": "inspect descriptors,temp,published_object,and_verified_journal; resume exact idempotent step or HOLD",
+      "step": "ACK"
+    },
+    {
+      "ACK": true,
+      "boundary": "after_step_before_next",
+      "id": "CAS-STEP-13-AFTER",
+      "journal_reference": true,
+      "object_state": "ACK",
+      "recovery": "orphan object allowed before durable journal; durable journal returns original ACK; referenced object must reopen and rehash or integrity FAIL",
+      "step": "ACK"
+    },
+    {
+      "automatic_retry": false,
+      "expected": "reject_identity_mismatch",
+      "fault": "source_inode_replaced_after_registration_before_open",
+      "id": "CAS-FAULT-01",
+      "protected_action_allowed": false
+    },
+    {
+      "automatic_retry": false,
+      "expected": "CAPTURE_HOLD_no_event",
+      "fault": "source_mutates_between_fstat_before_and_after",
+      "id": "CAS-FAULT-02",
+      "protected_action_allowed": false
+    },
+    {
+      "automatic_retry": false,
+      "expected": "reject_no_capture",
+      "fault": "source_hardlink_count_policy_violation",
+      "id": "CAS-FAULT-03",
+      "protected_action_allowed": false
+    },
+    {
+      "automatic_retry": false,
+      "expected": "reject_O_NOFOLLOW",
+      "fault": "symlink_leaf_or_ancestor",
+      "id": "CAS-FAULT-04",
+      "protected_action_allowed": false
+    },
+    {
+      "automatic_retry": false,
+      "expected": "fatal_hash_collision_or_corruption",
+      "fault": "existing_hash_path_wrong_bytes",
+      "id": "CAS-FAULT-05",
+      "protected_action_allowed": false
+    },
+    {
+      "automatic_retry": false,
+      "expected": "integrity_FAIL",
+      "fault": "published_object_missing_after_journal_reference",
+      "id": "CAS-FAULT-06",
+      "protected_action_allowed": false
+    },
+    {
+      "automatic_retry": false,
+      "expected": "orphan_temp_no_reference_cleanup_separate_policy",
+      "fault": "kill_after_temp_fdatasync_before_publish",
+      "id": "CAS-FAULT-07",
+      "protected_action_allowed": false
+    },
+    {
+      "automatic_retry": false,
+      "expected": "reopen_rehash_then_continue",
+      "fault": "kill_after_parent_fsync_before_reopen_rehash",
+      "id": "CAS-FAULT-08",
+      "protected_action_allowed": false
+    },
+    {
+      "automatic_retry": false,
+      "expected": "orphan_CAS_allowed",
+      "fault": "kill_after_rehash_before_journal_append",
+      "id": "CAS-FAULT-09",
+      "protected_action_allowed": false
+    },
+    {
+      "automatic_retry": false,
+      "expected": "recover_invalid_tail_or_verified_event_no_ACK",
+      "fault": "kill_during_CAS_CAPTURED_append",
+      "id": "CAS-FAULT-10",
+      "protected_action_allowed": false
+    },
+    {
+      "automatic_retry": false,
+      "expected": "event_not_durable_no_ACK_recover_tail",
+      "fault": "kill_after_append_before_fdatasync",
+      "id": "CAS-FAULT-11",
+      "protected_action_allowed": false
+    },
+    {
+      "automatic_retry": false,
+      "expected": "journal_idempotency_original_ACK",
+      "fault": "kill_after_fdatasync_before_ACK",
+      "id": "CAS-FAULT-12",
+      "protected_action_allowed": false
+    }
+  ]
+}

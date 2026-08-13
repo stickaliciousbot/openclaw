@@ -1,0 +1,383 @@
+{
+  "ProgressDB_authoritative": false,
+  "action_semantics": {
+    "child_launch_implies_provider_authority": false,
+    "false_after_result_execution_or_release": true,
+    "false_before_barriers": true,
+    "field": "action_allowed",
+    "meaning": "bounded_non_provider_child_eligibility_only",
+    "requires": [
+      "SCOPE_LEASE_ACTIVE exact journal+AuthorityDB bind",
+      "CHILD_LAUNCH_INTENT canonical barrier",
+      "active exact epoch and fence",
+      "owner authority",
+      "immutable request hashes"
+    ],
+    "true_transition_ids": [
+      "T09"
+    ],
+    "type": "boolean"
+  },
+  "artifact_preparations": [
+    {
+      "bound_to_release_event": "SCOPE_LEASE_RELEASE_RECORDED",
+      "bound_to_release_head_sha256": true,
+      "canonical": false,
+      "event": "COMPLETION_RECEIPT_PREIMAGE_DURABLE_NONCANONICAL",
+      "id": "AP01_COMPLETION_RECEIPT_PREIMAGE",
+      "introduces_canonical_state": false,
+      "required_before_canonical_event": "SUPERVISOR_CLOSED"
+    }
+  ],
+  "canonical_close_adjacency": [
+    "SCOPE_LEASE_RELEASE_RECORDED",
+    "SUPERVISOR_CLOSED"
+  ],
+  "canonical_projection": [
+    "REGISTER_TRANSACTION_ROOT",
+    "JOURNAL_GENESIS",
+    "SUPERVISOR_EPOCH_COMMITTED",
+    "INGRESS_ENVELOPE_CAPTURED",
+    "INGRESS_ACCEPTED",
+    "SCOPE_LEASE_RESERVED",
+    "SCOPE_LEASE_JOURNAL_COMMITTED",
+    "SCOPE_LEASE_ACTIVE",
+    "CHILD_LAUNCH_INTENT",
+    "CHILD_STARTED",
+    "CHILD_RESULT_CAPTURED",
+    "EXECUTION_AND_EVIDENCE_COMMITTED",
+    "OWNED_CHILDREN_RECONCILED",
+    "CLEANUP_RECORDED",
+    "TERMINAL_REDUCTION_PREPARED",
+    "TERMINAL_DECISION",
+    "TERMINAL_SEAL_RECORDED",
+    "NOTIFICATION_OUTCOME_RECORDED",
+    "INDEPENDENT_WITNESS_RECORDED",
+    "SCOPE_LEASE_RELEASE_INTENT",
+    "AUTHORITYDB_RELEASED",
+    "SCOPE_LEASE_RELEASE_RECORDED",
+    "SUPERVISOR_CLOSED",
+    "COMPLETION_RECEIPT_PUBLISHED",
+    "TRANSACTION_LOCK_RELEASED"
+  ],
+  "canonical_state_chain": [
+    "ROOT_REGISTERED",
+    "JOURNAL_GENESIS_COMMITTED",
+    "EPOCH_COMMITTED",
+    "ENVELOPE_CAS_CAPTURED",
+    "INGRESS_ACCEPTED",
+    "SCOPE_RESERVED_PENDING_JOURNAL",
+    "SCOPE_JOURNAL_BOUND",
+    "SCOPE_ACTIVE",
+    "CHILD_LAUNCH_INTENT_COMMITTED",
+    "CHILD_STARTED",
+    "CHILD_RESULT_CAPTURED",
+    "EXECUTION_AND_EVIDENCE_COMMITTED",
+    "OWNED_CHILDREN_RECONCILED",
+    "CLEANUP_RECORDED",
+    "TERMINAL_REDUCTION_PREPARED",
+    "TERMINAL_DECISION",
+    "TERMINAL_SEAL_RECORDED",
+    "NOTIFICATION_OUTCOME_RECORDED",
+    "INDEPENDENT_WITNESS_RECORDED",
+    "SCOPE_LEASE_RELEASE_INTENT",
+    "AUTHORITYDB_RELEASED",
+    "SCOPE_LEASE_RELEASE_RECORDED",
+    "SUPERVISOR_CLOSED",
+    "COMPLETION_RECEIPT_PUBLISHED_VERIFIED",
+    "TRANSACTION_LOCK_RELEASED"
+  ],
+  "canonical_transitions": [
+    {
+      "action_allowed": false,
+      "authority": "supervisor",
+      "call_allowed": false,
+      "canonical": true,
+      "event": "REGISTER_TRANSACTION_ROOT",
+      "from": null,
+      "id": "T00",
+      "provider_call_allowed": false,
+      "to": "ROOT_REGISTERED"
+    },
+    {
+      "action_allowed": false,
+      "authority": "journal",
+      "call_allowed": false,
+      "canonical": true,
+      "event": "JOURNAL_GENESIS",
+      "from": "ROOT_REGISTERED",
+      "id": "T01",
+      "provider_call_allowed": false,
+      "to": "JOURNAL_GENESIS_COMMITTED"
+    },
+    {
+      "action_allowed": false,
+      "authority": "journal",
+      "call_allowed": false,
+      "canonical": true,
+      "event": "SUPERVISOR_EPOCH_COMMITTED",
+      "from": "JOURNAL_GENESIS_COMMITTED",
+      "id": "T02",
+      "provider_call_allowed": false,
+      "to": "EPOCH_COMMITTED"
+    },
+    {
+      "action_allowed": false,
+      "authority": "CAS+journal",
+      "call_allowed": false,
+      "canonical": true,
+      "event": "INGRESS_ENVELOPE_CAPTURED",
+      "from": "EPOCH_COMMITTED",
+      "id": "T03",
+      "provider_call_allowed": false,
+      "to": "ENVELOPE_CAS_CAPTURED"
+    },
+    {
+      "action_allowed": false,
+      "authority": "journal",
+      "call_allowed": false,
+      "canonical": true,
+      "event": "INGRESS_ACCEPTED",
+      "from": "ENVELOPE_CAS_CAPTURED",
+      "id": "T04",
+      "provider_call_allowed": false,
+      "to": "INGRESS_ACCEPTED"
+    },
+    {
+      "action_allowed": false,
+      "authority": "AuthorityDB",
+      "call_allowed": false,
+      "canonical": true,
+      "event": "SCOPE_LEASE_RESERVED",
+      "from": "INGRESS_ACCEPTED",
+      "id": "T05",
+      "provider_call_allowed": false,
+      "to": "SCOPE_RESERVED_PENDING_JOURNAL"
+    },
+    {
+      "action_allowed": false,
+      "authority": "journal",
+      "call_allowed": false,
+      "canonical": true,
+      "event": "SCOPE_LEASE_JOURNAL_COMMITTED",
+      "from": "SCOPE_RESERVED_PENDING_JOURNAL",
+      "id": "T06",
+      "provider_call_allowed": false,
+      "to": "SCOPE_JOURNAL_BOUND"
+    },
+    {
+      "action_allowed": false,
+      "authority": "AuthorityDB+journal",
+      "call_allowed": false,
+      "canonical": true,
+      "event": "SCOPE_LEASE_ACTIVE",
+      "from": "SCOPE_JOURNAL_BOUND",
+      "id": "T07",
+      "provider_call_allowed": false,
+      "to": "SCOPE_ACTIVE"
+    },
+    {
+      "action_allowed": false,
+      "authority": "journal",
+      "call_allowed": false,
+      "canonical": true,
+      "event": "CHILD_LAUNCH_INTENT",
+      "from": "SCOPE_ACTIVE",
+      "id": "T08",
+      "provider_call_allowed": false,
+      "to": "CHILD_LAUNCH_INTENT_COMMITTED"
+    },
+    {
+      "action_allowed": true,
+      "authority": "journal",
+      "call_allowed": false,
+      "canonical": true,
+      "event": "CHILD_STARTED",
+      "from": "CHILD_LAUNCH_INTENT_COMMITTED",
+      "id": "T09",
+      "provider_call_allowed": false,
+      "to": "CHILD_STARTED"
+    },
+    {
+      "action_allowed": false,
+      "authority": "CAS+journal",
+      "call_allowed": false,
+      "canonical": true,
+      "event": "CHILD_RESULT_CAPTURED",
+      "from": "CHILD_STARTED",
+      "id": "T10",
+      "provider_call_allowed": false,
+      "to": "CHILD_RESULT_CAPTURED"
+    },
+    {
+      "action_allowed": false,
+      "authority": "journal+CAS",
+      "call_allowed": false,
+      "canonical": true,
+      "event": "EXECUTION_AND_EVIDENCE_COMMITTED",
+      "from": "CHILD_RESULT_CAPTURED",
+      "id": "T11",
+      "provider_call_allowed": false,
+      "to": "EXECUTION_AND_EVIDENCE_COMMITTED"
+    },
+    {
+      "action_allowed": false,
+      "authority": "journal",
+      "call_allowed": false,
+      "canonical": true,
+      "event": "OWNED_CHILDREN_RECONCILED",
+      "from": "EXECUTION_AND_EVIDENCE_COMMITTED",
+      "id": "T12",
+      "provider_call_allowed": false,
+      "to": "OWNED_CHILDREN_RECONCILED"
+    },
+    {
+      "action_allowed": false,
+      "authority": "journal",
+      "call_allowed": false,
+      "canonical": true,
+      "event": "CLEANUP_RECORDED",
+      "from": "OWNED_CHILDREN_RECONCILED",
+      "id": "T13",
+      "provider_call_allowed": false,
+      "to": "CLEANUP_RECORDED"
+    },
+    {
+      "action_allowed": false,
+      "authority": "journal",
+      "call_allowed": false,
+      "canonical": true,
+      "event": "TERMINAL_REDUCTION_PREPARED",
+      "from": "CLEANUP_RECORDED",
+      "id": "T14",
+      "provider_call_allowed": false,
+      "to": "TERMINAL_REDUCTION_PREPARED"
+    },
+    {
+      "action_allowed": false,
+      "authority": "journal",
+      "call_allowed": false,
+      "canonical": true,
+      "event": "TERMINAL_DECISION",
+      "from": "TERMINAL_REDUCTION_PREPARED",
+      "id": "T15",
+      "provider_call_allowed": false,
+      "to": "TERMINAL_DECISION"
+    },
+    {
+      "action_allowed": false,
+      "authority": "CAS+journal",
+      "call_allowed": false,
+      "canonical": true,
+      "event": "TERMINAL_SEAL_RECORDED",
+      "from": "TERMINAL_DECISION",
+      "id": "T16",
+      "provider_call_allowed": false,
+      "to": "TERMINAL_SEAL_RECORDED"
+    },
+    {
+      "action_allowed": false,
+      "authority": "journal",
+      "call_allowed": false,
+      "canonical": true,
+      "event": "NOTIFICATION_OUTCOME_RECORDED",
+      "from": "TERMINAL_SEAL_RECORDED",
+      "id": "T17",
+      "provider_call_allowed": false,
+      "to": "NOTIFICATION_OUTCOME_RECORDED"
+    },
+    {
+      "action_allowed": false,
+      "authority": "WitnessDB+journal",
+      "call_allowed": false,
+      "canonical": true,
+      "event": "INDEPENDENT_WITNESS_RECORDED",
+      "from": "NOTIFICATION_OUTCOME_RECORDED",
+      "id": "T18",
+      "provider_call_allowed": false,
+      "to": "INDEPENDENT_WITNESS_RECORDED"
+    },
+    {
+      "action_allowed": false,
+      "authority": "journal",
+      "call_allowed": false,
+      "canonical": true,
+      "event": "SCOPE_LEASE_RELEASE_INTENT",
+      "from": "INDEPENDENT_WITNESS_RECORDED",
+      "id": "T19",
+      "provider_call_allowed": false,
+      "to": "SCOPE_LEASE_RELEASE_INTENT"
+    },
+    {
+      "action_allowed": false,
+      "authority": "AuthorityDB",
+      "call_allowed": false,
+      "canonical": true,
+      "event": "AUTHORITYDB_RELEASED",
+      "from": "SCOPE_LEASE_RELEASE_INTENT",
+      "id": "T20",
+      "provider_call_allowed": false,
+      "to": "AUTHORITYDB_RELEASED"
+    },
+    {
+      "action_allowed": false,
+      "authority": "journal",
+      "call_allowed": false,
+      "canonical": true,
+      "event": "SCOPE_LEASE_RELEASE_RECORDED",
+      "from": "AUTHORITYDB_RELEASED",
+      "id": "T21",
+      "provider_call_allowed": false,
+      "to": "SCOPE_LEASE_RELEASE_RECORDED"
+    },
+    {
+      "action_allowed": false,
+      "authority": "journal",
+      "call_allowed": false,
+      "canonical": true,
+      "event": "SUPERVISOR_CLOSED",
+      "from": "SCOPE_LEASE_RELEASE_RECORDED",
+      "id": "T22",
+      "provider_call_allowed": false,
+      "to": "SUPERVISOR_CLOSED"
+    },
+    {
+      "action_allowed": false,
+      "authority": "artifact_only",
+      "call_allowed": false,
+      "canonical": true,
+      "event": "COMPLETION_RECEIPT_PUBLISHED",
+      "from": "SUPERVISOR_CLOSED",
+      "id": "T23",
+      "provider_call_allowed": false,
+      "to": "COMPLETION_RECEIPT_PUBLISHED_VERIFIED"
+    },
+    {
+      "action_allowed": false,
+      "authority": "OS_lock",
+      "call_allowed": false,
+      "canonical": true,
+      "event": "TRANSACTION_LOCK_RELEASED",
+      "from": "COMPLETION_RECEIPT_PUBLISHED_VERIFIED",
+      "id": "T24",
+      "provider_call_allowed": false,
+      "to": "TRANSACTION_LOCK_RELEASED"
+    }
+  ],
+  "provider_call_semantics": {
+    "M2A_value": false,
+    "field": "provider_call_allowed",
+    "future_gate_not_active": [
+      "N05_CALL_START_COMMITTED journal barrier",
+      "N06 AuthorityDB durable consume",
+      "active exact epoch and fence",
+      "valid owner authority",
+      "immutable request hashes"
+    ],
+    "legacy_call_allowed_alias": "strict_false",
+    "type": "boolean"
+  },
+  "schema": "critical_apply.m2a_r1.supervisor_state_machine.v2",
+  "semantic_authority": "canonical_journal",
+  "terminal_monotonic": true
+}

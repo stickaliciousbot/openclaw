@@ -1,0 +1,8 @@
+{
+  "schema": "critical_apply.frozen_tool_identities.v1",
+  "files": {
+    "validate_m0_r1_contracts.py": {
+      "sha256": "096f9a0a694b7ea3d72b4661f5c71991ee8ec41a37d6888d2bd3fd16ff1f3d32"
+    }
+  }
+}

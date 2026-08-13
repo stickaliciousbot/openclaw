@@ -1,0 +1,47 @@
+{
+  "schema": "critical_apply.cah_j1_m0.source_authority.v1",
+  "status": "PASS_AUTHORITATIVE_INPUTS_BOUND_OFFLINE",
+  "package_id": "critical-apply-cah-j1-m0-contract-evidence-20260813T105500AEST-7c19e2b4",
+  "scope": "PREP_ONLY_CONTRACT_EVIDENCE",
+  "semantic_authority": "canonical_journal_only",
+  "sources": [
+    {
+      "role": "authoritative_owner_revision",
+      "path": "design/critical-apply-supervisor-owned-event-journal-owner-revision-2026-08-13.md",
+      "sha256": "6d80167ba92e1a68c9d17d6027135b289f88c6b9f3d6fd9e24ea86aedab459af"
+    },
+    {
+      "role": "required_m0_correction_ledger",
+      "path": "design/critical-apply-supervisor-owned-event-journal-owner-revision-m0-adjudication-2026-08-13.md",
+      "sha256": "1d2853fba832ebc243423c3c2dac00def80c3c2b56d892ee8c83aeff96c34427"
+    },
+    {
+      "role": "existing_authoritydb_fencing_contract",
+      "path": "evidence/critical-apply-cah-j1-m0-contract-freeze-20260813T003900Z-a7c4e219/AUTHORITYDB-FENCING-PROTOCOL.md",
+      "sha256": "8d23f911d9a9ab6e9d3c6d64445c9629c9881ef72d3861b1099d3b727468ef98"
+    },
+    {
+      "role": "independent_review_input_index",
+      "path": "evidence/critical-apply-cah-j1-m0-independent-review-20260813T004300Z-9f62c1a4/INPUT-HASHES.json",
+      "sha256": "8f7d6aa9f15e3751b0bbc3654f03fd8bb1601810d93e8816b123c4f7904849e2"
+    }
+  ],
+  "authority_order": [
+    "canonical_journal_prefix",
+    "deterministic_reducer_result",
+    "terminal_manifest_and_seal",
+    "independent_witness_or_checker",
+    "rebuildable_projections_or_progressdb",
+    "process_lifecycle_observations",
+    "notification_or_owner_delivery_receipts"
+  ],
+  "resolved_adjudication_items": ["B1", "B2", "B3", "B4", "B5", "B6", "S1", "S2", "S3", "S4"],
+  "boundary": {
+    "provider_or_model_calls": 0,
+    "message_deliveries": 0,
+    "production_effects": 0,
+    "gateway_config_runtime_mutations": 0,
+    "consumed_production_authority": 0,
+    "runtime_or_production_state_changed": false
+  }
+}

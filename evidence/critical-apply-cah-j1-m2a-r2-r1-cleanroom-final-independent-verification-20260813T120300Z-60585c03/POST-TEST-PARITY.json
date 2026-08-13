@@ -1,0 +1,13 @@
+{
+  "archive_sha256_unchanged": true,
+  "authority_inputs_unchanged": true,
+  "extraction_member_parity": true,
+  "git_head": true,
+  "git_index": true,
+  "git_refs": true,
+  "git_tracked_diff_names": true,
+  "git_tracked_status": true,
+  "git_tree": true,
+  "pass": true,
+  "preserved_failed_evidence_unchanged": true
+}

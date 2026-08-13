@@ -1,0 +1,17 @@
+{
+  "schema":"critical_apply.cah_j1_m1_bounded_privacy_receipt.v1",
+  "status":"PASS",
+  "scope":"exact seven changed source/test files copied into an isolated bounded scan root",
+  "scanner":"R6_R6_PHASE_A_BOUNDED_PRIVACY_SCANNER",
+  "scanner_sha256":"ce38bf7811561c096bfe72ef12fc799712986d77ff86cb62b8e099eedc481115",
+  "detector_config_sha256":"05531217368df844130db5f147ecfbc011f5422e4825305fa92a9abde5cf9c5e",
+  "detector_version":"r6-r6-phase-a.v2",
+  "scanned_persistent_text_files":8,
+  "source_files_scanned":7,
+  "control_files_scanned":1,
+  "binary_files":0,
+  "issues":[],
+  "findings":[],
+  "blocking_count":0,
+  "limitations":{"gitleaks_claimed":false,"git_history_scan_claimed":false,"scope_beyond_changed_files_claimed":false}
+}

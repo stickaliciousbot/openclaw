@@ -1,0 +1,19 @@
+{
+  "M2B_authorized": false,
+  "M2B_started": false,
+  "applicable_supplied_suite_pass_count": 6,
+  "blocker_class": "VERIFIER_ZERO_EFFECT_BOUNDARY",
+  "blocker_count": 1,
+  "candidate_semantic_blocker_count": 0,
+  "fresh_mutation_count": 79,
+  "privacy": "PENDING_FINAL_RESCAN",
+  "proof_audit_count": 52,
+  "proof_audit_pass_count": 52,
+  "schema": "critical_apply.m2a_r2_r1.final_independent.status.v1",
+  "source_or_runtime_implementation_created": false,
+  "status": "HOLD",
+  "terminal": "HOLD_FINAL_INDEPENDENT_VERIFICATION_VERIFIER_BOUNDARY_VIOLATION",
+  "timestamp_utc": "2026-08-13T11:58:13.289927+00:00",
+  "unsafe_accepted_count": 0,
+  "zero_effect": "HOLD_VERIFIER_BOUNDARY_VIOLATION"
+}

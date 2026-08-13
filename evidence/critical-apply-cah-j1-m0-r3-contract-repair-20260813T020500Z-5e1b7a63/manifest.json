@@ -1,0 +1,153 @@
+{
+  "artifact_count": 28,
+  "artifacts": [
+    {
+      "bytes": 15425,
+      "path": "AUTHORITY-CRASH-VECTORS.json",
+      "sha256": "eddd143735fe82c7a47251dd3229cc4942eb78a20deaf99bd3a87eab0621e7bc"
+    },
+    {
+      "bytes": 16448,
+      "path": "AUTHORITYDB-FENCING-PROTOCOL.md",
+      "sha256": "f547f1365e44cfe5781e94c05478db99db599bb9ae281e1304b782766d4d1c56"
+    },
+    {
+      "bytes": 2088,
+      "path": "CAS-CAPTURE-DURABILITY-CONTRACT.json",
+      "sha256": "fccadae780c216ec96bc83d08a2de29c20e18535d47f10b44042a79f6cb28090"
+    },
+    {
+      "bytes": 13490,
+      "path": "CAS-CRASH-MATRIX-EXHAUSTIVE.json",
+      "sha256": "34c17f4deccf5d93db5c5c5a86018f2fef353ed742a5fc952ace41950fa3a0cb"
+    },
+    {
+      "bytes": 3655,
+      "path": "CLOSEOUT-CRASH-MATRIX-EXHAUSTIVE.json",
+      "sha256": "959421e30f0948abf621eda91c86a9cba899c7674301a0c331e10a8e13366493"
+    },
+    {
+      "bytes": 5653,
+      "path": "CLOSEOUT-HASH-DOMAIN-FIXTURE.json",
+      "sha256": "67ad46847a796e8c868f121ecb453740b3c7592d21aff3291b2ca792b59a7aae"
+    },
+    {
+      "bytes": 3183,
+      "path": "CORROBORATION-RECEIPT.json",
+      "sha256": "cc2c29863fd199651ef4381253369acfacb6805ac1b48bdcef1cd57328de0a13"
+    },
+    {
+      "bytes": 6790,
+      "path": "CRASH-BOUNDARY-TEST-VECTORS.json",
+      "sha256": "5564ac439d5e4be0991ded6a9074a5d298bd4ae246f45029c8ecbc1f02efca2e"
+    },
+    {
+      "bytes": 1284,
+      "path": "EVENT-IDEMPOTENCY-CONTRACT.json",
+      "sha256": "96ba0362ae7b1b934afb1f93a93ec6c0eebcabd449412234443b67f2b80f3ee2"
+    },
+    {
+      "bytes": 638,
+      "path": "INPUT-VERIFICATION.json",
+      "sha256": "b2e86f2bbfe547979ab6c9c30068e32959cf3baf4b1de803756f74a2f747e424"
+    },
+    {
+      "bytes": 5019,
+      "path": "LIFECYCLE-TRANSITION-TABLE.json",
+      "sha256": "4538cb239f2dda53602f7cc4cbe7638d2431983a76d36f6fff806dcd028c7f53"
+    },
+    {
+      "bytes": 2043,
+      "path": "M0-R1-CORRECTION-LEDGER.json",
+      "sha256": "ec50c3d801fd9283fb55868e8bc74372976584aecac9855b51a635e39513f972"
+    },
+    {
+      "bytes": 969,
+      "path": "M0-R2-CORRECTION-LEDGER.json",
+      "sha256": "02cbb8886e144e9503d633524d7755df705f63934698b3671d3135e5c1e7d82f"
+    },
+    {
+      "bytes": 774,
+      "path": "M0-R3-CORRECTION-LEDGER.json",
+      "sha256": "6212c53387529994dca5109b97d3a52d7e9b7869bffb7acb7378aa68cda91bc2"
+    },
+    {
+      "bytes": 9728,
+      "path": "NONCE-AT-MOST-ONCE-STATE-MACHINE.json",
+      "sha256": "b184b673c3bd4e94e5f11831800e12657054c144fe48dd419bf0f0963092a3e0"
+    },
+    {
+      "bytes": 46758,
+      "path": "NONCE-CRASH-MATRIX-EXHAUSTIVE.json",
+      "sha256": "8e5079b300e7f8b7e762be0c0f09260dff12a0a5a335113e3f3147285e3f7ec4"
+    },
+    {
+      "bytes": 891,
+      "path": "NOTIFICATION-CLOSEOUT-CONTRACT.json",
+      "sha256": "6e112b6e127b8ed3d3ed93fbfa0f67fa2b2c1e84c988468330c1fa6956e6d3d2"
+    },
+    {
+      "bytes": 1813,
+      "path": "PATH-OWNERSHIP-CONTRACT.json",
+      "sha256": "58befcd0b9661b38a8b50c30aae62bf0a362798f4239c7091ee1545f30d2205f"
+    },
+    {
+      "bytes": 815,
+      "path": "SAME-UID-THREAT-MODEL.json",
+      "sha256": "490c24f3fa38fa771e98d49ac813c601beb419b283ee4bae89501d0102120812"
+    },
+    {
+      "bytes": 1604,
+      "path": "SEMANTIC-PATH-REGISTRATION-CONTRACT.json",
+      "sha256": "f4f251c06be68f95fd486fa589026ade178d842d068003617d5b543bdd985603"
+    },
+    {
+      "bytes": 11554,
+      "path": "SQLITE-AUTHORITY-STORAGE-CONTRACT.json",
+      "sha256": "77acbe92507098f41b82f5f21262de282f3ec39254a547624976560f9b2146ba"
+    },
+    {
+      "bytes": 621,
+      "path": "STATUS.json",
+      "sha256": "825caec637b26f0d835827ad56736019000497dfc2e53337345459f036db3605"
+    },
+    {
+      "bytes": 7104,
+      "path": "TERMINAL-HEADS-AND-FENCE-CONTRACT.json",
+      "sha256": "de3d51f9c81a370bbab15ed93310e317490205b44798f39998dadef742ac3485"
+    },
+    {
+      "bytes": 162,
+      "path": "VALIDATION-RESULTS.json",
+      "sha256": "28c27cd2a76f17d947f1c3d2af19d36a1fc8803d9da092f08061f375cd65051c"
+    },
+    {
+      "bytes": 812,
+      "path": "WITNESS-ASSURANCE-GRADE.json",
+      "sha256": "95c8edc82fbab2e382bf386c3f1fffae8f73655b9f49d44905dbe0d7617d6abc"
+    },
+    {
+      "bytes": 574,
+      "path": "ZERO-EFFECT-RECEIPT.json",
+      "sha256": "739976b24a5c896ed82a44a7f49497dbc7d4213c64c8bcdaae9036bf3b057d1a"
+    },
+    {
+      "bytes": 203,
+      "path": "frozen-tool-identities.json",
+      "sha256": "086e1282f7d2d56197724f22ececc074e1957d0b52cbd180e94a85639c696470"
+    },
+    {
+      "bytes": 3433,
+      "path": "validate_m0_r3_contracts.py",
+      "sha256": "b575bb22b428008ba75429cb5114b59a18a2dcc286f584407e34e1bf19e0fefe"
+    }
+  ],
+  "excluded_nonrecursive_outputs": [
+    "PRIVACY-RECEIPT.json",
+    "manifest.json",
+    "terminal-seal.json"
+  ],
+  "schema": "critical_apply.cah_j1_m0_r3_manifest.v1",
+  "semantic_authority": "canonical_append_only_journal_only",
+  "status": "FROZEN_PRE_INDEPENDENT_VERIFICATION"
+}

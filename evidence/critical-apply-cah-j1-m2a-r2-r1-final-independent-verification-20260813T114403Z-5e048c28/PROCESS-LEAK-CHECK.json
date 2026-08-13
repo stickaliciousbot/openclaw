@@ -1,0 +1,7 @@
+{
+  "all_subprocesses_foreground_waited": true,
+  "owned_background_jobs_started": 0,
+  "owned_processes_remaining": 0,
+  "schema": "critical_apply.m2a_r2_r1.final_independent.process_leak.v1",
+  "status": "PASS"
+}

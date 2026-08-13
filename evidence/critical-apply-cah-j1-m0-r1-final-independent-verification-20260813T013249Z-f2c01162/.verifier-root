@@ -1,0 +1,6 @@
+{
+  "schema": "critical_apply.verifier_root.v1",
+  "candidate_root": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-r1-contract-repair-20260813T013000Z-8d2f6c41",
+  "created_utc": "2026-08-13T01:32:49.914978Z",
+  "scope": "read_only_independent_final_verification"
+}

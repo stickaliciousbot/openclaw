@@ -1,0 +1,28 @@
+{
+  "schema": "critical_apply.cah_j1.m2a_r2_r1.cleanroom_final_independent_receipt.v1",
+  "candidate_blocker_count": 0,
+  "candidate_validator_baseline": "PASS",
+  "fresh_unsafe_mutation_count": 104,
+  "fresh_unsafe_rejected": 104,
+  "unsafe_accepted_count": 0,
+  "mutation_categories": {
+    "authority_role_hash_prose_seal": 14,
+    "proof_phase_side_semantics": 50,
+    "lifecycle_AP01": 10,
+    "schema_inventory_nested": 10,
+    "cross_artifact_N07_action_provider_fence_ACK": 10,
+    "compound": 10
+  },
+  "canonical_transitions_reconstructed": 23,
+  "canonical_proofs_passed": 46,
+  "artifact_lifecycle_proofs_passed": 6,
+  "total_proofs_passed": 52,
+  "privacy": "PASS",
+  "zero_effect": "PASS",
+  "archive_extraction_authority_git_index_refs_parity": "PASS",
+  "process_leak_count": 0,
+  "outside_write_attempts": 0,
+  "M2B_started": false,
+  "provider_or_external_action": false,
+  "verdict": "PASS_M2A_R2_R1_CLEANROOM_ZERO_BLOCKERS_VERIFIED_NO_OPERATIONAL_EFFECT"
+}

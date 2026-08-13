@@ -1,0 +1,18 @@
+{
+  "blocker": "BLOCK-R2-01-PREIMAGE-RECORD-EVENT-CLOSE-COORDINATE-CYCLE",
+  "independent_hold_receipt_sha256": "d57ced95b7bf7d544c395141ba1d1d003405ec1abdad8a45751462423f79c336",
+  "predecessor_manifest_sha256": "697e1eb6ad2e6a263b539c3d1ccf353c3b635f17d77841083d11cf99f8cbb235",
+  "proof": [
+    "canonical_preimage_record_event_removed",
+    "preimage_noncanonical_nonsemantic",
+    "direct_adjacency_release_record_to_supervisor_closed",
+    "one_pass_full_chain_fixture",
+    "head_reread_under_lock_before_append",
+    "orphan_preimage_recovery"
+  ],
+  "result": "RESOLVED",
+  "schema": "critical_apply.cah_j1_m0_r3_correction_ledger.v1",
+  "semantic_authority": "canonical_append_only_journal_only",
+  "status": "PASS_CORRECTION_CONSTRUCTED",
+  "zero_effect": true
+}

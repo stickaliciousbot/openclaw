@@ -1,0 +1,67 @@
+test_allowed_scheduler_drift (scripts.tests.test_critical_apply_commit.CommitTest.test_allowed_scheduler_drift) ... ok
+test_approve_records_no_execution (scripts.tests.test_critical_apply_commit.CommitTest.test_approve_records_no_execution) ... ok
+test_commit_blocks_conflict (scripts.tests.test_critical_apply_commit.CommitTest.test_commit_blocks_conflict) ... ok
+test_commit_blocks_drift (scripts.tests.test_critical_apply_commit.CommitTest.test_commit_blocks_drift) ... ok
+test_commit_blocks_expired_approval (scripts.tests.test_critical_apply_commit.CommitTest.test_commit_blocks_expired_approval) ... ok
+test_commit_blocks_missing_approval (scripts.tests.test_critical_apply_commit.CommitTest.test_commit_blocks_missing_approval) ... ok
+test_commit_blocks_restore_stale (scripts.tests.test_critical_apply_commit.CommitTest.test_commit_blocks_restore_stale) ... ok
+test_commit_field_count (scripts.tests.test_critical_apply_commit.CommitTest.test_commit_field_count) ... ok
+test_commit_pass (scripts.tests.test_critical_apply_commit.CommitTest.test_commit_pass) ... ok
+test_commit_writes_receipt (scripts.tests.test_critical_apply_commit.CommitTest.test_commit_writes_receipt) ... ok
+test_drift_invalidates_approval_expiry (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_approval_expiry) ... ok
+test_drift_invalidates_approval_nonce (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_approval_nonce) ... ok
+test_drift_invalidates_argv (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_argv) ... ok
+test_drift_invalidates_authority_envelope (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_authority_envelope) ... ok
+test_drift_invalidates_boot (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_boot) ... ok
+test_drift_invalidates_candidate_file (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_candidate_file) ... ok
+test_drift_invalidates_candidate_path (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_candidate_path) ... ok
+test_drift_invalidates_candidate_sha (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_candidate_sha) ... ok
+test_drift_invalidates_candidate_source_commit (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_candidate_source_commit) ... ok
+test_drift_invalidates_candidate_version (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_candidate_version) ... ok
+test_drift_invalidates_conflict_set (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_conflict_set) ... ok
+test_drift_invalidates_contract_bundle (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_contract_bundle) ... ok
+test_drift_invalidates_environment_policy (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_environment_policy) ... ok
+test_drift_invalidates_executable (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_executable) ... ok
+test_drift_invalidates_fencing_generation (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_fencing_generation) ... ok
+test_drift_invalidates_host (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_host) ... ok
+test_drift_invalidates_interpreter (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_interpreter) ... ok
+test_drift_invalidates_lock_set (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_lock_set) ... ok
+test_drift_invalidates_maximum_mutation_count (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_maximum_mutation_count) ... ok
+test_drift_invalidates_mount_filesystem (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_mount_filesystem) ... ok
+test_drift_invalidates_network_policy (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_network_policy) ... ok
+test_drift_invalidates_npm_global_prefix (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_npm_global_prefix) ... ok
+test_drift_invalidates_owner_identity (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_owner_identity) ... ok
+test_drift_invalidates_plugin_bundle (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_plugin_bundle) ... ok
+test_drift_invalidates_pre_state_fingerprint (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_pre_state_fingerprint) ... ok
+test_drift_invalidates_recovery_policy (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_recovery_policy) ... ok
+test_drift_invalidates_resource_policy (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_resource_policy) ... ok
+test_drift_invalidates_restart_smoke_flags (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_restart_smoke_flags) ... ok
+test_drift_invalidates_restore_manifest (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_restore_manifest) ... ok
+test_drift_invalidates_restore_method (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_restore_method) ... ok
+test_drift_invalidates_restore_point_id (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_restore_point_id) ... ok
+test_drift_invalidates_runner_bundle (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_runner_bundle) ... ok
+test_drift_invalidates_scheduler_semantic (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_scheduler_semantic) ... ok
+test_drift_invalidates_strict_guard (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_strict_guard) ... ok
+test_drift_invalidates_supervisor_unit (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_supervisor_unit) ... ok
+test_drift_invalidates_surface_set (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_surface_set) ... ok
+test_drift_invalidates_timeout_policy (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_timeout_policy) ... ok
+test_drift_invalidates_transaction_spec (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_transaction_spec) ... ok
+test_drift_invalidates_uid_gid (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_uid_gid) ... ok
+test_drift_invalidates_working_directory (scripts.tests.test_critical_apply_commit.CommitTest.test_drift_invalidates_working_directory) ... ok
+test_immutable_candidate_drift_not_allowed_even_policy (scripts.tests.test_critical_apply_commit.CommitTest.test_immutable_candidate_drift_not_allowed_even_policy) ... ok
+test_journal_contains_plan_approval_commit (scripts.tests.test_critical_apply_commit.CommitTest.test_journal_contains_plan_approval_commit) ... ok
+test_lock_receipt_alone_cannot_commit (scripts.tests.test_critical_apply_commit.CommitTest.test_lock_receipt_alone_cannot_commit) ... ok
+test_prepare_never_commit_validated (scripts.tests.test_critical_apply_commit.CommitTest.test_prepare_never_commit_validated) ... ok
+test_prepare_releases_locks (scripts.tests.test_critical_apply_commit.CommitTest.test_prepare_releases_locks) ... ok
+test_prepare_seals_plan (scripts.tests.test_critical_apply_commit.CommitTest.test_prepare_seals_plan) ... ok
+test_release_decision_no_child (scripts.tests.test_critical_apply_commit.CommitTest.test_release_decision_no_child) ... ok
+test_synthetic_release_consumes_once (scripts.tests.test_critical_apply_commit.CommitTest.test_synthetic_release_consumes_once) ... ok
+test_synthetic_release_fixture (scripts.tests.test_critical_apply_commit.CommitTest.test_synthetic_release_fixture) ... ok
+
+----------------------------------------------------------------------
+Ran 59 tests in 1680.405s
+
+OK
+real 1680.56
+user 2.11
+sys 1.26

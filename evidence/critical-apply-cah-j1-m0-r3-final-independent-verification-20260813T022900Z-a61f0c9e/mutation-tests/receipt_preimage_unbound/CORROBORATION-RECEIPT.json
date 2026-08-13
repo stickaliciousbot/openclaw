@@ -1,0 +1,73 @@
+{
+  "authority": "corroborating_only_integrated_candidate_remains_subject_of_independent_verification",
+  "corroborates": [
+    "B2_nonce_UNKNOWN_CONSUMED_no_retry",
+    "B3_B4_terminal_fence_and_heads",
+    "B5_journal_derived_idempotency",
+    "B6_descriptor_bound_CAS",
+    "S2_witness_grade",
+    "S4_SQLite_authority_storage",
+    "R18_consumed_CLOSED_NO_RETRY",
+    "stale_RUNNING_is_nonsemantic_projection"
+  ],
+  "files": [
+    {
+      "exact": true,
+      "expected_sha256": "31b1b91b3b44dfadd67e38f9b7cb57775cf192b850e263a3ee2bf62f42837322",
+      "observed_sha256": "31b1b91b3b44dfadd67e38f9b7cb57775cf192b850e263a3ee2bf62f42837322",
+      "path": "CAS-CAPTURE-DURABILITY-CONTRACT.json"
+    },
+    {
+      "exact": true,
+      "expected_sha256": "ecf1d5498ec89624ee8b374c22bcf70d0209ccb64eff3e7b978fd2f766791598",
+      "observed_sha256": "ecf1d5498ec89624ee8b374c22bcf70d0209ccb64eff3e7b978fd2f766791598",
+      "path": "EVENT-IDEMPOTENCY-CONTRACT.json"
+    },
+    {
+      "exact": true,
+      "expected_sha256": "88211a1f9a7b6d722848cd1683b9e49cfc7448f9832a754184552876f91ae82f",
+      "observed_sha256": "88211a1f9a7b6d722848cd1683b9e49cfc7448f9832a754184552876f91ae82f",
+      "path": "M0-CORRECTION-COVERAGE.json"
+    },
+    {
+      "exact": true,
+      "expected_sha256": "ade8911beaff5d65e40f9db6a7c9934aa27c64780d73b049c1ab4247264a08fd",
+      "observed_sha256": "ade8911beaff5d65e40f9db6a7c9934aa27c64780d73b049c1ab4247264a08fd",
+      "path": "NONCE-AT-MOST-ONCE-STATE-MACHINE.json"
+    },
+    {
+      "exact": true,
+      "expected_sha256": "aab81caae117d83813d2331d032e8b6f88b005dcc59c9a3bd97217ab09214cf0",
+      "observed_sha256": "aab81caae117d83813d2331d032e8b6f88b005dcc59c9a3bd97217ab09214cf0",
+      "path": "R18-NONCE-LEDGER-STALE-RUNNING-ADJUDICATION.json"
+    },
+    {
+      "exact": true,
+      "expected_sha256": "6f790454c40249f7d812e93cb358b5021837ff998d3df0dfeb42e822e66bdc52",
+      "observed_sha256": "6f790454c40249f7d812e93cb358b5021837ff998d3df0dfeb42e822e66bdc52",
+      "path": "SOURCE-AUTHORITY.json"
+    },
+    {
+      "exact": true,
+      "expected_sha256": "964fd7cd22ad21dcb586a5265cc76ae1f4c4e4433f3fbc524c76bb3ba8c63f36",
+      "observed_sha256": "964fd7cd22ad21dcb586a5265cc76ae1f4c4e4433f3fbc524c76bb3ba8c63f36",
+      "path": "SQLITE-AUTHORITY-STORAGE-CONTRACT.json"
+    },
+    {
+      "exact": true,
+      "expected_sha256": "0ea22d9f4b1c4b5facdaca95ac6480a83adc2518e4103cf7502ee1884bac60ea",
+      "observed_sha256": "0ea22d9f4b1c4b5facdaca95ac6480a83adc2518e4103cf7502ee1884bac60ea",
+      "path": "TERMINAL-HEADS-AND-FENCE-CONTRACT.json"
+    },
+    {
+      "exact": true,
+      "expected_sha256": "09c830c2425ab11409430b23542a603110105b1b430bf4167455a844f2534576",
+      "observed_sha256": "09c830c2425ab11409430b23542a603110105b1b430bf4167455a844f2534576",
+      "path": "WITNESS-ASSURANCE-GRADE.json"
+    }
+  ],
+  "package_root": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-contract-evidence-20260813T105500AEST-7c19e2b4",
+  "schema": "critical_apply.cah_j1_m0_corroboration_receipt.v1",
+  "sha256s_sha256": "40c0a2b83a43c4756a929ed42f9333fad8ba853b5ada8d47f3fd706a53975138",
+  "status": "PASS"
+}

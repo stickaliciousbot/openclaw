@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m2a-r2-r1-cleanroom-final-independent-verification-20260813T120300Z-60585c03/FRESH-INDEPENDENT-TESTS.py", line 393, in <module>
+    try:raise SystemExit(main())
+                         ^^^^^^
+  File "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m2a-r2-r1-cleanroom-final-independent-verification-20260813T120300Z-60585c03/FRESH-INDEPENDENT-TESTS.py", line 359, in main
+    results=execute_tests(mod);matrix=results.pop('proof_matrix')
+            ^^^^^^^^^^^^^^^^^^
+  File "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m2a-r2-r1-cleanroom-final-independent-verification-20260813T120300Z-60585c03/FRESH-INDEPENDENT-TESTS.py", line 331, in execute_tests
+    for i,c in enumerate(make_cases(),1):
+                         ^^^^^^^^^^^^
+  File "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m2a-r2-r1-cleanroom-final-independent-verification-20260813T120300Z-60585c03/FRESH-INDEPENDENT-TESTS.py", line 277, in make_cases
+    assert len(proof_specs)==42
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError

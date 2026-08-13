@@ -1,0 +1,13 @@
+{
+  "schema": "critical_apply.cah_j1_m1_permanent_preservation_started.v1",
+  "started_at_utc": "2026-08-13T08:31:00Z",
+  "scope": "permanent exact-byte preservation and offline reconstruction proof only",
+  "pass_criteria": [
+    "patch size and SHA-256 exact",
+    "base commit and tree exist and bind",
+    "construction and final independent manifests verify",
+    "permanent candidate reconstructs exact seven source hashes",
+    "privacy and zero-effect receipts pass"
+  ],
+  "independent_alert_check_wiring": "main requester separately launches independent review; no cron or persistent wiring authorized in subagent boundary"
+}

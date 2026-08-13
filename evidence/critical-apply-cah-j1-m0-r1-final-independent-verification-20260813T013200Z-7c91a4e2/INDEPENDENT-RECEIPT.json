@@ -1,0 +1,67 @@
+{
+  "schema": "critical_apply.cah_j1_m0_r1_final_independent_verification_receipt.v1",
+  "verified_at_utc": "2026-08-13T01:32:00Z",
+  "verifier_session": "fdfb5f81-0a84-45f4-ab68-da9e0c15e69e",
+  "candidate_root": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-r1-contract-repair-20260813T013000Z-8d2f6c41",
+  "verifier_root": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-r1-final-independent-verification-20260813T013200Z-7c91a4e2",
+  "identity": {
+    "manifest_sha256": "ee45865dc2ac62147be1d163e970601224205d48be029524206fca880267da41",
+    "privacy_receipt_sha256": "2944ceaab6c812b403e5dc6dbd37f12578db39396b4f494fc558ee9c01dd96ec",
+    "owner_revision_sha256": "6d80167ba92e1a68c9d17d6027135b289f88c6b9f3d6fd9e24ea86aedab459af",
+    "m0_adjudication_sha256": "1d2853fba832ebc243423c3c2dac00def80c3c2b56d892ee8c83aeff96c34427",
+    "predecessor_manifest_sha256": "b7744bd4ea0990b8833613cda6a34576427d894a4d66e2bfef4f11bc5967d71f",
+    "independent_hold_receipt_sha256": "166f26e1cc9776c82909c06d15f6f61d07cdc3409cd9cbbe78c34e5c313d0c24",
+    "all_exact": true
+  },
+  "inventory": {
+    "manifest_listed_artifacts": 25,
+    "hash_mismatches": 0,
+    "size_mismatches": 0,
+    "json_files_parsed": 25,
+    "json_parse_failures": 0,
+    "candidate_symlinks": 0,
+    "candidate_subdirectories": 0
+  },
+  "requirements_review": {
+    "B1": "PASS",
+    "B2": "HOLD_NONCE_MATRIX_N04_N07_ORDER_CONTRADICTIONS",
+    "B3": "PASS",
+    "B4": "HOLD_CLOSEOUT_PREIMAGE_FIXED_POINT_CIRCULARITY",
+    "B5": "PASS",
+    "B6": "PASS",
+    "S1": "HOLD_CLOSEOUT_PREIMAGE_FIXED_POINT_CIRCULARITY",
+    "S2": "PASS",
+    "S3": "PASS",
+    "S4": "PASS",
+    "sole_semantic_authority": "PASS",
+    "authority_witness_progress_partitions": "PASS",
+    "unknown_consumed_no_retry": "PASS",
+    "three_heads_named": "PASS_NAMING_BUT_B4_BINDING_HOLD",
+    "journal_derived_idempotency": "PASS",
+    "descriptor_bound_CAS": "PASS_CORE_AND_EXHAUSTIVE_MATRIX",
+    "same_uid_detect_only": "PASS",
+    "immutable_semantic_path_registration": "PASS",
+    "nonce_ledger_single_creator_runner_never_creates": "PASS",
+    "semantic_terminal_outranks_stale_projections": "PASS",
+    "prior_BLOCK_01": "RESOLVED",
+    "prior_BLOCK_02": "HOLD_NEW_EXACT_FIXED_POINT_DEFECT",
+    "prior_BLOCK_03_CAS": "RESOLVED",
+    "prior_BLOCK_03_CLOSEOUT_BOUNDARIES": "RESOLVED_SUBJECT_TO_B4_ALGORITHM",
+    "prior_BLOCK_03_NONCE": "HOLD_N04_N07_SEMANTIC_ORDER",
+    "privacy_receipt": "PASS",
+    "zero_effect": "PASS"
+  },
+  "candidate_validator": {
+    "stdout": "{\"cas_steps\": 13, \"cas_vectors\": 38, \"closeout_vectors\": 12, \"errors\": [], \"nonce_transitions\": 11, \"nonce_vectors\": 82, \"required_files\": 20, \"status\": \"PASS\"}\n",
+    "exit_code": 0,
+    "result": "PASS",
+    "scope_note": "Construction validator does not detect independent semantic ordering/circularity defects."
+  },
+  "blocking_findings": [
+    "BLOCK-R1-01-CLOSEOUT-PREIMAGE-FIXED-POINT-CIRCULARITY",
+    "BLOCK-R1-02-NONCE-MATRIX-N04-N07-ORDER-CONTRADICTIONS"
+  ],
+  "blocking_count": 2,
+  "status": "HOLD_CAH_J1_M0_R1_FINAL_INDEPENDENT_VERIFICATION",
+  "terminal": "HOLD_CAH_J1_M0_R1_FOR_CLOSEOUT_PREIMAGE_FIXED_POINT_AND_NONCE_N04_N07_MATRIX_ORDER_CORRECTIONS_NO_PRODUCTION_EFFECT"
+}

@@ -1,0 +1,10 @@
+{
+  "schema":"critical_apply.cah_j1.m2a_r1.final_independent_status.v1",
+  "terminal":"HOLD_M2A_R1_CONTRACT_REPAIR_ZERO_OPERATIONAL_EFFECT",
+  "blocker_count":3,
+  "unsafe_accepted_count":25,
+  "privacy":"PASS",
+  "zero_effect":"PASS",
+  "M2B_started":false,
+  "M2B_authorized":false
+}

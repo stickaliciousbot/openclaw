@@ -1,0 +1,56 @@
+{
+  "schema": "critical_apply.event_idempotency_contract.v1",
+  "status": "FROZEN_OFFLINE_CONTRACT",
+  "semantic_authority": "canonical_journal_only",
+  "canonical_map": {
+    "key": ["transaction_id", "event_id"],
+    "value": ["proposal_sha256", "sequence", "event_sha256", "ack"],
+    "source": "verified_canonical_journal_prefix"
+  },
+  "acceptance_algorithm": [
+    "Verify journal hash chain, sequence continuity, transaction_id, contract_sha256, and current supervisor epoch.",
+    "Reconstruct or verify the canonical idempotency map from the journal before accepting proposals.",
+    "Use ProgressDB only if its indexed head exactly equals the verified journal head.",
+    "If the key is absent, validate the proposal and append at most one canonical event.",
+    "If the key exists with the same proposal_sha256, return the original durable ACK without appending.",
+    "If the key exists with a different proposal_sha256, reject as a conflicting duplicate and append no semantic event."
+  ],
+  "outcomes": {
+    "new_event": "APPEND_SYNC_ACK",
+    "idempotent_duplicate": "RETURN_ORIGINAL_ACK_NO_APPEND",
+    "conflicting_duplicate": "HOLD_EVENT_ID_CONFLICT_NO_APPEND",
+    "progressdb_missing_stale_deleted_or_corrupt": "FALL_BACK_TO_VERIFIED_JOURNAL_MAP",
+    "journal_invalid_or_incomplete": "INTEGRITY_HOLD_NO_PROPOSAL_ACCEPTANCE"
+  },
+  "ack_fields": [
+    "transaction_id",
+    "event_id",
+    "proposal_sha256",
+    "sequence",
+    "event_sha256",
+    "journal_head_sha256",
+    "commit_durability"
+  ],
+  "forbidden_authorities": [
+    "ProgressDB",
+    "status_projection",
+    "harness_registry",
+    "process_pid",
+    "notification_receipt"
+  ],
+  "required_fixtures": [
+    "retry_same_event_after_ACK",
+    "retry_same_event_after_ACK_and_ProgressDB_delete",
+    "retry_same_event_after_ProgressDB_corruption",
+    "conflicting_payload_same_event_id",
+    "crash_after_journal_sync_before_ACK_delivery",
+    "duplicate_creator_path_collision_after_semantic_terminal"
+  ],
+  "invariants": [
+    "Idempotent retry does not create another semantic event.",
+    "ProgressDB can accelerate only when journal-head equality is proven.",
+    "A missing ACK delivery does not permit duplicate append after durable journal commit.",
+    "Conflicting duplicate proposals never PASS.",
+    "Canonical idempotency state survives deletion of every projection and index."
+  ]
+}

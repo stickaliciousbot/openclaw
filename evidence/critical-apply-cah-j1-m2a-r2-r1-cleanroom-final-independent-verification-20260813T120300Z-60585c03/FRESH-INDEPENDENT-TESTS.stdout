@@ -1,0 +1,8 @@
+{
+  "status": "PASS_TESTS_PRIVACY_PENDING",
+  "evidence_root": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m2a-r2-r1-cleanroom-final-independent-verification-20260813T120300Z-60585c03",
+  "fresh_cases": 104,
+  "unsafe_accepted": 0,
+  "proofs_passed": 52,
+  "blockers": []
+}

@@ -1,0 +1,28 @@
+{
+  "corrections": [
+    {
+      "blocker": "BLOCK-R1-01-CLOSEOUT-PREIMAGE-FIXED-POINT-CIRCULARITY",
+      "proof": [
+        "disjoint_hash_domains",
+        "preimage_excludes_close_derived_fields",
+        "one_pass_fixture_exact"
+      ],
+      "result": "RESOLVED"
+    },
+    {
+      "blocker": "BLOCK-R1-02-NONCE-MATRIX-N04-N07-ORDER-CONTRADICTIONS",
+      "proof": [
+        "N04_journal_first_10_vectors",
+        "N07_response_CAS_then_journal_then_DB_12_vectors",
+        "validator_compares_exact_order_arrays"
+      ],
+      "result": "RESOLVED"
+    }
+  ],
+  "independent_hold_receipt_sha256": "dffad483e0fe08dfe31f2f199265d187d5aea98f157381050456b1bdd729c501",
+  "predecessor_manifest_sha256": "ee45865dc2ac62147be1d163e970601224205d48be029524206fca880267da41",
+  "schema": "critical_apply.cah_j1_m0_r2_correction_ledger.v1",
+  "semantic_authority": "canonical_append_only_journal_only",
+  "status": "PASS_CORRECTIONS_CONSTRUCTED",
+  "zero_effect": true
+}

@@ -1,0 +1,5 @@
+candidate=/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-r2-contract-repair-20260813T014000Z-3a6e9d52
+prior_r1=/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-r1-final-independent-verification-20260813T013200Z-7c91a4e2
+created_utc=2026-08-13T01:49:16Z
+mode=independent read-only final verification
+prohibitions=no provider/Terra/runtime/Gateway/config/git/install/production mutation; candidate immutable

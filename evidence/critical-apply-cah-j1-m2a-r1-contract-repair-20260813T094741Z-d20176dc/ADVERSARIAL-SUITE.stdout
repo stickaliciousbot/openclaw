@@ -1,0 +1,273 @@
+{
+  "status": "PASS",
+  "case_count": 26,
+  "rejected_count": 26,
+  "unsafe_accepted_count": 0,
+  "results": [
+    {
+      "id": "ADV01_MISSING_PATH_OWNER",
+      "expected_error": "path_multiple_or_missing_writer",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "path_multiple_or_missing_writer"
+      ],
+      "gate_result": "PASS_REJECTED"
+    },
+    {
+      "id": "ADV02_DUPLICATE_PATH",
+      "expected_error": "path_exact_ownership",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "path_exact_ownership"
+      ],
+      "gate_result": "PASS_REJECTED"
+    },
+    {
+      "id": "ADV03_PERMISSIVE_CRASH_BOUNDARY",
+      "expected_error": "crash_permissive",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "crash_permissive"
+      ],
+      "gate_result": "PASS_REJECTED"
+    },
+    {
+      "id": "ADV04_STALE_PROGRESS_AUTHORITY",
+      "expected_error": "recovery_authority",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "recovery_authority"
+      ],
+      "gate_result": "PASS_REJECTED"
+    },
+    {
+      "id": "ADV05_OMIT_20_CONTENTION",
+      "expected_error": "contention_thresholds",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "contention_thresholds",
+        "disjoint_scope"
+      ],
+      "gate_result": "PASS_REJECTED"
+    },
+    {
+      "id": "ADV06_OVERLAP_DUAL_ACTIVE",
+      "expected_error": "concurrency_global",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "concurrency_global",
+        "overlap_exclusion"
+      ],
+      "gate_result": "PASS_REJECTED"
+    },
+    {
+      "id": "ADV07_CHILD_SELF_REGISTRATION_AND_PATH_CREATE",
+      "expected_error": "child_boundary",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "child_boundary"
+      ],
+      "gate_result": "PASS_REJECTED"
+    },
+    {
+      "id": "ADV08_ACK_BEFORE_SYNC_BIND",
+      "expected_error": "ack_order_replay",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "ack_order_replay"
+      ],
+      "gate_result": "PASS_REJECTED"
+    },
+    {
+      "id": "ADV09_REPLAY_CONFLICT_ALLOWED",
+      "expected_error": "ack_vector_content",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "ack_vector_content"
+      ],
+      "gate_result": "PASS_REJECTED"
+    },
+    {
+      "id": "ADV10_STALE_FENCE_EPOCH_ACCEPTED",
+      "expected_error": "concurrency_global",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "concurrency_global",
+        "stale_epoch_fence_rejection"
+      ],
+      "gate_result": "PASS_REJECTED"
+    },
+    {
+      "id": "ADV11_N04_CONTRADICTORY_BYPASS",
+      "expected_error": "N04_exact_no_bypass",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "N04_exact_no_bypass"
+      ],
+      "gate_result": "PASS_REJECTED"
+    },
+    {
+      "id": "ADV12_N07_REMOVE_JOURNAL_STEP",
+      "expected_error": "N07_exact_order",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "N07_exact_order"
+      ],
+      "gate_result": "PASS_REJECTED"
+    },
+    {
+      "id": "ADV13_CANONICAL_INTERVENING_CLOSE_EVENT",
+      "expected_error": "canonical_exact_chain",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "canonical_exact_chain",
+        "crash_exact_sides"
+      ],
+      "gate_result": "PASS_REJECTED"
+    },
+    {
+      "id": "ADV14_NOTIFICATION_AUTHORITY",
+      "expected_error": "recovery_authority",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "recovery_authority"
+      ],
+      "gate_result": "PASS_REJECTED"
+    },
+    {
+      "id": "ADV15_WITNESS_TERMINAL_AUTHORITY",
+      "expected_error": "nonsemantic_component_authority",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "nonsemantic_component_authority"
+      ],
+      "gate_result": "PASS_REJECTED"
+    },
+    {
+      "id": "ADV16_UNKNOWN_OUTCOME_RETRY",
+      "expected_error": "unknown_outcome_terminal",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "unknown_outcome_terminal"
+      ],
+      "gate_result": "PASS_REJECTED"
+    },
+    {
+      "id": "ADV17_RUNTIME_AUTHORITY",
+      "expected_error": "component_authority",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "component_authority"
+      ],
+      "gate_result": "PASS_REJECTED"
+    },
+    {
+      "id": "ADV18_SHADOW_AUTHORITY",
+      "expected_error": "zero_effect_boundary",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "zero_effect_boundary"
+      ],
+      "gate_result": "PASS_REJECTED"
+    },
+    {
+      "id": "ADV19_MISSING_TRANSITION_SIDE",
+      "expected_error": "crash_count",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "crash_count",
+        "crash_exact_sides"
+      ],
+      "gate_result": "PASS_REJECTED"
+    },
+    {
+      "id": "ADV20_GENERIC_RECOVERY_PROOF",
+      "expected_error": "crash_transition_binding",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "crash_transition_binding"
+      ],
+      "gate_result": "PASS_REJECTED"
+    },
+    {
+      "id": "ADV21_NONCE_SUFFIX_SEMANTICS",
+      "expected_error": "nonce_exact_identity_order",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "nonce_exact_identity_order"
+      ],
+      "gate_result": "PASS_REJECTED"
+    },
+    {
+      "id": "ADV22_STATE_CALL_BEFORE_NONCE",
+      "expected_error": "provider_call_gate",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "provider_call_gate"
+      ],
+      "gate_result": "PASS_REJECTED"
+    },
+    {
+      "id": "ADV23_STATE_ACTION_BEFORE_SCOPE",
+      "expected_error": "action_gate",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "action_gate"
+      ],
+      "gate_result": "PASS_REJECTED"
+    },
+    {
+      "id": "ADV24_PERMISSIVE_UNKNOWN_FIELDS",
+      "expected_error": "ingress_strict",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "ingress_strict"
+      ],
+      "gate_result": "PASS_REJECTED"
+    },
+    {
+      "id": "ADV25_MULTIPLE_PATH_WRITERS",
+      "expected_error": "path_multiple_or_missing_writer",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "path_multiple_or_missing_writer"
+      ],
+      "gate_result": "PASS_REJECTED"
+    },
+    {
+      "id": "ADV26_ACK_VECTOR_BEFORE_SYNC",
+      "expected_error": "ack_vector_content",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "ack_vector_content"
+      ],
+      "gate_result": "PASS_REJECTED"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "blockers": [],
+  "next": "run exact bounded privacy scanner over extracted candidate and fresh evidence; then final parity/manifest",
+  "stage": "TESTS_COMPLETE_PRIVACY_PENDING",
+  "test_pass": true
+}

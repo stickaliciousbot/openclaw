@@ -1,0 +1,8 @@
+{
+  "disposable_root_removed_on_exit": true,
+  "schema": "critical_apply.m2a_r2_r1.clean_copy.v1",
+  "status": "PASS",
+  "validator_returncode": 0,
+  "validator_stderr": "",
+  "validator_stdout": "{\n  \"status\": \"PASS\",\n  \"error_count\": 0,\n  \"errors\": []\n}\n"
+}

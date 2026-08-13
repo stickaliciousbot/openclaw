@@ -1,0 +1,31 @@
+{
+  "ACK_exact": true,
+  "M2B_started": false,
+  "N04_exact": true,
+  "N07_exact": true,
+  "authority_roles": {
+    "final": {
+      "authority": true,
+      "sha256": "49ccef7181ff090c95267f8a5dcc3ccaaba88ce3bd42ade63cef13293e41d2d2"
+    },
+    "preliminary": {
+      "authority": false,
+      "sha256": "019f34f1b8f4e64b191457f283e66eb0e0a010f33b6841851b8be204970a6f6b"
+    }
+  },
+  "lifecycle": {
+    "AP01_count": 1,
+    "noncanonical_operations": 2,
+    "noncanonical_receipt_never_journal_event": true,
+    "publication_before_release": true
+  },
+  "pass": true,
+  "provider_external_actions": false,
+  "semantic_errors": [],
+  "state_machine": {
+    "23_transitions": true,
+    "action_only_T09": true,
+    "final_closeout": true,
+    "providers_false": true
+  }
+}

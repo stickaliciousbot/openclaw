@@ -1,0 +1,119 @@
+{
+  "schema": "critical_apply.cah_j1_m0.r18_nonce_ledger_stale_running_adjudication.v1",
+  "status": "PASS_R18_EVIDENCE_CLASSIFIED_WITHOUT_RUNTIME_MUTATION",
+  "historical_run_root": "/tmp/r11b-r11-live-owner-authorized-42019fbe01dccd67ba908ea1428e21a2/run-root",
+  "observations": [
+    {
+      "role": "duplicate_creator_failure",
+      "path": "/tmp/r11b-r11-live-owner-authorized-42019fbe01dccd67ba908ea1428e21a2/run-root/RUN-RESULT.json",
+      "sha256": "b5ea3cb57e2eaba69f6c696a718843dd0eff59f130393d83cbb2134855832bce",
+      "facts": {
+        "status": "HOLD_ONE_SHOT_EXECUTION_OR_VALIDATION_FAILED",
+        "failure_code": "[Errno 17] File exists",
+        "calls_reserved": 1,
+        "calls_started": 1,
+        "calls_completed": 1,
+        "retries": 0,
+        "fallbacks": 0
+      }
+    },
+    {
+      "role": "closed_call_ledger",
+      "path": "/tmp/r11b-r11-live-owner-authorized-42019fbe01dccd67ba908ea1428e21a2/run-root/CALL-LEDGER.json",
+      "sha256": "8fbdba9fcb9d7ff9a8551cf76ebf246bacc4186c3cc8d6442cefa700f2513783",
+      "facts": {
+        "request_nonce": "r11b-r18-500eb6bd1c6bcea15586ec95ed66fceb",
+        "status": "CLOSED_NO_RETRY",
+        "calls_reserved": 1,
+        "calls_started": 1,
+        "calls_completed": 1,
+        "retries": 0,
+        "fallbacks": 0
+      }
+    },
+    {
+      "role": "canonical_semantic_projection",
+      "path": "/tmp/r11b-r11-live-owner-authorized-42019fbe01dccd67ba908ea1428e21a2/run-root/STATUS.json",
+      "sha256": "a30c39fd4d35685e191de4ed60da9547dfea892f2109f94875ae175b437514cf",
+      "facts": {
+        "phase": "terminal",
+        "status": "HOLD",
+        "terminal_status": "HOLD_R11A_SEMANTIC_REDUCER",
+        "closeout_status": "HOLD"
+      }
+    },
+    {
+      "role": "canonical_semantic_summary",
+      "path": "/tmp/r11b-r11-live-owner-authorized-42019fbe01dccd67ba908ea1428e21a2/run-root/SUMMARY.json",
+      "sha256": "def9d19146fb72048a6959780256a43d54cc0265480a7f5260af3a76af3c82e8"
+    },
+    {
+      "role": "terminal_seal",
+      "path": "/tmp/r11b-r11-live-owner-authorized-42019fbe01dccd67ba908ea1428e21a2/run-root/closeout/TERMINAL-SEAL.json",
+      "sha256": "dc799507f6ba6939fb38f111325e2bff32cdb63d5df4e26cdb0cde7e7ea89e67"
+    },
+    {
+      "role": "detached_close_receipt",
+      "path": "/tmp/r11b-r11-live-owner-authorized-42019fbe01dccd67ba908ea1428e21a2/run-root/DETACHED-RECEIPT.json",
+      "sha256": "bc1217da28a3dfe992c403742feddf33297fb5130f3a43abdbc96f78de017d10"
+    },
+    {
+      "role": "stale_running_projection",
+      "path": "/tmp/r11b-r11-live-owner-authorized-42019fbe01dccd67ba908ea1428e21a2/run-root/harness-artifacts/status.json",
+      "sha256": "e2bec16b3a813893b4e68dc95341f21d1f42fad608267e9aea9cf2fe5ce3c746",
+      "facts": {
+        "status": "RUNNING",
+        "pid": 36944,
+        "pid_alive_at_projection_write": true,
+        "updated_utc": "2026-08-12T23:46:00Z"
+      }
+    },
+    {
+      "role": "stale_progress_projection",
+      "path": "/tmp/r11b-r11-live-owner-authorized-42019fbe01dccd67ba908ea1428e21a2/run-root/harness-artifacts/progress.json",
+      "sha256": "a71568eb5e289dedcc117575dcdbd046f913da56b50c725e6b04309e25891d37",
+      "facts": {
+        "status": "RUNNING",
+        "phase": "reconcile_semantic_terminal",
+        "updated_utc": "2026-08-12T23:47:09Z"
+      }
+    },
+    {
+      "role": "harness_launch_summary",
+      "path": "/tmp/r11b-r11-live-owner-authorized-42019fbe01dccd67ba908ea1428e21a2/run-root/harness-artifacts/summary.json",
+      "sha256": "625a4e2ed24340e17239727ab226a41f9d70338a5f10c1748664001098684b17",
+      "facts": {
+        "classification": "PASS_DETACHED_OBSERVER_LAUNCHED_EVIDENCE_WRITTEN",
+        "semantic_observer_pass_remained_child_responsibility": true
+      }
+    }
+  ],
+  "adjudication": {
+    "semantic_terminal": "HOLD",
+    "stale_running_is_competing_authority": false,
+    "stale_running_classification": "STALE_REBUILDABLE_PROCESS_LIFECYCLE_PROJECTION",
+    "duplicate_creator_failure_proves_no_call": false,
+    "at_most_once_disposition": "ONE_ATTEMPT_CONSUMED_CLOSED_NO_RETRY",
+    "same_nonce_retry_allowed": false,
+    "fresh_owner_authority_and_nonce_required_for_successor": true,
+    "why": [
+      "The closed ledger records one reserved, started, and completed call with zero retries and zero fallbacks.",
+      "The terminal HOLD projection, summary, terminal seal, and detached receipt outrank a harness RUNNING projection.",
+      "The File exists failure occurred after the call ledger recorded an attempt and therefore cannot be interpreted as proof that no external attempt occurred.",
+      "A flat nonce-ledger file collision is evidence of duplicate creation or preexisting state, not a safe retry signal."
+    ]
+  },
+  "contract_lessons": [
+    "Canonical event idempotency must come from the verified journal, not creator success or ProgressDB.",
+    "Nonce/call consumption needs AuthorityDB states covering CALL_START_COMMITTED and UNKNOWN_CONSUMED.",
+    "Terminal monotonicity makes stale RUNNING projections rebuildable defects, not semantic conflicts.",
+    "Recovery must never convert duplicate-path uncertainty into new call authority."
+  ],
+  "offline_review_boundary": {
+    "historical_files_modified": false,
+    "provider_or_model_calls_added": 0,
+    "message_deliveries_added": 0,
+    "production_effects_added": 0,
+    "runtime_or_production_state_changed": false
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "artifacts": [
+    {
+      "bytes": 15425,
+      "path": "AUTHORITY-CRASH-VECTORS.json",
+      "sha256": "eddd143735fe82c7a47251dd3229cc4942eb78a20deaf99bd3a87eab0621e7bc"
+    },
+    {
+      "bytes": 16448,
+      "path": "AUTHORITYDB-FENCING-PROTOCOL.md",
+      "sha256": "f547f1365e44cfe5781e94c05478db99db599bb9ae281e1304b782766d4d1c56"
+    },
+    {
+      "bytes": 2088,
+      "path": "CAS-CAPTURE-DURABILITY-CONTRACT.json",
+      "sha256": "fccadae780c216ec96bc83d08a2de29c20e18535d47f10b44042a79f6cb28090"
+    },
+    {
+      "bytes": 6027,
+      "path": "CRASH-BOUNDARY-TEST-VECTORS.json",
+      "sha256": "955395b23c6ae567f62acaf08398f90a775195819b2b97f428ea8590709fbf0d"
+    },
+    {
+      "bytes": 1284,
+      "path": "EVENT-IDEMPOTENCY-CONTRACT.json",
+      "sha256": "96ba0362ae7b1b934afb1f93a93ec6c0eebcabd449412234443b67f2b80f3ee2"
+    },
+    {
+      "bytes": 1340,
+      "path": "INPUT-VERIFICATION.json",
+      "sha256": "c5d8199ee09d0d1b49f9a9bde8f4ea3e9ee3a3e3354d9dccb6a0e0df0b81f0c2"
+    },
+    {
+      "bytes": 3981,
+      "path": "LIFECYCLE-TRANSITION-TABLE.json",
+      "sha256": "7cc98e50264a38c1fe82b9ffa0ab934e36a6369b711cd7fe2a02413bd8319675"
+    },
+    {
+      "bytes": 9728,
+      "path": "NONCE-AT-MOST-ONCE-STATE-MACHINE.json",
+      "sha256": "b184b673c3bd4e94e5f11831800e12657054c144fe48dd419bf0f0963092a3e0"
+    },
+    {
+      "bytes": 891,
+      "path": "NOTIFICATION-CLOSEOUT-CONTRACT.json",
+      "sha256": "6e112b6e127b8ed3d3ed93fbfa0f67fa2b2c1e84c988468330c1fa6956e6d3d2"
+    },
+    {
+      "bytes": 1813,
+      "path": "PATH-OWNERSHIP-CONTRACT.json",
+      "sha256": "58befcd0b9661b38a8b50c30aae62bf0a362798f4239c7091ee1545f30d2205f"
+    },
+    {
+      "bytes": 815,
+      "path": "SAME-UID-THREAT-MODEL.json",
+      "sha256": "490c24f3fa38fa771e98d49ac813c601beb419b283ee4bae89501d0102120812"
+    },
+    {
+      "bytes": 1604,
+      "path": "SEMANTIC-PATH-REGISTRATION-CONTRACT.json",
+      "sha256": "f4f251c06be68f95fd486fa589026ade178d842d068003617d5b543bdd985603"
+    },
+    {
+      "bytes": 11554,
+      "path": "SQLITE-AUTHORITY-STORAGE-CONTRACT.json",
+      "sha256": "77acbe92507098f41b82f5f21262de282f3ec39254a547624976560f9b2146ba"
+    },
+    {
+      "bytes": 2288,
+      "path": "TERMINAL-HEADS-AND-FENCE-CONTRACT.json",
+      "sha256": "f1c9862aff39654af35ce7a69bdb334a9c23c05836a52cb402b8eb468d10a3ad"
+    },
+    {
+      "bytes": 812,
+      "path": "WITNESS-ASSURANCE-GRADE.json",
+      "sha256": "95c8edc82fbab2e382bf386c3f1fffae8f73655b9f49d44905dbe0d7617d6abc"
+    },
+    {
+      "bytes": 770,
+      "path": "ZERO-EFFECT-RECEIPT.json",
+      "sha256": "7c9cbeab5fd6ab83759eaac04c02c91de52b8c25c8204999ccc4336841fd4004"
+    },
+    {
+      "bytes": 2838,
+      "path": "validate_m0_contracts.py",
+      "sha256": "c0cd4452ddab42d7cae48d8b5e5d576c476cad86b3697a40126f18484faa5816"
+    }
+  ],
+  "authority_subpackage_source": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-authority-20260813T005000Z-9b7e3c1d",
+  "root": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-integrated-contract-freeze-20260813T011000Z-c4f87a2e",
+  "schema": "critical_apply.cah_j1_m0_manifest.v1",
+  "semantic_authority": "canonical_append_only_journal_only",
+  "status": "PREVALIDATION_FROZEN"
+}

@@ -1,0 +1,103 @@
+{
+  "schema": "critical_apply.closeout_crash_matrix_exhaustive.v1",
+  "status": "FROZEN_FOR_M0_R1_B4_S1",
+  "vector_count": 12,
+  "vectors": [
+    {
+      "boundary": "before_preimage_construction",
+      "id": "CLOSE-01",
+      "journal_append_after_close": false,
+      "recovery": "construct exact preimage and future close event",
+      "semantic_result_rewritten": false,
+      "state": "release_recorded"
+    },
+    {
+      "boundary": "during_preimage_atomic_write",
+      "id": "CLOSE-02",
+      "journal_append_after_close": false,
+      "recovery": "discard_invalid_temp; reconstruct from verified canonical inputs",
+      "semantic_result_rewritten": false,
+      "state": "temp_or_absent"
+    },
+    {
+      "boundary": "after_preimage_fsync_before_PREIMAGE_RECORDED",
+      "id": "CLOSE-03",
+      "journal_append_after_close": false,
+      "recovery": "verify hash then append exact preimage-record event",
+      "semantic_result_rewritten": false,
+      "state": "durable_preimage"
+    },
+    {
+      "boundary": "after_PREIMAGE_RECORDED_sync_before_close_event",
+      "id": "CLOSE-04",
+      "journal_append_after_close": false,
+      "recovery": "recompute exact next sequence/prev hash and verify expected close hash",
+      "semantic_result_rewritten": false,
+      "state": "preimage_recorded_open_journal"
+    },
+    {
+      "boundary": "during_SUPERVISOR_CLOSED_append",
+      "id": "CLOSE-05",
+      "journal_append_after_close": false,
+      "recovery": "recover journal tail; if full event absent append exact event; if present verify exact",
+      "semantic_result_rewritten": false,
+      "state": "possible_partial_tail"
+    },
+    {
+      "boundary": "after_SUPERVISOR_CLOSED_fdatasync_before_ACK",
+      "id": "CLOSE-06",
+      "journal_append_after_close": false,
+      "recovery": "reopen verify close event then publish receipt; never append",
+      "semantic_result_rewritten": false,
+      "state": "closed_journal_no_receipt"
+    },
+    {
+      "boundary": "after_close_verify_before_receipt_publish",
+      "id": "CLOSE-07",
+      "journal_append_after_close": false,
+      "recovery": "reconstruct receipt solely from preimage and actual close head",
+      "semantic_result_rewritten": false,
+      "state": "closed_journal_no_receipt"
+    },
+    {
+      "boundary": "during_receipt_atomic_write",
+      "id": "CLOSE-08",
+      "journal_append_after_close": false,
+      "recovery": "discard invalid temp and atomically republish exact receipt",
+      "semantic_result_rewritten": false,
+      "state": "closed_journal_temp_receipt"
+    },
+    {
+      "boundary": "after_receipt_publish_before_parent_fsync",
+      "id": "CLOSE-09",
+      "journal_append_after_close": false,
+      "recovery": "fsync parent reopen rehash; conflicting bytes integrity HOLD",
+      "semantic_result_rewritten": false,
+      "state": "closed_journal_receipt_durability_unknown"
+    },
+    {
+      "boundary": "after_parent_fsync_before_receipt_verify",
+      "id": "CLOSE-10",
+      "journal_append_after_close": false,
+      "recovery": "reopen and verify exact binding",
+      "semantic_result_rewritten": false,
+      "state": "closed_journal_receipt"
+    },
+    {
+      "boundary": "after_receipt_verify_before_lock_release",
+      "id": "CLOSE-11",
+      "journal_append_after_close": false,
+      "recovery": "release lock only; no semantic or journal action",
+      "semantic_result_rewritten": false,
+      "state": "closed_complete_lock_held"
+    },
+    {
+      "boundary": "after_lock_release",
+      "id": "CLOSE-12",
+      "journal_append_after_close": false,
+      "recovery": "report closeout",
+      "semantic_result_rewritten": false,
+      "state": "closed_complete"
+    }
+  ]
+}

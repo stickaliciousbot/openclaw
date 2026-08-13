@@ -1,0 +1,80 @@
+{
+  "child_result_order": [
+    "capture bytes by CAS module",
+    "verify digest and fence",
+    "append CHILD_RESULT_CAPTURED",
+    "ACK only after reopen verification"
+  ],
+  "schema": "critical_apply.m2a_r2.ack_replay_vectors.v1",
+  "vectors": [
+    {
+      "expected_outcome": "COMMIT_THEN_ORIGINAL_ACK",
+      "id": "AR-NEW",
+      "input_case": "new proposal",
+      "required_barriers": [
+        "CAS_REOPEN_VERIFIED",
+        "JOURNAL_SYNC_REOPEN_VERIFIED",
+        "AUTHORITYDB_BIND_REOPEN_VERIFIED_IF_REQUIRED"
+      ]
+    },
+    {
+      "expected_outcome": "ORIGINAL_ACK_NO_APPEND_NO_EXECUTION",
+      "id": "AR-DUP-SAME",
+      "input_case": "same event_id same canonical proposal",
+      "required_barriers": [
+        "ORIGINAL_JOURNAL_EVENT_REOPEN_VERIFIED"
+      ]
+    },
+    {
+      "expected_outcome": "INTEGRITY_CONFLICT_HOLD_NO_EXECUTION_NO_ACTION_NO_PROVIDER_CALL",
+      "id": "AR-DUP-DIFFERENT",
+      "input_case": "same event_id different proposal",
+      "required_barriers": [
+        "EVENT_ID_MATCH",
+        "PROPOSAL_SHA_MISMATCH"
+      ]
+    },
+    {
+      "expected_outcome": "RETRY_RETURNS_ORIGINAL_ACK_NO_APPEND",
+      "id": "AR-CRASH-POSTSYNC",
+      "input_case": "crash after sync before ACK",
+      "required_barriers": [
+        "JOURNAL_SYNC_REOPEN_VERIFIED"
+      ]
+    },
+    {
+      "expected_outcome": "JOURNAL_DECIDES_DUPLICATE",
+      "id": "AR-PROGRESS-DELETED",
+      "input_case": "ProgressDB deleted",
+      "required_barriers": [
+        "CANONICAL_JOURNAL_REOPEN_VERIFIED"
+      ]
+    },
+    {
+      "expected_outcome": "DISCARD_PROJECTION_JOURNAL_DECIDES",
+      "id": "AR-PROGRESS-STALE",
+      "input_case": "ProgressDB stale",
+      "required_barriers": [
+        "CANONICAL_JOURNAL_REOPEN_VERIFIED"
+      ]
+    },
+    {
+      "expected_outcome": "HOLD_NO_ACCEPTANCE_ACK_NO_EXECUTION",
+      "id": "AR-CAS-MISSING",
+      "input_case": "required payload CAS missing",
+      "required_barriers": [
+        "CAS_REQUIRED",
+        "CAS_REOPEN_FAILED"
+      ]
+    },
+    {
+      "expected_outcome": "HOLD_NO_AUTHORITY_ACK_NO_EXECUTION",
+      "id": "AR-AUTH-BIND-MISSING",
+      "input_case": "required AuthorityDB bind missing",
+      "required_barriers": [
+        "AUTHORITYDB_BIND_REQUIRED",
+        "AUTHORITYDB_REOPEN_FAILED"
+      ]
+    }
+  ]
+}

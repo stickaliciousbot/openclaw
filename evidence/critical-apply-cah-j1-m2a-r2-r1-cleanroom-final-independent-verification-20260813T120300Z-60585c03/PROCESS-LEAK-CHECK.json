@@ -1,0 +1,9 @@
+{
+  "checked_patterns": [
+    "/tmp/cah-j1-m2a-r2-r1-cleanroom-20260813T120300Z-60585c03",
+    "FRESH-INDEPENDENT-TESTS.py"
+  ],
+  "matching_verifier_processes_excluding_check_commands": [],
+  "leak_count": 0,
+  "status": "PASS"
+}

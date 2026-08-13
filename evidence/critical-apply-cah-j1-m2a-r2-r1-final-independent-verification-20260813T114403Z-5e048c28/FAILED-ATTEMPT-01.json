@@ -1,0 +1,10 @@
+{
+  "classification": "VERIFIER_HARNESS_DISPOSABLE_COPY_MODE",
+  "candidate_defect": false,
+  "exit_code": 1,
+  "failure": "PermissionError deleting PROCESS-LEAK-CHECK.json from disposable mutation root inherited as mode 0555",
+  "m2b_started": false,
+  "production_effect": false,
+  "remediation": "chmod verifier-owned writable base root 0700; reuse completed supplied-suite evidence; resume fresh mutation loop",
+  "status": "FAILED_ATTEMPT_RETAINED"
+}

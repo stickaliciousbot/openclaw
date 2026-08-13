@@ -1,0 +1,150 @@
+{
+  "bindings": {
+    "COMPLETION-RECEIPT.json": [
+      "closeout_head",
+      "terminal_seal_sha256",
+      "notification_terminal_outcome",
+      "scope_lease_release_outcome",
+      "provider_model_calls",
+      "production_effects"
+    ],
+    "MANIFEST.json": [
+      "terminal_decision_head",
+      "semantic_result",
+      "reduction_sha256",
+      "governing_CAS_objects"
+    ],
+    "REDUCTION.json": [
+      "semantic_reduction_head",
+      "contract_sha256",
+      "reducer_sha256",
+      "semantic_result",
+      "predicate_results",
+      "reduction_sha256"
+    ],
+    "TERMINAL-SEAL.json": [
+      "terminal_decision_head",
+      "semantic_result",
+      "reduction_sha256",
+      "manifest_sha256",
+      "contract_sha256",
+      "reducer_sha256"
+    ],
+    "TERMINAL_DECISION": [
+      "semantic_reduction_head",
+      "reducer_sha256",
+      "reduction_sha256",
+      "semantic_result"
+    ]
+  },
+  "boundary": {
+    "consumed_production_authority": 0,
+    "gateway_config_runtime_mutations": 0,
+    "mode": "PREP_ONLY",
+    "production_mutations": 0,
+    "provider_model_calls": 0
+  },
+  "canonical_terminal_input_fence": {
+    "allowed_post_freeze_event_types_in_order": [
+      "TERMINAL_DECISION",
+      "MANIFEST_CREATED",
+      "TERMINAL_SEAL_CREATED",
+      "RUN_SEALED",
+      "NOTIFICATION_REQUESTED",
+      "NOTIFICATION_SUBMITTED",
+      "OWNER_DELIVERY_CONFIRMED|OWNER_DELIVERY_FAILED|OWNER_DELIVERY_UNKNOWN",
+      "CHECKER_COMPLETE",
+      "SCOPE_LEASE_RELEASE_INTENT",
+      "SCOPE_LEASE_RELEASE_RECORDED",
+      "SUPERVISOR_CLOSED"
+    ],
+    "commit_durability": "complete canonical event line fdatasync acknowledged before reduction begins",
+    "committer_role": "supervisor",
+    "conditionally_allowed_integrity_event": {
+      "condition": "only to record a post-freeze closeout/idempotency integrity fault",
+      "effect": "blocks clean closeout or requires recovery; never changes the fenced semantic prefix or sealed semantic result",
+      "event_type": "INTEGRITY_CONFLICT_DETECTED"
+    },
+    "event_type": "TERMINAL_REDUCTION_PREPARED",
+    "forbidden_examples": [
+      "ARTIFACT_READY",
+      "ARTIFACT_CAPTURED",
+      "POSTCHECK_COMPLETE",
+      "RECOVERY_POSTCHECK_COMPLETE",
+      "CHILD_CHECKPOINT",
+      "semantic PASS predicate evidence"
+    ],
+    "freeze_event_sha256_binding": {
+      "rule": "freeze_event_sha256 is the enclosing canonical event.event_sha256; it is not duplicated inside the hashed payload, avoiding a self-hash cycle",
+      "typed_reference": {
+        "event_sha256": "TERMINAL_REDUCTION_PREPARED.event_sha256",
+        "sequence": "TERMINAL_REDUCTION_PREPARED.sequence"
+      },
+      "validation": "event hash, sequence, predecessor, contract, epoch, proposer/committer and payload hash all verify"
+    },
+    "mandatory": true,
+    "payload_required": {
+      "allowed_post_freeze_event_types": "exact closed ordered allowlist bound by payload hash",
+      "contract_sha256": "must_equal_transaction_contract_sha256",
+      "freeze_sequence": "must_equal_enclosing_event.sequence",
+      "reducer_sha256": "exact pre-registered reducer identity",
+      "semantic_input_closed": true
+    },
+    "post_fence_rule": "reject every proposal that could add or replace semantic input; retries of already committed event_id values are handled only by journal-derived idempotency",
+    "semantic_prefix": "starts at sequence 1 and ends inclusively at TERMINAL_REDUCTION_PREPARED"
+  },
+  "created_utc": "2026-08-13T00:55:00Z",
+  "heads": {
+    "closeout_head": {
+      "bound_by": [
+        "COMPLETION-RECEIPT.json"
+      ],
+      "meaning": "final canonical event; no canonical append is legal after it",
+      "ref": {
+        "event_sha256": "SUPERVISOR_CLOSED.event_sha256",
+        "event_type": "SUPERVISOR_CLOSED",
+        "sequence": "SUPERVISOR_CLOSED.sequence"
+      }
+    },
+    "semantic_reduction_head": {
+      "bound_by": [
+        "REDUCTION.json",
+        "TERMINAL_DECISION.reduced_through_sequence",
+        "TERMINAL_DECISION.reduced_head_sha256"
+      ],
+      "meaning": "inclusive immutable semantic input prefix consumed by reducer",
+      "ref": {
+        "event_sha256": "TERMINAL_REDUCTION_PREPARED.event_sha256",
+        "event_type": "TERMINAL_REDUCTION_PREPARED",
+        "sequence": "TERMINAL_REDUCTION_PREPARED.sequence"
+      }
+    },
+    "terminal_decision_head": {
+      "bound_by": [
+        "MANIFEST.json",
+        "TERMINAL-SEAL.json"
+      ],
+      "meaning": "canonical event binding reduction hash, reducer, antecedent semantic_reduction_head and semantic_result",
+      "ref": {
+        "event_sha256": "TERMINAL_DECISION.event_sha256",
+        "event_type": "TERMINAL_DECISION",
+        "sequence": "TERMINAL_DECISION.sequence"
+      }
+    }
+  },
+  "monotonicity": [
+    "exactly one terminal decision",
+    "later closeout events cannot rewrite semantic_result",
+    "conflicting terminal proposal is an integrity fault, not precedence resolution"
+  ],
+  "recovery": {
+    "crash_after_closeout_head": "materialize/read back completion receipt from immutable journal and seal; append nothing",
+    "crash_after_decision": "recover decision by journal replay and continue closeout; never compute or commit a second terminal decision",
+    "crash_after_fence_before_decision": "verify journal and exact fence, then rerun exact reducer over same inclusive prefix; no new semantic evidence accepted"
+  },
+  "resolves": [
+    "B3",
+    "B4"
+  ],
+  "schema": "critical_apply.terminal_heads_and_fence_contract.v1"
+}

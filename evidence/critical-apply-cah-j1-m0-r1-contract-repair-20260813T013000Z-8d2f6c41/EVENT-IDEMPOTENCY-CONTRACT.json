@@ -1,0 +1,38 @@
+{
+  "acceptance": {
+    "new_key": "append_sync_reopen_verify_then_ACK",
+    "same_key_different_proposal": "INTEGRITY_CONFLICT_HOLD",
+    "same_key_same_proposal": "return_original_ACK_without_append"
+  },
+  "authority": "verified_journal_bytes",
+  "map_key": [
+    "transaction_id",
+    "event_id"
+  ],
+  "map_value": [
+    "proposal_sha256",
+    "sequence",
+    "event_sha256",
+    "ack"
+  ],
+  "progressdb": {
+    "lookup_allowed_only_if": "indexed_head_equals_verified_journal_head",
+    "may_decide_duplicate": false,
+    "missing_stale_deleted_corrupt": "discard_and_rebuild_before_proposal_decision",
+    "role": "disposable_acceleration_only"
+  },
+  "required_fixtures": [
+    "delete_ProgressDB_retry_ACKed_event_returns_original_ACK_no_append",
+    "corrupt_ProgressDB_retry_returns_original_ACK_no_append",
+    "stale_head_falls_back_to_journal",
+    "same_event_id_different_payload_HOLD",
+    "crash_after_sync_before_ACK_retry_returns_original_ACK"
+  ],
+  "schema": "critical_apply.event_idempotency_contract.v1",
+  "startup": [
+    "verify_entire_hash_chain_or_verified_checkpoint_plus_suffix",
+    "reconstruct_idempotency_map_from_canonical_journal",
+    "reject_duplicate_key_with_different_proposal_sha256_as_integrity_fault"
+  ],
+  "status": "FROZEN_FOR_M0_B5"
+}

@@ -1,0 +1,54 @@
+{
+  "R18_repair": {
+    "already_exists_expected_identity": "PASS",
+    "defect": "materializer_precreated_nonce-ledger_then_runner_called_mkdir_without_exist_ok",
+    "frozen_resolution": "materializer_is_only_directory_creator; runner requires_existing_directory_and_must_not_mkdir",
+    "missing_directory": "RUNNER_PREFLIGHT_HOLD_NO_CALL",
+    "wrong_identity_or_symlink": "INTEGRITY_HOLD_NO_CALL"
+  },
+  "default": "one_creator_and_one_writer_per_mutable_path; readers_never_create_or_repair",
+  "paths": [
+    {
+      "creation": "mkdir_once_before_runner_launch",
+      "creator": "supervisor_materializer",
+      "path": "nonce-ledger/",
+      "runner_may_create": false,
+      "writer": "none_after_creation"
+    },
+    {
+      "creator": "nonce_authority_component_via_atomic_create",
+      "materializer_may_create": false,
+      "path": "nonce-ledger/nonce-ledger.json",
+      "writer": "nonce_authority_component_only"
+    },
+    {
+      "creator": "supervisor_journal_writer",
+      "path": "journal/events.jsonl",
+      "writer": "supervisor_journal_writer_only"
+    },
+    {
+      "creator": "projection_writer",
+      "path": "supervisor-status.json",
+      "semantic_authority": false,
+      "writer": "projection_writer_only"
+    },
+    {
+      "creator": "supervisor_sealer",
+      "path": "terminal-seal.json",
+      "writer": "none_after_exclusive_create"
+    },
+    {
+      "creator": "independent_checker",
+      "path": "witness.db",
+      "writer": "independent_checker_only"
+    },
+    {
+      "creator": "authority_service",
+      "path": "authority.db",
+      "writer": "authority_service_only"
+    }
+  ],
+  "projections": "never_create_semantic_evidence_and_never_override_journal",
+  "schema": "critical_apply.path_ownership_contract.v1",
+  "status": "FROZEN_FOR_M0_SINGLE_OWNER"
+}

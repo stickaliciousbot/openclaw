@@ -1,0 +1,21 @@
+{
+  "schema": "critical_apply.cah_j1_m1_start.v1",
+  "utc": "2026-08-13T02:40:09Z",
+  "status": "STARTED",
+  "worktree": "/tmp/cah-j1-m1-core-20260813T1240AEST/worktree",
+  "required_base": "b48fbacb12f07de334a0195e13992ce7237db910",
+  "actual_head": "b48fbacb12f07de334a0195e13992ce7237db910",
+  "frozen_contract_root": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-r3-contract-repair-20260813T020500Z-5e1b7a63",
+  "m0_receipt": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-r3-final-independent-verification-20260813T022900Z-a61f0c9e/INDEPENDENT-RECEIPT.json",
+  "scope": "source/tests/evidence only",
+  "pass_criteria": [
+    "canonical journal idempotency and disposable ProgressDB",
+    "descriptor-bound durable CAS",
+    "AuthorityDB fenced leases and at-most-once nonces",
+    "new and predecessor scoped gates pass",
+    "bounded privacy scanner receipt",
+    "zero production/runtime/external effects"
+  ],
+  "forbidden_effects": ["install", "provider_or_Terra_call", "Gateway_or_config_or_runtime", "production", "git_stage_commit_push", "cron_systemd", "external_message", "primary_worktree_mutation"],
+  "independent_verification_claimed": false
+}

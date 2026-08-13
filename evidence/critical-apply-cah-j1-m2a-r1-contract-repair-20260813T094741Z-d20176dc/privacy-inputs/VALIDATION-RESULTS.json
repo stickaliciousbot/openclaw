@@ -1,0 +1,10 @@
+{
+  "py_compile_returncode": 0,
+  "returncode": 0,
+  "schema": "critical_apply.m2a_r1.validation_results.v1",
+  "validator": {
+    "error_count": 0,
+    "errors": [],
+    "status": "PASS"
+  }
+}

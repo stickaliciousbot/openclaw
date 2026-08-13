@@ -1,0 +1,50 @@
+{
+  "corrections": [
+    {
+      "artifacts": [
+        "TERMINAL-HEADS-AND-FENCE-CONTRACT.json",
+        "LIFECYCLE-TRANSITION-TABLE.json"
+      ],
+      "id": "R1-01",
+      "proof": "cleanup and reconciliation removed from post-freeze allowlist and explicitly rejected; terminal seal record named",
+      "result": "RESOLVED"
+    },
+    {
+      "artifacts": [
+        "TERMINAL-HEADS-AND-FENCE-CONTRACT.json",
+        "LIFECYCLE-TRANSITION-TABLE.json",
+        "CLOSEOUT-CRASH-MATRIX-EXHAUSTIVE.json"
+      ],
+      "id": "R1-02",
+      "proof": "receipt preimage/future close-event precomputation, final event commit, post-close receipt publication and all crash boundaries frozen without circular hash",
+      "result": "RESOLVED"
+    },
+    {
+      "artifacts": [
+        "NONCE-CRASH-MATRIX-EXHAUSTIVE.json",
+        "CAS-CRASH-MATRIX-EXHAUSTIVE.json",
+        "CRASH-BOUNDARY-TEST-VECTORS.json"
+      ],
+      "id": "R1-03",
+      "proof": "every nonce transition and every CAS publication step has deterministic boundary vectors plus ambiguous external/fault cases",
+      "result": "RESOLVED"
+    }
+  ],
+  "independent_hold": {
+    "blocking_ids": [
+      "BLOCK-01-POST-FREEZE-SEMANTIC-ALLOWLIST-CONTRADICTION",
+      "BLOCK-02-CLOSEOUT-HEAD-RECEIPT-ORDER-UNDER-SPECIFIED",
+      "BLOCK-03-REQUIRED-CRASH-MATRICES-NOT-EXHAUSTIVE"
+    ],
+    "receipt_sha256": "166f26e1cc9776c82909c06d15f6f61d07cdc3409cd9cbbe78c34e5c313d0c24",
+    "root": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-final-independent-verification-20260813T011200Z-5f19c4e0"
+  },
+  "predecessor_candidate": {
+    "manifest_sha256": "b7744bd4ea0990b8833613cda6a34576427d894a4d66e2bfef4f11bc5967d71f",
+    "root": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-integrated-contract-freeze-20260813T011000Z-c4f87a2e"
+  },
+  "production_effect": false,
+  "schema": "critical_apply.cah_j1_m0_r1_correction_ledger.v1",
+  "semantic_authority": "canonical_append_only_journal_only",
+  "status": "PASS_CORRECTIONS_CONSTRUCTED"
+}

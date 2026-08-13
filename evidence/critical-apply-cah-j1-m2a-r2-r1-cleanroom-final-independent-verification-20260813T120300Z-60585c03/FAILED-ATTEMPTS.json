@@ -1,0 +1,14 @@
+{
+  "count": 5,
+  "attempts": [
+    {"attempt": 1, "classification": "VERIFIER_SETUP_RACE_OR_STALE_DIRECTORY", "preserved_log": "FAILED-ATTEMPT-01.log", "outside_write": false},
+    {"attempt": 2, "classification": "VERIFIER_TEST_INVENTORY_ASSERTION_TYPO", "preserved_log": "FAILED-ATTEMPT-02.log", "outside_write": false},
+    {"attempt": 3, "classification": "VERIFIER_ARCHIVE_CANONICALIZATION_AND_SCHEMA_BASELINE_DEFECT", "preserved_log": "FAILED-ATTEMPT-03.log", "outside_write": false},
+    {"attempt": 4, "classification": "VERIFIER_OVERBROAD_SCHEMA_INTERPRETATION", "preserved_log": "FAILED-ATTEMPT-04.log", "outside_write": false},
+    {"attempt": 5, "classification": "VERIFIER_SCHEMA_DIAGNOSTIC_COVERAGE_GAP", "preserved_log": "FAILED-ATTEMPT-05.log", "outside_write": false}
+  ],
+  "final_attempt": "PASS",
+  "candidate_repair": false,
+  "validator_weakening": false,
+  "outside_write_attempts": 0
+}

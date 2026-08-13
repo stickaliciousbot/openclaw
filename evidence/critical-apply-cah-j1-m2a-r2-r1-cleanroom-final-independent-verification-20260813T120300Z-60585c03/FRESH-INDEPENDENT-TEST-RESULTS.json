@@ -1,0 +1,2926 @@
+{
+  "baseline": {
+    "candidate_errors": [],
+    "independent_semantic_errors": [],
+    "pass": true
+  },
+  "case_count": 104,
+  "cases": [
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:R1-AUTHORITY-ROLES.json",
+        "authority_role_coherence"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "authority",
+      "changed_artifacts": [
+        "R1-AUTHORITY-ROLES.json"
+      ],
+      "id": "CLN-A01-final-authority-false",
+      "independent_semantic_diagnostics": [
+        "authority.final_role"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:R1-AUTHORITY-ROLES.json",
+        "authority_role_coherence"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "authority",
+      "changed_artifacts": [
+        "R1-AUTHORITY-ROLES.json"
+      ],
+      "id": "CLN-A02-final-role-demoted",
+      "independent_semantic_diagnostics": [
+        "authority.final_role"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:R1-AUTHORITY-ROLES.json",
+        "authority_role_coherence"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "authority",
+      "changed_artifacts": [
+        "R1-AUTHORITY-ROLES.json"
+      ],
+      "id": "CLN-A03-final-hash-preliminary",
+      "independent_semantic_diagnostics": [
+        "authority.final_role"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:R1-AUTHORITY-ROLES.json"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "authority",
+      "changed_artifacts": [
+        "R1-AUTHORITY-ROLES.json"
+      ],
+      "id": "CLN-A04-final-path-null",
+      "independent_semantic_diagnostics": [
+        "authority.final_role"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:R1-AUTHORITY-ROLES.json",
+        "authority_role_coherence"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "authority",
+      "changed_artifacts": [
+        "R1-AUTHORITY-ROLES.json"
+      ],
+      "id": "CLN-A05-prelim-authority-true",
+      "independent_semantic_diagnostics": [
+        "authority.preliminary_role"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:R1-AUTHORITY-ROLES.json",
+        "authority_role_coherence"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "authority",
+      "changed_artifacts": [
+        "R1-AUTHORITY-ROLES.json"
+      ],
+      "id": "CLN-A06-prelim-role-promoted",
+      "independent_semantic_diagnostics": [
+        "authority.preliminary_role"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:R1-AUTHORITY-ROLES.json",
+        "authority_role_coherence"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "authority",
+      "changed_artifacts": [
+        "R1-AUTHORITY-ROLES.json"
+      ],
+      "id": "CLN-A07-prelim-hash-final",
+      "independent_semantic_diagnostics": [
+        "authority.preliminary_role"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:R1-AUTHORITY-ROLES.json",
+        "authority_role_coherence"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "authority",
+      "changed_artifacts": [
+        "R1-AUTHORITY-ROLES.json"
+      ],
+      "id": "CLN-A08-prelim-path-populated",
+      "independent_semantic_diagnostics": [
+        "authority.preliminary_role"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:IMMUTABLE-INPUT-SEALS.json",
+        "immutable_hold_binding",
+        "immutable_authority_rehash",
+        "authority_role_coherence"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "authority",
+      "changed_artifacts": [
+        "IMMUTABLE-INPUT-SEALS.json"
+      ],
+      "id": "CLN-A09-seal-r1-to-prelim",
+      "independent_semantic_diagnostics": [
+        "authority.seal_role"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:IMMUTABLE-INPUT-SEALS.json",
+        "immutable_hold_binding",
+        "immutable_authority_rehash",
+        "authority_role_coherence"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "authority",
+      "changed_artifacts": [
+        "IMMUTABLE-INPUT-SEALS.json"
+      ],
+      "id": "CLN-A10-seal-add-prelim-authority",
+      "independent_semantic_diagnostics": [
+        "authority.seal_role"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "design_contract_digest",
+        "design_xref:ACK-REPLAY-VECTORS.json",
+        "authority_role_coherence"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "authority",
+      "changed_artifacts": [
+        "DESIGN"
+      ],
+      "id": "CLN-A11-design-final-hash-drift",
+      "independent_semantic_diagnostics": [
+        "authority.design_prose"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "design_contract_digest",
+        "design_xref:ACK-REPLAY-VECTORS.json"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "authority",
+      "changed_artifacts": [
+        "DESIGN"
+      ],
+      "id": "CLN-A12-design-authority-boolean-flip",
+      "independent_semantic_diagnostics": [
+        "authority.design_prose",
+        "authority.design_contract"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "design_contract_digest",
+        "design_xref:ACK-REPLAY-VECTORS.json",
+        "authority_role_coherence"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "authority",
+      "changed_artifacts": [
+        "DESIGN"
+      ],
+      "id": "CLN-A13-design-prelim-authoritative-claim",
+      "independent_semantic_diagnostics": [
+        "authority.design_prose"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:DESIGN-CONTRACT.json",
+        "design_contract_digest"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "authority",
+      "changed_artifacts": [
+        "DESIGN-CONTRACT.json"
+      ],
+      "id": "CLN-A14-design-contract-statement-drift",
+      "independent_semantic_diagnostics": [
+        "authority.design_contract"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory",
+        "proof_semantic_phase_head"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-head-00",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T00"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory",
+        "proof_semantic_phase_head"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-head-01",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T00"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory",
+        "proof_semantic_phase_head"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-head-02",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T03"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory",
+        "proof_semantic_phase_head"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-head-03",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T03"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory",
+        "proof_semantic_phase_head"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-head-04",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T08"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory",
+        "proof_semantic_phase_head"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-head-05",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T08"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory",
+        "proof_semantic_phase_head"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-head-06",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T15"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory",
+        "proof_semantic_phase_head"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-head-07",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T15"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory",
+        "proof_semantic_phase_head"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-head-08",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T22"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory",
+        "proof_semantic_phase_head"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-head-09",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T22"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory",
+        "proof_semantic_phase_head"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-hash-00",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T01"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory",
+        "proof_semantic_phase_head"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-hash-01",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T01"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory",
+        "proof_semantic_phase_head"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-hash-02",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T04"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory",
+        "proof_semantic_phase_head"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-hash-03",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T04"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory",
+        "proof_semantic_phase_head"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-hash-04",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T10"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory",
+        "proof_semantic_phase_head"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-hash-05",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T10"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory",
+        "proof_semantic_phase_head"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-hash-06",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T20"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory",
+        "proof_semantic_phase_head"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-hash-07",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T20"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-cas-00",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T03"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory",
+        "proof_semantic_cas"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-cas-01",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T03",
+        "proof.canonical_semantics:T04"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-cas-02",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T10"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory",
+        "proof_semantic_cas"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-cas-03",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T10",
+        "proof.canonical_semantics:T11"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-cas-04",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T11"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory",
+        "proof_semantic_cas"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-cas-05",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T11",
+        "proof.canonical_semantics:T12"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-cas-06",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T16"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory",
+        "proof_semantic_cas"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-cas-07",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T16",
+        "proof.canonical_semantics:T17"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory",
+        "proof_semantic_initialization"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-epoch-00",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T00"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory",
+        "proof_semantic_epoch"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-epoch-01",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T00",
+        "proof.canonical_semantics:T01"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-epoch-02",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T02"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory",
+        "proof_semantic_epoch"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-epoch-03",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T02",
+        "proof.canonical_semantics:T03"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-fence-00",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T05"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-fence-01",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T06"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-fence-02",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T07"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-fence-03",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T20"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory",
+        "proof_semantic_initialization",
+        "typed_proof_content"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-state-00",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T00"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory",
+        "typed_proof_content"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-state-01",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T02",
+        "proof.canonical_semantics:T03"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory",
+        "typed_proof_content"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-state-02",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T05",
+        "proof.canonical_semantics:T06"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory",
+        "typed_proof_content"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-receipt-00",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T00",
+        "proof.canonical_semantics:T01"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory",
+        "typed_proof_content"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-receipt-01",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T05"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory",
+        "typed_proof_content"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-receipt-02",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T22"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-prohibited-00",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T04"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-prohibited-01",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T09"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-prohibited-02",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T14"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-prohibited-03",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T19"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-ambiguity-00",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T04"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-ambiguity-01",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T09"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-ambiguity-02",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T14"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-ambiguity-03",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T19"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-side-00",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T12"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "proof_phase_side",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-P-observed-00",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T12",
+        "proof.canonical_semantics:T13"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:ARTIFACT-LIFECYCLE-CONTRACT.json",
+        "lifecycle_noncanonical",
+        "lifecycle_cross_artifact"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "lifecycle",
+      "changed_artifacts": [
+        "ARTIFACT-LIFECYCLE-CONTRACT.json"
+      ],
+      "id": "CLN-L01-AP01-canonical",
+      "independent_semantic_diagnostics": [
+        "lifecycle.noncanonical:AP01_COMPLETION_RECEIPT_PREIMAGE:canonical",
+        "lifecycle.cross_artifact"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:ARTIFACT-LIFECYCLE-CONTRACT.json",
+        "lifecycle_noncanonical",
+        "lifecycle_cross_artifact"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "lifecycle",
+      "changed_artifacts": [
+        "ARTIFACT-LIFECYCLE-CONTRACT.json"
+      ],
+      "id": "CLN-L02-AP01-semantic-authority",
+      "independent_semantic_diagnostics": [
+        "lifecycle.noncanonical:AP01_COMPLETION_RECEIPT_PREIMAGE:semantic_authority",
+        "lifecycle.cross_artifact"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:ARTIFACT-LIFECYCLE-CONTRACT.json",
+        "lifecycle_noncanonical",
+        "lifecycle_cross_artifact"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "lifecycle",
+      "changed_artifacts": [
+        "ARTIFACT-LIFECYCLE-CONTRACT.json"
+      ],
+      "id": "CLN-L03-AP01-head-mutation",
+      "independent_semantic_diagnostics": [
+        "lifecycle.noncanonical:AP01_COMPLETION_RECEIPT_PREIMAGE:may_mutate_closeout_head",
+        "lifecycle.cross_artifact"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:ARTIFACT-LIFECYCLE-CONTRACT.json",
+        "lifecycle_noncanonical",
+        "lifecycle_cross_artifact"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "lifecycle",
+      "changed_artifacts": [
+        "ARTIFACT-LIFECYCLE-CONTRACT.json"
+      ],
+      "id": "CLN-L04-AP01-release-head-wrong",
+      "independent_semantic_diagnostics": [
+        "lifecycle.AP01",
+        "lifecycle.cross_artifact"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:ARTIFACT-LIFECYCLE-CONTRACT.json",
+        "lifecycle_noncanonical",
+        "lifecycle_cross_artifact"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "lifecycle",
+      "changed_artifacts": [
+        "ARTIFACT-LIFECYCLE-CONTRACT.json"
+      ],
+      "id": "CLN-L05-LO01-canonical",
+      "independent_semantic_diagnostics": [
+        "lifecycle.noncanonical:LO01_COMPLETION_RECEIPT_PUBLICATION:canonical",
+        "lifecycle.cross_artifact"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:ARTIFACT-LIFECYCLE-CONTRACT.json",
+        "lifecycle_noncanonical",
+        "lifecycle_cross_artifact"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "lifecycle",
+      "changed_artifacts": [
+        "ARTIFACT-LIFECYCLE-CONTRACT.json"
+      ],
+      "id": "CLN-L06-LO02-semantic-head",
+      "independent_semantic_diagnostics": [
+        "lifecycle.noncanonical:LO02_TRANSACTION_LOCK_RELEASE:may_mutate_semantic_head",
+        "lifecycle.cross_artifact"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:ARTIFACT-LIFECYCLE-CONTRACT.json",
+        "lifecycle_noncanonical",
+        "lifecycle_cross_artifact"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "lifecycle",
+      "changed_artifacts": [
+        "ARTIFACT-LIFECYCLE-CONTRACT.json"
+      ],
+      "id": "CLN-L07-release-before-publication",
+      "independent_semantic_diagnostics": [
+        "lifecycle.release_without_publication_receipt",
+        "lifecycle.cross_artifact"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:ARTIFACT-LIFECYCLE-CONTRACT.json",
+        "lifecycle_noncanonical",
+        "lifecycle_cross_artifact"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "lifecycle",
+      "changed_artifacts": [
+        "ARTIFACT-LIFECYCLE-CONTRACT.json"
+      ],
+      "id": "CLN-L08-operation-order-swap",
+      "independent_semantic_diagnostics": [
+        "lifecycle.order",
+        "lifecycle.cross_artifact"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory",
+        "proof_semantic_lifecycle_journal"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "lifecycle",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-L09-lifecycle-journal-receipt",
+      "independent_semantic_diagnostics": [
+        "proof.lifecycle_semantics:LO02_TRANSACTION_LOCK_RELEASE:BEFORE_COMMIT"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory",
+        "proof_semantic_lifecycle_cas"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "lifecycle",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-L10-lock-proof-no-receipt-cas",
+      "independent_semantic_diagnostics": [
+        "proof.lifecycle_semantics:LO02_TRANSACTION_LOCK_RELEASE:BEFORE_COMMIT"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:INGRESS-ENVELOPE-CONTRACT.json",
+        "ingress_strict",
+        "ingress_schema"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "schema",
+      "changed_artifacts": [
+        "INGRESS-ENVELOPE-CONTRACT.json"
+      ],
+      "id": "CLN-S01-ingress-unknown-top",
+      "independent_semantic_diagnostics": [
+        "schema.top_level_shape:INGRESS-ENVELOPE-CONTRACT.json"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:ACK-REPLAY-VECTORS.json",
+        "ack_vector_ids",
+        "ack_vector_content",
+        "child_cross_artifact"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "schema",
+      "changed_artifacts": [
+        "ACK-REPLAY-VECTORS.json"
+      ],
+      "id": "CLN-S02-ack-vector-unknown",
+      "independent_semantic_diagnostics": [
+        "schema.nested_ack_vectors"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:PATH-OWNERSHIP-MATRIX.json",
+        "path_multiple_or_missing_writer",
+        "path_exact_ownership",
+        "path_runner_create",
+        "child_path_creation"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "schema",
+      "changed_artifacts": [
+        "PATH-OWNERSHIP-MATRIX.json"
+      ],
+      "id": "CLN-S03-path-remove-writer",
+      "independent_semantic_diagnostics": [
+        "schema.nested_path_ownership"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:CONCURRENCY-FENCING-VECTORS.json",
+        "contention_thresholds",
+        "concurrency_global",
+        "overlap_exclusion",
+        "disjoint_scope",
+        "stale_epoch_fence_rejection"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "schema",
+      "changed_artifacts": [
+        "CONCURRENCY-FENCING-VECTORS.json"
+      ],
+      "id": "CLN-S04-concurrency-clients-string",
+      "independent_semantic_diagnostics": [
+        "schema.nested_concurrency_types"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-STATE-MACHINE.json",
+        "canonical_exact_chain",
+        "canonical_projection",
+        "canonical_adjacency",
+        "canonical_close_adjacency",
+        "preimage_promoted_canonical",
+        "artifact_preparation_binding",
+        "action_semantics",
+        "action_gate",
+        "provider_call_gate",
+        "provider_call_semantics",
+        "state_authority",
+        "lifecycle_noncanonical"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "schema",
+      "changed_artifacts": [
+        "SUPERVISOR-STATE-MACHINE.json"
+      ],
+      "id": "CLN-S05-state-transition-extra-key",
+      "independent_semantic_diagnostics": [
+        "schema.nested_transition_shape"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "schema",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json"
+      ],
+      "id": "CLN-S06-proof-extra-key",
+      "independent_semantic_diagnostics": [
+        "proof.registry_mirror",
+        "proof.crash_registry_mirror",
+        "proof.canonical_semantics:T00"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "schema",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json"
+      ],
+      "id": "CLN-S07-proof-count-string",
+      "independent_semantic_diagnostics": [
+        "proof.counts"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:COMPONENT-TRUST-BOUNDARIES.json",
+        "component_authority",
+        "nonsemantic_component_authority",
+        "component_exact_roles"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "schema",
+      "changed_artifacts": [
+        "COMPONENT-TRUST-BOUNDARIES.json"
+      ],
+      "id": "CLN-S08-component-remove-forbidden",
+      "independent_semantic_diagnostics": [
+        "schema.nested_component_shape"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:ZERO-EFFECT-CONTRACT.json",
+        "zero_effect_boundary"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "schema",
+      "changed_artifacts": [
+        "ZERO-EFFECT-CONTRACT.json"
+      ],
+      "id": "CLN-S09-zero-effect-extra-authority",
+      "independent_semantic_diagnostics": [
+        "schema.top_level_shape:ZERO-EFFECT-CONTRACT.json"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:STRICT-SCHEMA-REGISTRY.json",
+        "strict_schema_registry"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "schema",
+      "changed_artifacts": [
+        "STRICT-SCHEMA-REGISTRY.json"
+      ],
+      "id": "CLN-S10-registry-fixed-identity-drift",
+      "independent_semantic_diagnostics": [
+        "schema.fixed_identity:ACK-REPLAY-VECTORS.json"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+        "N07_exact_order",
+        "N04_exact_no_bypass",
+        "nonce_exact_identity_order",
+        "nonce_exact_semantics",
+        "nonce_exact_predicates",
+        "unknown_outcome_terminal",
+        "child_boundary",
+        "child_provider_authority",
+        "child_cross_artifact"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "cross_artifact",
+      "changed_artifacts": [
+        "CHILD-LAUNCH-AND-RESULT-CONTRACT.json"
+      ],
+      "id": "CLN-X01-N07-first-two-swap",
+      "independent_semantic_diagnostics": [
+        "cross.N07"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+        "N07_exact_order",
+        "N04_exact_no_bypass",
+        "nonce_exact_identity_order",
+        "nonce_exact_semantics",
+        "nonce_exact_predicates",
+        "unknown_outcome_terminal",
+        "child_boundary",
+        "child_provider_authority",
+        "child_cross_artifact"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "cross_artifact",
+      "changed_artifacts": [
+        "CHILD-LAUNCH-AND-RESULT-CONTRACT.json"
+      ],
+      "id": "CLN-X02-N04-remove-no-attempt",
+      "independent_semantic_diagnostics": [
+        "cross.N04"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+        "N07_exact_order",
+        "N04_exact_no_bypass",
+        "nonce_exact_identity_order",
+        "nonce_exact_semantics",
+        "nonce_exact_predicates",
+        "unknown_outcome_terminal",
+        "child_boundary",
+        "child_provider_authority",
+        "child_cross_artifact",
+        "child_provider_cross_artifact"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "cross_artifact",
+      "changed_artifacts": [
+        "CHILD-LAUNCH-AND-RESULT-CONTRACT.json"
+      ],
+      "id": "CLN-X03-child-provider-true",
+      "independent_semantic_diagnostics": [
+        "cross.provider_gate"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-STATE-MACHINE.json",
+        "canonical_exact_chain",
+        "canonical_projection",
+        "canonical_adjacency",
+        "canonical_close_adjacency",
+        "preimage_promoted_canonical",
+        "artifact_preparation_binding",
+        "action_semantics",
+        "action_gate",
+        "provider_call_gate",
+        "provider_call_semantics",
+        "state_authority",
+        "lifecycle_noncanonical"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "cross_artifact",
+      "changed_artifacts": [
+        "SUPERVISOR-STATE-MACHINE.json"
+      ],
+      "id": "CLN-X04-state-provider-true",
+      "independent_semantic_diagnostics": [
+        "state.prohibited_call.T09"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-STATE-MACHINE.json",
+        "canonical_exact_chain",
+        "canonical_projection",
+        "canonical_adjacency",
+        "canonical_close_adjacency",
+        "preimage_promoted_canonical",
+        "artifact_preparation_binding",
+        "action_semantics",
+        "action_gate",
+        "provider_call_gate",
+        "provider_call_semantics",
+        "state_authority",
+        "lifecycle_noncanonical"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "cross_artifact",
+      "changed_artifacts": [
+        "SUPERVISOR-STATE-MACHINE.json"
+      ],
+      "id": "CLN-X05-action-before-barrier",
+      "independent_semantic_diagnostics": [
+        "state.action_gate.T08"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:CONCURRENCY-FENCING-VECTORS.json",
+        "contention_thresholds",
+        "concurrency_global",
+        "overlap_exclusion",
+        "disjoint_scope",
+        "stale_epoch_fence_rejection",
+        "child_fence_cross_artifact"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "cross_artifact",
+      "changed_artifacts": [
+        "CONCURRENCY-FENCING-VECTORS.json"
+      ],
+      "id": "CLN-X06-remove-epoch-fence-field",
+      "independent_semantic_diagnostics": [
+        "cross.fence_fields"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+        "N07_exact_order",
+        "N04_exact_no_bypass",
+        "nonce_exact_identity_order",
+        "nonce_exact_semantics",
+        "nonce_exact_predicates",
+        "unknown_outcome_terminal",
+        "child_boundary",
+        "child_provider_authority",
+        "child_cross_artifact",
+        "child_ack_cross_artifact"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "cross_artifact",
+      "changed_artifacts": [
+        "CHILD-LAUNCH-AND-RESULT-CONTRACT.json"
+      ],
+      "id": "CLN-X07-child-ACK-reorder",
+      "independent_semantic_diagnostics": [
+        "cross.ACK"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:ACK-REPLAY-VECTORS.json",
+        "ack_vector_ids",
+        "ack_vector_content",
+        "child_cross_artifact",
+        "child_ack_cross_artifact"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "cross_artifact",
+      "changed_artifacts": [
+        "ACK-REPLAY-VECTORS.json"
+      ],
+      "id": "CLN-X08-ACK-early",
+      "independent_semantic_diagnostics": [
+        "cross.ACK"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:M2B-PROMOTION-GATES.json",
+        "M2B_boundary"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "cross_artifact",
+      "changed_artifacts": [
+        "M2B-PROMOTION-GATES.json"
+      ],
+      "id": "CLN-X09-M2B-runtime-allowed",
+      "independent_semantic_diagnostics": [
+        "cross.M2B"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-STATE-MACHINE.json",
+        "canonical_exact_chain",
+        "canonical_projection",
+        "canonical_adjacency",
+        "canonical_close_adjacency",
+        "preimage_promoted_canonical",
+        "artifact_preparation_binding",
+        "action_semantics",
+        "action_gate",
+        "provider_call_gate",
+        "provider_call_semantics",
+        "state_authority",
+        "lifecycle_noncanonical",
+        "transition_authority_roles"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "cross_artifact",
+      "changed_artifacts": [
+        "SUPERVISOR-STATE-MACHINE.json"
+      ],
+      "id": "CLN-X10-transition-role-unknown",
+      "independent_semantic_diagnostics": [
+        "cross.transition_roles"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:CONCURRENCY-FENCING-VECTORS.json",
+        "contention_thresholds",
+        "concurrency_global",
+        "overlap_exclusion",
+        "disjoint_scope",
+        "stale_epoch_fence_rejection",
+        "exact_contract:CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+        "N07_exact_order",
+        "N04_exact_no_bypass",
+        "nonce_exact_identity_order",
+        "nonce_exact_semantics",
+        "nonce_exact_predicates",
+        "unknown_outcome_terminal",
+        "child_boundary",
+        "child_provider_authority",
+        "child_cross_artifact",
+        "child_fence_cross_artifact"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "compound",
+      "changed_artifacts": [
+        "CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+        "CONCURRENCY-FENCING-VECTORS.json"
+      ],
+      "id": "CLN-C01-dual-fence-field-removal",
+      "independent_semantic_diagnostics": [
+        "cross.fence_fields"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:INGRESS-IDEMPOTENCY-CONTRACT.json",
+        "ack_order_replay",
+        "child_cross_artifact",
+        "exact_contract:ACK-REPLAY-VECTORS.json",
+        "ack_vector_ids",
+        "ack_vector_content",
+        "exact_contract:CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+        "N07_exact_order",
+        "N04_exact_no_bypass",
+        "nonce_exact_identity_order",
+        "nonce_exact_semantics",
+        "nonce_exact_predicates",
+        "unknown_outcome_terminal",
+        "child_boundary",
+        "child_provider_authority"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "compound",
+      "changed_artifacts": [
+        "ACK-REPLAY-VECTORS.json",
+        "CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+        "INGRESS-IDEMPOTENCY-CONTRACT.json"
+      ],
+      "id": "CLN-C02-four-way-ACK-reversal",
+      "independent_semantic_diagnostics": [
+        "cross.ACK"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-STATE-MACHINE.json",
+        "canonical_exact_chain",
+        "canonical_projection",
+        "canonical_adjacency",
+        "canonical_close_adjacency",
+        "preimage_promoted_canonical",
+        "artifact_preparation_binding",
+        "action_semantics",
+        "action_gate",
+        "provider_call_gate",
+        "provider_call_semantics",
+        "state_authority",
+        "lifecycle_noncanonical",
+        "exact_contract:ARTIFACT-LIFECYCLE-CONTRACT.json"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "compound",
+      "changed_artifacts": [
+        "ARTIFACT-LIFECYCLE-CONTRACT.json",
+        "SUPERVISOR-STATE-MACHINE.json"
+      ],
+      "id": "CLN-C03-lifecycle-dual-canonical",
+      "independent_semantic_diagnostics": [
+        "lifecycle.noncanonical:LO01_COMPLETION_RECEIPT_PUBLICATION:canonical"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:IMMUTABLE-INPUT-SEALS.json",
+        "immutable_hold_binding",
+        "immutable_authority_rehash",
+        "exact_contract:R1-AUTHORITY-ROLES.json",
+        "authority_role_coherence"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "compound",
+      "changed_artifacts": [
+        "IMMUTABLE-INPUT-SEALS.json",
+        "R1-AUTHORITY-ROLES.json"
+      ],
+      "id": "CLN-C04-authority-swap-role-and-seal",
+      "independent_semantic_diagnostics": [
+        "authority.final_role",
+        "authority.seal_role"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-STATE-MACHINE.json",
+        "canonical_exact_chain",
+        "canonical_projection",
+        "canonical_adjacency",
+        "canonical_close_adjacency",
+        "preimage_promoted_canonical",
+        "artifact_preparation_binding",
+        "action_semantics",
+        "action_gate",
+        "provider_call_gate",
+        "provider_call_semantics",
+        "state_authority",
+        "lifecycle_noncanonical",
+        "exact_contract:CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+        "N07_exact_order",
+        "N04_exact_no_bypass",
+        "nonce_exact_identity_order",
+        "nonce_exact_semantics",
+        "nonce_exact_predicates",
+        "unknown_outcome_terminal",
+        "child_boundary",
+        "child_provider_authority",
+        "child_cross_artifact",
+        "child_provider_cross_artifact"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "compound",
+      "changed_artifacts": [
+        "CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+        "SUPERVISOR-STATE-MACHINE.json"
+      ],
+      "id": "CLN-C05-provider-all-true",
+      "independent_semantic_diagnostics": [
+        "state.prohibited_call.T09",
+        "cross.provider_gate"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-STATE-MACHINE.json",
+        "canonical_exact_chain",
+        "canonical_projection",
+        "canonical_adjacency",
+        "canonical_close_adjacency",
+        "preimage_promoted_canonical",
+        "artifact_preparation_binding",
+        "action_semantics",
+        "action_gate",
+        "provider_call_gate",
+        "provider_call_semantics",
+        "state_authority",
+        "lifecycle_noncanonical",
+        "exact_contract:CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+        "N07_exact_order",
+        "N04_exact_no_bypass",
+        "nonce_exact_identity_order",
+        "nonce_exact_semantics",
+        "nonce_exact_predicates",
+        "unknown_outcome_terminal",
+        "child_boundary",
+        "child_provider_authority",
+        "child_cross_artifact"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "compound",
+      "changed_artifacts": [
+        "CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+        "SUPERVISOR-STATE-MACHINE.json"
+      ],
+      "id": "CLN-C06-action-meaning-coordinated-drift",
+      "independent_semantic_diagnostics": [
+        "cross.action_semantics"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-STATE-MACHINE.json",
+        "canonical_exact_chain",
+        "canonical_projection",
+        "canonical_adjacency",
+        "canonical_close_adjacency",
+        "preimage_promoted_canonical",
+        "artifact_preparation_binding",
+        "action_semantics",
+        "action_gate",
+        "provider_call_gate",
+        "provider_call_semantics",
+        "state_authority",
+        "lifecycle_noncanonical",
+        "proof_semantic_phase_head",
+        "proof_semantic_lifecycle_journal"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "compound",
+      "changed_artifacts": [
+        "SUPERVISOR-STATE-MACHINE.json"
+      ],
+      "id": "CLN-C07-closeout-transition-and-projection-drift",
+      "independent_semantic_diagnostics": [
+        "state.event_projection"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:M2B-PROMOTION-GATES.json",
+        "M2B_boundary",
+        "exact_contract:ZERO-EFFECT-CONTRACT.json",
+        "zero_effect_boundary"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "compound",
+      "changed_artifacts": [
+        "M2B-PROMOTION-GATES.json",
+        "ZERO-EFFECT-CONTRACT.json"
+      ],
+      "id": "CLN-C08-M2B-zero-effect-dual-start",
+      "independent_semantic_diagnostics": [
+        "cross.M2B",
+        "cross.zero_effect"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "proof_semantic_inventory",
+        "proof_semantic_phase_head"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "compound",
+      "changed_artifacts": [
+        "RECOVERY-PROOF-REGISTRY.json",
+        "RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "SUPERVISOR-CRASH-VECTORS.json"
+      ],
+      "id": "CLN-C09-proof-mirrored-noncanonical-event",
+      "independent_semantic_diagnostics": [
+        "proof.canonical_semantics:T22"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    },
+    {
+      "artifact_digest_only_rejection": false,
+      "baseline_semantic_blockers_excluded": 0,
+      "candidate_diagnostics": [
+        "exact_contract:SUPERVISOR-STATE-MACHINE.json",
+        "canonical_exact_chain",
+        "canonical_projection",
+        "canonical_adjacency",
+        "canonical_close_adjacency",
+        "preimage_promoted_canonical",
+        "artifact_preparation_binding",
+        "action_semantics",
+        "action_gate",
+        "provider_call_gate",
+        "provider_call_semantics",
+        "state_authority",
+        "lifecycle_noncanonical",
+        "exact_contract:ARTIFACT-LIFECYCLE-CONTRACT.json"
+      ],
+      "candidate_validator_rejected": true,
+      "category": "compound",
+      "changed_artifacts": [
+        "ARTIFACT-LIFECYCLE-CONTRACT.json",
+        "SUPERVISOR-STATE-MACHINE.json"
+      ],
+      "id": "CLN-C10-lifecycle-lock-release-head-authority",
+      "independent_semantic_diagnostics": [
+        "lifecycle.noncanonical:LO02_TRANSACTION_LOCK_RELEASE:may_mutate_closeout_head"
+      ],
+      "independent_semantic_rejected": true,
+      "pass": true
+    }
+  ],
+  "category_counts": {
+    "authority": 14,
+    "compound": 10,
+    "cross_artifact": 10,
+    "lifecycle": 10,
+    "proof_phase_side": 50,
+    "schema": 10
+  },
+  "pass": true,
+  "rejected": 104,
+  "unsafe_accepted": 0
+}

@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "scope": "exact seven candidate files plus verifier adversarial test and scanner",
+  "file_count": 9,
+  "findings": [],
+  "scanner_contract_sha256": "ce38bf7811561c096bfe72ef12fc799712986d77ff86cb62b8e099eedc481115",
+  "scanner_sha256": "73e15daf7cda0061707106819fe3c6b601058264c7ec89bf9def90d4526c792e",
+  "terminal": "files=9 findings=0"
+}

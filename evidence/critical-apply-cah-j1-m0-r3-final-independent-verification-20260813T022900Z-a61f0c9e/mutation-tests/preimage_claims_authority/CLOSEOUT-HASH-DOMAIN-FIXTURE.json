@@ -1,0 +1,113 @@
+{
+  "canonical_event_types": [
+    "SCOPE_LEASE_RELEASE_RECORDED",
+    "SUPERVISOR_CLOSED"
+  ],
+  "canonicalization": "UTF8_JSON_SORT_KEYS_COMPACT_NO_NAN",
+  "close_event_payload_sha256": "696caa167d93e5733bba03ea002e1da7dc61f4152edae192b09820dc42bc364f",
+  "close_event_sha256": "e452a26477ad46c4086fa8296ef79b97a07dd47179394af5d3676af33048453c",
+  "completion_receipt": {
+    "closeout_head": {
+      "event_sha256": "e452a26477ad46c4086fa8296ef79b97a07dd47179394af5d3676af33048453c",
+      "payload_sha256": "696caa167d93e5733bba03ea002e1da7dc61f4152edae192b09820dc42bc364f",
+      "sequence": 97
+    },
+    "receipt_preimage": {
+      "close_event_id": "evt-supervisor-closed-fixture",
+      "expected_close_sequence": 97,
+      "expected_prev_event_sha256": "c048da927d303ad9383d9f63ac586dae716494a730afac6cfc579946e050fa46",
+      "journal_hash_algorithm_id": "critical_apply_journal_event_sha256_v1",
+      "lease_release_outcome": "RELEASED_RECORDED",
+      "notification_outcome": "DELIVERY_UNKNOWN",
+      "production_effects": 0,
+      "provider_effects": 0,
+      "schema": "critical_apply.completion_receipt_preimage.v1",
+      "terminal_decision_head": {
+        "event_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+        "sequence": 90
+      },
+      "terminal_seal_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "transaction_id": "critical-apply-fixture-20260813T000000Z-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "witness_outcome": "WITNESS_GRADE_1_PASS"
+    },
+    "receipt_preimage_sha256": "3dd0eff2b99e5144bce3862752baaaff7b208a759dc4b43aab6904e6034e0ee1",
+    "schema": "critical_apply.completion_receipt.v1",
+    "terminal_seal_sha256": "2222222222222222222222222222222222222222222222222222222222222222"
+  },
+  "noncanonical_preimage_artifact": {
+    "close_event_id": "evt-supervisor-closed-fixture",
+    "expected_close_sequence": 97,
+    "expected_prev_event_sha256": "c048da927d303ad9383d9f63ac586dae716494a730afac6cfc579946e050fa46",
+    "journal_hash_algorithm_id": "critical_apply_journal_event_sha256_v1",
+    "lease_release_outcome": "RELEASED_RECORDED",
+    "notification_outcome": "DELIVERY_UNKNOWN",
+    "production_effects": 0,
+    "provider_effects": 0,
+    "schema": "critical_apply.completion_receipt_preimage.v1",
+    "terminal_decision_head": {
+      "event_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "sequence": 90
+    },
+    "terminal_seal_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+    "transaction_id": "critical-apply-fixture-20260813T000000Z-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "witness_outcome": "WITNESS_GRADE_1_PASS"
+  },
+  "prior_canonical_event": {
+    "event_id": "evt-scope-lease-release-recorded-fixture",
+    "event_type": "SCOPE_LEASE_RELEASE_RECORDED",
+    "payload": {
+      "receipt_sha256": "5555555555555555555555555555555555555555555555555555555555555555",
+      "schema": "critical_apply.scope_lease_release_recorded.v1"
+    },
+    "payload_sha256": "ab67f7a2030e4106ac2c008c00caeeff3b100899d3a05bae4d52d4383f15c8d8",
+    "prev_event_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+    "schema": "critical_apply.journal_event.v1",
+    "sequence": 96,
+    "transaction_id": "critical-apply-fixture-20260813T000000Z-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "prior_event_sha256": "c048da927d303ad9383d9f63ac586dae716494a730afac6cfc579946e050fa46",
+  "proof": {
+    "close_event_sha_exact": true,
+    "close_payload_sha_exact": true,
+    "direct_hash_adjacency": true,
+    "direct_sequence_adjacency": true,
+    "no_intervening_preimage_event": true,
+    "one_pass_no_iteration": true,
+    "preimage_is_noncanonical": false,
+    "preimage_sha_exact": true
+  },
+  "receipt_preimage_sha256": "3dd0eff2b99e5144bce3862752baaaff7b208a759dc4b43aab6904e6034e0ee1",
+  "schema": "critical_apply.closeout_direct_adjacency_fixture.v1",
+  "status": "PASS_ONE_PASS_NONCIRCULAR_DIRECT_ADJACENCY",
+  "supervisor_closed_event": {
+    "event_id": "evt-supervisor-closed-fixture",
+    "event_type": "SUPERVISOR_CLOSED",
+    "payload": {
+      "receipt_preimage_sha256": "3dd0eff2b99e5144bce3862752baaaff7b208a759dc4b43aab6904e6034e0ee1",
+      "schema": "critical_apply.supervisor_closed_payload.v1",
+      "semantic_result": "HOLD_FIXTURE",
+      "terminal_decision_head": {
+        "event_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+        "sequence": 90
+      },
+      "terminal_seal_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "transaction_id": "critical-apply-fixture-20260813T000000Z-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    "payload_sha256": "696caa167d93e5733bba03ea002e1da7dc61f4152edae192b09820dc42bc364f",
+    "prev_event_sha256": "c048da927d303ad9383d9f63ac586dae716494a730afac6cfc579946e050fa46",
+    "schema": "critical_apply.journal_event.v1",
+    "sequence": 97,
+    "transaction_id": "critical-apply-fixture-20260813T000000Z-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "supervisor_closed_payload": {
+    "receipt_preimage_sha256": "3dd0eff2b99e5144bce3862752baaaff7b208a759dc4b43aab6904e6034e0ee1",
+    "schema": "critical_apply.supervisor_closed_payload.v1",
+    "semantic_result": "HOLD_FIXTURE",
+    "terminal_decision_head": {
+      "event_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "sequence": 90
+    },
+    "terminal_seal_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+    "transaction_id": "critical-apply-fixture-20260813T000000Z-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  }
+}

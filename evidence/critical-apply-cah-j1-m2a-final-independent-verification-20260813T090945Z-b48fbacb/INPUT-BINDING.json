@@ -1,0 +1,787 @@
+{
+  "all_manifest_entries_pass": true,
+  "all_named_hashes_pass": true,
+  "bindings": [
+    {
+      "actual_sha256": "2b37d36dd9c5317867e898c4a64f035a77fde3fd7720c15d62151427199aa533",
+      "expected_sha256": "2b37d36dd9c5317867e898c4a64f035a77fde3fd7720c15d62151427199aa533",
+      "name": "m1_preservation_evidence_manifest",
+      "pass": true,
+      "path": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m1-permanent-preservation-20260813T083100Z-5e3fa595/EVIDENCE-SHA256.txt"
+    },
+    {
+      "actual_sha256": "7cde7ec7bf858b06bdf22fc22d703457565059d5643909d55ac7c54020b8d4bc",
+      "expected_sha256": "7cde7ec7bf858b06bdf22fc22d703457565059d5643909d55ac7c54020b8d4bc",
+      "name": "m1_patch",
+      "pass": true,
+      "path": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m1-permanent-preservation-20260813T083100Z-5e3fa595/candidate/cah-j1-m1.patch"
+    },
+    {
+      "actual_sha256": "a1aef1d1e5dc16be633e203210eccd4b9637714a73155b1e1216b308fbcd664c",
+      "expected_sha256": "a1aef1d1e5dc16be633e203210eccd4b9637714a73155b1e1216b308fbcd664c",
+      "name": "m2a_design",
+      "pass": true,
+      "path": "/home/stickai/.openclaw/workspace/design/critical-apply-supervisor-ingress-m2a-architecture-freeze-2026-08-13.md"
+    },
+    {
+      "actual_sha256": "3f026764d75c96acfca5317e9d9c67e48b140e2281ed563c9bff08f5f5e2f7e2",
+      "expected_sha256": "3f026764d75c96acfca5317e9d9c67e48b140e2281ed563c9bff08f5f5e2f7e2",
+      "name": "m2a_construction_evidence_manifest",
+      "pass": true,
+      "path": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m2a-supervisor-ingress-freeze-20260813T083500Z-5e3fa595/EVIDENCE-SHA256.txt"
+    },
+    {
+      "actual_sha256": "5715ccefbe651104ad607a7b1bf49c9f30a0ee1382b11153085fd21e0ddcd64f",
+      "expected_sha256": "5715ccefbe651104ad607a7b1bf49c9f30a0ee1382b11153085fd21e0ddcd64f",
+      "name": "m1_final_evidence_manifest",
+      "pass": true,
+      "path": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m1-final-independent-verification-20260813T153100AEST-db9985b0/EVIDENCE-SHA256.txt"
+    },
+    {
+      "actual_sha256": "40183db63570673cac1e2d3d3fc3e0abe0f4d2d75f34a12ae35aae57a6709929",
+      "expected_sha256": "40183db63570673cac1e2d3d3fc3e0abe0f4d2d75f34a12ae35aae57a6709929",
+      "name": "m0_r3_manifest",
+      "pass": true,
+      "path": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-r3-contract-repair-20260813T020500Z-5e1b7a63/manifest.json"
+    },
+    {
+      "actual_sha256": "33e5b637743111198f4e88cb22e5bd6596a7b76648adb33a81b825464cb7bd6d",
+      "expected_sha256": "33e5b637743111198f4e88cb22e5bd6596a7b76648adb33a81b825464cb7bd6d",
+      "name": "m0_final_hash_inventory",
+      "pass": true,
+      "path": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-r3-final-independent-verification-20260813T022900Z-a61f0c9e/HASH-INVENTORY.json"
+    },
+    {
+      "actual_sha256": "6d80167ba92e1a68c9d17d6027135b289f88c6b9f3d6fd9e24ea86aedab459af",
+      "expected_sha256": "6d80167ba92e1a68c9d17d6027135b289f88c6b9f3d6fd9e24ea86aedab459af",
+      "name": "owner_revision",
+      "pass": true,
+      "path": "/home/stickai/.openclaw/workspace/design/critical-apply-supervisor-owned-event-journal-owner-revision-2026-08-13.md"
+    },
+    {
+      "actual_sha256": "1d2853fba832ebc243423c3c2dac00def80c3c2b56d892ee8c83aeff96c34427",
+      "expected_sha256": "1d2853fba832ebc243423c3c2dac00def80c3c2b56d892ee8c83aeff96c34427",
+      "name": "m0_adjudication",
+      "pass": true,
+      "path": "/home/stickai/.openclaw/workspace/design/critical-apply-supervisor-owned-event-journal-owner-revision-m0-adjudication-2026-08-13.md"
+    }
+  ],
+  "m0_final_receipt_blockers": 0,
+  "m0_final_receipt_terminal": "PASS_CAH_J1_M0_R3_ZERO_BLOCKERS_M0_ARCHITECTURE_FREEZE_VERIFIED_NO_PRODUCTION_EFFECT",
+  "manifest_checks": {
+    "m0_final_inventory": [
+      {
+        "current_bytes_ok": true,
+        "current_sha256_ok": true,
+        "exact": true,
+        "path": "AUTHORITY-CRASH-VECTORS.json"
+      },
+      {
+        "current_bytes_ok": true,
+        "current_sha256_ok": true,
+        "exact": true,
+        "path": "AUTHORITYDB-FENCING-PROTOCOL.md"
+      },
+      {
+        "current_bytes_ok": true,
+        "current_sha256_ok": true,
+        "exact": true,
+        "path": "CAS-CAPTURE-DURABILITY-CONTRACT.json"
+      },
+      {
+        "current_bytes_ok": true,
+        "current_sha256_ok": true,
+        "exact": true,
+        "path": "CAS-CRASH-MATRIX-EXHAUSTIVE.json"
+      },
+      {
+        "current_bytes_ok": true,
+        "current_sha256_ok": true,
+        "exact": true,
+        "path": "CLOSEOUT-CRASH-MATRIX-EXHAUSTIVE.json"
+      },
+      {
+        "current_bytes_ok": true,
+        "current_sha256_ok": true,
+        "exact": true,
+        "path": "CLOSEOUT-HASH-DOMAIN-FIXTURE.json"
+      },
+      {
+        "current_bytes_ok": true,
+        "current_sha256_ok": true,
+        "exact": true,
+        "path": "CORROBORATION-RECEIPT.json"
+      },
+      {
+        "current_bytes_ok": true,
+        "current_sha256_ok": true,
+        "exact": true,
+        "path": "CRASH-BOUNDARY-TEST-VECTORS.json"
+      },
+      {
+        "current_bytes_ok": true,
+        "current_sha256_ok": true,
+        "exact": true,
+        "path": "EVENT-IDEMPOTENCY-CONTRACT.json"
+      },
+      {
+        "current_bytes_ok": true,
+        "current_sha256_ok": true,
+        "exact": true,
+        "path": "INPUT-VERIFICATION.json"
+      },
+      {
+        "current_bytes_ok": true,
+        "current_sha256_ok": true,
+        "exact": true,
+        "path": "LIFECYCLE-TRANSITION-TABLE.json"
+      },
+      {
+        "current_bytes_ok": true,
+        "current_sha256_ok": true,
+        "exact": true,
+        "path": "M0-R1-CORRECTION-LEDGER.json"
+      },
+      {
+        "current_bytes_ok": true,
+        "current_sha256_ok": true,
+        "exact": true,
+        "path": "M0-R2-CORRECTION-LEDGER.json"
+      },
+      {
+        "current_bytes_ok": true,
+        "current_sha256_ok": true,
+        "exact": true,
+        "path": "M0-R3-CORRECTION-LEDGER.json"
+      },
+      {
+        "current_bytes_ok": true,
+        "current_sha256_ok": true,
+        "exact": true,
+        "path": "NONCE-AT-MOST-ONCE-STATE-MACHINE.json"
+      },
+      {
+        "current_bytes_ok": true,
+        "current_sha256_ok": true,
+        "exact": true,
+        "path": "NONCE-CRASH-MATRIX-EXHAUSTIVE.json"
+      },
+      {
+        "current_bytes_ok": true,
+        "current_sha256_ok": true,
+        "exact": true,
+        "path": "NOTIFICATION-CLOSEOUT-CONTRACT.json"
+      },
+      {
+        "current_bytes_ok": true,
+        "current_sha256_ok": true,
+        "exact": true,
+        "path": "PATH-OWNERSHIP-CONTRACT.json"
+      },
+      {
+        "current_bytes_ok": true,
+        "current_sha256_ok": true,
+        "exact": true,
+        "path": "SAME-UID-THREAT-MODEL.json"
+      },
+      {
+        "current_bytes_ok": true,
+        "current_sha256_ok": true,
+        "exact": true,
+        "path": "SEMANTIC-PATH-REGISTRATION-CONTRACT.json"
+      },
+      {
+        "current_bytes_ok": true,
+        "current_sha256_ok": true,
+        "exact": true,
+        "path": "SQLITE-AUTHORITY-STORAGE-CONTRACT.json"
+      },
+      {
+        "current_bytes_ok": true,
+        "current_sha256_ok": true,
+        "exact": true,
+        "path": "STATUS.json"
+      },
+      {
+        "current_bytes_ok": true,
+        "current_sha256_ok": true,
+        "exact": true,
+        "path": "TERMINAL-HEADS-AND-FENCE-CONTRACT.json"
+      },
+      {
+        "current_bytes_ok": true,
+        "current_sha256_ok": true,
+        "exact": true,
+        "path": "VALIDATION-RESULTS.json"
+      },
+      {
+        "current_bytes_ok": true,
+        "current_sha256_ok": true,
+        "exact": true,
+        "path": "WITNESS-ASSURANCE-GRADE.json"
+      },
+      {
+        "current_bytes_ok": true,
+        "current_sha256_ok": true,
+        "exact": true,
+        "path": "ZERO-EFFECT-RECEIPT.json"
+      },
+      {
+        "current_bytes_ok": true,
+        "current_sha256_ok": true,
+        "exact": true,
+        "path": "frozen-tool-identities.json"
+      },
+      {
+        "current_bytes_ok": true,
+        "current_sha256_ok": true,
+        "exact": true,
+        "path": "validate_m0_r3_contracts.py"
+      },
+      {
+        "current_bytes_ok": true,
+        "current_sha256_ok": true,
+        "exact": true,
+        "path": "manifest.json"
+      },
+      {
+        "current_bytes_ok": true,
+        "current_sha256_ok": true,
+        "exact": true,
+        "path": "PRIVACY-RECEIPT.json"
+      }
+    ],
+    "m0_r3": [
+      {
+        "bytes_ok": true,
+        "path": "AUTHORITY-CRASH-VECTORS.json",
+        "sha256_ok": true
+      },
+      {
+        "bytes_ok": true,
+        "path": "AUTHORITYDB-FENCING-PROTOCOL.md",
+        "sha256_ok": true
+      },
+      {
+        "bytes_ok": true,
+        "path": "CAS-CAPTURE-DURABILITY-CONTRACT.json",
+        "sha256_ok": true
+      },
+      {
+        "bytes_ok": true,
+        "path": "CAS-CRASH-MATRIX-EXHAUSTIVE.json",
+        "sha256_ok": true
+      },
+      {
+        "bytes_ok": true,
+        "path": "CLOSEOUT-CRASH-MATRIX-EXHAUSTIVE.json",
+        "sha256_ok": true
+      },
+      {
+        "bytes_ok": true,
+        "path": "CLOSEOUT-HASH-DOMAIN-FIXTURE.json",
+        "sha256_ok": true
+      },
+      {
+        "bytes_ok": true,
+        "path": "CORROBORATION-RECEIPT.json",
+        "sha256_ok": true
+      },
+      {
+        "bytes_ok": true,
+        "path": "CRASH-BOUNDARY-TEST-VECTORS.json",
+        "sha256_ok": true
+      },
+      {
+        "bytes_ok": true,
+        "path": "EVENT-IDEMPOTENCY-CONTRACT.json",
+        "sha256_ok": true
+      },
+      {
+        "bytes_ok": true,
+        "path": "INPUT-VERIFICATION.json",
+        "sha256_ok": true
+      },
+      {
+        "bytes_ok": true,
+        "path": "LIFECYCLE-TRANSITION-TABLE.json",
+        "sha256_ok": true
+      },
+      {
+        "bytes_ok": true,
+        "path": "M0-R1-CORRECTION-LEDGER.json",
+        "sha256_ok": true
+      },
+      {
+        "bytes_ok": true,
+        "path": "M0-R2-CORRECTION-LEDGER.json",
+        "sha256_ok": true
+      },
+      {
+        "bytes_ok": true,
+        "path": "M0-R3-CORRECTION-LEDGER.json",
+        "sha256_ok": true
+      },
+      {
+        "bytes_ok": true,
+        "path": "NONCE-AT-MOST-ONCE-STATE-MACHINE.json",
+        "sha256_ok": true
+      },
+      {
+        "bytes_ok": true,
+        "path": "NONCE-CRASH-MATRIX-EXHAUSTIVE.json",
+        "sha256_ok": true
+      },
+      {
+        "bytes_ok": true,
+        "path": "NOTIFICATION-CLOSEOUT-CONTRACT.json",
+        "sha256_ok": true
+      },
+      {
+        "bytes_ok": true,
+        "path": "PATH-OWNERSHIP-CONTRACT.json",
+        "sha256_ok": true
+      },
+      {
+        "bytes_ok": true,
+        "path": "SAME-UID-THREAT-MODEL.json",
+        "sha256_ok": true
+      },
+      {
+        "bytes_ok": true,
+        "path": "SEMANTIC-PATH-REGISTRATION-CONTRACT.json",
+        "sha256_ok": true
+      },
+      {
+        "bytes_ok": true,
+        "path": "SQLITE-AUTHORITY-STORAGE-CONTRACT.json",
+        "sha256_ok": true
+      },
+      {
+        "bytes_ok": true,
+        "path": "STATUS.json",
+        "sha256_ok": true
+      },
+      {
+        "bytes_ok": true,
+        "path": "TERMINAL-HEADS-AND-FENCE-CONTRACT.json",
+        "sha256_ok": true
+      },
+      {
+        "bytes_ok": true,
+        "path": "VALIDATION-RESULTS.json",
+        "sha256_ok": true
+      },
+      {
+        "bytes_ok": true,
+        "path": "WITNESS-ASSURANCE-GRADE.json",
+        "sha256_ok": true
+      },
+      {
+        "bytes_ok": true,
+        "path": "ZERO-EFFECT-RECEIPT.json",
+        "sha256_ok": true
+      },
+      {
+        "bytes_ok": true,
+        "path": "frozen-tool-identities.json",
+        "sha256_ok": true
+      },
+      {
+        "bytes_ok": true,
+        "path": "validate_m0_r3_contracts.py",
+        "sha256_ok": true
+      }
+    ],
+    "m1_final": [
+      {
+        "actual": "2d73be14107057bcf25ae01e69fe029db4148c25857f22ccc58baf74b4054c88",
+        "expected": "2d73be14107057bcf25ae01e69fe029db4148c25857f22ccc58baf74b4054c88",
+        "pass": true,
+        "path": "ADVERSARIAL-RESULTS.md"
+      },
+      {
+        "actual": "2228f31481a8199ceac254c1226bf2971d480d65ed77dcc0c64b043ce4884605",
+        "expected": "2228f31481a8199ceac254c1226bf2971d480d65ed77dcc0c64b043ce4884605",
+        "pass": true,
+        "path": "ADVERSARIAL-TEST-RESULTS.md"
+      },
+      {
+        "actual": "fecfa10bc082b317dbfb252e0909953d136a3562985f923a232689d9a31a147e",
+        "expected": "fecfa10bc082b317dbfb252e0909953d136a3562985f923a232689d9a31a147e",
+        "pass": true,
+        "path": "DIRECT-SOURCE-FINDINGS.md"
+      },
+      {
+        "actual": "189ccb5f85a5a22338ecf60157fe2a550b21970b5365d65458366f9387fd3fea",
+        "expected": "189ccb5f85a5a22338ecf60157fe2a550b21970b5365d65458366f9387fd3fea",
+        "pass": true,
+        "path": "FINDINGS.md"
+      },
+      {
+        "actual": "b66f365ff404c25e1fae56c69957f48f51e5dbe5c5feb09014a2680209038aae",
+        "expected": "b66f365ff404c25e1fae56c69957f48f51e5dbe5c5feb09014a2680209038aae",
+        "pass": true,
+        "path": "INDEPENDENT-RECEIPT.md"
+      },
+      {
+        "actual": "bfd204d8ba9eee6fe5f226a2732160a30fd7cf51172ec25b0692c1a834e036c1",
+        "expected": "bfd204d8ba9eee6fe5f226a2732160a30fd7cf51172ec25b0692c1a834e036c1",
+        "pass": true,
+        "path": "INPUT-BINDING.md"
+      },
+      {
+        "actual": "c7e2524dc38edc7d874be006178e4cd16bc5dd848119df305e43db9956978552",
+        "expected": "c7e2524dc38edc7d874be006178e4cd16bc5dd848119df305e43db9956978552",
+        "pass": true,
+        "path": "PRIVACY-RECEIPT.md"
+      },
+      {
+        "actual": "1e1fc5b2c665abc114e27b2c697db077322bcaed58452d880ba949c2a48dd048",
+        "expected": "1e1fc5b2c665abc114e27b2c697db077322bcaed58452d880ba949c2a48dd048",
+        "pass": true,
+        "path": "RESUME.md"
+      },
+      {
+        "actual": "1e1fcf053aa5b4c7308e90d1a371192d5d16906bb8d47f4f3b9e17ea19a56e6b",
+        "expected": "1e1fcf053aa5b4c7308e90d1a371192d5d16906bb8d47f4f3b9e17ea19a56e6b",
+        "pass": true,
+        "path": "SEAL.txt"
+      },
+      {
+        "actual": "05af870a1c4f16943c603a457db4a253664e899f44002bfb1f395bbcca206e64",
+        "expected": "05af870a1c4f16943c603a457db4a253664e899f44002bfb1f395bbcca206e64",
+        "pass": true,
+        "path": "START.md"
+      },
+      {
+        "actual": "6c3d6a13c9fa48cb08400bf0d40faa1e4473b4cc4dd6e8b0bb63155ae235872e",
+        "expected": "6c3d6a13c9fa48cb08400bf0d40faa1e4473b4cc4dd6e8b0bb63155ae235872e",
+        "pass": true,
+        "path": "STATUS"
+      },
+      {
+        "actual": "9204807c1f004234b78e6f7db62926cfbba7c8b1e54defca3a28938ffed53b04",
+        "expected": "9204807c1f004234b78e6f7db62926cfbba7c8b1e54defca3a28938ffed53b04",
+        "pass": true,
+        "path": "SUMMARY.md"
+      },
+      {
+        "actual": "215a15e5cba1e9f79431861b9c20cb9d8b2580285e2f62bfc60d7ad19118dd0c",
+        "expected": "215a15e5cba1e9f79431861b9c20cb9d8b2580285e2f62bfc60d7ad19118dd0c",
+        "pass": true,
+        "path": "TEST-RESULTS.md"
+      },
+      {
+        "actual": "60ed2302b5b66305b04ad5786830f0f9b16de65f1d63ec682d604e34583e0cdf",
+        "expected": "60ed2302b5b66305b04ad5786830f0f9b16de65f1d63ec682d604e34583e0cdf",
+        "pass": true,
+        "path": "ZERO-EFFECT-RECEIPT.md"
+      },
+      {
+        "actual": "602367b874fb4da40829e3cffb8bdfe23929ba4fd0336928b3cf5ab3d4320299",
+        "expected": "602367b874fb4da40829e3cffb8bdfe23929ba4fd0336928b3cf5ab3d4320299",
+        "pass": true,
+        "path": "adversarial-verifier-preserved.log"
+      },
+      {
+        "actual": "a7d408531509ce368ea3189dfb9ecde5f3bf5f059cf1db3731692f30b27a7204",
+        "expected": "a7d408531509ce368ea3189dfb9ecde5f3bf5f059cf1db3731692f30b27a7204",
+        "pass": true,
+        "path": "adversarial_verifier_tests.py"
+      },
+      {
+        "actual": "f780367a9609c659dc7056ec752721733f40842d37287334f906c34f3963a72e",
+        "expected": "f780367a9609c659dc7056ec752721733f40842d37287334f906c34f3963a72e",
+        "pass": true,
+        "path": "focused-authority-db-terminal.txt"
+      },
+      {
+        "actual": "24022bd6539514786f0f484f9b56511a862e94ab4551c76c102588adda524f69",
+        "expected": "24022bd6539514786f0f484f9b56511a862e94ab4551c76c102588adda524f69",
+        "pass": true,
+        "path": "focused-cas-terminal.txt"
+      },
+      {
+        "actual": "0715c6942baa942a77f40b289f8c1ec8b5ba66269b8f223bf577745d2f5f01e0",
+        "expected": "0715c6942baa942a77f40b289f8c1ec8b5ba66269b8f223bf577745d2f5f01e0",
+        "pass": true,
+        "path": "focused-journal-terminal.txt"
+      },
+      {
+        "actual": "ad0a4822e19a7f27b62c976180590d349a69ba50d374322daab856c827f89e7d",
+        "expected": "ad0a4822e19a7f27b62c976180590d349a69ba50d374322daab856c827f89e7d",
+        "pass": true,
+        "path": "post-sentinels.txt"
+      },
+      {
+        "actual": "d6775a68c2a9e9f1265d405dfc2275e14094bd1b6167d381e092c3aa6ed39d0a",
+        "expected": "d6775a68c2a9e9f1265d405dfc2275e14094bd1b6167d381e092c3aa6ed39d0a",
+        "pass": true,
+        "path": "predecessor-aggregate-terminal.txt"
+      },
+      {
+        "actual": "8fc9018a07db09488856db3278fb6c3e7f394e693ff36dc182f66b44d80028eb",
+        "expected": "8fc9018a07db09488856db3278fb6c3e7f394e693ff36dc182f66b44d80028eb",
+        "pass": true,
+        "path": "predecessor-aggregate.log"
+      },
+      {
+        "actual": "5b281dc08cc1cb936df542fccc7397d53507a2425580c726916509acc3530b3d",
+        "expected": "5b281dc08cc1cb936df542fccc7397d53507a2425580c726916509acc3530b3d",
+        "pass": true,
+        "path": "privacy-scan-results.json"
+      },
+      {
+        "actual": "73e15daf7cda0061707106819fe3c6b601058264c7ec89bf9def90d4526c792e",
+        "expected": "73e15daf7cda0061707106819fe3c6b601058264c7ec89bf9def90d4526c792e",
+        "pass": true,
+        "path": "privacy_scan.py"
+      },
+      {
+        "actual": "3e9c65276b84d846d0cada4fd5c5558ae8a8eed027b55aa2d9930e8d4db6d652",
+        "expected": "3e9c65276b84d846d0cada4fd5c5558ae8a8eed027b55aa2d9930e8d4db6d652",
+        "pass": true,
+        "path": "py-compile.log"
+      },
+      {
+        "actual": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "expected": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "pass": true,
+        "path": "repository-pre-status.txt"
+      }
+    ],
+    "m1_preservation": [
+      {
+        "actual": "1eaa1b77d3b8a166a978c7cf1dbaa66db806553718e68e4a2e4bc79d8dc46d43",
+        "expected": "1eaa1b77d3b8a166a978c7cf1dbaa66db806553718e68e4a2e4bc79d8dc46d43",
+        "pass": true,
+        "path": "PRESERVATION-MANIFEST.json"
+      },
+      {
+        "actual": "34090f9914527cc129a26f2eb65f6751a0a8993bddb26ee3f7e463697c9cff0c",
+        "expected": "34090f9914527cc129a26f2eb65f6751a0a8993bddb26ee3f7e463697c9cff0c",
+        "pass": true,
+        "path": "PRIVACY-RECEIPT.json"
+      },
+      {
+        "actual": "632d7e0ca264b489b2e0e4ee96381568f8f79b33072a8d668a48c4608a9a61c4",
+        "expected": "632d7e0ca264b489b2e0e4ee96381568f8f79b33072a8d668a48c4608a9a61c4",
+        "pass": true,
+        "path": "RECONSTRUCTION.md"
+      },
+      {
+        "actual": "0c86fc3c540f80512b0f6c59a14ed03112f762d4ffc2d5faeb98260d4d2a9577",
+        "expected": "0c86fc3c540f80512b0f6c59a14ed03112f762d4ffc2d5faeb98260d4d2a9577",
+        "pass": true,
+        "path": "STARTED.json"
+      },
+      {
+        "actual": "ffb8321865d9385b86cb5649d2f57c52cc4e88019c6bbac662187d4d583ea216",
+        "expected": "ffb8321865d9385b86cb5649d2f57c52cc4e88019c6bbac662187d4d583ea216",
+        "pass": true,
+        "path": "STATUS.json"
+      },
+      {
+        "actual": "dc25c9655d0154a881534a744152ed5f1d9bbf7c6dc7864a7f79b79f0303d29d",
+        "expected": "dc25c9655d0154a881534a744152ed5f1d9bbf7c6dc7864a7f79b79f0303d29d",
+        "pass": true,
+        "path": "VERIFICATION-RECEIPT.json"
+      },
+      {
+        "actual": "b33db35cdfc68bca6307e4d3e46ab4fc9936ec9d98bc607f6921efd4bde58575",
+        "expected": "b33db35cdfc68bca6307e4d3e46ab4fc9936ec9d98bc607f6921efd4bde58575",
+        "pass": true,
+        "path": "ZERO-EFFECT-RECEIPT.json"
+      },
+      {
+        "actual": "7cde7ec7bf858b06bdf22fc22d703457565059d5643909d55ac7c54020b8d4bc",
+        "expected": "7cde7ec7bf858b06bdf22fc22d703457565059d5643909d55ac7c54020b8d4bc",
+        "pass": true,
+        "path": "candidate/cah-j1-m1.patch"
+      }
+    ],
+    "m2a_construction": [
+      {
+        "actual": "c5660980743483bc4b3e14d804e6a6eab7722ef7ed51644a9da55efccd327356",
+        "expected": "c5660980743483bc4b3e14d804e6a6eab7722ef7ed51644a9da55efccd327356",
+        "pass": true,
+        "path": "ACK-REPLAY-VECTORS.json"
+      },
+      {
+        "actual": "ce36dcaaeb76fae66d50e4f4f82baf803394c127091d2eab19b05990423f46bf",
+        "expected": "ce36dcaaeb76fae66d50e4f4f82baf803394c127091d2eab19b05990423f46bf",
+        "pass": true,
+        "path": "ARTIFACT-SHA256.json"
+      },
+      {
+        "actual": "1f046f3a436ebcd1e23a09b55345a4324da9d3bf464e858d85a87301b6da0135",
+        "expected": "1f046f3a436ebcd1e23a09b55345a4324da9d3bf464e858d85a87301b6da0135",
+        "pass": true,
+        "path": "CHILD-LAUNCH-AND-RESULT-CONTRACT.json"
+      },
+      {
+        "actual": "c5191150f4377a49e3bdca455bd9dbb32dbbc7dc02ba8ca0ceb3cd57f9b4a0e5",
+        "expected": "c5191150f4377a49e3bdca455bd9dbb32dbbc7dc02ba8ca0ceb3cd57f9b4a0e5",
+        "pass": true,
+        "path": "COMPONENT-TRUST-BOUNDARIES.json"
+      },
+      {
+        "actual": "a6d709e3bb3f88489e71833a475aaa43e70f6320f63e6eb5db62d28f3fd28c1d",
+        "expected": "a6d709e3bb3f88489e71833a475aaa43e70f6320f63e6eb5db62d28f3fd28c1d",
+        "pass": true,
+        "path": "CONCURRENCY-FENCING-VECTORS.json"
+      },
+      {
+        "actual": "d963bf6b8160924d185e9fa99349efdc16b8cf33775f89945625480b45715c71",
+        "expected": "d963bf6b8160924d185e9fa99349efdc16b8cf33775f89945625480b45715c71",
+        "pass": true,
+        "path": "GIT-DIFF-CHECK.json"
+      },
+      {
+        "actual": "a8ef55369596c46d3cf7d2d36cfcaef08467c83409dad902299a186766d4cc62",
+        "expected": "a8ef55369596c46d3cf7d2d36cfcaef08467c83409dad902299a186766d4cc62",
+        "pass": true,
+        "path": "IMMUTABLE-INPUT-SEALS.json"
+      },
+      {
+        "actual": "11cbc2260e34337b493fc8f7d850a50fdb3d64b05f5b7ec63718196a7b5683fe",
+        "expected": "11cbc2260e34337b493fc8f7d850a50fdb3d64b05f5b7ec63718196a7b5683fe",
+        "pass": true,
+        "path": "INDEPENDENT-VERIFICATION-HANDOFF.md"
+      },
+      {
+        "actual": "a57c76ae142462fe1531b04ea2feae312b2d47ae070bdd8e55daa4cf57a9a7ca",
+        "expected": "a57c76ae142462fe1531b04ea2feae312b2d47ae070bdd8e55daa4cf57a9a7ca",
+        "pass": true,
+        "path": "INGRESS-ENVELOPE-CONTRACT.json"
+      },
+      {
+        "actual": "1ea6236ced696c105a435af342af28adf5dce25a8bf158adfdacd8b71534772e",
+        "expected": "1ea6236ced696c105a435af342af28adf5dce25a8bf158adfdacd8b71534772e",
+        "pass": true,
+        "path": "INGRESS-IDEMPOTENCY-CONTRACT.json"
+      },
+      {
+        "actual": "4c2731be541bfc71615550db345fbc445e08c19d91f1e107285c639e80fb0012",
+        "expected": "4c2731be541bfc71615550db345fbc445e08c19d91f1e107285c639e80fb0012",
+        "pass": true,
+        "path": "M2B-PROMOTION-GATES.json"
+      },
+      {
+        "actual": "1cf1fe0d617262eb76f9994950412132daaefb45f681c6ce516fb1a987fa26a9",
+        "expected": "1cf1fe0d617262eb76f9994950412132daaefb45f681c6ce516fb1a987fa26a9",
+        "pass": true,
+        "path": "PATH-OWNERSHIP-MATRIX.json"
+      },
+      {
+        "actual": "b75c9fa48b0305604d78de62ab3ffa95f49f54daead8404b06fae6fa88d8b697",
+        "expected": "b75c9fa48b0305604d78de62ab3ffa95f49f54daead8404b06fae6fa88d8b697",
+        "pass": true,
+        "path": "PRIVACY-RECEIPT.json"
+      },
+      {
+        "actual": "e817d632fe22df9694cecacc9852f336db1e06d4bd7ecc1178deb6ad75e3cd4e",
+        "expected": "e817d632fe22df9694cecacc9852f336db1e06d4bd7ecc1178deb6ad75e3cd4e",
+        "pass": true,
+        "path": "PY-COMPILE.log"
+      },
+      {
+        "actual": "30e064ca2155482a41f7ef9490f549dbcccff3be03d60e3d747a679b25614642",
+        "expected": "30e064ca2155482a41f7ef9490f549dbcccff3be03d60e3d747a679b25614642",
+        "pass": true,
+        "path": "RECOVERY-AUTHORITY-ORDER.json"
+      },
+      {
+        "actual": "a21843cc7754470fcc2ca2b0487a50f4e9ea5ffc923a696a718110ac2aea2b1a",
+        "expected": "a21843cc7754470fcc2ca2b0487a50f4e9ea5ffc923a696a718110ac2aea2b1a",
+        "pass": true,
+        "path": "SOURCE-MANIFEST.json"
+      },
+      {
+        "actual": "2e40df68d0fe4666519cf14cb8fb656a7649668f86574ca60af6da94d4ca418d",
+        "expected": "2e40df68d0fe4666519cf14cb8fb656a7649668f86574ca60af6da94d4ca418d",
+        "pass": true,
+        "path": "STARTED.json"
+      },
+      {
+        "actual": "e6cb33a4ff98aa3f4daae01328c0c930c4ba3c78921430f41e1ba02105a9dbf8",
+        "expected": "e6cb33a4ff98aa3f4daae01328c0c930c4ba3c78921430f41e1ba02105a9dbf8",
+        "pass": true,
+        "path": "STATUS.json"
+      },
+      {
+        "actual": "b238f9533f1fd61947dc89636a575220ddc28ee83d1e4b9351e403dbd41e7752",
+        "expected": "b238f9533f1fd61947dc89636a575220ddc28ee83d1e4b9351e403dbd41e7752",
+        "pass": true,
+        "path": "SUMMARY.md"
+      },
+      {
+        "actual": "19041336880152a4ea2fa48b1513b69602a1c986517fca48035cb155befef61a",
+        "expected": "19041336880152a4ea2fa48b1513b69602a1c986517fca48035cb155befef61a",
+        "pass": true,
+        "path": "SUPERVISOR-CRASH-VECTORS.json"
+      },
+      {
+        "actual": "bd49a8072db0df17b192b79a6e6e310fff3ab934fc4d4896a01b52d4bcc2f36f",
+        "expected": "bd49a8072db0df17b192b79a6e6e310fff3ab934fc4d4896a01b52d4bcc2f36f",
+        "pass": true,
+        "path": "SUPERVISOR-STATE-MACHINE.json"
+      },
+      {
+        "actual": "befd70457be1ea1f40942b1c824507cd606b7fa9796a2dce22d95772f3179f80",
+        "expected": "befd70457be1ea1f40942b1c824507cd606b7fa9796a2dce22d95772f3179f80",
+        "pass": true,
+        "path": "TEST-RESULTS.json"
+      },
+      {
+        "actual": "067ac88d1a3f5d9f74f5ea3b98ac2351e8f450de9992575635c42d690c8afbb4",
+        "expected": "067ac88d1a3f5d9f74f5ea3b98ac2351e8f450de9992575635c42d690c8afbb4",
+        "pass": true,
+        "path": "VALIDATION-RESULTS.json"
+      },
+      {
+        "actual": "d94b112989cd76c8fbdd71c994ca36bf607922b681bb3f2493ce30ba21fa3730",
+        "expected": "d94b112989cd76c8fbdd71c994ca36bf607922b681bb3f2493ce30ba21fa3730",
+        "pass": true,
+        "path": "ZERO-EFFECT-CONTRACT.json"
+      },
+      {
+        "actual": "b4ef13f7ded4ac436c4b172031aa266620ca7a0a1b7f3053d625c6f9a9769caf",
+        "expected": "b4ef13f7ded4ac436c4b172031aa266620ca7a0a1b7f3053d625c6f9a9769caf",
+        "pass": true,
+        "path": "ZERO-EFFECT-RECEIPT.json"
+      },
+      {
+        "actual": "ce38bf7811561c096bfe72ef12fc799712986d77ff86cb62b8e099eedc481115",
+        "expected": "ce38bf7811561c096bfe72ef12fc799712986d77ff86cb62b8e099eedc481115",
+        "pass": true,
+        "path": "bin/r6_bounded_privacy_scanner.py"
+      },
+      {
+        "actual": "082a0e4615015ae795c90d3069345194512cdbc495309ab2cb7cd339136f9b00",
+        "expected": "082a0e4615015ae795c90d3069345194512cdbc495309ab2cb7cd339136f9b00",
+        "pass": true,
+        "path": "frozen-tool-identities.json"
+      },
+      {
+        "actual": "a1aef1d1e5dc16be633e203210eccd4b9637714a73155b1e1216b308fbcd664c",
+        "expected": "a1aef1d1e5dc16be633e203210eccd4b9637714a73155b1e1216b308fbcd664c",
+        "pass": true,
+        "path": "governing-inputs/M2A-DESIGN.md"
+      },
+      {
+        "actual": "1acc6ab21437cddec0162a75114a49c587c03f099659ac07e37d97280ab5cb78",
+        "expected": "1acc6ab21437cddec0162a75114a49c587c03f099659ac07e37d97280ab5cb78",
+        "pass": true,
+        "path": "test_validate_m2a_freeze.py"
+      },
+      {
+        "actual": "3fda41aa6c9ee5b771051cc9537727543c426331ce0cddc08b2979c79c184caf",
+        "expected": "3fda41aa6c9ee5b771051cc9537727543c426331ce0cddc08b2979c79c184caf",
+        "pass": true,
+        "path": "validate_m2a_freeze.py"
+      }
+    ]
+  }
+}

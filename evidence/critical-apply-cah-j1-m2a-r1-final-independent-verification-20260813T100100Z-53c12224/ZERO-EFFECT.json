@@ -1,0 +1,11 @@
+{
+  "schema":"critical_apply.m2a_r1.final_independent_zero_effect.v1",
+  "status":"PASS",
+  "repository":{"head":"b48fbacb12f07de334a0195e13992ce7237db910","index_sha256":"e2b8dc77e2f3ace1ba73af5bdce9d3181ab1d53c61f0dc43640b1beca866dfc2","config_sha256":"d4aa6cdf993f299959b122d631621de7fa6da3ccca66e8bd9d06b57ed860b0f0","head_and_index_equal_to_bound_prestate":true,"tracked_preexisting_dirt_preserved":true},
+  "immutable_inputs":{"repaired_design_sha256":"a05544ca979c0db27adfedf34af80d4224afaf6a66d20f156fe9ac2bcf31a8e1","repaired_manifest_sha256":"62b2357a1e15bf165ef80bcc1129da31719bae28f1f7ddea39af26c1fd027b4e","original_manifest_sha256":"3f026764d75c96acfca5317e9d9c67e48b140e2281ed563c9bff08f5f5e2f7e2","prior_hold_manifest_sha256":"c014a7f7bb6c1b7bb06b29fc72b47c2134eda27e0dc97e50d6cac38c0bf9b538","all_equal":true},
+  "writes":["fresh final-independent evidence root","disposable /tmp copies"],
+  "git_index_config_refs_worktrees_mutated":false,
+  "install_gateway_config_runtime_provider_network_production_commit_push_cron_systemd_external_actions":0,
+  "verifier_owned_process_leaks":0,
+  "M2B_started":false
+}

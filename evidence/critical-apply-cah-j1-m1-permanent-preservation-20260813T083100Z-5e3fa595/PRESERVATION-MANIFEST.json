@@ -1,0 +1,39 @@
+{
+  "schema": "critical_apply.cah_j1_m1_permanent_preservation_manifest.v1",
+  "status": "PRESERVED_EXACT_BYTES",
+  "base": {
+    "commit": "b48fbacb12f07de334a0195e13992ce7237db910",
+    "object_type": "commit",
+    "tree": "e531eb81a0153fd066d9d5ea3bdb05f31bcacdb4",
+    "tree_object_type": "tree"
+  },
+  "patch": {
+    "permanent_path": "candidate/cah-j1-m1.patch",
+    "bytes": 106031,
+    "mode": "0444",
+    "sha256": "7cde7ec7bf858b06bdf22fc22d703457565059d5643909d55ac7c54020b8d4bc",
+    "temporary_source_rehashed_equal_at_preservation": true,
+    "runtime_dependency_on_temporary_source": false
+  },
+  "construction_evidence": {
+    "root": "evidence/critical-apply-cah-j1-m1-offline-core-20260813T024009Z-59e3c41a",
+    "evidence_sha256_file_sha256": "882ed90a53356be07799003058e9984da76c10b75f09da3d877cb485ac07abf6",
+    "all_entries_verified": true
+  },
+  "final_independent_evidence": {
+    "root": "evidence/critical-apply-cah-j1-m1-final-independent-verification-20260813T153100AEST-db9985b0",
+    "evidence_sha256_file_sha256": "5715ccefbe651104ad607a7b1bf49c9f30a0ee1382b11153085fd21e0ddcd64f",
+    "all_entries_verified": true,
+    "terminal": "PASS_VERIFIED"
+  },
+  "changed_paths": [
+    {"path":"scripts/critical_apply_journal.py","sha256":"11634c2107dfd780570ed6ba76f2c5b336bfe0eec7116aa918765bfcec7e86b5"},
+    {"path":"scripts/critical_apply_progress.py","sha256":"af5cf0a7ee7ef07bef57bf8e2fca35e6f16164baebb5e040b39f3236bfca6d0d"},
+    {"path":"scripts/critical_apply_cas.py","sha256":"4352cdd108f6c698100530b39b6a8eba32a273fcb877e7f46a8410b08b923e3c"},
+    {"path":"scripts/critical_apply_authority_db.py","sha256":"e49a1952aaf8eb17304f8d391229a520cdae879f79377595879e2829914e97c0"},
+    {"path":"scripts/tests/test_critical_apply_journal_idempotency.py","sha256":"b652962aa6e190d4c28ed0f4de8533a194ce430a9518b9102d9563f4596801cf"},
+    {"path":"scripts/tests/test_critical_apply_cas.py","sha256":"7df005f109c12091a1235738e7dbf05f8d1a560e37facc33f9f9b2f966941279"},
+    {"path":"scripts/tests/test_critical_apply_authority_db.py","sha256":"b90469f37aeea1c9e6a9fc86b536b164055735a0d55774f1f04912730b0d8539"}
+  ],
+  "changed_path_count": 7
+}

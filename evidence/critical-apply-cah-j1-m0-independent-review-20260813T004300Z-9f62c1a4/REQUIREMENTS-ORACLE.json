@@ -1,0 +1,321 @@
+{
+  "schema": "critical_apply.cah_j1_m0.requirements_oracle.v1",
+  "review_kind": "independent_requirements_oracle_not_final_builder_verification",
+  "review_status": "PASS_REVIEW_COMPLETE_HOLD_M0_FREEZE_PENDING_IMPLEMENTED_CONTRACTS_AND_FINAL_VERIFICATION",
+  "canonical_authority": {
+    "transaction_facts": "canonical_hash_chained_journal",
+    "governing_bytes": "journal_bound_content_addressed_store",
+    "semantic_result": "pure_reducer_over_frozen_canonical_journal_prefix_and_journal_bound_CAS",
+    "cross_transaction_scope_and_nonce": "AuthorityDB_only",
+    "derived_query_state": "ProgressDB_and_projections_non_authoritative_rebuildable",
+    "historical_witness": "WitnessDB_non_semantic",
+    "prohibited": [
+      "receipt_file_presence_as_semantic_authority",
+      "ProgressDB_as_idempotency_authority",
+      "projection_RUNNING_overriding_valid_sealed_terminal",
+      "per_run_nonce_JSON_as_cross_transaction_nonce_authority",
+      "command_text_semantic_path_inference",
+      "two_creators_or_writers_for_one_normalized_mutable_path"
+    ]
+  },
+  "closed_schema_invariants": {
+    "global": [
+      "All critical JSON schemas are closed-world: exact key set, exact types, explicit nullable fields, unknown keys rejected.",
+      "Parsing rejects duplicate keys, invalid UTF-8, NaN, Infinity, out-of-range integers, and non-canonical path spellings.",
+      "Canonical hashing uses one frozen JCS/RFC8785-compatible UTF-8 profile and published vectors.",
+      "Every sha256 is exactly 64 lowercase hexadecimal characters; every event hash excludes only event_sha256 itself.",
+      "Every transaction-bound object binds transaction_id, contract_sha256, and schema/version.",
+      "Every mutable-path field is a normalized root-relative POSIX path; absolute paths, dot segments, parent traversal, backslashes, aliases, and symlink-resolved divergence are rejected.",
+      "Every critical enum is closed; unknown critical enum values fail closed and cannot derive PASS."
+    ],
+    "semantic_paths_v1_exact_fields": {
+      "fields": ["schema","transaction_id","contract_sha256","root_realpath","root_device","root_inode","boot_id","event_socket","journal_lock","journal_segments","journal_checkpoint","cas_root","progress_db","status_projection","summary_projection","health_projection","process_projection","notification_projection","reduction","manifest","terminal_seal","completion_receipt","authority_db","witness_db"],
+      "invariants": [
+        "schema equals critical_apply.semantic_paths.v1",
+        "journal_segments is a non-empty ordered list of registered relative paths or a closed registered segment pattern with fixed bounds",
+        "all transaction-local paths resolve beneath bound root_realpath on root_device without symlink traversal",
+        "authority_db and witness_db are explicit external Linux-filesystem paths and may not alias transaction-local paths or each other",
+        "the byte-identical object hash is bound in CONTRACT-SEAL and passed to supervisor, reducer, checker, watcher, compatibility projector, and completion checker",
+        "no consumer may add defaults, discover alternatives, scan recursively, or reconstruct a path from argv"
+      ]
+    },
+    "mutable_path_ownership_v1_exact_fields": {
+      "fields": ["schema","transaction_id","semantic_paths_sha256","entries"],
+      "entry_fields": ["normalized_path","object_kind","creator_role","writer_role","publication_policy","lifetime","mode","owner_uid","variant_guard"],
+      "invariants": [
+        "exactly one entry per normalized mutable path and exactly one creator_role and writer_role per entry",
+        "directory ownership and leaf ownership are separate entries; creating a child does not grant authority to recreate its parent",
+        "variant_guard is required for mutually exclusive fixture/live writers and is verified before launch",
+        "two entries resolving to the same device/inode or normalized path cause HOLD_DUPLICATE_MUTABLE_PATH_OWNERSHIP",
+        "unregistered mutable write or mkdir causes HOLD_UNREGISTERED_MUTABLE_PATH",
+        "ownership closure is checked statically from launch package and dynamically with write receipts"
+      ]
+    },
+    "authority_record_v1_exact_fields": {
+      "fields": ["record_id","record_kind","scope_or_nonce_sha256","transaction_id","supervisor_epoch","fencing_token","state","journal_sequence","journal_event_sha256","authority_receipt_sha256","created_utc","updated_utc"],
+      "states": ["RESERVED_PENDING_JOURNAL","JOURNAL_COMMITTED","ACTIVE","CONSUMED","RELEASE_PENDING","RELEASED"],
+      "invariants": [
+        "supervisor epoch exists and is journal committed before row creation",
+        "journal_sequence and journal_event_sha256 are null only in RESERVED_PENDING_JOURNAL",
+        "ACTIVE or CONSUMED requires a matching verified canonical journal event and current fencing token",
+        "RELEASE_PENDING requires a committed release-intent event",
+        "RELEASED is monotonic and cannot return to ACTIVE",
+        "unique constraints cover scope_or_nonce_sha256 and authority receipt identity as appropriate",
+        "AuthorityDB contains no semantic PASS/HOLD/FAIL/ABORT column"
+      ]
+    },
+    "nonce_record_v1_exact_fields": {
+      "fields": ["nonce_sha256","authority_id","transaction_id","supervisor_epoch","fencing_token","state","reservation_sequence","reservation_event_sha256","call_start_sequence","call_start_event_sha256","outcome_sequence","outcome_event_sha256","retirement_sequence","retirement_event_sha256","authority_receipt_sha256","provider","model_or_operation","idempotency_contract_sha256","updated_utc"],
+      "states": ["RESERVED_PENDING_JOURNAL","COMMITTED_NOT_USED","CALL_START_COMMITTED","OUTCOME_RECORDED","RETIRED","UNKNOWN_CONSUMED"],
+      "nullability": [
+        "reservation journal fields null only while RESERVED_PENDING_JOURNAL",
+        "call_start fields non-null from CALL_START_COMMITTED onward except no-call retirement",
+        "outcome fields non-null only for OUTCOME_RECORDED or RETIRED after recorded outcome",
+        "UNKNOWN_CONSUMED requires call_start fields and forbids retry authority",
+        "RETIRED is final and durable even when semantic validation HOLDs"
+      ]
+    },
+    "event_proposal_v1_exact_fields": {
+      "fields": ["schema","transaction_id","supervisor_epoch","event_id","client_sequence","role","event_type","payload","artifact_refs"],
+      "invariants": [
+        "proposal_sha256 is computed over the canonical exact object",
+        "role/event allowlist and peer process identity are verified before acceptance",
+        "event_id uniqueness is resolved from the verified journal, never solely from ProgressDB"
+      ]
+    },
+    "journal_event_v1_exact_fields": {
+      "fields": ["schema","transaction_id","run_id","supervisor_epoch","sequence","event_id","event_type","phase","proposer","committer","wall_time_utc","monotonic_ns","previous_event_sha256","contract_sha256","proposal_sha256","payload_sha256","payload","artifact_refs","event_sha256"],
+      "invariants": [
+        "committer role is supervisor and binds full process identity",
+        "proposer and committer identities are distinct fields even when supervisor proposes",
+        "sequence begins at one and increments exactly by one",
+        "previous_event_sha256 equals prior canonical event hash or frozen genesis hash",
+        "critical ACK occurs only after complete append and fdatasync of journal bytes",
+        "checkpoint and ProgressDB publication are post-commit caches"
+      ]
+    },
+    "terminal_reduction_prepared_v1_exact_payload": {
+      "fields": ["semantic_input_closed","freeze_sequence","freeze_event_sha256","contract_sha256","reducer_sha256","allowed_post_freeze_event_types"],
+      "invariants": [
+        "semantic_input_closed is true",
+        "freeze_sequence and freeze_event_sha256 identify this committed fence/head",
+        "allowed post-freeze types are a closed allowlist of closeout-only events",
+        "semantic evidence proposed after ACK of the fence is rejected",
+        "recovery reruns the same reducer over the same frozen prefix"
+      ]
+    },
+    "reduction_v1_required_bindings": ["transaction_id","contract_sha256","reducer_sha256","semantic_reduction_head_sequence","semantic_reduction_head_sha256","semantic_result","orthogonal_plane_results","pass_predicates","governing_cas_objects","reduction_sha256"],
+    "terminal_decision_v1_required_bindings": ["transaction_id","reduction_sha256","semantic_reduction_head_sequence","semantic_reduction_head_sha256","semantic_result","terminal_decision_head_sequence","terminal_decision_head_sha256"],
+    "terminal_seal_v1_required_bindings": ["transaction_id","semantic_result","terminal_decision_head_sequence","terminal_decision_head_sha256","reduction_sha256","manifest_sha256","contract_sha256","reducer_sha256","process_cleanup_event_sha256","created_at_utc"],
+    "completion_receipt_v1_required_bindings": ["transaction_id","closeout_head_sequence","closeout_head_sha256","terminal_seal_sha256","semantic_result","notification_outcome","lease_release_outcome","witness_outcome","provider_model_calls","production_effects","next_authority_boundary"],
+    "cas_capture_receipt_v1_required_bindings": ["registered_semantic_path","source_device","source_inode","source_uid","source_gid","source_mode","source_nlink","source_size","pre_fstat_digest","content_sha256","byte_count","cas_relative_path","publication_method","published_device","published_inode","post_reopen_sha256","parent_fsync_complete"]
+  },
+  "legal_state_transitions": {
+    "authority": [
+      "ABSENT -> RESERVED_PENDING_JOURNAL",
+      "RESERVED_PENDING_JOURNAL -> JOURNAL_COMMITTED",
+      "JOURNAL_COMMITTED -> ACTIVE or CONSUMED",
+      "ACTIVE -> RELEASE_PENDING",
+      "CONSUMED -> RELEASE_PENDING when releasable scope; consumed nonce instead follows nonce machine",
+      "RELEASE_PENDING -> RELEASED"
+    ],
+    "nonce": [
+      "ABSENT -> RESERVED_PENDING_JOURNAL",
+      "RESERVED_PENDING_JOURNAL -> COMMITTED_NOT_USED",
+      "COMMITTED_NOT_USED -> CALL_START_COMMITTED",
+      "COMMITTED_NOT_USED -> RETIRED for explicit no-call retirement",
+      "CALL_START_COMMITTED -> OUTCOME_RECORDED",
+      "CALL_START_COMMITTED -> UNKNOWN_CONSUMED after ambiguous crash/outcome",
+      "OUTCOME_RECORDED -> RETIRED",
+      "UNKNOWN_CONSUMED -> RETIRED only as non-retryable retirement under a new journal event",
+      "RETIRED has no successor"
+    ],
+    "terminal_closeout_order": [
+      "OWNED_PROCESS_CLEANUP_COMPLETE committed",
+      "TERMINAL_REDUCTION_PREPARED committed",
+      "REDUCTION computed over semantic_reduction_head",
+      "TERMINAL_DECISION committed and replay verified",
+      "MANIFEST and TERMINAL-SEAL create-once publication",
+      "RUN_SEALED committed",
+      "bounded notification outcome committed",
+      "independent terminal witness recorded",
+      "SCOPE_LEASE_RELEASE_INTENT committed",
+      "AuthorityDB RELEASE_PENDING then RELEASED",
+      "SCOPE_LEASE_RELEASE_RECORDED committed",
+      "COMPLETION-RECEIPT prepared binding closeout inputs",
+      "SUPERVISOR_CLOSED committed as closeout_head",
+      "completion receipt finalized with closeout_head",
+      "transaction lock descriptor released"
+    ],
+    "illegal": [
+      "protected action while authority row is pending, journal-committed-but-not-active, mismatched, released, or unknown",
+      "provider/protected call before durable CALL_START_COMMITTED acknowledgement",
+      "retry after CALL_START_COMMITTED without recorded outcome",
+      "semantic event after terminal input fence",
+      "terminal decision before cleanup or without committed fence",
+      "semantic terminal regression or second different terminal decision",
+      "protected action after scope release intent",
+      "closed journal append for a late notification receipt",
+      "PASS seal while owned process state is not CLEAN"
+    ]
+  },
+  "crash_matrix": [
+    {"id":"A01","boundary":"before supervisor epoch journal commit","required_recovery":"no AuthorityDB row may exist; fresh epoch required"},
+    {"id":"A02","boundary":"after supervisor epoch commit before AuthorityDB reserve","required_recovery":"epoch reusable only under same recovered supervisor policy; no scope authority exists"},
+    {"id":"A03","boundary":"after AuthorityDB RESERVED_PENDING_JOURNAL commit before journal reserve event","required_recovery":"row cannot authorize; deterministically abandon/release or complete matching journal reservation under current fence"},
+    {"id":"A04","boundary":"during journal reserve append before fdatasync","required_recovery":"torn/unacknowledged tail quarantined; row remains non-authorizing pending"},
+    {"id":"A05","boundary":"after journal reserve fdatasync before AuthorityDB binds sequence/hash","required_recovery":"verify exact event then bind row; mismatch HOLD"},
+    {"id":"A06","boundary":"after row JOURNAL_COMMITTED before ACTIVE","required_recovery":"no protected action; promote only after journal binding and fence verification"},
+    {"id":"A07","boundary":"after ACTIVE before protected barrier event","required_recovery":"scope held but action forbidden until barrier; resume or release per frozen policy"},
+    {"id":"A08","boundary":"after release intent journal commit before DB RELEASE_PENDING","required_recovery":"no further protected action; complete release"},
+    {"id":"A09","boundary":"after DB RELEASED before journal release-recorded event","required_recovery":"append matching release-recorded event; never reactivate"},
+    {"id":"A10","boundary":"after journal release-recorded before supervisor close","required_recovery":"complete closeout; scope remains released"},
+    {"id":"N01","boundary":"before nonce row reserve","required_recovery":"no nonce authority"},
+    {"id":"N02","boundary":"after nonce RESERVED_PENDING_JOURNAL before reservation event","required_recovery":"no call; complete exact reservation or retire without call"},
+    {"id":"N03","boundary":"after reservation event before COMMITTED_NOT_USED row binding","required_recovery":"bind exact event; no call until state commit"},
+    {"id":"N04","boundary":"COMMITTED_NOT_USED before call-start event","required_recovery":"safe resume only under same valid frozen authority and proof no call-start event"},
+    {"id":"N05","boundary":"during call-start journal append before durable ACK","required_recovery":"no call may have been invoked by contract; recover journal prefix and remain non-used or retire"},
+    {"id":"N06","boundary":"after CALL_START_COMMITTED durable ACK before invocation","required_recovery":"default UNKNOWN_CONSUMED, non-retryable; conservative false consumption is allowed"},
+    {"id":"N07","boundary":"during or after external invocation before response","required_recovery":"UNKNOWN_CONSUMED; new owner authority and new nonce required for any later attempt"},
+    {"id":"N08","boundary":"response received before durable outcome event","required_recovery":"UNKNOWN_CONSUMED unless the same response bytes were durably CAS-bound and exact outcome event recovery is proven; never retry"},
+    {"id":"N09","boundary":"outcome journaled before AuthorityDB OUTCOME_RECORDED bind","required_recovery":"bind exact outcome and retire"},
+    {"id":"N10","boundary":"OUTCOME_RECORDED before RETIRED","required_recovery":"retire idempotently; semantic HOLD does not unconsume"},
+    {"id":"J01","boundary":"journal full line written before fdatasync","required_recovery":"no ACK; valid prefix or quarantined tail only"},
+    {"id":"J02","boundary":"journal fdatasync after full event before ACK","required_recovery":"journal-derived idempotency returns original ACK on retry; no duplicate append"},
+    {"id":"J03","boundary":"after ACK before ProgressDB/checkpoint update","required_recovery":"replay journal; original ACK and event preserved"},
+    {"id":"T01","boundary":"after TERMINAL_REDUCTION_PREPARED before reducer output","required_recovery":"rerun same reducer over same semantic_reduction_head"},
+    {"id":"T02","boundary":"after reduction publication before TERMINAL_DECISION","required_recovery":"verify reduction hash and append one decision or discard unbound output"},
+    {"id":"T03","boundary":"after TERMINAL_DECISION before seal","required_recovery":"replay decision, publish create-once manifest/seal"},
+    {"id":"T04","boundary":"after valid seal while status/progress says RUNNING","required_recovery":"terminal-first reconciliation reports sealed terminal and rebuilds stale projections"},
+    {"id":"C01","boundary":"CAS source opened then path replaced","required_recovery":"descriptor bytes and identity govern; replacement path ignored/detected"},
+    {"id":"C02","boundary":"CAS temp written before fdatasync","required_recovery":"orphan temp removable; no journal ACK"},
+    {"id":"C03","boundary":"CAS object published before parent fsync","required_recovery":"no journal ACK; revalidate or orphan"},
+    {"id":"C04","boundary":"CAS parent fsync before journal artifact event","required_recovery":"orphan immutable object allowed; no semantic reference"},
+    {"id":"C05","boundary":"journal artifact event ACK after CAS publication","required_recovery":"referenced object must re-open, rehash, and survive; absence is integrity HOLD"
+    }
+  ],
+  "journal_only_semantic_authority_tests": [
+    "Delete ProgressDB, checkpoint, all projections, and controller status; replay journal plus CAS and reproduce byte-identical semantic reduction.",
+    "Corrupt or forge ProgressDB terminal while journal is nonterminal; journal result wins and health HOLD records mismatch.",
+    "Forge projection RUNNING after valid sealed PASS/HOLD/FAIL/ABORT; checker reports sealed terminal and rebuilds projection.",
+    "Forge projection PASS without canonical terminal decision/seal; PASS is rejected.",
+    "Delete ProgressDB after ACK, retry same event_id and proposal hash; original ACK is returned without append.",
+    "Corrupt ProgressDB idempotency row then retry; journal map is reconstructed before decision.",
+    "Retry event_id with different proposal hash; canonical integrity conflict is committed/emergency-recorded and PASS blocked.",
+    "Put semantic_result in AuthorityDB or WitnessDB fixture; reducer ignores it and schema gate rejects authority-store semantic fields.",
+    "Mutate original worker artifact after CAS capture; reduction remains identical from CAS.",
+    "Mutate unregistered artifact path; reducer ignores it and launch/write gate records violation.",
+    "Delete compatibility harness status and registry rows; terminal truth remains unchanged.",
+    "Truncate journal behind independently witnessed head; WitnessDB detects mismatch and trustworthy closeout HOLDs without inventing semantics."
+  ],
+  "descriptor_bound_cas_tests": [
+    "open registered source relative to verified directory FD with O_NOFOLLOW/openat2 equivalent",
+    "reject ancestor and leaf symlink swaps",
+    "reject unexpected st_nlink greater than one unless contract explicitly allows and binds it",
+    "bind and compare device, inode, uid, gid, mode, size, ctime/mtime policy before and after stream copy",
+    "hash and copy through one opened source descriptor with no path reopen",
+    "concurrent source truncation, extension, overwrite, chmod, chown, rename, replacement, and hardlink injection all fail closed or bind original stable descriptor bytes",
+    "same-filesystem O_EXCL temporary publication, complete writes, fdatasync, no-overwrite atomic publish, and parent fsync",
+    "reopen published object with O_NOFOLLOW and rehash before journal append",
+    "kill at each write/sync/publish/reopen/journal/ACK boundary",
+    "duplicate hash publication is accepted only after existing object reopens and hashes identically",
+    "CAS object modes and owner are fixed; later mutation attempt detected",
+    "orphan unreferenced objects never become semantic evidence through scanning"
+  ],
+  "sqlite_wal_gates": [
+    "AuthorityDB and WitnessDB reside on a proven Linux local filesystem, never /mnt/c or unproven network/storage semantics.",
+    "Database creation is followed by file sync and parent-directory fsync before authority use.",
+    "PRAGMA journal_mode=WAL is set and the returned mode is asserted; PRAGMA synchronous=FULL is set and asserted.",
+    "PRAGMA foreign_keys=ON, trusted_schema=OFF where supported, fixed application_id, and exact user_version/schema migration checks are asserted.",
+    "Lease/nonce mutations use BEGIN IMMEDIATE, bounded busy_timeout, explicit commit, and fail-closed contention classification.",
+    "Unique constraints and CHECK constraints enforce state enums, nonce/scope uniqueness, and state-dependent journal binding nullability.",
+    "On startup run quick_check/integrity policy, validate WAL/SHM ownership/mode, and refuse authority on corruption or unrecognized schema.",
+    "Live backup uses SQLite backup API or a frozen checkpoint/quiesce protocol; copying only the main DB while WAL may contain rows is forbidden.",
+    "Recovery and restore include main DB, -wal, and -shm as one protocol, or prove a completed checkpoint with exclusive/quiescent ownership.",
+    "Crash tests cover before/after BEGIN IMMEDIATE, row write, WAL sync, COMMIT, checkpoint, backup, restore, and journal cross-store boundaries.",
+    "WitnessDB assurance is frozen as WITNESS_GRADE_1_SAME_HOST_SAME_UID_INDEPENDENT_PROCESS_DETECTION and makes no hostile same-UID prevention claim.",
+    "ProgressDB may use weaker rebuildable policy only if its indexed journal head is verified before acceleration and deletion remains safe."
+  ],
+  "r18_findings": [
+    {
+      "id":"R18-OWN-01",
+      "severity":"BLOCKER",
+      "finding":"nonce-ledger directory has duplicate creator ownership",
+      "evidence":"materializer creates nonce-ledger with mkdir(exist_ok=True); live runner later calls ledger_root.mkdir(mode=0o700) without exist_ok; historical RUN-RESULT records [Errno 17] File exists",
+      "required_repair":"register exactly one directory creator. Recommended M0 architecture: Authority service creates/owns AuthorityDB nonce storage; transaction components submit operations and never mkdir/write the store. If legacy R18 remains for migration, materializer alone creates the directory and runner only validates registered identity/mode, never creates it."
+    },
+    {
+      "id":"R18-OWN-02",
+      "severity":"BLOCKER",
+      "finding":"per-run nonce ledger is not sufficient cross-transaction authority",
+      "evidence":"broker locks and writes nonce-ledger/nonce-ledger.json beneath one run root; uniqueness is local to that root",
+      "required_repair":"move nonce authority and replay exclusion to AuthorityDB with one service/library owner and journal-bound fenced transitions"
+    },
+    {
+      "id":"R18-OWN-03",
+      "severity":"BLOCKER",
+      "finding":"fixture and live runner both claim the same ledger leaf under alternate code paths without a frozen variant ownership contract",
+      "evidence":"synthetic runner directly writes nonce-ledger/nonce-ledger.json; live broker publishes the same leaf",
+      "required_repair":"either remove both in favor of AuthorityDB or freeze mutually exclusive variant_guard and prove only one selected writer before launch"
+    },
+    {
+      "id":"R18-STALE-01",
+      "severity":"REQUIRED_REGRESSION_FIXTURE",
+      "finding":"valid terminal HOLD coexists with stale harness RUNNING projections",
+      "evidence":"semantic STATUS is terminal HOLD at 23:47:09Z and TERMINAL-SEAL declares terminal HOLD; harness status remains RUNNING from 23:46:00Z and progress says RUNNING/reconcile_semantic_terminal at 23:47:09Z",
+      "required_repair":"terminal-first resolution must report HOLD, classify the RUNNING files as stale rebuildable projections, publish reconciled projections atomically, and never alter the sealed terminal"
+    }
+  ],
+  "stale_projection_reconciliation_gates": [
+    "Resolve exact registered terminal seal path first; verify create-once seal, manifest, terminal decision, reduction, and journal bindings.",
+    "If valid sealed terminal exists, return semantic result immediately regardless of PID, heartbeat, harness registry, observer status, or RUNNING projection.",
+    "Classify each conflicting projection with observed hash, bound head, staleness reason, and replacement receipt.",
+    "Rebuild projection solely from journal/CAS and atomically replace only supervisor-owned projection paths.",
+    "Never mutate journal, seal, reduction, manifest, or semantic result during projection repair.",
+    "If no valid terminal exists, verify supervisor lock plus full process identity and same-boot monotonic lease; projection alone never establishes RUNNING.",
+    "After rebuild, independent checker repeats terminal-first resolution and proves parity.",
+    "Regression fixture uses the hashed R18 HOLD seal plus stale RUNNING status/progress observations."
+  ],
+  "likely_implementation_hazards": [
+    "Current critical_apply_authority.py explicitly says the consumption marker is authoritative and journal append is best-effort; this violates journal-only transaction fact authority and B1.",
+    "Current consumption reconciliation searches raw journal text for approval_consumed rather than validating an exact event schema, transaction, nonce, sequence, and hash binding.",
+    "Current journal event v2 lacks event_id, proposal hash, contract hash, supervisor epoch, proposer/committer split, CAS artifact refs, and role allowlist required by the owner revision.",
+    "Current JournalWriterToken is ordinary caller-supplied data and append_event does not itself prove held supervisor flock, current epoch, fencing token, or authenticated ingress role.",
+    "Current journal validation treats journal-head.json as the committed offset authority; the frozen design says journal bytes are canonical and checkpoint/head is rebuildable. Recovery semantics must not lose a durably acknowledged line because a derived head update failed.",
+    "Current idempotency has no journal-derived event_id map; ProgressDB-safe duplicate ACK behavior is absent.",
+    "Current rehydration derives state from receipt/path presence and may write generation/rehydration receipts before terminal-first seal resolution; this risks treating derived files as authority.",
+    "Current controller query is a file-presence view and does not perform terminal-first journal/reduction verification.",
+    "Current observer-status and worker-result files can remain stale; no canonical stale-projection reconciliation contract is implemented.",
+    "Current terminal seal does not bind semantic_reduction_head, terminal_decision_head, closeout_head, reducer, reduction, contract, or cleanup event as required.",
+    "Current manifest hashes paths by reopening them and uses replace publication; this is TOCTOU-prone and not descriptor-bound create-once CAS publication.",
+    "No current critical_apply CAS module implements openat/O_NOFOLLOW descriptor capture and publication durability ordering.",
+    "No current AuthorityDB/ProgressDB/WitnessDB module freezes SQLite/WAL authority-grade settings and recovery/backup semantics.",
+    "No immutable semantic-path registration and complete mutable-path ownership registry is present in current source.",
+    "Current transition table predates terminal fence/three-head vocabulary and does not encode notification, independent witness, AuthorityDB release, completion receipt, supervisor close, then lock-release ordering.",
+    "Creating directories with exist_ok=True in multiple components can hide duplicate ownership instead of proving it absent.",
+    "Same-UID checker/WitnessDB claims can be overstated unless assurance grade is explicit.",
+    "A late notification callback must not append to a closed journal; current adapters need an explicit follow-up evidence policy.",
+    "Crash recovery across two durable authorities can accidentally create a second semantic authority if reconciliation chooses DB state over journal fact rather than using DB only to gate cross-transaction authority."
+  ],
+  "single_owner_nonce_repair_acceptance": [
+    "One registered owner creates AuthorityDB directory, database, WAL, SHM, schema, scope rows, and nonce rows.",
+    "Supervisor never writes AuthorityDB files directly; it invokes the authority API/library under fencing and journals returned receipt hashes.",
+    "Workers, runners, brokers, checkers, materializers, reducers, and compatibility projectors have zero write/mkdir authority for nonce storage.",
+    "Independent checker reads through read-only authority API/snapshot and writes only checker receipts/WitnessDB.",
+    "Legacy nonce-ledger path is absent in new transactions or registered read-only migration input; its presence as mutable live authority blocks launch.",
+    "Static ownership closure and dynamic write audit both prove one creator/writer and no aliases."
+  ],
+  "later_final_verifier_gates": [
+    {"id":"FV-00","gate":"Builder package identity and input closure","pass":"fresh builder evidence root, immutable manifest, owner revision/adjudication hashes exact, no unlisted governing files"},
+    {"id":"FV-01","gate":"Closed schemas and canonical vectors","pass":"all required M0 schemas, exact fields/types/nullability/enums, duplicate-key/JCS vectors, unknown critical values fail closed"},
+    {"id":"FV-02","gate":"State machine and lifecycle legality","pass":"machine-checked AuthorityDB, nonce, terminal fence, three-head, release/close order; all unlisted transitions rejected"},
+    {"id":"FV-03","gate":"Cross-store crash matrix","pass":"kill at every AuthorityDB-journal and nonce-call boundary; zero unauthorized actions, retries, false PASS, or ambiguous ACTIVE rows"},
+    {"id":"FV-04","gate":"Journal-only semantic authority and idempotency","pass":"delete/corrupt ProgressDB/checkpoint/projections; deterministic replay and original duplicate ACK from journal map"},
+    {"id":"FV-05","gate":"Semantic paths and mutable ownership","pass":"exact registration passed byte-identically; static/dynamic closure; R18 duplicate nonce-ledger regression blocks old package and repaired package has one owner"},
+    {"id":"FV-06","gate":"Descriptor-bound CAS","pass":"race/adversarial and crash boundary corpus; no path reopen TOCTOU, no referenced object loss, no ACK before durable publication"},
+    {"id":"FV-07","gate":"SQLite/WAL authority storage","pass":"filesystem/settings/schema/contention/integrity/backup/recovery gates pass for AuthorityDB and WitnessDB"},
+    {"id":"FV-08","gate":"Terminal monotonicity and stale projection reconciliation","pass":"R18 sealed HOLD outranks stale RUNNING; all terminal variants and 100 deterministic replays per fixture corpus"},
+    {"id":"FV-09","gate":"Independent checker and Witness grade","pass":"terminal-first, three-head bindings, truncation detection, grade claim exact, no semantic rewrite"},
+    {"id":"FV-10","gate":"No-effect/privacy/integrity closure","pass":"zero new provider/model calls, zero deliveries, zero authority consumption, zero runtime/config/Gateway/install/production mutation; output manifest and hash verification pass"}
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "boundary": {
+    "consumed_production_authority": 0,
+    "gateway_config_runtime_mutations": 0,
+    "mode": "PREP_ONLY",
+    "production_mutations": 0,
+    "provider_model_calls": 0
+  },
+  "checks": [
+    {
+      "claim": "TERMINAL_REDUCTION_PREPARED is canonical, durable and mandatory",
+      "id": "V-01",
+      "status": "PASS_CONTRACT"
+    },
+    {
+      "claim": "semantic_reduction_head, terminal_decision_head and closeout_head are distinct and bound to correct artifacts",
+      "id": "V-02",
+      "status": "PASS_CONTRACT"
+    },
+    {
+      "claim": "freeze event hash binding avoids self-referential hashing",
+      "id": "V-03",
+      "status": "PASS_CONTRACT"
+    },
+    {
+      "claim": "post-freeze semantic proposals are closed-list rejected",
+      "id": "V-04",
+      "status": "PASS_CONTRACT"
+    },
+    {
+      "claim": "event idempotency source is journal replay, not ProgressDB",
+      "id": "V-05",
+      "status": "PASS_CONTRACT"
+    },
+    {
+      "claim": "same-hash retry returns original ACK without append; conflicting hash fails closed",
+      "id": "V-06",
+      "status": "PASS_CONTRACT"
+    },
+    {
+      "claim": "release intent precedes AuthorityDB release, release record, supervisor close and lock release",
+      "id": "V-07",
+      "status": "PASS_CONTRACT"
+    },
+    {
+      "claim": "no protected action after acknowledged release intent",
+      "id": "V-08",
+      "status": "PASS_CONTRACT"
+    },
+    {
+      "claim": "notification receives one bounded terminal outcome before release intent",
+      "id": "V-09",
+      "status": "PASS_CONTRACT"
+    },
+    {
+      "claim": "late notification evidence cannot append to closed journal or rewrite semantics",
+      "id": "V-10",
+      "status": "PASS_CONTRACT"
+    },
+    {
+      "claim": "completion receipt and SUPERVISOR_CLOSED binding is acyclic",
+      "id": "V-11",
+      "status": "PASS_CONTRACT"
+    },
+    {
+      "claim": "journal remains sole semantic transaction-fact authority across all contracts",
+      "id": "V-12",
+      "status": "PASS_CONTRACT"
+    }
+  ],
+  "created_utc": "2026-08-13T00:55:00Z",
+  "schema": "critical_apply.b3_b4_b5_s1_s3_cross_contract_verification.v1",
+  "scope_limits": {
+    "not_adjudicated_here": [
+      "B1",
+      "B2",
+      "B6",
+      "S2",
+      "S4"
+    ],
+    "overall_m0_pass_claimed": false,
+    "resolved_here": [
+      "B3",
+      "B4",
+      "B5",
+      "S1",
+      "S3"
+    ]
+  },
+  "second_semantic_authority_scan": {
+    "AuthorityDB": "scope_and_nonce_only",
+    "ProgressDB": "non_authoritative",
+    "WitnessDB": "witness_only",
+    "completion_receipt": "closeout projection/evidence only",
+    "notification_adapter": "notification_only",
+    "result": "PASS_NO_SECOND_SEMANTIC_AUTHORITY_IN_PACKET"
+  }
+}

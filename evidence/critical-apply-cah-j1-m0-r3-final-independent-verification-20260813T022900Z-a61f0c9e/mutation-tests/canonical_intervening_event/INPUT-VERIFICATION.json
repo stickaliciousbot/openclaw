@@ -1,0 +1,23 @@
+{
+  "immutable": true,
+  "inputs": [
+    {
+      "role": "owner_revision",
+      "sha256": "6d80167ba92e1a68c9d17d6027135b289f88c6b9f3d6fd9e24ea86aedab459af"
+    },
+    {
+      "role": "m0_adjudication",
+      "sha256": "1d2853fba832ebc243423c3c2dac00def80c3c2b56d892ee8c83aeff96c34427"
+    },
+    {
+      "role": "r2_manifest",
+      "sha256": "697e1eb6ad2e6a263b539c3d1ccf353c3b635f17d77841083d11cf99f8cbb235"
+    },
+    {
+      "role": "r2_hold_receipt",
+      "sha256": "d57ced95b7bf7d544c395141ba1d1d003405ec1abdad8a45751462423f79c336"
+    }
+  ],
+  "schema": "critical_apply.cah_j1_m0_r3_input_verification.v1",
+  "status": "PASS"
+}

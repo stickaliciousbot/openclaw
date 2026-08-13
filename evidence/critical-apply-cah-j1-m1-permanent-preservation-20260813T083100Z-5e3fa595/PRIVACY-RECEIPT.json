@@ -1,0 +1,8 @@
+{
+  "schema": "critical_apply.cah_j1_m1_permanent_preservation_privacy.v1",
+  "status": "PASS",
+  "scope": "preservation metadata, reconstruction instructions, and exact source patch",
+  "secret_material_written": false,
+  "external_destination": false,
+  "notes": "Patch contains source and tests only; no runtime data, provider response, credentials, email, or network address was introduced."
+}

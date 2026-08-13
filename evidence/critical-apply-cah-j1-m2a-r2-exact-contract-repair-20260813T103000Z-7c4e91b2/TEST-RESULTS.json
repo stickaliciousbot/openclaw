@@ -1,0 +1,44 @@
+{
+  "aggregate_cases": 155,
+  "aggregate_rejected": 155,
+  "aggregate_unsafe_accepted": 0,
+  "candidate_validator": {
+    "error_count": 0,
+    "status": "PASS"
+  },
+  "fresh_r1_56": {
+    "cases": 56,
+    "direct_checks": 9,
+    "direct_failures": 0,
+    "rejected": 56,
+    "status": "PASS",
+    "unsafe_accepted": 0
+  },
+  "independent_clean_copy": {
+    "status": "PASS"
+  },
+  "new_r2_combinations": {
+    "cases": 18,
+    "rejected": 18,
+    "status": "PASS",
+    "unsafe_accepted": 0
+  },
+  "prior_26": {
+    "cases": 26,
+    "rejected": 26,
+    "status": "PASS",
+    "unsafe_accepted": 0
+  },
+  "prior_55": {
+    "cases": 55,
+    "rejected": 55,
+    "status": "PASS",
+    "unsafe_accepted": 0
+  },
+  "py_compile": {
+    "files": 6,
+    "status": "PASS"
+  },
+  "schema": "critical_apply.m2a_r2.test_results.v1",
+  "status": "PASS"
+}

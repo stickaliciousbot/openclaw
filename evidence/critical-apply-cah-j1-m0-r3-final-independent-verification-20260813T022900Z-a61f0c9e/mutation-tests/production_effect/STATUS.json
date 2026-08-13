@@ -1,0 +1,17 @@
+{
+  "independent_verification": "REQUIRED",
+  "privacy": "PASS",
+  "repair": "BLOCK_R2_01_RESOLVED",
+  "schema": "critical_apply.cah_j1_m0_r3_status.v1",
+  "semantic_authority": "canonical_append_only_journal_only",
+  "status": "PASS_REPAIR_HOLD_FOR_INDEPENDENT_VERIFICATION",
+  "terminal": "PASS_CAH_J1_M0_R3_NONCANONICAL_PREIMAGE_DIRECT_SUPERVISOR_CLOSED_ADJACENCY_VALIDATED_PRIVACY_PASS_NO_PRODUCTION_EFFECT",
+  "validation": {
+    "closeout_vectors": 12,
+    "direct_adjacency": true,
+    "errors": 0,
+    "fixture": "PASS_ONE_PASS_NONCIRCULAR_DIRECT_ADJACENCY",
+    "required_files": 21
+  },
+  "zero_effect": true
+}

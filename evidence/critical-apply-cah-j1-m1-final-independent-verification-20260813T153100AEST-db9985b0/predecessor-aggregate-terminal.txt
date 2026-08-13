@@ -1,0 +1,11 @@
+Command: OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python3 -B -m unittest -v scripts.test_critical_apply_runner scripts.test_openclaw_npm_package_plugin scripts.tests.test_critical_apply_authority scripts.tests.test_critical_apply_concurrency scripts.tests.test_journal scripts.tests.test_atomic_io
+
+Terminal:
+----------------------------------------------------------------------
+Ran 142 tests in 555.978s
+
+OK
+Exit: 0
+Result: PASS
+
+Note: An initial resumed invocation overlapped an accidentally still-running approval-triggered command and produced transient process-leak errors before being terminated. It had no terminal result and is retained in predecessor-aggregate.log as a non-acceptance harness invocation. After confirming zero surviving test processes, the exact aggregate was rerun once cleanly and passed as recorded above.

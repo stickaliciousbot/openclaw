@@ -1,0 +1,29 @@
+{
+  "schema": "critical_apply.cah_j1_m1_test_results.v1",
+  "status": "PASS",
+  "completed_at_utc": "2026-08-13T04:25:00Z",
+  "changed_module_compile": {"command": "python3 -B -m py_compile scripts/critical_apply_journal.py scripts/critical_apply_progress.py scripts/critical_apply_cas.py scripts/critical_apply_authority_db.py scripts/tests/test_critical_apply_journal_idempotency.py scripts/tests/test_critical_apply_cas.py scripts/tests/test_critical_apply_authority_db.py", "result": "PASS"},
+  "focused": [
+    {"suite": "scripts/tests/test_critical_apply_journal_idempotency.py", "tests": 9, "result": "PASS", "seconds": 149.551},
+    {"suite": "scripts/tests/test_critical_apply_cas.py", "tests": 18, "result": "PASS", "seconds": 321.982},
+    {"suite": "scripts/tests/test_critical_apply_authority_db.py", "tests": 21, "result": "PASS", "seconds": 1067.946}
+  ],
+  "focused_total": 48,
+  "predecessor": [
+    {"suite": "scripts/test_critical_apply_runner.py", "tests": 5, "result": "PASS"},
+    {"suite": "scripts/test_openclaw_npm_package_plugin.py", "tests": 5, "result": "PASS"},
+    {"suite": "scripts/tests/test_critical_apply_authority.py", "tests": 46, "result": "PASS"},
+    {"suite": "scripts/tests/test_critical_apply_concurrency.py", "tests": 23, "result": "PASS"},
+    {"suite": "scripts/tests/test_journal.py", "tests": 32, "result": "PASS"},
+    {"suite": "scripts/tests/test_atomic_io.py", "tests": 31, "result": "PASS"},
+    {"suite": "scripts/tests/test_critical_apply_commit.py", "tests": 59, "result": "PASS"}
+  ],
+  "predecessor_total": 201,
+  "grand_total": 249,
+  "failed_attempts_preserved": [
+    {"gate": "CAS focused initial", "classification": "SOURCE_DEFECT", "defects": ["concurrent CAS root mkdir race", "test expected permissive retained-descriptor capture after pathname identity replacement where frozen contract requires HOLD"], "correction": "atomic mkdir loser acceptance; retained descriptor identity-change HOLD expectation"},
+    {"gate": "AuthorityDB focused initial", "classification": "SOURCE_DEFECT", "defect": "nonce_current INSERT placeholder arity", "correction": "13 placeholders for 13 columns"},
+    {"gate": "CAS full repeat", "classification": "HARNESS_TIMEOUT_FLAKE", "detail": "one multiprocessing Queue get exceeded 30 seconds under host load; isolated 2/5/20 concurrency rerun PASS and complete full suite rerun PASS"}
+  ],
+  "test_integrity": "No validator or predecessor test was weakened to hide a defect."
+}

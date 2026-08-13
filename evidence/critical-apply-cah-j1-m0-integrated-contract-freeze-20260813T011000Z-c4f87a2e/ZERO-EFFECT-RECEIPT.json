@@ -1,0 +1,22 @@
+{
+  "authorized_writes": [
+    "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-integrated-contract-freeze-20260813T011000Z-c4f87a2e"
+  ],
+  "claim_basis": "construction code contains no provider runtime gateway git cron deployment or messaging operations",
+  "effects": {
+    "consumed_production_authority": 0,
+    "cron_or_systemd_mutations": 0,
+    "deployments": 0,
+    "external_messages": 0,
+    "gateway_config_mutations": 0,
+    "gateway_restarts": 0,
+    "git_stage_commit_push": 0,
+    "production_mutations": 0,
+    "provider_calls": 0,
+    "runtime_installs": 0,
+    "terra_calls": 0
+  },
+  "schema": "critical_apply.cah_j1_m0_zero_effect_receipt.v1",
+  "scope": "contract_construction_and_offline_validation_only",
+  "status": "PASS"
+}

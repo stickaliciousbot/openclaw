@@ -1,0 +1,7 @@
+archive=/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m2a-r2-r1-independent-input-sealed-20260813T113536Z.tar.gz
+sha256=6b5039bd200d99b73f818fb67010d62aa48112cb49b2d271332a440e156e08d0
+mode=444
+member_count=75
+sorted_member_list_sha256=172347384eac0547db2eca8dfe00119f4be6de17e287c9d1394d7bfa7a233c5f
+root=/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m2a-r2-r1-final-independent-verification-20260813T114403Z-5e048c28
+tmp=/tmp/cah-j1-final-verifier.yeoCMS

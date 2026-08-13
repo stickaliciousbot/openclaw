@@ -1,0 +1,22 @@
+{
+  "M1_reconstruction": {
+    "hash_cases": 7,
+    "pass_count": 7
+  },
+  "blocker_count": 6,
+  "candidate_12_mutations": {
+    "reported_case_count": 12,
+    "returncode": 0,
+    "stdout_sha256": "a72b3bda1cc32d40589c1f70a7390d277193ebb81bf7feb58abf2a6ab812d6eb"
+  },
+  "candidate_validator": {
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "{\n  \"status\": \"PASS\",\n  \"errors\": [],\n  \"error_count\": 0\n}\n"
+  },
+  "independent_adversarial": {
+    "case_count": 26,
+    "rejected_count": 8,
+    "unsafe_accepted_count": 18
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "schema": "critical_apply.cah_j1_m1_permanent_preservation_verification.v1",
+  "status": "PASS",
+  "checks": {
+    "temporary_patch_bytes": 106031,
+    "temporary_patch_sha256": "7cde7ec7bf858b06bdf22fc22d703457565059d5643909d55ac7c54020b8d4bc",
+    "permanent_patch_bytes": 106031,
+    "permanent_patch_sha256": "7cde7ec7bf858b06bdf22fc22d703457565059d5643909d55ac7c54020b8d4bc",
+    "permanent_patch_mode": "0444",
+    "base_commit_type": "commit",
+    "base_tree_type": "tree",
+    "base_commit_resolves_tree": true,
+    "construction_manifest_all_entries": "PASS",
+    "independent_manifest_all_entries": "PASS",
+    "offline_non_git_reconstruction": "PASS_EXACT_SEVEN_HASHES"
+  },
+  "temporary_path_required_after_preservation": false
+}

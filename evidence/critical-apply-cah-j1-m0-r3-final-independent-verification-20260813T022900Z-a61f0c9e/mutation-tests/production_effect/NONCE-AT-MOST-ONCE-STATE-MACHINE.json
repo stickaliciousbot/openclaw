@@ -1,0 +1,259 @@
+{
+  "schema": "critical_apply.nonce_at_most_once_state_machine.v1",
+  "status": "FROZEN_FOR_M0_B2",
+  "semantic_authority": "canonical_journal_only",
+  "cross_transaction_authority": "AuthorityDB_nonce_row_and_receipt_chain_only",
+  "initial_state": null,
+  "states": {
+    "RESERVED_PENDING_JOURNAL": {
+      "call_allowed": false,
+      "journal_binding_required": false,
+      "meaning": "Unique nonce and exact request authority are durably reserved in AuthorityDB, but no canonical reservation event is yet bound."
+    },
+    "COMMITTED_NOT_USED": {
+      "call_allowed": false,
+      "journal_binding_required": true,
+      "meaning": "Reservation is bound in both stores; no call-start barrier exists."
+    },
+    "CALL_START_COMMITTED": {
+      "call_allowed": true,
+      "journal_binding_required": true,
+      "meaning": "Canonical call-start barrier and AuthorityDB consumption receipt match; at most one invocation may now begin."
+    },
+    "OUTCOME_RECORDED": {
+      "call_allowed": false,
+      "journal_binding_required": true,
+      "meaning": "A canonical outcome event exists and AuthorityDB durably binds it; consumption remains permanent regardless of later semantics."
+    },
+    "RETIRED": {
+      "call_allowed": false,
+      "journal_binding_required": true,
+      "terminal_for_nonce": true,
+      "meaning": "Nonce is permanently unavailable for call start or reuse."
+    },
+    "UNKNOWN_CONSUMED": {
+      "call_allowed": false,
+      "journal_binding_required": true,
+      "terminal_for_nonce": true,
+      "automatic_retry": "FORBIDDEN",
+      "meaning": "Call may have reached the external boundary, but no canonical outcome is available; the nonce is permanently consumed."
+    }
+  },
+  "required_row_bindings": [
+    "nonce_sha256",
+    "transaction_id",
+    "authority_id",
+    "origin_supervisor_epoch",
+    "supervisor_epoch",
+    "authority_generation_token",
+    "contract_sha256",
+    "request_sha256",
+    "state",
+    "transition_ordinal",
+    "journal_sequence",
+    "journal_event_sha256",
+    "authority_receipt_sha256"
+  ],
+  "transitions": [
+    {
+      "id": "N01_RESERVE",
+      "from": null,
+      "to": "RESERVED_PENDING_JOURNAL",
+      "db_transaction": "BEGIN_IMMEDIATE_FULL",
+      "preconditions": [
+        "verified_supervisor_epoch_already_committed_in_canonical_journal",
+        "nonce_sha256_absent_from_all_current_and_history_rows",
+        "exact_authority_id_contract_sha256_request_sha256_bound",
+        "required_scope_fence_active_if_operation_requires_scope"
+      ],
+      "journal_event": null,
+      "effect": "no_call",
+      "on_uncertain_commit": "AUTHORITY_COMMIT_UNKNOWN_HOLD_NO_CALL"
+    },
+    {
+      "id": "N02_COMMIT_RESERVATION_EVENT",
+      "from": "RESERVED_PENDING_JOURNAL",
+      "to": "RESERVED_PENDING_JOURNAL",
+      "db_transaction": null,
+      "preconditions": [
+        "pending_authority_receipt_recomputed_and_verified"
+      ],
+      "journal_event": "CALL_AUTHORITY_RESERVED",
+      "journal_ack_required": true,
+      "effect": "no_call"
+    },
+    {
+      "id": "N03_BIND_RESERVATION",
+      "from": "RESERVED_PENDING_JOURNAL",
+      "to": "COMMITTED_NOT_USED",
+      "db_transaction": "BEGIN_IMMEDIATE_FULL",
+      "preconditions": [
+        "exact_CALL_AUTHORITY_RESERVED_event_verified_from_journal_bytes",
+        "event_binds_pending_authority_receipt_and_exact_nonce_request_authority_epoch"
+      ],
+      "journal_event": "CALL_AUTHORITY_RESERVATION_RECORDED",
+      "journal_event_after_db_commit": true,
+      "journal_ack_required": true,
+      "effect": "no_call"
+    },
+    {
+      "id": "N04_SAFE_RESUME_REBIND",
+      "from": "COMMITTED_NOT_USED",
+      "to": "COMMITTED_NOT_USED",
+      "db_transaction": "BEGIN_IMMEDIATE_FULL",
+      "preconditions": [
+        "new_supervisor_epoch_committed_as_SUPERVISOR_RECOVERED",
+        "transaction_lock_exclusive",
+        "journal_proves_no_CALL_START_COMMITTED_attempt_or_outcome_for_nonce",
+        "frozen_contract_safe_resume_before_call_start_equals_true",
+        "owner_authority_valid_and_unexpired",
+        "request_authority_contract_hashes_unchanged",
+        "required_scope_fence_active",
+        "CALL_SAFE_RESUME_AUTHORIZED_committed_and_synced"
+      ],
+      "journal_event": "CALL_SAFE_RESUME_AUTHORIZED",
+      "effect": "no_call",
+      "otherwise": "RETIRE_WITHOUT_USE_AND_HOLD_REQUIRE_NEW_OWNER_AUTHORITY_AND_NEW_NONCE"
+    },
+    {
+      "id": "N05_COMMIT_CALL_START_BARRIER",
+      "from": "COMMITTED_NOT_USED",
+      "to": "COMMITTED_NOT_USED",
+      "db_transaction": null,
+      "preconditions": [
+        "exact_current_authority_receipt_verified",
+        "request_sha256_endpoint_operation_scope_fence_and_epoch_match",
+        "no_prior_call_start_attempt_outcome_or_retirement"
+      ],
+      "journal_event": "CALL_START_COMMITTED",
+      "journal_ack_required": true,
+      "effect": "no_call_yet"
+    },
+    {
+      "id": "N06_DURABLY_CONSUME",
+      "from": "COMMITTED_NOT_USED",
+      "to": "CALL_START_COMMITTED",
+      "db_transaction": "BEGIN_IMMEDIATE_FULL",
+      "preconditions": [
+        "exact_CALL_START_COMMITTED_event_verified_from_journal_bytes",
+        "event_binds_same_nonce_request_authority_current_epoch_and_scope_fence"
+      ],
+      "journal_event": "AUTHORITY_NONCE_CONSUMED",
+      "journal_event_after_db_commit": true,
+      "journal_ack_required": true,
+      "effect": "call_may_begin_only_after_post_transition_both_store_reread"
+    },
+    {
+      "id": "N07_RECORD_VERIFIED_OUTCOME",
+      "from": "CALL_START_COMMITTED",
+      "to": "OUTCOME_RECORDED",
+      "ordering": [
+        "capture_governing_response_bytes_if_required",
+        "commit_and_sync_CALL_OUTCOME_RECORDED_in_canonical_journal",
+        "BEGIN_IMMEDIATE",
+        "bind_outcome_event_and_append_authority_receipt",
+        "COMMIT_FULL"
+      ],
+      "preconditions": [
+        "outcome_event_binds_exact_call_start_nonce_request_and_artifact_hashes",
+        "no_unknown_consumed_transition_committed"
+      ],
+      "journal_event": "CALL_OUTCOME_RECORDED",
+      "effect": "no_retry_consumption_permanent"
+    },
+    {
+      "id": "N08_CLASSIFY_UNKNOWN",
+      "from": "CALL_START_COMMITTED",
+      "to": "UNKNOWN_CONSUMED",
+      "db_transaction": "BEGIN_IMMEDIATE_FULL",
+      "triggers_any": [
+        "crash_after_call_start_without_canonical_outcome",
+        "call_attempted_no_response",
+        "response_received_not_journaled",
+        "transport_timeout_after_possible_send",
+        "connection_reset_after_possible_send",
+        "external_attempt_or_commit_ordering_uncertain"
+      ],
+      "journal_event": "CALL_OUTCOME_UNKNOWN",
+      "journal_event_after_db_commit": true,
+      "journal_ack_required": true,
+      "effect": "permanent_consumption_no_automatic_retry"
+    },
+    {
+      "id": "N09_RETIRE_RECORDED_OUTCOME",
+      "from": "OUTCOME_RECORDED",
+      "to": "RETIRED",
+      "db_transaction": "BEGIN_IMMEDIATE_FULL",
+      "journal_event": "NONCE_RETIRED",
+      "journal_event_after_db_commit": true,
+      "journal_ack_required": true,
+      "effect": "permanent_no_reuse"
+    },
+    {
+      "id": "N10_ABANDON_BEFORE_CALL",
+      "from": "COMMITTED_NOT_USED",
+      "to": "RETIRED",
+      "db_transaction": "BEGIN_IMMEDIATE_FULL",
+      "preconditions": [
+        "journal_proves_no_CALL_START_COMMITTED_or_attempt",
+        "canonical_no_call_retirement_intent_committed"
+      ],
+      "journal_event": "NONCE_RETIRED",
+      "effect": "retired_without_call"
+    },
+    {
+      "id": "N11_QUARANTINE_ORPHAN_RESERVATION",
+      "from": "RESERVED_PENDING_JOURNAL",
+      "to": "RETIRED",
+      "db_transaction": "BEGIN_IMMEDIATE_FULL",
+      "preconditions": [
+        "orphan_cannot_be_safely_bound_by_exact_current_transaction_epoch",
+        "no_call_start_event_exists"
+      ],
+      "journal_event": "NONCE_RETIRED",
+      "effect": "retired_without_call_and_transaction_holds"
+    }
+  ],
+  "forbidden_transitions": [
+    "RESERVED_PENDING_JOURNAL->CALL_START_COMMITTED",
+    "RESERVED_PENDING_JOURNAL->OUTCOME_RECORDED",
+    "COMMITTED_NOT_USED->OUTCOME_RECORDED",
+    "CALL_START_COMMITTED->RETIRED",
+    "CALL_START_COMMITTED->COMMITTED_NOT_USED",
+    "OUTCOME_RECORDED->CALL_START_COMMITTED",
+    "RETIRED->ANY",
+    "UNKNOWN_CONSUMED->ANY"
+  ],
+  "invocation_gate": {
+    "all_required": [
+      "canonical_CALL_START_COMMITTED_ack_verified",
+      "AuthorityDB_state_CALL_START_COMMITTED",
+      "canonical_AUTHORITY_NONCE_CONSUMED_ack_verified",
+      "latest_authority_receipt_matches_journal",
+      "transaction_id_contract_request_authority_nonce_epoch_match",
+      "required_scope_fence_is_ACTIVE_and_exact",
+      "transaction_lock_and_process_identity_valid",
+      "no_release_intent_terminal_or_integrity_hold"
+    ],
+    "maximum_invocations": 1
+  },
+  "recovery_default": {
+    "call_start_without_canonical_outcome": "UNKNOWN_CONSUMED",
+    "automatic_retry": false,
+    "retry_requirements": [
+      "new_explicit_owner_authority",
+      "new_nonce",
+      "new_call_start_barrier"
+    ],
+    "idempotency_exception": "Only an exact frozen contract with externally enforced idempotency and read-only reconciliation may define a different path; no default exception exists."
+  },
+  "invariants": [
+    "unique_nonce_insertion_is_necessary_but_not_sufficient_for_call",
+    "no_call_before_durable_call_start_ack_and_durable_consumption_binding",
+    "one_nonce_binds_one_request_digest_for_life",
+    "consumption_survives_semantic_hold_fail_restart_and_recovery",
+    "unknown_consumed_is_non_retryable_and_non_reusable",
+    "progressdb_checkpoint_pid_and_wall_clock_never_grant_call_authority",
+    "canonical_journal_remains_sole_semantic_authority"
+  ]
+}

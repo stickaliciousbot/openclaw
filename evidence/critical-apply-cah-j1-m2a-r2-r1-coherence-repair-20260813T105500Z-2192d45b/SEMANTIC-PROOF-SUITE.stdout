@@ -1,0 +1,403 @@
+{
+  "schema": "critical_apply.m2a_r2_r1.semantic_mutations.v1",
+  "status": "PASS",
+  "case_count": 36,
+  "rejected_count": 36,
+  "unsafe_accepted_count": 0,
+  "results": [
+    {
+      "id": "S01_FINAL_HASH_REPLACED_BY_PRELIM",
+      "expected_error": "authority_role_coherence",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:R1-AUTHORITY-ROLES.json",
+        "authority_role_coherence"
+      ]
+    },
+    {
+      "id": "S02_SUPERSEDED_MARKED_AUTHORITY",
+      "expected_error": "authority_role_coherence",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:R1-AUTHORITY-ROLES.json",
+        "authority_role_coherence"
+      ]
+    },
+    {
+      "id": "S03_SUPERSEDED_GIVEN_PATH",
+      "expected_error": "authority_role_coherence",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:R1-AUTHORITY-ROLES.json",
+        "authority_role_coherence"
+      ]
+    },
+    {
+      "id": "S04_SEALED_R1_USES_PRELIM",
+      "expected_error": "authority_role_coherence",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:IMMUTABLE-INPUT-SEALS.json",
+        "immutable_hold_binding",
+        "immutable_authority_rehash",
+        "authority_role_coherence"
+      ]
+    },
+    {
+      "id": "S05_DESIGN_ROLE_CONTRADICTION",
+      "expected_error": "authority_role_coherence",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "design_contract_digest",
+        "design_xref:ACK-REPLAY-VECTORS.json",
+        "authority_role_coherence"
+      ]
+    },
+    {
+      "id": "S06_T00_BEFORE_FAKE_COMMITTED_EPOCH",
+      "expected_error": "proof_semantic_inventory",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory",
+        "proof_semantic_initialization"
+      ]
+    },
+    {
+      "id": "S07_T00_BEFORE_FAKE_ACTIVE_FENCE",
+      "expected_error": "proof_semantic_inventory",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory",
+        "proof_semantic_initialization"
+      ]
+    },
+    {
+      "id": "S08_T00_AFTER_FAKE_CAS",
+      "expected_error": "proof_semantic_inventory",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory",
+        "proof_semantic_cas"
+      ]
+    },
+    {
+      "id": "S09_T01_BEFORE_WRONG_HEAD",
+      "expected_error": "proof_semantic_inventory",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory",
+        "proof_semantic_phase_head"
+      ]
+    },
+    {
+      "id": "S10_T02_AFTER_EPOCH_ABSENT",
+      "expected_error": "proof_semantic_inventory",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory",
+        "proof_semantic_epoch"
+      ]
+    },
+    {
+      "id": "S11_T04_AFTER_PREMATURE_FENCE",
+      "expected_error": "proof_semantic_inventory",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory",
+        "proof_semantic_fence"
+      ]
+    },
+    {
+      "id": "S12_T05_AFTER_ACTIVE_NOT_RESERVED",
+      "expected_error": "proof_semantic_inventory",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory",
+        "proof_semantic_fence"
+      ]
+    },
+    {
+      "id": "S13_T06_AFTER_RESERVED_NOT_BOUND",
+      "expected_error": "proof_semantic_inventory",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory",
+        "proof_semantic_fence"
+      ]
+    },
+    {
+      "id": "S14_T07_BEFORE_ACTIVE_TOO_EARLY",
+      "expected_error": "proof_semantic_inventory",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ]
+    },
+    {
+      "id": "S15_T07_AFTER_BOUND_NOT_ACTIVE",
+      "expected_error": "proof_semantic_inventory",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory",
+        "proof_semantic_fence"
+      ]
+    },
+    {
+      "id": "S16_T03_BEFORE_ENVELOPE_CAS_EARLY",
+      "expected_error": "proof_semantic_inventory",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ]
+    },
+    {
+      "id": "S17_T03_AFTER_ENVELOPE_CAS_MISSING",
+      "expected_error": "proof_semantic_inventory",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory",
+        "proof_semantic_cas"
+      ]
+    },
+    {
+      "id": "S18_T10_BEFORE_CHILD_RESULT_EARLY",
+      "expected_error": "proof_semantic_inventory",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ]
+    },
+    {
+      "id": "S19_T10_AFTER_CHILD_RESULT_MISSING",
+      "expected_error": "proof_semantic_inventory",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory",
+        "proof_semantic_cas"
+      ]
+    },
+    {
+      "id": "S20_T11_AFTER_EXECUTION_EVIDENCE_MISSING",
+      "expected_error": "proof_semantic_inventory",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory",
+        "proof_semantic_cas"
+      ]
+    },
+    {
+      "id": "S21_T16_AFTER_TERMINAL_SEAL_MISSING",
+      "expected_error": "proof_semantic_inventory",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory",
+        "proof_semantic_cas"
+      ]
+    },
+    {
+      "id": "S22_T19_AFTER_RELEASED_TOO_EARLY",
+      "expected_error": "proof_semantic_inventory",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ]
+    },
+    {
+      "id": "S23_T20_AFTER_ACTIVE_FENCE_RETAINED",
+      "expected_error": "proof_semantic_inventory",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory",
+        "proof_semantic_fence"
+      ]
+    },
+    {
+      "id": "S24_T21_AFTER_RELEASE_RECEIPT_MISSING",
+      "expected_error": "proof_semantic_inventory",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ]
+    },
+    {
+      "id": "S25_T22_AFTER_GENERIC_CLOSED_STATE",
+      "expected_error": "proof_semantic_inventory",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ]
+    },
+    {
+      "id": "S26_T22_AFTER_ACTIVE_FENCE",
+      "expected_error": "proof_semantic_inventory",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory",
+        "proof_semantic_fence"
+      ]
+    },
+    {
+      "id": "S27_AP01_AFTER_PREIMAGE_CAS_MISSING",
+      "expected_error": "proof_semantic_inventory",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ]
+    },
+    {
+      "id": "S28_LO01_AFTER_NONCANONICAL_JOURNAL_EVENT",
+      "expected_error": "proof_semantic_inventory",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory",
+        "proof_semantic_lifecycle_journal"
+      ]
+    },
+    {
+      "id": "S29_LO01_AFTER_PUBLICATION_CAS_MISSING",
+      "expected_error": "proof_semantic_inventory",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ]
+    },
+    {
+      "id": "S30_LO02_BEFORE_PUBLICATION_CAS_MISSING",
+      "expected_error": "proof_semantic_inventory",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory",
+        "proof_semantic_lifecycle_cas"
+      ]
+    },
+    {
+      "id": "S31_LO02_AFTER_ACTIVE_FENCE",
+      "expected_error": "proof_semantic_inventory",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory",
+        "proof_semantic_fence"
+      ]
+    },
+    {
+      "id": "S32_LO02_AFTER_LOCK_RECEIPT_MISSING",
+      "expected_error": "proof_semantic_inventory",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ]
+    },
+    {
+      "id": "S33_REGISTRY_GENERIC_RECEIPT",
+      "expected_error": "proof_semantic_inventory",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "typed_proof_resolution",
+        "proof_semantic_inventory",
+        "typed_proof_mirror"
+      ]
+    },
+    {
+      "id": "S34_VECTOR_MIRROR_GENERIC_EPOCH",
+      "expected_error": "typed_proof_mirror",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution",
+        "typed_proof_mirror"
+      ]
+    },
+    {
+      "id": "S35_REGISTRY_CROSS_PHASE_CAS",
+      "expected_error": "proof_semantic_inventory",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "typed_proof_resolution",
+        "proof_semantic_inventory",
+        "typed_proof_mirror"
+      ]
+    },
+    {
+      "id": "S36_INVENTORY_UNKNOWN_FIELD",
+      "expected_error": "proof_semantic_inventory",
+      "validator_rejected": true,
+      "specific_gate_pass": true,
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-SEMANTIC-INVENTORY.json",
+        "proof_semantic_inventory"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "checks": {
+    "canonical_final_supervisor_closed": true,
+    "canonical_t00_t22_exact": true,
+    "closeout_heads_immutable": true,
+    "final_r1_authority": true,
+    "ingress_exact_unknown_reject": true,
+    "m2b_false": true,
+    "nonce_n01_n11_exact": true,
+    "prelim_r1_nonauthority": true,
+    "provider_false": true,
+    "publication_and_release_noncanonical": true,
+    "release_requires_publication": true,
+    "zero_effect_authority_false": true
+  },
+  "status": "PASS"
+}

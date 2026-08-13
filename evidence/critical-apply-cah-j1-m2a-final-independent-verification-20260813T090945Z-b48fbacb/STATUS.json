@@ -1,0 +1,11 @@
+{
+  "schema": "critical_apply.cah_j1.m1_preservation_m2a_final_independent_status.v1",
+  "M1_preservation": "PASS_VERIFIED",
+  "M2A": "HOLD",
+  "blocker_count": 6,
+  "M2B": "NOT_STARTED",
+  "privacy": "PASS",
+  "zero_effect": "PASS",
+  "verifier_owned_process_leaks": 0,
+  "terminal": "HOLD_CAH_J1_M2A_REPAIR_REQUIRED_M2B_NOT_STARTED"
+}

@@ -1,0 +1,166 @@
+{
+  "artifact_lifecycle_proof_count": 6,
+  "artifact_preparation_vector_count": 2,
+  "authority_roles": {
+    "final": {
+      "authority": true,
+      "sha256": "49ccef7181ff090c95267f8a5dcc3ccaaba88ce3bd42ade63cef13293e41d2d2"
+    },
+    "preliminary": {
+      "authority": false,
+      "sha256": "019f34f1b8f4e64b191457f283e66eb0e0a010f33b6841851b8be204970a6f6b"
+    }
+  },
+  "canonical_transition_count": 23,
+  "canonical_transitions": [
+    {
+      "event": "REGISTER_TRANSACTION_ROOT",
+      "from": null,
+      "id": "T00",
+      "to": "ROOT_REGISTERED"
+    },
+    {
+      "event": "JOURNAL_GENESIS",
+      "from": "ROOT_REGISTERED",
+      "id": "T01",
+      "to": "JOURNAL_GENESIS_COMMITTED"
+    },
+    {
+      "event": "SUPERVISOR_EPOCH_COMMITTED",
+      "from": "JOURNAL_GENESIS_COMMITTED",
+      "id": "T02",
+      "to": "EPOCH_COMMITTED"
+    },
+    {
+      "event": "INGRESS_ENVELOPE_CAPTURED",
+      "from": "EPOCH_COMMITTED",
+      "id": "T03",
+      "to": "ENVELOPE_CAS_CAPTURED"
+    },
+    {
+      "event": "INGRESS_ACCEPTED",
+      "from": "ENVELOPE_CAS_CAPTURED",
+      "id": "T04",
+      "to": "INGRESS_ACCEPTED"
+    },
+    {
+      "event": "SCOPE_LEASE_RESERVED",
+      "from": "INGRESS_ACCEPTED",
+      "id": "T05",
+      "to": "SCOPE_RESERVED_PENDING_JOURNAL"
+    },
+    {
+      "event": "SCOPE_LEASE_JOURNAL_COMMITTED",
+      "from": "SCOPE_RESERVED_PENDING_JOURNAL",
+      "id": "T06",
+      "to": "SCOPE_JOURNAL_BOUND"
+    },
+    {
+      "event": "SCOPE_LEASE_ACTIVE",
+      "from": "SCOPE_JOURNAL_BOUND",
+      "id": "T07",
+      "to": "SCOPE_ACTIVE"
+    },
+    {
+      "event": "CHILD_LAUNCH_INTENT",
+      "from": "SCOPE_ACTIVE",
+      "id": "T08",
+      "to": "CHILD_LAUNCH_INTENT_COMMITTED"
+    },
+    {
+      "event": "CHILD_STARTED",
+      "from": "CHILD_LAUNCH_INTENT_COMMITTED",
+      "id": "T09",
+      "to": "CHILD_STARTED"
+    },
+    {
+      "event": "CHILD_RESULT_CAPTURED",
+      "from": "CHILD_STARTED",
+      "id": "T10",
+      "to": "CHILD_RESULT_CAPTURED"
+    },
+    {
+      "event": "EXECUTION_AND_EVIDENCE_COMMITTED",
+      "from": "CHILD_RESULT_CAPTURED",
+      "id": "T11",
+      "to": "EXECUTION_AND_EVIDENCE_COMMITTED"
+    },
+    {
+      "event": "OWNED_CHILDREN_RECONCILED",
+      "from": "EXECUTION_AND_EVIDENCE_COMMITTED",
+      "id": "T12",
+      "to": "OWNED_CHILDREN_RECONCILED"
+    },
+    {
+      "event": "CLEANUP_RECORDED",
+      "from": "OWNED_CHILDREN_RECONCILED",
+      "id": "T13",
+      "to": "CLEANUP_RECORDED"
+    },
+    {
+      "event": "TERMINAL_REDUCTION_PREPARED",
+      "from": "CLEANUP_RECORDED",
+      "id": "T14",
+      "to": "TERMINAL_REDUCTION_PREPARED"
+    },
+    {
+      "event": "TERMINAL_DECISION",
+      "from": "TERMINAL_REDUCTION_PREPARED",
+      "id": "T15",
+      "to": "TERMINAL_DECISION"
+    },
+    {
+      "event": "TERMINAL_SEAL_RECORDED",
+      "from": "TERMINAL_DECISION",
+      "id": "T16",
+      "to": "TERMINAL_SEAL_RECORDED"
+    },
+    {
+      "event": "NOTIFICATION_OUTCOME_RECORDED",
+      "from": "TERMINAL_SEAL_RECORDED",
+      "id": "T17",
+      "to": "NOTIFICATION_OUTCOME_RECORDED"
+    },
+    {
+      "event": "INDEPENDENT_WITNESS_RECORDED",
+      "from": "NOTIFICATION_OUTCOME_RECORDED",
+      "id": "T18",
+      "to": "INDEPENDENT_WITNESS_RECORDED"
+    },
+    {
+      "event": "SCOPE_LEASE_RELEASE_INTENT",
+      "from": "INDEPENDENT_WITNESS_RECORDED",
+      "id": "T19",
+      "to": "SCOPE_LEASE_RELEASE_INTENT"
+    },
+    {
+      "event": "AUTHORITYDB_RELEASED",
+      "from": "SCOPE_LEASE_RELEASE_INTENT",
+      "id": "T20",
+      "to": "AUTHORITYDB_RELEASED"
+    },
+    {
+      "event": "SCOPE_LEASE_RELEASE_RECORDED",
+      "from": "AUTHORITYDB_RELEASED",
+      "id": "T21",
+      "to": "SCOPE_LEASE_RELEASE_RECORDED"
+    },
+    {
+      "event": "SUPERVISOR_CLOSED",
+      "from": "SCOPE_LEASE_RELEASE_RECORDED",
+      "id": "T22",
+      "to": "SUPERVISOR_CLOSED"
+    }
+  ],
+  "canonical_vector_count": 46,
+  "final_adjacency": [
+    "SCOPE_LEASE_RELEASE_RECORDED",
+    "SUPERVISOR_CLOSED"
+  ],
+  "final_event": "SUPERVISOR_CLOSED",
+  "lifecycle_vector_count": 4,
+  "method": "explicit verifier-owned event/state constants and phase formulas; no acceptance by candidate byte equality",
+  "pass": true,
+  "semantic_audit_errors": [],
+  "total_proof_count": 52
+}

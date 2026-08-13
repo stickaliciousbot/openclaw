@@ -1,0 +1,103 @@
+{
+  "status": "PASS",
+  "case_count": 12,
+  "results": [
+    {
+      "id": "remove_owner",
+      "expected_error": "missing_owner",
+      "pass": true,
+      "errors": [
+        "missing_owner"
+      ]
+    },
+    {
+      "id": "allow_action_early",
+      "expected_error": "permissive_crash_window",
+      "pass": true,
+      "errors": [
+        "permissive_crash_window"
+      ]
+    },
+    {
+      "id": "reorder_authority",
+      "expected_error": "authority_order",
+      "pass": true,
+      "errors": [
+        "authority_order"
+      ]
+    },
+    {
+      "id": "weaken_N07",
+      "expected_error": "N07_weakened",
+      "pass": true,
+      "errors": [
+        "N07_weakened"
+      ]
+    },
+    {
+      "id": "weaken_N04",
+      "expected_error": "N04_weakened",
+      "pass": true,
+      "errors": [
+        "N04_weakened"
+      ]
+    },
+    {
+      "id": "progress_authoritative",
+      "expected_error": "authority_order",
+      "pass": true,
+      "errors": [
+        "authority_order"
+      ]
+    },
+    {
+      "id": "omit_20_contention",
+      "expected_error": "contention_thresholds",
+      "pass": true,
+      "errors": [
+        "contention_thresholds"
+      ]
+    },
+    {
+      "id": "runner_mkdir_nonce",
+      "expected_error": "nonce_ledger_ownership",
+      "pass": true,
+      "errors": [
+        "nonce_ledger_ownership"
+      ]
+    },
+    {
+      "id": "runtime_authority",
+      "expected_error": "runtime_or_production_authority",
+      "pass": true,
+      "errors": [
+        "runtime_or_production_authority"
+      ]
+    },
+    {
+      "id": "drop_crash_vectors",
+      "expected_error": "crash_threshold",
+      "pass": true,
+      "errors": [
+        "crash_threshold",
+        "crash_transition_coverage"
+      ]
+    },
+    {
+      "id": "duplicate_vector_id",
+      "expected_error": "vector_ids",
+      "pass": true,
+      "errors": [
+        "vector_ids"
+      ]
+    },
+    {
+      "id": "missing_design_xref",
+      "expected_error": "design_xref:ACK-REPLAY-VECTORS.json",
+      "pass": true,
+      "errors": [
+        "design_xref:ACK-REPLAY-VECTORS.json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "consumers": [
+    "supervisor",
+    "reducer",
+    "independent_checker",
+    "watcher",
+    "compatibility_projection_writer"
+  ],
+  "projection_reconciliation": {
+    "PID_missing": "inspect_registered_semantic_artifacts_before_STALE",
+    "conflict": "INTEGRITY_HOLD_not_precedence_guess",
+    "priority": [
+      "verified_journal_and_terminal_seal",
+      "independent_checker_receipt",
+      "mutable_status_projection",
+      "process_observation"
+    ],
+    "stale_RUNNING_with_semantic_terminal": "rewrite_projection_to_terminal_and_record_PROJECTION_RECONCILED"
+  },
+  "registration_object": {
+    "CAS_and_journal_bound": true,
+    "created_by": "supervisor_before_child_or_watcher_launch",
+    "fields": [
+      "transaction_id",
+      "supervisor_epoch",
+      "transaction_root",
+      "journal_path",
+      "journal_head_path",
+      "semantic_status_path",
+      "semantic_summary_path",
+      "terminal_manifest_path",
+      "terminal_seal_path",
+      "completion_receipt_path",
+      "contract_sha256",
+      "registration_sha256"
+    ],
+    "immutable": true
+  },
+  "rules": [
+    "all_consumers_receive_exact_same_registration_sha256",
+    "no_command_text_or_environment_string_inference_for_PASS",
+    "null_or_missing_semantic_root_is_launch_HOLD",
+    "root_semantic_artifacts_reconciled_before_PID_or_registry_liveness",
+    "verified_semantic_terminal_outranks_RUNNNING_STALE_PID_and_projection",
+    "projection_may_lag_but_must_converge_to_semantic_terminal"
+  ],
+  "schema": "critical_apply.semantic_path_registration_contract.v1",
+  "status": "FROZEN_FOR_M0_BRIDGE"
+}

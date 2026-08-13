@@ -1,0 +1,98 @@
+{
+  "schema": "critical_apply.cah_j1_m0_authority_status.v1",
+  "milestone": "CAH-J1-M0_AUTHORITY_B1_B2_S4_CONTRACT_SUBPACKAGE",
+  "status": "PASS",
+  "terminal": "PASS_CAH_J1_M0_B1_B2_S4_AUTHORITY_FENCING_AT_MOST_ONCE_NONCE_AND_SQLITE_WAL_CONTRACTS_FROZEN_NO_PRODUCTION_EFFECT",
+  "root": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-authority-20260813T005000Z-9b7e3c1d",
+  "scope": "offline_contract_freeze_only",
+  "input_verification": {
+    "owner_revision_expected_and_observed_sha256": "6d80167ba92e1a68c9d17d6027135b289f88c6b9f3d6fd9e24ea86aedab459af",
+    "m0_adjudication_expected_and_observed_sha256": "1d2853fba832ebc243423c3c2dac00def80c3c2b56d892ee8c83aeff96c34427",
+    "result": "PASS"
+  },
+  "adjudication": {
+    "B1": {
+      "result": "RESOLVED",
+      "proof": [
+        "supervisor_epoch_before_any_binding_AuthorityDB_row",
+        "monotonic_per_scope_fencing_tokens",
+        "receipt_chained_fenced_state_machine",
+        "reserve_journal_bind_activate_acquisition_protocol",
+        "release_intent_immediate_gate_close_then_DB_release_then_journal_record",
+        "deterministic_cross_store_recovery_matrix",
+        "orphan_pending_and_unbound_ACTIVE_never_actionable"
+      ]
+    },
+    "B2": {
+      "result": "RESOLVED",
+      "proof": [
+        "six_required_nonce_states_frozen",
+        "durable_call_start_before_invocation",
+        "exact_safe_resume_rule_before_call_start",
+        "call_attempt_or_response_not_journaled_defaults_UNKNOWN_CONSUMED",
+        "UNKNOWN_CONSUMED_nonretryable_without_new_owner_authority_and_new_nonce",
+        "consumption_survives_later_semantic_HOLD",
+        "11_transition_machine_and_nonce_crash_vectors"
+      ]
+    },
+    "S4": {
+      "result": "RESOLVED",
+      "proof": [
+        "proven_Linux_filesystem_not_mnt_c",
+        "WAL_asserted_with_synchronous_FULL",
+        "BEGIN_IMMEDIATE_for_all_lease_nonce_mutations",
+        "bounded_busy_timeout_and_fail_closed_SQLite_errors",
+        "schema_application_id_user_version_and_integrity_checks",
+        "database_creation_parent_directory_durability",
+        "online_backup_or_atomic_main_wal_shm_snapshot_only",
+        "cold_backup_requires_quiesced_TRUNCATE_checkpoint",
+        "restore_reconciliation_never_automatically_revives_authority",
+        "SQLITE_FULL_WAL_recovery_backup_and_restore_vectors"
+      ]
+    }
+  },
+  "authority_partition": {
+    "canonical_journal": "sole_semantic_and_transaction_fact_authority",
+    "AuthorityDB": "cross_transaction_scope_fence_and_nonce_authority_only",
+    "second_semantic_authority_created": false
+  },
+  "validation": {
+    "json_files_parsed": [
+      "NONCE-AT-MOST-ONCE-STATE-MACHINE.json",
+      "SQLITE-AUTHORITY-STORAGE-CONTRACT.json",
+      "AUTHORITY-CRASH-VECTORS.json",
+      "INPUT-VERIFICATION.json",
+      "ZERO-EFFECT-RECEIPT.json",
+      "STATUS.json"
+    ],
+    "json_parser": "jq",
+    "json_parse_result_before_status": "PASS_5_OF_5",
+    "status_parse_result": "PASS_FINAL_READBACK",
+    "nonce_transition_count": 11,
+    "crash_vector_count": 43,
+    "required_crash_matrix_coverage": "PASS",
+    "unknown_consumed_no_retry_coverage": "PASS",
+    "wal_full_begin_immediate_recovery_backup_coverage": "PASS"
+  },
+  "artifact_sha256": {
+    "AUTHORITYDB-FENCING-PROTOCOL.md": "f547f1365e44cfe5781e94c05478db99db599bb9ae281e1304b782766d4d1c56",
+    "NONCE-AT-MOST-ONCE-STATE-MACHINE.json": "b184b673c3bd4e94e5f11831800e12657054c144fe48dd419bf0f0963092a3e0",
+    "SQLITE-AUTHORITY-STORAGE-CONTRACT.json": "77acbe92507098f41b82f5f21262de282f3ec39254a547624976560f9b2146ba",
+    "AUTHORITY-CRASH-VECTORS.json": "eddd143735fe82c7a47251dd3229cc4942eb78a20deaf99bd3a87eab0621e7bc",
+    "INPUT-VERIFICATION.json": "3f13652a2f2eada8cb228d72f9a81c5cad7fe74d315a15adba419d79fa1c7908",
+    "ZERO-EFFECT-RECEIPT.json": "bbc48ca47b4efd17f78dc29b78bf69553b490817b6ade5917305c799add9c687"
+  },
+  "files_expected": [
+    "AUTHORITYDB-FENCING-PROTOCOL.md",
+    "NONCE-AT-MOST-ONCE-STATE-MACHINE.json",
+    "SQLITE-AUTHORITY-STORAGE-CONTRACT.json",
+    "AUTHORITY-CRASH-VECTORS.json",
+    "INPUT-VERIFICATION.json",
+    "ZERO-EFFECT-RECEIPT.json",
+    "STATUS.json"
+  ],
+  "files_unexpected": [],
+  "zero_effect": "PASS",
+  "blocked_items": [],
+  "boundary": "This PASS closes only the assigned B1 B2 S4 authority subpackage. Full CAH-J1-M0 freeze still requires the separately assigned B3-B6 and S1-S3 contracts and independent integrated review."
+}

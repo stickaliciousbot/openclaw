@@ -1,0 +1,23 @@
+{
+  "candidate_gate_classification": "NOT_APPLICABLE_AS_DIRECT_R2_SUITE",
+  "classification": "ARCHIVAL_R1_EXACT_SOURCE_NOT_R2_EXECUTION_SUITE",
+  "direct_execution_result": "HOLD_OLD_R1_AS_EXPECTED",
+  "direct_execution_returncode": 2,
+  "hard_coded_design": "critical-apply-supervisor-ingress-m2a-r1-contract-repair-2026-08-13.md",
+  "hard_coded_output": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m2a-r1-final-independent-verification-20260813T100100Z-53c12224/INDEPENDENT-ADVERSARIAL-TESTS.json",
+  "hard_coded_root": "/tmp/cah-j1-m2a-r1-verify-53c12224",
+  "live_authority_rehash_after_execution": {
+    "error_count": 0,
+    "errors": [],
+    "status": "PASS"
+  },
+  "output_hash_parity": true,
+  "output_mode_after": "664",
+  "output_sha256_actual_after_execution": "e60f985f0d3a4fc56b9ca9198a8df7bd38b913b92060a6ce17bcaa2ef6d76cb5",
+  "output_sha256_expected_by_finalized_r1_manifest": "e60f985f0d3a4fc56b9ca9198a8df7bd38b913b92060a6ce17bcaa2ef6d76cb5",
+  "schema": "critical_apply.m2a_r2_r1.final_independent.historical_snapshot_execution.v1",
+  "semantic_authority_drift_detected": false,
+  "terminal_effect": "HOLD",
+  "verifier_boundary_violation": true,
+  "write_attempt_outside_allowed_verifier_root": true
+}

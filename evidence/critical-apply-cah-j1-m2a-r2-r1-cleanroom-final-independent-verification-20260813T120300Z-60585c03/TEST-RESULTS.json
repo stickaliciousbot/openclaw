@@ -1,0 +1,12 @@
+{
+  "candidate_validator_baseline": "PASS",
+  "fresh_case_count": 104,
+  "fresh_rejected": 104,
+  "fresh_unsafe_accepted": 0,
+  "proof_audit": "52/52 PASS",
+  "positive_reconstruction": "PASS",
+  "privacy": "PASS",
+  "zero_effect": "PASS",
+  "process_leak": "PASS",
+  "status": "PASS"
+}

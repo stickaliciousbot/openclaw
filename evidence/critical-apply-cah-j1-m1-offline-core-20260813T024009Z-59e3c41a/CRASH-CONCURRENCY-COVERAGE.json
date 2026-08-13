@@ -1,0 +1,26 @@
+{
+  "schema": "critical_apply.cah_j1_m1_crash_concurrency_coverage.v1",
+  "result": "PASS",
+  "journal": {
+    "crash_boundaries": ["after_event_sync_before_ack"],
+    "recovery": "replay reconstructed byte-identical original ACK from verified journal",
+    "progressdb": ["deleted", "stale_head", "corrupt_bytes", "unverified_head_rejected"],
+    "contention_processes": [2, 5, 20],
+    "assertions": ["exactly_one_event", "one_event_sha256", "no_live_child_processes"]
+  },
+  "cas": {
+    "publication_failpoints": ["after_temp_sync_before_identity_check", "before_publish", "after_publish_before_parent_fsync", "after_parent_fsync_before_reopen", "after_rehash_before_journal", "after_journal_sync_before_ack"],
+    "integrity": ["symlink_leaf", "symlink_ancestor", "hardlink_reject", "explicit_hardlink_allowlist_descriptor_bound", "source_mutation", "path_replacement_identity_hold", "no_overwrite", "dedupe", "existing_object_extra_hardlink_reject", "shard_symlink_or_non_directory_reject", "orphan_allowed", "temp_orphan_preserved", "referenced_missing", "referenced_corrupt"],
+    "contention_processes": [2, 5, 20],
+    "assertions": ["one_object", "one_journal_event", "all_workers_converge", "no_live_child_processes"]
+  },
+  "authoritydb": {
+    "scope": ["RESERVED_PENDING_JOURNAL", "JOURNAL_COMMITTED", "ACTIVE", "RELEASE_PENDING", "RELEASED", "journal_release_intent_closes_gate", "fence_monotonic", "stale_fence_reject"],
+    "nonce": ["RESERVED_PENDING_JOURNAL", "COMMITTED_NOT_USED", "CALL_START_COMMITTED", "OUTCOME_RECORDED", "RETIRED", "UNKNOWN_CONSUMED", "terminal_nonretryable"],
+    "ordering": ["N01-N11 fixture parity", "N04 journal-first", "N07 response-CAS-and-journal-first"],
+    "storage": ["WAL", "synchronous_FULL", "foreign_keys_ON", "trusted_schema_OFF", "application_id", "user_version", "schema_hash", "BEGIN_IMMEDIATE", "busy_timeout_fail_closed", "receipt_hash_chain"],
+    "contention_processes": [2, 5, 20],
+    "assertions": ["exactly_one_nonce_reservation_winner", "all_losers_conflict", "no_live_child_processes"]
+  },
+  "post_gate_process_check": "zero scoped journal/CAS/AuthorityDB test workers after stale host-triggered duplicate was terminated"
+}

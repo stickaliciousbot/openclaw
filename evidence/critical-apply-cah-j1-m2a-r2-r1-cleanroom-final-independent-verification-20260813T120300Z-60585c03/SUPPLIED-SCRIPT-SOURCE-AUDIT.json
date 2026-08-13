@@ -1,0 +1,295 @@
+{
+  "all_supplied_suites_not_executed": true,
+  "pass": true,
+  "r1_archival_script_never_executed": true,
+  "r1_hardcoded_outside_paths": [
+    "/tmp/cah-j1-m2a-r1-verify-53c12224",
+    "/home/stickai/.openclaw/workspace/design/critical-apply-supervisor-ingress-m2a-r1-contract-repair-2026-08-13.md",
+    "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m2a-r1-final-independent-verification-20260813T100100Z-53c12224/INDEPENDENT-ADVERSARIAL-TESTS.json"
+  ],
+  "scripts": [
+    {
+      "absolute_paths": [],
+      "executed_or_planned": true,
+      "execution_disposition": "EXACT_SCANNER_WITH_CONFINED_OUT_ARG",
+      "forbidden_archival_r1": false,
+      "path": "bin/r6_bounded_privacy_scanner.py",
+      "safe_for_selected_use": true,
+      "sha256": "ce38bf7811561c096bfe72ef12fc799712986d77ff86cb62b8e099eedc481115",
+      "write_or_process_calls": [
+        {
+          "call": "mkdir",
+          "line": 193
+        },
+        {
+          "call": "write_text",
+          "line": 194
+        },
+        {
+          "call": "open",
+          "line": 43
+        }
+      ]
+    },
+    {
+      "absolute_paths": [
+        "/home/stickai/.openclaw/workspace/design/critical-apply-supervisor-ingress-m2a-r2-r1-coherence-repair-2026-08-13.md"
+      ],
+      "executed_or_planned": false,
+      "execution_disposition": "NOT_EXECUTED",
+      "forbidden_archival_r1": false,
+      "path": "combination_attacks_r2.py",
+      "safe_for_selected_use": null,
+      "sha256": "1aec6ce9e9897965759e4970c4d2cf727ec489b340a1f08f8ca7346de390d434",
+      "write_or_process_calls": [
+        {
+          "call": "write_text",
+          "line": 8
+        },
+        {
+          "call": "TemporaryDirectory",
+          "line": 34
+        },
+        {
+          "call": "copytree",
+          "line": 35
+        },
+        {
+          "call": "copy2",
+          "line": 36
+        },
+        {
+          "call": "remove",
+          "line": 19
+        },
+        {
+          "call": "remove",
+          "line": 26
+        },
+        {
+          "call": "remove",
+          "line": 26
+        },
+        {
+          "call": "write_text",
+          "line": 30
+        }
+      ]
+    },
+    {
+      "absolute_paths": [
+        "/home/stickai/.openclaw/workspace/design/critical-apply-supervisor-ingress-m2a-r2-r1-coherence-repair-2026-08-13.md"
+      ],
+      "executed_or_planned": false,
+      "execution_disposition": "NOT_EXECUTED",
+      "forbidden_archival_r1": false,
+      "path": "independent_adversarial_r2.py",
+      "safe_for_selected_use": null,
+      "sha256": "15517ea8e481830d7d0920b67c8fcbc9948819179515402ce8c7809f911d1192",
+      "write_or_process_calls": [
+        {
+          "call": "TemporaryDirectory",
+          "line": 39
+        },
+        {
+          "call": "copytree",
+          "line": 40
+        },
+        {
+          "call": "copy2",
+          "line": 41
+        },
+        {
+          "call": "write_text",
+          "line": 41
+        },
+        {
+          "call": "write_text",
+          "line": 42
+        }
+      ]
+    },
+    {
+      "absolute_paths": [
+        "/tmp/cah-j1-m2a-r1-verify-53c12224",
+        "/home/stickai/.openclaw/workspace/design/critical-apply-supervisor-ingress-m2a-r1-contract-repair-2026-08-13.md",
+        "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m2a-r1-final-independent-verification-20260813T100100Z-53c12224/INDEPENDENT-ADVERSARIAL-TESTS.json"
+      ],
+      "executed_or_planned": false,
+      "execution_disposition": "NOT_EXECUTED",
+      "forbidden_archival_r1": true,
+      "path": "independent_adversarial_tests_r1_exact_source.py",
+      "safe_for_selected_use": null,
+      "sha256": "079deb4b012c9e25027edb959fe39bd50004fca3645916be428ee503bada48d0",
+      "write_or_process_calls": [
+        {
+          "call": "write_text",
+          "line": 138
+        },
+        {
+          "call": "TemporaryDirectory",
+          "line": 121
+        },
+        {
+          "call": "copytree",
+          "line": 122
+        },
+        {
+          "call": "copy2",
+          "line": 123
+        },
+        {
+          "call": "write_text",
+          "line": 133
+        },
+        {
+          "call": "remove",
+          "line": 65
+        },
+        {
+          "call": "write_text",
+          "line": 85
+        },
+        {
+          "call": "write_text",
+          "line": 129
+        }
+      ]
+    },
+    {
+      "absolute_paths": [
+        "/home/stickai/.openclaw/workspace/design/critical-apply-supervisor-ingress-m2a-r2-r1-coherence-repair-2026-08-13.md"
+      ],
+      "executed_or_planned": false,
+      "execution_disposition": "NOT_EXECUTED",
+      "forbidden_archival_r1": false,
+      "path": "independent_adversarial_tests_r2.py",
+      "safe_for_selected_use": null,
+      "sha256": "932328b91b24363ed409f51492761a6d1c5701cdda3c7c0d4ca2ef5f01fc315a",
+      "write_or_process_calls": [
+        {
+          "call": "write_text",
+          "line": 138
+        },
+        {
+          "call": "TemporaryDirectory",
+          "line": 121
+        },
+        {
+          "call": "copytree",
+          "line": 122
+        },
+        {
+          "call": "copy2",
+          "line": 123
+        },
+        {
+          "call": "write_text",
+          "line": 133
+        },
+        {
+          "call": "remove",
+          "line": 65
+        },
+        {
+          "call": "write_text",
+          "line": 85
+        },
+        {
+          "call": "write_text",
+          "line": 129
+        }
+      ]
+    },
+    {
+      "absolute_paths": [
+        "/home/stickai/.openclaw/workspace/design/critical-apply-supervisor-ingress-m2a-r2-r1-coherence-repair-2026-08-13.md"
+      ],
+      "executed_or_planned": false,
+      "execution_disposition": "NOT_EXECUTED",
+      "forbidden_archival_r1": false,
+      "path": "semantic_proof_mutations_r2_r1.py",
+      "safe_for_selected_use": null,
+      "sha256": "56239cdcb10fc33338875c974e9278cc1a3d90899b24183450c52d01da0f2fb1",
+      "write_or_process_calls": [
+        {
+          "call": "write_text",
+          "line": 8
+        },
+        {
+          "call": "write_text",
+          "line": 18
+        },
+        {
+          "call": "TemporaryDirectory",
+          "line": 60
+        },
+        {
+          "call": "copytree",
+          "line": 61
+        },
+        {
+          "call": "copy2",
+          "line": 62
+        }
+      ]
+    },
+    {
+      "absolute_paths": [
+        "/home/stickai/.openclaw/workspace/design/critical-apply-supervisor-ingress-m2a-r2-r1-coherence-repair-2026-08-13.md"
+      ],
+      "executed_or_planned": false,
+      "execution_disposition": "NOT_EXECUTED",
+      "forbidden_archival_r1": false,
+      "path": "test_validate_m2a_r2.py",
+      "safe_for_selected_use": null,
+      "sha256": "74d57b653643c043a49bae9cd7f74a0d5ce38fcae8f73674a5d91981d12023c4",
+      "write_or_process_calls": [
+        {
+          "call": "copytree",
+          "line": 73
+        },
+        {
+          "call": "copy2",
+          "line": 74
+        },
+        {
+          "call": "write_text",
+          "line": 78
+        },
+        {
+          "call": "write_text",
+          "line": 75
+        },
+        {
+          "call": "write_text",
+          "line": 77
+        },
+        {
+          "call": "TemporaryDirectory",
+          "line": 84
+        },
+        {
+          "call": "replace",
+          "line": 75
+        }
+      ]
+    },
+    {
+      "absolute_paths": [
+        "/home/stickai/.openclaw/workspace"
+      ],
+      "executed_or_planned": true,
+      "execution_disposition": "COPIED_READ_ONLY_VALIDATOR_IMPORT",
+      "forbidden_archival_r1": false,
+      "path": "validate_m2a_r2.py",
+      "safe_for_selected_use": true,
+      "sha256": "d4aad801e5b9833355448211fec2dbace1d97fffe0463e4c1d87ab239015cd74",
+      "write_or_process_calls": []
+    }
+  ],
+  "supplied_scripts_executed": [
+    "validate_m2a_r2.py (byte-identical writable copy only)",
+    "bin/r6_bounded_privacy_scanner.py (later exact copy, explicit confined --out)"
+  ]
+}

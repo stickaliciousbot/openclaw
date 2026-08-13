@@ -1,0 +1,68 @@
+{
+  "schema": "critical_apply.sqlite_authority_storage_contract.v1",
+  "status": "FROZEN_OFFLINE_CONTRACT",
+  "applies_to": ["AuthorityDB", "WitnessDB"],
+  "does_not_make_sqlite_semantic_authority": true,
+  "filesystem": {
+    "required": "proven_Linux_filesystem",
+    "forbidden": ["/mnt/c", "unproven_network_filesystem", "filesystem_without_required_fsync_and_locking_semantics"],
+    "creation_parent_directory_fsync": true,
+    "owner_and_mode_verified": true
+  },
+  "sqlite_pragmas": {
+    "journal_mode": "WAL",
+    "synchronous": "FULL",
+    "foreign_keys": "ON",
+    "trusted_schema": "OFF",
+    "busy_timeout_ms": 5000
+  },
+  "mutation_transaction": "BEGIN IMMEDIATE",
+  "contention_policy": "bounded_wait_then_fail_closed",
+  "schema_policy": {
+    "application_id_required": true,
+    "user_version_exact": true,
+    "unknown_schema_version": "HOLD_NO_AUTHORITY",
+    "migration_owner": "single_explicit_offline_migrator",
+    "automatic_implicit_migration": false
+  },
+  "integrity_policy": {
+    "startup_quick_check": "required",
+    "pre_authority_integrity_check": "required_after_unclean_shutdown_or_checkpoint_anomaly",
+    "failed_check": "HOLD_NO_AUTHORITY_AND_PRESERVE_FILES_FOR_RECOVERY"
+  },
+  "wal_contract": {
+    "wal_and_shm_are_part_of_live_database": true,
+    "copy_main_db_only_while_live": "FORBIDDEN",
+    "backup_method": "SQLite_backup_API_or_verified_checkpointed_closed_snapshot",
+    "checkpoint_policy": "bounded_and_verified; checkpoint failure cannot be ignored",
+    "restore_policy": "restore a transactionally coherent database set, then run schema and integrity checks before use"
+  },
+  "durability_readback": [
+    "commit succeeds",
+    "row is read back in a new transaction",
+    "bound journal sequence and event hash are reverified where applicable",
+    "receipt hash is recomputed",
+    "only then may the authority gate become true"
+  ],
+  "database_roles": {
+    "AuthorityDB": "cross_transaction_scope_exclusion_and_nonce_call_consumption_only",
+    "WitnessDB": "independent_historical_head_and_terminal_detection_only",
+    "ProgressDB": "excluded_from_this_authority_grade_contract_because_it_is_rebuildable_non_authoritative"
+  },
+  "required_fixtures": [
+    "power_loss_style_crash_at_each_transaction_boundary",
+    "live_WAL_backup_and_restore",
+    "missing_WAL_recovery_HOLD",
+    "schema_version_mismatch",
+    "integrity_check_failure",
+    "bounded_lock_contention",
+    "database_creation_parent_directory_durability",
+    "WSL_Linux_filesystem_capability_fixture"
+  ],
+  "invariants": [
+    "AuthorityDB never contains semantic-result authority.",
+    "WitnessDB detects history changes but cannot rewrite semantics.",
+    "No authority mutation proceeds after schema, integrity, durability, or contention uncertainty.",
+    "A backup that omits live WAL state is invalid."
+  ]
+}

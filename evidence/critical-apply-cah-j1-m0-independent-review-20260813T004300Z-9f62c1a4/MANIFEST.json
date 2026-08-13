@@ -1,0 +1,14 @@
+{
+  "schema": "critical_apply.cah_j1_m0.independent_review_manifest.v1",
+  "root": "evidence/critical-apply-cah-j1-m0-independent-review-20260813T004300Z-9f62c1a4",
+  "generated_utc": "2026-08-13T00:56:59Z",
+  "status": "PASS_REVIEW_ARTIFACT_HASH_CLOSURE",
+  "entries": [
+    {"path":"INDEPENDENT-REVIEW.md","bytes":15584,"sha256":"117655b0660cca19710b155ee01b80dd70b62a996881141a7b1a33cc9bb2668c","role":"human_review_report"},
+    {"path":"INPUT-HASHES.json","bytes":11408,"sha256":"8f7d6aa9f15e3751b0bbc3654f03fd8bb1601810d93e8816b123c4f7904849e2","role":"immutable_input_inventory"},
+    {"path":"REQUIREMENTS-ORACLE.json","bytes":31311,"sha256":"b4cabffbf16c571fd28d50a242f7548114294ecbf4ba542d7ad94fe9b364f10f","role":"machine_readable_requirements_oracle"},
+    {"path":"ZERO-EFFECT-RECEIPT.json","bytes":1545,"sha256":"c0f544e2434d35395fa353f62cdebaa621726f70cd0194b61df5e8737500f6b0","role":"review_zero_effect_closeout"}
+  ],
+  "self_exclusion": "MANIFEST.json is excluded to avoid circular hashing; MANIFEST.sha256 binds it.",
+  "file_count_excluding_manifest_and_sidecar": 4
+}

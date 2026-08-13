@@ -1,0 +1,22 @@
+{
+  "blockers": [],
+  "candidate_findings": {
+    "validator_errors": 0,
+    "authority_role_coherence": "PASS",
+    "state_closeout_lifecycle": "PASS",
+    "N04_N07_action_provider_fence_ACK": "PASS",
+    "strict_schema_and_seals": "PASS",
+    "proof_semantics": "52/52 PASS",
+    "M2B_started": false
+  },
+  "verifier_findings": {
+    "archival_R1_script_hardcoded_outside_writes": true,
+    "archival_R1_script_executed": false,
+    "all_supplied_suites_executed": false,
+    "fresh_verifier_authored": true,
+    "fresh_mutations": 104,
+    "unsafe_accepted": 0,
+    "outside_write_attempts": 0
+  },
+  "verdict": "PASS_M2A_R2_R1_CLEANROOM_ZERO_BLOCKERS_VERIFIED_NO_OPERATIONAL_EFFECT"
+}

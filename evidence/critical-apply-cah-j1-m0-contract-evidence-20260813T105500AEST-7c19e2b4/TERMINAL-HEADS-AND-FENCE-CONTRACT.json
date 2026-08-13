@@ -1,0 +1,81 @@
+{
+  "schema": "critical_apply.terminal_heads_and_fence_contract.v1",
+  "status": "FROZEN_OFFLINE_CONTRACT",
+  "semantic_authority": "canonical_journal_only",
+  "mandatory_fence_event": {
+    "event_type": "TERMINAL_REDUCTION_PREPARED",
+    "fields": [
+      "semantic_input_closed",
+      "freeze_sequence",
+      "freeze_event_sha256",
+      "contract_sha256",
+      "reducer_sha256",
+      "allowed_post_freeze_event_types"
+    ],
+    "semantic_input_closed": true,
+    "effect": "The reducer consumes the verified canonical prefix ending at this event. New semantic-evidence proposals are rejected."
+  },
+  "heads": {
+    "semantic_reduction_head": {
+      "event_type": "TERMINAL_REDUCTION_PREPARED",
+      "bound_by": "REDUCTION.json",
+      "meaning": "last semantic input consumed by the reducer"
+    },
+    "terminal_decision_head": {
+      "event_type": "TERMINAL_DECISION",
+      "bound_by": ["MANIFEST.json", "TERMINAL-SEAL.json"],
+      "meaning": "canonical decision binding REDUCTION.json and semantic_reduction_head"
+    },
+    "closeout_head": {
+      "event_type": "SUPERVISOR_CLOSED",
+      "bound_by": "COMPLETION-RECEIPT.json",
+      "meaning": "final canonical event before the transaction lock is released"
+    }
+  },
+  "allowed_post_freeze_event_types": [
+    "TERMINAL_DECISION",
+    "TERMINAL_ARTIFACTS_PUBLISHED",
+    "NOTIFICATION_OUTCOME_RECORDED",
+    "INDEPENDENT_WITNESS_OUTCOME_RECORDED",
+    "SCOPE_LEASE_RELEASE_INTENT",
+    "SCOPE_LEASE_RELEASE_RECORDED",
+    "CLOSEOUT_HOLD_RECORDED",
+    "SUPERVISOR_CLOSED"
+  ],
+  "ordering": [
+    "TERMINAL_REDUCTION_PREPARED",
+    "REDUCTION_REPLAY_OR_COMPUTE",
+    "TERMINAL_DECISION",
+    "TERMINAL_ARTIFACTS_PUBLISHED",
+    "NOTIFICATION_OUTCOME_RECORDED",
+    "INDEPENDENT_WITNESS_OUTCOME_RECORDED",
+    "SCOPE_LEASE_RELEASE_INTENT",
+    "AUTHORITYDB_RELEASE",
+    "SCOPE_LEASE_RELEASE_RECORDED",
+    "SUPERVISOR_CLOSED",
+    "COMPLETION_RECEIPT_PUBLISHED",
+    "TRANSACTION_LOCK_RELEASED"
+  ],
+  "crash_recovery": {
+    "during_reduction": "re-run the same reducer against the same verified semantic_reduction_head",
+    "after_terminal_decision": "rebuild terminal artifacts from the journal; never reduce a later prefix",
+    "during_closeout": "continue allowed closeout events without changing semantic result",
+    "after_supervisor_closed": "no further canonical append is legal"
+  },
+  "monotonicity": {
+    "terminal_to_running": "FORBIDDEN",
+    "conflicting_terminal": "INTEGRITY_HOLD",
+    "notification_changes_semantics": false,
+    "lease_release_changes_semantics": false,
+    "stale_projection_changes_semantics": false
+  },
+  "completion_receipt_required_bindings": [
+    "closeout_head",
+    "terminal_decision_head",
+    "terminal_seal_sha256",
+    "notification_outcome",
+    "lease_release_outcome",
+    "provider_or_model_calls",
+    "production_effects"
+  ]
+}

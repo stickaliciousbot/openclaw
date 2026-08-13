@@ -1,0 +1,18 @@
+{
+  "schema": "critical_apply.cah_j1_m0_final_independent_status.v1",
+  "status": "HOLD",
+  "terminal": "HOLD_CAH_J1_M0_FOR_POST_FREEZE_VOCABULARY_CLOSEOUT_HEAD_PUBLICATION_AND_EXHAUSTIVE_CRASH_MATRIX_CORRECTIONS_NO_PRODUCTION_EFFECT",
+  "candidate_identity": "PASS",
+  "manifest_artifacts": "PASS_24_OF_24_HASH_AND_SIZE",
+  "json_parse": "PASS_22_OF_22",
+  "privacy": "PASS_IDENTITY_AND_ZERO_BLOCKERS",
+  "candidate_validator": "PASS_EXIT_0",
+  "semantic_authority_partition": "PASS",
+  "blocking_count": 3,
+  "blocking_ids": [
+    "BLOCK-01-POST-FREEZE-SEMANTIC-ALLOWLIST-CONTRADICTION",
+    "BLOCK-02-CLOSEOUT-HEAD-RECEIPT-ORDER-UNDER-SPECIFIED",
+    "BLOCK-03-REQUIRED-CRASH-MATRICES-NOT-EXHAUSTIVE"
+  ],
+  "zero_effect": true
+}

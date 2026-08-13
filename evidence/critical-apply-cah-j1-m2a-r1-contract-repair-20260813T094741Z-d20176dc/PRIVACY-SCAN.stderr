@@ -1,0 +1,6 @@
+usage: r6_bounded_privacy_scanner.py [-h] --root ROOT --out OUT
+                                     --scanner-sha256 SCANNER_SHA256
+                                     --detector-config-sha256
+                                     DETECTOR_CONFIG_SHA256
+                                     [--max-bytes MAX_BYTES]
+r6_bounded_privacy_scanner.py: error: the following arguments are required: --root, --out, --scanner-sha256, --detector-config-sha256

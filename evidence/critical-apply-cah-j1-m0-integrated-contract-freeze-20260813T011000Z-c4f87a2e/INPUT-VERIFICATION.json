@@ -1,0 +1,26 @@
+{
+  "authority_subpackage": {
+    "path": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-authority-20260813T005000Z-9b7e3c1d",
+    "status_sha256": "0363b99e285a615bda4cdf1c3c45dcc46201a3aeb2288932cbcf23685e15a559",
+    "status_terminal": "PASS_CAH_J1_M0_B1_B2_S4_AUTHORITY_FENCING_AT_MOST_ONCE_NONCE_AND_SQLITE_WAL_CONTRACTS_FROZEN_NO_PRODUCTION_EFFECT"
+  },
+  "immutable_inputs": [
+    {
+      "exact": true,
+      "expected_sha256": "6d80167ba92e1a68c9d17d6027135b289f88c6b9f3d6fd9e24ea86aedab459af",
+      "observed_sha256": "6d80167ba92e1a68c9d17d6027135b289f88c6b9f3d6fd9e24ea86aedab459af",
+      "path": "/home/stickai/.openclaw/workspace/design/critical-apply-supervisor-owned-event-journal-owner-revision-2026-08-13.md",
+      "role": "owner_revision"
+    },
+    {
+      "exact": true,
+      "expected_sha256": "1d2853fba832ebc243423c3c2dac00def80c3c2b56d892ee8c83aeff96c34427",
+      "observed_sha256": "1d2853fba832ebc243423c3c2dac00def80c3c2b56d892ee8c83aeff96c34427",
+      "path": "/home/stickai/.openclaw/workspace/design/critical-apply-supervisor-owned-event-journal-owner-revision-m0-adjudication-2026-08-13.md",
+      "role": "m0_adjudication"
+    }
+  ],
+  "schema": "critical_apply.cah_j1_m0_input_verification.v1",
+  "semantic_authority": "canonical_append_only_journal_only",
+  "status": "PASS"
+}

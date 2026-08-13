@@ -1,0 +1,241 @@
+{
+  "action_allowed_meaning": "bounded_non_provider_child_eligibility_only",
+  "child_forbidden": [
+    "self-registration",
+    "create shared path",
+    "mkdir nonce-ledger/",
+    "write journal",
+    "write CAS directly",
+    "write AuthorityDB",
+    "write ProgressDB as authority",
+    "provider call in M2A"
+  ],
+  "child_launch_implies_provider_authority": false,
+  "every_mutation_and_result_requires": [
+    "transaction_id",
+    "supervisor_epoch",
+    "scope_sha256",
+    "fencing_token",
+    "launch_intent_event_sha256"
+  ],
+  "launch_required": [
+    "immutable registration sha256",
+    "journal genesis and current epoch verified",
+    "scope active in journal and AuthorityDB",
+    "launch intent canonical ACK",
+    "exact fencing token",
+    "existing supervisor-created run root and nonce-ledger/"
+  ],
+  "nonce_integration": {
+    "N04_exact_conditions": [
+      "exact_transaction_nonce_hashes",
+      "valid_owner_authority",
+      "active_exact_epoch_and_fence",
+      "no_CALL_START_COMMITTED",
+      "no_provider_attempt",
+      "no_outcome",
+      "canonical_rebind_authorization",
+      "otherwise_retire_and_HOLD"
+    ],
+    "N07_exact_ordered_tokens": [
+      "CAPTURE_GOVERNING_RESPONSE_OR_RECEIPT_BYTES_UNCONDITIONALLY_DESCRIPTOR_BOUND_CAS",
+      "REOPEN_VERIFY_EXACT_CAS_SHA256_SIZE_PATH",
+      "COMMIT_CALL_OUTCOME_RECORDED_REFERENCING_EXACT_CAS_OBJECT",
+      "SYNC_CANONICAL_JOURNAL",
+      "REOPEN_VERIFY_EXACT_OUTCOME_EVENT_AND_CAS_REFERENCE",
+      "AUTHORITYDB_BEGIN_IMMEDIATE",
+      "BIND_EXACT_OUTCOME_EVENT_AND_APPEND_AUTHORITY_RECEIPT",
+      "AUTHORITYDB_COMMIT_FULL",
+      "REOPEN_VERIFY_EXACT_AUTHORITYDB_BIND"
+    ],
+    "automatic_retry": false,
+    "future_provider_gate_not_active": [
+      "N05_CALL_START_COMMITTED journal barrier",
+      "N06 AuthorityDB durable consume",
+      "active exact epoch and fence",
+      "valid owner authority",
+      "immutable request hashes"
+    ],
+    "new_call_after_unknown": false,
+    "required_transition_ids": [
+      "N01_RESERVE",
+      "N02_COMMIT_RESERVATION_EVENT",
+      "N03_BIND_RESERVATION",
+      "N04_SAFE_RESUME_REBIND",
+      "N05_COMMIT_CALL_START_BARRIER",
+      "N06_DURABLY_CONSUME",
+      "N07_RECORD_VERIFIED_OUTCOME",
+      "N08_CLASSIFY_UNKNOWN",
+      "N09_RETIRE_RECORDED_OUTCOME",
+      "N10_ABANDON_BEFORE_CALL",
+      "N11_QUARANTINE_ORPHAN_RESERVATION"
+    ],
+    "transitions": [
+      {
+        "critical_predicates": [
+          "exact_transaction_nonce_hashes",
+          "valid_owner_authority",
+          "active_exact_epoch_and_fence"
+        ],
+        "id": "N01_RESERVE",
+        "order": 1,
+        "semantic": "reserve exact nonce under active scope fence"
+      },
+      {
+        "critical_predicates": [
+          "exact_transaction_nonce_hashes",
+          "valid_owner_authority",
+          "active_exact_epoch_and_fence"
+        ],
+        "id": "N02_COMMIT_RESERVATION_EVENT",
+        "order": 2,
+        "semantic": "commit reservation event in canonical journal"
+      },
+      {
+        "critical_predicates": [
+          "exact_transaction_nonce_hashes",
+          "valid_owner_authority",
+          "active_exact_epoch_and_fence"
+        ],
+        "id": "N03_BIND_RESERVATION",
+        "order": 3,
+        "semantic": "bind reservation event in AuthorityDB with COMMIT_FULL"
+      },
+      {
+        "critical_predicates": [
+          "exact_transaction_nonce_hashes",
+          "valid_owner_authority",
+          "active_exact_epoch_and_fence",
+          "no_CALL_START_COMMITTED",
+          "no_provider_attempt",
+          "no_outcome",
+          "canonical_rebind_authorization",
+          "otherwise_retire_and_HOLD"
+        ],
+        "id": "N04_SAFE_RESUME_REBIND",
+        "order": 4,
+        "semantic": "safe resume only before call start under all exact predicates"
+      },
+      {
+        "critical_predicates": [
+          "exact_transaction_nonce_hashes",
+          "valid_owner_authority",
+          "active_exact_epoch_and_fence",
+          "immutable_request_hashes",
+          "canonical_journal_synced_reopened"
+        ],
+        "id": "N05_COMMIT_CALL_START_BARRIER",
+        "order": 5,
+        "semantic": "commit CALL_START_COMMITTED canonical journal barrier"
+      },
+      {
+        "critical_predicates": [
+          "exact_transaction_nonce_hashes",
+          "valid_owner_authority",
+          "active_exact_epoch_and_fence",
+          "N05_exact_event_reference",
+          "AuthorityDB_COMMIT_FULL_reopened"
+        ],
+        "id": "N06_DURABLY_CONSUME",
+        "order": 6,
+        "semantic": "durably consume in AuthorityDB with COMMIT_FULL"
+      },
+      {
+        "critical_predicates": [
+          "exact_transaction_nonce_hashes",
+          "valid_owner_authority",
+          "active_exact_epoch_and_fence"
+        ],
+        "id": "N07_RECORD_VERIFIED_OUTCOME",
+        "order": 7,
+        "semantic": "record verified outcome with unconditional descriptor CAS before AuthorityDB bind"
+      },
+      {
+        "critical_predicates": [
+          "exact_transaction_nonce_hashes",
+          "valid_owner_authority",
+          "active_exact_epoch_and_fence"
+        ],
+        "id": "N08_CLASSIFY_UNKNOWN",
+        "order": 8,
+        "semantic": "classify uncertain started call UNKNOWN_CONSUMED terminal"
+      },
+      {
+        "critical_predicates": [
+          "exact_transaction_nonce_hashes",
+          "valid_owner_authority",
+          "active_exact_epoch_and_fence"
+        ],
+        "id": "N09_RETIRE_RECORDED_OUTCOME",
+        "order": 9,
+        "semantic": "retire recorded outcome without retry"
+      },
+      {
+        "critical_predicates": [
+          "exact_transaction_nonce_hashes",
+          "valid_owner_authority",
+          "active_exact_epoch_and_fence"
+        ],
+        "id": "N10_ABANDON_BEFORE_CALL",
+        "order": 10,
+        "semantic": "abandon only when no call may have started"
+      },
+      {
+        "critical_predicates": [
+          "exact_transaction_nonce_hashes",
+          "valid_owner_authority",
+          "active_exact_epoch_and_fence"
+        ],
+        "id": "N11_QUARANTINE_ORPHAN_RESERVATION",
+        "order": 11,
+        "semantic": "quarantine orphan reservation and HOLD"
+      }
+    ]
+  },
+  "provider_call_allowed_in_M2A": false,
+  "result_ack_order_ref": [
+    "capture bytes by CAS module",
+    "verify digest and fence",
+    "append CHILD_RESULT_CAPTURED",
+    "ACK only after reopen verification"
+  ],
+  "result_order": [
+    "capture bytes by CAS module",
+    "verify digest and fence",
+    "append CHILD_RESULT_CAPTURED",
+    "ACK only after reopen verification"
+  ],
+  "schema": "critical_apply.m2a_r2.child_launch_result.v1",
+  "state_action_semantics_ref": {
+    "child_launch_implies_provider_authority": false,
+    "false_after_result_execution_or_release": true,
+    "false_before_barriers": true,
+    "field": "action_allowed",
+    "meaning": "bounded_non_provider_child_eligibility_only",
+    "requires": [
+      "SCOPE_LEASE_ACTIVE exact journal+AuthorityDB bind",
+      "CHILD_LAUNCH_INTENT canonical barrier",
+      "active exact epoch and fence",
+      "owner authority",
+      "immutable request hashes"
+    ],
+    "true_transition_ids": [
+      "T09"
+    ],
+    "type": "boolean"
+  },
+  "state_future_provider_gate_ref": {
+    "M2A_value": false,
+    "field": "provider_call_allowed",
+    "future_gate_not_active": [
+      "N05_CALL_START_COMMITTED journal barrier",
+      "N06 AuthorityDB durable consume",
+      "active exact epoch and fence",
+      "valid owner authority",
+      "immutable request hashes"
+    ],
+    "legacy_call_allowed_alias": "strict_false",
+    "type": "boolean"
+  },
+  "unknown_outcome": "UNKNOWN_CONSUMED_TERMINAL_NO_RETRY_NO_NEW_CALL"
+}

@@ -1,0 +1,9 @@
+{
+  "copy_root": "/tmp/cah-j1-m2a-r2-independent-clean-arphdv4o/candidate",
+  "returncode": 0,
+  "schema": "critical_apply.m2a_r2.independent_clean_copy.v1",
+  "source_exact_contract_sha256": "35cb10df41551da92f5de6ff49c76a51e85d17807c5c3d953be866e3b6a1f0f5",
+  "status": "PASS",
+  "stderr": "",
+  "stdout": "{\n  \"status\": \"PASS\",\n  \"error_count\": 0,\n  \"errors\": []\n}\n"
+}

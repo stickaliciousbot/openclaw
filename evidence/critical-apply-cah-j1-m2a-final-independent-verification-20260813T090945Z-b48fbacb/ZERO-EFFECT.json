@@ -1,0 +1,18 @@
+{
+  "M2B_started": false,
+  "forbidden_effects_observed": 0,
+  "git_index_config_ref_worktree_mutation": false,
+  "install_gateway_config_runtime_provider_network_production_commit_push_cron_systemd_external_actions": 0,
+  "parity": {
+    "candidate_fixture_hashes_still_equal": true,
+    "head_equal": true,
+    "index_equal": true,
+    "input_hashes_still_equal": true,
+    "tracked_status_equal": true
+  },
+  "status": "PASS",
+  "writes": [
+    "fresh independent evidence root",
+    "disposable /tmp reconstruction and mutation copies"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "case_count": 12,
+  "cases": [
+    "remove_owner",
+    "allow_action_early",
+    "reorder_authority",
+    "weaken_N07",
+    "weaken_N04",
+    "progress_authoritative",
+    "omit_20_contention",
+    "runner_mkdir_nonce",
+    "runtime_authority",
+    "drop_crash_vectors",
+    "duplicate_vector_id",
+    "missing_design_xref"
+  ],
+  "all_expected_semantic_rejections_observed": true
+}

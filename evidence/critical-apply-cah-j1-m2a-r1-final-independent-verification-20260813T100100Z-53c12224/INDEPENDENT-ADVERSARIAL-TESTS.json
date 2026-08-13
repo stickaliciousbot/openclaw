@@ -1,0 +1,516 @@
+{
+  "base_validator_errors": [],
+  "case_count": 56,
+  "direct_check_count": 9,
+  "direct_checks": [
+    {
+      "id": "D01_RELEASE_CLOSE_ADJACENT",
+      "pass": true
+    },
+    {
+      "actual_canonical_after_close": [
+        "COMPLETION_RECEIPT_PUBLISHED",
+        "TRANSACTION_LOCK_RELEASED"
+      ],
+      "id": "D02_SUPERVISOR_CLOSED_FINAL_CANONICAL",
+      "pass": false
+    },
+    {
+      "id": "D03_RECEIPT_PUBLICATION_ARTIFACT_ONLY",
+      "pass": false
+    },
+    {
+      "id": "D04_LOCK_RELEASE_NOT_CANONICAL_EVENT",
+      "pass": false
+    },
+    {
+      "id": "D05_CLOSEOUT_HEAD_IMMUTABLE_BY_PUBLICATION",
+      "pass": false
+    },
+    {
+      "id": "D06_TYPED_PROOF_REGISTRY_PRESENT",
+      "pass": false
+    },
+    {
+      "id": "D07_ALL_VECTOR_PROOFS_RESOLVE_WITH_CONTENT",
+      "pass": false
+    },
+    {
+      "id": "D08_CHILD_ACTION_MEANING_MATCHES_STATE",
+      "pass": true
+    },
+    {
+      "id": "D09_CHILD_FUTURE_GATE_MATCHES_STATE",
+      "pass": true
+    }
+  ],
+  "direct_failure_count": 6,
+  "rejected_count": 31,
+  "results": [
+    {
+      "clause": "single creator/writer",
+      "errors": [
+        "path_multiple_or_missing_writer"
+      ],
+      "gate_result": "PASS_REJECTED",
+      "id": "P01_MISSING_PATH_OWNER",
+      "validator_rejected": true
+    },
+    {
+      "clause": "unique paths",
+      "errors": [
+        "path_exact_ownership"
+      ],
+      "gate_result": "PASS_REJECTED",
+      "id": "P02_DUPLICATE_PATH",
+      "validator_rejected": true
+    },
+    {
+      "clause": "crash action false",
+      "errors": [
+        "crash_permissive"
+      ],
+      "gate_result": "PASS_REJECTED",
+      "id": "P03_PERMISSIVE_CRASH_BOUNDARY",
+      "validator_rejected": true
+    },
+    {
+      "clause": "journal authority",
+      "errors": [
+        "recovery_authority"
+      ],
+      "gate_result": "PASS_REJECTED",
+      "id": "P04_STALE_PROGRESS_AUTHORITY",
+      "validator_rejected": true
+    },
+    {
+      "clause": "2/5/20",
+      "errors": [
+        "contention_thresholds",
+        "disjoint_scope"
+      ],
+      "gate_result": "PASS_REJECTED",
+      "id": "P05_OMIT_20_CONTENTION",
+      "validator_rejected": true
+    },
+    {
+      "clause": "overlap exclusion",
+      "errors": [
+        "concurrency_global",
+        "overlap_exclusion"
+      ],
+      "gate_result": "PASS_REJECTED",
+      "id": "P06_OVERLAP_DUAL_ACTIVE",
+      "validator_rejected": true
+    },
+    {
+      "clause": "child boundary",
+      "errors": [
+        "child_boundary"
+      ],
+      "gate_result": "PASS_REJECTED",
+      "id": "P07_CHILD_SELF_REGISTRATION_PATH_CREATE",
+      "validator_rejected": true
+    },
+    {
+      "clause": "ACK barrier order",
+      "errors": [
+        "ack_order_replay"
+      ],
+      "gate_result": "PASS_REJECTED",
+      "id": "P08_ACK_BEFORE_SYNC_BIND",
+      "validator_rejected": true
+    },
+    {
+      "clause": "replay conflict HOLD",
+      "errors": [
+        "ack_vector_content"
+      ],
+      "gate_result": "PASS_REJECTED",
+      "id": "P09_REPLAY_CONFLICT_ALLOWED",
+      "validator_rejected": true
+    },
+    {
+      "clause": "stale fence reject",
+      "errors": [
+        "concurrency_global",
+        "stale_epoch_fence_rejection"
+      ],
+      "gate_result": "PASS_REJECTED",
+      "id": "P10_STALE_FENCE_EPOCH_ACCEPTED",
+      "validator_rejected": true
+    },
+    {
+      "clause": "N04 no bypass",
+      "errors": [
+        "N04_exact_no_bypass"
+      ],
+      "gate_result": "PASS_REJECTED",
+      "id": "P11_N04_CONTRADICTORY_BYPASS",
+      "validator_rejected": true
+    },
+    {
+      "clause": "N07 exact order",
+      "errors": [
+        "N07_exact_order"
+      ],
+      "gate_result": "PASS_REJECTED",
+      "id": "P12_N07_REMOVE_JOURNAL_STEP",
+      "validator_rejected": true
+    },
+    {
+      "clause": "direct canonical adjacency",
+      "errors": [
+        "canonical_exact_chain",
+        "crash_exact_sides"
+      ],
+      "gate_result": "PASS_REJECTED",
+      "id": "P13_CANONICAL_INTERVENING_CLOSE_EVENT",
+      "validator_rejected": true
+    },
+    {
+      "clause": "notification nonsemantic",
+      "errors": [
+        "recovery_authority"
+      ],
+      "gate_result": "PASS_REJECTED",
+      "id": "P14_NOTIFICATION_AUTHORITY",
+      "validator_rejected": true
+    },
+    {
+      "clause": "witness nonsemantic",
+      "errors": [
+        "nonsemantic_component_authority"
+      ],
+      "gate_result": "PASS_REJECTED",
+      "id": "P15_WITNESS_TERMINAL_AUTHORITY",
+      "validator_rejected": true
+    },
+    {
+      "clause": "unknown terminal",
+      "errors": [
+        "unknown_outcome_terminal"
+      ],
+      "gate_result": "PASS_REJECTED",
+      "id": "P16_UNKNOWN_OUTCOME_RETRY",
+      "validator_rejected": true
+    },
+    {
+      "clause": "runtime nonauthority",
+      "errors": [
+        "component_authority"
+      ],
+      "gate_result": "PASS_REJECTED",
+      "id": "P17_RUNTIME_AUTHORITY",
+      "validator_rejected": true
+    },
+    {
+      "clause": "shadow nonauthority",
+      "errors": [
+        "zero_effect_boundary"
+      ],
+      "gate_result": "PASS_REJECTED",
+      "id": "P18_SHADOW_AUTHORITY",
+      "validator_rejected": true
+    },
+    {
+      "clause": "exact before/after",
+      "errors": [
+        "crash_count",
+        "crash_exact_sides"
+      ],
+      "gate_result": "PASS_REJECTED",
+      "id": "P19_MISSING_TRANSITION_SIDE",
+      "validator_rejected": true
+    },
+    {
+      "clause": "side-specific proof",
+      "errors": [
+        "crash_transition_binding"
+      ],
+      "gate_result": "PASS_REJECTED",
+      "id": "P20_GENERIC_RECOVERY_PROOF",
+      "validator_rejected": true
+    },
+    {
+      "clause": "exact nonce identities",
+      "errors": [
+        "nonce_exact_identity_order"
+      ],
+      "gate_result": "PASS_REJECTED",
+      "id": "P21_NONCE_SUFFIX_SEMANTICS",
+      "validator_rejected": true
+    },
+    {
+      "clause": "provider gate false",
+      "errors": [
+        "provider_call_gate"
+      ],
+      "gate_result": "PASS_REJECTED",
+      "id": "P22_STATE_CALL_BEFORE_NONCE",
+      "validator_rejected": true
+    },
+    {
+      "clause": "action gate",
+      "errors": [
+        "action_gate"
+      ],
+      "gate_result": "PASS_REJECTED",
+      "id": "P23_STATE_ACTION_BEFORE_SCOPE",
+      "validator_rejected": true
+    },
+    {
+      "clause": "strict ingress",
+      "errors": [
+        "ingress_strict"
+      ],
+      "gate_result": "PASS_REJECTED",
+      "id": "P24_PERMISSIVE_UNKNOWN_FIELDS",
+      "validator_rejected": true
+    },
+    {
+      "clause": "scalar writer",
+      "errors": [
+        "path_multiple_or_missing_writer"
+      ],
+      "gate_result": "PASS_REJECTED",
+      "id": "P25_MULTIPLE_PATH_WRITERS",
+      "validator_rejected": true
+    },
+    {
+      "clause": "meaningful ACK",
+      "errors": [
+        "ack_vector_content"
+      ],
+      "gate_result": "PASS_REJECTED",
+      "id": "P26_ACK_VECTOR_BEFORE_SYNC",
+      "validator_rejected": true
+    },
+    {
+      "clause": "exact schema identity",
+      "errors": [],
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "F27_NEAR_PREFIX_SCHEMA_ACCEPTANCE",
+      "validator_rejected": false
+    },
+    {
+      "clause": "strict schema no unknowns",
+      "errors": [],
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "F28_UNKNOWN_STATE_TOP_LEVEL",
+      "validator_rejected": false
+    },
+    {
+      "clause": "strict nested schema",
+      "errors": [],
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "F29_UNKNOWN_CRASH_VECTOR_FIELD",
+      "validator_rejected": false
+    },
+    {
+      "clause": "state-child action consistency",
+      "errors": [],
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "F30_CHILD_ACTION_MEANING_PROVIDER",
+      "validator_rejected": false
+    },
+    {
+      "clause": "child/concurrency fence consistency",
+      "errors": [],
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "F31_CHILD_MUTATION_FENCE_REMOVED",
+      "validator_rejected": false
+    },
+    {
+      "clause": "child/ACK ordering consistency",
+      "errors": [],
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "F32_CHILD_RESULT_ACK_FIRST",
+      "validator_rejected": false
+    },
+    {
+      "clause": "future N05+N06 complete inactive",
+      "errors": [],
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "F33_CHILD_FUTURE_GATE_OMITS_N06",
+      "validator_rejected": false
+    },
+    {
+      "clause": "typed bounded action barriers",
+      "errors": [],
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "F34_STATE_ACTION_REQUIRES_OMIT_SCOPE",
+      "validator_rejected": false
+    },
+    {
+      "clause": "declaration-derived consistency",
+      "errors": [],
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "F35_DECLARED_CLOSE_ADJACENCY_WRONG",
+      "validator_rejected": false
+    },
+    {
+      "clause": "state/transition exact consistency",
+      "errors": [],
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "F36_CANONICAL_STATE_CHAIN_DRIFT",
+      "validator_rejected": false
+    },
+    {
+      "clause": "transition/component authority consistency",
+      "errors": [],
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "F37_TRANSITION_AUTHORITY_PROVIDER",
+      "validator_rejected": false
+    },
+    {
+      "clause": "exact initial transition",
+      "errors": [],
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "F38_FIRST_PREIMAGE_FROM_AND_CRASH_COMBO",
+      "validator_rejected": false
+    },
+    {
+      "clause": "meaningful typed ACK inputs",
+      "errors": [],
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "F39_ACK_INPUT_CASE_MEANINGLESS",
+      "validator_rejected": false
+    },
+    {
+      "clause": "content/expected concurrency consistency",
+      "errors": [],
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "F40_SAME_SCOPE_VECTOR_MADE_DISJOINT",
+      "validator_rejected": false
+    },
+    {
+      "clause": "overlap content",
+      "errors": [],
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "F41_OVERLAP_VECTOR_MADE_DISJOINT",
+      "validator_rejected": false
+    },
+    {
+      "clause": "disjoint content",
+      "errors": [],
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "F42_DISJOINT_VECTOR_MADE_IDENTICAL",
+      "validator_rejected": false
+    },
+    {
+      "clause": "exact trusted path inventory",
+      "errors": [],
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "F43_PATH_RENAMED_UNTRUSTED",
+      "validator_rejected": false
+    },
+    {
+      "clause": "exact creator/writer authority",
+      "errors": [],
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "F44_SCALAR_WRITER_WRONG_AUTHORITY",
+      "validator_rejected": false
+    },
+    {
+      "clause": "component contract equality",
+      "errors": [],
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "F45_COMPONENT_CAS_AUTHORITY_REMOVED",
+      "validator_rejected": false
+    },
+    {
+      "clause": "strict component schema",
+      "errors": [],
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "F46_UNKNOWN_COMPONENT_ADDED",
+      "validator_rejected": false
+    },
+    {
+      "clause": "all M0-R3 inputs bound",
+      "errors": [],
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "F47_M0_R3_BINDING_TAMPER",
+      "validator_rejected": false
+    },
+    {
+      "clause": "M1 preservation authority bound",
+      "errors": [],
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "F48_M1_PASS_BINDING_TAMPER",
+      "validator_rejected": false
+    },
+    {
+      "clause": "substantive design cross-reference",
+      "errors": [],
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "F49_DESIGN_CONTRADICTION",
+      "validator_rejected": false
+    },
+    {
+      "clause": "strict transition schema",
+      "errors": [],
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "F50_TRANSITION_UNKNOWN_PROVIDER_FLAG",
+      "validator_rejected": false
+    },
+    {
+      "clause": "strict ACK schema",
+      "errors": [],
+      "gate_result": "FAIL_ACCEPTED_UNSAFE",
+      "id": "F51_ACK_UNKNOWN_EXECUTION_FLAG",
+      "validator_rejected": false
+    },
+    {
+      "clause": "combination authority/fence attack",
+      "errors": [
+        "concurrency_global"
+      ],
+      "gate_result": "PASS_REJECTED",
+      "id": "F52_MULTI_ARTIFACT_AUTHORITY_WEAKENING",
+      "validator_rejected": true
+    },
+    {
+      "clause": "alternate CAS combination",
+      "errors": [
+        "N07_exact_order"
+      ],
+      "gate_result": "PASS_REJECTED",
+      "id": "F53_N07_ALTERNATE_CAS_AND_REORDER_COMBO",
+      "validator_rejected": true
+    },
+    {
+      "clause": "ingress+activation combination",
+      "errors": [
+        "ingress_strict",
+        "M2B_boundary"
+      ],
+      "gate_result": "PASS_REJECTED",
+      "id": "F54_INGRESS_AND_M2B_ACTIVATION_COMBO",
+      "validator_rejected": true
+    },
+    {
+      "clause": "nonce full equality combination",
+      "errors": [
+        "nonce_exact_identity_order",
+        "nonce_exact_semantics"
+      ],
+      "gate_result": "PASS_REJECTED",
+      "id": "F55_NONCE_ORDER_DUPLICATE_SUFFIX_COMBO",
+      "validator_rejected": true
+    },
+    {
+      "clause": "crash side/state/proof combination",
+      "errors": [
+        "crash_exact_sides",
+        "crash_duplicate_or_extra"
+      ],
+      "gate_result": "PASS_REJECTED",
+      "id": "F56_CRASH_SIDE_STATE_PROOF_COMBO",
+      "validator_rejected": true
+    }
+  ],
+  "schema": "critical_apply.m2a_r1.final_independent_adversarial.v1",
+  "status": "HOLD",
+  "unsafe_accepted_count": 25
+}

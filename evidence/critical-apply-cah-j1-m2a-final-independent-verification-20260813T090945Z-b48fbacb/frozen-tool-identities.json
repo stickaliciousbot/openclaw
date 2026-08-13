@@ -1,0 +1,98 @@
+{
+  "files": {
+    "DIRECT-FINDINGS.json": {
+      "sha256": "9aee8d27382e33b369e7d473f53a210fa5de1c74e3f8eb6ad42e6699e2d64f13"
+    },
+    "FINDINGS.json": {
+      "sha256": "c7860c42034d1bb8c56b3a69d8ecb3846378deb4ab10db854a8dbf89c8af1f2c"
+    },
+    "INDEPENDENT-ADVERSARIAL-TESTS.json": {
+      "sha256": "a14403709e5ce9f9c082fd9d892fcc6c2904b0202696d7e210cb04a56d7571ea"
+    },
+    "INPUT-BINDING.json": {
+      "sha256": "cef9b34df4f76462328e8796fe2e59e1bc3ae269bfc9ac0f7cb63ca122df6bc8"
+    },
+    "M1-PRESERVATION-RECONSTRUCTION.json": {
+      "sha256": "756c44c4128a221222e0d22d8078cfc92db49608a989681369a3d9a6d27efc6b"
+    },
+    "PRE-REPO-STATE.md": {
+      "sha256": "dbf629962f61ef979e2ebd21c6d29015376b95e83fed013230c1afd8c02e294e"
+    },
+    "PRE-STATE.json": {
+      "sha256": "8d7b0dad15e4b126696d5592bafbf19acecf449f4379f5c5d7357d540b7bffa2"
+    },
+    "PRE-TRACKED-STATUS.txt": {
+      "sha256": "b621817ba2032a0b07544dd0df1e600f31ea96d0ae6e40e572fdc8fe7efa8d3a"
+    },
+    "START.md": {
+      "sha256": "02a5d7d2e3fd7fd80c526e2a2d33a6184697da63ac27cbe19baf0f8c592b8db0"
+    },
+    "TEST-RESULTS.json": {
+      "sha256": "2618fee06cdadc3eab188d56eba7230ad41a7444ac1eba633409c1fa40d50db2"
+    },
+    "ZERO-EFFECT.json": {
+      "sha256": "bc77c6cca338fdae1092deb214c0427ededa9d5ab84f6c119c9beda03ac81f46"
+    },
+    "bin/r6_bounded_privacy_scanner.py": {
+      "sha256": "ce38bf7811561c096bfe72ef12fc799712986d77ff86cb62b8e099eedc481115"
+    },
+    "independent_verify.py": {
+      "sha256": "37319f1ead1971210f63ed5f18082515fd09a5e8787691f16c3a3ef3974e9786"
+    },
+    "prepare_privacy_scan.py": {
+      "sha256": "fc26540e99a8b2d593bb84769674bef2b7c138ad783861fde2734520d27e8b75"
+    },
+    "scan-inputs/ACK-REPLAY-VECTORS.json": {
+      "sha256": "c5660980743483bc4b3e14d804e6a6eab7722ef7ed51644a9da55efccd327356"
+    },
+    "scan-inputs/ARTIFACT-SHA256.json": {
+      "sha256": "ce36dcaaeb76fae66d50e4f4f82baf803394c127091d2eab19b05990423f46bf"
+    },
+    "scan-inputs/CHILD-LAUNCH-AND-RESULT-CONTRACT.json": {
+      "sha256": "1f046f3a436ebcd1e23a09b55345a4324da9d3bf464e858d85a87301b6da0135"
+    },
+    "scan-inputs/COMPONENT-TRUST-BOUNDARIES.json": {
+      "sha256": "c5191150f4377a49e3bdca455bd9dbb32dbbc7dc02ba8ca0ceb3cd57f9b4a0e5"
+    },
+    "scan-inputs/CONCURRENCY-FENCING-VECTORS.json": {
+      "sha256": "a6d709e3bb3f88489e71833a475aaa43e70f6320f63e6eb5db62d28f3fd28c1d"
+    },
+    "scan-inputs/IMMUTABLE-INPUT-SEALS.json": {
+      "sha256": "a8ef55369596c46d3cf7d2d36cfcaef08467c83409dad902299a186766d4cc62"
+    },
+    "scan-inputs/INGRESS-ENVELOPE-CONTRACT.json": {
+      "sha256": "a57c76ae142462fe1531b04ea2feae312b2d47ae070bdd8e55daa4cf57a9a7ca"
+    },
+    "scan-inputs/INGRESS-IDEMPOTENCY-CONTRACT.json": {
+      "sha256": "1ea6236ced696c105a435af342af28adf5dce25a8bf158adfdacd8b71534772e"
+    },
+    "scan-inputs/M2A-DESIGN.md": {
+      "sha256": "a1aef1d1e5dc16be633e203210eccd4b9637714a73155b1e1216b308fbcd664c"
+    },
+    "scan-inputs/M2B-PROMOTION-GATES.json": {
+      "sha256": "4c2731be541bfc71615550db345fbc445e08c19d91f1e107285c639e80fb0012"
+    },
+    "scan-inputs/PATH-OWNERSHIP-MATRIX.json": {
+      "sha256": "1cf1fe0d617262eb76f9994950412132daaefb45f681c6ce516fb1a987fa26a9"
+    },
+    "scan-inputs/RECOVERY-AUTHORITY-ORDER.json": {
+      "sha256": "30e064ca2155482a41f7ef9490f549dbcccff3be03d60e3d747a679b25614642"
+    },
+    "scan-inputs/SUPERVISOR-CRASH-VECTORS.json": {
+      "sha256": "19041336880152a4ea2fa48b1513b69602a1c986517fca48035cb155befef61a"
+    },
+    "scan-inputs/SUPERVISOR-STATE-MACHINE.json": {
+      "sha256": "bd49a8072db0df17b192b79a6e6e310fff3ab934fc4d4896a01b52d4bcc2f36f"
+    },
+    "scan-inputs/ZERO-EFFECT-CONTRACT.json": {
+      "sha256": "d94b112989cd76c8fbdd71c994ca36bf607922b681bb3f2493ce30ba21fa3730"
+    },
+    "scan-inputs/test_validate_m2a_freeze.py": {
+      "sha256": "1acc6ab21437cddec0162a75114a49c587c03f099659ac07e37d97280ab5cb78"
+    },
+    "scan-inputs/validate_m2a_freeze.py": {
+      "sha256": "3fda41aa6c9ee5b771051cc9537727543c426331ce0cddc08b2979c79c184caf"
+    }
+  },
+  "schema": "critical_apply.cah_j1.m2a.final_independent_privacy_inputs.v1"
+}

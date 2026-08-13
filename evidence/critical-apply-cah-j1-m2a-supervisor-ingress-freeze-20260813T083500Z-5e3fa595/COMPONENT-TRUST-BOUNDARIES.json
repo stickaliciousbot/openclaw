@@ -1,0 +1,127 @@
+{
+  "canonical_semantic_authority": "journal_core",
+  "components": [
+    {
+      "accepts": "bounded canonical envelope only",
+      "authority": "none",
+      "component": "ingress_adapter",
+      "forbidden": [
+        "paths as authority",
+        "semantic decisions",
+        "journal writes"
+      ],
+      "trust": "untrusted_transport_boundary",
+      "writes": [
+        "envelope submission to supervisor IPC"
+      ]
+    },
+    {
+      "authority": "orchestration only through journal and AuthorityDB gates",
+      "component": "supervisor",
+      "forbidden": [
+        "provider/network in M2A"
+      ],
+      "trust": "trusted_single_writer",
+      "writes": [
+        "registered transaction root",
+        "launch records"
+      ]
+    },
+    {
+      "authority": "sole semantic authority",
+      "component": "journal_core",
+      "forbidden": [
+        "projection authority"
+      ],
+      "trust": "trusted_module",
+      "writes": [
+        "journal/events.jsonl"
+      ]
+    },
+    {
+      "authority": "immutable byte identity only",
+      "component": "descriptor_cas",
+      "forbidden": [
+        "semantic decisions"
+      ],
+      "trust": "trusted_module",
+      "writes": [
+        "objects/sha256/"
+      ]
+    },
+    {
+      "authority": "scope/fence/nonce only; never transaction semantics",
+      "component": "AuthorityDB",
+      "forbidden": [
+        "terminal outcome"
+      ],
+      "trust": "trusted_cross_transaction_authority",
+      "writes": [
+        "authority.db"
+      ]
+    },
+    {
+      "authority": "none",
+      "component": "ProgressDB",
+      "forbidden": [
+        "duplicate decision",
+        "action gate",
+        "call gate"
+      ],
+      "trust": "disposable_projection",
+      "writes": [
+        "index/progress.db"
+      ]
+    },
+    {
+      "authority": "none without exact epoch/fence",
+      "component": "child_launch_boundary",
+      "forbidden": [
+        "shared mkdir",
+        "self-registration",
+        "journal/CAS/AuthorityDB writes"
+      ],
+      "trust": "constrained_untrusted_child",
+      "writes": [
+        "private child outputs only"
+      ]
+    },
+    {
+      "authority": "deterministic result over frozen journal prefix only",
+      "component": "future_reducer",
+      "forbidden": [
+        "M2A runtime integration"
+      ],
+      "trust": "future_read_only_boundary",
+      "writes": [
+        "proposal to supervisor"
+      ]
+    },
+    {
+      "authority": "witness only",
+      "component": "future_checker",
+      "forbidden": [
+        "rewrite semantic result"
+      ],
+      "trust": "future_independent_boundary",
+      "writes": [
+        "future WitnessDB"
+      ]
+    },
+    {
+      "authority": "none",
+      "component": "notification_projection",
+      "forbidden": [
+        "semantic rewrite",
+        "action gate"
+      ],
+      "trust": "non_authoritative_output",
+      "writes": [
+        "bounded delivery receipt"
+      ]
+    }
+  ],
+  "production_authority": false,
+  "runtime_authority": false,
+  "schema": "critical_apply.m2a.component_trust_boundaries.v1"
+}

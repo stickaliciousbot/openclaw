@@ -1,0 +1,20 @@
+{
+  "deadline": "bounded_monotonic_deadline_frozen_per_transaction",
+  "owner_close_loop": "separate durable completion watcher required for long_or_fragile_work; watcher reports terminal but cannot author it",
+  "rules": [
+    "supervisor_commits_exactly_one_notification_outcome_before_close",
+    "notification_failure_never_changes_PASS_HOLD_FAIL_AB0RT_semantic_result",
+    "completion_receipt_binds_notification_outcome",
+    "late_receipt_after_SUPERVISOR_CLOSED_cannot_append_to_closed_journal",
+    "late_receipt_is_notification_plane_evidence_or_new_followup_transaction_only",
+    "system_event_ok_proves_submission_not_owner_visible_delivery"
+  ],
+  "schema": "critical_apply.notification_closeout_contract.v1",
+  "semantic_authority": false,
+  "status": "FROZEN_FOR_M0_S3",
+  "terminal_outcomes": [
+    "DELIVERED_CONFIRMED",
+    "DELIVERY_FAILED",
+    "DELIVERY_UNKNOWN"
+  ]
+}

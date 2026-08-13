@@ -1,0 +1,1 @@
+PASS: python3 -m py_compile validate_m2a_freeze.py test_validate_m2a_freeze.py

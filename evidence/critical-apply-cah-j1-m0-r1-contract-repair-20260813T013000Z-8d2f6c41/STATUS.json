@@ -1,0 +1,23 @@
+{
+  "independent_verification": "REQUIRED",
+  "privacy": "PASS",
+  "repairs": {
+    "BLOCK_01": "RESOLVED_POST_FREEZE_ALLOWLIST",
+    "BLOCK_02": "RESOLVED_CLOSEOUT_HEAD_RECEIPT_PROTOCOL",
+    "BLOCK_03": "RESOLVED_EXHAUSTIVE_NONCE_CAS_CLOSEOUT_MATRICES"
+  },
+  "schema": "critical_apply.cah_j1_m0_r1_status.v1",
+  "semantic_authority": "canonical_append_only_journal_only",
+  "status": "PASS_REPAIR_HOLD_FOR_INDEPENDENT_VERIFICATION",
+  "terminal": "PASS_CAH_J1_M0_R1_THREE_PROTOCOL_DEFECTS_REPAIRED_EXHAUSTIVE_VECTORS_VALIDATED_PRIVACY_PASS_NO_PRODUCTION_EFFECT",
+  "validation": {
+    "cas_publication_steps": 13,
+    "cas_vectors": 38,
+    "closeout_vectors": 12,
+    "errors": 0,
+    "nonce_transitions": 11,
+    "nonce_vectors": 82,
+    "required_files": 20
+  },
+  "zero_effect": true
+}

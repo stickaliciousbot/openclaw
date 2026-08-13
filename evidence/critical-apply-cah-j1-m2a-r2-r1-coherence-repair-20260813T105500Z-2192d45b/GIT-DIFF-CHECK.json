@@ -1,0 +1,9 @@
+{
+  "exact_tracked_path_set_equal": true,
+  "note": "normalized porcelain/name-status formatting; untracked design/evidence outputs excluded from tracked diff by Git; no stage/index/ref mutation",
+  "post_normalized_name_digest_sha256": "ca3c5b5c7070957c6005ef8b5f444e6aa08a327f8767a204f1e4d60b5ad9c601",
+  "pre_normalized_name_digest_sha256": "ca3c5b5c7070957c6005ef8b5f444e6aa08a327f8767a204f1e4d60b5ad9c601",
+  "schema": "critical_apply.m2a_r2_r1.tracked_parity.v1",
+  "status": "PASS",
+  "tracked_path_count": 41
+}

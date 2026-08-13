@@ -1,0 +1,10 @@
+{
+  "classification": "VERIFIER_HARNESS_RECURSIVE_COPY_DIRECTORY_MODE",
+  "candidate_defect": false,
+  "exit_code": 1,
+  "failure": "PermissionError removing verifier-owned bin/r6_bounded_privacy_scanner.py because copied bin directory remained 0555",
+  "m2b_started": false,
+  "production_effect": false,
+  "remediation": "normalize all verifier-owned copied directories to 0700 before removal",
+  "status": "FAILED_ATTEMPT_RETAINED"
+}

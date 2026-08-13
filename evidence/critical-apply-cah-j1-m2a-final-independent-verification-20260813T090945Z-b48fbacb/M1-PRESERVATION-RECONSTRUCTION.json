@@ -1,0 +1,87 @@
+{
+  "changed_paths_from_patch": [
+    "scripts/critical_apply_authority_db.py",
+    "scripts/critical_apply_cas.py",
+    "scripts/critical_apply_journal.py",
+    "scripts/critical_apply_progress.py",
+    "scripts/tests/test_critical_apply_authority_db.py",
+    "scripts/tests/test_critical_apply_cas.py",
+    "scripts/tests/test_critical_apply_journal_idempotency.py"
+  ],
+  "development_worktree_files_used": false,
+  "exact_seven_candidate_hashes": [
+    {
+      "actual_sha256": "11634c2107dfd780570ed6ba76f2c5b336bfe0eec7116aa918765bfcec7e86b5",
+      "expected_sha256": "11634c2107dfd780570ed6ba76f2c5b336bfe0eec7116aa918765bfcec7e86b5",
+      "pass": true,
+      "path": "scripts/critical_apply_journal.py"
+    },
+    {
+      "actual_sha256": "af5cf0a7ee7ef07bef57bf8e2fca35e6f16164baebb5e040b39f3236bfca6d0d",
+      "expected_sha256": "af5cf0a7ee7ef07bef57bf8e2fca35e6f16164baebb5e040b39f3236bfca6d0d",
+      "pass": true,
+      "path": "scripts/critical_apply_progress.py"
+    },
+    {
+      "actual_sha256": "4352cdd108f6c698100530b39b6a8eba32a273fcb877e7f46a8410b08b923e3c",
+      "expected_sha256": "4352cdd108f6c698100530b39b6a8eba32a273fcb877e7f46a8410b08b923e3c",
+      "pass": true,
+      "path": "scripts/critical_apply_cas.py"
+    },
+    {
+      "actual_sha256": "e49a1952aaf8eb17304f8d391229a520cdae879f79377595879e2829914e97c0",
+      "expected_sha256": "e49a1952aaf8eb17304f8d391229a520cdae879f79377595879e2829914e97c0",
+      "pass": true,
+      "path": "scripts/critical_apply_authority_db.py"
+    },
+    {
+      "actual_sha256": "b652962aa6e190d4c28ed0f4de8533a194ce430a9518b9102d9563f4596801cf",
+      "expected_sha256": "b652962aa6e190d4c28ed0f4de8533a194ce430a9518b9102d9563f4596801cf",
+      "pass": true,
+      "path": "scripts/tests/test_critical_apply_journal_idempotency.py"
+    },
+    {
+      "actual_sha256": "7df005f109c12091a1235738e7dbf05f8d1a560e37facc33f9f9b2f966941279",
+      "expected_sha256": "7df005f109c12091a1235738e7dbf05f8d1a560e37facc33f9f9b2f966941279",
+      "pass": true,
+      "path": "scripts/tests/test_critical_apply_cas.py"
+    },
+    {
+      "actual_sha256": "b90469f37aeea1c9e6a9fc86b536b164055735a0d55774f1f04912730b0d8539",
+      "expected_sha256": "b90469f37aeea1c9e6a9fc86b536b164055735a0d55774f1f04912730b0d8539",
+      "pass": true,
+      "path": "scripts/tests/test_critical_apply_authority_db.py"
+    }
+  ],
+  "git_archive_base": "b48fbacb12f07de334a0195e13992ce7237db910",
+  "patch_apply_returncode": 0,
+  "patch_apply_stderr": "",
+  "patch_bytes": 106031,
+  "patch_mode": "0o444",
+  "patch_sha256": "7cde7ec7bf858b06bdf22fc22d703457565059d5643909d55ac7c54020b8d4bc",
+  "permanent_patch_only": true,
+  "reconstruction_root": "/tmp/cah-j1-m1-final-reconstruct-m2okfpcf",
+  "status": "PASS_VERIFIED",
+  "temporary_original_used": false,
+  "tmp_dependency": false,
+  "tmp_references": [
+    {
+      "classification": "disposable_destination_or_historical_receipt_not_runtime_input",
+      "line": 3,
+      "path": "RECONSTRUCTION.md",
+      "text": "This package does not depend on `/tmp`. Run only in a disposable, non-Git destination outside the production worktree."
+    },
+    {
+      "classification": "disposable_destination_or_historical_receipt_not_runtime_input",
+      "line": 10,
+      "path": "RECONSTRUCTION.md",
+      "text": "dest=\"$(mktemp -d /tmp/cah-j1-m1-reconstruct.XXXXXXXX)\""
+    },
+    {
+      "classification": "disposable_destination_or_historical_receipt_not_runtime_input",
+      "line": 23,
+      "path": "RECONSTRUCTION.md",
+      "text": "Compare the seven hashes to `PRESERVATION-MANIFEST.json`. The preservation-time proof used the same Git object and permanent patch in `/tmp/cah-j1-m1-preservation-reconstruct-5e3fa595`, a disposable non-Git directory, and all seven hashes matched."
+    }
+  ]
+}

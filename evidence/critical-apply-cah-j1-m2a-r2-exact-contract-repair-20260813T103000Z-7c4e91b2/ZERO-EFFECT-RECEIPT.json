@@ -1,0 +1,15 @@
+{
+  "M2B_started": false,
+  "cron_systemd": false,
+  "design_evidence_tmp_only": true,
+  "external_action": false,
+  "gateway_config_runtime_provider_network_production": false,
+  "git_stage_commit_push_index_config_ref_mutation": false,
+  "input_preservation": true,
+  "install": false,
+  "process_leaks": 0,
+  "schema": "critical_apply.m2a_r2.zero_effect_receipt.v1",
+  "source_runtime_implementation": false,
+  "status": "PASS",
+  "tracked_repo_parity": true
+}

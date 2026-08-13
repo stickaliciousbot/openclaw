@@ -1,0 +1,24 @@
+{
+  "schema": "critical_apply.cah_j1_m0_r2_final_independent_inventory.v1",
+  "verifier_root": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-r2-final-independent-verification-20260813T014916Z-c0744878",
+  "files": [
+    "FINDINGS.json",
+    "HASH-INVENTORY.json",
+    "INDEPENDENT-RECEIPT.json",
+    "INVENTORY.json",
+    "SCOPE.txt",
+    "SEMANTIC-CHECKS.json",
+    "STATUS.json",
+    "SUMMARY.md",
+    "VALIDATOR-RUN.json",
+    "VERIFIER_ROOT.txt",
+    "ZERO-EFFECT-RECEIPT.json",
+    "independent_verify.py"
+  ],
+  "candidate_files": 29,
+  "manifest_listed_artifacts": 27,
+  "candidate_hash_mismatches": 0,
+  "candidate_size_mismatches": 0,
+  "candidate_json_parse_failures": 0,
+  "status": "COMPLETE"
+}

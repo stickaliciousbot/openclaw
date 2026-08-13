@@ -1,0 +1,9 @@
+Command: OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python3 -B -m unittest -v scripts.tests.test_critical_apply_authority_db
+
+Terminal:
+----------------------------------------------------------------------
+Ran 21 tests in 827.085s
+
+OK
+Exit: 0
+Result: PASS 21/21

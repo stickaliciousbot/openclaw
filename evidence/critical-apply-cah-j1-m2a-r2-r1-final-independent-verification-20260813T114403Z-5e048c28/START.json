@@ -1,0 +1,24 @@
+{
+  "archive": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m2a-r2-r1-independent-input-sealed-20260813T113536Z.tar.gz",
+  "checks": {
+    "archive_mode": true,
+    "archive_sha256": true,
+    "fresh_empty_extraction_root": true,
+    "member_count": true,
+    "safe_member_paths": true,
+    "sorted_member_list_sha256": true
+  },
+  "event": "START",
+  "evidence_root": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m2a-r2-r1-final-independent-verification-20260813T114403Z-5e048c28",
+  "expected": {
+    "archive_mode": "444",
+    "archive_sha256": "6b5039bd200d99b73f818fb67010d62aa48112cb49b2d271332a440e156e08d0",
+    "member_count": 75,
+    "sorted_member_list_sha256": "172347384eac0547db2eca8dfe00119f4be6de17e287c9d1394d7bfa7a233c5f"
+  },
+  "m2b_started": false,
+  "scope": "M2A architecture/contracts/offline fixtures only",
+  "terminal_hold": false,
+  "timestamp_utc": "2026-08-13T11:47:14.663680+00:00",
+  "tmp_root": "/tmp/cah-j1-final-verifier.yeoCMS"
+}

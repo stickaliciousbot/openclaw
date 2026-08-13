@@ -1,0 +1,7 @@
+{
+  "schema": "critical_apply.cah_j1_m1_permanent_preservation_status.v1",
+  "status": "PASS_PRESERVED",
+  "terminal": "PASS_CAH_J1_M1_PATCH_PERMANENTLY_PRESERVED_RECONSTRUCTABLE_ZERO_EFFECT",
+  "patch_sha256": "7cde7ec7bf858b06bdf22fc22d703457565059d5643909d55ac7c54020b8d4bc",
+  "production_effect": false
+}

@@ -1,0 +1,29 @@
+CAH-J1 M1 independent adversarial verifier — preserved terminal result
+Provenance: prior verifier session transcript plus preserved exact test source `adversarial_verifier_tests.py`.
+Policy: completed suite was not rerun after verifier compaction.
+
+IndependentJournalProgress (4):
+- test_progress_row_tamper_same_head_and_count_rebuilds_full_content ... ok
+- test_progress_transaction_id_mismatch_rebuilds ... ok
+- test_concurrent_distinct_ids_serialize_without_loss ... ok
+- test_conflicting_same_id_proposals_hold_and_single_commit ... ok
+IndependentCAS (6):
+- test_preexisting_shard_symlink_and_non_directory_refuse ... ok
+- test_orphan_publish_crash_then_dedupe_recovery ... ok
+- test_corrupt_destination_never_overwritten ... ok
+- test_source_append_during_capture_holds ... ok
+- test_source_truncate_during_capture_holds ... ok
+- test_source_metadata_mutation_during_capture_holds ... ok
+IndependentAuthority (9):
+- test_identity_schema_application_user_version_and_pragmas ... ok
+- test_receipt_tamper_refused_on_reopen ... ok
+- test_busy_is_fail_closed ... ok
+- test_cross_epoch_and_stale_fence_do_not_authorize ... ok
+- test_lease_crash_state_transitions_fail_closed ... ok
+- test_N04_refuses_without_journal_first_recovery_authorization ... ok
+- test_N07_refuses_journal_record_without_valid_CAS_reference ... ok
+- test_unknown_consumed_survives_reopen_and_is_nonretryable ... ok
+- test_contention_2_5_20_exactly_one_winner ... ok
+
+Preserved transcript terminal: Ran 19 tests in 535.441s — OK.
+Observed warning: ResourceWarning from the append mutator's intentionally unclosed short-lived file object. Classified HARNESS_WARNING (not suppressed): the fixture root was removed in tearDown; source identity mutation held as required; no child/file/process leak was reported. Post-run leak checks are repeated in this resumed verifier.

@@ -1,0 +1,131 @@
+{
+  "checked_on_every_child_mutation_and_result": true,
+  "fencing_token_passed_to_child": true,
+  "one_active_owner_per_overlapping_scope": true,
+  "required_child_mutation_and_result_fields": [
+    "transaction_id",
+    "supervisor_epoch",
+    "scope_sha256",
+    "fencing_token",
+    "launch_intent_event_sha256"
+  ],
+  "schema": "critical_apply.m2a_r2.concurrency_fencing_vectors.v1",
+  "stale_epoch_result": "REJECT_HOLD_NO_MUTATION",
+  "stale_fence_result": "REJECT_HOLD_NO_MUTATION",
+  "vectors": [
+    {
+      "clients": 2,
+      "expected_active_owners": 1,
+      "expected_holds": 1,
+      "fence_rule": "winner exact epoch+monotonic token only",
+      "id": "CF-SAME-SCOPE-2",
+      "scopes": [
+        "scope-A",
+        "scope-A"
+      ]
+    },
+    {
+      "clients": 5,
+      "expected_active_owners": 1,
+      "expected_holds": 4,
+      "fence_rule": "winner exact epoch+monotonic token only",
+      "id": "CF-SAME-SCOPE-5",
+      "scopes": [
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A"
+      ]
+    },
+    {
+      "clients": 20,
+      "expected_active_owners": 1,
+      "expected_holds": 19,
+      "fence_rule": "winner exact epoch+monotonic token only",
+      "id": "CF-SAME-SCOPE-20",
+      "scopes": [
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A"
+      ]
+    },
+    {
+      "clients": 5,
+      "expected": "no pair of overlapping scopes active simultaneously",
+      "expected_active_owners": "graph_independent_set",
+      "expected_max_active_overlapping_pair": 1,
+      "id": "CF-OVERLAP-AB-5",
+      "scopes": [
+        "A",
+        "A/B",
+        "B",
+        "A/B/C",
+        "C"
+      ]
+    },
+    {
+      "clients": 20,
+      "expected": "all exact disjoint scopes may activate",
+      "expected_active_owners": 20,
+      "id": "CF-DISJOINT-20",
+      "scopes": [
+        "disjoint-0",
+        "disjoint-1",
+        "disjoint-2",
+        "disjoint-3",
+        "disjoint-4",
+        "disjoint-5",
+        "disjoint-6",
+        "disjoint-7",
+        "disjoint-8",
+        "disjoint-9",
+        "disjoint-10",
+        "disjoint-11",
+        "disjoint-12",
+        "disjoint-13",
+        "disjoint-14",
+        "disjoint-15",
+        "disjoint-16",
+        "disjoint-17",
+        "disjoint-18",
+        "disjoint-19"
+      ]
+    },
+    {
+      "clients": 2,
+      "expected": "REJECT_HOLD_NO_MUTATION",
+      "id": "CF-STALE-EPOCH",
+      "scopes": [
+        "scope-A",
+        "scope-A"
+      ]
+    },
+    {
+      "clients": 2,
+      "expected": "REJECT_HOLD_NO_MUTATION",
+      "id": "CF-STALE-FENCE-RESULT",
+      "scopes": [
+        "scope-A",
+        "scope-A"
+      ]
+    }
+  ]
+}

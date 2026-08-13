@@ -1,0 +1,24 @@
+{
+  "assumptions": [
+    "children_and_tools_may_share_supervisor_UID",
+    "filesystem_modes_do_not_isolate_same_UID",
+    "same_UID_process_can_theoretically_modify_accessible_files"
+  ],
+  "classification": {
+    "detected_mutation": "INTEGRITY_HOLD_OR_FAIL",
+    "undetectable_hostile_same_UID_attack": "OUT_OF_SCOPE_NOT_PREVENTED_V1"
+  },
+  "controls": [
+    "single_writer_protocol",
+    "descriptor_and_inode_binding",
+    "hash_chained_journal",
+    "CAS_rehash",
+    "independent_process_witness",
+    "process_identity_and_epoch",
+    "post_close_verification"
+  ],
+  "prevention_grade": "NOT_CLAIMED",
+  "promotion_gate": "production_claims_must_say_detection_not_prevention_until_real_OS_isolation_is_proven",
+  "schema": "critical_apply.same_uid_threat_model.v1",
+  "status": "FROZEN_DETECT_ONLY_V1"
+}

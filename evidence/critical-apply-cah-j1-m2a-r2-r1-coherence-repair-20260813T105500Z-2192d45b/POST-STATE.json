@@ -1,0 +1,13 @@
+{
+  "M2B_started": false,
+  "git_stage_commit_push_index_config_ref_mutation": false,
+  "intended_new_paths": [
+    "design/critical-apply-supervisor-ingress-m2a-r2-exact-contract-repair-2026-08-13.md",
+    "evidence/critical-apply-cah-j1-m2a-r2-exact-contract-repair-20260813T103000Z-7c4e91b2"
+  ],
+  "pre_tracked_status_sha256": "e4a73ff6835f2550270b93717cd49ba5de8711d8f39b42d00cd15473ce47abff",
+  "schema": "critical_apply.m2a_r2.post_state.v1",
+  "tracked_repo_parity": true,
+  "tracked_status_returncode": 0,
+  "tracked_status_sha256": "e4a73ff6835f2550270b93717cd49ba5de8711d8f39b42d00cd15473ce47abff"
+}

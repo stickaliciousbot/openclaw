@@ -1,0 +1,7 @@
+{
+  "note": "all suites ran as bounded foreground subprocesses; disposable roots removed",
+  "owned_background_jobs_started": 0,
+  "owned_processes_remaining": 0,
+  "schema": "critical_apply.m2a_r2_r1.process_leak.v1",
+  "status": "PASS"
+}

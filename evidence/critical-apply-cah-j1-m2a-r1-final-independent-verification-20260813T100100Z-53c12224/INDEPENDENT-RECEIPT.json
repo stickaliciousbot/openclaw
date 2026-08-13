@@ -1,0 +1,16 @@
+{
+  "schema":"critical_apply.m2a_r1.final_independent_receipt.v1",
+  "terminal":"HOLD_M2A_R1_CONTRACT_REPAIR_ZERO_OPERATIONAL_EFFECT",
+  "blocking_count":3,
+  "blocker_ids":["M2A-R1-FINAL-B01-CANONICAL-CLOSEOUT-CONTRADICTS-M0-R3","M2A-R1-FINAL-B02-CRASH-PROOF-CONTENT-UNBOUND","M2A-R1-FINAL-B03-STRICT-SCHEMA-AND-CROSS-ARTIFACT-GATES-WEAK"],
+  "input_binding":"PASS",
+  "candidate_validator":"PASS",
+  "candidate_mutations":"55/55 rejected",
+  "candidate_adversarial_port":"26/26 rejected",
+  "fresh_independent_adversarial":"31/56 rejected; 25 unsafe accepted",
+  "privacy":"PASS",
+  "zero_effect":"PASS",
+  "M2B_started":false,
+  "M2B_authorized":false,
+  "verifier":"fresh independent subagent 53c12224-d379-4b69-ba1a-5905fd7fb6f4"
+}

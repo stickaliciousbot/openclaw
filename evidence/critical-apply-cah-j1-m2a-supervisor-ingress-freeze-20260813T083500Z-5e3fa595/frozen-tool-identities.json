@@ -1,0 +1,14 @@
+{
+  "schema": "critical_apply.m2a.frozen_tool_identities.v1",
+  "files": {
+    "bin/r6_bounded_privacy_scanner.py": {
+      "sha256": "ce38bf7811561c096bfe72ef12fc799712986d77ff86cb62b8e099eedc481115"
+    },
+    "validate_m2a_freeze.py": {
+      "sha256": "3fda41aa6c9ee5b771051cc9537727543c426331ce0cddc08b2979c79c184caf"
+    },
+    "test_validate_m2a_freeze.py": {
+      "sha256": "1acc6ab21437cddec0162a75114a49c587c03f099659ac07e37d97280ab5cb78"
+    }
+  }
+}

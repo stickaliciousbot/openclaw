@@ -1,0 +1,105 @@
+{
+  "canonical_preimage_record_event": true,
+  "direct_close_predecessor": "SCOPE_LEASE_RELEASE_RECORDED",
+  "schema": "critical_apply.closeout_crash_matrix_exhaustive.v1.r3",
+  "status": "FROZEN_FOR_M0_R3_B4_S1",
+  "vector_count": 12,
+  "vectors": [
+    {
+      "boundary": "before_preimage_coordinate_snapshot",
+      "id": "CLOSE-01",
+      "journal_append_after_close": false,
+      "recovery": "under lock snapshot direct next coordinates",
+      "semantic_result_rewritten": false,
+      "state": "release_event_is_current_head"
+    },
+    {
+      "boundary": "during_noncanonical_preimage_atomic_write",
+      "id": "CLOSE-02",
+      "journal_append_after_close": false,
+      "recovery": "discard invalid temp; reconstruct",
+      "semantic_result_rewritten": false,
+      "state": "journal_unchanged_temp_or_absent"
+    },
+    {
+      "boundary": "after_preimage_fdatasync_before_parent_fsync",
+      "id": "CLOSE-03",
+      "journal_append_after_close": false,
+      "recovery": "fsync parent reopen verify",
+      "semantic_result_rewritten": false,
+      "state": "journal_unchanged_preimage_durability_partial"
+    },
+    {
+      "boundary": "after_preimage_verified_before_head_reread",
+      "id": "CLOSE-04",
+      "journal_append_after_close": false,
+      "recovery": "reread current head under lock",
+      "semantic_result_rewritten": false,
+      "state": "journal_unchanged_expected"
+    },
+    {
+      "boundary": "head_reread_mismatch",
+      "id": "CLOSE-05",
+      "journal_append_after_close": false,
+      "recovery": "do not append; quarantine preimage and reconcile integrity/lifecycle",
+      "semantic_result_rewritten": false,
+      "state": "unexpected_open_head"
+    },
+    {
+      "boundary": "after_matching_head_reread_before_close_append",
+      "id": "CLOSE-06",
+      "journal_append_after_close": false,
+      "recovery": "append exact derived close event",
+      "semantic_result_rewritten": false,
+      "state": "direct_coordinates_verified"
+    },
+    {
+      "boundary": "during_SUPERVISOR_CLOSED_append",
+      "id": "CLOSE-07",
+      "journal_append_after_close": false,
+      "recovery": "recover journal tail; exact close absent append once; present verify",
+      "semantic_result_rewritten": false,
+      "state": "possible_partial_tail"
+    },
+    {
+      "boundary": "after_close_fdatasync_before_ACK",
+      "id": "CLOSE-08",
+      "journal_append_after_close": false,
+      "recovery": "reopen verify close then publish receipt no append",
+      "semantic_result_rewritten": false,
+      "state": "closed_no_final_receipt"
+    },
+    {
+      "boundary": "during_final_receipt_atomic_write",
+      "id": "CLOSE-09",
+      "journal_append_after_close": false,
+      "recovery": "discard invalid temp republish exact receipt",
+      "semantic_result_rewritten": false,
+      "state": "closed_temp_receipt"
+    },
+    {
+      "boundary": "after_receipt_publish_before_parent_fsync",
+      "id": "CLOSE-10",
+      "journal_append_after_close": false,
+      "recovery": "fsync parent reopen verify",
+      "semantic_result_rewritten": false,
+      "state": "closed_receipt_durability_unknown"
+    },
+    {
+      "boundary": "after_receipt_verify_before_lock_release",
+      "id": "CLOSE-11",
+      "journal_append_after_close": false,
+      "recovery": "release lock only",
+      "semantic_result_rewritten": false,
+      "state": "closed_complete_lock_held"
+    },
+    {
+      "boundary": "after_lock_release",
+      "id": "CLOSE-12",
+      "journal_append_after_close": false,
+      "recovery": "report closeout",
+      "semantic_result_rewritten": false,
+      "state": "closed_complete"
+    }
+  ]
+}

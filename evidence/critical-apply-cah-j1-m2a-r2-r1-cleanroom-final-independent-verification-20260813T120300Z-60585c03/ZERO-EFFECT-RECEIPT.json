@@ -1,0 +1,25 @@
+{
+  "archive_sha256_parity": true,
+  "extraction_read_only_parity": true,
+  "workspace_authority_inputs_parity": true,
+  "preserved_failed_verifier_evidence_parity": true,
+  "git_head_parity": true,
+  "git_tree_parity": true,
+  "git_index_parity": true,
+  "git_refs_parity": true,
+  "git_tracked_status_parity": true,
+  "process_leak_count": 0,
+  "writes_confined_to": [
+    "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m2a-r2-r1-cleanroom-final-independent-verification-20260813T120300Z-60585c03",
+    "/tmp/cah-j1-m2a-r2-r1-cleanroom-20260813T120300Z-60585c03"
+  ],
+  "outside_write_attempts": 0,
+  "provider_calls": 0,
+  "external_actions": 0,
+  "runtime_mutations": 0,
+  "production_mutations": 0,
+  "config_mutations": 0,
+  "source_mutations": 0,
+  "M2B_started": false,
+  "status": "PASS"
+}

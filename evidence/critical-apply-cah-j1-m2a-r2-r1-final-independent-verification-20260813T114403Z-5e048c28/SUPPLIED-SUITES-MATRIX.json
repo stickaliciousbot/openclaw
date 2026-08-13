@@ -1,0 +1,77 @@
+{
+  "runs": [
+    {
+      "command": [
+        "/usr/bin/python3.12",
+        "/tmp/cah-j1-final-verifier.yeoCMS/writable-tests/candidate-copy/validate_m2a_r2.py",
+        "/tmp/cah-j1-final-verifier.yeoCMS/writable-tests/candidate-copy",
+        "/home/stickai/.openclaw/workspace/design/critical-apply-supervisor-ingress-m2a-r2-r1-coherence-repair-2026-08-13.md"
+      ],
+      "duration_seconds": 0.084,
+      "id": "SUPPLIED-VALIDATOR",
+      "pass": true,
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/usr/bin/python3.12",
+        "/tmp/cah-j1-final-verifier.yeoCMS/writable-tests/candidate-copy/test_validate_m2a_r2.py"
+      ],
+      "duration_seconds": 4.486,
+      "id": "SUPPLIED-TEST-VALIDATE",
+      "pass": true,
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/usr/bin/python3.12",
+        "/tmp/cah-j1-final-verifier.yeoCMS/writable-tests/candidate-copy/independent_adversarial_r2.py"
+      ],
+      "duration_seconds": 0.946,
+      "id": "SUPPLIED-INDEPENDENT-ADVERSARIAL-R2",
+      "pass": true,
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/usr/bin/python3.12",
+        "/tmp/cah-j1-final-verifier.yeoCMS/writable-tests/candidate-copy/independent_adversarial_tests_r2.py"
+      ],
+      "duration_seconds": 2.896,
+      "id": "SUPPLIED-INDEPENDENT-TESTS-R2",
+      "pass": true,
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/usr/bin/python3.12",
+        "/tmp/cah-j1-final-verifier.yeoCMS/writable-tests/candidate-copy/independent_adversarial_tests_r1_exact_source.py"
+      ],
+      "duration_seconds": 1.271,
+      "id": "SUPPLIED-R1-EXACT-SOURCE",
+      "pass": false,
+      "returncode": 2
+    },
+    {
+      "command": [
+        "/usr/bin/python3.12",
+        "/tmp/cah-j1-final-verifier.yeoCMS/writable-tests/candidate-copy/combination_attacks_r2.py"
+      ],
+      "duration_seconds": 0.606,
+      "id": "SUPPLIED-COMBINATION",
+      "pass": true,
+      "returncode": 0
+    },
+    {
+      "command": [
+        "/usr/bin/python3.12",
+        "/tmp/cah-j1-final-verifier.yeoCMS/writable-tests/candidate-copy/semantic_proof_mutations_r2_r1.py"
+      ],
+      "duration_seconds": 3.373,
+      "id": "SUPPLIED-SEMANTIC-MUTATIONS",
+      "pass": true,
+      "returncode": 0
+    }
+  ],
+  "status": "HOLD"
+}

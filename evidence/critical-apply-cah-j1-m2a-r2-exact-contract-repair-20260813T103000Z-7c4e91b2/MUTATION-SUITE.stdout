@@ -1,0 +1,821 @@
+{
+  "status": "PASS",
+  "positive_fixture_count": 1,
+  "case_count": 55,
+  "rejected_count": 55,
+  "results": [
+    {
+      "id": "ORIG01_remove_owner",
+      "expected_error": "path_multiple_or_missing_writer",
+      "pass": true,
+      "errors": [
+        "exact_contract:PATH-OWNERSHIP-MATRIX.json",
+        "path_multiple_or_missing_writer",
+        "path_exact_ownership",
+        "path_runner_create",
+        "child_path_creation"
+      ]
+    },
+    {
+      "id": "ORIG02_allow_action_crash",
+      "expected_error": "crash_permissive",
+      "pass": true,
+      "errors": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution"
+      ]
+    },
+    {
+      "id": "ORIG03_reorder_authority",
+      "expected_error": "recovery_authority",
+      "pass": true,
+      "errors": [
+        "exact_contract:RECOVERY-AUTHORITY-ORDER.json",
+        "recovery_authority"
+      ]
+    },
+    {
+      "id": "ORIG04_weaken_N07",
+      "expected_error": "N07_exact_order",
+      "pass": true,
+      "errors": [
+        "exact_contract:CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+        "N07_exact_order",
+        "N04_exact_no_bypass",
+        "nonce_exact_identity_order",
+        "nonce_exact_semantics",
+        "nonce_exact_predicates",
+        "unknown_outcome_terminal",
+        "child_boundary",
+        "child_provider_authority",
+        "child_cross_artifact"
+      ]
+    },
+    {
+      "id": "ORIG05_weaken_N04",
+      "expected_error": "N04_exact_no_bypass",
+      "pass": true,
+      "errors": [
+        "exact_contract:CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+        "N07_exact_order",
+        "N04_exact_no_bypass",
+        "nonce_exact_identity_order",
+        "nonce_exact_semantics",
+        "nonce_exact_predicates",
+        "unknown_outcome_terminal",
+        "child_boundary",
+        "child_provider_authority",
+        "child_cross_artifact"
+      ]
+    },
+    {
+      "id": "ORIG06_progress_authoritative",
+      "expected_error": "recovery_authority",
+      "pass": true,
+      "errors": [
+        "exact_contract:RECOVERY-AUTHORITY-ORDER.json",
+        "recovery_authority"
+      ]
+    },
+    {
+      "id": "ORIG07_omit_20_contention",
+      "expected_error": "contention_thresholds",
+      "pass": true,
+      "errors": [
+        "exact_contract:CONCURRENCY-FENCING-VECTORS.json",
+        "contention_thresholds",
+        "concurrency_global",
+        "overlap_exclusion",
+        "disjoint_scope",
+        "stale_epoch_fence_rejection"
+      ]
+    },
+    {
+      "id": "ORIG08_runner_mkdir_nonce",
+      "expected_error": "path_runner_create",
+      "pass": true,
+      "errors": [
+        "exact_contract:PATH-OWNERSHIP-MATRIX.json",
+        "path_multiple_or_missing_writer",
+        "path_exact_ownership",
+        "path_runner_create",
+        "child_path_creation"
+      ]
+    },
+    {
+      "id": "ORIG09_runtime_authority",
+      "expected_error": "component_authority",
+      "pass": true,
+      "errors": [
+        "exact_contract:COMPONENT-TRUST-BOUNDARIES.json",
+        "component_authority",
+        "nonsemantic_component_authority",
+        "component_exact_roles"
+      ]
+    },
+    {
+      "id": "ORIG10_drop_crash_vectors",
+      "expected_error": "crash_count",
+      "pass": true,
+      "errors": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution"
+      ]
+    },
+    {
+      "id": "ORIG11_duplicate_vector_id",
+      "expected_error": "ack_vector_ids",
+      "pass": true,
+      "errors": [
+        "exact_contract:ACK-REPLAY-VECTORS.json",
+        "ack_vector_ids",
+        "ack_vector_content",
+        "child_cross_artifact"
+      ]
+    },
+    {
+      "id": "ORIG12_missing_design_xref",
+      "expected_error": "design_xref:ACK-REPLAY-VECTORS.json",
+      "pass": true,
+      "errors": [
+        "design_contract_digest",
+        "design_xref:ACK-REPLAY-VECTORS.json"
+      ]
+    },
+    {
+      "id": "B01_intervening_canonical_event",
+      "expected_error": "canonical_exact_chain",
+      "pass": true,
+      "errors": [
+        "exact_contract:SUPERVISOR-STATE-MACHINE.json",
+        "canonical_exact_chain",
+        "canonical_projection",
+        "canonical_adjacency",
+        "canonical_close_adjacency",
+        "preimage_promoted_canonical",
+        "artifact_preparation_binding",
+        "action_semantics",
+        "action_gate",
+        "provider_call_gate",
+        "provider_call_semantics",
+        "state_authority",
+        "lifecycle_noncanonical"
+      ]
+    },
+    {
+      "id": "B01_wrong_close_from",
+      "expected_error": "canonical_adjacency",
+      "pass": true,
+      "errors": [
+        "exact_contract:SUPERVISOR-STATE-MACHINE.json",
+        "canonical_exact_chain",
+        "canonical_projection",
+        "canonical_adjacency",
+        "canonical_close_adjacency",
+        "preimage_promoted_canonical",
+        "artifact_preparation_binding",
+        "action_semantics",
+        "action_gate",
+        "provider_call_gate",
+        "provider_call_semantics",
+        "state_authority",
+        "lifecycle_noncanonical"
+      ]
+    },
+    {
+      "id": "B01_promote_preimage_state",
+      "expected_error": "preimage_promoted_canonical",
+      "pass": true,
+      "errors": [
+        "exact_contract:SUPERVISOR-STATE-MACHINE.json",
+        "canonical_exact_chain",
+        "canonical_projection",
+        "canonical_adjacency",
+        "canonical_close_adjacency",
+        "preimage_promoted_canonical",
+        "artifact_preparation_binding",
+        "action_semantics",
+        "action_gate",
+        "provider_call_gate",
+        "provider_call_semantics",
+        "state_authority",
+        "lifecycle_noncanonical"
+      ]
+    },
+    {
+      "id": "B01_artifact_wrong_head",
+      "expected_error": "artifact_preparation_binding",
+      "pass": true,
+      "errors": [
+        "exact_contract:SUPERVISOR-STATE-MACHINE.json",
+        "canonical_exact_chain",
+        "canonical_projection",
+        "canonical_adjacency",
+        "canonical_close_adjacency",
+        "preimage_promoted_canonical",
+        "artifact_preparation_binding",
+        "action_semantics",
+        "action_gate",
+        "provider_call_gate",
+        "provider_call_semantics",
+        "state_authority",
+        "lifecycle_noncanonical",
+        "lifecycle_cross_artifact"
+      ]
+    },
+    {
+      "id": "B02_N07_optional",
+      "expected_error": "N07_exact_order",
+      "pass": true,
+      "errors": [
+        "exact_contract:CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+        "N07_exact_order",
+        "N04_exact_no_bypass",
+        "nonce_exact_identity_order",
+        "nonce_exact_semantics",
+        "nonce_exact_predicates",
+        "unknown_outcome_terminal",
+        "child_boundary",
+        "child_provider_authority",
+        "child_cross_artifact"
+      ]
+    },
+    {
+      "id": "B02_N07_skip_CAS",
+      "expected_error": "N07_exact_order",
+      "pass": true,
+      "errors": [
+        "exact_contract:CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+        "N07_exact_order",
+        "N04_exact_no_bypass",
+        "nonce_exact_identity_order",
+        "nonce_exact_semantics",
+        "nonce_exact_predicates",
+        "unknown_outcome_terminal",
+        "child_boundary",
+        "child_provider_authority",
+        "child_cross_artifact"
+      ]
+    },
+    {
+      "id": "B02_N07_fake_CAS",
+      "expected_error": "N07_exact_order",
+      "pass": true,
+      "errors": [
+        "exact_contract:CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+        "N07_exact_order",
+        "N04_exact_no_bypass",
+        "nonce_exact_identity_order",
+        "nonce_exact_semantics",
+        "nonce_exact_predicates",
+        "unknown_outcome_terminal",
+        "child_boundary",
+        "child_provider_authority",
+        "child_cross_artifact"
+      ]
+    },
+    {
+      "id": "B02_N07_bind_early",
+      "expected_error": "N07_exact_order",
+      "pass": true,
+      "errors": [
+        "exact_contract:CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+        "N07_exact_order",
+        "N04_exact_no_bypass",
+        "nonce_exact_identity_order",
+        "nonce_exact_semantics",
+        "nonce_exact_predicates",
+        "unknown_outcome_terminal",
+        "child_boundary",
+        "child_provider_authority",
+        "child_cross_artifact"
+      ]
+    },
+    {
+      "id": "B03_provider_true",
+      "expected_error": "provider_call_gate",
+      "pass": true,
+      "errors": [
+        "exact_contract:SUPERVISOR-STATE-MACHINE.json",
+        "canonical_exact_chain",
+        "canonical_projection",
+        "canonical_adjacency",
+        "canonical_close_adjacency",
+        "preimage_promoted_canonical",
+        "artifact_preparation_binding",
+        "action_semantics",
+        "action_gate",
+        "provider_call_gate",
+        "provider_call_semantics",
+        "state_authority",
+        "lifecycle_noncanonical"
+      ]
+    },
+    {
+      "id": "B03_call_alias_true",
+      "expected_error": "provider_call_gate",
+      "pass": true,
+      "errors": [
+        "exact_contract:SUPERVISOR-STATE-MACHINE.json",
+        "canonical_exact_chain",
+        "canonical_projection",
+        "canonical_adjacency",
+        "canonical_close_adjacency",
+        "preimage_promoted_canonical",
+        "artifact_preparation_binding",
+        "action_semantics",
+        "action_gate",
+        "provider_call_gate",
+        "provider_call_semantics",
+        "state_authority",
+        "lifecycle_noncanonical"
+      ]
+    },
+    {
+      "id": "B03_action_prescope",
+      "expected_error": "action_gate",
+      "pass": true,
+      "errors": [
+        "exact_contract:SUPERVISOR-STATE-MACHINE.json",
+        "canonical_exact_chain",
+        "canonical_projection",
+        "canonical_adjacency",
+        "canonical_close_adjacency",
+        "preimage_promoted_canonical",
+        "artifact_preparation_binding",
+        "action_semantics",
+        "action_gate",
+        "provider_call_gate",
+        "provider_call_semantics",
+        "state_authority",
+        "lifecycle_noncanonical"
+      ]
+    },
+    {
+      "id": "B03_action_before_launch_barrier",
+      "expected_error": "action_gate",
+      "pass": true,
+      "errors": [
+        "exact_contract:SUPERVISOR-STATE-MACHINE.json",
+        "canonical_exact_chain",
+        "canonical_projection",
+        "canonical_adjacency",
+        "canonical_close_adjacency",
+        "preimage_promoted_canonical",
+        "artifact_preparation_binding",
+        "action_semantics",
+        "action_gate",
+        "provider_call_gate",
+        "provider_call_semantics",
+        "state_authority",
+        "lifecycle_noncanonical"
+      ]
+    },
+    {
+      "id": "B03_action_after_execution",
+      "expected_error": "action_gate",
+      "pass": true,
+      "errors": [
+        "exact_contract:SUPERVISOR-STATE-MACHINE.json",
+        "canonical_exact_chain",
+        "canonical_projection",
+        "canonical_adjacency",
+        "canonical_close_adjacency",
+        "preimage_promoted_canonical",
+        "artifact_preparation_binding",
+        "action_semantics",
+        "action_gate",
+        "provider_call_gate",
+        "provider_call_semantics",
+        "state_authority",
+        "lifecycle_noncanonical"
+      ]
+    },
+    {
+      "id": "B03_child_provider_authority",
+      "expected_error": "child_provider_authority",
+      "pass": true,
+      "errors": [
+        "exact_contract:CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+        "N07_exact_order",
+        "N04_exact_no_bypass",
+        "nonce_exact_identity_order",
+        "nonce_exact_semantics",
+        "nonce_exact_predicates",
+        "unknown_outcome_terminal",
+        "child_boundary",
+        "child_provider_authority",
+        "child_cross_artifact"
+      ]
+    },
+    {
+      "id": "B04_suffix",
+      "expected_error": "nonce_exact_identity_order",
+      "pass": true,
+      "errors": [
+        "exact_contract:CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+        "N07_exact_order",
+        "N04_exact_no_bypass",
+        "nonce_exact_identity_order",
+        "nonce_exact_semantics",
+        "nonce_exact_predicates",
+        "unknown_outcome_terminal",
+        "child_boundary",
+        "child_provider_authority",
+        "child_cross_artifact"
+      ]
+    },
+    {
+      "id": "B04_semantic_action",
+      "expected_error": "nonce_exact_semantics",
+      "pass": true,
+      "errors": [
+        "exact_contract:CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+        "N07_exact_order",
+        "N04_exact_no_bypass",
+        "nonce_exact_identity_order",
+        "nonce_exact_semantics",
+        "nonce_exact_predicates",
+        "unknown_outcome_terminal",
+        "child_boundary",
+        "child_provider_authority",
+        "child_cross_artifact"
+      ]
+    },
+    {
+      "id": "B04_order",
+      "expected_error": "nonce_exact_identity_order",
+      "pass": true,
+      "errors": [
+        "exact_contract:CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+        "N07_exact_order",
+        "N04_exact_no_bypass",
+        "nonce_exact_identity_order",
+        "nonce_exact_semantics",
+        "nonce_exact_predicates",
+        "unknown_outcome_terminal",
+        "child_boundary",
+        "child_provider_authority",
+        "child_cross_artifact"
+      ]
+    },
+    {
+      "id": "B04_duplicate",
+      "expected_error": "nonce_exact_identity_order",
+      "pass": true,
+      "errors": [
+        "exact_contract:CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+        "N07_exact_order",
+        "N04_exact_no_bypass",
+        "nonce_exact_identity_order",
+        "nonce_exact_semantics",
+        "nonce_exact_predicates",
+        "unknown_outcome_terminal",
+        "child_boundary",
+        "child_provider_authority",
+        "child_cross_artifact"
+      ]
+    },
+    {
+      "id": "B04_missing",
+      "expected_error": "nonce_exact_identity_order",
+      "pass": true,
+      "errors": [
+        "exact_contract:CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+        "N07_exact_order",
+        "N04_exact_no_bypass",
+        "nonce_exact_identity_order",
+        "nonce_exact_semantics",
+        "nonce_exact_predicates",
+        "unknown_outcome_terminal",
+        "child_boundary",
+        "child_provider_authority",
+        "child_cross_artifact"
+      ]
+    },
+    {
+      "id": "B04_predicate_removed",
+      "expected_error": "nonce_exact_predicates",
+      "pass": true,
+      "errors": [
+        "exact_contract:CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+        "N07_exact_order",
+        "N04_exact_no_bypass",
+        "nonce_exact_identity_order",
+        "nonce_exact_semantics",
+        "nonce_exact_predicates",
+        "unknown_outcome_terminal",
+        "child_boundary",
+        "child_provider_authority",
+        "child_cross_artifact"
+      ]
+    },
+    {
+      "id": "B05_missing_side",
+      "expected_error": "crash_count",
+      "pass": true,
+      "errors": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution"
+      ]
+    },
+    {
+      "id": "B05_duplicate_side",
+      "expected_error": "crash_exact_sides",
+      "pass": true,
+      "errors": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution"
+      ]
+    },
+    {
+      "id": "B05_wrong_observed",
+      "expected_error": "crash_transition_binding",
+      "pass": true,
+      "errors": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution"
+      ]
+    },
+    {
+      "id": "B05_generic_proof",
+      "expected_error": "crash_transition_binding",
+      "pass": true,
+      "errors": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution"
+      ]
+    },
+    {
+      "id": "B05_wrong_transition_binding",
+      "expected_error": "crash_exact_sides",
+      "pass": true,
+      "errors": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution"
+      ]
+    },
+    {
+      "id": "B05_provider_permissive",
+      "expected_error": "crash_permissive",
+      "pass": true,
+      "errors": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution"
+      ]
+    },
+    {
+      "id": "B05_artifact_count",
+      "expected_error": "artifact_crash_vectors",
+      "pass": true,
+      "errors": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution"
+      ]
+    },
+    {
+      "id": "B05_artifact_promoted",
+      "expected_error": "artifact_crash_vectors",
+      "pass": true,
+      "errors": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution"
+      ]
+    },
+    {
+      "id": "B06_overlap_dual_active",
+      "expected_error": "overlap_exclusion",
+      "pass": true,
+      "errors": [
+        "exact_contract:CONCURRENCY-FENCING-VECTORS.json",
+        "contention_thresholds",
+        "concurrency_global",
+        "overlap_exclusion",
+        "disjoint_scope",
+        "stale_epoch_fence_rejection"
+      ]
+    },
+    {
+      "id": "B06_stale_epoch_accept",
+      "expected_error": "stale_epoch_fence_rejection",
+      "pass": true,
+      "errors": [
+        "exact_contract:CONCURRENCY-FENCING-VECTORS.json",
+        "contention_thresholds",
+        "concurrency_global",
+        "overlap_exclusion",
+        "disjoint_scope",
+        "stale_epoch_fence_rejection"
+      ]
+    },
+    {
+      "id": "B06_child_create",
+      "expected_error": "child_path_creation",
+      "pass": true,
+      "errors": [
+        "exact_contract:PATH-OWNERSHIP-MATRIX.json",
+        "path_multiple_or_missing_writer",
+        "path_exact_ownership",
+        "path_runner_create",
+        "child_path_creation"
+      ]
+    },
+    {
+      "id": "B06_ack_early",
+      "expected_error": "ack_order_replay",
+      "pass": true,
+      "errors": [
+        "exact_contract:INGRESS-IDEMPOTENCY-CONTRACT.json",
+        "ack_order_replay",
+        "child_cross_artifact"
+      ]
+    },
+    {
+      "id": "B06_replay_execute",
+      "expected_error": "ack_order_replay",
+      "pass": true,
+      "errors": [
+        "exact_contract:INGRESS-IDEMPOTENCY-CONTRACT.json",
+        "ack_order_replay",
+        "child_cross_artifact"
+      ]
+    },
+    {
+      "id": "B06_N04_bypass",
+      "expected_error": "N04_exact_no_bypass",
+      "pass": true,
+      "errors": [
+        "exact_contract:CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+        "N07_exact_order",
+        "N04_exact_no_bypass",
+        "nonce_exact_identity_order",
+        "nonce_exact_semantics",
+        "nonce_exact_predicates",
+        "unknown_outcome_terminal",
+        "child_boundary",
+        "child_provider_authority",
+        "child_cross_artifact"
+      ]
+    },
+    {
+      "id": "B06_notification_authority",
+      "expected_error": "recovery_authority",
+      "pass": true,
+      "errors": [
+        "exact_contract:RECOVERY-AUTHORITY-ORDER.json",
+        "recovery_authority"
+      ]
+    },
+    {
+      "id": "B06_witness_authority",
+      "expected_error": "component_authority",
+      "pass": true,
+      "errors": [
+        "exact_contract:COMPONENT-TRUST-BOUNDARIES.json",
+        "component_authority",
+        "nonsemantic_component_authority",
+        "component_exact_roles"
+      ]
+    },
+    {
+      "id": "B06_unknown_retry",
+      "expected_error": "unknown_outcome_terminal",
+      "pass": true,
+      "errors": [
+        "exact_contract:CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+        "N07_exact_order",
+        "N04_exact_no_bypass",
+        "nonce_exact_identity_order",
+        "nonce_exact_semantics",
+        "nonce_exact_predicates",
+        "unknown_outcome_terminal",
+        "child_boundary",
+        "child_provider_authority",
+        "child_cross_artifact"
+      ]
+    },
+    {
+      "id": "B06_ingress_unknown",
+      "expected_error": "ingress_strict",
+      "pass": true,
+      "errors": [
+        "exact_contract:INGRESS-ENVELOPE-CONTRACT.json",
+        "ingress_strict",
+        "ingress_schema"
+      ]
+    },
+    {
+      "id": "B06_ingress_path",
+      "expected_error": "ingress_strict",
+      "pass": true,
+      "errors": [
+        "exact_contract:INGRESS-ENVELOPE-CONTRACT.json",
+        "ingress_strict",
+        "ingress_schema"
+      ]
+    },
+    {
+      "id": "B06_multiple_writer",
+      "expected_error": "path_multiple_or_missing_writer",
+      "pass": true,
+      "errors": [
+        "exact_contract:PATH-OWNERSHIP-MATRIX.json",
+        "path_multiple_or_missing_writer",
+        "path_exact_ownership",
+        "path_runner_create",
+        "child_path_creation"
+      ]
+    },
+    {
+      "id": "B06_meaningless_ack",
+      "expected_error": "ack_vector_content",
+      "pass": true,
+      "errors": [
+        "exact_contract:ACK-REPLAY-VECTORS.json",
+        "ack_vector_ids",
+        "ack_vector_content",
+        "child_cross_artifact"
+      ]
+    },
+    {
+      "id": "B06_shadow_authority",
+      "expected_error": "zero_effect_boundary",
+      "pass": true,
+      "errors": [
+        "exact_contract:ZERO-EFFECT-CONTRACT.json",
+        "zero_effect_boundary"
+      ]
+    },
+    {
+      "id": "B06_runtime_authority",
+      "expected_error": "component_authority",
+      "pass": true,
+      "errors": [
+        "exact_contract:COMPONENT-TRUST-BOUNDARIES.json",
+        "component_authority",
+        "nonsemantic_component_authority",
+        "component_exact_roles"
+      ]
+    }
+  ]
+}

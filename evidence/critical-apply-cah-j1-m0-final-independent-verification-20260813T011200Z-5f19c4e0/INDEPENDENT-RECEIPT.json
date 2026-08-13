@@ -1,0 +1,59 @@
+{
+  "schema": "critical_apply.cah_j1_m0_final_independent_verification_receipt.v1",
+  "verified_at_utc": "2026-08-13T01:20:11Z",
+  "verifier_session": "5f19c4e0-a8e7-4f37-8b5c-0f05e285e484",
+  "candidate_root": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-integrated-contract-freeze-20260813T011000Z-c4f87a2e",
+  "verifier_root": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-final-independent-verification-20260813T011200Z-5f19c4e0",
+  "identity": {
+    "manifest_sha256": "b7744bd4ea0990b8833613cda6a34576427d894a4d66e2bfef4f11bc5967d71f",
+    "privacy_receipt_sha256": "be4fcd21026bb74f6fbf04f31f6c7a3904d12b942b532ec17f39882a5acedd49",
+    "owner_revision_sha256": "6d80167ba92e1a68c9d17d6027135b289f88c6b9f3d6fd9e24ea86aedab459af",
+    "m0_adjudication_sha256": "1d2853fba832ebc243423c3c2dac00def80c3c2b56d892ee8c83aeff96c34427",
+    "all_exact": true
+  },
+  "inventory": {
+    "manifest_listed_artifacts": 24,
+    "hash_mismatches": 0,
+    "size_mismatches": 0,
+    "json_files_parsed": 22,
+    "json_parse_failures": 0
+  },
+  "requirements_review": {
+    "B1": "PASS",
+    "B2": "HOLD_CRASH_MATRIX_INCOMPLETE",
+    "B3": "HOLD_POST_FREEZE_ALLOWLIST_CONTRADICTION",
+    "B4": "HOLD_CLOSEOUT_HEAD_RECEIPT_ORDER_UNDERSPECIFIED",
+    "B5": "PASS",
+    "B6": "HOLD_CRASH_MATRIX_INCOMPLETE",
+    "S1": "HOLD_INTERNAL_CLOSEOUT_AND_ALLOWLIST_CONTRADICTIONS",
+    "S2": "PASS",
+    "S3": "PASS",
+    "S4": "PASS",
+    "sole_semantic_authority": "PASS",
+    "authority_witness_progress_partitions": "PASS",
+    "unknown_consumed_no_retry": "PASS",
+    "three_heads_named": "PASS_NAMING_BUT_B4_BINDING_HOLD",
+    "journal_derived_idempotency": "PASS",
+    "descriptor_bound_CAS": "PASS_CORE_CONTRACT_BUT_FIXTURE_HOLD",
+    "same_uid_detect_only": "PASS",
+    "immutable_semantic_path_registration": "PASS",
+    "nonce_ledger_single_creator_runner_never_creates": "PASS",
+    "semantic_terminal_outranks_stale_projections": "PASS",
+    "privacy_receipt": "PASS",
+    "zero_effect_claims": "PASS"
+  },
+  "candidate_validator": {
+    "stdout": "{\"errors\": [], \"required_files\": 16, \"status\": \"PASS\"}\n",
+    "exit_code": 0,
+    "result": "PASS",
+    "scope_note": "Construction validator does not test the independent blocking defects."
+  },
+  "blocking_findings": [
+    "BLOCK-01-POST-FREEZE-SEMANTIC-ALLOWLIST-CONTRADICTION",
+    "BLOCK-02-CLOSEOUT-HEAD-RECEIPT-ORDER-UNDER-SPECIFIED",
+    "BLOCK-03-REQUIRED-CRASH-MATRICES-NOT-EXHAUSTIVE"
+  ],
+  "blocking_count": 3,
+  "status": "HOLD_CAH_J1_M0_FINAL_INDEPENDENT_VERIFICATION",
+  "terminal": "HOLD_CAH_J1_M0_FOR_POST_FREEZE_VOCABULARY_CLOSEOUT_HEAD_PUBLICATION_AND_EXHAUSTIVE_CRASH_MATRIX_CORRECTIONS_NO_PRODUCTION_EFFECT"
+}

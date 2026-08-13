@@ -1,0 +1,8 @@
+{
+  "N04_order_mutation_rejected": true,
+  "N07_order_mutation_rejected": true,
+  "base_pass": true,
+  "exit_code": 0,
+  "stderr": "",
+  "stdout": "{\"N04_vectors\": 10, \"N07_vectors\": 12, \"closeout_fixture\": \"PASS_ONE_PASS_NONCIRCULAR\", \"errors\": [], \"nonce_vectors\": 87, \"required_files\": 21, \"status\": \"PASS\"}\n"
+}

@@ -1,0 +1,10 @@
+{
+  "archive_mode": "444",
+  "archive_mode_pass": true,
+  "archive_sha256": "6b5039bd200d99b73f818fb67010d62aa48112cb49b2d271332a440e156e08d0",
+  "archive_sha256_pass": true,
+  "archived_design_sha256": "beff45918a752a08c9393bc9c0b4c2a38863d98838e968a9adb9bd2e5323982e",
+  "design_expected_pass": true,
+  "live_archived_design_parity": true,
+  "live_design_sha256": "beff45918a752a08c9393bc9c0b4c2a38863d98838e968a9adb9bd2e5323982e"
+}

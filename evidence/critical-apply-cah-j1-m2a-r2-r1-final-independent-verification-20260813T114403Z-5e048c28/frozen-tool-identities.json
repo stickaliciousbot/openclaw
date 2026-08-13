@@ -1,0 +1,8 @@
+{
+  "files": {
+    "bin/r6_bounded_privacy_scanner.py": {
+      "sha256": "ce38bf7811561c096bfe72ef12fc799712986d77ff86cb62b8e099eedc481115"
+    }
+  },
+  "schema": "critical_apply.m2a_r2.frozen_tool_identities.v1"
+}

@@ -1,0 +1,8 @@
+{
+  "status": "HOLD",
+  "case_count": 56,
+  "rejected_count": 31,
+  "unsafe_accepted_count": 25,
+  "direct_check_count": 9,
+  "direct_failure_count": 6
+}

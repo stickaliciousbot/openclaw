@@ -1,0 +1,408 @@
+{
+  "schema": "critical_apply.authority_crash_vectors.v1",
+  "status": "FROZEN_MANDATORY_FIXTURES",
+  "coverage": [
+    "B1_scope_reserve_journal_activate",
+    "B1_scope_release_intent_journal_release",
+    "B2_nonce_reservation_call_start_outcome_retirement",
+    "S4_SQLite_WAL_FULL_backup_recovery"
+  ],
+  "global_oracles": {
+    "semantic_authority": "canonical_journal_only",
+    "authoritydb_scope": "cross_transaction_only",
+    "allowed_recovery_results": [
+      "valid_committed_prefix",
+      "idempotent_recovered_transition",
+      "quarantined_uncommitted_or_ambiguous_transition",
+      "explicit_integrity_HOLD"
+    ],
+    "forbidden_results": [
+      "protected_action_without_exact_two_store_barrier",
+      "silent_duplicate_call_or_mutation",
+      "automatic_retry_after_ambiguous_call",
+      "orphan_pending_row_silently_active",
+      "ACTIVE_row_without_bound_acquisition_event_authorizes_action",
+      "released_or_release_intent_token_authorizes_action",
+      "SQLite_error_grants_authority",
+      "false_PASS"
+    ]
+  },
+  "vectors": [
+    {
+      "id": "B1-L01",
+      "phase": "epoch_before_row",
+      "kill_or_fault": "attempt_scope_row_before_SUPERVISOR_STARTED_or_SUPERVISOR_RECOVERED_commit",
+      "journal": "no_current_epoch_event",
+      "authoritydb": "no_row",
+      "expected": "REJECT_MUTATION_EPOCH_NOT_PROVEN",
+      "action_allowed": false
+    },
+    {
+      "id": "B1-L02",
+      "phase": "reserve",
+      "kill_or_fault": "kill_before_BEGIN_IMMEDIATE_commit",
+      "journal": "no_reservation_event",
+      "authoritydb": "no_committed_row",
+      "expected": "NOT_RESERVED_SAFE_TO_START_NEW_RESERVATION_WITH_NEW_TOKEN_IF_POLICY_VALID",
+      "action_allowed": false
+    },
+    {
+      "id": "B1-L03",
+      "phase": "reserve",
+      "kill_or_fault": "kill_after_reservation_COMMIT_before_journal_append",
+      "journal": "no_reservation_event",
+      "authoritydb": "RESERVED_PENDING_JOURNAL",
+      "expected": "ORPHAN_PENDING_BIND_EXACT_RECEIPT_OR_RELEASE_AND_HOLD",
+      "action_allowed": false
+    },
+    {
+      "id": "B1-L04",
+      "phase": "reservation_journal",
+      "kill_or_fault": "kill_during_partial_journal_line",
+      "journal": "torn_unacknowledged_tail",
+      "authoritydb": "RESERVED_PENDING_JOURNAL",
+      "expected": "QUARANTINE_TORN_TAIL_REAPPEND_SAME_EVENT_ID_AND_RECEIPT_ONLY_AFTER_PREFIX_RECOVERY",
+      "action_allowed": false
+    },
+    {
+      "id": "B1-L05",
+      "phase": "reservation_journal",
+      "kill_or_fault": "kill_after_journal_fdatasync_before_ACK",
+      "journal": "SCOPE_LEASE_RESERVATION_COMMITTED_present",
+      "authoritydb": "RESERVED_PENDING_JOURNAL",
+      "expected": "RETURN_OR_RECONSTRUCT_ORIGINAL_ACK_THEN_BIND_DB_IDEMPOTENTLY",
+      "action_allowed": false
+    },
+    {
+      "id": "B1-L06",
+      "phase": "journal_bind",
+      "kill_or_fault": "kill_after_reservation_event_ACK_before_DB_bind",
+      "journal": "reservation_event_present",
+      "authoritydb": "RESERVED_PENDING_JOURNAL",
+      "expected": "TRANSITION_TO_JOURNAL_COMMITTED_USING_EXACT_EVENT",
+      "action_allowed": false
+    },
+    {
+      "id": "B1-L07",
+      "phase": "activate",
+      "kill_or_fault": "kill_after_JOURNAL_COMMITTED_receipt_before_ACTIVE_receipt",
+      "journal": "reservation_event_present_no_acquisition_event",
+      "authoritydb": "JOURNAL_COMMITTED",
+      "expected": "ACTIVATE_ONLY_AFTER_EXACT_REVERIFY_OR_RELEASE_HOLD",
+      "action_allowed": false
+    },
+    {
+      "id": "B1-L08",
+      "phase": "activate",
+      "kill_or_fault": "kill_after_ACTIVE_COMMIT_before_SCOPE_LEASE_ACQUIRED_append",
+      "journal": "reservation_event_present_no_acquisition_event",
+      "authoritydb": "ACTIVE",
+      "expected": "ACTIVE_UNACKNOWLEDGED_COMMIT_EXACT_ACQUISITION_EVENT_OR_RELEASE_HOLD",
+      "action_allowed": false
+    },
+    {
+      "id": "B1-L09",
+      "phase": "acquisition_journal",
+      "kill_or_fault": "kill_after_SCOPE_LEASE_ACQUIRED_fdatasync_before_ACK",
+      "journal": "acquisition_event_present",
+      "authoritydb": "ACTIVE_exact_receipt",
+      "expected": "RECOVER_ORIGINAL_ACK_ACTIVE_PROVEN",
+      "action_allowed_after_recovery_verification": true
+    },
+    {
+      "id": "B1-L10",
+      "phase": "acquisition_integrity",
+      "kill_or_fault": "none_row_missing_or_receipt_mismatch",
+      "journal": "acquisition_event_present",
+      "authoritydb": "absent_or_mismatched",
+      "expected": "AUTHORITY_INTEGRITY_HOLD_NO_RECONSTRUCTION_FROM_JOURNAL_ALONE",
+      "action_allowed": false
+    },
+    {
+      "id": "B1-L11",
+      "phase": "fencing",
+      "kill_or_fault": "stale_supervisor_attempts_action_after_newer_token_allocated",
+      "journal": "old_valid_acquisition_event",
+      "authoritydb": "newer_fencing_token_current",
+      "expected": "REJECT_STALE_FENCE",
+      "action_allowed": false
+    },
+    {
+      "id": "B1-R01",
+      "phase": "release_intent",
+      "kill_or_fault": "kill_before_release_intent_journal_commit",
+      "journal": "no_release_intent",
+      "authoritydb": "ACTIVE",
+      "expected": "LEASE_REMAINS_ACTIVE_IF_ALL_NORMAL_GATES_VERIFY",
+      "action_allowed_after_recovery_verification": true
+    },
+    {
+      "id": "B1-R02",
+      "phase": "release_intent",
+      "kill_or_fault": "kill_after_release_intent_fdatasync_before_ACK",
+      "journal": "SCOPE_LEASE_RELEASE_INTENT_present",
+      "authoritydb": "ACTIVE",
+      "expected": "PROTECTED_GATE_CLOSED_COMPLETE_DB_RELEASE",
+      "action_allowed": false
+    },
+    {
+      "id": "B1-R03",
+      "phase": "release_db",
+      "kill_or_fault": "kill_after_release_intent_ACK_before_RELEASE_PENDING_commit",
+      "journal": "release_intent_present",
+      "authoritydb": "ACTIVE",
+      "expected": "TRANSITION_TO_RELEASE_PENDING_NO_ACTION",
+      "action_allowed": false
+    },
+    {
+      "id": "B1-R04",
+      "phase": "release_db",
+      "kill_or_fault": "kill_after_RELEASE_PENDING_commit_before_RELEASED_commit",
+      "journal": "release_intent_present",
+      "authoritydb": "RELEASE_PENDING",
+      "expected": "COMPLETE_RELEASE_IDEMPOTENTLY",
+      "action_allowed": false
+    },
+    {
+      "id": "B1-R05",
+      "phase": "release_db",
+      "kill_or_fault": "kill_after_RELEASED_commit_before_release_recorded_event",
+      "journal": "release_intent_present_no_release_recorded",
+      "authoritydb": "RELEASED",
+      "expected": "COMMIT_EXACT_SCOPE_LEASE_RELEASE_RECORDED",
+      "action_allowed": false
+    },
+    {
+      "id": "B1-R06",
+      "phase": "release_record_journal",
+      "kill_or_fault": "kill_after_release_record_fdatasync_before_ACK",
+      "journal": "release_recorded_present",
+      "authoritydb": "RELEASED_exact_receipt",
+      "expected": "RECOVER_ORIGINAL_ACK_CLEAN_RELEASE_PROVEN",
+      "action_allowed": false
+    },
+    {
+      "id": "B1-R07",
+      "phase": "release_integrity",
+      "kill_or_fault": "release_recorded_event_present_but_row_missing_or_not_released",
+      "journal": "release_recorded_present",
+      "authoritydb": "absent_or_nonreleased_or_mismatched",
+      "expected": "AUTHORITY_INTEGRITY_HOLD_NO_SCOPE_REUSE",
+      "action_allowed": false
+    },
+    {
+      "id": "B1-R08",
+      "phase": "release_order",
+      "kill_or_fault": "AuthorityDB_RELEASE_PENDING_or_RELEASED_without_release_intent_event",
+      "journal": "no_release_intent",
+      "authoritydb": "RELEASE_PENDING_or_RELEASED",
+      "expected": "DB_AHEAD_OF_JOURNAL_INTEGRITY_HOLD_NEVER_REACTIVATE",
+      "action_allowed": false
+    },
+    {
+      "id": "B2-N01",
+      "phase": "nonce_reserve",
+      "kill_or_fault": "kill_before_nonce_reservation_COMMIT",
+      "journal": "no_nonce_event",
+      "authoritydb": "no_nonce_row",
+      "expected": "NO_CALL_NEW_RESERVATION_POSSIBLE_ONLY_IF_AUTHORITY_STILL_VALID",
+      "call_allowed": false
+    },
+    {
+      "id": "B2-N02",
+      "phase": "nonce_reserve",
+      "kill_or_fault": "kill_after_nonce_reservation_COMMIT_before_journal",
+      "journal": "no_reservation_event",
+      "authoritydb": "RESERVED_PENDING_JOURNAL",
+      "expected": "BIND_EXACT_RESERVATION_OR_RETIRE_NO_CALL",
+      "call_allowed": false
+    },
+    {
+      "id": "B2-N03",
+      "phase": "nonce_reservation_journal",
+      "kill_or_fault": "kill_after_CALL_AUTHORITY_RESERVED_fdatasync_before_DB_bind",
+      "journal": "reservation_event_present",
+      "authoritydb": "RESERVED_PENDING_JOURNAL",
+      "expected": "BIND_TO_COMMITTED_NOT_USED_IDEMPOTENTLY",
+      "call_allowed": false
+    },
+    {
+      "id": "B2-N04",
+      "phase": "safe_resume",
+      "kill_or_fault": "supervisor_crash_in_COMMITTED_NOT_USED",
+      "journal": "reservation_present_no_call_start",
+      "authoritydb": "COMMITTED_NOT_USED",
+      "expected": "NO_AUTOMATIC_CALL_REQUIRE_ALL_SAFE_RESUME_PREDICATES_OR_RETIRE_HOLD_NEW_NONCE",
+      "call_allowed": false
+    },
+    {
+      "id": "B2-N05",
+      "phase": "call_start_journal",
+      "kill_or_fault": "kill_during_CALL_START_COMMITTED_partial_line",
+      "journal": "no_valid_complete_call_start_event",
+      "authoritydb": "COMMITTED_NOT_USED",
+      "expected": "QUARANTINE_TAIL_NO_CALL_RECOVER_IDEMPOTENT_EVENT_ONLY_IF_SAFE_RESUME_STILL_PROVEN",
+      "call_allowed": false
+    },
+    {
+      "id": "B2-N06",
+      "phase": "call_start_journal",
+      "kill_or_fault": "kill_after_CALL_START_COMMITTED_fdatasync_before_DB_consumption",
+      "journal": "call_start_present",
+      "authoritydb": "COMMITTED_NOT_USED",
+      "expected": "DURABLY_TRANSITION_TO_CALL_START_COMMITTED_BEFORE_ANY_CALL",
+      "call_allowed": false
+    },
+    {
+      "id": "B2-N07",
+      "phase": "nonce_consumption",
+      "kill_or_fault": "kill_after_AuthorityDB_CALL_START_COMMITTED_before_AUTHORITY_NONCE_CONSUMED_event",
+      "journal": "call_start_present_no_consumed_event",
+      "authoritydb": "CALL_START_COMMITTED",
+      "expected": "COMMIT_EXACT_CONSUMED_EVENT_BEFORE_CALL",
+      "call_allowed": false
+    },
+    {
+      "id": "B2-N08",
+      "phase": "call_invocation",
+      "kill_or_fault": "kill_after_all_barriers_before_any_external_bytes",
+      "journal": "call_start_and_consumed_present_no_outcome",
+      "authoritydb": "CALL_START_COMMITTED",
+      "expected": "UNKNOWN_CONSUMED_BY_DEFAULT_NO_AUTOMATIC_RETRY",
+      "call_allowed": false
+    },
+    {
+      "id": "B2-N09",
+      "phase": "call_invocation",
+      "kill_or_fault": "call_attempted_no_response_or_timeout_after_possible_send",
+      "journal": "call_start_and_consumed_present_no_outcome",
+      "authoritydb": "CALL_START_COMMITTED",
+      "expected": "UNKNOWN_CONSUMED_REQUIRE_NEW_OWNER_AUTHORITY_AND_NEW_NONCE",
+      "call_allowed": false
+    },
+    {
+      "id": "B2-N10",
+      "phase": "call_outcome",
+      "kill_or_fault": "response_received_but_not_captured_or_not_journaled",
+      "journal": "no_canonical_outcome",
+      "authoritydb": "CALL_START_COMMITTED",
+      "expected": "UNKNOWN_CONSUMED_RESPONSE_CANNOT_BE_INFERRED",
+      "call_allowed": false
+    },
+    {
+      "id": "B2-N11",
+      "phase": "call_outcome",
+      "kill_or_fault": "kill_after_CALL_OUTCOME_RECORDED_fdatasync_before_DB_outcome_bind",
+      "journal": "canonical_outcome_present",
+      "authoritydb": "CALL_START_COMMITTED",
+      "expected": "BIND_EXACT_OUTCOME_TO_OUTCOME_RECORDED_IDEMPOTENTLY",
+      "call_allowed": false
+    },
+    {
+      "id": "B2-N12",
+      "phase": "unknown_consumed",
+      "kill_or_fault": "kill_after_UNKNOWN_CONSUMED_DB_commit_before_CALL_OUTCOME_UNKNOWN_event",
+      "journal": "call_start_present_no_outcome_unknown_event",
+      "authoritydb": "UNKNOWN_CONSUMED",
+      "expected": "COMMIT_EXACT_UNKNOWN_EVENT_NONRETRYABLE",
+      "call_allowed": false
+    },
+    {
+      "id": "B2-N13",
+      "phase": "retirement",
+      "kill_or_fault": "kill_after_RETIRED_DB_commit_before_NONCE_RETIRED_event",
+      "journal": "outcome_present_no_retired_event",
+      "authoritydb": "RETIRED",
+      "expected": "COMMIT_EXACT_NONCE_RETIRED_EVENT_NO_REUSE",
+      "call_allowed": false
+    },
+    {
+      "id": "B2-N14",
+      "phase": "collision",
+      "kill_or_fault": "concurrent_insert_same_nonce_same_or_different_request",
+      "journal": "arbitrary_valid_prefix",
+      "authoritydb": "unique_constraint_contended",
+      "expected": "ONE_RESERVATION_MAX_OTHER_REJECTED_AND_REREAD_NO_CALL_FROM_LOSER",
+      "call_allowed_for_loser": false
+    },
+    {
+      "id": "S4-S01",
+      "phase": "sqlite_begin",
+      "kill_or_fault": "SQLITE_BUSY_or_LOCKED_until_busy_timeout",
+      "expected": "ROLLBACK_OR_NO_TRANSACTION_HOLD_NO_ACTION_NO_TIGHT_RETRY",
+      "action_allowed": false
+    },
+    {
+      "id": "S4-S02",
+      "phase": "sqlite_commit",
+      "kill_or_fault": "SQLITE_FULL_before_or_during_authority_COMMIT",
+      "expected": "STORAGE_HOLD_NO_ACTION_REOPEN_AND_PROVE_EXACT_STATE",
+      "action_allowed": false
+    },
+    {
+      "id": "S4-S03",
+      "phase": "sqlite_commit",
+      "kill_or_fault": "SQLITE_IOERR_or_connection_loss_makes_COMMIT_result_uncertain",
+      "expected": "UNKNOWN_AUTHORITY_COMMIT_PRESERVE_MAIN_WAL_SHM_REOPEN_RECONCILE_NO_ACTION",
+      "action_allowed": false
+    },
+    {
+      "id": "S4-S04",
+      "phase": "wal_recovery",
+      "kill_or_fault": "kill_after_FULL_WAL_commit_before_checkpoint",
+      "expected": "standard_WAL_recovery_returns_exact_committed_receipt_then_cross_store_classification",
+      "action_allowed": "only_after_exact_two_store_verification"
+    },
+    {
+      "id": "S4-S05",
+      "phase": "backup",
+      "kill_or_fault": "attempt_live_copy_main_database_only_while_WAL_has_committed_rows",
+      "expected": "BACKUP_REJECTED_INVALID",
+      "action_allowed": false
+    },
+    {
+      "id": "S4-S06",
+      "phase": "backup",
+      "kill_or_fault": "online_backup_or_atomic_snapshot_interrupted",
+      "expected": "DESTINATION_NOT_PUBLISHED_AS_VALID_BACKUP",
+      "action_allowed": false
+    },
+    {
+      "id": "S4-S07",
+      "phase": "cold_backup",
+      "kill_or_fault": "TRUNCATE_checkpoint_busy_nonzero_or_frames_not_fully_checkpointed",
+      "expected": "COLD_BACKUP_ABORTED_AUTHORITY_REMAINS_PAUSED_OR_HOLD",
+      "action_allowed": false
+    },
+    {
+      "id": "S4-S08",
+      "phase": "restore",
+      "kill_or_fault": "verified_backup_is_older_than_possible_nonce_or_fence_receipts",
+      "expected": "AUTHORITY_RESTORE_RECONCILIATION_HOLD_UNCERTAIN_NONCES_CONSUMED_FENCES_BUMPED_ABOVE_PROVEN_MAX",
+      "action_allowed": false
+    },
+    {
+      "id": "S4-S09",
+      "phase": "integrity",
+      "kill_or_fault": "quick_check_integrity_check_schema_hash_user_version_application_id_or_receipt_chain_mismatch",
+      "expected": "QUARANTINE_AND_HOLD_NO_MUTATION",
+      "action_allowed": false
+    },
+    {
+      "id": "S4-S10",
+      "phase": "filesystem",
+      "kill_or_fault": "database_on_mnt_c_network_unproven_FUSE_or_symlinked_path",
+      "expected": "REFUSE_AUTHORITY_SERVICE",
+      "action_allowed": false
+    }
+  ],
+  "matrix_assertions": {
+    "scope_reserve_journal_activate_boundaries_covered": true,
+    "scope_release_intent_journal_release_boundaries_covered": true,
+    "nonce_call_attempt_no_response_covered": true,
+    "nonce_response_received_not_journaled_covered": true,
+    "unknown_consumed_no_automatic_retry_covered": true,
+    "sqlite_WAL_FULL_BEGIN_IMMEDIATE_recovery_backup_covered": true,
+    "unclassified_combination": "AUTHORITY_INTEGRITY_HOLD"
+  }
+}

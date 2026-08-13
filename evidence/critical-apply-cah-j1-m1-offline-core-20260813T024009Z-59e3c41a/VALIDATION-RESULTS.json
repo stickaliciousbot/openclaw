@@ -1,0 +1,22 @@
+{
+  "schema": "critical_apply.cah_j1_m1_validation_results.v1",
+  "status": "PASS",
+  "results": [
+    {"gate":"python_compile_focused_sources_and_tests","status":"PASS"},
+    {"gate":"focused_journal_idempotency","status":"PASS","tests":12},
+    {"gate":"focused_cas","status":"PASS","tests":18,"note":"one resource-contention timeout in a concurrent aggregate run; isolated rerun passed in 63.218s"},
+    {"gate":"focused_authority_db","status":"PASS","tests":21,"note":"durability-heavy tests executed as named bounded batches after monolithic host termination"},
+    {"gate":"predecessor_authority_concurrency_journal","status":"PASS","tests":81,"seconds":499.181},
+    {"gate":"broad_commit_suite","status":"PASS","tests":59,"seconds":1688.470,"late_approved_repeat":{"status":"PASS","tests":59,"seconds":1680.405,"log":"logs/broad-commit-suite.log","log_sha256":"275adeb86ee5f7a2764a2a6cc6308bc04bbad4fa2515a59bcb6d9fe3ae96386c"}},
+    {"gate":"npm_plugin_suite","status":"PASS","tests":5,"seconds":0.062},
+    {"gate":"m0_r3_contract_validator","status":"PASS","closeout_vectors":12,"required_files":21,"errors":0},
+    {"gate":"bounded_privacy_scan","status":"PASS","scanner_sha256":"ce38bf7811561c096bfe72ef12fc799712986d77ff86cb62b8e099eedc481115","detector_config_sha256":"05531217368df844130db5f147ecfbc011f5422e4825305fa92a9abde5cf9c5e","scanned_text_files":8,"blocking_count":0},
+    {"gate":"network_capability_static_check","status":"PASS_NO_MATCHES"},
+    {"gate":"git_diff_check","status":"PASS"},
+    {"gate":"process_leak_check","status":"PASS_ZERO_TEST_PROCESSES"}
+  ],
+  "negative_or_incomplete_invocations": [
+    {"classification":"COMMAND_SELECTION_ERROR","detail":"initial predecessor command used two incorrect unittest module/class names; corrected exact suites passed"},
+    {"classification":"HOST_RESOURCE_CONTENTION","detail":"CAS concurrency aggregate timed out waiting 30s while other durability tests ran in parallel; isolated exact rerun passed"}
+  ]
+}

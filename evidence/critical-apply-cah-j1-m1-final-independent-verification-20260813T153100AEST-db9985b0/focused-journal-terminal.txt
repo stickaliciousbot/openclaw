@@ -1,0 +1,7 @@
+Command: OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python3 -B -m unittest -v scripts.tests.test_critical_apply_journal_idempotency
+
+Terminal:
+Ran 12 tests in 312.510s
+FAILED (errors=1)
+
+Passing: 11/12. Error: `test_concurrency_2_5_20_exactly_one_event_no_process_leaks` raised `_queue.Empty` at q.get(timeout=20). An immediate exact isolated rerun produced the same infrastructure timeout in 70.936s. This does not override the earlier completed combined focused run recorded by the prior verifier and referenced in TEST-RESULTS.md: that run had the same single timeout under loaded host conditions and its isolated exact rerun passed in 56.805s. The independently authored distinct/same-ID journal concurrency tests also passed, and the clean predecessor concurrency aggregate passed 142/142. Classification retained: NON_BLOCKING_INFRASTRUCTURE_TIMEOUT; no candidate/test changes.

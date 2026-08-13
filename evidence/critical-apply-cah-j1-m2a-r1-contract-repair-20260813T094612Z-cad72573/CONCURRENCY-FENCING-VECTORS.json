@@ -1,0 +1,121 @@
+{
+  "checked_on_every_child_mutation_and_result": true,
+  "fencing_token_passed_to_child": true,
+  "one_active_owner_per_overlapping_scope": true,
+  "schema": "critical_apply.m2a.concurrency_fencing_vectors.v1",
+  "vectors": [
+    {
+      "clients": 2,
+      "expected_active_owners": 1,
+      "expected_holds": 1,
+      "fence_rule": "winner exact epoch+monotonic token only",
+      "id": "CF-SAME-SCOPE-2",
+      "scopes": [
+        "scope-A",
+        "scope-A"
+      ]
+    },
+    {
+      "clients": 5,
+      "expected_active_owners": 1,
+      "expected_holds": 4,
+      "fence_rule": "winner exact epoch+monotonic token only",
+      "id": "CF-SAME-SCOPE-5",
+      "scopes": [
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A"
+      ]
+    },
+    {
+      "clients": 20,
+      "expected_active_owners": 1,
+      "expected_holds": 19,
+      "fence_rule": "winner exact epoch+monotonic token only",
+      "id": "CF-SAME-SCOPE-20",
+      "scopes": [
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A",
+        "scope-A"
+      ]
+    },
+    {
+      "clients": 5,
+      "expected": "conflict graph admits no overlapping active owner; disjoint only",
+      "expected_active_owners": "graph_independent_set",
+      "id": "CF-OVERLAP-AB-5",
+      "scopes": [
+        "A",
+        "A/B",
+        "B",
+        "A/B/C",
+        "C"
+      ]
+    },
+    {
+      "clients": 20,
+      "expected": "all exact disjoint scopes may activate",
+      "expected_active_owners": 20,
+      "id": "CF-DISJOINT-20",
+      "scopes": [
+        "disjoint-0",
+        "disjoint-1",
+        "disjoint-2",
+        "disjoint-3",
+        "disjoint-4",
+        "disjoint-5",
+        "disjoint-6",
+        "disjoint-7",
+        "disjoint-8",
+        "disjoint-9",
+        "disjoint-10",
+        "disjoint-11",
+        "disjoint-12",
+        "disjoint-13",
+        "disjoint-14",
+        "disjoint-15",
+        "disjoint-16",
+        "disjoint-17",
+        "disjoint-18",
+        "disjoint-19"
+      ]
+    },
+    {
+      "clients": 2,
+      "expected": "old epoch result rejected after recovery",
+      "id": "CF-STALE-EPOCH",
+      "scopes": [
+        "scope-A",
+        "scope-A"
+      ]
+    },
+    {
+      "clients": 2,
+      "expected": "every child mutation and result checks exact fence; stale token refused",
+      "id": "CF-STALE-FENCE-RESULT",
+      "scopes": [
+        "scope-A",
+        "scope-A"
+      ]
+    }
+  ]
+}

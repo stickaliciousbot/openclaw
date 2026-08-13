@@ -1,0 +1,62 @@
+{
+  "schema": "critical_apply.cas_capture_durability_contract.v1",
+  "status": "FROZEN_OFFLINE_CONTRACT",
+  "semantic_authority": "canonical_journal_only",
+  "cas_role": "immutable_governing_evidence_bytes_referenced_by_journal",
+  "source_capture": {
+    "path_must_be_preregistered": true,
+    "open_method": "openat_from_verified_directory_descriptor",
+    "required_flags": ["O_RDONLY", "O_NOFOLLOW", "O_CLOEXEC"],
+    "pre_hash_fstat_bindings": ["device", "inode", "uid", "gid", "mode", "size", "nlink"],
+    "hash_source": "already_open_descriptor",
+    "reopen_by_path_during_capture": false,
+    "post_hash_fstat_must_equal_pre_hash": true,
+    "hard_link_policy": "reject_unless_exact_contract_explicitly_allows_and_binds_nlink"
+  },
+  "publication_order": [
+    "verify registered ancestor descriptors and filesystem identity",
+    "open source descriptor with O_NOFOLLOW",
+    "fstat source and enforce owner, mode, regular-file, size, and hard-link policy",
+    "stream bytes once from descriptor while hashing into same-filesystem temporary object",
+    "fstat source again and reject any bound metadata change",
+    "fdatasync temporary object",
+    "publish without overwrite using atomic link or no-replace rename",
+    "fsync CAS shard directory and any newly created parent directory",
+    "reopen published object with O_NOFOLLOW and rehash",
+    "verify published digest equals object name and captured digest",
+    "append and sync ARTIFACT_CAPTURED journal event binding digest and descriptor metadata",
+    "return durable ACK only after journal commit readback"
+  ],
+  "object_path": "objects/sha256/<first-two-hex>/<sha256>",
+  "existing_object_policy": {
+    "same_digest_verified": "reuse immutable object after descriptor-bound rehash",
+    "different_or_mutable_object": "INTEGRITY_HOLD",
+    "overwrite": "FORBIDDEN"
+  },
+  "crash_policy": {
+    "orphan_temporary_object": "non-authoritative; safely removable by separate proven policy",
+    "orphan_published_object_without_journal_reference": "allowed but non-authoritative; future separately proven garbage collection only",
+    "journal_referenced_object": "must survive recovery; absence or digest mismatch is integrity HOLD",
+    "ack_missing_after_journal_commit": "journal-derived idempotency returns the original ACK"
+  },
+  "required_fixtures": [
+    "source_symlink_substitution",
+    "source_replacement_between_validation_and_open",
+    "source_mutation_during_stream",
+    "hard_link_policy_violation",
+    "kill_before_temp_fdatasync",
+    "kill_after_temp_fdatasync_before_publish",
+    "kill_after_publish_before_parent_fsync",
+    "kill_after_parent_fsync_before_rehash",
+    "kill_after_rehash_before_journal_append",
+    "kill_after_journal_sync_before_ACK",
+    "preexisting_valid_object",
+    "preexisting_corrupt_object"
+  ],
+  "invariants": [
+    "The journal never acknowledges governing evidence before the CAS object is durably published and reverified.",
+    "The reducer reads governing evidence by journal-bound digest from CAS, never from mutable child paths.",
+    "A path check followed by a path reopen cannot satisfy this contract.",
+    "CAS has no independent semantic authority."
+  ]
+}

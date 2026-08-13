@@ -1,0 +1,8 @@
+CAH-J1 M1 final independent verification evidence seal
+Disposition: PASS_VERIFIED
+Manifest: EVIDENCE-SHA256.txt
+Manifest SHA-256: 4e291437d1a96ebe8814f37c71d893be74492aeaf6c9c9251414c59064db5bdd
+Candidate base commit: b48fbacb12f07de334a0195e13992ce7237db910
+Candidate base tree: e531eb81a0153fd066d9d5ea3bdb05f31bcacdb4
+Patch SHA-256: 7cde7ec7bf858b06bdf22fc22d703457565059d5643909d55ac7c54020b8d4bc
+Construction evidence manifest SHA-256: 882ed90a53356be07799003058e9984da76c10b75f09da3d877cb485ac07abf6

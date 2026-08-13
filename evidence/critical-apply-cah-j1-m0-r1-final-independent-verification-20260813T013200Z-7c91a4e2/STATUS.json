@@ -1,0 +1,17 @@
+{
+  "schema": "critical_apply.cah_j1_m0_r1_final_independent_status.v1",
+  "candidate_root": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-r1-contract-repair-20260813T013000Z-8d2f6c41",
+  "blocking_count": 2,
+  "blocking_findings": [
+    "BLOCK-R1-01-CLOSEOUT-PREIMAGE-FIXED-POINT-CIRCULARITY",
+    "BLOCK-R1-02-NONCE-MATRIX-N04-N07-ORDER-CONTRADICTIONS"
+  ],
+  "identity": "PASS",
+  "json_parse": "PASS",
+  "candidate_validator": "PASS",
+  "privacy": "PASS",
+  "zero_effect": true,
+  "sole_semantic_authority": "PASS",
+  "status": "HOLD",
+  "terminal": "HOLD_CAH_J1_M0_R1_FOR_CLOSEOUT_PREIMAGE_FIXED_POINT_AND_NONCE_N04_N07_MATRIX_ORDER_CORRECTIONS_NO_PRODUCTION_EFFECT"
+}

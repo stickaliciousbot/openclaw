@@ -1,0 +1,17 @@
+{
+  "schema": "critical_apply.cah_j1_m1_privacy_scan.v1",
+  "result": "PASS",
+  "scanner_identity": "bounded built-in git-grep/grep scanner; no repository privacy scanner, gitleaks, trufflehog, or detect-secrets was found through bounded workspace discovery",
+  "scope": [
+    "scripts/critical_apply_journal.py",
+    "scripts/critical_apply_progress.py",
+    "scripts/critical_apply_cas.py",
+    "scripts/critical_apply_authority_db.py",
+    "scripts/tests/test_critical_apply_journal_idempotency.py",
+    "scripts/tests/test_critical_apply_cas.py",
+    "scripts/tests/test_critical_apply_authority_db.py"
+  ],
+  "patterns": ["AWS access key", "private key header", "GitHub tokens", "OpenAI-style keys", "Slack tokens", "Google API keys"],
+  "matches": 0,
+  "network_or_external_api_import_scan": {"patterns": ["requests", "urllib", "http://", "https://", "subprocess", "os.system", "Popen", "socket"], "matches": 0}
+}

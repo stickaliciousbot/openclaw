@@ -1,0 +1,73 @@
+{
+  "input_count": 11,
+  "inputs": {
+    "m0_adjudication": {
+      "actual_sha256": "1d2853fba832ebc243423c3c2dac00def80c3c2b56d892ee8c83aeff96c34427",
+      "expected_sha256": "1d2853fba832ebc243423c3c2dac00def80c3c2b56d892ee8c83aeff96c34427",
+      "match": true,
+      "path": "design/critical-apply-supervisor-owned-event-journal-owner-revision-m0-adjudication-2026-08-13.md"
+    },
+    "m0_r3_contract": {
+      "actual_sha256": "40183db63570673cac1e2d3d3fc3e0abe0f4d2d75f34a12ae35aae57a6709929",
+      "expected_sha256": "40183db63570673cac1e2d3d3fc3e0abe0f4d2d75f34a12ae35aae57a6709929",
+      "match": true,
+      "path": "evidence/critical-apply-cah-j1-m0-r3-contract-repair-20260813T020500Z-5e1b7a63/manifest.json"
+    },
+    "m0_r3_final_hash_inventory": {
+      "actual_sha256": "33e5b637743111198f4e88cb22e5bd6596a7b76648adb33a81b825464cb7bd6d",
+      "expected_sha256": "33e5b637743111198f4e88cb22e5bd6596a7b76648adb33a81b825464cb7bd6d",
+      "match": true,
+      "path": "evidence/critical-apply-cah-j1-m0-r3-final-independent-verification-20260813T022900Z-a61f0c9e/HASH-INVENTORY.json"
+    },
+    "m1_pass_verified": {
+      "actual_sha256": "5715ccefbe651104ad607a7b1bf49c9f30a0ee1382b11153085fd21e0ddcd64f",
+      "expected_sha256": "5715ccefbe651104ad607a7b1bf49c9f30a0ee1382b11153085fd21e0ddcd64f",
+      "match": true,
+      "path": "evidence/critical-apply-cah-j1-m1-final-independent-verification-20260813T153100AEST-db9985b0/EVIDENCE-SHA256.txt"
+    },
+    "m1_permanent_patch": {
+      "actual_sha256": "7cde7ec7bf858b06bdf22fc22d703457565059d5643909d55ac7c54020b8d4bc",
+      "expected_sha256": "7cde7ec7bf858b06bdf22fc22d703457565059d5643909d55ac7c54020b8d4bc",
+      "match": true,
+      "path": "evidence/critical-apply-cah-j1-m1-permanent-preservation-20260813T083100Z-5e3fa595/candidate/cah-j1-m1.patch"
+    },
+    "original_independent_hold_manifest": {
+      "actual_sha256": "c014a7f7bb6c1b7bb06b29fc72b47c2134eda27e0dc97e50d6cac38c0bf9b538",
+      "expected_sha256": "c014a7f7bb6c1b7bb06b29fc72b47c2134eda27e0dc97e50d6cac38c0bf9b538",
+      "match": true,
+      "path": "evidence/critical-apply-cah-j1-m2a-final-independent-verification-20260813T090945Z-b48fbacb/EVIDENCE-SHA256.txt"
+    },
+    "original_m2a_candidate_manifest": {
+      "actual_sha256": "3f026764d75c96acfca5317e9d9c67e48b140e2281ed563c9bff08f5f5e2f7e2",
+      "expected_sha256": "3f026764d75c96acfca5317e9d9c67e48b140e2281ed563c9bff08f5f5e2f7e2",
+      "match": true,
+      "path": "evidence/critical-apply-cah-j1-m2a-supervisor-ingress-freeze-20260813T083500Z-5e3fa595/EVIDENCE-SHA256.txt"
+    },
+    "owner_revision": {
+      "actual_sha256": "6d80167ba92e1a68c9d17d6027135b289f88c6b9f3d6fd9e24ea86aedab459af",
+      "expected_sha256": "6d80167ba92e1a68c9d17d6027135b289f88c6b9f3d6fd9e24ea86aedab459af",
+      "match": true,
+      "path": "design/critical-apply-supervisor-owned-event-journal-owner-revision-2026-08-13.md"
+    },
+    "r1_independent_hold_manifest": {
+      "actual_sha256": "49ccef7181ff090c95267f8a5dcc3ccaaba88ce3bd42ade63cef13293e41d2d2",
+      "expected_sha256": "49ccef7181ff090c95267f8a5dcc3ccaaba88ce3bd42ade63cef13293e41d2d2",
+      "match": true,
+      "path": "evidence/critical-apply-cah-j1-m2a-r1-final-independent-verification-20260813T100100Z-53c12224/EVIDENCE-SHA256.txt"
+    },
+    "r1_repair_manifest": {
+      "actual_sha256": "62b2357a1e15bf165ef80bcc1129da31719bae28f1f7ddea39af26c1fd027b4e",
+      "expected_sha256": "62b2357a1e15bf165ef80bcc1129da31719bae28f1f7ddea39af26c1fd027b4e",
+      "match": true,
+      "path": "evidence/critical-apply-cah-j1-m2a-r1-contract-repair-20260813T094741Z-d20176dc/EVIDENCE-SHA256.txt"
+    },
+    "r2_candidate_manifest": {
+      "actual_sha256": "3536dee9433b95d2280705075a1de36aca7131b7e5e35dd8b25495337eeef2f3",
+      "expected_sha256": "3536dee9433b95d2280705075a1de36aca7131b7e5e35dd8b25495337eeef2f3",
+      "match": true,
+      "path": "evidence/critical-apply-cah-j1-m2a-r2-exact-contract-repair-20260813T103000Z-7c4e91b2/EVIDENCE-SHA256.txt"
+    }
+  },
+  "schema": "critical_apply.m2a_r2_r1.input_rehash.v1",
+  "status": "PASS"
+}

@@ -1,0 +1,30 @@
+{
+  "construction_validation": "PASS_16_OF_16",
+  "governing_inputs": {
+    "m0_adjudication_sha256": "1d2853fba832ebc243423c3c2dac00def80c3c2b56d892ee8c83aeff96c34427",
+    "owner_revision_sha256": "6d80167ba92e1a68c9d17d6027135b289f88c6b9f3d6fd9e24ea86aedab459af"
+  },
+  "independent_verification": "REQUIRED_NOT_YET_CLAIMED",
+  "privacy": "PENDING_FINAL_SCAN",
+  "resolved": [
+    "B1",
+    "B2",
+    "B3",
+    "B4",
+    "B5",
+    "B6",
+    "S1",
+    "S2",
+    "S3",
+    "S4",
+    "semantic_path_registration",
+    "single_owner_nonce_ledger",
+    "stale_projection_reconciliation",
+    "same_UID_detect_only"
+  ],
+  "schema": "critical_apply.cah_j1_m0_integrated_candidate_status.v1",
+  "semantic_authority": "canonical_append_only_journal_only",
+  "status": "PASS_CONSTRUCTION_HOLD_FOR_INDEPENDENT_VERIFICATION",
+  "terminal": "PASS_CAH_J1_M0_INTEGRATED_CONTRACT_CANDIDATE_CONSTRUCTED_VALIDATED_AND_PRIVACY_READY_NO_PRODUCTION_EFFECT",
+  "zero_effect": true
+}

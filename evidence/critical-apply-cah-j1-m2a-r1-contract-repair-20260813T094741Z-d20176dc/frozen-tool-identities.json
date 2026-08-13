@@ -1,0 +1,17 @@
+{
+  "files": {
+    "bin/r6_bounded_privacy_scanner.py": {
+      "sha256": "ce38bf7811561c096bfe72ef12fc799712986d77ff86cb62b8e099eedc481115"
+    },
+    "independent_adversarial_r1.py": {
+      "sha256": "449276fc673ddf7a93705d93d8533bb707a9af21ea7fcb45df27cacf55b62285"
+    },
+    "test_validate_m2a_r1.py": {
+      "sha256": "15040ebf703651d96391f7b36bb8ad0e7bb3b57a7a3cbb5e743ec3dc2839fd00"
+    },
+    "validate_m2a_r1.py": {
+      "sha256": "2c70e44fd13dce2dfcd41e79782858e0fc27909b46b93a12acc2aec75e51e2fa"
+    }
+  },
+  "schema": "critical_apply.m2a_r1.frozen_tool_identities.v2"
+}

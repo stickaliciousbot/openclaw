@@ -1,0 +1,34 @@
+{
+  "PID_authoritative": false,
+  "ProgressDB_authoritative": false,
+  "WitnessDB_semantic_authority": false,
+  "no_action_until_exact_proofs": true,
+  "notification_authoritative": false,
+  "order": [
+    "canonical_journal",
+    "deterministic_reducer",
+    "terminal_manifest_and_seal",
+    "independent_witness",
+    "ProgressDB_projection",
+    "PID_registry_status",
+    "notification_projection"
+  ],
+  "phases": [
+    "ingress_receive",
+    "envelope_CAS_capture",
+    "journal_acceptance",
+    "AuthorityDB_reserve",
+    "journal_authority_bind",
+    "AuthorityDB_activate",
+    "child_launch_intent",
+    "child_start",
+    "child_result_CAS_capture",
+    "child_result_journal_commit",
+    "terminal_reduction_preparation",
+    "cleanup_release",
+    "closure_receipt"
+  ],
+  "recovery_rule": "verify semantic journal prefix first; derive exact next transition; repair projection only after authority proof",
+  "schema": "critical_apply.m2a_r1.recovery_authority_order.v2",
+  "unknown_child_or_provider_outcome": "UNKNOWN_CONSUMED_TERMINAL_NO_RETRY_NO_NEW_CALL"
+}

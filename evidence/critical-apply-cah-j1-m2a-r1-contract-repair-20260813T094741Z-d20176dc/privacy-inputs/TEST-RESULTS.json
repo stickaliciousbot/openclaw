@@ -1,0 +1,12 @@
+{
+  "adversarial_case_count": 26,
+  "adversarial_rejected_count": 26,
+  "adversarial_returncode": 0,
+  "mutation_case_count": 55,
+  "mutation_rejected_count": 55,
+  "mutation_returncode": 0,
+  "positive_fixture_count": 1,
+  "prior_12_preserved_count": 12,
+  "schema": "critical_apply.m2a_r1.test_results.v1",
+  "unsafe_accepted_count": 0
+}

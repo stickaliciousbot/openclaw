@@ -1,0 +1,93 @@
+{
+  "canonicalization": "UTF8_JSON_SORT_KEYS_COMPACT_NO_NAN",
+  "close_event_payload_sha256": "05f9cd055a7544dc003778a53114450bc03599543e5ad5760f7da8814fc2fac3",
+  "close_event_sha256": "2f0b5840fd787e2a17ea589f41f9e630a8ba99310c8e4a86f0742d092ddd169c",
+  "completion_receipt": {
+    "closeout_head": {
+      "event_sha256": "2f0b5840fd787e2a17ea589f41f9e630a8ba99310c8e4a86f0742d092ddd169c",
+      "payload_sha256": "05f9cd055a7544dc003778a53114450bc03599543e5ad5760f7da8814fc2fac3",
+      "sequence": 97
+    },
+    "receipt_preimage": {
+      "close_event_id": "evt-supervisor-closed-fixture",
+      "expected_close_sequence": 97,
+      "expected_prev_event_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+      "journal_hash_algorithm_id": "critical_apply_journal_event_sha256_v1",
+      "lease_release_outcome": "RELEASED_RECORDED",
+      "notification_outcome": "DELIVERY_UNKNOWN",
+      "production_effects": 0,
+      "provider_effects": 0,
+      "schema": "critical_apply.completion_receipt_preimage.v1",
+      "terminal_decision_head": {
+        "event_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+        "sequence": 90
+      },
+      "terminal_seal_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "transaction_id": "critical-apply-fixture-20260813T000000Z-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "witness_outcome": "WITNESS_GRADE_1_PASS"
+    },
+    "receipt_preimage_sha256": "682ee3d20e7f284a569b2466851b71024a562e6e97d0a85e92eeaa4cf52bd5e7",
+    "schema": "critical_apply.completion_receipt.v1",
+    "terminal_seal_sha256": "2222222222222222222222222222222222222222222222222222222222222222"
+  },
+  "proof": {
+    "event_sha_recomputed_exact": true,
+    "one_pass_no_iteration": true,
+    "payload_sha_recomputed_exact": true,
+    "preimage_forbidden_fields_absent": true,
+    "preimage_sha_recomputed_exact": true,
+    "receipt_preimage_projection_exact": true
+  },
+  "receipt_preimage": {
+    "close_event_id": "evt-supervisor-closed-fixture",
+    "expected_close_sequence": 97,
+    "expected_prev_event_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+    "journal_hash_algorithm_id": "critical_apply_journal_event_sha256_v1",
+    "lease_release_outcome": "RELEASED_RECORDED",
+    "notification_outcome": "DELIVERY_UNKNOWN",
+    "production_effects": 0,
+    "provider_effects": 0,
+    "schema": "critical_apply.completion_receipt_preimage.v1",
+    "terminal_decision_head": {
+      "event_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "sequence": 90
+    },
+    "terminal_seal_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+    "transaction_id": "critical-apply-fixture-20260813T000000Z-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "witness_outcome": "WITNESS_GRADE_1_PASS"
+  },
+  "receipt_preimage_sha256": "682ee3d20e7f284a569b2466851b71024a562e6e97d0a85e92eeaa4cf52bd5e7",
+  "schema": "critical_apply.closeout_hash_domain_fixture.v1",
+  "status": "PASS_ONE_PASS_NONCIRCULAR",
+  "supervisor_closed_event": {
+    "event_id": "evt-supervisor-closed-fixture",
+    "event_type": "SUPERVISOR_CLOSED",
+    "payload": {
+      "receipt_preimage_sha256": "682ee3d20e7f284a569b2466851b71024a562e6e97d0a85e92eeaa4cf52bd5e7",
+      "schema": "critical_apply.supervisor_closed_payload.v1",
+      "semantic_result": "HOLD_FIXTURE",
+      "terminal_decision_head": {
+        "event_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+        "sequence": 90
+      },
+      "terminal_seal_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "transaction_id": "critical-apply-fixture-20260813T000000Z-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    "payload_sha256": "05f9cd055a7544dc003778a53114450bc03599543e5ad5760f7da8814fc2fac3",
+    "prev_event_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+    "schema": "critical_apply.journal_event.v1",
+    "sequence": 97,
+    "transaction_id": "critical-apply-fixture-20260813T000000Z-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "supervisor_closed_payload": {
+    "receipt_preimage_sha256": "682ee3d20e7f284a569b2466851b71024a562e6e97d0a85e92eeaa4cf52bd5e7",
+    "schema": "critical_apply.supervisor_closed_payload.v1",
+    "semantic_result": "HOLD_FIXTURE",
+    "terminal_decision_head": {
+      "event_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "sequence": 90
+    },
+    "terminal_seal_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+    "transaction_id": "critical-apply-fixture-20260813T000000Z-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  }
+}

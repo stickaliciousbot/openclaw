@@ -1,0 +1,46 @@
+{
+  "schema": "critical_apply.zero_effect_receipt.v1",
+  "result": "PASS_ZERO_EFFECT",
+  "milestone": "CAH-J1-M0_AUTHORITY_B1_B2_S4_CONTRACT_SUBPACKAGE",
+  "mode": "PREP_ONLY_OFFLINE_DESIGN",
+  "effects": {
+    "provider_calls": 0,
+    "model_calls_for_production_or_review_provider": 0,
+    "Terra_calls": 0,
+    "production_mutations": 0,
+    "production_authority_consumed": 0,
+    "AuthorityDB_live_rows_created_or_changed": 0,
+    "nonce_reservations_or_consumptions": 0,
+    "Gateway_changes": 0,
+    "Gateway_restarts": 0,
+    "configuration_changes": 0,
+    "runtime_changes": 0,
+    "installed_dist_or_package_changes": 0,
+    "service_lifecycle_actions": 0,
+    "git_commits": 0,
+    "git_branch_or_index_changes": 0,
+    "git_pushes": 0,
+    "network_writes": 0,
+    "external_messages": 0
+  },
+  "filesystem_writes": {
+    "bounded_root": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-authority-20260813T005000Z-9b7e3c1d",
+    "outside_bounded_root": 0,
+    "allowed_files_only": [
+      "AUTHORITYDB-FENCING-PROTOCOL.md",
+      "NONCE-AT-MOST-ONCE-STATE-MACHINE.json",
+      "SQLITE-AUTHORITY-STORAGE-CONTRACT.json",
+      "AUTHORITY-CRASH-VECTORS.json",
+      "INPUT-VERIFICATION.json",
+      "ZERO-EFFECT-RECEIPT.json",
+      "STATUS.json"
+    ]
+  },
+  "source_inputs": {
+    "read_only": true,
+    "owner_revision_sha256": "6d80167ba92e1a68c9d17d6027135b289f88c6b9f3d6fd9e24ea86aedab459af",
+    "m0_adjudication_sha256": "1d2853fba832ebc243423c3c2dac00def80c3c2b56d892ee8c83aeff96c34427"
+  },
+  "claim_boundary": "This receipt attests to the actions performed for this offline subpackage. No live runtime/config/provider/production sentinel was mutated or required to establish the zero-effect result.",
+  "next_authority_boundary": "Independent review and integration with the remaining M0 B3-B6 and S1-S3 contracts; any implementation or production activity remains separately owner-authorized."
+}

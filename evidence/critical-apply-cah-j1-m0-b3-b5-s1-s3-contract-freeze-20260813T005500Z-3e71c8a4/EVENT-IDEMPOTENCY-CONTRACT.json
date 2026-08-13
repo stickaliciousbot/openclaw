@@ -1,0 +1,110 @@
+{
+  "boundary": {
+    "consumed_production_authority": 0,
+    "gateway_config_runtime_mutations": 0,
+    "mode": "PREP_ONLY",
+    "production_mutations": 0,
+    "provider_model_calls": 0
+  },
+  "canonical_map": {
+    "ack_reconstruction": "deterministic from the committed canonical event and frozen ACK schema; cached ACK bytes may be used only after equality verification",
+    "construction": "JournalWriter scans/replays the complete verified prefix before opening proposal ingress and after every recovery epoch",
+    "key": [
+      "transaction_id",
+      "event_id"
+    ],
+    "source": "verified canonical journal valid prefix only",
+    "value": [
+      "proposal_sha256",
+      "sequence",
+      "event_sha256",
+      "commit_ack"
+    ]
+  },
+  "created_utc": "2026-08-13T00:55:00Z",
+  "critical_guarantees": [
+    "zero duplicate append for same committed proposal",
+    "zero ProgressDB authority",
+    "zero acknowledged event loss under valid-prefix recovery",
+    "conflicting duplicate cannot produce PASS",
+    "post-fence retry cannot reopen semantic input"
+  ],
+  "progressdb_rule": {
+    "authority": "none",
+    "mismatch": "health anomaly and fail closed for ingress until journal-derived map exists; never append based on DB absence",
+    "missing_stale_deleted_corrupt": "ignore or rebuild; reconstruct canonical map from journal before accepting any proposal",
+    "permitted_use": "lookup acceleration only",
+    "precondition": "ProgressDB indexed transaction head sequence/hash exactly equals the freshly verified journal head"
+  },
+  "proposal_algorithm": [
+    {
+      "action": "verify transaction lock, supervisor epoch, contract and journal prefix",
+      "step": 1
+    },
+    {
+      "action": "construct or verify journal-derived idempotency map",
+      "step": 2
+    },
+    {
+      "action": "authenticate proposer and compute canonical proposal_sha256",
+      "step": 3
+    },
+    {
+      "action": "validate, commit once, fdatasync, update in-memory map, return ACK; index asynchronously",
+      "if": "key absent",
+      "step": 4
+    },
+    {
+      "action": "return original reconstructed/verified ACK; append nothing",
+      "if": "key present and proposal_sha256 equal",
+      "step": 5
+    },
+    {
+      "action": "fail closed; record integrity conflict through the only legal supervisor path when journal state permits; never ACK as committed",
+      "if": "key present and proposal_sha256 differs",
+      "step": 6
+    }
+  ],
+  "required_fixtures": [
+    {
+      "expect": "original ACK; journal byte length and head unchanged",
+      "id": "IDEM-01",
+      "retry": "same event_id and proposal bytes",
+      "setup": "ACK event then delete ProgressDB"
+    },
+    {
+      "expect": "ignore/rebuild DB; original ACK; no append",
+      "id": "IDEM-02",
+      "retry": "same event",
+      "setup": "ACK event then corrupt ProgressDB row/head"
+    },
+    {
+      "expect": "journal replay finds commit and returns original ACK; one event total",
+      "id": "IDEM-03",
+      "retry": "same event after recovery",
+      "setup": "kill after fdatasync before ACK"
+    },
+    {
+      "expect": "integrity conflict and no second semantic event",
+      "id": "IDEM-04",
+      "retry": "same event_id with different payload/proposal hash",
+      "setup": "committed event"
+    },
+    {
+      "expect": "original ACK only; fence and semantic head unchanged",
+      "id": "IDEM-05",
+      "retry": "pre-fence committed semantic event",
+      "setup": "terminal input fence committed; ProgressDB absent"
+    },
+    {
+      "expect": "journal wins; checkpoint rebuilt; no duplicate append",
+      "id": "IDEM-06",
+      "retry": "same event",
+      "setup": "checkpoint behind but journal valid"
+    }
+  ],
+  "resolves": [
+    "B5"
+  ],
+  "schema": "critical_apply.event_idempotency_contract.v1"
+}

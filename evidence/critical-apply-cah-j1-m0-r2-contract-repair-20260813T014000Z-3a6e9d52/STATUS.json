@@ -1,0 +1,21 @@
+{
+  "independent_verification": "REQUIRED",
+  "privacy": "PASS",
+  "repairs": {
+    "BLOCK_R1_01": "RESOLVED_ONE_PASS_DISJOINT_HASH_DOMAINS",
+    "BLOCK_R1_02": "RESOLVED_N04_N07_NORMATIVE_ORDER"
+  },
+  "schema": "critical_apply.cah_j1_m0_r2_status.v1",
+  "semantic_authority": "canonical_append_only_journal_only",
+  "status": "PASS_REPAIR_HOLD_FOR_INDEPENDENT_VERIFICATION",
+  "terminal": "PASS_CAH_J1_M0_R2_NONCIRCULAR_CLOSEOUT_HASH_DOMAIN_AND_TRANSITION_SPECIFIC_NONCE_MATRICES_VALIDATED_PRIVACY_PASS_NO_PRODUCTION_EFFECT",
+  "validation": {
+    "N04_vectors": 10,
+    "N07_vectors": 12,
+    "closeout_fixture": "PASS_ONE_PASS_NONCIRCULAR",
+    "errors": 0,
+    "nonce_vectors": 87,
+    "required_files": 21
+  },
+  "zero_effect": true
+}

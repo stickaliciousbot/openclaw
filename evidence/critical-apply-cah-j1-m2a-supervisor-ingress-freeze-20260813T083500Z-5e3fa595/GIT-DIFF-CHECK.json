@@ -1,0 +1,7 @@
+{
+  "schema": "critical_apply.m2a.git_diff_check.v1",
+  "status": "PASS",
+  "command_scope": "git diff --no-index --check /dev/null design/critical-apply-supervisor-ingress-m2a-architecture-freeze-2026-08-13.md",
+  "output": "no whitespace errors; exit 1 is expected because the design is a new untracked file",
+  "production_source_implementation_checked_or_changed": false
+}

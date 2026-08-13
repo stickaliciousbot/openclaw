@@ -1,0 +1,10 @@
+{
+  "M2B_authorized": false,
+  "M2B_started": false,
+  "blocker_count": 0,
+  "privacy": "PASS",
+  "schema": "critical_apply.m2a_r2_r1.status.v1",
+  "terminal": "PASS_CONSTRUCTION_HOLD_FOR_FRESH_INDEPENDENT_VERIFICATION",
+  "unsafe_accepted_count": 0,
+  "zero_effect": "PASS"
+}

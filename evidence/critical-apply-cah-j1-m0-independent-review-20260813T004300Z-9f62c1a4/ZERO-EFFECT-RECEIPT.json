@@ -1,0 +1,33 @@
+{
+  "schema": "critical_apply.cah_j1_m0.independent_review_zero_effect_receipt.v1",
+  "closed_utc": "2026-08-13T00:56:59Z",
+  "review_root": "evidence/critical-apply-cah-j1-m0-independent-review-20260813T004300Z-9f62c1a4",
+  "status": "PASS_INDEPENDENT_REVIEW_ZERO_PRODUCTION_EFFECT",
+  "effects": {
+    "provider_model_calls": 0,
+    "message_deliveries": 0,
+    "owner_authority_consumed": false,
+    "production_authority_consumed": false,
+    "production_mutations": 0,
+    "runtime_mutations": 0,
+    "gateway_mutations": 0,
+    "gateway_restarts": 0,
+    "config_mutations": 0,
+    "install_or_deploy_actions": 0,
+    "git_mutations": 0,
+    "external_network_writes": 0,
+    "source_files_modified": 0,
+    "design_files_modified": 0,
+    "memory_files_modified": 0,
+    "builder_package_files_read": 0,
+    "builder_package_files_modified": 0
+  },
+  "permitted_local_effects": [
+    "created this fresh independent-review evidence directory",
+    "wrote only review report, requirements oracle, input hashes, zero-effect receipt, and integrity manifest artifacts inside this review directory",
+    "performed read-only file inspection and SHA-256 hashing"
+  ],
+  "historical_input_disambiguation": "R18 inputs describe earlier runs, including a historical provider call and terminal HOLD. Those historical effects are not effects of this independent review.",
+  "alert_check_wiring": "not_applicable_foreground_bounded_read_only_review",
+  "final_classification": "PASS_REVIEW_COMPLETE_HOLD_M0_FREEZE_PENDING_LATER_FINAL_VERIFICATION"
+}

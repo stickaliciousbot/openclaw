@@ -1,0 +1,274 @@
+{
+  "schema": "critical_apply.m2a_r2.combination_attacks.v1",
+  "status": "PASS",
+  "case_count": 18,
+  "rejected_count": 18,
+  "unsafe_accepted_count": 0,
+  "results": [
+    {
+      "id": "R2C01_LIFECYCLE_CANONICAL",
+      "validator_rejected": true,
+      "errors": [
+        "exact_contract:ARTIFACT-LIFECYCLE-CONTRACT.json",
+        "lifecycle_noncanonical",
+        "lifecycle_cross_artifact"
+      ]
+    },
+    {
+      "id": "R2C02_LIFECYCLE_SEMANTIC_AUTHORITY",
+      "validator_rejected": true,
+      "errors": [
+        "exact_contract:SUPERVISOR-STATE-MACHINE.json",
+        "canonical_exact_chain",
+        "canonical_projection",
+        "canonical_adjacency",
+        "canonical_close_adjacency",
+        "preimage_promoted_canonical",
+        "artifact_preparation_binding",
+        "action_semantics",
+        "action_gate",
+        "provider_call_gate",
+        "provider_call_semantics",
+        "state_authority",
+        "lifecycle_noncanonical",
+        "lifecycle_cross_artifact"
+      ]
+    },
+    {
+      "id": "R2C03_PUBLICATION_MUTATES_CLOSEOUT_HEAD",
+      "validator_rejected": true,
+      "errors": [
+        "exact_contract:ARTIFACT-LIFECYCLE-CONTRACT.json",
+        "lifecycle_noncanonical",
+        "lifecycle_cross_artifact"
+      ]
+    },
+    {
+      "id": "R2C04_LOCK_RELEASE_MUTATES_TERMINAL_HEAD",
+      "validator_rejected": true,
+      "errors": [
+        "exact_contract:SUPERVISOR-STATE-MACHINE.json",
+        "canonical_exact_chain",
+        "canonical_projection",
+        "canonical_adjacency",
+        "canonical_close_adjacency",
+        "preimage_promoted_canonical",
+        "artifact_preparation_binding",
+        "action_semantics",
+        "action_gate",
+        "provider_call_gate",
+        "provider_call_semantics",
+        "state_authority",
+        "lifecycle_noncanonical",
+        "lifecycle_cross_artifact"
+      ]
+    },
+    {
+      "id": "R2C05_MISSING_CLOSEOUT_PREREQUISITE",
+      "validator_rejected": true,
+      "errors": [
+        "exact_contract:ARTIFACT-LIFECYCLE-CONTRACT.json",
+        "lifecycle_noncanonical",
+        "lifecycle_cross_artifact"
+      ]
+    },
+    {
+      "id": "R2C06_WRONG_LIFECYCLE_ORDER",
+      "validator_rejected": true,
+      "errors": [
+        "exact_contract:SUPERVISOR-STATE-MACHINE.json",
+        "canonical_exact_chain",
+        "canonical_projection",
+        "canonical_adjacency",
+        "canonical_close_adjacency",
+        "preimage_promoted_canonical",
+        "artifact_preparation_binding",
+        "action_semantics",
+        "action_gate",
+        "provider_call_gate",
+        "provider_call_semantics",
+        "state_authority",
+        "lifecycle_noncanonical",
+        "lifecycle_cross_artifact",
+        "lifecycle_order"
+      ]
+    },
+    {
+      "id": "R2C07_RELEASE_WITHOUT_PUBLICATION_RECEIPT",
+      "validator_rejected": true,
+      "errors": [
+        "exact_contract:ARTIFACT-LIFECYCLE-CONTRACT.json",
+        "lifecycle_noncanonical",
+        "lifecycle_cross_artifact"
+      ]
+    },
+    {
+      "id": "R2C08_PROOF_UNRESOLVED",
+      "validator_rejected": true,
+      "errors": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution"
+      ]
+    },
+    {
+      "id": "R2C09_PROOF_DUPLICATE_ID",
+      "validator_rejected": true,
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "typed_proof_resolution",
+        "proof_semantic_inventory",
+        "typed_proof_mirror"
+      ]
+    },
+    {
+      "id": "R2C10_PROOF_CROSS_SIDE_REUSE",
+      "validator_rejected": true,
+      "errors": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution"
+      ]
+    },
+    {
+      "id": "R2C11_PROOF_WRONG_OBSERVED_STATE",
+      "validator_rejected": true,
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "typed_proof_resolution",
+        "proof_semantic_inventory",
+        "typed_proof_mirror"
+      ]
+    },
+    {
+      "id": "R2C12_PROOF_MISSING_TYPED_FIELD",
+      "validator_rejected": true,
+      "errors": [
+        "exact_contract:RECOVERY-PROOF-REGISTRY.json",
+        "typed_proof_registry",
+        "typed_proof_resolution",
+        "proof_semantic_inventory",
+        "typed_proof_content",
+        "typed_proof_mirror"
+      ]
+    },
+    {
+      "id": "R2C13_VECTOR_ACTION_AND_SCHEMA_EXTENSION",
+      "validator_rejected": true,
+      "errors": [
+        "exact_contract:SUPERVISOR-CRASH-VECTORS.json",
+        "crash_count",
+        "crash_exact_sides",
+        "crash_transition_binding",
+        "crash_permissive",
+        "crash_duplicate_or_extra",
+        "artifact_crash_vectors",
+        "typed_proof_resolution"
+      ]
+    },
+    {
+      "id": "R2C14_CHILD_CONCURRENCY_DUAL_DRIFT",
+      "validator_rejected": true,
+      "errors": [
+        "exact_contract:CONCURRENCY-FENCING-VECTORS.json",
+        "contention_thresholds",
+        "concurrency_global",
+        "overlap_exclusion",
+        "disjoint_scope",
+        "stale_epoch_fence_rejection",
+        "exact_contract:CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+        "N07_exact_order",
+        "N04_exact_no_bypass",
+        "nonce_exact_identity_order",
+        "nonce_exact_semantics",
+        "nonce_exact_predicates",
+        "unknown_outcome_terminal",
+        "child_boundary",
+        "child_provider_authority",
+        "child_cross_artifact",
+        "child_fence_cross_artifact"
+      ]
+    },
+    {
+      "id": "R2C15_CHILD_ACK_TRIPLE_DRIFT",
+      "validator_rejected": true,
+      "errors": [
+        "exact_contract:INGRESS-IDEMPOTENCY-CONTRACT.json",
+        "ack_order_replay",
+        "child_cross_artifact",
+        "exact_contract:ACK-REPLAY-VECTORS.json",
+        "ack_vector_ids",
+        "ack_vector_content",
+        "exact_contract:CHILD-LAUNCH-AND-RESULT-CONTRACT.json",
+        "N07_exact_order",
+        "N04_exact_no_bypass",
+        "nonce_exact_identity_order",
+        "nonce_exact_semantics",
+        "nonce_exact_predicates",
+        "unknown_outcome_terminal",
+        "child_boundary",
+        "child_provider_authority",
+        "child_ack_cross_artifact"
+      ]
+    },
+    {
+      "id": "R2C16_PATH_COMPONENT_AUTHORITY_COMBO",
+      "validator_rejected": true,
+      "errors": [
+        "exact_contract:COMPONENT-TRUST-BOUNDARIES.json",
+        "component_authority",
+        "nonsemantic_component_authority",
+        "component_exact_roles",
+        "exact_contract:PATH-OWNERSHIP-MATRIX.json",
+        "path_multiple_or_missing_writer",
+        "path_exact_ownership",
+        "path_runner_create",
+        "child_path_creation"
+      ]
+    },
+    {
+      "id": "R2C17_SCHEMA_PREFIX_AND_UNKNOWN_NESTED",
+      "validator_rejected": true,
+      "errors": [
+        "exact_contract:SUPERVISOR-STATE-MACHINE.json",
+        "canonical_exact_chain",
+        "canonical_projection",
+        "canonical_adjacency",
+        "canonical_close_adjacency",
+        "preimage_promoted_canonical",
+        "artifact_preparation_binding",
+        "action_semantics",
+        "action_gate",
+        "provider_call_gate",
+        "provider_call_semantics",
+        "state_authority",
+        "lifecycle_noncanonical",
+        "exact_schema:SUPERVISOR-STATE-MACHINE.json"
+      ]
+    },
+    {
+      "id": "R2C18_IMMUTABLE_SEAL_AND_DESIGN_CONTRADICTION",
+      "validator_rejected": true,
+      "errors": [
+        "exact_contract:IMMUTABLE-INPUT-SEALS.json",
+        "immutable_hold_binding",
+        "immutable_authority_rehash",
+        "design_contract_digest",
+        "design_xref:ACK-REPLAY-VECTORS.json",
+        "authority_role_coherence"
+      ]
+    }
+  ]
+}

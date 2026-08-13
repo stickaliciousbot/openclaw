@@ -1,0 +1,16 @@
+{
+  "schema":"critical_apply.m2a_r1.final_independent_findings.v1",
+  "terminal":"HOLD",
+  "blocker_count":3,
+  "blockers":[
+    {"id":"M2A-R1-FINAL-B01-CANONICAL-CLOSEOUT-CONTRADICTS-M0-R3","minimal_repair":"End canonical chain at SUPERVISOR_CLOSED; move receipt publication and lock release to noncanonical artifact/lifecycle vectors; bind publication to immutable closeout_head and forbid semantic/head mutation."},
+    {"id":"M2A-R1-FINAL-B02-CRASH-PROOF-CONTENT-UNBOUND","minimal_repair":"Add sealed typed proof registry/content, exact vector proof resolution and transition/side equality, plus unresolved/wrong-content/cross-side mutations."},
+    {"id":"M2A-R1-FINAL-B03-STRICT-SCHEMA-AND-CROSS-ARTIFACT-GATES-WEAK","minimal_repair":"Enforce exact schemas and object keys/types/values, exact cross-artifact consistency and authority rehashing, semantic design binding, then reject all 25 accepted unsafe cases and combinations."}
+  ],
+  "candidate_local":{"validator":"PASS","mutation_cases":55,"mutation_rejected":55,"adversarial_cases":26,"adversarial_rejected":26,"unsafe_accepted":0},
+  "fresh_independent":{"cases":56,"prior_unsafe_ports":26,"fresh_cases":30,"rejected":31,"unsafe_accepted":25,"direct_failures":6},
+  "privacy":"PASS",
+  "zero_effect":"PASS",
+  "M2B_started":false,
+  "M2B_authorized":false
+}

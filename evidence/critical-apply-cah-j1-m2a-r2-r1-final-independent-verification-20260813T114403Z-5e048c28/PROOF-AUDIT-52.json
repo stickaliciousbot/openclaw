@@ -1,0 +1,425 @@
+{
+  "actual_count": 52,
+  "expected_count": 52,
+  "pass_count": 52,
+  "rows": [
+    {
+      "errors": [],
+      "ordinal": 1,
+      "proof_id": "RP-T00-BEFORE_COMMIT",
+      "side": "BEFORE_COMMIT",
+      "status": "PASS",
+      "transition_id": "T00"
+    },
+    {
+      "errors": [],
+      "ordinal": 2,
+      "proof_id": "RP-T00-AFTER_COMMIT",
+      "side": "AFTER_COMMIT",
+      "status": "PASS",
+      "transition_id": "T00"
+    },
+    {
+      "errors": [],
+      "ordinal": 3,
+      "proof_id": "RP-T01-BEFORE_COMMIT",
+      "side": "BEFORE_COMMIT",
+      "status": "PASS",
+      "transition_id": "T01"
+    },
+    {
+      "errors": [],
+      "ordinal": 4,
+      "proof_id": "RP-T01-AFTER_COMMIT",
+      "side": "AFTER_COMMIT",
+      "status": "PASS",
+      "transition_id": "T01"
+    },
+    {
+      "errors": [],
+      "ordinal": 5,
+      "proof_id": "RP-T02-BEFORE_COMMIT",
+      "side": "BEFORE_COMMIT",
+      "status": "PASS",
+      "transition_id": "T02"
+    },
+    {
+      "errors": [],
+      "ordinal": 6,
+      "proof_id": "RP-T02-AFTER_COMMIT",
+      "side": "AFTER_COMMIT",
+      "status": "PASS",
+      "transition_id": "T02"
+    },
+    {
+      "errors": [],
+      "ordinal": 7,
+      "proof_id": "RP-T03-BEFORE_COMMIT",
+      "side": "BEFORE_COMMIT",
+      "status": "PASS",
+      "transition_id": "T03"
+    },
+    {
+      "errors": [],
+      "ordinal": 8,
+      "proof_id": "RP-T03-AFTER_COMMIT",
+      "side": "AFTER_COMMIT",
+      "status": "PASS",
+      "transition_id": "T03"
+    },
+    {
+      "errors": [],
+      "ordinal": 9,
+      "proof_id": "RP-T04-BEFORE_COMMIT",
+      "side": "BEFORE_COMMIT",
+      "status": "PASS",
+      "transition_id": "T04"
+    },
+    {
+      "errors": [],
+      "ordinal": 10,
+      "proof_id": "RP-T04-AFTER_COMMIT",
+      "side": "AFTER_COMMIT",
+      "status": "PASS",
+      "transition_id": "T04"
+    },
+    {
+      "errors": [],
+      "ordinal": 11,
+      "proof_id": "RP-T05-BEFORE_COMMIT",
+      "side": "BEFORE_COMMIT",
+      "status": "PASS",
+      "transition_id": "T05"
+    },
+    {
+      "errors": [],
+      "ordinal": 12,
+      "proof_id": "RP-T05-AFTER_COMMIT",
+      "side": "AFTER_COMMIT",
+      "status": "PASS",
+      "transition_id": "T05"
+    },
+    {
+      "errors": [],
+      "ordinal": 13,
+      "proof_id": "RP-T06-BEFORE_COMMIT",
+      "side": "BEFORE_COMMIT",
+      "status": "PASS",
+      "transition_id": "T06"
+    },
+    {
+      "errors": [],
+      "ordinal": 14,
+      "proof_id": "RP-T06-AFTER_COMMIT",
+      "side": "AFTER_COMMIT",
+      "status": "PASS",
+      "transition_id": "T06"
+    },
+    {
+      "errors": [],
+      "ordinal": 15,
+      "proof_id": "RP-T07-BEFORE_COMMIT",
+      "side": "BEFORE_COMMIT",
+      "status": "PASS",
+      "transition_id": "T07"
+    },
+    {
+      "errors": [],
+      "ordinal": 16,
+      "proof_id": "RP-T07-AFTER_COMMIT",
+      "side": "AFTER_COMMIT",
+      "status": "PASS",
+      "transition_id": "T07"
+    },
+    {
+      "errors": [],
+      "ordinal": 17,
+      "proof_id": "RP-T08-BEFORE_COMMIT",
+      "side": "BEFORE_COMMIT",
+      "status": "PASS",
+      "transition_id": "T08"
+    },
+    {
+      "errors": [],
+      "ordinal": 18,
+      "proof_id": "RP-T08-AFTER_COMMIT",
+      "side": "AFTER_COMMIT",
+      "status": "PASS",
+      "transition_id": "T08"
+    },
+    {
+      "errors": [],
+      "ordinal": 19,
+      "proof_id": "RP-T09-BEFORE_COMMIT",
+      "side": "BEFORE_COMMIT",
+      "status": "PASS",
+      "transition_id": "T09"
+    },
+    {
+      "errors": [],
+      "ordinal": 20,
+      "proof_id": "RP-T09-AFTER_COMMIT",
+      "side": "AFTER_COMMIT",
+      "status": "PASS",
+      "transition_id": "T09"
+    },
+    {
+      "errors": [],
+      "ordinal": 21,
+      "proof_id": "RP-T10-BEFORE_COMMIT",
+      "side": "BEFORE_COMMIT",
+      "status": "PASS",
+      "transition_id": "T10"
+    },
+    {
+      "errors": [],
+      "ordinal": 22,
+      "proof_id": "RP-T10-AFTER_COMMIT",
+      "side": "AFTER_COMMIT",
+      "status": "PASS",
+      "transition_id": "T10"
+    },
+    {
+      "errors": [],
+      "ordinal": 23,
+      "proof_id": "RP-T11-BEFORE_COMMIT",
+      "side": "BEFORE_COMMIT",
+      "status": "PASS",
+      "transition_id": "T11"
+    },
+    {
+      "errors": [],
+      "ordinal": 24,
+      "proof_id": "RP-T11-AFTER_COMMIT",
+      "side": "AFTER_COMMIT",
+      "status": "PASS",
+      "transition_id": "T11"
+    },
+    {
+      "errors": [],
+      "ordinal": 25,
+      "proof_id": "RP-T12-BEFORE_COMMIT",
+      "side": "BEFORE_COMMIT",
+      "status": "PASS",
+      "transition_id": "T12"
+    },
+    {
+      "errors": [],
+      "ordinal": 26,
+      "proof_id": "RP-T12-AFTER_COMMIT",
+      "side": "AFTER_COMMIT",
+      "status": "PASS",
+      "transition_id": "T12"
+    },
+    {
+      "errors": [],
+      "ordinal": 27,
+      "proof_id": "RP-T13-BEFORE_COMMIT",
+      "side": "BEFORE_COMMIT",
+      "status": "PASS",
+      "transition_id": "T13"
+    },
+    {
+      "errors": [],
+      "ordinal": 28,
+      "proof_id": "RP-T13-AFTER_COMMIT",
+      "side": "AFTER_COMMIT",
+      "status": "PASS",
+      "transition_id": "T13"
+    },
+    {
+      "errors": [],
+      "ordinal": 29,
+      "proof_id": "RP-T14-BEFORE_COMMIT",
+      "side": "BEFORE_COMMIT",
+      "status": "PASS",
+      "transition_id": "T14"
+    },
+    {
+      "errors": [],
+      "ordinal": 30,
+      "proof_id": "RP-T14-AFTER_COMMIT",
+      "side": "AFTER_COMMIT",
+      "status": "PASS",
+      "transition_id": "T14"
+    },
+    {
+      "errors": [],
+      "ordinal": 31,
+      "proof_id": "RP-T15-BEFORE_COMMIT",
+      "side": "BEFORE_COMMIT",
+      "status": "PASS",
+      "transition_id": "T15"
+    },
+    {
+      "errors": [],
+      "ordinal": 32,
+      "proof_id": "RP-T15-AFTER_COMMIT",
+      "side": "AFTER_COMMIT",
+      "status": "PASS",
+      "transition_id": "T15"
+    },
+    {
+      "errors": [],
+      "ordinal": 33,
+      "proof_id": "RP-T16-BEFORE_COMMIT",
+      "side": "BEFORE_COMMIT",
+      "status": "PASS",
+      "transition_id": "T16"
+    },
+    {
+      "errors": [],
+      "ordinal": 34,
+      "proof_id": "RP-T16-AFTER_COMMIT",
+      "side": "AFTER_COMMIT",
+      "status": "PASS",
+      "transition_id": "T16"
+    },
+    {
+      "errors": [],
+      "ordinal": 35,
+      "proof_id": "RP-T17-BEFORE_COMMIT",
+      "side": "BEFORE_COMMIT",
+      "status": "PASS",
+      "transition_id": "T17"
+    },
+    {
+      "errors": [],
+      "ordinal": 36,
+      "proof_id": "RP-T17-AFTER_COMMIT",
+      "side": "AFTER_COMMIT",
+      "status": "PASS",
+      "transition_id": "T17"
+    },
+    {
+      "errors": [],
+      "ordinal": 37,
+      "proof_id": "RP-T18-BEFORE_COMMIT",
+      "side": "BEFORE_COMMIT",
+      "status": "PASS",
+      "transition_id": "T18"
+    },
+    {
+      "errors": [],
+      "ordinal": 38,
+      "proof_id": "RP-T18-AFTER_COMMIT",
+      "side": "AFTER_COMMIT",
+      "status": "PASS",
+      "transition_id": "T18"
+    },
+    {
+      "errors": [],
+      "ordinal": 39,
+      "proof_id": "RP-T19-BEFORE_COMMIT",
+      "side": "BEFORE_COMMIT",
+      "status": "PASS",
+      "transition_id": "T19"
+    },
+    {
+      "errors": [],
+      "ordinal": 40,
+      "proof_id": "RP-T19-AFTER_COMMIT",
+      "side": "AFTER_COMMIT",
+      "status": "PASS",
+      "transition_id": "T19"
+    },
+    {
+      "errors": [],
+      "ordinal": 41,
+      "proof_id": "RP-T20-BEFORE_COMMIT",
+      "side": "BEFORE_COMMIT",
+      "status": "PASS",
+      "transition_id": "T20"
+    },
+    {
+      "errors": [],
+      "ordinal": 42,
+      "proof_id": "RP-T20-AFTER_COMMIT",
+      "side": "AFTER_COMMIT",
+      "status": "PASS",
+      "transition_id": "T20"
+    },
+    {
+      "errors": [],
+      "ordinal": 43,
+      "proof_id": "RP-T21-BEFORE_COMMIT",
+      "side": "BEFORE_COMMIT",
+      "status": "PASS",
+      "transition_id": "T21"
+    },
+    {
+      "errors": [],
+      "ordinal": 44,
+      "proof_id": "RP-T21-AFTER_COMMIT",
+      "side": "AFTER_COMMIT",
+      "status": "PASS",
+      "transition_id": "T21"
+    },
+    {
+      "errors": [],
+      "ordinal": 45,
+      "proof_id": "RP-T22-BEFORE_COMMIT",
+      "side": "BEFORE_COMMIT",
+      "status": "PASS",
+      "transition_id": "T22"
+    },
+    {
+      "errors": [],
+      "ordinal": 46,
+      "proof_id": "RP-T22-AFTER_COMMIT",
+      "side": "AFTER_COMMIT",
+      "status": "PASS",
+      "transition_id": "T22"
+    },
+    {
+      "errors": [],
+      "ordinal": 47,
+      "proof_id": "ALP-AP01_COMPLETION_RECEIPT_PREIMAGE-BEFORE_COMMIT",
+      "side": "BEFORE_COMMIT",
+      "status": "PASS",
+      "transition_id": "AP01_COMPLETION_RECEIPT_PREIMAGE"
+    },
+    {
+      "errors": [],
+      "ordinal": 48,
+      "proof_id": "ALP-AP01_COMPLETION_RECEIPT_PREIMAGE-AFTER_COMMIT",
+      "side": "AFTER_COMMIT",
+      "status": "PASS",
+      "transition_id": "AP01_COMPLETION_RECEIPT_PREIMAGE"
+    },
+    {
+      "errors": [],
+      "ordinal": 49,
+      "proof_id": "ALP-LO01_COMPLETION_RECEIPT_PUBLICATION-BEFORE_COMMIT",
+      "side": "BEFORE_COMMIT",
+      "status": "PASS",
+      "transition_id": "LO01_COMPLETION_RECEIPT_PUBLICATION"
+    },
+    {
+      "errors": [],
+      "ordinal": 50,
+      "proof_id": "ALP-LO01_COMPLETION_RECEIPT_PUBLICATION-AFTER_COMMIT",
+      "side": "AFTER_COMMIT",
+      "status": "PASS",
+      "transition_id": "LO01_COMPLETION_RECEIPT_PUBLICATION"
+    },
+    {
+      "errors": [],
+      "ordinal": 51,
+      "proof_id": "ALP-LO02_TRANSACTION_LOCK_RELEASE-BEFORE_COMMIT",
+      "side": "BEFORE_COMMIT",
+      "status": "PASS",
+      "transition_id": "LO02_TRANSACTION_LOCK_RELEASE"
+    },
+    {
+      "errors": [],
+      "ordinal": 52,
+      "proof_id": "ALP-LO02_TRANSACTION_LOCK_RELEASE-AFTER_COMMIT",
+      "side": "AFTER_COMMIT",
+      "status": "PASS",
+      "transition_id": "LO02_TRANSACTION_LOCK_RELEASE"
+    }
+  ],
+  "schema": "critical_apply.m2a_r2_r1.final_independent.proof_audit.v1",
+  "status": "PASS"
+}

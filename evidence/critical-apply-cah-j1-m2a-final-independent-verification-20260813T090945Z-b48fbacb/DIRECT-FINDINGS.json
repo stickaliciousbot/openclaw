@@ -1,0 +1,911 @@
+{
+  "authority": {
+    "notification_authoritative": false,
+    "production_authority": false,
+    "progressdb_authoritative": false,
+    "recovery_order": [
+      "canonical_journal",
+      "deterministic_reducer",
+      "terminal_manifest_and_seal",
+      "independent_witness",
+      "ProgressDB_projection",
+      "PID_registry_status",
+      "notification_projection"
+    ],
+    "runtime_authority": false,
+    "semantic": "canonical_journal",
+    "shadow_authoritative": false
+  },
+  "design_cross_references": {
+    "ACK-REPLAY-VECTORS.json": true,
+    "CHILD-LAUNCH-AND-RESULT-CONTRACT.json": true,
+    "COMPONENT-TRUST-BOUNDARIES.json": true,
+    "CONCURRENCY-FENCING-VECTORS.json": true,
+    "IMMUTABLE-INPUT-SEALS.json": true,
+    "INGRESS-ENVELOPE-CONTRACT.json": true,
+    "INGRESS-IDEMPOTENCY-CONTRACT.json": true,
+    "M2B-PROMOTION-GATES.json": true,
+    "PATH-OWNERSHIP-MATRIX.json": true,
+    "RECOVERY-AUTHORITY-ORDER.json": true,
+    "SUPERVISOR-CRASH-VECTORS.json": true,
+    "SUPERVISOR-STATE-MACHINE.json": true,
+    "ZERO-EFFECT-CONTRACT.json": true,
+    "test_validate_m2a_freeze.py": true,
+    "validate_m2a_freeze.py": true
+  },
+  "fixture_hashes": [
+    {
+      "actual_sha256": "c5660980743483bc4b3e14d804e6a6eab7722ef7ed51644a9da55efccd327356",
+      "expected_sha256": "c5660980743483bc4b3e14d804e6a6eab7722ef7ed51644a9da55efccd327356",
+      "pass": true,
+      "path": "ACK-REPLAY-VECTORS.json"
+    },
+    {
+      "actual_sha256": "1f046f3a436ebcd1e23a09b55345a4324da9d3bf464e858d85a87301b6da0135",
+      "expected_sha256": "1f046f3a436ebcd1e23a09b55345a4324da9d3bf464e858d85a87301b6da0135",
+      "pass": true,
+      "path": "CHILD-LAUNCH-AND-RESULT-CONTRACT.json"
+    },
+    {
+      "actual_sha256": "c5191150f4377a49e3bdca455bd9dbb32dbbc7dc02ba8ca0ceb3cd57f9b4a0e5",
+      "expected_sha256": "c5191150f4377a49e3bdca455bd9dbb32dbbc7dc02ba8ca0ceb3cd57f9b4a0e5",
+      "pass": true,
+      "path": "COMPONENT-TRUST-BOUNDARIES.json"
+    },
+    {
+      "actual_sha256": "a6d709e3bb3f88489e71833a475aaa43e70f6320f63e6eb5db62d28f3fd28c1d",
+      "expected_sha256": "a6d709e3bb3f88489e71833a475aaa43e70f6320f63e6eb5db62d28f3fd28c1d",
+      "pass": true,
+      "path": "CONCURRENCY-FENCING-VECTORS.json"
+    },
+    {
+      "actual_sha256": "a1aef1d1e5dc16be633e203210eccd4b9637714a73155b1e1216b308fbcd664c",
+      "expected_sha256": "a1aef1d1e5dc16be633e203210eccd4b9637714a73155b1e1216b308fbcd664c",
+      "pass": true,
+      "path": "DESIGN"
+    },
+    {
+      "actual_sha256": "a8ef55369596c46d3cf7d2d36cfcaef08467c83409dad902299a186766d4cc62",
+      "expected_sha256": "a8ef55369596c46d3cf7d2d36cfcaef08467c83409dad902299a186766d4cc62",
+      "pass": true,
+      "path": "IMMUTABLE-INPUT-SEALS.json"
+    },
+    {
+      "actual_sha256": "a57c76ae142462fe1531b04ea2feae312b2d47ae070bdd8e55daa4cf57a9a7ca",
+      "expected_sha256": "a57c76ae142462fe1531b04ea2feae312b2d47ae070bdd8e55daa4cf57a9a7ca",
+      "pass": true,
+      "path": "INGRESS-ENVELOPE-CONTRACT.json"
+    },
+    {
+      "actual_sha256": "1ea6236ced696c105a435af342af28adf5dce25a8bf158adfdacd8b71534772e",
+      "expected_sha256": "1ea6236ced696c105a435af342af28adf5dce25a8bf158adfdacd8b71534772e",
+      "pass": true,
+      "path": "INGRESS-IDEMPOTENCY-CONTRACT.json"
+    },
+    {
+      "actual_sha256": "4c2731be541bfc71615550db345fbc445e08c19d91f1e107285c639e80fb0012",
+      "expected_sha256": "4c2731be541bfc71615550db345fbc445e08c19d91f1e107285c639e80fb0012",
+      "pass": true,
+      "path": "M2B-PROMOTION-GATES.json"
+    },
+    {
+      "actual_sha256": "1cf1fe0d617262eb76f9994950412132daaefb45f681c6ce516fb1a987fa26a9",
+      "expected_sha256": "1cf1fe0d617262eb76f9994950412132daaefb45f681c6ce516fb1a987fa26a9",
+      "pass": true,
+      "path": "PATH-OWNERSHIP-MATRIX.json"
+    },
+    {
+      "actual_sha256": "30e064ca2155482a41f7ef9490f549dbcccff3be03d60e3d747a679b25614642",
+      "expected_sha256": "30e064ca2155482a41f7ef9490f549dbcccff3be03d60e3d747a679b25614642",
+      "pass": true,
+      "path": "RECOVERY-AUTHORITY-ORDER.json"
+    },
+    {
+      "actual_sha256": "19041336880152a4ea2fa48b1513b69602a1c986517fca48035cb155befef61a",
+      "expected_sha256": "19041336880152a4ea2fa48b1513b69602a1c986517fca48035cb155befef61a",
+      "pass": true,
+      "path": "SUPERVISOR-CRASH-VECTORS.json"
+    },
+    {
+      "actual_sha256": "bd49a8072db0df17b192b79a6e6e310fff3ab934fc4d4896a01b52d4bcc2f36f",
+      "expected_sha256": "bd49a8072db0df17b192b79a6e6e310fff3ab934fc4d4896a01b52d4bcc2f36f",
+      "pass": true,
+      "path": "SUPERVISOR-STATE-MACHINE.json"
+    },
+    {
+      "actual_sha256": "d94b112989cd76c8fbdd71c994ca36bf607922b681bb3f2493ce30ba21fa3730",
+      "expected_sha256": "d94b112989cd76c8fbdd71c994ca36bf607922b681bb3f2493ce30ba21fa3730",
+      "pass": true,
+      "path": "ZERO-EFFECT-CONTRACT.json"
+    },
+    {
+      "actual_sha256": "1acc6ab21437cddec0162a75114a49c587c03f099659ac07e37d97280ab5cb78",
+      "expected_sha256": "1acc6ab21437cddec0162a75114a49c587c03f099659ac07e37d97280ab5cb78",
+      "pass": true,
+      "path": "test_validate_m2a_freeze.py"
+    },
+    {
+      "actual_sha256": "3fda41aa6c9ee5b771051cc9537727543c426331ce0cddc08b2979c79c184caf",
+      "expected_sha256": "3fda41aa6c9ee5b771051cc9537727543c426331ce0cddc08b2979c79c184caf",
+      "pass": true,
+      "path": "validate_m2a_freeze.py"
+    }
+  ],
+  "ingress": {
+    "accepted_versions": [
+      "1"
+    ],
+    "canonical_json": {
+      "duplicate_keys": "reject",
+      "encoding": "UTF-8",
+      "hash": "sha256_lower_hex_64",
+      "max_cas_refs": 64,
+      "max_envelope_bytes": 65536,
+      "max_string_bytes": 4096,
+      "normalization": "RFC8785_JCS",
+      "unknown_fields": "reject"
+    },
+    "event_id_derivation": "sha256(JCS({transaction_id,idempotency_key,command_request_sha256,contract_sha256,scope_sha256,payload_cas_refs}))",
+    "idempotency_key_derivation": "caller_supplied_opaque_1_to_128_bytes_bound_into_event_id",
+    "owner_authority_ref": "CAS or AuthorityDB reference; adapter cannot interpret as grant",
+    "payload_cas_refs": "sha256 identities only; capture/verify before acceptance ACK",
+    "provenance": "recorded_not_authoritative",
+    "required_fields": [
+      "schema_version",
+      "transaction_id",
+      "command_request_sha256",
+      "contract_sha256",
+      "owner_authority_ref",
+      "scope_sha256",
+      "event_id",
+      "caller_provenance",
+      "session_provenance",
+      "surface_provenance",
+      "idempotency_key",
+      "payload_cas_refs"
+    ],
+    "schema": "critical_apply.m2a.ingress_envelope.v1",
+    "schema_version": "1",
+    "semantic_authority_from_envelope": false,
+    "untrusted_paths_allowed": false
+  },
+  "m0_cross_contract": {
+    "CAS_ACK_rule": "ACK",
+    "M0_final_receipt_zero_blockers": true,
+    "N07_ordering": [
+      "capture_governing_response_bytes_if_required",
+      "commit_and_sync_CALL_OUTCOME_RECORDED_in_canonical_journal",
+      "BEGIN_IMMEDIATE",
+      "bind_outcome_event_and_append_authority_receipt",
+      "COMMIT_FULL"
+    ],
+    "all_28_manifest_artifacts_hash_verified": true,
+    "canonical_preimage_nonsemantic_invariant": true,
+    "direct_close_invariant": true
+  },
+  "mandatory_A": {
+    "adjudication": "BLOCKER: validator does not distinguish canonical event adjacency from noncanonical preparation",
+    "canonical_projection_direct_adjacency_true": true,
+    "executable_validator_property_present": false,
+    "governing_m0_direct_adjacency": true,
+    "state_graph_has_intervening_noncanonical_state": true
+  },
+  "mandatory_B": {
+    "adjudication": "BLOCKER: if required is optional and omits exact verified journal CAS-reference obligation",
+    "candidate_N07": [
+      "capture governing response bytes if required",
+      "commit and sync CALL_OUTCOME_RECORDED in canonical journal",
+      "bind exact outcome event in AuthorityDB",
+      "COMMIT_FULL"
+    ],
+    "m1_source_gate": [
+      "- CAS: source is retained descriptor-bound; source identity/type/nlink/symlink and mutation checks are enforced; publication is no-overwrite/dedupe with directory durability, reopen/rehash, and journal sync before ACK; orphan publication is recoverable, while referenced missing/corrupt bytes are fatal; ownership modes are restrictive.",
+      "- AuthorityDB: filesystem and SQLite identity, application_id, user_version, schema hash, pragmas, WAL durability, and receipt chains are verified; epochs are journal-proven; fencing is monotonic; lease/release states are exact and journal-gated; semantic outcomes are absent from DB authority.",
+      "- N01-N11: source gates implement exact sequencing. N04 safe resume refuses without journal-first recovered-epoch authorization. N07 requires response bytes in CAS plus a verified journal event referring to the CAS object before DB outcome. UNKNOWN_CONSUMED is terminal/non-retryable, including after reopen.",
+      "- Busy/contention paths fail closed and serialize correctly at 2/5/20 workers."
+    ],
+    "unconditional_descriptor_CAS_and_exact_verified_journal_reference": false
+  },
+  "mandatory_C": {
+    "action_allowed_true_transitions": [
+      "T07",
+      "T08",
+      "T09",
+      "T10",
+      "T11"
+    ],
+    "adjudication": "BLOCKER: action_allowed is untyped/ambiguous; no executable provider-call exclusion property in state machine validator",
+    "call_allowed_true_transitions": [],
+    "explicit_action_semantics": null
+  },
+  "mandatory_D": {
+    "adjudication": "VALIDATOR_WEAKNESS: exact suffix identities are not enforced",
+    "candidate_required_transitions_exact": true,
+    "later_check_is_prefix_and_length_only": true,
+    "suspicious_noop_present": true
+  },
+  "path_ownership": {
+    "all_have_single_scalar_creator_writer": true,
+    "child_forbidden": [
+      "self-registration",
+      "create shared path",
+      "mkdir nonce-ledger/",
+      "write journal",
+      "write CAS directly",
+      "write AuthorityDB",
+      "write ProgressDB as authority"
+    ],
+    "nonce_creator": "supervisor_materializer",
+    "path_count": 12,
+    "unique_paths": true
+  },
+  "schemas": {
+    "ACK-REPLAY-VECTORS.json": "critical_apply.m2a.ack_replay_vectors.v1",
+    "CHILD-LAUNCH-AND-RESULT-CONTRACT.json": "critical_apply.m2a.child_launch_result.v1",
+    "COMPONENT-TRUST-BOUNDARIES.json": "critical_apply.m2a.component_trust_boundaries.v1",
+    "CONCURRENCY-FENCING-VECTORS.json": "critical_apply.m2a.concurrency_fencing_vectors.v1",
+    "GIT-DIFF-CHECK.json": "critical_apply.m2a.git_diff_check.v1",
+    "IMMUTABLE-INPUT-SEALS.json": "critical_apply.m2a.immutable_inputs.v1",
+    "INGRESS-ENVELOPE-CONTRACT.json": "critical_apply.m2a.ingress_envelope.v1",
+    "INGRESS-IDEMPOTENCY-CONTRACT.json": "critical_apply.m2a.ingress_idempotency.v1",
+    "M2B-PROMOTION-GATES.json": "critical_apply.m2a.promotion_gates.v1",
+    "PATH-OWNERSHIP-MATRIX.json": "critical_apply.m2a.path_ownership.v1",
+    "PRIVACY-RECEIPT.json": "approval_grant_broker.r6_r6.phase_a.bounded_privacy_scan.v2",
+    "RECOVERY-AUTHORITY-ORDER.json": "critical_apply.m2a.recovery_authority_order.v1",
+    "SOURCE-MANIFEST.json": "critical_apply.m2a.source_manifest.v1",
+    "STARTED.json": "critical_apply.m2a.started.v1",
+    "STATUS.json": "critical_apply.cah_j1_m2a.status.v1",
+    "SUPERVISOR-CRASH-VECTORS.json": "critical_apply.m2a.supervisor_crash_vectors.v1",
+    "SUPERVISOR-STATE-MACHINE.json": "critical_apply.m2a.supervisor_state_machine.v1",
+    "TEST-RESULTS.json": null,
+    "VALIDATION-RESULTS.json": null,
+    "ZERO-EFFECT-CONTRACT.json": "critical_apply.m2a.zero_effect.v1",
+    "ZERO-EFFECT-RECEIPT.json": "critical_apply.cah_j1_m2a.zero_effect_receipt.v1",
+    "frozen-tool-identities.json": "critical_apply.m2a.frozen_tool_identities.v1"
+  },
+  "thresholds": {
+    "at_least_50": true,
+    "both_sides_every_transition": true,
+    "concurrency_clients": [
+      2,
+      5,
+      20
+    ],
+    "crash_vector_count": 52,
+    "disjoint_present": true,
+    "global_vector_ids_unique": true,
+    "overlap_present": true,
+    "same_scope_2_5_20": true,
+    "stale_epoch_present": true,
+    "stale_fence_present": true,
+    "state_transition_count": 26,
+    "transition_specific_details": [
+      {
+        "actual_observed_state": "NONE",
+        "expected_observed_state": "NONE",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": true,
+        "vector_id": "CV-T00-BEFORE_COMMIT"
+      },
+      {
+        "actual_observed_state": "NONE",
+        "expected_observed_state": "NONE",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": true,
+        "vector_id": "CV-T00-AFTER_COMMIT_BEFORE_ACK"
+      },
+      {
+        "actual_observed_state": "ROOT_REGISTERED",
+        "expected_observed_state": "ROOT_REGISTERED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": true,
+        "vector_id": "CV-T01-BEFORE_COMMIT"
+      },
+      {
+        "actual_observed_state": "ROOT_REGISTERED",
+        "expected_observed_state": "JOURNAL_GENESIS_COMMITTED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": false,
+        "vector_id": "CV-T01-AFTER_COMMIT_BEFORE_ACK"
+      },
+      {
+        "actual_observed_state": "JOURNAL_GENESIS_COMMITTED",
+        "expected_observed_state": "JOURNAL_GENESIS_COMMITTED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": true,
+        "vector_id": "CV-T02-BEFORE_COMMIT"
+      },
+      {
+        "actual_observed_state": "JOURNAL_GENESIS_COMMITTED",
+        "expected_observed_state": "EPOCH_COMMITTED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": false,
+        "vector_id": "CV-T02-AFTER_COMMIT_BEFORE_ACK"
+      },
+      {
+        "actual_observed_state": "EPOCH_COMMITTED",
+        "expected_observed_state": "EPOCH_COMMITTED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": true,
+        "vector_id": "CV-T03-BEFORE_COMMIT"
+      },
+      {
+        "actual_observed_state": "EPOCH_COMMITTED",
+        "expected_observed_state": "ENVELOPE_CAS_CAPTURED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": false,
+        "vector_id": "CV-T03-AFTER_COMMIT_BEFORE_ACK"
+      },
+      {
+        "actual_observed_state": "ENVELOPE_CAS_CAPTURED",
+        "expected_observed_state": "ENVELOPE_CAS_CAPTURED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": true,
+        "vector_id": "CV-T04-BEFORE_COMMIT"
+      },
+      {
+        "actual_observed_state": "ENVELOPE_CAS_CAPTURED",
+        "expected_observed_state": "INGRESS_ACCEPTED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": false,
+        "vector_id": "CV-T04-AFTER_COMMIT_BEFORE_ACK"
+      },
+      {
+        "actual_observed_state": "INGRESS_ACCEPTED",
+        "expected_observed_state": "INGRESS_ACCEPTED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": true,
+        "vector_id": "CV-T05-BEFORE_COMMIT"
+      },
+      {
+        "actual_observed_state": "INGRESS_ACCEPTED",
+        "expected_observed_state": "SCOPE_RESERVED_PENDING_JOURNAL",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": false,
+        "vector_id": "CV-T05-AFTER_COMMIT_BEFORE_ACK"
+      },
+      {
+        "actual_observed_state": "SCOPE_RESERVED_PENDING_JOURNAL",
+        "expected_observed_state": "SCOPE_RESERVED_PENDING_JOURNAL",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": true,
+        "vector_id": "CV-T06-BEFORE_COMMIT"
+      },
+      {
+        "actual_observed_state": "SCOPE_RESERVED_PENDING_JOURNAL",
+        "expected_observed_state": "SCOPE_JOURNAL_BOUND",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": false,
+        "vector_id": "CV-T06-AFTER_COMMIT_BEFORE_ACK"
+      },
+      {
+        "actual_observed_state": "SCOPE_JOURNAL_BOUND",
+        "expected_observed_state": "SCOPE_JOURNAL_BOUND",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": true,
+        "vector_id": "CV-T07-BEFORE_COMMIT"
+      },
+      {
+        "actual_observed_state": "SCOPE_JOURNAL_BOUND",
+        "expected_observed_state": "SCOPE_ACTIVE",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": false,
+        "vector_id": "CV-T07-AFTER_COMMIT_BEFORE_ACK"
+      },
+      {
+        "actual_observed_state": "SCOPE_ACTIVE",
+        "expected_observed_state": "SCOPE_ACTIVE",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": true,
+        "vector_id": "CV-T08-BEFORE_COMMIT"
+      },
+      {
+        "actual_observed_state": "SCOPE_ACTIVE",
+        "expected_observed_state": "CHILD_LAUNCH_INTENT_COMMITTED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": false,
+        "vector_id": "CV-T08-AFTER_COMMIT_BEFORE_ACK"
+      },
+      {
+        "actual_observed_state": "CHILD_LAUNCH_INTENT_COMMITTED",
+        "expected_observed_state": "CHILD_LAUNCH_INTENT_COMMITTED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": true,
+        "vector_id": "CV-T09-BEFORE_COMMIT"
+      },
+      {
+        "actual_observed_state": "CHILD_LAUNCH_INTENT_COMMITTED",
+        "expected_observed_state": "CHILD_STARTED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": false,
+        "vector_id": "CV-T09-AFTER_COMMIT_BEFORE_ACK"
+      },
+      {
+        "actual_observed_state": "CHILD_STARTED",
+        "expected_observed_state": "CHILD_STARTED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": true,
+        "vector_id": "CV-T10-BEFORE_COMMIT"
+      },
+      {
+        "actual_observed_state": "CHILD_STARTED",
+        "expected_observed_state": "CHILD_RESULT_CAPTURED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": false,
+        "vector_id": "CV-T10-AFTER_COMMIT_BEFORE_ACK"
+      },
+      {
+        "actual_observed_state": "CHILD_RESULT_CAPTURED",
+        "expected_observed_state": "CHILD_RESULT_CAPTURED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": true,
+        "vector_id": "CV-T11-BEFORE_COMMIT"
+      },
+      {
+        "actual_observed_state": "CHILD_RESULT_CAPTURED",
+        "expected_observed_state": "EXECUTION_AND_EVIDENCE_COMMITTED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": false,
+        "vector_id": "CV-T11-AFTER_COMMIT_BEFORE_ACK"
+      },
+      {
+        "actual_observed_state": "EXECUTION_AND_EVIDENCE_COMMITTED",
+        "expected_observed_state": "EXECUTION_AND_EVIDENCE_COMMITTED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": true,
+        "vector_id": "CV-T12-BEFORE_COMMIT"
+      },
+      {
+        "actual_observed_state": "EXECUTION_AND_EVIDENCE_COMMITTED",
+        "expected_observed_state": "OWNED_CHILDREN_RECONCILED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": false,
+        "vector_id": "CV-T12-AFTER_COMMIT_BEFORE_ACK"
+      },
+      {
+        "actual_observed_state": "OWNED_CHILDREN_RECONCILED",
+        "expected_observed_state": "OWNED_CHILDREN_RECONCILED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": true,
+        "vector_id": "CV-T13-BEFORE_COMMIT"
+      },
+      {
+        "actual_observed_state": "OWNED_CHILDREN_RECONCILED",
+        "expected_observed_state": "CLEANUP_RECORDED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": false,
+        "vector_id": "CV-T13-AFTER_COMMIT_BEFORE_ACK"
+      },
+      {
+        "actual_observed_state": "CLEANUP_RECORDED",
+        "expected_observed_state": "CLEANUP_RECORDED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": true,
+        "vector_id": "CV-T14-BEFORE_COMMIT"
+      },
+      {
+        "actual_observed_state": "CLEANUP_RECORDED",
+        "expected_observed_state": "TERMINAL_REDUCTION_PREPARED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": false,
+        "vector_id": "CV-T14-AFTER_COMMIT_BEFORE_ACK"
+      },
+      {
+        "actual_observed_state": "TERMINAL_REDUCTION_PREPARED",
+        "expected_observed_state": "TERMINAL_REDUCTION_PREPARED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": true,
+        "vector_id": "CV-T15-BEFORE_COMMIT"
+      },
+      {
+        "actual_observed_state": "TERMINAL_REDUCTION_PREPARED",
+        "expected_observed_state": "TERMINAL_DECISION",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": false,
+        "vector_id": "CV-T15-AFTER_COMMIT_BEFORE_ACK"
+      },
+      {
+        "actual_observed_state": "TERMINAL_DECISION",
+        "expected_observed_state": "TERMINAL_DECISION",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": true,
+        "vector_id": "CV-T16-BEFORE_COMMIT"
+      },
+      {
+        "actual_observed_state": "TERMINAL_DECISION",
+        "expected_observed_state": "TERMINAL_SEAL_RECORDED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": false,
+        "vector_id": "CV-T16-AFTER_COMMIT_BEFORE_ACK"
+      },
+      {
+        "actual_observed_state": "TERMINAL_SEAL_RECORDED",
+        "expected_observed_state": "TERMINAL_SEAL_RECORDED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": true,
+        "vector_id": "CV-T17-BEFORE_COMMIT"
+      },
+      {
+        "actual_observed_state": "TERMINAL_SEAL_RECORDED",
+        "expected_observed_state": "NOTIFICATION_OUTCOME_RECORDED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": false,
+        "vector_id": "CV-T17-AFTER_COMMIT_BEFORE_ACK"
+      },
+      {
+        "actual_observed_state": "NOTIFICATION_OUTCOME_RECORDED",
+        "expected_observed_state": "NOTIFICATION_OUTCOME_RECORDED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": true,
+        "vector_id": "CV-T18-BEFORE_COMMIT"
+      },
+      {
+        "actual_observed_state": "NOTIFICATION_OUTCOME_RECORDED",
+        "expected_observed_state": "INDEPENDENT_WITNESS_RECORDED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": false,
+        "vector_id": "CV-T18-AFTER_COMMIT_BEFORE_ACK"
+      },
+      {
+        "actual_observed_state": "INDEPENDENT_WITNESS_RECORDED",
+        "expected_observed_state": "INDEPENDENT_WITNESS_RECORDED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": true,
+        "vector_id": "CV-T19-BEFORE_COMMIT"
+      },
+      {
+        "actual_observed_state": "INDEPENDENT_WITNESS_RECORDED",
+        "expected_observed_state": "SCOPE_LEASE_RELEASE_INTENT",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": false,
+        "vector_id": "CV-T19-AFTER_COMMIT_BEFORE_ACK"
+      },
+      {
+        "actual_observed_state": "SCOPE_LEASE_RELEASE_INTENT",
+        "expected_observed_state": "SCOPE_LEASE_RELEASE_INTENT",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": true,
+        "vector_id": "CV-T20-BEFORE_COMMIT"
+      },
+      {
+        "actual_observed_state": "SCOPE_LEASE_RELEASE_INTENT",
+        "expected_observed_state": "AUTHORITYDB_RELEASED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": false,
+        "vector_id": "CV-T20-AFTER_COMMIT_BEFORE_ACK"
+      },
+      {
+        "actual_observed_state": "AUTHORITYDB_RELEASED",
+        "expected_observed_state": "AUTHORITYDB_RELEASED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": true,
+        "vector_id": "CV-T21-BEFORE_COMMIT"
+      },
+      {
+        "actual_observed_state": "AUTHORITYDB_RELEASED",
+        "expected_observed_state": "SCOPE_LEASE_RELEASE_RECORDED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": false,
+        "vector_id": "CV-T21-AFTER_COMMIT_BEFORE_ACK"
+      },
+      {
+        "actual_observed_state": "SCOPE_LEASE_RELEASE_RECORDED",
+        "expected_observed_state": "SCOPE_LEASE_RELEASE_RECORDED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": true,
+        "vector_id": "CV-T22-BEFORE_COMMIT"
+      },
+      {
+        "actual_observed_state": "SCOPE_LEASE_RELEASE_RECORDED",
+        "expected_observed_state": "COMPLETION_RECEIPT_PREIMAGE_DURABLE",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": false,
+        "vector_id": "CV-T22-AFTER_COMMIT_BEFORE_ACK"
+      },
+      {
+        "actual_observed_state": "COMPLETION_RECEIPT_PREIMAGE_DURABLE",
+        "expected_observed_state": "COMPLETION_RECEIPT_PREIMAGE_DURABLE",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": true,
+        "vector_id": "CV-T23-BEFORE_COMMIT"
+      },
+      {
+        "actual_observed_state": "COMPLETION_RECEIPT_PREIMAGE_DURABLE",
+        "expected_observed_state": "SUPERVISOR_CLOSED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": false,
+        "vector_id": "CV-T23-AFTER_COMMIT_BEFORE_ACK"
+      },
+      {
+        "actual_observed_state": "SUPERVISOR_CLOSED",
+        "expected_observed_state": "SUPERVISOR_CLOSED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": true,
+        "vector_id": "CV-T24-BEFORE_COMMIT"
+      },
+      {
+        "actual_observed_state": "SUPERVISOR_CLOSED",
+        "expected_observed_state": "COMPLETION_RECEIPT_PUBLISHED_VERIFIED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": false,
+        "vector_id": "CV-T24-AFTER_COMMIT_BEFORE_ACK"
+      },
+      {
+        "actual_observed_state": "COMPLETION_RECEIPT_PUBLISHED_VERIFIED",
+        "expected_observed_state": "COMPLETION_RECEIPT_PUBLISHED_VERIFIED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": true,
+        "vector_id": "CV-T25-BEFORE_COMMIT"
+      },
+      {
+        "actual_observed_state": "COMPLETION_RECEIPT_PUBLISHED_VERIFIED",
+        "expected_observed_state": "TRANSACTION_LOCK_RELEASED",
+        "proofs": [
+          "verify canonical journal prefix and hash chain",
+          "verify exact epoch and fencing token",
+          "verify CAS identities required by transition",
+          "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+        ],
+        "state_side_exact": false,
+        "vector_id": "CV-T25-AFTER_COMMIT_BEFORE_ACK"
+      }
+    ],
+    "transition_specific_state_side_exact_count": 27,
+    "transition_specific_state_side_total": 52
+  }
+}

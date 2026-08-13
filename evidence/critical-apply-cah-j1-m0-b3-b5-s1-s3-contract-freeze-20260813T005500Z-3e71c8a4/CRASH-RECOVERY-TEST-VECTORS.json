@@ -1,0 +1,98 @@
+{
+  "boundary": {
+    "consumed_production_authority": 0,
+    "gateway_config_runtime_mutations": 0,
+    "mode": "PREP_ONLY",
+    "production_mutations": 0,
+    "provider_model_calls": 0
+  },
+  "created_utc": "2026-08-13T00:55:00Z",
+  "pass_rule": "each vector yields one valid committed prefix, deterministic recovery/closeout classification, zero false PASS, zero duplicate append, zero semantic rewrite and zero unauthorized effect",
+  "schema": "critical_apply.b3_b4_b5_s1_s3_crash_recovery_vectors.v1",
+  "vectors": [
+    {
+      "id": "TF-01",
+      "kill_boundary": "after TERMINAL_REDUCTION_PREPARED fdatasync before ACK",
+      "must_not": "accept new semantic evidence or append duplicate fence",
+      "recovery": "journal-derived ACK; same semantic_reduction_head; rerun exact reducer"
+    },
+    {
+      "id": "TF-02",
+      "kill_boundary": "during reducer execution",
+      "must_not": "move freeze head",
+      "recovery": "discard partial derived output; rerun exact reducer over frozen head"
+    },
+    {
+      "id": "TF-03",
+      "kill_boundary": "after REDUCTION.json publication before TERMINAL_DECISION",
+      "must_not": "trust mutable partial output",
+      "recovery": "rehash/recompute reduction then commit one decision"
+    },
+    {
+      "id": "TF-04",
+      "kill_boundary": "after TERMINAL_DECISION fdatasync before ACK",
+      "must_not": "append second terminal decision",
+      "recovery": "journal map returns original ACK; continue verification replay"
+    },
+    {
+      "id": "ID-01",
+      "kill_boundary": "delete ProgressDB after ACK then retry",
+      "must_not": "append duplicate",
+      "recovery": "rebuild map from journal and return original ACK"
+    },
+    {
+      "id": "ID-02",
+      "kill_boundary": "ProgressDB contains matching event_id but indexed head mismatches journal",
+      "must_not": "accept cache as authority",
+      "recovery": "ignore/rebuild DB; journal decides"
+    },
+    {
+      "id": "ID-03",
+      "kill_boundary": "same event_id retried with different proposal hash",
+      "must_not": "return committed ACK",
+      "recovery": "integrity conflict; no second semantic event"
+    },
+    {
+      "id": "LC-01",
+      "kill_boundary": "after RUN_SEALED before notification request",
+      "must_not": "rerun semantic reduction or mutation",
+      "recovery": "sealed semantic result remains; resume bounded notification closeout"
+    },
+    {
+      "id": "NT-01",
+      "kill_boundary": "after notification submission before outcome event",
+      "must_not": "blind resend",
+      "recovery": "query existing deterministic notification identity; deadline yields confirmed/failed/unknown"
+    },
+    {
+      "id": "LC-02",
+      "kill_boundary": "after SCOPE_LEASE_RELEASE_INTENT ACK before AuthorityDB release",
+      "must_not": "start protected action",
+      "recovery": "protected actions remain permanently fenced; complete DB release under recovery"
+    },
+    {
+      "id": "LC-03",
+      "kill_boundary": "after AuthorityDB RELEASED before SCOPE_LEASE_RELEASE_RECORDED",
+      "must_not": "reacquire old token",
+      "recovery": "idempotently commit release-recorded event from durable receipt"
+    },
+    {
+      "id": "LC-04",
+      "kill_boundary": "after SUPERVISOR_CLOSED ACK before completion receipt publication",
+      "must_not": "write journal event",
+      "recovery": "materialize receipt from closeout_head/seal/prepared body; append nothing"
+    },
+    {
+      "id": "LC-05",
+      "kill_boundary": "after receipt readback before lock release",
+      "must_not": "rewrite receipt or journal",
+      "recovery": "verify existing receipt then release lock"
+    },
+    {
+      "id": "NT-02",
+      "kill_boundary": "delivery confirmation arrives after closed journal",
+      "must_not": "rewrite semantic result, original notification outcome, seal, receipt or journal",
+      "recovery": "store separate follow-up evidence or new transaction"
+    }
+  ]
+}

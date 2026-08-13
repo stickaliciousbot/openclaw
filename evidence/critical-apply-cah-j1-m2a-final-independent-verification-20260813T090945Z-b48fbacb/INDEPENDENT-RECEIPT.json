@@ -1,0 +1,38 @@
+{
+  "schema": "critical_apply.cah_j1.m1_preservation_m2a_final_independent_receipt.v1",
+  "verified_at_utc": "2026-08-13T09:30:00Z",
+  "evidence_root": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m2a-final-independent-verification-20260813T090945Z-b48fbacb",
+  "M1_preservation_verdict": "PASS_VERIFIED",
+  "M1_patch": {
+    "mode": "0444",
+    "bytes": 106031,
+    "sha256": "7cde7ec7bf858b06bdf22fc22d703457565059d5643909d55ac7c54020b8d4bc",
+    "reconstructed_hashes_pass": 7,
+    "reconstructed_hashes_total": 7,
+    "tmp_input_dependency": false,
+    "development_worktree_source_dependency": false
+  },
+  "M2A_verdict": "HOLD",
+  "blocker_count": 6,
+  "blocker_ids": [
+    "M2A-B01-CANONICAL-ADJACENCY-NOT-EXECUTABLY-ENFORCED",
+    "M2A-B02-N07-GOVERNING-RESPONSE-CAS-OPTIONAL",
+    "M2A-B03-ACTION-ALLOWED-SEMANTICS-AMBIGUOUS",
+    "M2A-B04-NONCE-IDENTITY-GATE-PREFIX-ONLY",
+    "M2A-B05-CRASH-VECTOR-EXACT-SIDE-RECOVERY-NOT-ENFORCED",
+    "M2A-B06-ADVERSARIAL-CONTRACT-CONTENT-NOT-ENFORCED"
+  ],
+  "tests": {
+    "candidate_validator": "PASS",
+    "candidate_mutations": "12/12 PASS",
+    "verifier_authored_adversarial": "8/26 rejected; 18/26 unsafe accepted",
+    "crash_vectors": 52,
+    "state_transitions": 26,
+    "M1_reconstruction": "7/7 PASS"
+  },
+  "privacy": "PASS",
+  "zero_effect": "PASS",
+  "verifier_owned_process_leaks": 0,
+  "M2B": "NOT_STARTED",
+  "terminal": "HOLD_CAH_J1_M2A_REPAIR_REQUIRED_M2B_NOT_STARTED"
+}

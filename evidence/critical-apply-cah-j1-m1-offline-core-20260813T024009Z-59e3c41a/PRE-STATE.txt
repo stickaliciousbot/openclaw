@@ -1,0 +1,12 @@
+utc=2026-08-13T02:40:09Z
+worktree=/tmp/cah-j1-m1-core-20260813T1240AEST/worktree
+required_base=b48fbacb12f07de334a0195e13992ce7237db910
+actual_head=b48fbacb12f07de334a0195e13992ce7237db910
+status_porcelain_begin
+?? scripts/__pycache__/critical_apply_contracts.cpython-312.pyc
+?? scripts/__pycache__/test_critical_apply_runner.cpython-312.pyc
+?? scripts/__pycache__/test_openclaw_npm_package_plugin.cpython-312.pyc
+?? scripts/critical_apply_plugins/__pycache__/__init__.cpython-312.pyc
+?? scripts/critical_apply_plugins/__pycache__/openclaw_npm_package.cpython-312.pyc
+status_porcelain_end
+note=pre-existing untracked Python bytecode was present before M1 editing; it will be excluded from source changes and removed before final clean-state gate

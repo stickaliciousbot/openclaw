@@ -1,0 +1,24 @@
+{
+  "M2B_started": false,
+  "allowed": [
+    "design artifact under design/",
+    "evidence artifacts under this M2A root",
+    "disposable /tmp fixtures"
+  ],
+  "forbidden": [
+    "production source implementation",
+    "install",
+    "git stage commit push",
+    "Gateway/config/runtime mutation",
+    "provider/model calls",
+    "network calls",
+    "production actions",
+    "cron/systemd mutation",
+    "external messages"
+  ],
+  "production_authority": false,
+  "runtime_authority": false,
+  "schema": "critical_apply.m2a_r2.zero_effect_contract.v1",
+  "shadow_outputs_authoritative": false,
+  "stop_before_M2B": true
+}

@@ -1,0 +1,62 @@
+{
+  "boundary": {
+    "consumed_production_authority": 0,
+    "gateway_config_runtime_mutations": 0,
+    "mode": "PREP_ONLY",
+    "production_mutations": 0,
+    "provider_model_calls": 0
+  },
+  "created_utc": "2026-08-13T00:55:00Z",
+  "deadline_contract": {
+    "bounded": true,
+    "clock": "monotonic only within matching boot_id; wall clock reporting only",
+    "configured_in": "immutable transaction contract",
+    "exactly_one_terminal_outcome_before_release_intent": true,
+    "terminal_outcomes": [
+      "DELIVERED_CONFIRMED",
+      "DELIVERY_FAILED",
+      "DELIVERY_UNKNOWN"
+    ]
+  },
+  "examples": [
+    {
+      "closeout": "semantic_result=PASS, notification=DELIVERY_UNKNOWN",
+      "late": "delivery confirmed later",
+      "result": "PASS remains; original DELIVERY_UNKNOWN remains; separate later-delivered evidence may be reported"
+    },
+    {
+      "closeout": "semantic_result=HOLD, notification=DELIVERY_FAILED",
+      "late": "adapter later reports success",
+      "result": "HOLD remains; no journal append; follow-up evidence only"
+    }
+  ],
+  "forbidden": [
+    "notification outcome changing semantic_result",
+    "post-close journal append",
+    "replacing TERMINAL-SEAL.json",
+    "rewriting completion receipt in place",
+    "unbounded wait",
+    "blind retry after ambiguous submission"
+  ],
+  "late_receipt_rule": {
+    "after_SUPERVISOR_CLOSED": "cannot append to the closed canonical journal",
+    "historical_outcome_rewrite": false,
+    "operator_view": "may show original closeout outcome plus later observed delivery as separate timestamped evidence",
+    "sealed_semantic_result_rewrite": false,
+    "semantic_effect": "none",
+    "storage_options": [
+      "notification-plane follow-up evidence bound to transaction and original notification_id",
+      "new follow-up transaction"
+    ]
+  },
+  "resolves": [
+    "S3"
+  ],
+  "schema": "critical_apply.late_notification_contract.v1",
+  "submission_idempotency": {
+    "ambiguity": "commit DELIVERY_UNKNOWN at deadline",
+    "recovery": "query the existing adapter/request identity when possible; never blind-resend after ambiguous submission",
+    "request_event": "NOTIFICATION_REQUESTED must bind deterministic notification_id and payload digest before submission",
+    "submitted_event": "NOTIFICATION_SUBMITTED binds adapter receipt/request identity"
+  }
+}

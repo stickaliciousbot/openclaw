@@ -1,0 +1,141 @@
+{
+  "invariants": [
+    "no_protected_action_after_SCOPE_LEASE_RELEASE_INTENT",
+    "AuthorityDB_release_failure_yields_lease_release_HOLD_and_no_clean_close_claim",
+    "SUPERVISOR_CLOSED_precedes_transaction_lock_release",
+    "cleanup_precedes_PASS_reduction_fence",
+    "notification_and_witness_precede_release",
+    "late_notification_cannot_reopen",
+    "terminal_semantics_never_rewritten_by_closeout"
+  ],
+  "schema": "critical_apply.lifecycle_transition_table.v1",
+  "status": "FROZEN_FOR_M0_S1",
+  "transitions": [
+    {
+      "authority": "journal",
+      "from": null,
+      "gate": "epoch durable before AuthorityDB rows",
+      "id": "L00",
+      "to": "SUPERVISOR_EPOCH_COMMITTED"
+    },
+    {
+      "authority": "AuthorityDB",
+      "from": "SUPERVISOR_EPOCH_COMMITTED",
+      "gate": "no protected action",
+      "id": "L01",
+      "to": "SCOPE_LEASE_RESERVED_PENDING_JOURNAL"
+    },
+    {
+      "authority": "journal",
+      "from": "SCOPE_LEASE_RESERVED_PENDING_JOURNAL",
+      "gate": "bind pending receipt",
+      "id": "L02",
+      "to": "SCOPE_LEASE_JOURNAL_COMMITTED"
+    },
+    {
+      "authority": "AuthorityDB+journal",
+      "from": "SCOPE_LEASE_JOURNAL_COMMITTED",
+      "gate": "protected action gate may open",
+      "id": "L03",
+      "to": "SCOPE_LEASE_ACTIVE"
+    },
+    {
+      "authority": "journal+CAS",
+      "from": "SCOPE_LEASE_ACTIVE",
+      "gate": "all governing evidence CAS-bound",
+      "id": "L04",
+      "to": "EXECUTION_AND_EVIDENCE_COMMITTED"
+    },
+    {
+      "authority": "journal",
+      "from": "EXECUTION_AND_EVIDENCE_COMMITTED",
+      "gate": "no unowned or live child uncertainty",
+      "id": "L05",
+      "to": "OWNED_CHILDREN_RECONCILED"
+    },
+    {
+      "authority": "journal",
+      "from": "OWNED_CHILDREN_RECONCILED",
+      "gate": "cleanup participates in PASS readiness",
+      "id": "L06",
+      "to": "CLEANUP_RECORDED"
+    },
+    {
+      "authority": "journal",
+      "from": "CLEANUP_RECORDED",
+      "gate": "semantic input closes",
+      "id": "L07",
+      "to": "TERMINAL_REDUCTION_PREPARED"
+    },
+    {
+      "authority": "journal",
+      "from": "TERMINAL_REDUCTION_PREPARED",
+      "gate": "deterministic reducer over frozen prefix",
+      "id": "L08",
+      "to": "TERMINAL_DECISION"
+    },
+    {
+      "authority": "CAS+journal",
+      "from": "TERMINAL_DECISION",
+      "gate": "seal binds terminal decision head",
+      "id": "L09",
+      "to": "TERMINAL_SEALED"
+    },
+    {
+      "authority": "journal",
+      "from": "TERMINAL_SEALED",
+      "gate": "bounded delivery outcome",
+      "id": "L10",
+      "to": "NOTIFICATION_OUTCOME_RECORDED"
+    },
+    {
+      "authority": "WitnessDB+journal",
+      "from": "NOTIFICATION_OUTCOME_RECORDED",
+      "gate": "grade-1 witness",
+      "id": "L11",
+      "to": "INDEPENDENT_WITNESS_RECORDED"
+    },
+    {
+      "authority": "journal",
+      "from": "INDEPENDENT_WITNESS_RECORDED",
+      "gate": "protected action gate closes immediately",
+      "id": "L12",
+      "to": "SCOPE_LEASE_RELEASE_INTENT"
+    },
+    {
+      "authority": "AuthorityDB",
+      "from": "SCOPE_LEASE_RELEASE_INTENT",
+      "gate": "release full durable",
+      "id": "L13",
+      "to": "AUTHORITYDB_RELEASED"
+    },
+    {
+      "authority": "journal",
+      "from": "AUTHORITYDB_RELEASED",
+      "gate": "release receipt bound",
+      "id": "L14",
+      "to": "SCOPE_LEASE_RELEASE_RECORDED"
+    },
+    {
+      "authority": "CAS",
+      "from": "SCOPE_LEASE_RELEASE_RECORDED",
+      "gate": "bind terminal seal notification witness release effects",
+      "id": "L15",
+      "to": "COMPLETION_RECEIPT_PREPARED"
+    },
+    {
+      "authority": "journal",
+      "from": "COMPLETION_RECEIPT_PREPARED",
+      "gate": "closeout head",
+      "id": "L16",
+      "to": "SUPERVISOR_CLOSED"
+    },
+    {
+      "authority": "OS lock",
+      "from": "SUPERVISOR_CLOSED",
+      "gate": "no canonical append permitted",
+      "id": "L17",
+      "to": "TRANSACTION_LOCK_RELEASED"
+    }
+  ]
+}

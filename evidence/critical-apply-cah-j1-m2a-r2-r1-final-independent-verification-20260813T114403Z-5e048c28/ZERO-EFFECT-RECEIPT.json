@@ -1,0 +1,18 @@
+{
+  "M2B_authorized": false,
+  "M2B_started": false,
+  "archive_mutations": 0,
+  "candidate_extraction_mutations": 0,
+  "external_messages": 0,
+  "gateway_config_runtime_provider_network_production_actions": 0,
+  "git_stage_commit_push_ref_index_mutations": 0,
+  "outside_write_hash_parity_to_finalized_manifest": true,
+  "outside_write_path": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m2a-r1-final-independent-verification-20260813T100100Z-53c12224/INDEPENDENT-ADVERSARIAL-TESTS.json",
+  "outside_write_semantic_delta": false,
+  "provider_calls": 0,
+  "reason": "historical exact-source snapshot was directly executed before its hard-coded old output path was classified; bytes remained exactly manifest-bound but attempted write violates verifier boundary",
+  "schema": "critical_apply.m2a_r2_r1.final_independent.zero_effect.v1",
+  "source_runtime_mutations": 0,
+  "status": "HOLD_VERIFIER_BOUNDARY_VIOLATION",
+  "verifier_writes_outside_new_evidence_root_and_disposable_tmp": 1
+}

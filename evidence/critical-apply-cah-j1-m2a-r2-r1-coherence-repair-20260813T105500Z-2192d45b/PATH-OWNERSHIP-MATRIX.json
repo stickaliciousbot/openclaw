@@ -1,0 +1,123 @@
+{
+  "AuthorityDB_only_module_writes_authority": true,
+  "ProgressDB_disposable": true,
+  "cas_only_module_writes_cas": true,
+  "child_may_create_shared_path": false,
+  "child_may_self_register": false,
+  "default": "one_creator_one_writer_per_mutable_shared_path",
+  "exactly_one_creator_writer_per_mutable_path": true,
+  "journal_only_module_writes_events": true,
+  "paths": [
+    {
+      "creator": "supervisor_materializer",
+      "mutable_shared": true,
+      "path": "transaction-root/",
+      "reject_hardlink": true,
+      "reject_symlink": true,
+      "runner_may_mkdir": false,
+      "writer": "supervisor_materializer"
+    },
+    {
+      "creator": "supervisor_materializer",
+      "mutable_shared": true,
+      "path": "nonce-ledger/",
+      "reject_hardlink": true,
+      "reject_symlink": true,
+      "runner_may_mkdir": false,
+      "writer": "none_after_creation"
+    },
+    {
+      "creator": "nonce_authority_module",
+      "mutable_shared": true,
+      "path": "nonce-ledger/nonce-ledger.json",
+      "reject_hardlink": true,
+      "reject_symlink": true,
+      "runner_may_mkdir": false,
+      "writer": "nonce_authority_module"
+    },
+    {
+      "creator": "journal_module",
+      "mutable_shared": true,
+      "path": "journal/events.jsonl",
+      "reject_hardlink": true,
+      "reject_symlink": true,
+      "runner_may_mkdir": false,
+      "writer": "journal_module"
+    },
+    {
+      "creator": "cas_module",
+      "mutable_shared": true,
+      "path": "objects/sha256/",
+      "reject_hardlink": true,
+      "reject_symlink": true,
+      "runner_may_mkdir": false,
+      "writer": "cas_module"
+    },
+    {
+      "creator": "authority_module",
+      "mutable_shared": true,
+      "path": "authority.db",
+      "reject_hardlink": true,
+      "reject_symlink": true,
+      "runner_may_mkdir": false,
+      "writer": "authority_module"
+    },
+    {
+      "creator": "projection_module",
+      "mutable_shared": true,
+      "path": "index/progress.db",
+      "reject_hardlink": true,
+      "reject_symlink": true,
+      "runner_may_mkdir": false,
+      "writer": "projection_module"
+    },
+    {
+      "creator": "projection_module",
+      "mutable_shared": true,
+      "path": "supervisor-status.json",
+      "reject_hardlink": true,
+      "reject_symlink": true,
+      "runner_may_mkdir": false,
+      "writer": "projection_module"
+    },
+    {
+      "creator": "supervisor_materializer",
+      "mutable_shared": true,
+      "path": "child-private/",
+      "reject_hardlink": true,
+      "reject_symlink": true,
+      "runner_may_mkdir": false,
+      "writer": "child_exact_fenced_private_writer"
+    },
+    {
+      "creator": "supervisor_sealer",
+      "mutable_shared": true,
+      "path": "terminal-seal.json",
+      "reject_hardlink": true,
+      "reject_symlink": true,
+      "runner_may_mkdir": false,
+      "writer": "none_after_exclusive_create"
+    },
+    {
+      "creator": "supervisor_receipt_publisher",
+      "mutable_shared": true,
+      "path": "completion-receipt.json",
+      "reject_hardlink": true,
+      "reject_symlink": true,
+      "runner_may_mkdir": false,
+      "writer": "none_after_exclusive_create"
+    },
+    {
+      "creator": "independent_checker",
+      "mutable_shared": true,
+      "path": "witness.db",
+      "reject_hardlink": true,
+      "reject_symlink": true,
+      "runner_may_mkdir": false,
+      "writer": "independent_checker"
+    }
+  ],
+  "runner_may_create_nonce_ledger": false,
+  "runner_requires_registered_existing_paths": true,
+  "schema": "critical_apply.m2a_r2.path_ownership.v1"
+}

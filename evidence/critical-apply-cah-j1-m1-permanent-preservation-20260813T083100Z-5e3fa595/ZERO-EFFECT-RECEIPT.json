@@ -1,0 +1,12 @@
+{
+  "schema": "critical_apply.cah_j1_m1_permanent_preservation_zero_effect.v1",
+  "status": "PASS_ZERO_EFFECT",
+  "workspace_effects": ["new evidence root only"],
+  "disposable_effects": ["offline reconstruction files under /tmp only"],
+  "production_worktree_source_changed": false,
+  "git_index_changed": false,
+  "git_commit_or_push": false,
+  "gateway_config_runtime_provider_network_changed": false,
+  "production_authority_consumed": false,
+  "external_messages_sent": false
+}

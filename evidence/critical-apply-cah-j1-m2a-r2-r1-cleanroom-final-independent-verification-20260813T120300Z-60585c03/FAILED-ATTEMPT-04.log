@@ -1,0 +1,1 @@
+Attempt 4 corrected archive canonicalization and achieved 104/104 semantic mutation rejection, but baseline remained held by over-broad exact-shape interpretation of the supplied schema registry. No outside write occurred. The audit was narrowed to independent top-level/nested closure checks and fixed identity/inventory semantics while retaining candidate validator enforcement.

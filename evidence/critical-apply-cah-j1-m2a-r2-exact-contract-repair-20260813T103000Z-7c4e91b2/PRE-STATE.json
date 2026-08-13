@@ -1,0 +1,8 @@
+{
+  "M2B_started": false,
+  "production_effect": false,
+  "schema": "critical_apply.m2a_r2.pre_state.v1",
+  "scope": "tracked files only; intended new design/evidence paths excluded from parity comparison",
+  "tracked_status_returncode": 0,
+  "tracked_status_sha256": "e4a73ff6835f2550270b93717cd49ba5de8711d8f39b42d00cd15473ce47abff"
+}

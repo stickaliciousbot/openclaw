@@ -1,0 +1,48 @@
+{
+  "authority_resolution": {
+    "authoritydb": "cross_transaction_scope_and_nonce_authority_only",
+    "canonical_transaction_fact_authority": "append_only_supervisor_committed_journal",
+    "notification": "orthogonal_plane_never_semantic_authority",
+    "progressdb": "rebuildable_cache_only",
+    "semantic_authority": "deterministic_reducer_over_the_fenced_canonical_prefix",
+    "witnessdb": "independent_history_witness_only"
+  },
+  "boundary": {
+    "consumed_production_authority": 0,
+    "gateway_config_runtime_mutations": 0,
+    "mode": "PREP_ONLY",
+    "production_mutations": 0,
+    "provider_model_calls": 0
+  },
+  "created_utc": "2026-08-13T00:55:00Z",
+  "inputs": [
+    {
+      "authority": "governing_architecture_input",
+      "path": "design/critical-apply-supervisor-owned-event-journal-owner-revision-2026-08-13.md",
+      "role": "owner_revision",
+      "sha256": "6d80167ba92e1a68c9d17d6027135b289f88c6b9f3d6fd9e24ea86aedab459af"
+    },
+    {
+      "authority": "required_correction_ledger",
+      "path": "design/critical-apply-supervisor-owned-event-journal-owner-revision-m0-adjudication-2026-08-13.md",
+      "role": "m0_adjudication",
+      "sha256": "1d2853fba832ebc243423c3c2dac00def80c3c2b56d892ee8c83aeff96c34427"
+    }
+  ],
+  "non_authorizations": [
+    "implementation",
+    "provider_call",
+    "production_apply",
+    "gateway_restart",
+    "runtime_or_config_change",
+    "production_authority_consumption"
+  ],
+  "schema": "critical_apply.cah_j1_m0.source_authority.v1",
+  "scope": [
+    "B3",
+    "B4",
+    "B5",
+    "S1",
+    "S3"
+  ]
+}

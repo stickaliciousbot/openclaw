@@ -1,0 +1,67 @@
+{
+  "schema": "critical_apply.cah_j1_m0_r2_final_independent_verification_receipt.v1",
+  "verified_at_utc": "2026-08-13T01:58:00Z",
+  "verifier_session": "9b18fcb6-a532-4be4-b9c5-e6fbe98a6055",
+  "candidate_root": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-r2-contract-repair-20260813T014000Z-3a6e9d52",
+  "verifier_root": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-r2-final-independent-verification-20260813T014916Z-c0744878",
+  "identity": {
+    "manifest_sha256": "697e1eb6ad2e6a263b539c3d1ccf353c3b635f17d77841083d11cf99f8cbb235",
+    "privacy_receipt_sha256": "d7092f98a9f2e6bb62acb385a4fc156155a474e8947dc0595404a7719316c4ad",
+    "owner_revision_sha256": "6d80167ba92e1a68c9d17d6027135b289f88c6b9f3d6fd9e24ea86aedab459af",
+    "m0_adjudication_sha256": "1d2853fba832ebc243423c3c2dac00def80c3c2b56d892ee8c83aeff96c34427",
+    "r1_manifest_sha256": "ee45865dc2ac62147be1d163e970601224205d48be029524206fca880267da41",
+    "r1_hold_receipt_sha256": "dffad483e0fe08dfe31f2f199265d187d5aea98f157381050456b1bdd729c501",
+    "all_exact": true
+  },
+  "inventory": {
+    "candidate_files": 29,
+    "manifest_listed_artifacts": 27,
+    "hash_mismatches": 0,
+    "size_mismatches": 0,
+    "json_files_parsed": 27,
+    "json_parse_failures": 0,
+    "candidate_symlinks": 0,
+    "candidate_subdirectories": 0,
+    "unaccounted_files": 0
+  },
+  "requirements_review": {
+    "B1": "PASS",
+    "B2": "PASS",
+    "B3": "PASS",
+    "B4": "HOLD_PREIMAGE_RECORD_EVENT_CLOSE_COORDINATE_CYCLE",
+    "B5": "PASS",
+    "B6": "PASS",
+    "S1": "HOLD_PREIMAGE_RECORD_EVENT_CLOSE_COORDINATE_CYCLE",
+    "S2": "PASS",
+    "S3": "PASS",
+    "S4": "PASS",
+    "sole_semantic_authority": "PASS",
+    "authority_witness_progress_partitions": "PASS",
+    "unknown_consumed_no_retry": "PASS",
+    "three_heads_named": "PASS_NAMING_BUT_B4_CHAIN_BINDING_HOLD",
+    "journal_derived_idempotency": "PASS",
+    "descriptor_bound_CAS": "PASS_CORE_AND_EXHAUSTIVE_MATRIX",
+    "same_uid_detect_only": "PASS",
+    "immutable_semantic_path_registration": "PASS",
+    "nonce_ledger_single_creator_runner_never_creates": "PASS",
+    "semantic_terminal_outranks_stale_projections": "PASS",
+    "prior_BLOCK_R1_01": "PARTIAL_NEW_CHAIN_LEVEL_CYCLE",
+    "prior_BLOCK_R1_02": "RESOLVED",
+    "privacy_receipt": "PASS",
+    "zero_effect": "PASS"
+  },
+  "candidate_validator": {
+    "stdout": "{\"N04_vectors\": 10, \"N07_vectors\": 12, \"closeout_fixture\": \"PASS_ONE_PASS_NONCIRCULAR\", \"errors\": [], \"nonce_vectors\": 87, \"required_files\": 21, \"status\": \"PASS\"}\n",
+    "exit_code": 0,
+    "result": "PASS",
+    "N04_exact_order_mutation_rejected": true,
+    "N07_exact_order_mutation_rejected": true,
+    "scope_note": "Validator enforces exact N04/N07 arrays but does not construct/hash the mandatory COMPLETION_RECEIPT_PREIMAGE_RECORDED event or bind its event hash as SUPERVISOR_CLOSED.prev_event_sha256."
+  },
+  "blocking_findings": [
+    "BLOCK-R2-01-PREIMAGE-RECORD-EVENT-CLOSE-COORDINATE-CYCLE"
+  ],
+  "blocking_count": 1,
+  "status": "HOLD_CAH_J1_M0_R2_FINAL_INDEPENDENT_VERIFICATION",
+  "terminal": "HOLD_CAH_J1_M0_R2_FOR_PREIMAGE_RECORD_EVENT_CLOSE_COORDINATE_CYCLE_NO_PRODUCTION_EFFECT"
+}

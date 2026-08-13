@@ -1,0 +1,15 @@
+{
+  "authoritative_finalized_r1_independent_manifest": {
+    "authority": true,
+    "path": "evidence/critical-apply-cah-j1-m2a-r1-final-independent-verification-20260813T100100Z-53c12224/EVIDENCE-SHA256.txt",
+    "role": "FINALIZED_R1_INDEPENDENT_AUTHORITY",
+    "sha256": "49ccef7181ff090c95267f8a5dcc3ccaaba88ce3bd42ade63cef13293e41d2d2"
+  },
+  "schema": "critical_apply.m2a_r2_r1.r1_authority_roles.v1",
+  "superseded_preliminary_r1_manifest": {
+    "authority": false,
+    "path": null,
+    "role": "SUPERSEDED_PRELIMINARY_NONAUTHORITY",
+    "sha256": "019f34f1b8f4e64b191457f283e66eb0e0a010f33b6841851b8be204970a6f6b"
+  }
+}

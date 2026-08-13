@@ -1,0 +1,12 @@
+{
+  "parity": {
+    "head_equal": true,
+    "independent_hold_manifest_immutable": true,
+    "index_equal": true,
+    "original_candidate_manifest_immutable": true,
+    "tracked_status_equal": true
+  },
+  "schema": "critical_apply.m2a_r1.git_diff_check.v1",
+  "status": "PASS",
+  "tracked_worktree_or_index_effect": false
+}

@@ -1,0 +1,23 @@
+{
+  "claims": [
+    "independent_process_recomputes_verified_journal_heads",
+    "detects_accidental_truncation_corruption_and_out_of_contract_rewrite",
+    "append_only_logical_witness_records"
+  ],
+  "failure_effect": "trustworthy_closeout_HOLD_without_rewriting_valid_semantic_terminal",
+  "grade": "WITNESS_GRADE_1_SAME_HOST_SAME_UID_INDEPENDENT_PROCESS_DETECTION",
+  "non_claims": [
+    "hostile_same_UID_tamper_resistance",
+    "separate_host_independence",
+    "privileged_append_only_storage",
+    "semantic_authority"
+  ],
+  "schema": "critical_apply.witness_assurance_grade.v1",
+  "status": "FROZEN_FOR_M0_S2",
+  "upgrade_requirements": [
+    "separate_UID_or_privileged_service",
+    "or_remote_host",
+    "or_hardware_or_remote_append_only_anchor",
+    "new_threat_model_and_failure_injection"
+  ]
+}

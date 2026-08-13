@@ -1,0 +1,85 @@
+{
+  "schema": "critical_apply.cah_j1_m0_r2_final_independent_findings.v1",
+  "candidate_root": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-r2-contract-repair-20260813T014000Z-3a6e9d52",
+  "status": "HOLD",
+  "prior_r1_blocker_adjudication": [
+    {
+      "prior_id": "BLOCK-R1-01-CLOSEOUT-PREIMAGE-FIXED-POINT-CIRCULARITY",
+      "result": "PARTIALLY_RESOLVED_BUT_NEW_CHAIN_LEVEL_CYCLE_FOUND",
+      "evidence": [
+        "The R2 receipt_preimage excludes close_event_payload_sha256, close_event_sha256, closeout_head, actual_close_sequence, and all values derived from SUPERVISOR_CLOSED serialization.",
+        "Independent recomputation confirms receipt_preimage_sha256, SUPERVISOR_CLOSED payload SHA-256, SUPERVISOR_CLOSED event SHA-256, and the final receipt closeout_head exactly for the isolated fixture.",
+        "However, the mandatory canonical COMPLETION_RECEIPT_PREIMAGE_RECORDED event immediately before SUPERVISOR_CLOSED is not represented in the fixture, and its event hash is not proven as the close event's prev_event_sha256.",
+        "The preimage hash includes expected_close_sequence and expected_prev_event_sha256 while the preimage-record event must commit that preimage/derived-event fixture before the close append. The record-event serialization/hash therefore depends on the preimage hash, while the preimage hash depends on the record event's future sequence/hash as close coordinates. This reintroduces a fixed-point dependency one journal event earlier."
+      ]
+    },
+    {
+      "prior_id": "BLOCK-R1-02-NONCE-MATRIX-N04-N07-ORDER-CONTRADICTIONS",
+      "result": "RESOLVED",
+      "evidence": [
+        "N04 has exactly 10 ordered vectors: CALL_SAFE_RESUME_AUTHORIZED append/sync/ACK precedes BEGIN IMMEDIATE, rebind, COMMIT FULL, reopen/reread, and transition ACK.",
+        "N07 has exactly 12 ordered vectors: response/CAS capture precedes CALL_OUTCOME_RECORDED append/sync/ACK, then BEGIN IMMEDIATE, bind, COMMIT FULL, reopen/reread, and transition ACK.",
+        "No N04/N07 generic DB-first vectors or post-DB required journal-bind rows remain.",
+        "Independent mutation tests changed each declared order and all corresponding vector order arrays consistently; the candidate validator rejected both mutations, proving it compares the exact expected arrays rather than only counts."
+      ]
+    }
+  ],
+  "blocking_findings": [
+    {
+      "id": "BLOCK-R2-01-PREIMAGE-RECORD-EVENT-CLOSE-COORDINATE-CYCLE",
+      "requirements": ["B4", "S1", "deterministic_noncircular_crash_complete_closeout"],
+      "defect": "The isolated fixture proves disjoint SUPERVISOR_CLOSED payload/event domains but omits the mandatory canonical COMPLETION_RECEIPT_PREIMAGE_RECORDED append. Because the hashed preimage contains expected_close_sequence and expected_prev_event_sha256, and the record event must commit that preimage/derived close fixture immediately before SUPERVISOR_CLOSED, constructing the record event and the close coordinates is circular unless the record event is defined not to bind the preimage hash—which would defeat its stated role.",
+      "evidence": [
+        "LIFECYCLE-TRANSITION-TABLE.json L15 transitions to COMPLETION_RECEIPT_PREIMAGE_RECORDED and L16 appends SUPERVISOR_CLOSED from that state.",
+        "TERMINAL-HEADS-AND-FENCE-CONTRACT.json places COMPLETION_RECEIPT_PREIMAGE_RECORDED on the mandatory post-freeze event allowlist and says the preimage plus derived close event fixture is persisted before append.",
+        "TERMINAL-HEADS-AND-FENCE-CONTRACT.json also requires expected_close_sequence and expected_prev_event_sha256 inside receipt_preimage_v1.",
+        "CLOSEOUT-HASH-DOMAIN-FIXTURE.json contains no COMPLETION_RECEIPT_PREIMAGE_RECORDED envelope and directly assigns a synthetic all-3 prior head to SUPERVISOR_CLOSED.",
+        "CLOSEOUT-CRASH-MATRIX-EXHAUSTIVE.json CLOSE-03 and CLOSE-04 require appending the preimage-record event and then recomputing/validating the next sequence and previous hash, but changing those coordinates changes receipt_preimage_sha256 and therefore the already-recorded preimage/derived event.",
+        "validate_m0_r2_contracts.py checks only three isolated object hashes and forbidden-field names; it does not construct the preimage-record event, link its event hash to SUPERVISOR_CLOSED.prev_event_sha256, or test the full append chain."
+      ],
+      "required_correction": "Freeze a full four-object executable chain fixture: (1) immutable preimage base whose hash excludes all coordinates derived from the preimage-record event and close event, (2) exact canonical COMPLETION_RECEIPT_PREIMAGE_RECORDED envelope binding that base hash and any derived close payload inputs, (3) exact SUPERVISOR_CLOSED envelope using the actual record-event sequence/hash as its prior head, and (4) post-close completion receipt adding actual closeout_head outside the base hash. Alternatively remove the canonical preimage-record append and consistently revise lifecycle/fence/matrix semantics. The validator must recompute the complete chain byte-for-byte and reject coordinate/hash mutations."
+    }
+  ],
+  "requirements_review": {
+    "B1": "PASS",
+    "B2": "PASS",
+    "B3": "PASS",
+    "B4": "HOLD_PREIMAGE_RECORD_EVENT_CLOSE_COORDINATE_CYCLE",
+    "B5": "PASS",
+    "B6": "PASS",
+    "S1": "HOLD_PREIMAGE_RECORD_EVENT_CLOSE_COORDINATE_CYCLE",
+    "S2": "PASS",
+    "S3": "PASS",
+    "S4": "PASS",
+    "sole_semantic_authority": "PASS",
+    "authority_witness_progress_partitions": "PASS",
+    "unknown_consumed_no_retry": "PASS",
+    "journal_derived_idempotency": "PASS",
+    "descriptor_bound_CAS": "PASS",
+    "same_uid_detect_only": "PASS",
+    "immutable_semantic_path_registration": "PASS",
+    "nonce_ledger_single_creator_runner_never_creates": "PASS",
+    "semantic_terminal_outranks_stale_projections": "PASS",
+    "privacy": "PASS",
+    "zero_effect": "PASS"
+  },
+  "nonblocking_observations": [
+    {
+      "id": "OBS-R2-01-MECHANICAL",
+      "result": "Expected manifest and privacy identities are exact; all 27 manifest-listed hashes and byte sizes match; all 27 candidate JSON files parse; all four governing input identities are exact; no symlinks or child directories exist."
+    },
+    {
+      "id": "OBS-R2-02-MATRICES",
+      "result": "Nonce has 87 vectors across all 11 transitions with fail-closed unclassified handling; CAS has 38 vectors covering pre/post of all 13 publication steps plus 12 faults; closeout has all 12 stated boundaries, though its full chain construction remains blocked by BLOCK-R2-01."
+    },
+    {
+      "id": "OBS-R2-03-AUTHORITY_AND_BRIDGES",
+      "result": "Canonical journal remains sole semantic/transaction-fact authority. AuthorityDB is cross-transaction lease/nonce authority only; WitnessDB is detect-only; ProgressDB is disposable; immutable semantic-path registration is shared; stale projections/PIDs cannot override verified terminal state; nonce-ledger ownership is single-creator and runner-never-creates."
+    },
+    {
+      "id": "OBS-R2-04-PRIVACY_ZERO_EFFECT",
+      "result": "Privacy receipt identity is exact and reports zero findings/issues with exact scanner identities. Candidate effect counters are zero. Independent review wrote only within its verifier root and made no provider, Terra, runtime, Gateway, configuration, Git, install, production, cron/systemd, or external-message mutation."
+    }
+  ],
+  "blocking_count": 1
+}

@@ -1,0 +1,141 @@
+{
+  "completion_receipt_protocol": {
+    "circularity_rule": "Hash domains are disjoint: receipt_preimage_v1 excludes all SUPERVISOR_CLOSED event-derived values. SUPERVISOR_CLOSED binds only receipt_preimage_sha256. The final receipt, produced after close, adds actual closeout_head outside the preimage hash domain.",
+    "commit": [
+      "append the exact already-derived SUPERVISOR_CLOSED envelope",
+      "fdatasync journal",
+      "fsync parent when required",
+      "reopen and verify actual event equals derived event byte-for-byte and hash-for-hash",
+      "journal is now closed"
+    ],
+    "precompute": [
+      "freeze all preimage fields after lease release record",
+      "canonicalize receipt_preimage_v1 exactly once",
+      "compute receipt_preimage_sha256",
+      "construct SUPERVISOR_CLOSED payload from transaction_id receipt_preimage_sha256 and frozen result references only",
+      "construct exact event envelope from expected sequence expected_prev_event_sha256 event_id event_type payload and canonical event schema",
+      "compute close_event_payload_sha256 and close_event_sha256; neither feeds back into receipt_preimage_v1",
+      "persist and fdatasync preimage plus derived-close-event fixture before append",
+      "verify one-pass recomputation exact"
+    ],
+    "preimage_forbidden_fields": [
+      "close_event_payload_sha256",
+      "close_event_sha256",
+      "closeout_head",
+      "actual_close_sequence",
+      "any_value_derived_from_SUPERVISOR_CLOSED_serialization"
+    ],
+    "preimage_required_fields": [
+      "schema",
+      "transaction_id",
+      "terminal_decision_head",
+      "terminal_seal_sha256",
+      "notification_outcome",
+      "witness_outcome",
+      "lease_release_outcome",
+      "provider_effects",
+      "production_effects",
+      "expected_close_sequence",
+      "expected_prev_event_sha256",
+      "close_event_id",
+      "journal_hash_algorithm_id"
+    ],
+    "publish_after_close": [
+      "construct COMPLETION-RECEIPT.json with receipt_preimage_v1 fields receipt_preimage_sha256 and actual closeout_head",
+      "actual closeout_head contains close sequence close event sha256 and payload sha256",
+      "atomic exclusive same-filesystem publication",
+      "fdatasync receipt",
+      "fsync parent",
+      "reopen rehash and verify preimage projection and actual close event",
+      "release transaction lock only after verification"
+    ],
+    "recovery": "If close event exists, reconstruct final receipt from stored verified preimage and actual close event. If absent, verify stored derived event and append exactly once. No fixed-point iteration, no journal append after close."
+  },
+  "heads": {
+    "closeout_head": {
+      "binds": [
+        "receipt_preimage_sha256",
+        "terminal_decision_head",
+        "terminal_seal_sha256",
+        "notification_outcome",
+        "witness_outcome",
+        "lease_release_outcome",
+        "provider_effects",
+        "production_effects"
+      ],
+      "consumer": "COMPLETION-RECEIPT.json_published_after_close_event",
+      "event": "SUPERVISOR_CLOSED",
+      "meaning": "final canonical journal event; no append follows"
+    },
+    "semantic_reduction_head": {
+      "consumer": "REDUCTION.json",
+      "event": "TERMINAL_REDUCTION_PREPARED",
+      "meaning": "frozen semantic prefix ending at fence"
+    },
+    "terminal_decision_head": {
+      "binds": [
+        "semantic_reduction_head",
+        "reduction_sha256",
+        "semantic_result"
+      ],
+      "consumers": [
+        "MANIFEST.json",
+        "TERMINAL-SEAL.json"
+      ],
+      "event": "TERMINAL_DECISION"
+    }
+  },
+  "invariants": [
+    "fence_is_committed_event_not_memory_flag",
+    "reducer_reads_only_verified_journal_and_CAS",
+    "terminal_decision_exactly_once_or_identical_idempotent_ACK",
+    "seal_binds_terminal_decision_head_not_closeout_head",
+    "closed_journal_rejects_all_append",
+    "cleanup_and_owned_child_reconciliation_are_forbidden_after_fence",
+    "completion_receipt_final_publication_occurs_after_SUPERVISOR_CLOSED_without_journal_append",
+    "SUPERVISOR_CLOSED_event_hash_is_precomputed_from_exact_next_sequence_prev_hash_and_payload",
+    "transaction_lock_released_only_after_final_receipt_verified",
+    "receipt_preimage_hash_domain_excludes_all_close_event_derived_fields",
+    "close_event_is_one_pass_function_of_fixed_preimage_hash_and_prior_journal_head",
+    "final_receipt_adds_actual_closeout_head_outside_preimage_hash_domain"
+  ],
+  "mandatory_fence": {
+    "allowed_post_freeze_event_types": [
+      "TERMINAL_DECISION",
+      "TERMINAL_SEAL_RECORDED",
+      "NOTIFICATION_OUTCOME_RECORDED",
+      "INDEPENDENT_WITNESS_RECORDED",
+      "SCOPE_LEASE_RELEASE_INTENT",
+      "SCOPE_LEASE_RELEASE_RECORDED",
+      "COMPLETION_RECEIPT_PREIMAGE_RECORDED",
+      "SUPERVISOR_CLOSED"
+    ],
+    "durable_ack_required": true,
+    "event_type": "TERMINAL_REDUCTION_PREPARED",
+    "events_rejected_after_fence": [
+      "OWNED_CHILD_RECONCILIATION_RECORDED",
+      "CLEANUP_RECORDED",
+      "SEMANTIC_EVIDENCE_PROPOSED",
+      "PASS_READINESS_CHANGED"
+    ],
+    "fields": [
+      "semantic_input_closed",
+      "freeze_sequence",
+      "freeze_event_sha256",
+      "contract_sha256",
+      "reducer_sha256",
+      "allowed_post_freeze_event_types"
+    ],
+    "post_fence_semantic_evidence": "REJECT_AND_INTEGRITY_HOLD",
+    "semantic_input_closed": true,
+    "terminal_seal_rule": "TERMINAL-SEAL.json is CAS-published after TERMINAL_DECISION; TERMINAL_SEAL_RECORDED is the canonical nonsemantic closeout event binding its hash."
+  },
+  "recovery": {
+    "conflicting_terminal_decision": "INTEGRITY_FAULT_HOLD_NEVER_SEVERITY_PRECEDENCE",
+    "crash_during_reduction": "replay_exact_verified_prefix_through_semantic_reduction_head_with_exact_reducer",
+    "later_closeout_events": "cannot_rewrite_semantic_result"
+  },
+  "schema": "critical_apply.terminal_heads_and_fence_contract.v1.r2",
+  "semantic_authority": "canonical_append_only_journal_only",
+  "status": "FROZEN_FOR_M0_R2_B3_B4"
+}

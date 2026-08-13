@@ -1,0 +1,218 @@
+{
+  "authority_vectors_file": "AUTHORITY-CRASH-VECTORS.json",
+  "closeout_hash_domain_fixture": "CLOSEOUT-HASH-DOMAIN-FIXTURE.json",
+  "closeout_protocol": "NONCANONICAL_PREIMAGE_THEN_DIRECT_SUPERVISOR_CLOSED",
+  "coverage": {
+    "all_frozen_boundaries_have_pre_post_or_fault_vectors": true,
+    "cas_publication_step_count": 13,
+    "cas_vector_count": 38,
+    "closeout_vector_count": 12,
+    "nonce_transition_count": 11,
+    "nonce_vector_count": 87
+  },
+  "exhaustive_matrices": {
+    "authority": "AUTHORITY-CRASH-VECTORS.json",
+    "cas": "CAS-CRASH-MATRIX-EXHAUSTIVE.json",
+    "closeout": "CLOSEOUT-CRASH-MATRIX-EXHAUSTIVE.json",
+    "nonce": "NONCE-CRASH-MATRIX-EXHAUSTIVE.json"
+  },
+  "integrated_vector_count": 27,
+  "schema": "critical_apply.integrated_crash_boundary_vectors.v1.r3",
+  "status": "FROZEN_FOR_M0_R3_EXHAUSTIVE",
+  "transition_specific_order_validation": [
+    "N04_SAFE_RESUME_REBIND",
+    "N07_RECORD_VERIFIED_OUTCOME"
+  ],
+  "unclassified_fault": "FAIL_CLOSED_HOLD",
+  "vectors": [
+    {
+      "area": "terminal",
+      "automatic_retry": false,
+      "crash_or_fault": "before_TERMINAL_REDUCTION_PREPARED_sync",
+      "expected_recovery": "semantic_inputs_remain_open_resume_or_HOLD",
+      "id": "TERM-01"
+    },
+    {
+      "area": "terminal",
+      "automatic_retry": false,
+      "crash_or_fault": "after_fence_sync_before_reducer",
+      "expected_recovery": "rerun_exact_reducer_same_prefix",
+      "id": "TERM-02"
+    },
+    {
+      "area": "terminal",
+      "automatic_retry": false,
+      "crash_or_fault": "after_reduction_file_before_TERMINAL_DECISION",
+      "expected_recovery": "verify_orphan_then_recompute_and_commit_once",
+      "id": "TERM-03"
+    },
+    {
+      "area": "terminal",
+      "automatic_retry": false,
+      "crash_or_fault": "after_TERMINAL_DECISION_sync_before_ACK",
+      "expected_recovery": "journal_idempotency_returns_original_ACK",
+      "id": "TERM-04"
+    },
+    {
+      "area": "terminal",
+      "automatic_retry": false,
+      "crash_or_fault": "conflicting_terminal_proposal",
+      "expected_recovery": "INTEGRITY_HOLD",
+      "id": "TERM-05"
+    },
+    {
+      "area": "terminal",
+      "automatic_retry": false,
+      "crash_or_fault": "after_seal_before_notification",
+      "expected_recovery": "semantic_terminal_remains_sealed_resume_closeout",
+      "id": "TERM-06"
+    },
+    {
+      "area": "terminal",
+      "automatic_retry": false,
+      "crash_or_fault": "after_release_intent_before_DB_release",
+      "expected_recovery": "no_protected_action_reconcile_release",
+      "id": "TERM-07"
+    },
+    {
+      "area": "terminal",
+      "automatic_retry": false,
+      "crash_or_fault": "after_DB_release_before_journal_record",
+      "expected_recovery": "bind_exact_release_receipt_then_close",
+      "id": "TERM-08"
+    },
+    {
+      "area": "terminal",
+      "automatic_retry": false,
+      "crash_or_fault": "after_SUPERVISOR_CLOSED_before_lock_release",
+      "expected_recovery": "closed_semantics_lock_recovery_only",
+      "id": "TERM-09"
+    },
+    {
+      "area": "idempotency",
+      "automatic_retry": false,
+      "crash_or_fault": "ProgressDB_deleted_after_ACK",
+      "expected_recovery": "return_original_ACK_no_append",
+      "id": "IDEM-01"
+    },
+    {
+      "area": "idempotency",
+      "automatic_retry": false,
+      "crash_or_fault": "ProgressDB_corrupt",
+      "expected_recovery": "discard_rebuild_from_journal",
+      "id": "IDEM-02"
+    },
+    {
+      "area": "idempotency",
+      "automatic_retry": false,
+      "crash_or_fault": "same_event_id_different_payload",
+      "expected_recovery": "INTEGRITY_HOLD",
+      "id": "IDEM-03"
+    },
+    {
+      "area": "idempotency",
+      "automatic_retry": false,
+      "crash_or_fault": "journal_sync_before_ACK_crash",
+      "expected_recovery": "retry_returns_original_ACK",
+      "id": "IDEM-04"
+    },
+    {
+      "area": "cas",
+      "automatic_retry": false,
+      "crash_or_fault": "source_replaced_after_open",
+      "expected_recovery": "capture_open_descriptor_or_reject_identity_change",
+      "id": "CAS-01"
+    },
+    {
+      "area": "cas",
+      "automatic_retry": false,
+      "crash_or_fault": "source_mutates_during_copy",
+      "expected_recovery": "fstat_mismatch_CAPTURE_HOLD",
+      "id": "CAS-02"
+    },
+    {
+      "area": "cas",
+      "automatic_retry": false,
+      "crash_or_fault": "kill_before_fdatasync_temp",
+      "expected_recovery": "orphan_temp_no_journal_reference",
+      "id": "CAS-03"
+    },
+    {
+      "area": "cas",
+      "automatic_retry": false,
+      "crash_or_fault": "kill_after_publish_before_parent_fsync",
+      "expected_recovery": "object_unproven_no_ACK",
+      "id": "CAS-04"
+    },
+    {
+      "area": "cas",
+      "automatic_retry": false,
+      "crash_or_fault": "kill_after_object_durable_before_journal",
+      "expected_recovery": "orphan_CAS_allowed",
+      "id": "CAS-05"
+    },
+    {
+      "area": "cas",
+      "automatic_retry": false,
+      "crash_or_fault": "kill_after_journal_sync_before_ACK",
+      "expected_recovery": "journal_replay_returns_original_ACK",
+      "id": "CAS-06"
+    },
+    {
+      "area": "cas",
+      "automatic_retry": false,
+      "crash_or_fault": "existing_hash_wrong_bytes",
+      "expected_recovery": "FATAL_CORRUPTION",
+      "id": "CAS-07"
+    },
+    {
+      "area": "cas",
+      "automatic_retry": false,
+      "crash_or_fault": "symlink_leaf",
+      "expected_recovery": "REJECT_NO_CAPTURE",
+      "id": "CAS-08"
+    },
+    {
+      "area": "path_projection",
+      "automatic_retry": false,
+      "crash_or_fault": "nonce-ledger_precreated_then_runner_start",
+      "expected_recovery": "runner_requires_existing_no_mkdir_PASS",
+      "id": "BRIDGE-01"
+    },
+    {
+      "area": "path_projection",
+      "automatic_retry": false,
+      "crash_or_fault": "nonce-ledger_missing",
+      "expected_recovery": "PREFLIGHT_HOLD_NO_CALL",
+      "id": "BRIDGE-02"
+    },
+    {
+      "area": "path_projection",
+      "automatic_retry": false,
+      "crash_or_fault": "nonce-ledger_symlink",
+      "expected_recovery": "INTEGRITY_HOLD_NO_CALL",
+      "id": "BRIDGE-03"
+    },
+    {
+      "area": "path_projection",
+      "automatic_retry": false,
+      "crash_or_fault": "semantic_terminal_with_projection_RUNNING",
+      "expected_recovery": "reconcile_projection_to_terminal",
+      "id": "BRIDGE-04"
+    },
+    {
+      "area": "path_projection",
+      "automatic_retry": false,
+      "crash_or_fault": "PID_missing_with_semantic_terminal",
+      "expected_recovery": "report_semantic_terminal_not_STALE",
+      "id": "BRIDGE-05"
+    },
+    {
+      "area": "path_projection",
+      "automatic_retry": false,
+      "crash_or_fault": "semantic_registration_missing",
+      "expected_recovery": "LAUNCH_HOLD",
+      "id": "BRIDGE-06"
+    }
+  ]
+}

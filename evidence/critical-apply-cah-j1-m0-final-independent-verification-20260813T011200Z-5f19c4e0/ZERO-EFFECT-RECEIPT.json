@@ -1,0 +1,28 @@
+{
+  "schema": "critical_apply.cah_j1_m0_final_independent_verifier_zero_effect.v1",
+  "scope": "read_only_candidate_verification_with_writes_confined_to_fresh_verifier_root",
+  "candidate_root": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-integrated-contract-freeze-20260813T011000Z-c4f87a2e",
+  "verifier_root": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-final-independent-verification-20260813T011200Z-5f19c4e0",
+  "effects": {
+    "candidate_mutations": 0,
+    "production_mutations": 0,
+    "provider_calls": 0,
+    "terra_calls": 0,
+    "gateway_or_config_mutations": 0,
+    "gateway_restarts": 0,
+    "runtime_installs": 0,
+    "deployments": 0,
+    "git_stage_commit_push": 0,
+    "external_messages": 0,
+    "consumed_production_authority": 0
+  },
+  "authorized_writes": [
+    "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-final-independent-verification-20260813T011200Z-5f19c4e0"
+  ],
+  "post_verification_candidate_identity": {
+    "manifest_sha256": "b7744bd4ea0990b8833613cda6a34576427d894a4d66e2bfef4f11bc5967d71f",
+    "privacy_receipt_sha256": "be4fcd21026bb74f6fbf04f31f6c7a3904d12b942b532ec17f39882a5acedd49",
+    "validator_sha256": "c0cd4452ddab42d7cae48d8b5e5d576c476cad86b3697a40126f18484faa5816"
+  },
+  "status": "PASS_ZERO_EFFECT"
+}

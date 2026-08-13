@@ -1,0 +1,18 @@
+{
+  "schema": "critical_apply.m2a_r1.final_independent_input_binding.v1",
+  "all_bound_inputs_pass": true,
+  "bindings": [
+    {"name":"repaired_design","path":"design/critical-apply-supervisor-ingress-m2a-r1-contract-repair-2026-08-13.md","expected_sha256":"a05544ca979c0db27adfedf34af80d4224afaf6a66d20f156fe9ac2bcf31a8e1","actual_sha256":"a05544ca979c0db27adfedf34af80d4224afaf6a66d20f156fe9ac2bcf31a8e1","pass":true},
+    {"name":"repaired_construction_manifest","path":"evidence/critical-apply-cah-j1-m2a-r1-contract-repair-20260813T094741Z-d20176dc/EVIDENCE-SHA256.txt","expected_sha256":"62b2357a1e15bf165ef80bcc1129da31719bae28f1f7ddea39af26c1fd027b4e","actual_sha256":"62b2357a1e15bf165ef80bcc1129da31719bae28f1f7ddea39af26c1fd027b4e","all_manifest_entries_rehashed":true,"pass":true},
+    {"name":"original_m2a_candidate_manifest","path":"evidence/critical-apply-cah-j1-m2a-supervisor-ingress-freeze-20260813T083500Z-5e3fa595/EVIDENCE-SHA256.txt","expected_sha256":"3f026764d75c96acfca5317e9d9c67e48b140e2281ed563c9bff08f5f5e2f7e2","actual_sha256":"3f026764d75c96acfca5317e9d9c67e48b140e2281ed563c9bff08f5f5e2f7e2","all_manifest_entries_rehashed":true,"pass":true},
+    {"name":"prior_independent_hold_manifest","path":"evidence/critical-apply-cah-j1-m2a-final-independent-verification-20260813T090945Z-b48fbacb/EVIDENCE-SHA256.txt","expected_sha256":"c014a7f7bb6c1b7bb06b29fc72b47c2134eda27e0dc97e50d6cac38c0bf9b538","actual_sha256":"c014a7f7bb6c1b7bb06b29fc72b47c2134eda27e0dc97e50d6cac38c0bf9b538","all_manifest_entries_rehashed":true,"pass":true},
+    {"name":"m0_adjudication","expected_sha256":"1d2853fba832ebc243423c3c2dac00def80c3c2b56d892ee8c83aeff96c34427","actual_sha256":"1d2853fba832ebc243423c3c2dac00def80c3c2b56d892ee8c83aeff96c34427","pass":true},
+    {"name":"owner_revision","expected_sha256":"6d80167ba92e1a68c9d17d6027135b289f88c6b9f3d6fd9e24ea86aedab459af","actual_sha256":"6d80167ba92e1a68c9d17d6027135b289f88c6b9f3d6fd9e24ea86aedab459af","pass":true},
+    {"name":"m0_r3_contract_manifest","expected_sha256":"40183db63570673cac1e2d3d3fc3e0abe0f4d2d75f34a12ae35aae57a6709929","actual_sha256":"40183db63570673cac1e2d3d3fc3e0abe0f4d2d75f34a12ae35aae57a6709929","pass":true},
+    {"name":"m0_r3_final_hash_inventory","expected_sha256":"33e5b637743111198f4e88cb22e5bd6596a7b76648adb33a81b825464cb7bd6d","actual_sha256":"33e5b637743111198f4e88cb22e5bd6596a7b76648adb33a81b825464cb7bd6d","terminal":"PASS_CAH_J1_M0_R3_ZERO_BLOCKERS_M0_ARCHITECTURE_FREEZE_VERIFIED_NO_PRODUCTION_EFFECT","blocking_count":0,"pass":true},
+    {"name":"m1_final_manifest","expected_sha256":"5715ccefbe651104ad607a7b1bf49c9f30a0ee1382b11153085fd21e0ddcd64f","actual_sha256":"5715ccefbe651104ad607a7b1bf49c9f30a0ee1382b11153085fd21e0ddcd64f","pass":true},
+    {"name":"m1_permanent_patch","expected_sha256":"7cde7ec7bf858b06bdf22fc22d703457565059d5643909d55ac7c54020b8d4bc","actual_sha256":"7cde7ec7bf858b06bdf22fc22d703457565059d5643909d55ac7c54020b8d4bc","mode":"0444","bytes":106031,"pass":true}
+  ],
+  "preservation": {"original_candidate_unchanged":true,"prior_hold_unchanged":true,"repaired_candidate_unchanged":true},
+  "M2B_started": false
+}

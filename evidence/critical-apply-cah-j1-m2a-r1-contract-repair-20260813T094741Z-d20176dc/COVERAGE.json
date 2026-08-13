@@ -1,0 +1,21 @@
+{
+  "ack_vector_count": 8,
+  "adversarial_count": 26,
+  "artifact_vector_count": 2,
+  "canonical_after_commit_vectors": 25,
+  "canonical_before_commit_vectors": 25,
+  "canonical_crash_vector_count": 50,
+  "canonical_transition_count": 25,
+  "concurrency_vector_count": 7,
+  "contention_clients": [
+    2,
+    5,
+    20
+  ],
+  "disjoint_scope_present": true,
+  "mutation_count": 55,
+  "overlap_present": true,
+  "schema": "critical_apply.m2a_r1.coverage.v1",
+  "stale_epoch_present": true,
+  "stale_fence_present": true
+}

@@ -1,0 +1,110 @@
+{
+  "schema": "critical_apply.nonce_at_most_once_state_machine.v1",
+  "status": "FROZEN_OFFLINE_CONTRACT",
+  "semantic_authority": "canonical_journal_only",
+  "execution_gate_authority": "AuthorityDB",
+  "owner": "AuthorityService",
+  "identity_fields": [
+    "transaction_id",
+    "authority_id",
+    "supervisor_epoch",
+    "fencing_token",
+    "nonce_sha256",
+    "row_generation",
+    "journal_sequence",
+    "journal_event_sha256",
+    "authority_receipt_sha256"
+  ],
+  "states": [
+    "RESERVED_PENDING_JOURNAL",
+    "COMMITTED_NOT_USED",
+    "CALL_START_COMMITTED",
+    "OUTCOME_RECORDED",
+    "RETIRED",
+    "UNKNOWN_CONSUMED"
+  ],
+  "transitions": [
+    {
+      "from": "ABSENT",
+      "to": "RESERVED_PENDING_JOURNAL",
+      "authoritydb_operation": "BEGIN_IMMEDIATE_INSERT_UNIQUE_NONCE",
+      "journal_requirement": null,
+      "call_authorized": false
+    },
+    {
+      "from": "RESERVED_PENDING_JOURNAL",
+      "to": "COMMITTED_NOT_USED",
+      "authoritydb_operation": "BIND_EXACT_NONCE_RESERVED_EVENT",
+      "journal_requirement": "NONCE_RESERVED_DURABLY_ACKNOWLEDGED",
+      "call_authorized": false
+    },
+    {
+      "from": "COMMITTED_NOT_USED",
+      "to": "CALL_START_COMMITTED",
+      "authoritydb_operation": "BIND_EXACT_CALL_START_EVENT",
+      "journal_requirement": "CALL_START_COMMITTED_DURABLY_ACKNOWLEDGED",
+      "call_authorized": true
+    },
+    {
+      "from": "CALL_START_COMMITTED",
+      "to": "OUTCOME_RECORDED",
+      "authoritydb_operation": "BIND_EXACT_OUTCOME_EVENT",
+      "journal_requirement": "CALL_OUTCOME_RECORDED_DURABLY_ACKNOWLEDGED",
+      "call_authorized": false
+    },
+    {
+      "from": "OUTCOME_RECORDED",
+      "to": "RETIRED",
+      "authoritydb_operation": "DURABLY_RETIRE_NONCE_AND_ONE_CALL_AUTHORITY",
+      "journal_requirement": "NONCE_RETIRED_DURABLY_ACKNOWLEDGED",
+      "call_authorized": false
+    },
+    {
+      "from": "CALL_START_COMMITTED",
+      "to": "UNKNOWN_CONSUMED",
+      "authoritydb_operation": "DURABLY_CLASSIFY_AMBIGUOUS_EXTERNAL_OUTCOME",
+      "journal_requirement": "UNKNOWN_CONSUMED_DURABLY_ACKNOWLEDGED",
+      "call_authorized": false
+    },
+    {
+      "from": "UNKNOWN_CONSUMED",
+      "to": "RETIRED",
+      "authoritydb_operation": "DURABLY_RETIRE_WITHOUT_RETRY",
+      "journal_requirement": "NONCE_RETIRED_DURABLY_ACKNOWLEDGED",
+      "call_authorized": false
+    }
+  ],
+  "safe_resume_rules": {
+    "reservation_crash_before_call_start": "NO_AUTOMATIC_CALL; recover exact journal and AuthorityDB bindings, then require the frozen policy to commit a new CALL_START event or retire",
+    "crash_after_call_start_before_outcome": "UNKNOWN_CONSUMED",
+    "ambiguous_external_attempt": "NO_RETRY_WITH_SAME_NONCE",
+    "retry_exception": "only a separately frozen contract proving exact external idempotency; otherwise new owner authority and new nonce",
+    "semantic_validation_hold_after_call": "nonce and one-call authority remain consumed and are retired"
+  },
+  "duplicate_policy": {
+    "same_nonce_insert": "DENY_DUPLICATE_NONCE",
+    "same_nonce_after_call_start": "NONRETRYABLE_ALREADY_CONSUMED_OR_UNKNOWN",
+    "duplicate_creator_or_file_exists": "classify by journal and AuthorityDB state; never infer that the call did not happen",
+    "progressdb_or_flat_file_ledger": "may be evidence or cache only; never the consumption authority"
+  },
+  "invariants": [
+    "No protected/provider call starts before durable acknowledgement of CALL_START_COMMITTED.",
+    "Only CALL_START_COMMITTED authorizes one attempt for the exact fenced identity.",
+    "UNKNOWN_CONSUMED is non-retryable with the same nonce.",
+    "Nonce retirement survives later semantic HOLD, FAIL, or validation rejection.",
+    "Missing, conflicting, or stale bindings fail closed.",
+    "AuthorityDB contains no semantic PASS, HOLD, FAIL, or ABORT authority."
+  ],
+  "required_crash_fixtures": [
+    "reserve_before_db_commit",
+    "reserve_after_db_commit_before_journal_commit",
+    "reserve_after_journal_commit_before_db_bind",
+    "before_call_start_commit",
+    "after_call_start_commit_before_external_attempt",
+    "call_attempted_no_response",
+    "response_received_not_journaled",
+    "outcome_journaled_not_retired",
+    "retirement_journaled_not_db_bound",
+    "duplicate_nonce_after_projection_loss"
+  ]
+}

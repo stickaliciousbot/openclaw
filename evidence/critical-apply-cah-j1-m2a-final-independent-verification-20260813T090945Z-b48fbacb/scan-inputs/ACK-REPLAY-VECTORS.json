@@ -1,0 +1,45 @@
+{
+  "schema": "critical_apply.m2a.ack_replay_vectors.v1",
+  "vectors": [
+    {
+      "case": "new proposal",
+      "expected": "commit then original ACK",
+      "id": "AR-NEW"
+    },
+    {
+      "case": "same event_id same canonical proposal",
+      "expected": "original journal-derived ACK no append",
+      "id": "AR-DUP-SAME"
+    },
+    {
+      "case": "same event_id different proposal",
+      "expected": "INTEGRITY_CONFLICT_HOLD_NO_ACTION_NO_CALL",
+      "id": "AR-DUP-DIFFERENT"
+    },
+    {
+      "case": "crash after sync before ACK",
+      "expected": "retry returns original ACK",
+      "id": "AR-CRASH-POSTSYNC"
+    },
+    {
+      "case": "ProgressDB deleted",
+      "expected": "journal decides duplicate",
+      "id": "AR-PROGRESS-DELETED"
+    },
+    {
+      "case": "ProgressDB stale",
+      "expected": "journal decides; projection discarded",
+      "id": "AR-PROGRESS-STALE"
+    },
+    {
+      "case": "required payload CAS missing",
+      "expected": "HOLD no acceptance ACK",
+      "id": "AR-CAS-MISSING"
+    },
+    {
+      "case": "required AuthorityDB bind missing",
+      "expected": "HOLD no authority ACK",
+      "id": "AR-AUTH-BIND-MISSING"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "expected_terminal": "PASS_CONSTRUCTION_HOLD_FOR_INDEPENDENT_VERIFICATION",
+  "independent_alert_check_wiring": "main requester separately launches independent review; no cron/systemd mutation in this boundary",
+  "pass_criteria": [
+    "design cross-references every executable artifact",
+    ">=50 crash vectors",
+    "2/5/20 and overlap fencing vectors",
+    "mutation rejection tests pass",
+    "compile validator tests pass",
+    "bounded privacy scanner pass",
+    "git diff --check design",
+    "zero effects"
+  ],
+  "schema": "critical_apply.m2a.started.v1",
+  "started_at_utc": "2026-08-13T08:35:00Z"
+}

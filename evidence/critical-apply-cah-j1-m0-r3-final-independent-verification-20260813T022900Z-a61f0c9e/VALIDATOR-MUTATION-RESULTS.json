@@ -1,0 +1,95 @@
+{
+  "all_rejected": true,
+  "base": {
+    "exit_code": 0,
+    "pass": true,
+    "stderr": "",
+    "stdout": "{\"closeout_vectors\": 12, \"direct_adjacency\": true, \"errors\": [], \"fixture\": \"PASS_ONE_PASS_NONCIRCULAR_DIRECT_ADJACENCY\", \"required_files\": 21, \"status\": \"PASS\"}\n"
+  },
+  "candidate_validator_scope_note": "The candidate validator does not reject final-receipt-only mutations; the independent verifier recomputes and rejects those bindings. This is acceptable for this independent promotion gate but should be added to the M1 executable validator.",
+  "mutation_cases": [
+    {
+      "candidate_exit_code": 1,
+      "candidate_rejected": true,
+      "candidate_stderr": "",
+      "candidate_stdout": "{\"closeout_vectors\": 12, \"direct_adjacency\": true, \"errors\": [\"preimage_event_allowlisted\"], \"fixture\": \"PASS_ONE_PASS_NONCIRCULAR_DIRECT_ADJACENCY\", \"required_files\": 21, \"status\": \"HOLD\"}\n",
+      "case": "preimage_allowlisted",
+      "independent_rejected": true,
+      "rejected": true
+    },
+    {
+      "candidate_exit_code": 1,
+      "candidate_rejected": true,
+      "candidate_stderr": "",
+      "candidate_stdout": "{\"closeout_vectors\": 12, \"direct_adjacency\": true, \"errors\": [\"intervening_event\"], \"fixture\": \"PASS_ONE_PASS_NONCIRCULAR_DIRECT_ADJACENCY\", \"required_files\": 21, \"status\": \"HOLD\"}\n",
+      "case": "canonical_intervening_event",
+      "independent_rejected": true,
+      "rejected": true
+    },
+    {
+      "candidate_exit_code": 1,
+      "candidate_rejected": true,
+      "candidate_stderr": "",
+      "candidate_stdout": "{\"closeout_vectors\": 12, \"direct_adjacency\": true, \"errors\": [\"sequence_adjacency\", \"close_hash\"], \"fixture\": \"PASS_ONE_PASS_NONCIRCULAR_DIRECT_ADJACENCY\", \"required_files\": 21, \"status\": \"HOLD\"}\n",
+      "case": "sequence_adjacency",
+      "independent_rejected": true,
+      "rejected": true
+    },
+    {
+      "candidate_exit_code": 1,
+      "candidate_rejected": true,
+      "candidate_stderr": "",
+      "candidate_stdout": "{\"closeout_vectors\": 12, \"direct_adjacency\": true, \"errors\": [\"hash_adjacency\", \"close_hash\"], \"fixture\": \"PASS_ONE_PASS_NONCIRCULAR_DIRECT_ADJACENCY\", \"required_files\": 21, \"status\": \"HOLD\"}\n",
+      "case": "hash_adjacency",
+      "independent_rejected": true,
+      "rejected": true
+    },
+    {
+      "candidate_exit_code": 1,
+      "candidate_rejected": true,
+      "candidate_stderr": "",
+      "candidate_stdout": "{\"closeout_vectors\": 12, \"direct_adjacency\": true, \"errors\": [\"preimage_authority\"], \"fixture\": \"PASS_ONE_PASS_NONCIRCULAR_DIRECT_ADJACENCY\", \"required_files\": 21, \"status\": \"HOLD\"}\n",
+      "case": "preimage_claims_authority",
+      "independent_rejected": true,
+      "rejected": true
+    },
+    {
+      "candidate_exit_code": 1,
+      "candidate_rejected": true,
+      "candidate_stderr": "",
+      "candidate_stdout": "{\"closeout_vectors\": 12, \"direct_adjacency\": true, \"errors\": [\"matrix_preimage_event\"], \"fixture\": \"PASS_ONE_PASS_NONCIRCULAR_DIRECT_ADJACENCY\", \"required_files\": 21, \"status\": \"HOLD\"}\n",
+      "case": "matrix_canonical_preimage",
+      "independent_rejected": true,
+      "rejected": true
+    },
+    {
+      "candidate_exit_code": 1,
+      "candidate_rejected": true,
+      "candidate_stderr": "",
+      "candidate_stdout": "{\"closeout_vectors\": 12, \"direct_adjacency\": true, \"errors\": [\"effects\"], \"fixture\": \"PASS_ONE_PASS_NONCIRCULAR_DIRECT_ADJACENCY\", \"required_files\": 21, \"status\": \"HOLD\"}\n",
+      "case": "production_effect",
+      "independent_rejected": true,
+      "rejected": true
+    },
+    {
+      "candidate_exit_code": 0,
+      "candidate_rejected": false,
+      "candidate_stderr": "",
+      "candidate_stdout": "{\"closeout_vectors\": 12, \"direct_adjacency\": true, \"errors\": [], \"fixture\": \"PASS_ONE_PASS_NONCIRCULAR_DIRECT_ADJACENCY\", \"required_files\": 21, \"status\": \"PASS\"}\n",
+      "case": "receipt_head_unbound",
+      "independent_rejected": true,
+      "rejected": true
+    },
+    {
+      "candidate_exit_code": 0,
+      "candidate_rejected": false,
+      "candidate_stderr": "",
+      "candidate_stdout": "{\"closeout_vectors\": 12, \"direct_adjacency\": true, \"errors\": [], \"fixture\": \"PASS_ONE_PASS_NONCIRCULAR_DIRECT_ADJACENCY\", \"required_files\": 21, \"status\": \"PASS\"}\n",
+      "case": "receipt_preimage_unbound",
+      "independent_rejected": true,
+      "rejected": true
+    }
+  ],
+  "schema": "critical_apply.cah_j1_m0_r3_independent_validator_mutations.v1",
+  "status": "PASS"
+}

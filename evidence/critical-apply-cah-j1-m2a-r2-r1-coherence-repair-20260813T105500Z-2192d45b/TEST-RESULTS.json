@@ -1,0 +1,45 @@
+{
+  "aggregate_cases": 191,
+  "aggregate_rejected": 191,
+  "aggregate_unsafe_accepted": 0,
+  "candidate_validator": {
+    "error_count": 0,
+    "errors": [],
+    "status": "PASS"
+  },
+  "clean_copy": {
+    "status": "PASS"
+  },
+  "new_semantic_mutations": {
+    "cases": 36,
+    "rejected": 36,
+    "unsafe_accepted": 0
+  },
+  "prior_exact_total": 155,
+  "prior_provenance": {
+    "fresh_r1_independent_exact_port": {
+      "cases": 56,
+      "direct_checks": 9,
+      "direct_failures": 0,
+      "rejected": 56
+    },
+    "r1_independent_port": {
+      "cases": 26,
+      "rejected": 26
+    },
+    "r2_combination_attacks": {
+      "cases": 18,
+      "rejected": 18
+    },
+    "r2_construction_mutations": {
+      "cases": 55,
+      "rejected": 55
+    }
+  },
+  "py_compile": {
+    "files": 6,
+    "status": "PASS"
+  },
+  "schema": "critical_apply.m2a_r2_r1.test_results.v1",
+  "status": "PASS"
+}

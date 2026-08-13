@@ -1,0 +1,195 @@
+{
+  "candidate_root": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-r1-contract-repair-20260813T013000Z-8d2f6c41",
+  "files": [
+    {
+      "bytes": 15425,
+      "mode": "0o664",
+      "mtime_ns": 1786582822609887998,
+      "path": "AUTHORITY-CRASH-VECTORS.json",
+      "sha256": "eddd143735fe82c7a47251dd3229cc4942eb78a20deaf99bd3a87eab0621e7bc"
+    },
+    {
+      "bytes": 16448,
+      "mode": "0o664",
+      "mtime_ns": 1786582522705342207,
+      "path": "AUTHORITYDB-FENCING-PROTOCOL.md",
+      "sha256": "f547f1365e44cfe5781e94c05478db99db599bb9ae281e1304b782766d4d1c56"
+    },
+    {
+      "bytes": 2088,
+      "mode": "0o664",
+      "mtime_ns": 1786583283146300948,
+      "path": "CAS-CAPTURE-DURABILITY-CONTRACT.json",
+      "sha256": "fccadae780c216ec96bc83d08a2de29c20e18535d47f10b44042a79f6cb28090"
+    },
+    {
+      "bytes": 13490,
+      "mode": "0o664",
+      "mtime_ns": 1786584449514673207,
+      "path": "CAS-CRASH-MATRIX-EXHAUSTIVE.json",
+      "sha256": "34c17f4deccf5d93db5c5c5a86018f2fef353ed742a5fc952ace41950fa3a0cb"
+    },
+    {
+      "bytes": 3716,
+      "mode": "0o664",
+      "mtime_ns": 1786584449514907108,
+      "path": "CLOSEOUT-CRASH-MATRIX-EXHAUSTIVE.json",
+      "sha256": "9cfca9ac16f8b4954d573e7d1ba986c183fbf82da10ba6e43be2c6c82e203209"
+    },
+    {
+      "bytes": 3183,
+      "mode": "0o664",
+      "mtime_ns": 1786583494839539493,
+      "path": "CORROBORATION-RECEIPT.json",
+      "sha256": "cc2c29863fd199651ef4381253369acfacb6805ac1b48bdcef1cd57328de0a13"
+    },
+    {
+      "bytes": 6528,
+      "mode": "0o664",
+      "mtime_ns": 1786584449515242508,
+      "path": "CRASH-BOUNDARY-TEST-VECTORS.json",
+      "sha256": "c9bf4c118acb99e804088d4f96535975b62b1c8330176af4e70e5df148c5ba8d"
+    },
+    {
+      "bytes": 1284,
+      "mode": "0o664",
+      "mtime_ns": 1786583283145989847,
+      "path": "EVENT-IDEMPOTENCY-CONTRACT.json",
+      "sha256": "96ba0362ae7b1b934afb1f93a93ec6c0eebcabd449412234443b67f2b80f3ee2"
+    },
+    {
+      "bytes": 656,
+      "mode": "0o664",
+      "mtime_ns": 1786584449515815509,
+      "path": "INPUT-VERIFICATION.json",
+      "sha256": "0026d5885014ea080e5bd55149049b93ff71c61267920a81990c4aa5387f44d2"
+    },
+    {
+      "bytes": 4754,
+      "mode": "0o664",
+      "mtime_ns": 1786584449512927204,
+      "path": "LIFECYCLE-TRANSITION-TABLE.json",
+      "sha256": "23634d22f73a315508e9ddec28d9827fb4f85a32ec6605294b57d92aa858cf20"
+    },
+    {
+      "bytes": 2043,
+      "mode": "0o664",
+      "mtime_ns": 1786584449515576309,
+      "path": "M0-R1-CORRECTION-LEDGER.json",
+      "sha256": "ec50c3d801fd9283fb55868e8bc74372976584aecac9855b51a635e39513f972"
+    },
+    {
+      "bytes": 9728,
+      "mode": "0o664",
+      "mtime_ns": 1786582575814161897,
+      "path": "NONCE-AT-MOST-ONCE-STATE-MACHINE.json",
+      "sha256": "b184b673c3bd4e94e5f11831800e12657054c144fe48dd419bf0f0963092a3e0"
+    },
+    {
+      "bytes": 38071,
+      "mode": "0o664",
+      "mtime_ns": 1786584449514129406,
+      "path": "NONCE-CRASH-MATRIX-EXHAUSTIVE.json",
+      "sha256": "a9a48f52e4f830196200be33a27b3795e70085f293cfc42b6aa759c68da238bd"
+    },
+    {
+      "bytes": 891,
+      "mode": "0o664",
+      "mtime_ns": 1786583283146980550,
+      "path": "NOTIFICATION-CLOSEOUT-CONTRACT.json",
+      "sha256": "6e112b6e127b8ed3d3ed93fbfa0f67fa2b2c1e84c988468330c1fa6956e6d3d2"
+    },
+    {
+      "bytes": 1813,
+      "mode": "0o664",
+      "mtime_ns": 1786583283146845450,
+      "path": "PATH-OWNERSHIP-CONTRACT.json",
+      "sha256": "58befcd0b9661b38a8b50c30aae62bf0a362798f4239c7091ee1545f30d2205f"
+    },
+    {
+      "bytes": 1634,
+      "mode": "0o600",
+      "mtime_ns": 1786584675341564199,
+      "path": "PRIVACY-RECEIPT.json",
+      "sha256": "2944ceaab6c812b403e5dc6dbd37f12578db39396b4f494fc558ee9c01dd96ec"
+    },
+    {
+      "bytes": 815,
+      "mode": "0o664",
+      "mtime_ns": 1786583283146558049,
+      "path": "SAME-UID-THREAT-MODEL.json",
+      "sha256": "490c24f3fa38fa771e98d49ac813c601beb419b283ee4bae89501d0102120812"
+    },
+    {
+      "bytes": 1604,
+      "mode": "0o664",
+      "mtime_ns": 1786583283146692549,
+      "path": "SEMANTIC-PATH-REGISTRATION-CONTRACT.json",
+      "sha256": "f4f251c06be68f95fd486fa589026ade178d842d068003617d5b543bdd985603"
+    },
+    {
+      "bytes": 11554,
+      "mode": "0o664",
+      "mtime_ns": 1786582641625533089,
+      "path": "SQLITE-AUTHORITY-STORAGE-CONTRACT.json",
+      "sha256": "77acbe92507098f41b82f5f21262de282f3ec39254a547624976560f9b2146ba"
+    },
+    {
+      "bytes": 793,
+      "mode": "0o664",
+      "mtime_ns": 1786584637174978726,
+      "path": "STATUS.json",
+      "sha256": "1ca8a21a7fdb6c7e6e3b75e9ecbfae3638ee552b1dc5a9e7d765dc5dcf070280"
+    },
+    {
+      "bytes": 5307,
+      "mode": "0o664",
+      "mtime_ns": 1786584449512532303,
+      "path": "TERMINAL-HEADS-AND-FENCE-CONTRACT.json",
+      "sha256": "ac1a1efd171e052b244b887a242ddefcb50084836ece65b7fc59573a2de4f893"
+    },
+    {
+      "bytes": 161,
+      "mode": "0o664",
+      "mtime_ns": 1786584469357229638,
+      "path": "VALIDATION-RESULTS.json",
+      "sha256": "4f6efa8222d6187c7865f10d6f022d8391263b2e7af2423c0e0a97a505a41876"
+    },
+    {
+      "bytes": 812,
+      "mode": "0o664",
+      "mtime_ns": 1786583283146443549,
+      "path": "WITNESS-ASSURANCE-GRADE.json",
+      "sha256": "95c8edc82fbab2e382bf386c3f1fffae8f73655b9f49d44905dbe0d7617d6abc"
+    },
+    {
+      "bytes": 574,
+      "mode": "0o664",
+      "mtime_ns": 1786584449516082710,
+      "path": "ZERO-EFFECT-RECEIPT.json",
+      "sha256": "c134bf747f74d5ab9a0999b234bd2b180bb7664965b4ab1d051f3343675f084d"
+    },
+    {
+      "bytes": 203,
+      "mode": "0o664",
+      "mtime_ns": 1786584490601272522,
+      "path": "frozen-tool-identities.json",
+      "sha256": "3897f696b26c06a03b2140cf4eae5d9a24be9e0f51063116191119674736982c"
+    },
+    {
+      "bytes": 4455,
+      "mode": "0o664",
+      "mtime_ns": 1786584637177017472,
+      "path": "manifest.json",
+      "sha256": "ee45865dc2ac62147be1d163e970601224205d48be029524206fca880267da41"
+    },
+    {
+      "bytes": 3324,
+      "mode": "0o755",
+      "mtime_ns": 1786584449516238210,
+      "path": "validate_m0_r1_contracts.py",
+      "sha256": "096f9a0a694b7ea3d72b4661f5c71991ee8ec41a37d6888d2bd3fd16ff1f3d32"
+    }
+  ],
+  "schema": "critical_apply.candidate_baseline.v1"
+}

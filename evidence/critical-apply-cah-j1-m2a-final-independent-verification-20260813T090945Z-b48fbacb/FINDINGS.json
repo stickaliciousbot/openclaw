@@ -1,0 +1,44 @@
+{
+  "M1_verdict": "PASS_VERIFIED",
+  "M2A_verdict": "HOLD",
+  "M2B_started": false,
+  "blocker_count": 6,
+  "blockers": [
+    {
+      "clause": "M0-R3 requires SUPERVISOR_CLOSED to directly follow SCOPE_LEASE_RELEASE_RECORDED in the canonical chain; M2A validator lacks a canonical-vs-noncanonical adjacency property and accepts an intervening journal-authority event.",
+      "id": "M2A-B01-CANONICAL-ADJACENCY-NOT-EXECUTABLY-ENFORCED"
+    },
+    {
+      "clause": "N07 says capture governing response bytes if required; it does not unconditionally require governing response bytes/receipt in descriptor CAS plus an exact verified journal CAS reference before AuthorityDB outcome bind, contrary to verified M1 source gate.",
+      "id": "M2A-B02-N07-GOVERNING-RESPONSE-CAS-OPTIONAL"
+    },
+    {
+      "clause": "action_allowed is true from SCOPE_ACTIVE through execution without a typed definition limiting it to bounded child/action eligibility; the validator accepts call_allowed=true and pre-scope action_allowed=true mutations, so provider-call exclusion and N05/N06 barriers are not executable properties.",
+      "id": "M2A-B03-ACTION-ALLOWED-SEMANTICS-AMBIGUOUS"
+    },
+    {
+      "clause": "The no-op exact-set expression is followed only by length/prefix checks; validator accepts N07_SKIP_CAS_AND_BIND, so exact N01-N11 identities/suffix semantics are not enforced.",
+      "id": "M2A-B04-NONCE-IDENTITY-GATE-PREFIX-ONLY"
+    },
+    {
+      "clause": "Although 52 vectors cover both named windows for 26 transitions, after-commit observed states remain the pre-transition state and recovery proofs are generic; validator accepts a missing transition side and a one-string generic proof.",
+      "id": "M2A-B05-CRASH-VECTOR-EXACT-SIDE-RECOVERY-NOT-ENFORCED"
+    },
+    {
+      "clause": "Validator accepts unsafe mutations for overlap dual-active, child self-registration/path creation, ACK-before-sync/bind, replay-conflict execution, stale-fence acceptance, contradictory N04 bypass, notification/witness authority, unknown-outcome retry, permissive ingress unknown fields, multiple writers, and meaningless ACK vectors.",
+      "id": "M2A-B06-ADVERSARIAL-CONTRACT-CONTENT-NOT-ENFORCED"
+    }
+  ],
+  "nonblocking_verified": [
+    "all named input and manifest hashes",
+    "M1 permanent patch mode/size/hash and seven reconstructed hashes",
+    "M2A base validator PASS",
+    "candidate 12/12 mutation tests PASS",
+    "fixture seals and design cross-references",
+    "52 vectors and 26 transition IDs; globally unique vector IDs",
+    "2/5/20 contention vectors present",
+    "ProgressDB/runtime/production/shadow authority false in frozen candidate",
+    "strict ingress fields present",
+    "M2B stop boundary"
+  ]
+}

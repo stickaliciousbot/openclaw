@@ -1,0 +1,70 @@
+{
+  "schema": "critical_apply.cah_j1_m0_final_independent_findings.v1",
+  "candidate_root": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-integrated-contract-freeze-20260813T011000Z-c4f87a2e",
+  "governing_adjudication_sha256": "1d2853fba832ebc243423c3c2dac00def80c3c2b56d892ee8c83aeff96c34427",
+  "blocking_findings": [
+    {
+      "id": "BLOCK-01-POST-FREEZE-SEMANTIC-ALLOWLIST-CONTRADICTION",
+      "requirements": ["B3", "S1", "internally_consistent_transition_tables"],
+      "evidence": [
+        "TERMINAL-HEADS-AND-FENCE-CONTRACT.json mandatory_fence.allowed_post_freeze_event_types includes OWNED_CHILD_RECONCILIATION_RECORDED and CLEANUP_RECORDED.",
+        "The same contract says post_fence_semantic_evidence is REJECT_AND_INTEGRITY_HOLD.",
+        "LIFECYCLE-TRANSITION-TABLE.json L05 and L06 require owned-child reconciliation and cleanup before L07 TERMINAL_REDUCTION_PREPARED, and its invariant says cleanup_precedes_PASS_reduction_fence."
+      ],
+      "defect": "The frozen post-fence vocabulary permits two PASS-readiness/semantic-input events after the semantic prefix has been closed. Such events would either alter semantic readiness outside the reducer's consumed prefix or be ignored despite being lifecycle gates. Both interpretations contradict the frozen fence and lifecycle.",
+      "required_correction": "Remove pre-fence reconciliation/cleanup events from the post-freeze allowlist and freeze their rejection after the fence; enumerate only genuine closeout events. Reconcile the L09 terminal-seal transition with the closed post-freeze vocabulary by naming its canonical event or explicitly proving it is artifact publication with no append."
+    },
+    {
+      "id": "BLOCK-02-CLOSEOUT-HEAD-RECEIPT-ORDER-UNDER-SPECIFIED",
+      "requirements": ["B4", "S1", "crash_consistent_closeout"],
+      "evidence": [
+        "TERMINAL-HEADS-AND-FENCE-CONTRACT.json defines closeout_head as the SUPERVISOR_CLOSED event and COMPLETION-RECEIPT.json as its consumer.",
+        "LIFECYCLE-TRANSITION-TABLE.json L15 prepares COMPLETION_RECEIPT before L16 commits SUPERVISOR_CLOSED.",
+        "No contract freezes deterministic precomputation of the future closeout event hash, receipt publication/finalization after commit, or recovery when a crash occurs across L15/L16.",
+        "CRASH-BOUNDARY-TEST-VECTORS.json TERM-09 starts only after SUPERVISOR_CLOSED and does not cover the receipt-prepared/close-event boundary."
+      ],
+      "defect": "The package does not define how an already-prepared completion receipt can bind the actual later closeout head, nor how partial publication is recovered without appending to a closed journal. The B4 binding is therefore not yet executable or crash-deterministic.",
+      "required_correction": "Freeze the exact preimage/precomputation and atomic publication protocol, or change the ordering while preserving SUPERVISOR_CLOSED as the final canonical event; add kill/recovery vectors before receipt preparation, after preparation, after close-event sync before ACK, and before final receipt publication/verification."
+    },
+    {
+      "id": "BLOCK-03-REQUIRED-CRASH-MATRICES-NOT-EXHAUSTIVE",
+      "requirements": ["B2", "B6", "M0_crash_matrices_complete"],
+      "evidence": [
+        "NONCE-AT-MOST-ONCE-STATE-MACHINE.json N03 commits AuthorityDB COMMITTED_NOT_USED and then requires CALL_AUTHORITY_RESERVATION_RECORDED, but AUTHORITY-CRASH-VECTORS.json has no exact kill vector after the DB commit and before/during that journal append/sync/ACK.",
+        "The nonce matrix has no boundary-complete vectors for N04 safe-resume rebinding, N10 pre-call retirement, or N11 orphan-reservation quarantine/retirement.",
+        "CAS-CAPTURE-DURABILITY-CONTRACT.json freezes separate publication steps, but CRASH-BOUNDARY-TEST-VECTORS.json lacks exact kills after fdatasync_temp_object before publish, after parent fsync before reopen/rehash, after successful published-object rehash before journal durability, and during/after CAS_CAPTURED append before fdatasync.",
+        "The adjudication explicitly requires an exhaustive nonce crash matrix around each state transition and CAS kills at every object-publication boundary."
+      ],
+      "defect": "The supplied fixtures do not cover every frozen cross-store and publication boundary, so untested recovery combinations remain despite the mandatory exhaustive requirement.",
+      "required_correction": "Add one deterministic vector for each omitted boundary, including exact journal/AuthorityDB/CAS states, allowed action, idempotent recovery, ACK behavior, and fail-closed result."
+    }
+  ],
+  "nonblocking_observations": [
+    {
+      "id": "OBS-01-IDENTITIES",
+      "result": "All 24 manifest-listed artifact hashes and byte sizes match; governing input, manifest, and privacy receipt identities match expected values; all 22 JSON files parse."
+    },
+    {
+      "id": "OBS-02-AUTHORITY-PARTITIONS",
+      "result": "The package consistently keeps the canonical journal as sole semantic/transaction-fact authority; AuthorityDB is cross-transaction lease/nonce authority only; WitnessDB is detection/witness only; ProgressDB is disposable acceleration only. No second semantic authority was found."
+    },
+    {
+      "id": "OBS-03-B2-CORE",
+      "result": "UNKNOWN_CONSUMED is terminal and non-retryable; automatic retry requires new owner authority, new nonce, and new barrier. The invocation gate requires journal and AuthorityDB barriers."
+    },
+    {
+      "id": "OBS-04-B5-B6-S2-S4",
+      "result": "Journal-derived idempotency, descriptor-bound CAS ordering, Grade-1 same-host/same-UID detect-only witness claims, and SQLite/WAL FULL/BEGIN IMMEDIATE/backup/recovery partitions are substantively frozen."
+    },
+    {
+      "id": "OBS-05-BRIDGE",
+      "result": "Semantic-path registration is immutable and shared; semantic terminal outranks RUNNING/STALE/PID projections; nonce-ledger has exactly one directory creator and the runner never creates it."
+    },
+    {
+      "id": "OBS-06-PRIVACY-ZERO-EFFECT",
+      "result": "Privacy receipt identity matches, reports zero blockers/issues, exact frozen scanner identities, 24 persistent text files and one exact tool source. Candidate zero-effect receipt contains all-zero effect counters and is internally consistent with the contract-only package."
+    }
+  ],
+  "blocking_count": 3,
+  "status": "HOLD"
+}

@@ -1,0 +1,57 @@
+{
+  "child_forbidden": [
+    "self-registration",
+    "create shared path",
+    "mkdir nonce-ledger/",
+    "write journal",
+    "write CAS directly",
+    "write AuthorityDB",
+    "write ProgressDB as authority"
+  ],
+  "every_mutation_and_result_requires": [
+    "transaction_id",
+    "supervisor_epoch",
+    "scope_sha256",
+    "fencing_token",
+    "launch_intent_event_sha256"
+  ],
+  "launch_required": [
+    "immutable registration sha256",
+    "journal genesis and current epoch verified",
+    "scope active in journal and AuthorityDB",
+    "launch intent canonical ACK",
+    "exact fencing token",
+    "existing supervisor-created run root and nonce-ledger/"
+  ],
+  "nonce_integration": {
+    "N04_SAFE_RESUME_REBIND": "only before any CALL_START_COMMITTED/attempt/outcome; same hashes, valid owner authority, active scope fence, canonical authorization; otherwise retire+HOLD with new authority and nonce",
+    "N07_RECORD_VERIFIED_OUTCOME": [
+      "capture governing response bytes if required",
+      "commit and sync CALL_OUTCOME_RECORDED in canonical journal",
+      "bind exact outcome event in AuthorityDB",
+      "COMMIT_FULL"
+    ],
+    "automatic_retry": false,
+    "required_transitions": [
+      "N01_RESERVE",
+      "N02_COMMIT_RESERVATION_EVENT",
+      "N03_BIND_RESERVATION",
+      "N04_SAFE_RESUME_REBIND",
+      "N05_COMMIT_CALL_START_BARRIER",
+      "N06_DURABLY_CONSUME",
+      "N07_RECORD_VERIFIED_OUTCOME",
+      "N08_CLASSIFY_UNKNOWN",
+      "N09_RETIRE_RECORDED_OUTCOME",
+      "N10_ABANDON_BEFORE_CALL",
+      "N11_QUARANTINE_ORPHAN_RESERVATION"
+    ]
+  },
+  "result_order": [
+    "capture bytes by CAS module",
+    "verify digest and fence",
+    "append CHILD_RESULT_CAPTURED",
+    "ACK only after reopen verification"
+  ],
+  "schema": "critical_apply.m2a.child_launch_result.v1",
+  "unknown_outcome": "FAIL_CLOSED_UNKNOWN_NO_AUTOMATIC_RETRY"
+}

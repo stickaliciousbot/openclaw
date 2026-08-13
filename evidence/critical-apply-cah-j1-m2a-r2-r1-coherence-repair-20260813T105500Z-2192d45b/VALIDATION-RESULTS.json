@@ -1,0 +1,23 @@
+{
+  "clean_copy": "PASS",
+  "input_rehash": "PASS",
+  "mutation_counts": {
+    "aggregate": 191,
+    "new": 36,
+    "prior": 155,
+    "rejected": 191,
+    "unsafe_accepted": 0
+  },
+  "privacy": "R6_R6_PHASE_A_BOUNDED_PRIVACY_SCAN_PASS",
+  "process_leak": "PASS",
+  "proof_counts": {
+    "artifact_lifecycle": 6,
+    "canonical": 46,
+    "total": 52
+  },
+  "schema": "critical_apply.m2a_r2_r1.validation_results.v1",
+  "status": "PASS",
+  "tracked_parity": "PASS",
+  "validator_error_count": 0,
+  "zero_effect": "PASS"
+}

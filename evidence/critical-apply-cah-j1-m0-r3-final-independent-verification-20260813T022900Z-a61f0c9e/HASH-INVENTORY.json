@@ -1,0 +1,352 @@
+{
+  "artifact_count": 28,
+  "candidate_dirs": [],
+  "candidate_files": 30,
+  "candidate_root": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-r3-contract-repair-20260813T020500Z-5e1b7a63",
+  "candidate_symlinks": [],
+  "copy_records": [
+    {
+      "actual_bytes": 15425,
+      "actual_sha256": "eddd143735fe82c7a47251dd3229cc4942eb78a20deaf99bd3a87eab0621e7bc",
+      "copied_bytes": 15425,
+      "copied_sha256": "eddd143735fe82c7a47251dd3229cc4942eb78a20deaf99bd3a87eab0621e7bc",
+      "exact": true,
+      "expected_bytes": 15425,
+      "expected_sha256": "eddd143735fe82c7a47251dd3229cc4942eb78a20deaf99bd3a87eab0621e7bc",
+      "path": "AUTHORITY-CRASH-VECTORS.json"
+    },
+    {
+      "actual_bytes": 16448,
+      "actual_sha256": "f547f1365e44cfe5781e94c05478db99db599bb9ae281e1304b782766d4d1c56",
+      "copied_bytes": 16448,
+      "copied_sha256": "f547f1365e44cfe5781e94c05478db99db599bb9ae281e1304b782766d4d1c56",
+      "exact": true,
+      "expected_bytes": 16448,
+      "expected_sha256": "f547f1365e44cfe5781e94c05478db99db599bb9ae281e1304b782766d4d1c56",
+      "path": "AUTHORITYDB-FENCING-PROTOCOL.md"
+    },
+    {
+      "actual_bytes": 2088,
+      "actual_sha256": "fccadae780c216ec96bc83d08a2de29c20e18535d47f10b44042a79f6cb28090",
+      "copied_bytes": 2088,
+      "copied_sha256": "fccadae780c216ec96bc83d08a2de29c20e18535d47f10b44042a79f6cb28090",
+      "exact": true,
+      "expected_bytes": 2088,
+      "expected_sha256": "fccadae780c216ec96bc83d08a2de29c20e18535d47f10b44042a79f6cb28090",
+      "path": "CAS-CAPTURE-DURABILITY-CONTRACT.json"
+    },
+    {
+      "actual_bytes": 13490,
+      "actual_sha256": "34c17f4deccf5d93db5c5c5a86018f2fef353ed742a5fc952ace41950fa3a0cb",
+      "copied_bytes": 13490,
+      "copied_sha256": "34c17f4deccf5d93db5c5c5a86018f2fef353ed742a5fc952ace41950fa3a0cb",
+      "exact": true,
+      "expected_bytes": 13490,
+      "expected_sha256": "34c17f4deccf5d93db5c5c5a86018f2fef353ed742a5fc952ace41950fa3a0cb",
+      "path": "CAS-CRASH-MATRIX-EXHAUSTIVE.json"
+    },
+    {
+      "actual_bytes": 3655,
+      "actual_sha256": "959421e30f0948abf621eda91c86a9cba899c7674301a0c331e10a8e13366493",
+      "copied_bytes": 3655,
+      "copied_sha256": "959421e30f0948abf621eda91c86a9cba899c7674301a0c331e10a8e13366493",
+      "exact": true,
+      "expected_bytes": 3655,
+      "expected_sha256": "959421e30f0948abf621eda91c86a9cba899c7674301a0c331e10a8e13366493",
+      "path": "CLOSEOUT-CRASH-MATRIX-EXHAUSTIVE.json"
+    },
+    {
+      "actual_bytes": 5653,
+      "actual_sha256": "67ad46847a796e8c868f121ecb453740b3c7592d21aff3291b2ca792b59a7aae",
+      "copied_bytes": 5653,
+      "copied_sha256": "67ad46847a796e8c868f121ecb453740b3c7592d21aff3291b2ca792b59a7aae",
+      "exact": true,
+      "expected_bytes": 5653,
+      "expected_sha256": "67ad46847a796e8c868f121ecb453740b3c7592d21aff3291b2ca792b59a7aae",
+      "path": "CLOSEOUT-HASH-DOMAIN-FIXTURE.json"
+    },
+    {
+      "actual_bytes": 3183,
+      "actual_sha256": "cc2c29863fd199651ef4381253369acfacb6805ac1b48bdcef1cd57328de0a13",
+      "copied_bytes": 3183,
+      "copied_sha256": "cc2c29863fd199651ef4381253369acfacb6805ac1b48bdcef1cd57328de0a13",
+      "exact": true,
+      "expected_bytes": 3183,
+      "expected_sha256": "cc2c29863fd199651ef4381253369acfacb6805ac1b48bdcef1cd57328de0a13",
+      "path": "CORROBORATION-RECEIPT.json"
+    },
+    {
+      "actual_bytes": 6790,
+      "actual_sha256": "5564ac439d5e4be0991ded6a9074a5d298bd4ae246f45029c8ecbc1f02efca2e",
+      "copied_bytes": 6790,
+      "copied_sha256": "5564ac439d5e4be0991ded6a9074a5d298bd4ae246f45029c8ecbc1f02efca2e",
+      "exact": true,
+      "expected_bytes": 6790,
+      "expected_sha256": "5564ac439d5e4be0991ded6a9074a5d298bd4ae246f45029c8ecbc1f02efca2e",
+      "path": "CRASH-BOUNDARY-TEST-VECTORS.json"
+    },
+    {
+      "actual_bytes": 1284,
+      "actual_sha256": "96ba0362ae7b1b934afb1f93a93ec6c0eebcabd449412234443b67f2b80f3ee2",
+      "copied_bytes": 1284,
+      "copied_sha256": "96ba0362ae7b1b934afb1f93a93ec6c0eebcabd449412234443b67f2b80f3ee2",
+      "exact": true,
+      "expected_bytes": 1284,
+      "expected_sha256": "96ba0362ae7b1b934afb1f93a93ec6c0eebcabd449412234443b67f2b80f3ee2",
+      "path": "EVENT-IDEMPOTENCY-CONTRACT.json"
+    },
+    {
+      "actual_bytes": 638,
+      "actual_sha256": "b2e86f2bbfe547979ab6c9c30068e32959cf3baf4b1de803756f74a2f747e424",
+      "copied_bytes": 638,
+      "copied_sha256": "b2e86f2bbfe547979ab6c9c30068e32959cf3baf4b1de803756f74a2f747e424",
+      "exact": true,
+      "expected_bytes": 638,
+      "expected_sha256": "b2e86f2bbfe547979ab6c9c30068e32959cf3baf4b1de803756f74a2f747e424",
+      "path": "INPUT-VERIFICATION.json"
+    },
+    {
+      "actual_bytes": 5019,
+      "actual_sha256": "4538cb239f2dda53602f7cc4cbe7638d2431983a76d36f6fff806dcd028c7f53",
+      "copied_bytes": 5019,
+      "copied_sha256": "4538cb239f2dda53602f7cc4cbe7638d2431983a76d36f6fff806dcd028c7f53",
+      "exact": true,
+      "expected_bytes": 5019,
+      "expected_sha256": "4538cb239f2dda53602f7cc4cbe7638d2431983a76d36f6fff806dcd028c7f53",
+      "path": "LIFECYCLE-TRANSITION-TABLE.json"
+    },
+    {
+      "actual_bytes": 2043,
+      "actual_sha256": "ec50c3d801fd9283fb55868e8bc74372976584aecac9855b51a635e39513f972",
+      "copied_bytes": 2043,
+      "copied_sha256": "ec50c3d801fd9283fb55868e8bc74372976584aecac9855b51a635e39513f972",
+      "exact": true,
+      "expected_bytes": 2043,
+      "expected_sha256": "ec50c3d801fd9283fb55868e8bc74372976584aecac9855b51a635e39513f972",
+      "path": "M0-R1-CORRECTION-LEDGER.json"
+    },
+    {
+      "actual_bytes": 969,
+      "actual_sha256": "02cbb8886e144e9503d633524d7755df705f63934698b3671d3135e5c1e7d82f",
+      "copied_bytes": 969,
+      "copied_sha256": "02cbb8886e144e9503d633524d7755df705f63934698b3671d3135e5c1e7d82f",
+      "exact": true,
+      "expected_bytes": 969,
+      "expected_sha256": "02cbb8886e144e9503d633524d7755df705f63934698b3671d3135e5c1e7d82f",
+      "path": "M0-R2-CORRECTION-LEDGER.json"
+    },
+    {
+      "actual_bytes": 774,
+      "actual_sha256": "6212c53387529994dca5109b97d3a52d7e9b7869bffb7acb7378aa68cda91bc2",
+      "copied_bytes": 774,
+      "copied_sha256": "6212c53387529994dca5109b97d3a52d7e9b7869bffb7acb7378aa68cda91bc2",
+      "exact": true,
+      "expected_bytes": 774,
+      "expected_sha256": "6212c53387529994dca5109b97d3a52d7e9b7869bffb7acb7378aa68cda91bc2",
+      "path": "M0-R3-CORRECTION-LEDGER.json"
+    },
+    {
+      "actual_bytes": 9728,
+      "actual_sha256": "b184b673c3bd4e94e5f11831800e12657054c144fe48dd419bf0f0963092a3e0",
+      "copied_bytes": 9728,
+      "copied_sha256": "b184b673c3bd4e94e5f11831800e12657054c144fe48dd419bf0f0963092a3e0",
+      "exact": true,
+      "expected_bytes": 9728,
+      "expected_sha256": "b184b673c3bd4e94e5f11831800e12657054c144fe48dd419bf0f0963092a3e0",
+      "path": "NONCE-AT-MOST-ONCE-STATE-MACHINE.json"
+    },
+    {
+      "actual_bytes": 46758,
+      "actual_sha256": "8e5079b300e7f8b7e762be0c0f09260dff12a0a5a335113e3f3147285e3f7ec4",
+      "copied_bytes": 46758,
+      "copied_sha256": "8e5079b300e7f8b7e762be0c0f09260dff12a0a5a335113e3f3147285e3f7ec4",
+      "exact": true,
+      "expected_bytes": 46758,
+      "expected_sha256": "8e5079b300e7f8b7e762be0c0f09260dff12a0a5a335113e3f3147285e3f7ec4",
+      "path": "NONCE-CRASH-MATRIX-EXHAUSTIVE.json"
+    },
+    {
+      "actual_bytes": 891,
+      "actual_sha256": "6e112b6e127b8ed3d3ed93fbfa0f67fa2b2c1e84c988468330c1fa6956e6d3d2",
+      "copied_bytes": 891,
+      "copied_sha256": "6e112b6e127b8ed3d3ed93fbfa0f67fa2b2c1e84c988468330c1fa6956e6d3d2",
+      "exact": true,
+      "expected_bytes": 891,
+      "expected_sha256": "6e112b6e127b8ed3d3ed93fbfa0f67fa2b2c1e84c988468330c1fa6956e6d3d2",
+      "path": "NOTIFICATION-CLOSEOUT-CONTRACT.json"
+    },
+    {
+      "actual_bytes": 1813,
+      "actual_sha256": "58befcd0b9661b38a8b50c30aae62bf0a362798f4239c7091ee1545f30d2205f",
+      "copied_bytes": 1813,
+      "copied_sha256": "58befcd0b9661b38a8b50c30aae62bf0a362798f4239c7091ee1545f30d2205f",
+      "exact": true,
+      "expected_bytes": 1813,
+      "expected_sha256": "58befcd0b9661b38a8b50c30aae62bf0a362798f4239c7091ee1545f30d2205f",
+      "path": "PATH-OWNERSHIP-CONTRACT.json"
+    },
+    {
+      "actual_bytes": 815,
+      "actual_sha256": "490c24f3fa38fa771e98d49ac813c601beb419b283ee4bae89501d0102120812",
+      "copied_bytes": 815,
+      "copied_sha256": "490c24f3fa38fa771e98d49ac813c601beb419b283ee4bae89501d0102120812",
+      "exact": true,
+      "expected_bytes": 815,
+      "expected_sha256": "490c24f3fa38fa771e98d49ac813c601beb419b283ee4bae89501d0102120812",
+      "path": "SAME-UID-THREAT-MODEL.json"
+    },
+    {
+      "actual_bytes": 1604,
+      "actual_sha256": "f4f251c06be68f95fd486fa589026ade178d842d068003617d5b543bdd985603",
+      "copied_bytes": 1604,
+      "copied_sha256": "f4f251c06be68f95fd486fa589026ade178d842d068003617d5b543bdd985603",
+      "exact": true,
+      "expected_bytes": 1604,
+      "expected_sha256": "f4f251c06be68f95fd486fa589026ade178d842d068003617d5b543bdd985603",
+      "path": "SEMANTIC-PATH-REGISTRATION-CONTRACT.json"
+    },
+    {
+      "actual_bytes": 11554,
+      "actual_sha256": "77acbe92507098f41b82f5f21262de282f3ec39254a547624976560f9b2146ba",
+      "copied_bytes": 11554,
+      "copied_sha256": "77acbe92507098f41b82f5f21262de282f3ec39254a547624976560f9b2146ba",
+      "exact": true,
+      "expected_bytes": 11554,
+      "expected_sha256": "77acbe92507098f41b82f5f21262de282f3ec39254a547624976560f9b2146ba",
+      "path": "SQLITE-AUTHORITY-STORAGE-CONTRACT.json"
+    },
+    {
+      "actual_bytes": 621,
+      "actual_sha256": "825caec637b26f0d835827ad56736019000497dfc2e53337345459f036db3605",
+      "copied_bytes": 621,
+      "copied_sha256": "825caec637b26f0d835827ad56736019000497dfc2e53337345459f036db3605",
+      "exact": true,
+      "expected_bytes": 621,
+      "expected_sha256": "825caec637b26f0d835827ad56736019000497dfc2e53337345459f036db3605",
+      "path": "STATUS.json"
+    },
+    {
+      "actual_bytes": 7104,
+      "actual_sha256": "de3d51f9c81a370bbab15ed93310e317490205b44798f39998dadef742ac3485",
+      "copied_bytes": 7104,
+      "copied_sha256": "de3d51f9c81a370bbab15ed93310e317490205b44798f39998dadef742ac3485",
+      "exact": true,
+      "expected_bytes": 7104,
+      "expected_sha256": "de3d51f9c81a370bbab15ed93310e317490205b44798f39998dadef742ac3485",
+      "path": "TERMINAL-HEADS-AND-FENCE-CONTRACT.json"
+    },
+    {
+      "actual_bytes": 162,
+      "actual_sha256": "28c27cd2a76f17d947f1c3d2af19d36a1fc8803d9da092f08061f375cd65051c",
+      "copied_bytes": 162,
+      "copied_sha256": "28c27cd2a76f17d947f1c3d2af19d36a1fc8803d9da092f08061f375cd65051c",
+      "exact": true,
+      "expected_bytes": 162,
+      "expected_sha256": "28c27cd2a76f17d947f1c3d2af19d36a1fc8803d9da092f08061f375cd65051c",
+      "path": "VALIDATION-RESULTS.json"
+    },
+    {
+      "actual_bytes": 812,
+      "actual_sha256": "95c8edc82fbab2e382bf386c3f1fffae8f73655b9f49d44905dbe0d7617d6abc",
+      "copied_bytes": 812,
+      "copied_sha256": "95c8edc82fbab2e382bf386c3f1fffae8f73655b9f49d44905dbe0d7617d6abc",
+      "exact": true,
+      "expected_bytes": 812,
+      "expected_sha256": "95c8edc82fbab2e382bf386c3f1fffae8f73655b9f49d44905dbe0d7617d6abc",
+      "path": "WITNESS-ASSURANCE-GRADE.json"
+    },
+    {
+      "actual_bytes": 574,
+      "actual_sha256": "739976b24a5c896ed82a44a7f49497dbc7d4213c64c8bcdaae9036bf3b057d1a",
+      "copied_bytes": 574,
+      "copied_sha256": "739976b24a5c896ed82a44a7f49497dbc7d4213c64c8bcdaae9036bf3b057d1a",
+      "exact": true,
+      "expected_bytes": 574,
+      "expected_sha256": "739976b24a5c896ed82a44a7f49497dbc7d4213c64c8bcdaae9036bf3b057d1a",
+      "path": "ZERO-EFFECT-RECEIPT.json"
+    },
+    {
+      "actual_bytes": 203,
+      "actual_sha256": "086e1282f7d2d56197724f22ececc074e1957d0b52cbd180e94a85639c696470",
+      "copied_bytes": 203,
+      "copied_sha256": "086e1282f7d2d56197724f22ececc074e1957d0b52cbd180e94a85639c696470",
+      "exact": true,
+      "expected_bytes": 203,
+      "expected_sha256": "086e1282f7d2d56197724f22ececc074e1957d0b52cbd180e94a85639c696470",
+      "path": "frozen-tool-identities.json"
+    },
+    {
+      "actual_bytes": 3433,
+      "actual_sha256": "b575bb22b428008ba75429cb5114b59a18a2dcc286f584407e34e1bf19e0fefe",
+      "copied_bytes": 3433,
+      "copied_sha256": "b575bb22b428008ba75429cb5114b59a18a2dcc286f584407e34e1bf19e0fefe",
+      "exact": true,
+      "expected_bytes": 3433,
+      "expected_sha256": "b575bb22b428008ba75429cb5114b59a18a2dcc286f584407e34e1bf19e0fefe",
+      "path": "validate_m0_r3_contracts.py"
+    },
+    {
+      "actual_bytes": 4947,
+      "actual_sha256": "40183db63570673cac1e2d3d3fc3e0abe0f4d2d75f34a12ae35aae57a6709929",
+      "copied_bytes": 4947,
+      "copied_sha256": "40183db63570673cac1e2d3d3fc3e0abe0f4d2d75f34a12ae35aae57a6709929",
+      "exact": true,
+      "path": "manifest.json"
+    },
+    {
+      "actual_bytes": 1634,
+      "actual_sha256": "9e15e506d03cda11054ede870fbb40cf701da8dcf4a4c2ea095d3af219e9ec76",
+      "copied_bytes": 1634,
+      "copied_sha256": "9e15e506d03cda11054ede870fbb40cf701da8dcf4a4c2ea095d3af219e9ec76",
+      "exact": true,
+      "path": "PRIVACY-RECEIPT.json"
+    }
+  ],
+  "governing_inputs": [
+    {
+      "actual_sha256": "6d80167ba92e1a68c9d17d6027135b289f88c6b9f3d6fd9e24ea86aedab459af",
+      "bytes": 55288,
+      "copied_sha256": "6d80167ba92e1a68c9d17d6027135b289f88c6b9f3d6fd9e24ea86aedab459af",
+      "exact": true,
+      "expected_sha256": "6d80167ba92e1a68c9d17d6027135b289f88c6b9f3d6fd9e24ea86aedab459af",
+      "path": "/home/stickai/.openclaw/workspace/design/critical-apply-supervisor-owned-event-journal-owner-revision-2026-08-13.md",
+      "role": "owner_revision"
+    },
+    {
+      "actual_sha256": "1d2853fba832ebc243423c3c2dac00def80c3c2b56d892ee8c83aeff96c34427",
+      "bytes": 13195,
+      "copied_sha256": "1d2853fba832ebc243423c3c2dac00def80c3c2b56d892ee8c83aeff96c34427",
+      "exact": true,
+      "expected_sha256": "1d2853fba832ebc243423c3c2dac00def80c3c2b56d892ee8c83aeff96c34427",
+      "path": "/home/stickai/.openclaw/workspace/design/critical-apply-supervisor-owned-event-journal-owner-revision-m0-adjudication-2026-08-13.md",
+      "role": "m0_adjudication"
+    },
+    {
+      "actual_sha256": "697e1eb6ad2e6a263b539c3d1ccf353c3b635f17d77841083d11cf99f8cbb235",
+      "bytes": 4785,
+      "copied_sha256": "697e1eb6ad2e6a263b539c3d1ccf353c3b635f17d77841083d11cf99f8cbb235",
+      "exact": true,
+      "expected_sha256": "697e1eb6ad2e6a263b539c3d1ccf353c3b635f17d77841083d11cf99f8cbb235",
+      "path": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-r2-contract-repair-20260813T014000Z-3a6e9d52/manifest.json",
+      "role": "r2_manifest"
+    },
+    {
+      "actual_sha256": "d57ced95b7bf7d544c395141ba1d1d003405ec1abdad8a45751462423f79c336",
+      "bytes": 3220,
+      "copied_sha256": "d57ced95b7bf7d544c395141ba1d1d003405ec1abdad8a45751462423f79c336",
+      "exact": true,
+      "expected_sha256": "d57ced95b7bf7d544c395141ba1d1d003405ec1abdad8a45751462423f79c336",
+      "path": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-r2-final-independent-verification-20260813T014916Z-c0744878/INDEPENDENT-RECEIPT.json",
+      "role": "r2_hold_receipt"
+    }
+  ],
+  "manifest_bytes": 4947,
+  "manifest_sha256": "40183db63570673cac1e2d3d3fc3e0abe0f4d2d75f34a12ae35aae57a6709929",
+  "missing_files": [],
+  "parse_failures": [],
+  "privacy_bytes": 1634,
+  "privacy_sha256": "9e15e506d03cda11054ede870fbb40cf701da8dcf4a4c2ea095d3af219e9ec76",
+  "schema": "critical_apply.cah_j1_m0_r3_independent_hash_inventory.v1",
+  "status": "PASS",
+  "unaccounted_files": []
+}

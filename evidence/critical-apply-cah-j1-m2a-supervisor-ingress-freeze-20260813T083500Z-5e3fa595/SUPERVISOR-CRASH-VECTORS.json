@@ -1,0 +1,847 @@
+{
+  "schema": "critical_apply.m2a.supervisor_crash_vectors.v1",
+  "semantic_authority_order": [
+    "canonical_journal",
+    "deterministic_reducer",
+    "terminal_seal",
+    "independent_witness",
+    "ProgressDB_projection",
+    "PID_registry_status",
+    "notification_projection"
+  ],
+  "vector_count": 52,
+  "vectors": [
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T00-BEFORE_COMMIT",
+      "observed_state": "NONE",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T00",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "before_commit"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T00-AFTER_COMMIT_BEFORE_ACK",
+      "observed_state": "NONE",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T00",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "after_commit_before_ack"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T01-BEFORE_COMMIT",
+      "observed_state": "ROOT_REGISTERED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T01",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "before_commit"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T01-AFTER_COMMIT_BEFORE_ACK",
+      "observed_state": "ROOT_REGISTERED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T01",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "after_commit_before_ack"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T02-BEFORE_COMMIT",
+      "observed_state": "JOURNAL_GENESIS_COMMITTED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T02",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "before_commit"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T02-AFTER_COMMIT_BEFORE_ACK",
+      "observed_state": "JOURNAL_GENESIS_COMMITTED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T02",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "after_commit_before_ack"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T03-BEFORE_COMMIT",
+      "observed_state": "EPOCH_COMMITTED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T03",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "before_commit"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T03-AFTER_COMMIT_BEFORE_ACK",
+      "observed_state": "EPOCH_COMMITTED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T03",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "after_commit_before_ack"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T04-BEFORE_COMMIT",
+      "observed_state": "ENVELOPE_CAS_CAPTURED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T04",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "before_commit"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T04-AFTER_COMMIT_BEFORE_ACK",
+      "observed_state": "ENVELOPE_CAS_CAPTURED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T04",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "after_commit_before_ack"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T05-BEFORE_COMMIT",
+      "observed_state": "INGRESS_ACCEPTED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T05",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "before_commit"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T05-AFTER_COMMIT_BEFORE_ACK",
+      "observed_state": "INGRESS_ACCEPTED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T05",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "after_commit_before_ack"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T06-BEFORE_COMMIT",
+      "observed_state": "SCOPE_RESERVED_PENDING_JOURNAL",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T06",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "before_commit"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T06-AFTER_COMMIT_BEFORE_ACK",
+      "observed_state": "SCOPE_RESERVED_PENDING_JOURNAL",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T06",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "after_commit_before_ack"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T07-BEFORE_COMMIT",
+      "observed_state": "SCOPE_JOURNAL_BOUND",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T07",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "before_commit"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T07-AFTER_COMMIT_BEFORE_ACK",
+      "observed_state": "SCOPE_JOURNAL_BOUND",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T07",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "after_commit_before_ack"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T08-BEFORE_COMMIT",
+      "observed_state": "SCOPE_ACTIVE",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T08",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "before_commit"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T08-AFTER_COMMIT_BEFORE_ACK",
+      "observed_state": "SCOPE_ACTIVE",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T08",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "after_commit_before_ack"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T09-BEFORE_COMMIT",
+      "observed_state": "CHILD_LAUNCH_INTENT_COMMITTED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T09",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "before_commit"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T09-AFTER_COMMIT_BEFORE_ACK",
+      "observed_state": "CHILD_LAUNCH_INTENT_COMMITTED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T09",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "after_commit_before_ack"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T10-BEFORE_COMMIT",
+      "observed_state": "CHILD_STARTED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T10",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "before_commit"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T10-AFTER_COMMIT_BEFORE_ACK",
+      "observed_state": "CHILD_STARTED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T10",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "after_commit_before_ack"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T11-BEFORE_COMMIT",
+      "observed_state": "CHILD_RESULT_CAPTURED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T11",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "before_commit"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T11-AFTER_COMMIT_BEFORE_ACK",
+      "observed_state": "CHILD_RESULT_CAPTURED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T11",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "after_commit_before_ack"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T12-BEFORE_COMMIT",
+      "observed_state": "EXECUTION_AND_EVIDENCE_COMMITTED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T12",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "before_commit"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T12-AFTER_COMMIT_BEFORE_ACK",
+      "observed_state": "EXECUTION_AND_EVIDENCE_COMMITTED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T12",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "after_commit_before_ack"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T13-BEFORE_COMMIT",
+      "observed_state": "OWNED_CHILDREN_RECONCILED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T13",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "before_commit"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T13-AFTER_COMMIT_BEFORE_ACK",
+      "observed_state": "OWNED_CHILDREN_RECONCILED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T13",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "after_commit_before_ack"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T14-BEFORE_COMMIT",
+      "observed_state": "CLEANUP_RECORDED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T14",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "before_commit"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T14-AFTER_COMMIT_BEFORE_ACK",
+      "observed_state": "CLEANUP_RECORDED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T14",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "after_commit_before_ack"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T15-BEFORE_COMMIT",
+      "observed_state": "TERMINAL_REDUCTION_PREPARED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T15",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "before_commit"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T15-AFTER_COMMIT_BEFORE_ACK",
+      "observed_state": "TERMINAL_REDUCTION_PREPARED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T15",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "after_commit_before_ack"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T16-BEFORE_COMMIT",
+      "observed_state": "TERMINAL_DECISION",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T16",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "before_commit"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T16-AFTER_COMMIT_BEFORE_ACK",
+      "observed_state": "TERMINAL_DECISION",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T16",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "after_commit_before_ack"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T17-BEFORE_COMMIT",
+      "observed_state": "TERMINAL_SEAL_RECORDED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T17",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "before_commit"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T17-AFTER_COMMIT_BEFORE_ACK",
+      "observed_state": "TERMINAL_SEAL_RECORDED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T17",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "after_commit_before_ack"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T18-BEFORE_COMMIT",
+      "observed_state": "NOTIFICATION_OUTCOME_RECORDED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T18",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "before_commit"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T18-AFTER_COMMIT_BEFORE_ACK",
+      "observed_state": "NOTIFICATION_OUTCOME_RECORDED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T18",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "after_commit_before_ack"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T19-BEFORE_COMMIT",
+      "observed_state": "INDEPENDENT_WITNESS_RECORDED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T19",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "before_commit"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T19-AFTER_COMMIT_BEFORE_ACK",
+      "observed_state": "INDEPENDENT_WITNESS_RECORDED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T19",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "after_commit_before_ack"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T20-BEFORE_COMMIT",
+      "observed_state": "SCOPE_LEASE_RELEASE_INTENT",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T20",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "before_commit"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T20-AFTER_COMMIT_BEFORE_ACK",
+      "observed_state": "SCOPE_LEASE_RELEASE_INTENT",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T20",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "after_commit_before_ack"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T21-BEFORE_COMMIT",
+      "observed_state": "AUTHORITYDB_RELEASED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T21",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "before_commit"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T21-AFTER_COMMIT_BEFORE_ACK",
+      "observed_state": "AUTHORITYDB_RELEASED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T21",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "after_commit_before_ack"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T22-BEFORE_COMMIT",
+      "observed_state": "SCOPE_LEASE_RELEASE_RECORDED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T22",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "before_commit"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T22-AFTER_COMMIT_BEFORE_ACK",
+      "observed_state": "SCOPE_LEASE_RELEASE_RECORDED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T22",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "after_commit_before_ack"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T23-BEFORE_COMMIT",
+      "observed_state": "COMPLETION_RECEIPT_PREIMAGE_DURABLE",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T23",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "before_commit"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T23-AFTER_COMMIT_BEFORE_ACK",
+      "observed_state": "COMPLETION_RECEIPT_PREIMAGE_DURABLE",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T23",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "after_commit_before_ack"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T24-BEFORE_COMMIT",
+      "observed_state": "SUPERVISOR_CLOSED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T24",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "before_commit"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T24-AFTER_COMMIT_BEFORE_ACK",
+      "observed_state": "SUPERVISOR_CLOSED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T24",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "after_commit_before_ack"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T25-BEFORE_COMMIT",
+      "observed_state": "COMPLETION_RECEIPT_PUBLISHED_VERIFIED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T25",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "before_commit"
+    },
+    {
+      "action_allowed": false,
+      "call_allowed": false,
+      "id": "CV-T25-AFTER_COMMIT_BEFORE_ACK",
+      "observed_state": "COMPLETION_RECEIPT_PUBLISHED_VERIFIED",
+      "recovery": "replay semantic journal first; complete exact bind or HOLD; never infer from PID registry status or ProgressDB",
+      "recovery_proofs_required": [
+        "verify canonical journal prefix and hash chain",
+        "verify exact epoch and fencing token",
+        "verify CAS identities required by transition",
+        "verify AuthorityDB receipt when transition authority includes AuthorityDB"
+      ],
+      "transition_id": "T25",
+      "unknown_child_or_provider_outcome": "FAIL_CLOSED_HOLD_NO_RETRY",
+      "window": "after_commit_before_ack"
+    }
+  ]
+}

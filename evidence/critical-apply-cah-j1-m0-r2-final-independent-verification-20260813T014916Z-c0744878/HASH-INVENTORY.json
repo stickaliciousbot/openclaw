@@ -1,0 +1,41 @@
+{
+  "candidate_dirs_below_root": 0,
+  "candidate_files": 29,
+  "candidate_symlinks": 0,
+  "governing_inputs": {
+    "m0_adjudication": {
+      "actual_sha256": "1d2853fba832ebc243423c3c2dac00def80c3c2b56d892ee8c83aeff96c34427",
+      "exact": true,
+      "expected_sha256": "1d2853fba832ebc243423c3c2dac00def80c3c2b56d892ee8c83aeff96c34427",
+      "path": "/home/stickai/.openclaw/workspace/design/critical-apply-supervisor-owned-event-journal-owner-revision-m0-adjudication-2026-08-13.md"
+    },
+    "owner_revision": {
+      "actual_sha256": "6d80167ba92e1a68c9d17d6027135b289f88c6b9f3d6fd9e24ea86aedab459af",
+      "exact": true,
+      "expected_sha256": "6d80167ba92e1a68c9d17d6027135b289f88c6b9f3d6fd9e24ea86aedab459af",
+      "path": "/home/stickai/.openclaw/workspace/design/critical-apply-supervisor-owned-event-journal-owner-revision-2026-08-13.md"
+    },
+    "r1_hold_receipt": {
+      "actual_sha256": "dffad483e0fe08dfe31f2f199265d187d5aea98f157381050456b1bdd729c501",
+      "exact": true,
+      "expected_sha256": "dffad483e0fe08dfe31f2f199265d187d5aea98f157381050456b1bdd729c501",
+      "path": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-r1-final-independent-verification-20260813T013200Z-7c91a4e2/INDEPENDENT-RECEIPT.json"
+    },
+    "r1_manifest": {
+      "actual_sha256": "ee45865dc2ac62147be1d163e970601224205d48be029524206fca880267da41",
+      "exact": true,
+      "expected_sha256": "ee45865dc2ac62147be1d163e970601224205d48be029524206fca880267da41",
+      "path": "/home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m0-r1-contract-repair-20260813T013000Z-8d2f6c41/manifest.json"
+    }
+  },
+  "json_files_parsed": 27,
+  "json_parse_failures": [],
+  "manifest_artifact_count": 27,
+  "manifest_hash_size_mismatches": [],
+  "manifest_sha256": "697e1eb6ad2e6a263b539c3d1ccf353c3b635f17d77841083d11cf99f8cbb235",
+  "missing_listed_files": [],
+  "privacy_sha256": "d7092f98a9f2e6bb62acb385a4fc156155a474e8947dc0595404a7719316c4ad",
+  "schema": "critical_apply.cah_j1_m0_r2_independent_mechanical.v1",
+  "status": "PASS",
+  "unaccounted_files": []
+}

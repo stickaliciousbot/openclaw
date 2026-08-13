@@ -1,0 +1,271 @@
+{
+  "schema": "critical_apply.sqlite_authority_storage_contract.v1",
+  "status": "FROZEN_FOR_M0_S4",
+  "databases": {
+    "AuthorityDB": {
+      "grade": "cross_transaction_authority",
+      "semantic_authority": false,
+      "rebuildable_from_journal": false,
+      "loss_policy": "FAIL_CLOSED_RECONCILIATION_HOLD"
+    },
+    "WitnessDB": {
+      "grade": "independent_history_witness",
+      "semantic_authority": false,
+      "rebuildable_without_assurance_loss": false,
+      "loss_policy": "TRUSTWORTHY_CLOSEOUT_HOLD_NO_SEMANTIC_REWRITE"
+    },
+    "ProgressDB": {
+      "grade": "rebuildable_projection",
+      "covered_by_this_authority_grade": false,
+      "semantic_authority": false
+    }
+  },
+  "filesystem": {
+    "required": [
+      "local_Linux_filesystem_with_proven_fsync_atomic_rename_and_lock_semantics",
+      "database_parent_owned_by_service_uid",
+      "database_parent_mode_0700",
+      "database_file_mode_0600",
+      "no_symlink_in_leaf_or_ancestor_chain",
+      "same_filesystem_for_database_wal_shm_and_atomic_backup_staging"
+    ],
+    "forbidden": [
+      "/mnt/c",
+      "drvfs",
+      "network_filesystem",
+      "NFS",
+      "SMB",
+      "unproven_FUSE_filesystem",
+      "cloud_sync_directory",
+      "removable_media_without_frozen_proof"
+    ],
+    "creation_durability": [
+      "create_parent_with_exact_mode",
+      "open_parent_descriptor_O_DIRECTORY_O_NOFOLLOW",
+      "create_database_exclusively_or_verify_existing_identity",
+      "initialize_schema_and_versions_in_transaction",
+      "commit_FULL",
+      "fsync_database_if_created",
+      "fsync_parent_directory",
+      "reopen_and_verify_identity_schema_and_versions"
+    ]
+  },
+  "sqlite_identity": {
+    "version": "pinned_and_recorded_in_contract_and_receipts",
+    "compile_options": "record_and_allowlist_security_and_threading_relevant_options",
+    "application_id": {
+      "AuthorityDB": "fixed_nonzero_value_defined_by_implementation_schema",
+      "WitnessDB": "distinct_fixed_nonzero_value_defined_by_implementation_schema"
+    },
+    "user_version": "exact_frozen_schema_version_required",
+    "schema_hash": "SHA256_of_normalized_sqlite_master_schema_required",
+    "mismatch_policy": "REFUSE_MUTATION_AND_HOLD"
+  },
+  "connection_pragmas": {
+    "foreign_keys": "ON_and_assert_1",
+    "trusted_schema": "OFF_and_assert_0",
+    "journal_mode": "WAL_and_assert_returned_value_wal",
+    "synchronous": "FULL_and_assert_effective_value_2",
+    "locking_mode": "NORMAL",
+    "busy_timeout_ms": 5000,
+    "wal_autocheckpoint_pages": 1000,
+    "secure_delete": "FAST_or_ON_for_sensitive_payloads_if_performance_tests_accept",
+    "query_only_for_readers": "ON",
+    "temp_store": "MEMORY_where_supported_and_tested",
+    "failure_policy": "any_required_pragma_not_applied_or_not_verifiable_refuses_authority_service"
+  },
+  "transaction_rules": {
+    "lease_nonce_and_receipt_mutations": "BEGIN_IMMEDIATE",
+    "deferred_authority_mutations": "FORBIDDEN",
+    "write_transaction_shape": [
+      "BEGIN_IMMEDIATE",
+      "verify_application_id_user_version_schema_hash_db_generation",
+      "verify_current_state_receipt_chain_and_fence",
+      "apply_exactly_one_logical_transition_or_frozen_chained_transition",
+      "append_immutable_receipt",
+      "update_current_row_and_high_water_counter",
+      "COMMIT"
+    ],
+    "contention": {
+      "timeout": "bounded_by_busy_timeout",
+      "on_SQLITE_BUSY_or_SQLITE_LOCKED": "ROLLBACK_IF_POSSIBLE_FAIL_CLOSED_NO_ACTION_NO_SPIN",
+      "retry": "only_new_top_level_attempt_after_reread_and_frozen_policy_never_blind_loop"
+    },
+    "commit_ack": "AuthorityDB transition is acknowledged only after COMMIT returns SQLITE_OK and an independent reopen/reread verifies the exact receipt when the transition gates a protected action."
+  },
+  "error_policy": {
+    "SQLITE_FULL": "FAIL_CLOSED_NO_ACTION_PRESERVE_JOURNAL_EMERGENCY_EVIDENCE_IF_AVAILABLE_ENTER_STORAGE_HOLD",
+    "SQLITE_IOERR_family": "COMMIT_STATE_UNKNOWN_CLOSE_CONNECTION_PRESERVE_FILES_REOPEN_READ_ONLY_AND_RECONCILE_NO_ACTION",
+    "SQLITE_CORRUPT": "QUARANTINE_DATABASE_AND_WAL_SHM_ENTER_RECOVERY_HOLD",
+    "SQLITE_NOTADB": "QUARANTINE_AND_HOLD",
+    "SQLITE_PROTOCOL": "HOLD_NO_ACTION",
+    "SQLITE_BUSY_or_LOCKED": "BOUNDED_WAIT_THEN_HOLD_NO_ACTION",
+    "SQLITE_READONLY": "HOLD_NO_ACTION",
+    "process_crash_or_kill": "recover_WAL_then_verify_exact_receipt_before_classification",
+    "uncertain_commit": "UNKNOWN_AUTHORITY_COMMIT; never issue protected action or retry a nonce until exact state is proven",
+    "generic_rule": "No SQLite error, timeout, or ambiguous return grants authority or permits an automatic provider/protected retry."
+  },
+  "integrity_and_open_checks": {
+    "every_service_start": [
+      "verify_file_and_parent_identity_owner_mode_and_no_symlink",
+      "verify_application_id_user_version_and_schema_hash",
+      "run_PRAGMA_quick_check_and_require_ok",
+      "verify_foreign_key_check_empty",
+      "verify_receipt_hash_chains",
+      "verify_scope_fence_high_water_marks",
+      "verify_nonce_state_machine_transitions",
+      "verify_no_more_than_one_current_scope_row",
+      "verify_WAL_mode_and_FULL_synchronous"
+    ],
+    "scheduled_or_pre_promotion": [
+      "quiesced_PRAGMA_integrity_check_and_require_ok",
+      "backup_restore_drill",
+      "kill_matrix_and_SQLITE_FULL_fixture",
+      "schema_migration_fixture"
+    ],
+    "failure": "preserve_exact_main_wal_shm_bytes_and_metadata_then_fail_closed"
+  },
+  "wal_contract": {
+    "mode": "WAL",
+    "synchronous": "FULL",
+    "authority_commit_definition": "successful_SQLite_COMMIT_under_FULL_followed_by_required_exact_state_reread_for_action_gates",
+    "files": [
+      "database",
+      "database-wal",
+      "database-shm"
+    ],
+    "prohibitions": [
+      "copying_only_main_database_while_live_or_while_wal_may_contain_committed_rows",
+      "deleting_wal_or_shm_to_repair",
+      "opening_live_authority_database_with_unfrozen_tooling",
+      "changing_journal_mode_during_normal_service",
+      "assuming_main_database_mtime_or_size_represents_committed_authority"
+    ]
+  },
+  "checkpoint": {
+    "normal": "PASSIVE_or_frozen_autocheckpoint_may_run_but_is_never_an_authority_barrier",
+    "truncate_for_cold_backup": [
+      "stop_admission_and_prove_all_writers_closed",
+      "open_maintenance_connection_with_exclusive_maintenance_lock",
+      "run_PRAGMA_wal_checkpoint(TRUNCATE)",
+      "require_busy_equals_0_and_all_frames_checkpointed_and_wal_zero_or_absent",
+      "fsync_main_database",
+      "fsync_parent_directory",
+      "then_create_cold_backup"
+    ],
+    "checkpoint_failure": "backup_not_valid_and_authority_service_stays_paused_or_returns_HOLD",
+    "warning": "Checkpoint success never substitutes for receipt-chain or journal reconciliation."
+  },
+  "backup": {
+    "preferred_live_method": {
+      "method": "SQLite_Online_Backup_API_from_a_verified_source_connection",
+      "requirements": [
+        "source_connection_passes_identity_schema_and_quick_check",
+        "backup_completes_with_SQLITE_DONE",
+        "destination_fsync",
+        "destination_parent_fsync",
+        "reopen_destination_and_run_identity_schema_quick_check_receipt_chain_checks",
+        "write_separate_backup_manifest_with_source_db_generation_and_high_water_marks"
+      ]
+    },
+    "permitted_cold_method": {
+      "method": "quiesced_checkpointed_copy",
+      "requirements": [
+        "all_connections_closed",
+        "TRUNCATE_checkpoint_success_proven",
+        "main_database_and_manifest_copied_and_fsynced",
+        "no_uncheckpointed_wal_frames"
+      ]
+    },
+    "permitted_snapshot_method": {
+      "method": "atomic_paused_filesystem_snapshot",
+      "requirements": [
+        "admission_paused_and_writer_state_frozen",
+        "database_database-wal_and_database-shm_in_same_atomic_snapshot",
+        "snapshot_filesystem_semantics_proven",
+        "restore_test_passed"
+      ]
+    },
+    "forbidden": [
+      "live_cp_of_main_database_only",
+      "sequential_non_atomic_copy_of_main_wal_shm_from_live_database",
+      "backup_without_db_generation_and_fence_nonce_high_water_manifest",
+      "backup_claim_based_only_on_exit_code_without_reopen_validation"
+    ]
+  },
+  "recovery": {
+    "first_actions": [
+      "stop_authority_admission",
+      "retain_transaction_locks_where_owned",
+      "copy_or_snapshot_exact_main_wal_shm_and_filesystem_metadata_to_quarantine_without modifying originals",
+      "hash_preserved_files",
+      "attempt_standard_SQLite_WAL_recovery_on_a_copy",
+      "verify_identity_schema_integrity_receipt_chains_and_cross_store_bindings"
+    ],
+    "restore_policy": [
+      "restore_only_from_verified_backup_manifest",
+      "never place_restored_AuthorityDB_directly_into_active_service",
+      "enter AUTHORITY_RESTORE_RECONCILIATION_HOLD",
+      "reconcile all available canonical journal AuthorityDB receipt bindings and witness records newer than backup",
+      "treat every uncertain nonce as consumed_and_non_retryable",
+      "set every scope next fence strictly above maximum proven in backup_preserved_WAL_journals_and_receipts",
+      "rotate db_generation_uuid under explicit recovery authority",
+      "require independent recovery verification before admission"
+    ],
+    "if_high_water_or_nonce_completeness_unprovable": "PERMANENT_HOLD_FOR_OWNER_ADJUDICATION_NO_AUTOMATIC_AUTHORITY_REUSE",
+    "journal_relationship": "Journal evidence assists reconciliation but never reconstructs or grants missing cross-transaction authority by itself; semantic history remains journal-only."
+  },
+  "schema_minimums": {
+    "AuthorityDB": {
+      "tables": [
+        "db_metadata",
+        "scope_counters",
+        "scope_lease_current",
+        "scope_lease_history",
+        "nonce_current",
+        "nonce_history",
+        "authority_receipts",
+        "recovery_quarantine"
+      ],
+      "constraints": [
+        "primary_and_foreign_keys",
+        "unique_scope_hash_fencing_token",
+        "unique_nonce_sha256",
+        "unique_receipt_id_and_receipt_sha256",
+        "check_constraints_for_enumerated_states",
+        "monotonic_transition_ordinal",
+        "journal_fields_null_only_for_pending_before_journal_states"
+      ]
+    },
+    "WitnessDB": {
+      "tables": [
+        "db_metadata",
+        "journal_head_witnesses",
+        "terminal_witnesses",
+        "witness_receipts"
+      ],
+      "logical_model": "append_only",
+      "assurance_grade": "WITNESS_GRADE_1_SAME_HOST_SAME_UID_INDEPENDENT_PROCESS_DETECTION"
+    }
+  },
+  "tests": [
+    "WAL_commit_then_kill_before_checkpoint_recovers_exact_row",
+    "kill_at_every_BEGIN_IMMEDIATE_receipt_update_COMMIT_and_reread_boundary",
+    "SQLITE_FULL_before_and_during_commit_never_grants_authority",
+    "busy_timeout_expires_without_spin_or_action",
+    "main_db_only_live_copy_is_rejected_as_invalid_backup",
+    "online_backup_includes_rows_committed_in_WAL",
+    "atomic_snapshot_includes_main_wal_shm",
+    "cold_backup_requires_successful_TRUNCATE_checkpoint",
+    "schema_user_version_application_id_mismatch_refuses_open",
+    "corrupt_WAL_main_or_receipt_chain_enters_HOLD",
+    "backup_restore_never_reuses_uncertain_nonce",
+    "restored_scope_token_is_bumped_above_all_proven_high_water_marks",
+    "WitnessDB_failure_cannot_rewrite_semantic_result",
+    "AuthorityDB_cannot_record_PASS_HOLD_or_FAIL"
+  ],
+  "acceptance": {
+    "required_result": "PASS_S4_AUTHORITY_GRADE_SQLITE_WAL_BACKUP_RECOVERY_AND_FULL_DURABILITY_FROZEN",
+    "fail_closed_on_unclassified_condition": true
+  }
+}

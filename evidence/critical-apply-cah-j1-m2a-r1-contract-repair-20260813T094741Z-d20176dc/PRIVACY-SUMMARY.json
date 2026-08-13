@@ -1,0 +1,8 @@
+{
+  "blocking_count": 0,
+  "expected_scanner_sha256": "ce38bf7811561c096bfe72ef12fc799712986d77ff86cb62b8e099eedc481115",
+  "issues": [],
+  "receipt_status": "R6_R6_PHASE_A_BOUNDED_PRIVACY_SCAN_PASS",
+  "returncode": 0,
+  "scanner_sha256": "ce38bf7811561c096bfe72ef12fc799712986d77ff86cb62b8e099eedc481115"
+}

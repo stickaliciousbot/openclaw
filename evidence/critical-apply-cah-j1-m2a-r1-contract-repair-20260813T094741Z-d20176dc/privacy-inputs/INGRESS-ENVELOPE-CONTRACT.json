@@ -1,0 +1,109 @@
+{
+  "accepted_versions": [
+    "1"
+  ],
+  "allowed_fields": [
+    "schema_version",
+    "transaction_id",
+    "command_request_sha256",
+    "contract_sha256",
+    "owner_authority_ref",
+    "scope_sha256",
+    "event_id",
+    "caller_provenance",
+    "session_provenance",
+    "surface_provenance",
+    "idempotency_key",
+    "payload_cas_refs"
+  ],
+  "canonical_json": {
+    "duplicate_keys": "reject",
+    "encoding": "UTF-8",
+    "hash": "sha256_lower_hex_64",
+    "max_cas_refs": 64,
+    "max_envelope_bytes": 65536,
+    "max_string_bytes": 4096,
+    "normalization": "RFC8785_JCS",
+    "unknown_fields": "reject"
+  },
+  "event_id_derivation": "sha256(JCS({transaction_id,idempotency_key,command_request_sha256,contract_sha256,scope_sha256,payload_cas_refs}))",
+  "executable_schema": {
+    "additionalProperties": false,
+    "properties": {
+      "caller_provenance": {
+        "type": "string"
+      },
+      "command_request_sha256": {
+        "type": "string"
+      },
+      "contract_sha256": {
+        "type": "string"
+      },
+      "event_id": {
+        "type": "string"
+      },
+      "idempotency_key": {
+        "type": "string"
+      },
+      "owner_authority_ref": {
+        "type": "string"
+      },
+      "payload_cas_refs": {
+        "type": "array"
+      },
+      "schema_version": {
+        "type": "string"
+      },
+      "scope_sha256": {
+        "type": "string"
+      },
+      "session_provenance": {
+        "type": "string"
+      },
+      "surface_provenance": {
+        "type": "string"
+      },
+      "transaction_id": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "schema_version",
+      "transaction_id",
+      "command_request_sha256",
+      "contract_sha256",
+      "owner_authority_ref",
+      "scope_sha256",
+      "event_id",
+      "caller_provenance",
+      "session_provenance",
+      "surface_provenance",
+      "idempotency_key",
+      "payload_cas_refs"
+    ],
+    "type": "object"
+  },
+  "idempotency_key_derivation": "caller_supplied_opaque_1_to_128_bytes_bound_into_event_id",
+  "owner_authority_ref": "CAS or AuthorityDB reference; adapter cannot interpret as grant",
+  "path_fields_allowed": [],
+  "payload_cas_refs": "sha256 identities only; capture/verify before acceptance ACK",
+  "provenance": "recorded_not_authoritative",
+  "required_fields": [
+    "schema_version",
+    "transaction_id",
+    "command_request_sha256",
+    "contract_sha256",
+    "owner_authority_ref",
+    "scope_sha256",
+    "event_id",
+    "caller_provenance",
+    "session_provenance",
+    "surface_provenance",
+    "idempotency_key",
+    "payload_cas_refs"
+  ],
+  "schema": "critical_apply.m2a_r1.ingress_envelope.v2",
+  "schema_version": "1",
+  "semantic_authority_from_envelope": false,
+  "untrusted_paths_allowed": false
+}
