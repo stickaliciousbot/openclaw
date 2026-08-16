@@ -77,9 +77,14 @@ def ensure_restore_root(*, restore_root: Path, receipt_root: Path, expected_uid:
     os.chmod(restore_root, expected_mode)
     post = _stat_record(restore_root)
     reasons = validate_restore_root(restore_root, expected_uid=expected_uid, expected_gid=expected_gid, expected_mode=expected_mode)
+    terminal = "PASS_RESTORE_ROOT_PREREQ_CREATED_OR_VERIFIED" if not reasons else "HOLD_RESTORE_ROOT_PREREQ_VALIDATION_FAILED"
+    closeout_status = "PASS" if not reasons else "HOLD"
     status = {
         "schema": SCHEMA + ".status",
-        "terminal": "PASS_RESTORE_ROOT_PREREQ_CREATED_OR_VERIFIED" if not reasons else "HOLD_RESTORE_ROOT_PREREQ_VALIDATION_FAILED",
+        "status": closeout_status,
+        "closeout_status": closeout_status,
+        "terminal": terminal,
+        "terminal_status": terminal,
         "pass": not reasons,
         "failed_gates": reasons,
         "restore_root": str(restore_root),
@@ -93,7 +98,20 @@ def ensure_restore_root(*, restore_root: Path, receipt_root: Path, expected_uid:
         "network_or_provider_calls": 0,
         "wall_time_utc": _utc_now(),
     }
+    summary = {
+        "schema": SCHEMA + ".summary",
+        "ok": not reasons,
+        "closeout_status": closeout_status,
+        "terminal_status": terminal,
+        "classification": "RESTORE_ROOT_PREREQ_CREATED_OR_VERIFIED" if not reasons else "RESTORE_ROOT_PREREQ_VALIDATION_FAILED",
+        "restore_root": str(restore_root),
+        "receipt_root": str(receipt_root),
+        "failed_gates": reasons,
+        "wall_time_utc": status["wall_time_utc"],
+    }
     _write_json(receipt_root / "STATUS.json", status)
+    _write_json(receipt_root / "status.json", status)
+    _write_json(receipt_root / "summary.json", summary)
     return status
 
 

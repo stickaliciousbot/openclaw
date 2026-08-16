@@ -32,6 +32,13 @@ class RestoreRootPrereqTest(unittest.TestCase):
         self.assertEqual(oct(self.restore.stat().st_mode & 0o777), "0o700")
         self.assertTrue((self.receipts / "pre-restore-root-state.json").exists())
         self.assertTrue((self.receipts / "STATUS.json").exists())
+        self.assertTrue((self.receipts / "status.json").exists())
+        self.assertTrue((self.receipts / "summary.json").exists())
+        observer_status = json.loads((self.receipts / "status.json").read_text())
+        observer_summary = json.loads((self.receipts / "summary.json").read_text())
+        self.assertEqual(observer_status["status"], "PASS")
+        self.assertEqual(observer_status["terminal_status"], "PASS_RESTORE_ROOT_PREREQ_CREATED_OR_VERIFIED")
+        self.assertEqual(observer_summary["closeout_status"], "PASS")
 
     def test_idempotent_existing_directory(self):
         self.restore.mkdir()
