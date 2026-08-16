@@ -44,6 +44,13 @@ class HarnessAlertTests(unittest.TestCase):
         paths=h.semantic_artifact_paths(row)
         self.assertEqual(paths['semantic_artifact_dir'], str(sem))
         self.assertEqual(paths['semantic_status_path'], str(sem/'status.json'))
+    def test_semantic_artifact_paths_accepts_receipt_root_child_flag(self):
+        sem=self.tmp/'semantic'
+        row={'command':['/workspace/scripts/critical_apply_restore_root_prereq.py','--restore-root','/tmp/restore','--receipt-root',str(sem)],'status_path':str(self.tmp/'harness'/'status.json')}
+        paths=h.semantic_artifact_paths(row)
+        self.assertEqual(paths['semantic_artifact_dir'], str(sem))
+        self.assertEqual(paths['semantic_status_path'], str(sem/'status.json'))
+        self.assertEqual(paths['semantic_summary_path'], str(sem/'summary.json'))
     def test_raise_alert_writes_json_and_jsonl(self):
         row={'run_id':'alert-test','artifact_dir':str(self.tmp)}
         event=h.build_alert_event(row, classification='TERMINAL', closeout_status='HOLD', terminal_status='HOLD_TERM', detail='done', paths={'semantic_artifact_dir':str(self.tmp/'semantic'),'semantic_status_path':None,'semantic_summary_path':None})

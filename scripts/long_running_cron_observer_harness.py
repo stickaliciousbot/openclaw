@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3.12
 """Deterministic harness for cron-triggered long-running observers.
 
 Purpose
@@ -13,6 +13,7 @@ Hard guarantees provided by this harness:
 - artifact directory is created before child launch;
 - required terminal-evidence files are written immediately;
 - child is detached with subprocess.Popen(start_new_session=True);
+- an internal alert watcher is launched by default and records terminal/stale/abort alerts;
 - PID/PGID/SID detachment proof is recorded;
 - a durable registry row is updated atomically;
 - stdout emits a stable PASS anchor only after evidence files exist.
@@ -28,7 +29,8 @@ implementation vocabulary present but future receipt vocabulary absent is a
 milestone-level/vocabulary mismatch, not an absence proof.
 
 The child observer command is still responsible for its own semantic checks and
-final closeout. This harness proves only launch/detachment/evidence wiring.
+final closeout. This harness proves launch/detachment/evidence wiring and owns a
+durable alert-on-terminal watcher for PASS/FAIL/HOLD/ABORT/STALE visibility.
 """
 from __future__ import annotations
 
@@ -45,11 +47,23 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+try:
+    import critical_apply_independent_completion_checker as completion_checker
+except ImportError:  # pragma: no cover - direct script execution fallback
+    from scripts import critical_apply_independent_completion_checker as completion_checker
+
 WORKSPACE = Path("/home/stickai/.openclaw/workspace")
 DEFAULT_REGISTRY = WORKSPACE / "state/long-running-cron-observers/registry.json"
+DEFAULT_ALERT_COMMAND_PATH = WORKSPACE / "state/long-running-cron-observers/default-alert-command.json"
 PASS_ANCHOR = "LONG_RUNNING_CRON_OBSERVER_HARNESS_LAUNCH_PASS"
+ALERT_ANCHOR = "LONG_RUNNING_CRON_OBSERVER_HARNESS_ALERT_RAISED"
 SCHEMA = "stickbot.long_running_cron_observer_harness.v1"
 RUN_ID_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.:-]{2,120}$")
+PY312 = "/usr/bin/python3.12"
+WATCHER_HEARTBEAT = "heartbeat.json"
+WATCHER_PROGRESS = "progress.json"
+WATCHER_WATCHDOG = "watchdog.json"
+H4_VALIDATION = "h4-validation.json"
 
 
 def utc_now() -> str:
@@ -86,6 +100,56 @@ def parse_command_json(value: str) -> list[str]:
     if any("\x00" in x for x in parsed):
         raise SystemExit("command-json entries must not contain NUL bytes")
     return parsed
+
+
+def validate_alert_command(command: list[str]) -> list[str]:
+    """Require the governed, explicit provider adapter invocation."""
+    if len(command) < 2 or command[0] != PY312:
+        raise SystemExit(f"alert command must begin with {PY312}")
+    adapter = Path(command[1])
+    if not adapter.is_absolute() or adapter.name != "long_running_observer_telegram_alert.py":
+        raise SystemExit("alert command must use the absolute long_running_observer_telegram_alert.py adapter")
+    if not adapter.is_file():
+        raise SystemExit(f"alert adapter does not exist: {adapter}")
+    if any(Path(part).name in {"python", "python3", "env", "sh", "bash"} for part in command):
+        raise SystemExit("generic interpreter/shell fallback is forbidden")
+    return command
+
+
+def validate_child_command(command: list[str]) -> list[str]:
+    """Reject generic interpreter/PATH/shell fallbacks for governed children."""
+    if not command or Path(command[0]).name in {"python", "python3", "env", "sh", "bash"}:
+        raise SystemExit("child command must not use generic interpreter/PATH/shell fallback")
+    if any(Path(part).name in {"python", "python3", "env", "sh", "bash"} for part in command):
+        raise SystemExit("generic interpreter/PATH/shell fallback is forbidden")
+    return command
+
+
+def exact_path(path_value: str | Path, *, field: str) -> str:
+    value = str(path_value)
+    if not value or not Path(value).is_absolute() or any(ch in value for ch in "*?[]"):
+        raise SystemExit(f"{field} must be an absolute exact path without glob syntax")
+    if ".." in Path(value).parts:
+        raise SystemExit(f"{field} must not contain parent traversal")
+    return str(Path(value).expanduser().resolve())
+
+
+def default_alert_command_json(explicit_value: str | None) -> str | None:
+    """Resolve alert command JSON.
+
+    Explicit --alert-command-json wins. Otherwise use the local operator-owned
+    default command file when it exists. This preserves argv-only execution and
+    prevents silent alert-artifact-only launches after we have configured a
+    notification command.
+    """
+    if explicit_value:
+        return explicit_value
+    env_value = os.environ.get("LONG_RUNNING_OBSERVER_ALERT_COMMAND_JSON")
+    if env_value:
+        return env_value
+    if DEFAULT_ALERT_COMMAND_PATH.exists():
+        return "@" + str(DEFAULT_ALERT_COMMAND_PATH)
+    return None
 
 
 def pid_alive(pid: int) -> bool:
@@ -169,12 +233,21 @@ def command_arg(command: list[str], flag: str) -> str | None:
 
 def semantic_artifact_paths(row: dict[str, Any]) -> dict[str, str | None]:
     command = row.get("command") if isinstance(row.get("command"), list) else []
-    artifact_dir = row.get("semantic_artifact_dir") or command_arg(command, "--artifact-root")
-    status_path = row.get("semantic_status_path") or row.get("status_path")
-    summary_path = row.get("semantic_summary_path") or row.get("summary_path")
+    artifact_dir = row.get("semantic_artifact_dir") or command_arg(command, "--artifact-root") or command_arg(command, "--receipt-root")
+    if not artifact_dir:
+        for part in command:
+            if "=" not in part:
+                continue
+            key, value = part.split("=", 1)
+            if key.endswith("_ROOT") and "HARNESS" not in key and value.startswith("/"):
+                artifact_dir = value
+                break
     if artifact_dir:
-        status_path = status_path or str(Path(str(artifact_dir)) / "status.json")
-        summary_path = summary_path or str(Path(str(artifact_dir)) / "summary.json")
+        status_path = row.get("semantic_status_path") or str(Path(str(artifact_dir)) / "status.json")
+        summary_path = row.get("semantic_summary_path") or str(Path(str(artifact_dir)) / "summary.json")
+    else:
+        status_path = row.get("semantic_status_path") or row.get("status_path")
+        summary_path = row.get("semantic_summary_path") or row.get("summary_path")
     return {"semantic_artifact_dir": str(artifact_dir) if artifact_dir else None, "semantic_status_path": status_path, "semantic_summary_path": summary_path}
 
 
@@ -239,6 +312,125 @@ def completed_line(row: dict[str, Any], status: str | None, terminal_status: str
     return f"{run_id} status={status or 'completed'} terminal_status={terminal_status or 'terminal'} artifact={artifact}"
 
 
+def alert_paths(artifact_dir: Path, run_id: str) -> dict[str, Path]:
+    alerts_dir = artifact_dir / "alerts"
+    safe_run_id = re.sub(r"[^A-Za-z0-9_.:-]", "_", run_id)
+    return {
+        "alerts_dir": alerts_dir,
+        "alert_json": alerts_dir / f"{safe_run_id}.alert.json",
+        "alert_log": alerts_dir / f"{safe_run_id}.alert.jsonl",
+    }
+
+
+def append_jsonl(path: Path, data: Any) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("a", encoding="utf-8") as f:
+        f.write(json.dumps(data, sort_keys=True) + "\n")
+
+
+def build_alert_event(
+    row: dict[str, Any],
+    *,
+    classification: str,
+    closeout_status: str | None,
+    terminal_status: str | None,
+    detail: str | None,
+    paths: dict[str, str | None],
+) -> dict[str, Any]:
+    return {
+        "schema": SCHEMA + ".alert",
+        "alert_anchor": ALERT_ANCHOR,
+        "run_id": row.get("run_id") or "unknown",
+        "classification": classification,
+        "closeout_status": closeout_status,
+        "terminal_status": terminal_status,
+        "detail": detail,
+        "artifact_dir": row.get("artifact_dir"),
+        "semantic_artifact_dir": paths.get("semantic_artifact_dir"),
+        "semantic_status_path": paths.get("semantic_status_path"),
+        "semantic_summary_path": paths.get("semantic_summary_path"),
+        "pid": row.get("pid"),
+        "pid_alive": row.get("pid_alive"),
+        "expected_child_anchor": row.get("expected_child_anchor"),
+        "owner_note": row.get("owner_note"),
+        "created_utc": utc_now(),
+    }
+
+
+def raise_alert(row: dict[str, Any], event: dict[str, Any], alert_command: list[str] | None = None) -> dict[str, Any]:
+    artifact_dir = Path(str(row.get("artifact_dir") or ".")).expanduser().resolve()
+    run_id = str(row.get("run_id") or "unknown")
+    paths = alert_paths(artifact_dir, run_id)
+    write_json_atomic(paths["alert_json"], event)
+    append_jsonl(paths["alert_log"], event)
+
+    result = {
+        "schema": SCHEMA + ".alert_result",
+        "alert_path": str(paths["alert_json"]),
+        "alert_log_path": str(paths["alert_log"]),
+        "alert_command_invoked": False,
+        "alert_command_returncode": None,
+        "updated_utc": utc_now(),
+    }
+    if alert_command:
+        env = dict(os.environ)
+        env.update({
+            "LONG_RUNNING_OBSERVER_ALERT_PATH": str(paths["alert_json"]),
+            "LONG_RUNNING_OBSERVER_RUN_ID": run_id,
+            "LONG_RUNNING_OBSERVER_CLOSEOUT_STATUS": str(event.get("closeout_status") or ""),
+            "LONG_RUNNING_OBSERVER_TERMINAL_STATUS": str(event.get("terminal_status") or ""),
+        })
+        stdout_path = paths["alerts_dir"] / f"{run_id}.alert-command.stdout.log"
+        stderr_path = paths["alerts_dir"] / f"{run_id}.alert-command.stderr.log"
+        try:
+            proc = subprocess.run(alert_command, stdin=subprocess.DEVNULL, stdout=subprocess.PIPE, stderr=subprocess.PIPE, env=env, timeout=60)
+            stdout_path.write_bytes(proc.stdout)
+            stderr_path.write_bytes(proc.stderr)
+            result.update({
+                "alert_command_invoked": True,
+                "alert_command_returncode": proc.returncode,
+                "alert_command_stdout_path": str(stdout_path),
+                "alert_command_stderr_path": str(stderr_path),
+                "alert_command_stdout_sha256": sha256_file(stdout_path),
+                "alert_command_stderr_sha256": sha256_file(stderr_path),
+            })
+            try:
+                stdout_obj = json.loads(proc.stdout.decode("utf-8")) if proc.stdout else {}
+            except (UnicodeDecodeError, json.JSONDecodeError):
+                stdout_obj = {}
+            registration = read_json_obj(str(row.get("completion_checker_registration_path")))
+            delivery = completion_checker.classify_delivery(
+                alert_result=result,
+                registration=registration,
+                command_stdout=stdout_obj if isinstance(stdout_obj, dict) else {},
+            )
+            result.update({
+                "delivery_classification": delivery.get("classification"),
+                "owner_visible_delivery_proven": delivery.get("owner_visible") is True,
+                "delivery_retry_allowed": False,
+                "delivery_reason": delivery.get("reason"),
+            })
+        except subprocess.TimeoutExpired as exc:
+            stdout_path.write_bytes(exc.stdout or b"")
+            stderr_path.write_bytes(exc.stderr or b"")
+            result.update({
+                "alert_command_invoked": True,
+                "alert_command_returncode": None,
+                "alert_command_timed_out": True,
+                "alert_command_timeout_sec": 60,
+                "alert_command_stdout_path": str(stdout_path),
+                "alert_command_stderr_path": str(stderr_path),
+                "alert_command_stdout_sha256": sha256_file(stdout_path),
+                "alert_command_stderr_sha256": sha256_file(stderr_path),
+                "delivery_classification": completion_checker.DELIVERY_UNKNOWN,
+                "owner_visible_delivery_proven": False,
+                "delivery_retry_allowed": False,
+                "delivery_timeout_detail": "alert subprocess exceeded timeout; provider receipt reconciliation required; no retry",
+            })
+    write_json_atomic(paths["alerts_dir"] / f"{run_id}.alert-result.json", result)
+    return result
+
+
 def build_manifest(artifact_dir: Path, files: list[Path], extra: dict[str, Any] | None = None) -> dict[str, Any]:
     entries = []
     for path in files:
@@ -262,6 +454,10 @@ def launch(args: argparse.Namespace) -> int:
     run_id = args.run_id
     if not RUN_ID_RE.match(run_id):
         raise SystemExit("run-id must match ^[A-Za-z0-9][A-Za-z0-9_.:-]{2,120}$")
+    alert_command_json = default_alert_command_json(args.alert_command_json)
+    if not alert_command_json:
+        raise SystemExit("mandatory alert watcher command is not configured")
+    alert_command = validate_alert_command(parse_command_json(alert_command_json))
 
     artifact_dir = Path(args.artifact_dir).expanduser().resolve()
     if artifact_dir.exists() and not args.allow_existing_artifact_dir:
@@ -270,7 +466,7 @@ def launch(args: argparse.Namespace) -> int:
     logs_dir = artifact_dir / "logs"
     logs_dir.mkdir(parents=True, exist_ok=True)
 
-    cmd = parse_command_json(args.command_json)
+    cmd = validate_child_command(parse_command_json(args.command_json))
     status_path = artifact_dir / "status.json"
     summary_path = artifact_dir / "summary.json"
     run_config_path = artifact_dir / "run_config.json"
@@ -278,6 +474,59 @@ def launch(args: argparse.Namespace) -> int:
     manifest_path = artifact_dir / "evidence_manifest.json"
     stdout_path = logs_dir / "observer.stdout.log"
     stderr_path = logs_dir / "observer.stderr.log"
+    alert_stdout_path = logs_dir / "alert-watcher.stdout.log"
+    alert_stderr_path = logs_dir / "alert-watcher.stderr.log"
+    alert_watch_proof_path = artifact_dir / "alert_watch_proof.json"
+    completion_registration_path = artifact_dir / "completion-checker-registration.json"
+    completion_preflight_path = artifact_dir / "completion-checker-preflight.json"
+    heartbeat_path = artifact_dir / WATCHER_HEARTBEAT
+    progress_path = artifact_dir / WATCHER_PROGRESS
+    watchdog_path = artifact_dir / WATCHER_WATCHDOG
+    h4_validation_path = artifact_dir / H4_VALIDATION
+    watcher_startup_path = artifact_dir / "alert-watch-startup.json"
+
+    # Independent completion is a mandatory launch contract.  Registration is
+    # exact-path metadata only; it does not read or mutate the semantic root.
+    semantic_paths = semantic_artifact_paths({"command": cmd})
+    semantic_artifact_dir = getattr(args, "semantic_artifact_dir", None) or semantic_paths.get("semantic_artifact_dir") or str(artifact_dir / "semantic")
+    provider_receipt_path = exact_path(args.provider_receipt_path, field="provider-receipt-path") if args.provider_receipt_path else None
+    if not provider_receipt_path:
+        raise SystemExit("provider-receipt-path is mandatory")
+    completion_registration = completion_checker.build_registration(
+        run_id=run_id,
+        harness_artifact_dir=artifact_dir,
+        semantic_artifact_dir=semantic_artifact_dir,
+        semantic_status_path=getattr(args, "semantic_status_path", None) or semantic_paths.get("semantic_status_path"),
+        semantic_summary_path=getattr(args, "semantic_summary_path", None) or semantic_paths.get("semantic_summary_path"),
+        terminal_seal_path=getattr(args, "terminal_seal_path", None),
+        manifest_path=getattr(args, "semantic_manifest_path", None),
+        detached_receipt_path=getattr(args, "detached_receipt_path", None),
+        notification_plane_path=getattr(args, "notification_plane_path", None),
+        alert_result_path=getattr(args, "alert_result_path", None),
+        provider_receipt_path=provider_receipt_path,
+    )
+    completion_preflight = completion_checker.preflight_registration(completion_registration)
+    write_json_atomic(completion_registration_path, completion_registration)
+    write_json_atomic(completion_preflight_path, completion_preflight)
+    if not completion_preflight.get("ok"):
+        raise SystemExit("independent completion checker registration preflight failed")
+
+    h4_validation = {
+        "schema": SCHEMA + ".h4_validation",
+        "status": "PASS",
+        "checked_utc": utc_now(),
+        "registered_paths_exact": True,
+        "recursive_scan": False,
+        "rglob": False,
+        "os_walk": False,
+        "max_paths": completion_checker.MAX_REGISTERED_PATHS,
+        "max_file_bytes": completion_checker.MAX_FILE_BYTES,
+        "provider_receipt_path": provider_receipt_path,
+    }
+    write_json_atomic(h4_validation_path, h4_validation)
+    write_json_atomic(heartbeat_path, {"schema": SCHEMA + ".heartbeat", "phase": "prelaunch", "tick": 0, "updated_utc": utc_now(), "status": "ARMED"})
+    write_json_atomic(progress_path, {"schema": SCHEMA + ".progress", "phase": "prelaunch", "items_seen": 0, "updated_utc": utc_now(), "status": "ARMED"})
+    write_json_atomic(watchdog_path, {"schema": SCHEMA + ".watchdog", "status": "ARMED", "updated_utc": utc_now(), "heartbeat_path": str(heartbeat_path), "progress_path": str(progress_path)})
 
     started_utc = utc_now()
     run_config = {
@@ -293,11 +542,39 @@ def launch(args: argparse.Namespace) -> int:
         "cron_job_id": args.cron_job_id,
         "session_target": args.session_target,
         "owner_note": args.owner_note,
+        "alert_watch": {
+            "enabled": True,
+            "interval_sec": args.alert_check_interval_sec,
+            "timeout_sec": args.alert_timeout_sec,
+            "command_configured": True,
+            "command": alert_command,
+            "provider_receipt_path": provider_receipt_path,
+            "heartbeat_path": str(heartbeat_path),
+            "progress_path": str(progress_path),
+            "watchdog_path": str(watchdog_path),
+            "startup_readback_path": str(watcher_startup_path),
+        },
+        "completion_checker": {
+            "schema": completion_checker.SCHEMA,
+            "required": True,
+            "registration_path": str(completion_registration_path),
+            "preflight_path": str(completion_preflight_path),
+            "read_only": True,
+            "exact_paths_only": True,
+            "worker_self_certification_ignored": True,
+            "provider_receipt_required_for_owner_delivery": True,
+            "delivery_unknown_on_timeout": True,
+            "retry_on_timeout": False,
+            "h4_validation_path": str(h4_validation_path),
+        },
         "safety_contract": {
             "no_shell": True,
             "detached_with_start_new_session": True,
             "evidence_written_before_pass_anchor": True,
             "registry_updated_before_pass_anchor": True,
+            "alert_watcher_started_before_child_launch": True,
+            "independent_completion_checker_registered_before_child_launch": True,
+            "independent_completion_checker_preflight_passed_before_child_launch": completion_preflight.get("ok") is True,
             "child_semantics_not_certified_by_harness": True,
             "production_hook_absence_rule": {
                 "required_for_hook_observers": True,
@@ -312,10 +589,87 @@ def launch(args: argparse.Namespace) -> int:
     write_json_atomic(status_path, {
         "schema": SCHEMA + ".status",
         "run_id": run_id,
-        "status": "launching",
+        "status": "ARMED",
         "updated_utc": utc_now(),
         "artifact_dir": str(artifact_dir),
+        "alert_watch_enabled": True,
+        "heartbeat_path": str(heartbeat_path),
+        "progress_path": str(progress_path),
+        "watchdog_path": str(watchdog_path),
+        "h4_validation_path": str(h4_validation_path),
+        "provider_receipt_path": provider_receipt_path,
     })
+
+    registry_path = Path(args.registry).expanduser().resolve()
+    initial_row = {
+        "run_id": run_id, "registered_utc": utc_now(), "pid": 0,
+        "proc_starttime": None, "launch_state": "WATCHER_STARTUP",
+        "artifact_dir": str(artifact_dir), "status_path": str(status_path),
+        "summary_path": str(summary_path), "evidence_manifest_path": str(manifest_path),
+        **semantic_artifact_paths({"command": cmd}),
+        "semantic_artifact_dir": str(semantic_artifact_dir) if semantic_artifact_dir else None,
+        "semantic_status_path": getattr(args, "semantic_status_path", None) or str(Path(str(semantic_artifact_dir)) / "status.json") if semantic_artifact_dir else None,
+        "semantic_summary_path": getattr(args, "semantic_summary_path", None) or str(Path(str(semantic_artifact_dir)) / "summary.json") if semantic_artifact_dir else None,
+        "expected_child_anchor": args.expected_child_anchor,
+        "harness_status": "ARMED", "command": cmd,
+        "cron_job_id": args.cron_job_id, "session_target": args.session_target,
+        "owner_note": args.owner_note, "alert_watch_enabled": True,
+        "completion_checker_required": True,
+        "completion_checker_registration_path": str(completion_registration_path),
+        "completion_checker_preflight_path": str(completion_preflight_path),
+        "provider_receipt_path": provider_receipt_path,
+        "heartbeat_path": str(heartbeat_path), "progress_path": str(progress_path),
+        "watchdog_path": str(watchdog_path), "h4_validation_path": str(h4_validation_path),
+        "abort_artifact_path": getattr(args, "abort_artifact_path", None),
+    }
+    update_registry(registry_path, initial_row)
+    alert_cmd = [PY312, str(Path(__file__).resolve()), "watch-alert", "--run-id", run_id,
+                 "--registry", str(registry_path), "--artifact-dir", str(artifact_dir),
+                 "--interval-sec", str(args.alert_check_interval_sec),
+                 "--timeout-sec", str(args.alert_timeout_sec), "--startup-path", str(watcher_startup_path),
+                 "--alert-command-json", alert_command_json]
+    stdout_alert = alert_stdout_path.open("ab")
+    stderr_alert = alert_stderr_path.open("ab")
+    try:
+        alert_proc: subprocess.Popen[bytes] = subprocess.Popen(
+            alert_cmd, cwd=run_config["cwd"], stdin=subprocess.DEVNULL,
+            stdout=stdout_alert, stderr=stderr_alert, start_new_session=True, close_fds=True,
+        )
+    finally:
+        stdout_alert.close(); stderr_alert.close()
+    startup_deadline = time.monotonic() + max(5.0, min(args.alert_startup_timeout_sec, 60.0))
+    startup_obj: dict[str, Any] = {}
+    while time.monotonic() < startup_deadline:
+        startup_obj = read_json_obj(str(watcher_startup_path))
+        if startup_obj.get("status") == "READY":
+            break
+        if alert_proc.poll() is not None:
+            raise SystemExit("alert watcher exited before startup readiness")
+        time.sleep(0.05)
+    if startup_obj.get("status") != "READY":
+        raise SystemExit("alert watcher startup readiness timeout")
+    watcher_pid = int(startup_obj.get("pid") or 0)
+    watcher_starttime = str(startup_obj.get("proc_starttime") or "")
+    watcher_alive, watcher_state = pid_state(watcher_pid, watcher_starttime)
+    if not watcher_alive or watcher_state != "running" or int(startup_obj.get("heartbeat_tick") or 0) < 1 or startup_obj.get("readback_verified") is not True:
+        raise SystemExit("alert watcher PID/start-tick/readback verification failed")
+    alert_watch_proof = {
+        "schema": SCHEMA + ".alert_watch_proof", "run_id": run_id,
+        "started_utc": startup_obj.get("started_utc"), "verified_utc": utc_now(),
+        "pid": watcher_pid, "proc_starttime": watcher_starttime,
+        "pgid": safe_getpgid(watcher_pid), "sid": safe_getsid(watcher_pid),
+        "session_detached": safe_getpgid(watcher_pid) == watcher_pid and safe_getsid(watcher_pid) == watcher_pid,
+        "heartbeat_tick": startup_obj.get("heartbeat_tick"), "readback_verified": True,
+        "alert_command_configured": True, "provider_receipt_path": provider_receipt_path,
+        "heartbeat_path": str(heartbeat_path), "progress_path": str(progress_path),
+        "watchdog_path": str(watchdog_path), "h4_validation_path": str(h4_validation_path),
+        "stdout_path": str(alert_stdout_path), "stderr_path": str(alert_stderr_path),
+    }
+    write_json_atomic(alert_watch_proof_path, alert_watch_proof)
+    status = read_json_obj(str(status_path))
+    status.update({"alert_watch_pid": watcher_pid, "alert_watch_proof_path": str(alert_watch_proof_path), "alert_watch_ready": True})
+    write_json_atomic(status_path, status)
+    update_registry(registry_path, {**initial_row, "alert_watch_pid": watcher_pid, "alert_watch_proc_starttime": watcher_starttime, "alert_watch_proof_path": str(alert_watch_proof_path), "launch_state": "WATCHER_READY"})
 
     stdout_f = stdout_path.open("ab")
     stderr_f = stderr_path.open("ab")
@@ -374,9 +728,23 @@ def launch(args: argparse.Namespace) -> int:
         "return_code_after_initial_wait": return_code,
         "expected_child_anchor": args.expected_child_anchor,
         "harness_pass_anchor": PASS_ANCHOR if launched_ok else None,
+        "alert_watch_enabled": True,
+        "completion_checker_required": True,
+        "completion_checker_registration_path": str(completion_registration_path),
+        "completion_checker_preflight_path": str(completion_preflight_path),
         "failed_gates": [] if launched_ok else ["DETACHMENT_OR_CHILD_START_VERIFICATION_FAILED"],
     }
     write_json_atomic(status_path, status)
+    update_registry(registry_path, {
+        **initial_row,
+        "pid": proc.pid,
+        "proc_starttime": proc_starttime(proc.pid),
+        "launch_state": "CHILD_STARTED" if launched_ok else "CHILD_LAUNCH_HOLD",
+        "harness_status": "RUNNING" if launched_ok else "HOLD",
+        "alert_watch_pid": watcher_pid,
+        "alert_watch_proc_starttime": watcher_starttime,
+        "alert_watch_proof_path": str(alert_watch_proof_path),
+    })
 
     summary = {
         "schema": SCHEMA + ".summary",
@@ -387,11 +755,18 @@ def launch(args: argparse.Namespace) -> int:
         "status_path": str(status_path),
         "evidence_manifest_path": str(manifest_path),
         "registry_path": str(Path(args.registry).expanduser().resolve()),
+        "alert_watch_enabled": True,
+        "completion_checker_required": True,
+        "completion_checker_registration_path": str(completion_registration_path),
+        "completion_checker_preflight_path": str(completion_preflight_path),
+        "alert_stdout_path": str(alert_stdout_path),
+        "alert_stderr_path": str(alert_stderr_path),
         "safety_readback": [
             "no shell command construction",
             "artifact directory created before child launch",
             "status/summary/evidence manifest written by harness",
             "child detached with start_new_session=True",
+            "internal alert watcher starts and is verified before child launch",
             "semantic observer PASS remains child responsibility",
             "hook absence requires milestone-level + implementation-vocabulary check, not spec vocabulary alone",
         ],
@@ -400,28 +775,10 @@ def launch(args: argparse.Namespace) -> int:
 
     manifest = build_manifest(
         artifact_dir,
-        [run_config_path, launch_proof_path, status_path, summary_path, stdout_path, stderr_path],
-        {"run_id": run_id, "harness_pass_anchor": PASS_ANCHOR if launched_ok else None},
+        [run_config_path, launch_proof_path, status_path, summary_path, stdout_path, stderr_path, completion_registration_path, completion_preflight_path, heartbeat_path, progress_path, watchdog_path, h4_validation_path, alert_watch_proof_path, alert_stdout_path, alert_stderr_path],
+        {"run_id": run_id, "harness_pass_anchor": PASS_ANCHOR if launched_ok else None, "completion_checker_required": True, "alert_watch_enabled": True, "h4_validation_path": str(h4_validation_path)},
     )
     write_json_atomic(manifest_path, manifest)
-
-    registry_path = Path(args.registry).expanduser().resolve()
-    update_registry(registry_path, {
-        "run_id": run_id,
-        "registered_utc": utc_now(),
-        "pid": proc.pid,
-        "proc_starttime": proc_starttime(proc.pid),
-        "artifact_dir": str(artifact_dir),
-        "status_path": str(status_path),
-        "summary_path": str(summary_path),
-        "evidence_manifest_path": str(manifest_path),
-        **semantic_artifact_paths({"command": cmd}),
-        "expected_child_anchor": args.expected_child_anchor,
-        "harness_status": summary["classification"],
-        "command": cmd,
-        "cron_job_id": args.cron_job_id,
-        "session_target": args.session_target,
-    })
 
     # Re-read after all writes. This catches partial/failed write bugs before PASS.
     missing = [p.name for p in [run_config_path, launch_proof_path, status_path, summary_path, manifest_path] if not p.exists() or p.stat().st_size <= 0]
@@ -467,24 +824,77 @@ def validate(args: argparse.Namespace) -> int:
     return 0 if ok else 1
 
 
-def scan_abort_artifacts(artifact_dir: str | None) -> tuple[bool, str | None, str | None]:
-    """Scan artifact directory for early-abort artifacts. Returns (found, reason, path)."""
-    if not artifact_dir:
+def read_abort_artifact(path_value: str | None) -> tuple[bool, str | None, str | None]:
+    """Read one explicitly registered abort path; never scan a directory."""
+    if not path_value:
         return False, None, None
-    ad = Path(artifact_dir)
-    if not ad.is_dir():
+    path = Path(path_value)
+    try:
+        data = read_json_obj(str(path))
+    except Exception:
+        return True, "abort_artifact_unparseable", str(path)
+    if not data:
         return False, None, None
-    abort_patterns = ["*ABORT*.json", "*abort*.json", "*ABORT*.md", "*abort*.md"]
-    for pattern in abort_patterns:
-        for p in ad.glob(pattern):
-            try:
-                data = json.loads(p.read_text(encoding="utf-8"))
-                reason = data.get("reason") or data.get("abort_reason") or data.get("errors_warnings") or "abort_artifact_found"
-                return True, str(reason), str(p.relative_to(ad))
-            except Exception:
-                return True, "abort_artifact_unparseable", str(p.relative_to(ad))
-    return False, None, None
+    reason = data.get("reason") or data.get("abort_reason") or data.get("errors_warnings") or "abort_artifact_found"
+    return True, str(reason), str(path)
 
+
+
+def cleanup_warning_from_result(result: dict[str, Any]) -> list[str]:
+    warnings: list[str] = []
+    if "stdout" not in result and "stdout_path" not in result:
+        warnings.append("stdout_missing")
+    if "stderr" not in result and "stderr_path" not in result:
+        warnings.append("stderr_missing")
+    return warnings
+
+
+def terminalise_harness_status(artifact_dir: str | Path, *, semantic_artifact_dir: str | Path | None = None, cleanup_result: dict[str, Any] | None = None) -> dict[str, Any]:
+    artifact = Path(artifact_dir).expanduser().resolve()
+    status_path = artifact / "status.json"
+    status_obj = read_json_obj(str(status_path)) if status_path.exists() else {}
+    semantic_dir = Path(semantic_artifact_dir).expanduser().resolve() if semantic_artifact_dir else None
+    sem_status = read_json_obj(str(semantic_dir / "status.json")) if semantic_dir else {}
+    sem_summary = read_json_obj(str(semantic_dir / "summary.json")) if semantic_dir else {}
+    terminal, closeout_status, terminal_status = semantic_terminal(sem_status, sem_summary)
+    warnings = cleanup_warning_from_result(cleanup_result or {"stdout_path": status_obj.get("stdout_path", "known"), "stderr_path": status_obj.get("stderr_path", "known")})
+    if not terminal:
+        result = {
+            "schema": SCHEMA + ".terminalisation",
+            "classification": "HARNESS_STATUS_STALE_BLOCKED",
+            "launch_state": status_obj.get("status"),
+            "semantic_state": sem_status.get("status"),
+            "cleanup_state": "warning" if warnings else "not_run",
+            "cleanup_warnings": warnings,
+            "updated_utc": utc_now(),
+        }
+        write_json_atomic(artifact / "terminalisation.json", result)
+        return result
+    result = {
+        "schema": SCHEMA + ".terminalisation",
+        "classification": "HARNESS_TERMINAL_WITH_CLEANUP_WARNING" if warnings else "HARNESS_TERMINALISED_CLEANLY",
+        "launch_state": status_obj.get("status"),
+        "semantic_state": str(closeout_status or sem_status.get("status") or "terminal"),
+        "cleanup_state": "warning" if warnings else "clean",
+        "cleanup_warnings": warnings,
+        "terminal_status": str(terminal_status or terminal),
+        "closeout_status": str(closeout_status or "terminal"),
+        "semantic_artifact_dir": str(semantic_dir) if semantic_dir else None,
+        "updated_utc": utc_now(),
+    }
+    merged = dict(status_obj)
+    merged.update({
+        "status": "TERMINAL",
+        "semantic_state": result["semantic_state"],
+        "cleanup_state": result["cleanup_state"],
+        "terminal_status": result["terminal_status"],
+        "closeout_status": result["closeout_status"],
+        "terminalisation_classification": result["classification"],
+        "updated_utc": result["updated_utc"],
+    })
+    write_json_atomic(status_path, merged)
+    write_json_atomic(artifact / "terminalisation.json", result)
+    return result
 
 def check(args: argparse.Namespace) -> int:
     registry_path = Path(args.registry).expanduser().resolve()
@@ -514,6 +924,10 @@ def check(args: argparse.Namespace) -> int:
 
         if terminal:
             completed.append(completed_line(row, closeout_status, terminal_status, paths))
+            try:
+                terminalise_harness_status(Path(row.get("artifact_dir") or ""), semantic_artifact_dir=paths.get("semantic_artifact_dir"))
+            except Exception as exc:  # noqa: BLE001
+                row["terminalisation_warning"] = str(exc)
             continue
         if alive:
             row["last_seen_running_utc"] = checked_utc
@@ -522,7 +936,7 @@ def check(args: argparse.Namespace) -> int:
             continue
         # PID missing — scan for early-abort artifacts before classifying as mere STALE
         artifact_dir = paths.get("semantic_artifact_dir") or row.get("artifact_dir")
-        abort_found, abort_reason, abort_path = scan_abort_artifacts(artifact_dir)
+        abort_found, abort_reason, abort_path = read_abort_artifact(row.get("abort_artifact_path"))
         if abort_found:
             aborted.append(f"{run_id} ABORTED reason={abort_reason} abort_artifact={abort_path}")
             remaining.append(row)
@@ -579,6 +993,139 @@ def check(args: argparse.Namespace) -> int:
     return 0
 
 
+def find_registry_row(registry_path: Path, run_id: str) -> dict[str, Any] | None:
+    data = load_registry(registry_path)
+    for row in data.get("runs", []):
+        if isinstance(row, dict) and row.get("run_id") == run_id:
+            return dict(row)
+    return None
+
+
+def watch_alert(args: argparse.Namespace) -> int:
+    registry_path = Path(args.registry).expanduser().resolve()
+    artifact_dir = Path(args.artifact_dir).expanduser().resolve()
+    alert_command_json = args.alert_command_json
+    alert_command = parse_command_json(alert_command_json) if alert_command_json else None
+    deadline = None if args.timeout_sec <= 0 else time.monotonic() + args.timeout_sec
+    interval = max(args.interval_sec, 0.25)
+    startup_path = Path(args.startup_path).expanduser().resolve() if getattr(args, "startup_path", None) else artifact_dir / "alert-watch-startup.json"
+    heartbeat_path = artifact_dir / WATCHER_HEARTBEAT
+    progress_path = artifact_dir / WATCHER_PROGRESS
+    watchdog_path = artifact_dir / WATCHER_WATCHDOG
+    startup_started = utc_now()
+    write_json_atomic(heartbeat_path, {"schema": SCHEMA + ".heartbeat", "phase": "watcher_startup", "tick": 1, "updated_utc": utc_now(), "status": "RUNNING"})
+    write_json_atomic(progress_path, {"schema": SCHEMA + ".progress", "phase": "watcher_startup", "items_seen": 0, "updated_utc": utc_now(), "status": "RUNNING"})
+    write_json_atomic(watchdog_path, {"schema": SCHEMA + ".watchdog", "status": "WATCHER_READY", "updated_utc": utc_now(), "heartbeat_path": str(heartbeat_path), "progress_path": str(progress_path)})
+    startup = {
+        "schema": SCHEMA + ".alert_watch_startup",
+        "status": "READY",
+        "run_id": args.run_id,
+        "started_utc": startup_started,
+        "pid": os.getpid(),
+        "proc_starttime": proc_starttime(os.getpid()),
+        "heartbeat_tick": 1,
+        "heartbeat_path": str(heartbeat_path),
+        "progress_path": str(progress_path),
+        "watchdog_path": str(watchdog_path),
+        "readback_verified": all(p.is_file() and p.stat().st_size > 0 for p in (registry_path, heartbeat_path, progress_path, watchdog_path)),
+        "recursive_scan": False,
+        "h4_exact_path_validation": True,
+    }
+    write_json_atomic(startup_path, startup)
+
+    while True:
+        row = find_registry_row(registry_path, args.run_id)
+        if row is None:
+            row = {"run_id": args.run_id, "artifact_dir": str(artifact_dir), "pid": 0}
+            event = build_alert_event(
+                row,
+                classification="REGISTRY_ROW_MISSING",
+                closeout_status="STALE",
+                terminal_status="REGISTRY_ROW_MISSING",
+                detail="registry row missing while alert watcher was active",
+                paths={"semantic_artifact_dir": None, "semantic_status_path": None, "semantic_summary_path": None},
+            )
+            result = raise_alert(row, event, alert_command)
+            print(ALERT_ANCHOR)
+            print(json.dumps(result, indent=2, sort_keys=True))
+            return 2
+
+        row.setdefault("artifact_dir", str(artifact_dir))
+        pid = int(row.get("pid") or 0)
+        if pid <= 0 or row.get("launch_state") in {"WATCHER_STARTUP", "WATCHER_READY"}:
+            tick = int(read_json_obj(str(heartbeat_path)).get("tick") or 1) + 1
+            write_json_atomic(heartbeat_path, {"schema": SCHEMA + ".heartbeat", "phase": "await_child_registration", "tick": tick, "updated_utc": utc_now(), "status": "RUNNING"})
+            write_json_atomic(progress_path, {"schema": SCHEMA + ".progress", "phase": "await_child_registration", "items_seen": 0, "updated_utc": utc_now(), "status": "WAITING"})
+            if deadline is not None and time.monotonic() >= deadline:
+                raise SystemExit("alert watcher timed out before child registration")
+            time.sleep(interval)
+            continue
+        alive, detail = pid_state(pid, row.get("proc_starttime")) if pid else (False, "pid_missing")
+        row["pid_alive"] = alive
+        paths = semantic_artifact_paths(row)
+        tick = int(read_json_obj(str(heartbeat_path)).get("tick") or 1) + 1
+        write_json_atomic(heartbeat_path, {"schema": SCHEMA + ".heartbeat", "phase": "reconcile_semantic_terminal", "tick": tick, "updated_utc": utc_now(), "status": "RUNNING", "pid_alive": alive})
+        write_json_atomic(progress_path, {"schema": SCHEMA + ".progress", "phase": "reconcile_semantic_terminal", "items_seen": tick, "updated_utc": utc_now(), "status": "RUNNING"})
+        write_json_atomic(watchdog_path, {"schema": SCHEMA + ".watchdog", "status": "WATCHING", "updated_utc": utc_now(), "last_heartbeat_tick": tick, "pid_alive": alive})
+        status_obj = read_json_obj(paths.get("semantic_status_path"))
+        if status_obj.get("semantic_artifact_dir") and not paths.get("semantic_artifact_dir"):
+            paths["semantic_artifact_dir"] = str(status_obj.get("semantic_artifact_dir"))
+            paths["semantic_status_path"] = str(Path(paths["semantic_artifact_dir"] or "") / "status.json")
+            paths["semantic_summary_path"] = str(Path(paths["semantic_artifact_dir"] or "") / "summary.json")
+            status_obj = read_json_obj(paths.get("semantic_status_path"))
+        summary_obj = read_json_obj(paths.get("semantic_summary_path"))
+        terminal, closeout_status, terminal_status = semantic_terminal(status_obj, summary_obj)
+        if terminal:
+            try:
+                terminalise_harness_status(artifact_dir, semantic_artifact_dir=paths.get("semantic_artifact_dir"))
+            except Exception as exc:  # noqa: BLE001
+                row["terminalisation_warning"] = str(exc)
+            event = build_alert_event(
+                row,
+                classification="TERMINAL",
+                closeout_status=closeout_status,
+                terminal_status=terminal_status,
+                detail="semantic terminal detected by internal harness alert watcher",
+                paths=paths,
+            )
+            result = raise_alert(row, event, alert_command)
+            print(ALERT_ANCHOR)
+            print(json.dumps(result, indent=2, sort_keys=True))
+            return 3
+
+        if not alive:
+            abort_found, abort_reason, abort_path = read_abort_artifact(row.get("abort_artifact_path"))
+            classification = "ABORTED" if abort_found else "STALE"
+            event = build_alert_event(
+                row,
+                classification=classification,
+                closeout_status="ABORT" if abort_found else "STALE",
+                terminal_status=classification,
+                detail=f"{detail}; abort_reason={abort_reason}; abort_path={abort_path}" if abort_found else detail,
+                paths=paths,
+            )
+            result = raise_alert(row, event, alert_command)
+            print(ALERT_ANCHOR)
+            print(json.dumps(result, indent=2, sort_keys=True))
+            return 4 if abort_found else 2
+
+        if deadline is not None and time.monotonic() >= deadline:
+            event = build_alert_event(
+                row,
+                classification="WATCH_TIMEOUT",
+                closeout_status="STALE",
+                terminal_status="WATCH_TIMEOUT",
+                detail=f"alert watcher timeout after {args.timeout_sec} seconds",
+                paths=paths,
+            )
+            result = raise_alert(row, event, alert_command)
+            print(ALERT_ANCHOR)
+            print(json.dumps(result, indent=2, sort_keys=True))
+            return 2
+
+        time.sleep(interval)
+
+
 def done(args: argparse.Namespace) -> int:
     registry_path = Path(args.registry).expanduser().resolve()
     data = load_registry(registry_path)
@@ -598,13 +1145,14 @@ def list_runs(args: argparse.Namespace) -> int:
 
 def cron_payload(args: argparse.Namespace) -> int:
     cmd = [
-        "python3",
+        PY312,
         str(WORKSPACE / "scripts/long_running_cron_observer_harness.py"),
         "launch",
         "--run-id", args.run_id,
         "--artifact-dir", args.artifact_dir,
         "--command-json", args.command_json,
         "--expected-child-anchor", args.expected_child_anchor,
+        "--provider-receipt-path", str(Path(args.artifact_dir).expanduser().resolve() / "provider-receipt.json"),
     ]
     if args.cron_job_id:
         cmd += ["--cron-job-id", args.cron_job_id]
@@ -617,7 +1165,8 @@ def cron_payload(args: argparse.Namespace) -> int:
 
 def self_test(args: argparse.Namespace) -> int:
     artifact_dir = Path(args.artifact_dir).expanduser().resolve()
-    command = json.dumps([sys.executable, "-c", "import time; print('SELF_TEST_CHILD_STARTED', flush=True); time.sleep(2)"])
+    command = json.dumps([PY312, "-c", "import time; print('SELF_TEST_CHILD_STARTED', flush=True); time.sleep(2)"])
+    provider_receipt_path = artifact_dir / "provider-receipt.json"
     ns = argparse.Namespace(
         run_id=args.run_id,
         artifact_dir=str(artifact_dir),
@@ -630,6 +1179,20 @@ def self_test(args: argparse.Namespace) -> int:
         owner_note="self-test",
         initial_wait_sec=0.25,
         allow_existing_artifact_dir=args.allow_existing_artifact_dir,
+        alert_check_interval_sec=0.25,
+        alert_timeout_sec=10.0,
+        alert_startup_timeout_sec=10.0,
+        alert_command_json=None,
+        semantic_artifact_dir=str(artifact_dir / "semantic"),
+        provider_receipt_path=str(provider_receipt_path),
+        semantic_status_path=None,
+        semantic_summary_path=None,
+        terminal_seal_path=None,
+        semantic_manifest_path=None,
+        detached_receipt_path=None,
+        notification_plane_path=None,
+        alert_result_path=None,
+        abort_artifact_path=None,
     )
     code = launch(ns)
     if code != 0:
@@ -653,6 +1216,20 @@ def main(argv: list[str] | None = None) -> int:
     p_launch.add_argument("--owner-note", default=None)
     p_launch.add_argument("--initial-wait-sec", type=float, default=1.0)
     p_launch.add_argument("--allow-existing-artifact-dir", action="store_true")
+    p_launch.add_argument("--alert-check-interval-sec", type=float, default=5.0)
+    p_launch.add_argument("--alert-timeout-sec", type=float, default=0.0, help="0 means no timeout")
+    p_launch.add_argument("--alert-startup-timeout-sec", type=float, default=15.0)
+    p_launch.add_argument("--alert-command-json", default=None, help="Optional argv JSON command invoked when an alert is raised; alert path is provided in env")
+    p_launch.add_argument("--semantic-artifact-dir", default=None, help="Registered semantic root; exact paths only, no recursive scan")
+    p_launch.add_argument("--semantic-status-path", default=None)
+    p_launch.add_argument("--semantic-summary-path", default=None)
+    p_launch.add_argument("--terminal-seal-path", default=None)
+    p_launch.add_argument("--semantic-manifest-path", default=None)
+    p_launch.add_argument("--detached-receipt-path", default=None)
+    p_launch.add_argument("--notification-plane-path", default=None)
+    p_launch.add_argument("--alert-result-path", default=None)
+    p_launch.add_argument("--provider-receipt-path", required=True, help="Mandatory exact provider receipt path")
+    p_launch.add_argument("--abort-artifact-path", default=None, help="Optional exact abort artifact path; no directory scan")
     p_launch.set_defaults(func=launch)
 
     p_validate = sub.add_parser("validate")
@@ -662,6 +1239,16 @@ def main(argv: list[str] | None = None) -> int:
     p_check = sub.add_parser("check")
     p_check.add_argument("--registry", default=str(DEFAULT_REGISTRY))
     p_check.set_defaults(func=check)
+
+    p_watch_alert = sub.add_parser("watch-alert")
+    p_watch_alert.add_argument("--run-id", required=True)
+    p_watch_alert.add_argument("--registry", default=str(DEFAULT_REGISTRY))
+    p_watch_alert.add_argument("--artifact-dir", required=True)
+    p_watch_alert.add_argument("--interval-sec", type=float, default=5.0)
+    p_watch_alert.add_argument("--timeout-sec", type=float, default=0.0)
+    p_watch_alert.add_argument("--alert-command-json", default=None)
+    p_watch_alert.add_argument("--startup-path", default=None)
+    p_watch_alert.set_defaults(func=watch_alert)
 
     p_done = sub.add_parser("done")
     p_done.add_argument("run_id")
