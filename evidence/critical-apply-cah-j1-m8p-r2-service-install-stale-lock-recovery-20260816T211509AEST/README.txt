@@ -1,0 +1,8 @@
+M8P-R2 service install stale-lock recovery source preservation
+timestamp=20260816T211509AEST
+test_result=Ran 46 tests in 0.443s OK
+scope=scripts/critical_apply_service_install_prereq.py scripts/tests/test_critical_apply_service_install_prereq.py
+production_mutations=0
+systemctl_actions=0
+service_install_actions=0
+gateway_config_cron_provider_runtime_actions=0

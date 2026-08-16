@@ -87,14 +87,62 @@ def _system_service_path(path: Path) -> bool:
         return False
 
 
+def _pid_alive(pid: int) -> bool | None:
+    if pid <= 0:
+        return None
+    try:
+        os.kill(pid, 0)
+        return True
+    except ProcessLookupError:
+        return False
+    except PermissionError:
+        return True
+    except OSError:
+        return None
+
+
+def _read_lock_state(lock_path: Path) -> Mapping[str, Any]:
+    try:
+        data = json.loads(lock_path.read_text(encoding="utf-8"))
+        return data if isinstance(data, dict) else {"unparseable": True}
+    except Exception as exc:  # noqa: BLE001 - stale lock inspection must fail closed
+        return {"read_error": type(exc).__name__ + ":" + str(exc)}
+
+
+def _clear_stale_maintenance_lock(lock_path: Path, *, receipt_root: Path) -> Mapping[str, Any]:
+    state = _read_lock_state(lock_path)
+    pid = int(state.get("pid") or 0) if isinstance(state.get("pid"), int) or str(state.get("pid") or "").isdigit() else 0
+    alive = _pid_alive(pid)
+    detected = {
+        "schema": SCHEMA + ".stale_maintenance_lock_detected",
+        "lock_path": str(lock_path),
+        "previous_state": state,
+        "previous_pid": pid or None,
+        "previous_pid_alive": alive,
+        "wall_time_utc": _utc_now(),
+    }
+    _write_json(receipt_root / "stale-maintenance-lock-detected.json", detected)
+    if alive is not False:
+        raise ServiceInstallPrereqError("maintenance_lock_exists_and_is_not_proven_stale")
+    lock_path.unlink()
+    cleared = {**detected, "schema": SCHEMA + ".stale_maintenance_lock_cleared", "cleared": True, "cleared_wall_time_utc": _utc_now()}
+    _write_json(receipt_root / "stale-maintenance-lock-cleared.json", cleared)
+    return cleared
+
+
 def _acquire_maintenance_lock(lock_root: Path | None, *, receipt_root: Path) -> Mapping[str, Any]:
     if lock_root is None:
         return {"required": False, "acquired": False, "released": False}
     lock_root = _validate_exact_path(lock_root, field="lock_root")
     lock_root.mkdir(parents=True, mode=0o700, exist_ok=True)
     lock_path = lock_root / "critical-apply-service-install.lock"
-    fd = os.open(lock_path, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
-    acquired = {"schema": SCHEMA + ".maintenance_lock", "required": True, "acquired": True, "released": False, "lock_path": str(lock_path), "pid": os.getpid(), "wall_time_utc": _utc_now()}
+    stale_recovery: Mapping[str, Any] | None = None
+    try:
+        fd = os.open(lock_path, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+    except FileExistsError:
+        stale_recovery = _clear_stale_maintenance_lock(lock_path, receipt_root=receipt_root)
+        fd = os.open(lock_path, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+    acquired = {"schema": SCHEMA + ".maintenance_lock", "required": True, "acquired": True, "released": False, "lock_path": str(lock_path), "pid": os.getpid(), "stale_recovery": stale_recovery, "wall_time_utc": _utc_now()}
     os.write(fd, (json.dumps(acquired, sort_keys=True) + "\n").encode("utf-8"))
     os.close(fd)
     _write_json(receipt_root / "maintenance-lock-acquired.json", acquired)
@@ -140,27 +188,31 @@ def render_install_verify_service_unit(*, service_unit_path: Path, receipt_root:
         raise ServiceInstallPrereqError("system_service_path_requires_maintenance_lock_root")
     receipt_root.mkdir(parents=True, mode=0o700, exist_ok=True)
     lock_state = _acquire_maintenance_lock(lock_root, receipt_root=receipt_root)
-    restore_root.mkdir(parents=True, mode=0o700, exist_ok=True)
-    snapshot_root = restore_root / f"service-install-{int(time.time())}-{os.getpid()}"
-    pre = _snapshot_existing_unit(service_unit_path=service_unit_path, snapshot_root=snapshot_root)
-    text = service_unit_template()
-    rendered_sha = _sha256_text(text)
-    _write_json(receipt_root / "pre-service-unit-state.json", {"schema": SCHEMA + ".pre", "service_unit_path": str(service_unit_path), "pre_state": pre, "rendered_sha256": rendered_sha, "snapshot_root": str(snapshot_root), "wall_time_utc": _utc_now()})
-    service_unit_path.parent.mkdir(parents=True, mode=0o755, exist_ok=True)
-    tmp = service_unit_path.with_name(f".{service_unit_path.name}.tmp-{os.getpid()}")
-    tmp.write_text(text, encoding="utf-8")
-    os.chmod(tmp, expected_mode)
-    os.replace(tmp, service_unit_path)
-    os.chmod(service_unit_path, expected_mode)
-    post = _stat_record(service_unit_path)
-    reasons: list[str] = []
-    if not service_unit_path.is_file():
-        reasons.append("service_unit_missing_after_write")
-    if post.get("sha256") != rendered_sha:
-        reasons.append("service_unit_sha256_mismatch")
-    if post.get("mode") != oct(expected_mode):
-        reasons.append("service_unit_mode_mismatch")
-    lock_state = _release_maintenance_lock(lock_state, receipt_root=receipt_root)
+    try:
+        restore_root.mkdir(parents=True, mode=0o700, exist_ok=True)
+        snapshot_root = restore_root / f"service-install-{int(time.time())}-{os.getpid()}"
+        pre = _snapshot_existing_unit(service_unit_path=service_unit_path, snapshot_root=snapshot_root)
+        text = service_unit_template()
+        rendered_sha = _sha256_text(text)
+        _write_json(receipt_root / "pre-service-unit-state.json", {"schema": SCHEMA + ".pre", "service_unit_path": str(service_unit_path), "pre_state": pre, "rendered_sha256": rendered_sha, "snapshot_root": str(snapshot_root), "wall_time_utc": _utc_now()})
+        service_unit_path.parent.mkdir(parents=True, mode=0o755, exist_ok=True)
+        tmp = service_unit_path.with_name(f".{service_unit_path.name}.tmp-{os.getpid()}")
+        tmp.write_text(text, encoding="utf-8")
+        os.chmod(tmp, expected_mode)
+        os.replace(tmp, service_unit_path)
+        os.chmod(service_unit_path, expected_mode)
+        post = _stat_record(service_unit_path)
+        reasons: list[str] = []
+        if not service_unit_path.is_file():
+            reasons.append("service_unit_missing_after_write")
+        if post.get("sha256") != rendered_sha:
+            reasons.append("service_unit_sha256_mismatch")
+        if post.get("mode") != oct(expected_mode):
+            reasons.append("service_unit_mode_mismatch")
+        lock_state = _release_maintenance_lock(lock_state, receipt_root=receipt_root)
+    except Exception:
+        _release_maintenance_lock(lock_state, receipt_root=receipt_root)
+        raise
     status = {
         "schema": SCHEMA + ".status",
         "status": "PASS" if not reasons else "HOLD",

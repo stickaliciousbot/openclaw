@@ -1,0 +1,4 @@
+bd6e190ccda66efced29b8df113bf7b306eedaa16b28be7d89fcb2153cab9c58  /home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m8p-r2-service-install-stale-lock-recovery-20260816T211509AEST/README.txt
+3052cca5e458e13ee9eefadee0baced778d238a8cd438733b52ee4aa6de52c4c  /home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m8p-r2-service-install-stale-lock-recovery-20260816T211509AEST/git-status-short.txt
+8bf7943804f1f939708197dd0d6e635d321b65919136ccf5282e6adfbfb51792  /home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m8p-r2-service-install-stale-lock-recovery-20260816T211509AEST/source-repair.diff
+a55dc20eb475cc31ca49d64956c6d682f835b2a8b19325630d676bd7a130c43c  /home/stickai/.openclaw/workspace/evidence/critical-apply-cah-j1-m8p-r2-service-install-stale-lock-recovery-20260816T211509AEST/summary.json

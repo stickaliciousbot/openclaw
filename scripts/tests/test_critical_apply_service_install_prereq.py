@@ -9,10 +9,12 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts"))
 
+import critical_apply_service_install_prereq as service_install
 from critical_apply_service_install_prereq import ServiceInstallPrereqError, render_install_verify_service_unit
 from critical_apply_service_template import service_unit_template
 
@@ -90,6 +92,39 @@ class ServiceInstallPrereqTest(unittest.TestCase):
             render_install_verify_service_unit(service_unit_path=system_path, receipt_root=self.receipts, restore_root=self.restore)
         with self.assertRaises(ServiceInstallPrereqError):
             render_install_verify_service_unit(service_unit_path=system_path, receipt_root=self.receipts, restore_root=self.restore, allow_system_path=True)
+
+    def test_maintenance_lock_is_released_when_post_acquire_step_raises(self):
+        locks = self.tmp / "locks"
+        with mock.patch.object(service_install, "_snapshot_existing_unit", side_effect=PermissionError("synthetic snapshot failure")):
+            with self.assertRaises(PermissionError):
+                render_install_verify_service_unit(service_unit_path=self.unit, receipt_root=self.receipts, restore_root=self.restore, lock_root=locks)
+        released = json.loads((self.receipts / "maintenance-lock-released.json").read_text())
+        self.assertTrue(released["released"])
+        self.assertFalse((locks / "critical-apply-service-install.lock").exists())
+
+    def test_dead_pid_stale_maintenance_lock_is_cleared_with_receipts(self):
+        locks = self.tmp / "locks"
+        locks.mkdir()
+        stale_lock = locks / "critical-apply-service-install.lock"
+        stale_lock.write_text(json.dumps({"pid": 999999999, "schema": "stale.fixture"}) + "\n")
+        status = render_install_verify_service_unit(service_unit_path=self.unit, receipt_root=self.receipts, restore_root=self.restore, lock_root=locks)
+        self.assertTrue(status["pass"], status)
+        self.assertTrue((self.receipts / "stale-maintenance-lock-detected.json").exists())
+        cleared = json.loads((self.receipts / "stale-maintenance-lock-cleared.json").read_text())
+        self.assertTrue(cleared["cleared"])
+        self.assertFalse((locks / "critical-apply-service-install.lock").exists())
+
+    def test_live_or_unknown_maintenance_lock_fails_closed(self):
+        locks = self.tmp / "locks"
+        locks.mkdir()
+        stale_lock = locks / "critical-apply-service-install.lock"
+        stale_lock.write_text(json.dumps({"pid": os.getpid(), "schema": "live.fixture"}) + "\n")
+        with self.assertRaises(ServiceInstallPrereqError):
+            render_install_verify_service_unit(service_unit_path=self.unit, receipt_root=self.receipts, restore_root=self.restore, lock_root=locks)
+        self.assertTrue(stale_lock.exists())
+        detected = json.loads((self.receipts / "stale-maintenance-lock-detected.json").read_text())
+        self.assertIs(detected["previous_pid_alive"], True)
+        self.assertFalse((self.receipts / "stale-maintenance-lock-cleared.json").exists())
 
     def test_relative_paths_fail_closed(self):
         script = ROOT / "scripts" / "critical_apply_service_install_prereq.py"
