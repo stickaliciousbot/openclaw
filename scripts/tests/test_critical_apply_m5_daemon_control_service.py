@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import subprocess
 import sys
 import unittest
 from pathlib import Path
@@ -63,9 +64,33 @@ class M5DaemonControlServiceTemplateTest(unittest.TestCase):
         text = service_unit_template()
         v = validate_service_unit_template()
         self.assertTrue(v["ok"], v["reasons"])
-        self.assertIn("ExecStart=/usr/bin/python3 /home/stickai/.openclaw/workspace/scripts/critical_applyd.py", text)
+        self.assertIn("ExecStart=/usr/bin/python3 /home/stickai/.openclaw/workspace/scripts/critical_applyd.py observe", text)
+        self.assertIn("--transaction-root /home/stickai/.openclaw/artifacts/critical-apply/current", text)
+        self.assertIn("--create-transaction-root", text)
         self.assertNotIn("systemctl --user", text)
         self.assertNotIn("ExecStart=/bin/sh", text)
+
+    def test_daemon_service_mode_creates_missing_current_root_and_idles(self):
+        state = self.tmp / "state"
+        current = state / "current"
+        script = Path(__file__).resolve().parents[1] / "critical_applyd.py"
+        proc = subprocess.run([
+            sys.executable,
+            str(script),
+            "observe",
+            "--transaction-root", str(current),
+            "--lock-root", str(self.locks),
+            "--allowed-root", str(state),
+            "--loop",
+            "--max-iterations", "1",
+            "--poll-seconds", "0.01",
+            "--create-transaction-root",
+        ], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=False)
+        self.assertEqual(proc.returncode, 0, proc.stderr)
+        payload = json.loads(proc.stdout)
+        self.assertEqual(payload["classification"], "NO_EXECUTE_REQUEST")
+        self.assertTrue(current.is_dir())
+        self.assertTrue((current / "receipts").is_dir())
 
     def test_ctl_submit_plus_daemon_observe_fixture_transaction(self):
         prepare_fixture_transaction(transaction_root=self.tx, lock_root=self.locks, executable=FIXTURE)

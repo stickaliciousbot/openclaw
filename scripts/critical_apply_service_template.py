@@ -12,10 +12,22 @@ from typing import Any, Mapping
 
 SERVICE_TEMPLATE_SCHEMA = "critical_apply.service_unit_template.v1"
 SERVICE_NAME = "openclaw-critical-apply.service"
-EXEC_START = "/usr/bin/python3 /home/stickai/.openclaw/workspace/scripts/critical_applyd.py"
 STATE_ROOT = "/home/stickai/.openclaw/artifacts/critical-apply"
+SERVICE_TRANSACTION_ROOT = STATE_ROOT + "/current"
 LOCK_ROOT = "/home/stickai/.openclaw/locks"
 RESTORE_ROOT = "/home/stickai/.openclaw/restore-points"
+EXEC_START = " ".join([
+    "/usr/bin/python3",
+    "/home/stickai/.openclaw/workspace/scripts/critical_applyd.py",
+    "observe",
+    "--transaction-root", SERVICE_TRANSACTION_ROOT,
+    "--lock-root", LOCK_ROOT,
+    "--allowed-root", STATE_ROOT,
+    "--allowed-root", RESTORE_ROOT,
+    "--loop",
+    "--poll-seconds", "5",
+    "--create-transaction-root",
+])
 
 
 def service_unit_template() -> str:
@@ -57,6 +69,7 @@ def service_unit_contract() -> Mapping[str, Any]:
         "service_name": SERVICE_NAME,
         "exec_start": EXEC_START,
         "state_root": STATE_ROOT,
+        "service_transaction_root": SERVICE_TRANSACTION_ROOT,
         "lock_root": LOCK_ROOT,
         "restore_root": RESTORE_ROOT,
         "source_fixture_only": True,
@@ -75,6 +88,10 @@ def validate_service_unit_template() -> Mapping[str, Any]:
     reasons = []
     required = [
         "ExecStart=" + EXEC_START,
+        "critical_applyd.py observe",
+        "--transaction-root " + SERVICE_TRANSACTION_ROOT,
+        "--lock-root " + LOCK_ROOT,
+        "--create-transaction-root",
         "Restart=on-failure",
         "KillMode=control-group",
         "NoNewPrivileges=true",

@@ -46,16 +46,21 @@ def _main(argv: Sequence[str] | None = None) -> int:
     obs.add_argument("--allowed-root", action="append")
     obs.add_argument("--loop", action="store_true")
     obs.add_argument("--max-iterations", type=int)
+    obs.add_argument("--poll-seconds", type=float, default=5.0)
+    obs.add_argument("--create-transaction-root", action="store_true")
     ns = ap.parse_args(argv)
     if ns.cmd == "contract":
         print(json.dumps(daemon_contract(), sort_keys=True)); return 0
     if ns.cmd == "service-unit-template":
         print(service_unit_template()); return 0
-    roots = [Path(x) for x in (ns.allowed_root or [ns.transaction_root])]
+    transaction_root = Path(ns.transaction_root)
+    if ns.create_transaction_root:
+        transaction_root.mkdir(parents=True, mode=0o700, exist_ok=True)
+    roots = [Path(x) for x in (ns.allowed_root or [transaction_root])]
     if ns.loop:
-        result = observe_loop(Path(ns.transaction_root), lock_root=Path(ns.lock_root) if ns.lock_root else None, allowed_roots=roots, max_iterations=ns.max_iterations)
+        result = observe_loop(transaction_root, lock_root=Path(ns.lock_root) if ns.lock_root else None, allowed_roots=roots, poll_seconds=ns.poll_seconds, max_iterations=ns.max_iterations)
     else:
-        result = observe_once(Path(ns.transaction_root), lock_root=Path(ns.lock_root) if ns.lock_root else None, allowed_roots=roots)
+        result = observe_once(transaction_root, lock_root=Path(ns.lock_root) if ns.lock_root else None, allowed_roots=roots)
     print(json.dumps(result, sort_keys=True)); return 0
 
 
