@@ -103,6 +103,23 @@ class ServiceInstallPrereqTest(unittest.TestCase):
         self.assertNotEqual(proc.returncode, 0)
         self.assertFalse((self.tmp / "relative.service").exists())
 
+    def test_cli_system_path_without_authority_emits_hold_receipts(self):
+        script = ROOT / "scripts" / "critical_apply_service_install_prereq.py"
+        proc = subprocess.run([
+            sys.executable,
+            str(script),
+            "--service-unit-path", "/etc/systemd/system/openclaw-critical-apply.service",
+            "--receipt-root", str(self.receipts),
+            "--restore-root", str(self.restore),
+        ], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=False)
+        self.assertNotEqual(proc.returncode, 0)
+        payload = json.loads(proc.stdout)
+        self.assertEqual(payload["status"], "HOLD")
+        self.assertEqual(payload["terminal_status"], "HOLD_SERVICE_INSTALL_PREREQ_EXCEPTION_FAILED_CLOSED")
+        self.assertTrue((self.receipts / "status.json").exists())
+        self.assertTrue((self.receipts / "summary.json").exists())
+        self.assertIn("system_service_path_requires_explicit_allow_system_path", payload["failed_gates"][0])
+
     def test_template_has_no_systemctl_or_shell_start(self):
         text = service_unit_template()
         self.assertNotIn("systemctl", text)

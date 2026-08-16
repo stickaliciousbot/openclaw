@@ -208,6 +208,38 @@ def render_install_verify_service_unit(*, service_unit_path: Path, receipt_root:
     return status
 
 
+def _failure_status(*, receipt_root: Path | None, service_unit_path: Path | None, restore_root: Path | None, reason: str) -> Mapping[str, Any]:
+    status = {
+        "schema": SCHEMA + ".status",
+        "status": "HOLD",
+        "closeout_status": "HOLD",
+        "terminal": "HOLD_SERVICE_INSTALL_PREREQ_EXCEPTION_FAILED_CLOSED",
+        "terminal_status": "HOLD_SERVICE_INSTALL_PREREQ_EXCEPTION_FAILED_CLOSED",
+        "pass": False,
+        "failed_gates": [reason],
+        "service_unit_path": str(service_unit_path) if service_unit_path else None,
+        "receipt_root": str(receipt_root) if receipt_root else None,
+        "restore_root": str(restore_root) if restore_root else None,
+        "systemctl_actions": 0,
+        "service_enable_start_actions": 0,
+        "daemon_reload_actions": 0,
+        "gateway_config_or_cron_mutations": 0,
+        "network_or_provider_calls": 0,
+        "installs_restarts_or_production_mutations": 0,
+        "service_or_runtime_activation_actions": 0,
+        "wall_time_utc": _utc_now(),
+    }
+    if receipt_root is not None:
+        try:
+            receipt_root.mkdir(parents=True, mode=0o700, exist_ok=True)
+            _write_json(receipt_root / "STATUS.json", status)
+            _write_json(receipt_root / "status.json", status)
+            _write_json(receipt_root / "summary.json", {"schema": SCHEMA + ".summary", "ok": False, "closeout_status": "HOLD", "terminal_status": status["terminal_status"], "classification": "SERVICE_INSTALL_PREREQ_EXCEPTION_FAILED_CLOSED", "failed_gates": [reason], "wall_time_utc": status["wall_time_utc"]})
+        except Exception:
+            pass
+    return status
+
+
 def _main(argv: Sequence[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description="Critical Apply service install prerequisite child")
     ap.add_argument("--service-unit-path", required=True)
@@ -217,16 +249,22 @@ def _main(argv: Sequence[str] | None = None) -> int:
     ap.add_argument("--lock-root")
     ap.add_argument("--allow-system-path", action="store_true")
     ns = ap.parse_args(argv)
-    status = render_install_verify_service_unit(
-        service_unit_path=Path(ns.service_unit_path),
-        receipt_root=Path(ns.receipt_root),
-        restore_root=Path(ns.restore_root),
-        expected_mode=int(str(ns.expected_mode), 8),
-        lock_root=Path(ns.lock_root) if ns.lock_root else None,
-        allow_system_path=ns.allow_system_path,
-    )
+    service_unit_path = Path(ns.service_unit_path)
+    receipt_root = Path(ns.receipt_root)
+    restore_root = Path(ns.restore_root)
+    try:
+        status = render_install_verify_service_unit(
+            service_unit_path=service_unit_path,
+            receipt_root=receipt_root,
+            restore_root=restore_root,
+            expected_mode=int(str(ns.expected_mode), 8),
+            lock_root=Path(ns.lock_root) if ns.lock_root else None,
+            allow_system_path=ns.allow_system_path,
+        )
+    except Exception as exc:  # noqa: BLE001 - child must fail closed with semantic receipts
+        status = _failure_status(receipt_root=receipt_root if receipt_root.is_absolute() else None, service_unit_path=service_unit_path, restore_root=restore_root, reason=type(exc).__name__ + ":" + str(exc))
     print(json.dumps(status, sort_keys=True))
-    return 0 if status["pass"] else 1
+    return 0 if status.get("pass") else 1
 
 
 if __name__ == "__main__":
