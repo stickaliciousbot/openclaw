@@ -13,7 +13,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from critical_apply_service_install_prereq import render_install_verify_service_unit
+from critical_apply_service_install_prereq import ServiceInstallPrereqError, render_install_verify_service_unit
 from critical_apply_service_template import service_unit_template
 
 
@@ -74,6 +74,23 @@ class ServiceInstallPrereqTest(unittest.TestCase):
         self.assertEqual(payload["daemon_reload_actions"], 0)
         self.assertEqual(payload["service_or_runtime_activation_actions"], 0)
 
+    def test_maintenance_lock_receipts_are_written_and_released(self):
+        locks = self.tmp / "locks"
+        status = render_install_verify_service_unit(service_unit_path=self.unit, receipt_root=self.receipts, restore_root=self.restore, lock_root=locks)
+        self.assertTrue(status["pass"], status)
+        self.assertTrue(status["maintenance_lock"]["acquired"])
+        self.assertTrue(status["maintenance_lock"]["released"])
+        self.assertTrue((self.receipts / "maintenance-lock-acquired.json").exists())
+        self.assertTrue((self.receipts / "maintenance-lock-released.json").exists())
+        self.assertFalse((locks / "critical-apply-service-install.lock").exists())
+
+    def test_system_service_path_requires_explicit_authority_and_lock(self):
+        system_path = Path("/etc/systemd/system/openclaw-critical-apply.service")
+        with self.assertRaises(ServiceInstallPrereqError):
+            render_install_verify_service_unit(service_unit_path=system_path, receipt_root=self.receipts, restore_root=self.restore)
+        with self.assertRaises(ServiceInstallPrereqError):
+            render_install_verify_service_unit(service_unit_path=system_path, receipt_root=self.receipts, restore_root=self.restore, allow_system_path=True)
+
     def test_relative_paths_fail_closed(self):
         script = ROOT / "scripts" / "critical_apply_service_install_prereq.py"
         proc = subprocess.run([
@@ -109,6 +126,8 @@ for i, name in enumerate([
     "restore_root",
     "snapshot_root",
     "rendered_sha256",
+    "maintenance_lock",
+    "system_path_authorized",
     "pre_state",
     "post_state",
     "systemctl_actions",

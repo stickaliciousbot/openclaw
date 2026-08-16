@@ -22,6 +22,7 @@ from critical_apply_service_template import service_unit_template
 
 SCHEMA = "critical_apply.service_install_prereq.v1"
 DEFAULT_MODE = 0o644
+SYSTEM_SERVICE_ROOT = Path("/etc/systemd/system")
 
 
 class ServiceInstallPrereqError(ValueError):
@@ -78,6 +79,41 @@ def _validate_exact_path(path: Path, *, field: str) -> Path:
     return path
 
 
+def _system_service_path(path: Path) -> bool:
+    try:
+        path.resolve().relative_to(SYSTEM_SERVICE_ROOT)
+        return True
+    except ValueError:
+        return False
+
+
+def _acquire_maintenance_lock(lock_root: Path | None, *, receipt_root: Path) -> Mapping[str, Any]:
+    if lock_root is None:
+        return {"required": False, "acquired": False, "released": False}
+    lock_root = _validate_exact_path(lock_root, field="lock_root")
+    lock_root.mkdir(parents=True, mode=0o700, exist_ok=True)
+    lock_path = lock_root / "critical-apply-service-install.lock"
+    fd = os.open(lock_path, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
+    acquired = {"schema": SCHEMA + ".maintenance_lock", "required": True, "acquired": True, "released": False, "lock_path": str(lock_path), "pid": os.getpid(), "wall_time_utc": _utc_now()}
+    os.write(fd, (json.dumps(acquired, sort_keys=True) + "\n").encode("utf-8"))
+    os.close(fd)
+    _write_json(receipt_root / "maintenance-lock-acquired.json", acquired)
+    return acquired
+
+
+def _release_maintenance_lock(lock_state: Mapping[str, Any], *, receipt_root: Path) -> Mapping[str, Any]:
+    if not lock_state.get("acquired"):
+        return dict(lock_state)
+    lock_path = Path(str(lock_state["lock_path"]))
+    released = {**dict(lock_state), "released": True, "released_wall_time_utc": _utc_now()}
+    try:
+        lock_path.unlink()
+    except FileNotFoundError:
+        released = {**released, "release_warning": "lock_already_absent"}
+    _write_json(receipt_root / "maintenance-lock-released.json", released)
+    return released
+
+
 def _snapshot_existing_unit(*, service_unit_path: Path, snapshot_root: Path) -> Mapping[str, Any]:
     snapshot_root.mkdir(parents=True, mode=0o700, exist_ok=True)
     pre = _stat_record(service_unit_path)
@@ -94,11 +130,16 @@ def _snapshot_existing_unit(*, service_unit_path: Path, snapshot_root: Path) -> 
     return pre
 
 
-def render_install_verify_service_unit(*, service_unit_path: Path, receipt_root: Path, restore_root: Path, expected_mode: int = DEFAULT_MODE) -> Mapping[str, Any]:
+def render_install_verify_service_unit(*, service_unit_path: Path, receipt_root: Path, restore_root: Path, expected_mode: int = DEFAULT_MODE, lock_root: Path | None = None, allow_system_path: bool = False) -> Mapping[str, Any]:
     service_unit_path = _validate_exact_path(service_unit_path, field="service_unit_path")
     receipt_root = _validate_exact_path(receipt_root, field="receipt_root")
     restore_root = _validate_exact_path(restore_root, field="restore_root")
+    if _system_service_path(service_unit_path) and not allow_system_path:
+        raise ServiceInstallPrereqError("system_service_path_requires_explicit_allow_system_path")
+    if _system_service_path(service_unit_path) and lock_root is None:
+        raise ServiceInstallPrereqError("system_service_path_requires_maintenance_lock_root")
     receipt_root.mkdir(parents=True, mode=0o700, exist_ok=True)
+    lock_state = _acquire_maintenance_lock(lock_root, receipt_root=receipt_root)
     restore_root.mkdir(parents=True, mode=0o700, exist_ok=True)
     snapshot_root = restore_root / f"service-install-{int(time.time())}-{os.getpid()}"
     pre = _snapshot_existing_unit(service_unit_path=service_unit_path, snapshot_root=snapshot_root)
@@ -119,6 +160,7 @@ def render_install_verify_service_unit(*, service_unit_path: Path, receipt_root:
         reasons.append("service_unit_sha256_mismatch")
     if post.get("mode") != oct(expected_mode):
         reasons.append("service_unit_mode_mismatch")
+    lock_state = _release_maintenance_lock(lock_state, receipt_root=receipt_root)
     status = {
         "schema": SCHEMA + ".status",
         "status": "PASS" if not reasons else "HOLD",
@@ -132,6 +174,8 @@ def render_install_verify_service_unit(*, service_unit_path: Path, receipt_root:
         "restore_root": str(restore_root),
         "snapshot_root": str(snapshot_root),
         "rendered_sha256": rendered_sha,
+        "maintenance_lock": lock_state,
+        "system_path_authorized": bool(allow_system_path),
         "pre_state": pre,
         "post_state": post,
         "filesystem_mutations": 1,
@@ -170,12 +214,16 @@ def _main(argv: Sequence[str] | None = None) -> int:
     ap.add_argument("--receipt-root", required=True)
     ap.add_argument("--restore-root", required=True)
     ap.add_argument("--expected-mode", default="0644")
+    ap.add_argument("--lock-root")
+    ap.add_argument("--allow-system-path", action="store_true")
     ns = ap.parse_args(argv)
     status = render_install_verify_service_unit(
         service_unit_path=Path(ns.service_unit_path),
         receipt_root=Path(ns.receipt_root),
         restore_root=Path(ns.restore_root),
         expected_mode=int(str(ns.expected_mode), 8),
+        lock_root=Path(ns.lock_root) if ns.lock_root else None,
+        allow_system_path=ns.allow_system_path,
     )
     print(json.dumps(status, sort_keys=True))
     return 0 if status["pass"] else 1
