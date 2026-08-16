@@ -6,8 +6,10 @@ import datetime as _dt
 import hashlib
 import json
 import os
+import sqlite3
 import stat
 import time
+import fcntl
 from dataclasses import asdict, dataclass
 from enum import Enum
 from pathlib import Path
@@ -127,6 +129,31 @@ class ProjectionVerification:
         return asdict(self)
 
 
+@dataclass(frozen=True)
+class JournalIdempotencyAck:
+    """Stable ACK reconstructed exclusively from verified journal bytes."""
+
+    schema: str
+    transaction_id: str
+    event_id: str
+    proposal_sha256: str
+    sequence: int
+    event_sha256: str
+    previous_event_sha256: str
+    committed_offset: int
+
+    def to_json(self) -> dict[str, Any]:
+        return asdict(self)
+
+
+class JournalIntegrityError(EvidenceIOError):
+    """Canonical journal integrity or idempotency conflict."""
+
+
+class JournalPostSyncCrash(RuntimeError):
+    """Test-only crash boundary after durable event/head and before ACK return."""
+
+
 def utc_now() -> str:
     return _dt.datetime.now(_dt.UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
 
@@ -236,7 +263,8 @@ def _replace_head(root: Path, transaction_id: str, seq: int, event_sha: str, off
     return atomic_replace_json(_head_path(root), head, root=root)
 
 
-def append_event(transaction_root: Path, event_without_hash: Mapping[str, Any], *, writer_token: JournalWriterToken) -> JournalAppendResult:
+def _append_event_locked(transaction_root: Path, event_without_hash: Mapping[str, Any], *, writer_token: JournalWriterToken) -> JournalAppendResult:
+    """Append while the per-journal append lock is held by the caller."""
     root = Path(transaction_root).resolve(strict=True)
     if writer_token.root_realpath != str(root):
         raise EvidenceIOError("WRITER_TOKEN_ROOT_MISMATCH", writer_token.root_realpath)
@@ -289,7 +317,37 @@ def append_event(transaction_root: Path, event_without_hash: Mapping[str, Any], 
     reread = read_json_artifact(head_path, root=root)
     if reread.get("committed_event_sha256") != event["event_sha256"] or int(reread.get("committed_journal_byte_offset", -1)) != committed_offset:
         raise EvidenceIOError("HEAD_REREAD_MISMATCH", str(head_path))
+    verified = validate_journal(root, transaction_id=writer_token.transaction_id)
+    if (
+        not verified.ok
+        or verified.committed_sequence != expected_sequence
+        or verified.committed_event_sha256 != event["event_sha256"]
+        or verified.committed_offset != committed_offset
+    ):
+        raise EvidenceIOError("JOURNAL_POST_SYNC_REOPEN_VERIFY_FAILED", str(journal))
     return JournalAppendResult("critical_apply.journal_append_result.v2", writer_token.transaction_id, expected_sequence, event["event_sha256"], event["previous_event_sha256"], previous_offset, committed_offset, st.st_dev, st.st_ino, head_digest)
+
+
+def append_event(transaction_root: Path, event_without_hash: Mapping[str, Any], *, writer_token: JournalWriterToken) -> JournalAppendResult:
+    """Serialize head-read, append-sync, head publication, and reopen verification."""
+    root = Path(transaction_root).resolve(strict=True)
+    lock_path = root / "journal" / "append.lock"
+    created = not lock_path.exists()
+    lock_fd = os.open(lock_path, os.O_RDWR | os.O_CREAT | getattr(os, "O_NOFOLLOW", 0), 0o600)
+    try:
+        if created:
+            parent_fd = os.open(lock_path.parent, os.O_RDONLY | os.O_DIRECTORY | getattr(os, "O_NOFOLLOW", 0))
+            try:
+                os.fsync(parent_fd)
+            finally:
+                os.close(parent_fd)
+        fcntl.flock(lock_fd, fcntl.LOCK_EX)
+        return _append_event_locked(root, event_without_hash, writer_token=writer_token)
+    finally:
+        try:
+            fcntl.flock(lock_fd, fcntl.LOCK_UN)
+        finally:
+            os.close(lock_fd)
 
 
 def _parse_lines(data: bytes) -> tuple[list[Mapping[str, Any]], bool, str | None]:
@@ -440,3 +498,133 @@ def phase_terminal_fixture_events(transaction_id: str) -> list[Mapping[str, Any]
         e = event_from_parts(transaction_id, seq, "terminal_seen", Phase.TERMINAL.value, previous_event_sha256=prev, actor=actor, terminal=terminal.value)
         events.append(e); prev = e["event_sha256"]; seq += 1
     return events
+
+
+_IDEMPOTENCY_SYSTEM_FIELDS = {
+    "sequence", "previous_event_sha256", "event_sha256", "proposal_sha256", "event_id"
+}
+
+
+def proposal_hash(proposal: Mapping[str, Any]) -> str:
+    """Digest caller-controlled proposal bytes, excluding journal-assigned fields."""
+    semantic = {k: v for k, v in dict(proposal).items() if k not in _IDEMPOTENCY_SYSTEM_FIELDS}
+    return hashlib.sha256(canonical_json_dumps(semantic).encode("utf-8")).hexdigest()
+
+
+def _ack_from_event(event: Mapping[str, Any], committed_offset: int) -> JournalIdempotencyAck:
+    return JournalIdempotencyAck(
+        schema="critical_apply.journal_idempotency_ack.v1",
+        transaction_id=str(event["transaction_id"]),
+        event_id=str(event["event_id"]),
+        proposal_sha256=str(event["proposal_sha256"]),
+        sequence=int(event["sequence"]),
+        event_sha256=str(event["event_sha256"]),
+        previous_event_sha256=str(event["previous_event_sha256"]),
+        committed_offset=committed_offset,
+    )
+
+
+def reconstruct_idempotency_map(validated: ValidatedJournal) -> dict[tuple[str, str], dict[str, Any]]:
+    """Rebuild canonical idempotency state only from a verified journal."""
+    if not validated.ok:
+        raise JournalIntegrityError("JOURNAL_NOT_VERIFIED", validated.classification.value)
+    out: dict[tuple[str, str], dict[str, Any]] = {}
+    offset = 0
+    for event in validated.events:
+        offset += len(encode_event_line(event))
+        event_id = event.get("event_id")
+        proposal_sha256 = event.get("proposal_sha256")
+        if event_id is None and proposal_sha256 is None:
+            continue  # predecessor event, not part of the explicit-idempotency map
+        if not isinstance(event_id, str) or not event_id or not isinstance(proposal_sha256, str) or not is_sha256(proposal_sha256):
+            raise JournalIntegrityError("IDEMPOTENCY_FIELDS_INVALID", str(event.get("sequence")))
+        if proposal_hash(event) != proposal_sha256:
+            raise JournalIntegrityError("PROPOSAL_SHA256_MISMATCH", event_id)
+        key = (validated.transaction_id, event_id)
+        ack = _ack_from_event(event, offset).to_json()
+        prior = out.get(key)
+        if prior is not None:
+            if prior["proposal_sha256"] != proposal_sha256:
+                raise JournalIntegrityError("INTEGRITY_CONFLICT_HOLD", event_id)
+            raise JournalIntegrityError("DUPLICATE_CANONICAL_EVENT_ID", event_id)
+        out[key] = {
+            "proposal_sha256": proposal_sha256,
+            "sequence": int(event["sequence"]),
+            "event_sha256": str(event["event_sha256"]),
+            "ack": ack,
+        }
+    return out
+
+
+def _ack_from_json(value: Mapping[str, Any]) -> JournalIdempotencyAck:
+    return JournalIdempotencyAck(**{k: value[k] for k in JournalIdempotencyAck.__dataclass_fields__})
+
+
+def append_event_idempotent(
+    transaction_root: Path,
+    proposal: Mapping[str, Any],
+    *,
+    event_id: str,
+    writer_token: JournalWriterToken,
+    progressdb_path: Path | None = None,
+    failpoint: str | None = None,
+) -> JournalIdempotencyAck:
+    """Append exactly once by ``(transaction_id,event_id)``.
+
+    Duplicate decisions always come from a fully verified journal. ProgressDB is
+    rebuilt first when absent, stale, or corrupt and is only an acceleration.
+    """
+    if not isinstance(event_id, str) or not event_id or len(event_id.encode("utf-8")) > 512:
+        raise JournalIntegrityError("EVENT_ID_INVALID", repr(event_id))
+    root = Path(transaction_root).resolve(strict=True)
+    if writer_token.root_realpath != str(root):
+        raise JournalIntegrityError("WRITER_TOKEN_ROOT_MISMATCH", writer_token.root_realpath)
+    if proposal.get("transaction_id") != writer_token.transaction_id:
+        raise JournalIntegrityError("PROPOSAL_TRANSACTION_ID_MISMATCH", str(proposal.get("transaction_id")))
+    digest = proposal_hash(proposal)
+    lock_path = root / "journal" / "idempotency.lock"
+    lock_fd = os.open(lock_path, os.O_RDWR | os.O_CREAT | getattr(os, "O_NOFOLLOW", 0), 0o600)
+    try:
+        fcntl.flock(lock_fd, fcntl.LOCK_EX)
+        validated = validate_journal(root, transaction_id=writer_token.transaction_id)
+        canonical = reconstruct_idempotency_map(validated)
+        from critical_apply_progress import ProgressDB
+
+        progress = ProgressDB(progressdb_path or (root / "journal" / "progress.sqlite3"))
+        progress.ensure_current(
+            transaction_id=writer_token.transaction_id,
+            head_sequence=validated.committed_sequence,
+            head_event_sha256=validated.committed_event_sha256,
+            canonical_entries=canonical,
+        )
+        key = (writer_token.transaction_id, event_id)
+        prior = canonical.get(key)
+        if prior is not None:
+            if prior["proposal_sha256"] != digest:
+                raise JournalIntegrityError("INTEGRITY_CONFLICT_HOLD", event_id)
+            return _ack_from_json(prior["ack"])
+        event = dict(proposal)
+        for field in ("sequence", "previous_event_sha256", "event_sha256", "proposal_sha256", "event_id"):
+            event.pop(field, None)
+        event["event_id"] = event_id
+        event["proposal_sha256"] = digest
+        result = append_event(root, event, writer_token=writer_token)
+        if failpoint == "after_event_sync_before_ack":
+            raise JournalPostSyncCrash(event_id)
+        verified = validate_journal(root, transaction_id=writer_token.transaction_id)
+        canonical = reconstruct_idempotency_map(verified)
+        exact = canonical.get(key)
+        if exact is None or exact["event_sha256"] != result.event_sha256:
+            raise JournalIntegrityError("POST_APPEND_REOPEN_VERIFY_FAILED", event_id)
+        progress.rebuild(
+            transaction_id=writer_token.transaction_id,
+            head_sequence=verified.committed_sequence,
+            head_event_sha256=verified.committed_event_sha256,
+            entries=canonical,
+        )
+        return _ack_from_json(exact["ack"])
+    finally:
+        try:
+            fcntl.flock(lock_fd, fcntl.LOCK_UN)
+        finally:
+            os.close(lock_fd)
