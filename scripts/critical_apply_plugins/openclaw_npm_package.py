@@ -7,6 +7,7 @@ critical apply observer runner after restore-point and approval gates pass.
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import re
@@ -39,6 +40,193 @@ CRITICAL_RELATIVE_FILES = [
 DEFAULT_PACKAGE_ROOT = Path("/home/stickai/.npm-global/lib/node_modules/openclaw")
 DEFAULT_NODE_MODULES = DEFAULT_PACKAGE_ROOT.parent
 DEFAULT_CLI_LINK = Path("/home/stickai/.npm-global/bin/openclaw")
+PACKAGE_PLUGIN_APPLY_SCHEMA = "critical_apply.openclaw_npm.apply_operation.v1"
+PACKAGE_PLUGIN_RESTORE_SCHEMA = "critical_apply.openclaw_npm.restore_point_full.v1"
+
+
+def _canonical_sha(value: Any) -> str:
+    return hashlib.sha256(json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode()).hexdigest()
+
+
+def _exact_abs(path: str | Path, *, field: str) -> Path:
+    p = Path(path)
+    if not p.is_absolute():
+        raise ValueError(f"{field}_must_be_absolute")
+    if ".." in p.parts:
+        raise ValueError(f"{field}_must_not_contain_parent_traversal")
+    return p
+
+
+def _copy_preserving_symlink(src: Path, dst: Path) -> dict[str, Any]:
+    if dst.exists() or dst.is_symlink():
+        if dst.is_dir() and not dst.is_symlink():
+            shutil.rmtree(dst)
+        else:
+            dst.unlink()
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    if not src.exists() and not src.is_symlink():
+        return {"source": str(src), "destination": str(dst), "state": "absent_no_copy"}
+    if src.is_symlink():
+        os.symlink(os.readlink(src), dst)
+        return {"source": str(src), "destination": str(dst), "state": "symlink_copied", "link_target": os.readlink(src)}
+    if src.is_dir():
+        shutil.copytree(src, dst, symlinks=True, copy_function=shutil.copy2)
+        return {"source": str(src), "destination": str(dst), "state": "directory_copied"}
+    shutil.copy2(src, dst, follow_symlinks=False)
+    return {"source": str(src), "destination": str(dst), "state": "file_copied"}
+
+
+def create_full_restore_point(root: str | Path, package_root: str | Path = DEFAULT_PACKAGE_ROOT, cli_link: str | Path = DEFAULT_CLI_LINK) -> dict[str, Any]:
+    """Create a copy-backed restore point for the package root and CLI link.
+
+    This helper is safe for fixture roots and is production-capable only when
+    called by a durable runner after authority, lock and watcher gates pass. It
+    never restarts Gateway, calls providers, mutates cron/config, or touches
+    hidden npm staging directories.
+    """
+    root = _exact_abs(root, field="restore_root")
+    package_root = _exact_abs(package_root, field="package_root")
+    cli_link = _exact_abs(cli_link, field="cli_link")
+    snapshot = root / "snapshot"
+    package_snapshot = snapshot / "package-root"
+    cli_snapshot = snapshot / "cli-link"
+    root.mkdir(parents=True, exist_ok=True)
+    copies = [
+        _copy_preserving_symlink(package_root, package_snapshot),
+        _copy_preserving_symlink(cli_link, cli_snapshot),
+    ]
+    manifest = receipt(
+        PACKAGE_PLUGIN_RESTORE_SCHEMA,
+        package_root=str(package_root),
+        cli_link=str(cli_link),
+        snapshot_root=str(snapshot),
+        package_snapshot=str(package_snapshot),
+        cli_snapshot=str(cli_snapshot),
+        created_at_epoch=time.time(),
+        archive_created=False,
+        implementation_level="COPY_BACKED_PACKAGE_ROOT_AND_CLI_LINK",
+        copies=copies,
+    )
+    manifest["manifest_sha256"] = _canonical_sha(manifest)
+    boundary = receipt(
+        "critical_apply.restore_boundary.v1",
+        allowed_mutations=["openclaw_package_root", "npm_cli_link"],
+        forbidden_mutations=["gateway_restart", "cron_mutation", "protected_memory", "provider_call", "functional_smoke", "systemctl"],
+    )
+    write_json(root / "restore-manifest.json", manifest)
+    write_json(root / "restore-boundary.json", boundary)
+    return manifest
+
+
+def extract_package_artifact(package_path: str | Path, staging_root: str | Path, *, expected_sha256: str) -> dict[str, Any]:
+    package_path = _exact_abs(package_path, field="package_path")
+    staging_root = _exact_abs(staging_root, field="staging_root")
+    actual = sha256_file(package_path)
+    if actual != expected_sha256:
+        raise ValueError(f"package_sha256_mismatch:{actual}!={expected_sha256}")
+    info = inspect_package_tar(package_path)
+    if info.get("unsafe_members"):
+        raise ValueError("unsafe_package_tar_members")
+    if not all(info.get("critical_files_found", {}).get(rel) for rel in ("package.json", "openclaw.mjs", "dist/index.js")):
+        raise ValueError("package_tar_missing_required_members")
+    if staging_root.exists():
+        shutil.rmtree(staging_root)
+    staging_root.mkdir(parents=True, exist_ok=True)
+    with tarfile.open(package_path, "r:gz") as tf:
+        for member in tf.getmembers():
+            name = member.name[2:] if member.name.startswith("./") else member.name
+            if name.startswith("/") or ".." in Path(name).parts or not name.startswith("package"):
+                raise ValueError(f"unsafe_member:{member.name}")
+        tf.extractall(staging_root)
+    return receipt(
+        "critical_apply.openclaw_npm.extract_artifact.v1",
+        package_path=str(package_path),
+        package_sha256=actual,
+        staging_root=str(staging_root),
+        staged_package_root=str(staging_root / "package"),
+        package_json=(info.get("package_json") or {}),
+    )
+
+
+def postcheck_package_identity(package_root: str | Path, cli_link: str | Path, *, expected_version: str = "2026.5.7") -> dict[str, Any]:
+    package_root = _exact_abs(package_root, field="package_root")
+    cli_link = _exact_abs(cli_link, field="cli_link")
+    health = inspect_package_root(package_root, expected_version=expected_version)
+    reasons: list[str] = []
+    if health.get("package_name") != "openclaw":
+        reasons.append("package_name_not_openclaw")
+    if health.get("package_version") != expected_version:
+        reasons.append("package_version_mismatch")
+    for rel in ("package.json", "openclaw.mjs", "dist/index.js"):
+        if not (package_root / rel).exists():
+            reasons.append(f"missing:{rel}")
+    if not (cli_link.exists() or cli_link.is_symlink()):
+        reasons.append("cli_link_missing")
+    return receipt(
+        "critical_apply.openclaw_npm.postcheck.v1",
+        ok=not reasons,
+        reasons=reasons,
+        package_root=str(package_root),
+        cli_link=str(cli_link),
+        health=health,
+    )
+
+
+def apply_staged_package(staged_package_root: str | Path, target_package_root: str | Path, target_cli_link: str | Path, *, cli_link_target: str = "../lib/node_modules/openclaw/openclaw.mjs") -> dict[str, Any]:
+    """Replace exact package root and CLI link from verified staging.
+
+    The caller must hold a maintenance lock and must have written durable
+    apply-start/PID receipts before calling this function. This function is
+    intentionally narrow: no Gateway restart, provider smoke, systemctl,
+    config/cron, npm install, or git actions.
+    """
+    staged_package_root = _exact_abs(staged_package_root, field="staged_package_root")
+    target_package_root = _exact_abs(target_package_root, field="target_package_root")
+    target_cli_link = _exact_abs(target_cli_link, field="target_cli_link")
+    check = postcheck_package_identity(staged_package_root, staged_package_root / "openclaw.mjs")
+    if check["reasons"] and any(r.startswith("missing:") or r.startswith("package_") for r in check["reasons"]):
+        raise ValueError("staged_package_identity_invalid:" + ",".join(check["reasons"]))
+    parent = target_package_root.parent
+    temp_new = parent / f".openclaw-new-{os.getpid()}-{int(time.time())}"
+    backup = parent / f".openclaw-preapply-{os.getpid()}-{int(time.time())}"
+    shutil.copytree(staged_package_root, temp_new, symlinks=True, copy_function=shutil.copy2)
+    renamed_existing = False
+    if target_package_root.exists() or target_package_root.is_symlink():
+        os.replace(target_package_root, backup)
+        renamed_existing = True
+        existing_node_modules = backup / "node_modules"
+        if existing_node_modules.is_dir() and not (temp_new / "node_modules").exists():
+            shutil.copytree(existing_node_modules, temp_new / "node_modules", symlinks=True, copy_function=shutil.copy2)
+    os.replace(temp_new, target_package_root)
+    if target_cli_link.exists() or target_cli_link.is_symlink():
+        target_cli_link.unlink()
+    target_cli_link.parent.mkdir(parents=True, exist_ok=True)
+    os.symlink(cli_link_target, target_cli_link)
+    return receipt(
+        PACKAGE_PLUGIN_APPLY_SCHEMA,
+        target_package_root=str(target_package_root),
+        target_cli_link=str(target_cli_link),
+        staged_package_root=str(staged_package_root),
+        backup_path=str(backup) if renamed_existing else "",
+        cli_link_target=cli_link_target,
+        gateway_restart_actions=0,
+        provider_or_live_smoke_calls=0,
+        systemctl_actions=0,
+        config_or_cron_mutations=0,
+    )
+
+
+def restore_from_full_restore_point(restore_root: str | Path, target_package_root: str | Path, target_cli_link: str | Path) -> dict[str, Any]:
+    restore_root = _exact_abs(restore_root, field="restore_root")
+    target_package_root = _exact_abs(target_package_root, field="target_package_root")
+    target_cli_link = _exact_abs(target_cli_link, field="target_cli_link")
+    package_snapshot = restore_root / "snapshot" / "package-root"
+    cli_snapshot = restore_root / "snapshot" / "cli-link"
+    copies = [
+        _copy_preserving_symlink(package_snapshot, target_package_root),
+        _copy_preserving_symlink(cli_snapshot, target_cli_link),
+    ]
+    return receipt("critical_apply.openclaw_npm.restore_operation.v1", restore_root=str(restore_root), copies=copies)
 
 
 @dataclass
@@ -377,10 +565,15 @@ def process_references_path(pid: int, target: Path) -> dict[str, Any]:
         refs["maps"] = [line for line in maps.splitlines() if target_s in line][:50]
     fd_dir = Path(f"/proc/{pid}/fd")
     if fd_dir.is_dir():
-        for fd in list(fd_dir.iterdir())[:2048]:
+        try:
+            fds = list(fd_dir.iterdir())[:2048]
+        except PermissionError:
+            refs["fd_permission_denied"] = True
+            fds = []
+        for fd in fds:
             try:
                 val = os.readlink(fd)
-            except Exception:
+            except (FileNotFoundError, PermissionError, OSError):
                 continue
             if target_s in val:
                 refs["fd"].append(f"{fd.name}->{val}")
@@ -512,12 +705,17 @@ def create_restore_point_skeleton(root: str | Path, package_root: str | Path = D
 __all__ = [
     "PackageAuthority",
     "RestorePoint",
+    "apply_staged_package",
     "commit_from",
+    "create_full_restore_point",
     "create_restore_point_skeleton",
     "decide_recovery",
+    "extract_package_artifact",
     "inspect_gateway_process",
     "inspect_package_root",
     "inspect_package_tar",
     "inspect_speech_surface",
     "inspect_staging_dirs",
+    "postcheck_package_identity",
+    "restore_from_full_restore_point",
 ]
