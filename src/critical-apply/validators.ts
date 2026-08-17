@@ -5,6 +5,11 @@ import {
   type CriticalApplyTransaction,
 } from "./contracts.js";
 
+type CriticalApplyTransactionShape = Omit<CriticalApplyTransaction, "disabledByDefault"> &
+  Readonly<{
+    disabledByDefault: unknown;
+  }>;
+
 export const CRITICAL_APPLY_ZERO_SIDE_EFFECT_ERROR =
   "Critical Apply transaction must keep all side-effect counters at zero for a contract/schema-only boundary.";
 
@@ -31,7 +36,7 @@ export function assertOnlyZeroCriticalApplySideEffects(
 }
 
 export function validateCriticalApplyTransactionShape(
-  transaction: CriticalApplyTransaction,
+  transaction: CriticalApplyTransactionShape,
 ): string[] {
   const errors: string[] = [];
   if (transaction.schema !== CRITICAL_APPLY_CONTRACT_VERSION) {
@@ -91,7 +96,7 @@ export function validateCriticalApplyTransactionShape(
 }
 
 export function assertValidCriticalApplyTransactionShape(
-  transaction: CriticalApplyTransaction,
+  transaction: CriticalApplyTransactionShape,
 ): void {
   const errors = validateCriticalApplyTransactionShape(transaction);
   if (errors.length > 0) {

@@ -57,7 +57,10 @@ describe("Critical Apply contract validators", () => {
   });
 
   it("requires disabled-by-default transactions", () => {
-    const tx = validTransaction({ disabledByDefault: false as true });
+    const tx = {
+      ...validTransaction(),
+      disabledByDefault: false,
+    };
     expect(validateCriticalApplyTransactionShape(tx)).toContain("disabledByDefault must be true");
   });
 
