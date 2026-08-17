@@ -14,7 +14,7 @@ from m4_test_support import FIXTURE, cleanup, make_tmp
 from critical_apply_ctl import control_client_contract, submit_execution_request, transport_policy
 from critical_apply_controller import prepare_fixture_transaction, query_status
 from critical_applyd import daemon_contract
-from critical_apply_observer import observe_once
+from critical_apply_observer import observe_loop, observe_once
 from critical_apply_service_template import service_unit_contract, service_unit_template, validate_service_unit_template
 
 
@@ -66,6 +66,7 @@ class M5DaemonControlServiceTemplateTest(unittest.TestCase):
         self.assertTrue(v["ok"], v["reasons"])
         self.assertIn("ExecStart=/usr/bin/python3 /home/stickai/.openclaw/workspace/scripts/critical_applyd.py observe", text)
         self.assertIn("--transaction-root /home/stickai/.openclaw/artifacts/critical-apply/current", text)
+        self.assertIn("--stay-alive-after-terminal", text)
         self.assertIn("--create-transaction-root", text)
         self.assertNotIn("systemctl --user", text)
         self.assertNotIn("ExecStart=/bin/sh", text)
@@ -91,6 +92,23 @@ class M5DaemonControlServiceTemplateTest(unittest.TestCase):
         self.assertEqual(payload["classification"], "NO_EXECUTE_REQUEST")
         self.assertTrue(current.is_dir())
         self.assertTrue((current / "receipts").is_dir())
+
+    def test_daemon_service_loop_can_remain_alive_after_terminal_without_rerun(self):
+        prepare_fixture_transaction(transaction_root=self.tx, lock_root=self.locks, executable=FIXTURE)
+        submit_execution_request(self.tx)
+        first = observe_loop(
+            self.tx,
+            lock_root=self.locks,
+            allowed_roots=[self.tx, FIXTURE.parent],
+            poll_seconds=0.01,
+            max_iterations=2,
+            return_after_terminal=False,
+        )
+        self.assertEqual(first["classification"], "NO_RERUN_AFTER_PRIMARY_EVIDENCE")
+        result = json.loads((self.tx / "worker-result.json").read_text())
+        self.assertEqual(result["classification"], "EXIT_ZERO")
+        self.assertTrue((self.tx / "receipts" / "apply-child-spawned-blocked.json").exists())
+        self.assertTrue((self.tx / "mutation.marker").exists())
 
     def test_ctl_submit_plus_daemon_observe_fixture_transaction(self):
         prepare_fixture_transaction(transaction_root=self.tx, lock_root=self.locks, executable=FIXTURE)

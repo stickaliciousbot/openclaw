@@ -48,6 +48,7 @@ def _main(argv: Sequence[str] | None = None) -> int:
     obs.add_argument("--max-iterations", type=int)
     obs.add_argument("--poll-seconds", type=float, default=5.0)
     obs.add_argument("--create-transaction-root", action="store_true")
+    obs.add_argument("--stay-alive-after-terminal", action="store_true")
     ns = ap.parse_args(argv)
     if ns.cmd == "contract":
         print(json.dumps(daemon_contract(), sort_keys=True)); return 0
@@ -58,7 +59,14 @@ def _main(argv: Sequence[str] | None = None) -> int:
         transaction_root.mkdir(parents=True, mode=0o700, exist_ok=True)
     roots = [Path(x) for x in (ns.allowed_root or [transaction_root])]
     if ns.loop:
-        result = observe_loop(transaction_root, lock_root=Path(ns.lock_root) if ns.lock_root else None, allowed_roots=roots, poll_seconds=ns.poll_seconds, max_iterations=ns.max_iterations)
+        result = observe_loop(
+            transaction_root,
+            lock_root=Path(ns.lock_root) if ns.lock_root else None,
+            allowed_roots=roots,
+            poll_seconds=ns.poll_seconds,
+            max_iterations=ns.max_iterations,
+            return_after_terminal=not ns.stay_alive_after_terminal,
+        )
     else:
         result = observe_once(transaction_root, lock_root=Path(ns.lock_root) if ns.lock_root else None, allowed_roots=roots)
     print(json.dumps(result, sort_keys=True)); return 0

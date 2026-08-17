@@ -81,12 +81,21 @@ def observe_once(transaction_root: Path, *, lock_root: Path | None = None, allow
     return res.to_json()
 
 
-def observe_loop(transaction_root: Path, *, lock_root: Path | None = None, allowed_roots: Sequence[Path] | None = None, poll_seconds: float = 0.05, max_iterations: int | None = None) -> Mapping[str, Any]:
+def observe_loop(
+    transaction_root: Path,
+    *,
+    lock_root: Path | None = None,
+    allowed_roots: Sequence[Path] | None = None,
+    poll_seconds: float = 0.05,
+    max_iterations: int | None = None,
+    return_after_terminal: bool = True,
+) -> Mapping[str, Any]:
     i=0; last={"classification":"NOT_STARTED"}
     while max_iterations is None or i < max_iterations:
         last=observe_once(transaction_root, lock_root=lock_root, allowed_roots=allowed_roots)
         if last.get("classification") not in ("NO_EXECUTE_REQUEST",):
-            return last
+            if return_after_terminal:
+                return last
         time.sleep(poll_seconds); i+=1
     return last
 
@@ -94,11 +103,12 @@ def observe_loop(transaction_root: Path, *, lock_root: Path | None = None, allow
 def _main(argv: Sequence[str] | None = None) -> int:
     ap=argparse.ArgumentParser(); sub=ap.add_subparsers(dest="cmd", required=True)
     o=sub.add_parser("observe"); o.add_argument("--transaction-root", required=True); o.add_argument("--lock-root"); o.add_argument("--allowed-root", action="append") ; o.add_argument("--loop", action="store_true")
+    o.add_argument("--stay-alive-after-terminal", action="store_true")
     c=sub.add_parser("contract")
     ns=ap.parse_args(argv)
     if ns.cmd=="contract": print(json.dumps(observer_contract(), sort_keys=True)); return 0
     roots=[Path(x) for x in (ns.allowed_root or [ns.transaction_root])]
-    result=observe_loop(Path(ns.transaction_root), lock_root=Path(ns.lock_root) if ns.lock_root else None, allowed_roots=roots) if ns.loop else observe_once(Path(ns.transaction_root), lock_root=Path(ns.lock_root) if ns.lock_root else None, allowed_roots=roots)
+    result=observe_loop(Path(ns.transaction_root), lock_root=Path(ns.lock_root) if ns.lock_root else None, allowed_roots=roots, return_after_terminal=not ns.stay_alive_after_terminal) if ns.loop else observe_once(Path(ns.transaction_root), lock_root=Path(ns.lock_root) if ns.lock_root else None, allowed_roots=roots)
     print(json.dumps(result, sort_keys=True)); return 0
 
 if __name__ == "__main__": raise SystemExit(_main())

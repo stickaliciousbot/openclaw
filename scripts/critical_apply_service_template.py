@@ -25,6 +25,7 @@ EXEC_START = " ".join([
     "--allowed-root", STATE_ROOT,
     "--allowed-root", RESTORE_ROOT,
     "--loop",
+    "--stay-alive-after-terminal",
     "--poll-seconds", "5",
     "--create-transaction-root",
 ])
@@ -91,6 +92,7 @@ def validate_service_unit_template() -> Mapping[str, Any]:
         "critical_applyd.py observe",
         "--transaction-root " + SERVICE_TRANSACTION_ROOT,
         "--lock-root " + LOCK_ROOT,
+        "--stay-alive-after-terminal",
         "--create-transaction-root",
         "Restart=on-failure",
         "KillMode=control-group",
