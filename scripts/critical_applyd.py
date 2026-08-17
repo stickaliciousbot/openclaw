@@ -14,6 +14,7 @@ from pathlib import Path
 from typing import Any, Mapping, Sequence
 
 from critical_apply_observer import observe_loop, observe_once, observer_contract
+from critical_apply_package_authority import package_authority_contract
 from critical_apply_service_template import service_unit_contract, service_unit_template
 
 DAEMON_CONTRACT_SCHEMA = "critical_apply.daemon_contract.v1"
@@ -31,6 +32,9 @@ def daemon_contract() -> Mapping[str, Any]:
         "fixture_only_until_service_bootstrap_transaction_passes": True,
         "may_install_or_start_service": False,
         "may_mutate_openclaw_package_gateway_cron_provider": False,
+        "production_package_authority_contract": package_authority_contract(),
+        "production_package_authority_default_enabled": False,
+        "production_package_authority_requires_explicit_transaction": True,
         "service_unit_contract": service_unit_contract(),
     }
 

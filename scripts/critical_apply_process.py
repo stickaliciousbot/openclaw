@@ -115,12 +115,16 @@ def _under(path: Path, root: Path) -> bool:
         return False
 
 
-def _reject_forbidden_path(path: Path, allowed_roots: Sequence[Path]) -> None:
+def _reject_forbidden_path(path: Path, allowed_roots: Sequence[Path], *, package_authority: Mapping[str, Any] | None = None) -> None:
     rp = path.resolve()
     if not any(_under(rp, a) for a in allowed_roots):
         raise ProcessContractError("PATH_OUTSIDE_ALLOWED_FIXTURE_ROOTS", str(rp))
     for f in FORBIDDEN_ROOTS:
         if _under(rp, f):
+            if package_authority is not None:
+                from critical_apply_package_authority import path_authorized_by_package_authority
+                if path_authorized_by_package_authority(rp, package_authority):
+                    return
             raise ProcessContractError("PRODUCTION_PATH_FORBIDDEN", str(rp))
 
 
@@ -168,7 +172,7 @@ def identify_executable(path: Path, expected_sha256: str, *, allow_script_interp
     return ExecutableIdentity(str(p), actual, st.st_dev, st.st_ino, oct(stat.S_IMODE(st.st_mode)), st.st_size, interp_r, interp_s)
 
 
-def validate_exact_exec_spec(spec: ExactExecSpec, *, transaction_root: Path, allowed_roots: Sequence[Path]) -> ExecutableIdentity:
+def validate_exact_exec_spec(spec: ExactExecSpec, *, transaction_root: Path, allowed_roots: Sequence[Path], package_authority: Mapping[str, Any] | None = None) -> ExecutableIdentity:
     if spec.schema != EXEC_SPEC_SCHEMA:
         raise ProcessContractError("EXEC_SPEC_SCHEMA_INVALID", spec.schema)
     if not isinstance(spec.argv, tuple) or not spec.argv:
@@ -184,8 +188,11 @@ def validate_exact_exec_spec(spec: ExactExecSpec, *, transaction_root: Path, all
     if forbidden_env & set(spec.env):
         raise ProcessContractError("ENV_FORBIDDEN_SECRET_OR_PROXY", ",".join(sorted(forbidden_env & set(spec.env))))
     roots = [Path(a).resolve() for a in allowed_roots] + [Path(transaction_root).resolve()]
+    if package_authority is not None:
+        from critical_apply_package_authority import authorized_package_roots
+        roots.extend(root.resolve() for root in authorized_package_roots(package_authority, require_enabled=True))
     for p in (exe, Path(spec.cwd), Path(spec.stdout_path), Path(spec.stderr_path)):
-        _reject_forbidden_path(p, roots)
+        _reject_forbidden_path(p, roots, package_authority=package_authority)
     cwd = Path(spec.cwd).resolve(strict=True)
     if not cwd.is_dir():
         raise ProcessContractError("CWD_NOT_DIRECTORY", str(cwd))

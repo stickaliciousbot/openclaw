@@ -40,7 +40,7 @@ class M5DaemonControlServiceTemplateTest(unittest.TestCase):
         self.assertFalse(p["network_required_for_fixture_mode"])
         self.assertIn("execute", p["accepted_requests"])
 
-    def test_daemon_contract_wraps_observer_without_production_authority(self):
+    def test_daemon_contract_wraps_observer_without_default_production_authority(self):
         c = daemon_contract()
         self.assertEqual(c["component"], "critical_applyd")
         self.assertTrue(c["supervisor_required_for_production"])
@@ -48,6 +48,10 @@ class M5DaemonControlServiceTemplateTest(unittest.TestCase):
         self.assertFalse(c["may_install_or_start_service"])
         self.assertFalse(c["may_mutate_openclaw_package_gateway_cron_provider"])
         self.assertFalse(c["observer_contract"]["production_install_authorised"])
+        self.assertFalse(c["production_package_authority_default_enabled"])
+        self.assertTrue(c["production_package_authority_requires_explicit_transaction"])
+        self.assertEqual(c["production_package_authority_contract"]["default_state"], "disabled")
+        self.assertTrue(c["production_package_authority_contract"]["production_mode_requires_exact_target_roots"])
 
     def test_service_template_is_offline_source_fixture_only(self):
         c = service_unit_contract()
@@ -140,6 +144,9 @@ for i, key in enumerate([
     "may_install_or_start_service",
     "may_mutate_openclaw_package_gateway_cron_provider",
     "service_unit_contract",
+    "production_package_authority_contract",
+    "production_package_authority_default_enabled",
+    "production_package_authority_requires_explicit_transaction",
 ] * 3):
     setattr(M5DaemonControlServiceTemplateTest, f"test_daemon_contract_key_{i:03d}_{key}", _contract_case(key))
 
