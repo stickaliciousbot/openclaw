@@ -22,7 +22,7 @@ from critical_apply_contracts import ContractError
 from critical_apply_journal import read_boot_id
 from critical_apply_process import EXEC_SPEC_SCHEMA, ExactExecSpec
 from critical_apply_rehydrate import rehydrate_transaction
-from critical_apply_worker import execute_fixture_transaction, write_heartbeat
+from critical_apply_worker import WORKER_RESULT_SCHEMA, WorkerResult, execute_fixture_transaction, write_heartbeat
 
 OBSERVER_STATUS_SCHEMA = "critical_apply.observer_status.v2"
 OBSERVER_CONTRACT_SCHEMA = "critical_apply.observer_contract.v2"
@@ -51,6 +51,41 @@ def _status(root: Path, *, tx: str | None, generation: int, phase: str) -> Obser
     atomic_replace_json(root/"observer-status.json", st.to_json(), root=root); return st
 
 
+def _durable_observer_hold(root: Path, *, tx: str, generation: int, error: ContractError) -> WorkerResult:
+    """Persist an observer-side fail-closed HOLD without starting mutation.
+
+    Service mode must not crash-loop when a sealed request is invalid. Contract
+    failures before child spawn are terminal zero-mutation HOLDs: no approval
+    consumption, no release, no primary command execution, and no recovery.
+    """
+    _status(root, tx=tx, generation=generation, phase="holding_contract_error")
+    result = WorkerResult(
+        WORKER_RESULT_SCHEMA,
+        tx,
+        "OBSERVER_CONTRACT_HOLD",
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        {
+            "error_type": type(error).__name__,
+            "error_code": getattr(error, "code", "CONTRACT_ERROR"),
+            "message": str(error),
+            "details": dict(getattr(error, "details", {}) or {}),
+            "observer_generation": generation,
+            "wall_time_utc": utc_now(),
+            "boot_id": read_boot_id(),
+            "primary_execution_allowed": False,
+            "package_gateway_provider_authority_granted": False,
+        },
+    )
+    atomic_replace_json(root/"worker-result.json", result.to_json(), root=root)
+    write_heartbeat(root, transaction_id=tx, observer_generation=generation, phase="holding_contract_error")
+    return result
+
+
 def _load_exec_spec(root: Path) -> ExactExecSpec:
     d=read_json_artifact(root/"exec-spec.json", root=root)
     return ExactExecSpec(d["schema"], d["executable"], tuple(d["argv"]), d["expected_sha256"], d["cwd"], dict(d.get("env",{})), d["stdout_path"], d["stderr_path"], d.get("stdin_policy","devnull"), d.get("uid"), d.get("gid"), int(d.get("umask",0o077)), float(d.get("timeout_seconds",5.0)), float(d.get("graceful_timeout_seconds",0.5)), float(d.get("forced_timeout_seconds",0.5)), bool(d.get("allow_script_interpreter", True)), d.get("resource_limits"))
@@ -76,7 +111,10 @@ def observe_once(transaction_root: Path, *, lock_root: Path | None = None, allow
     lr=Path(lock_root or root/"locks"); lr.mkdir(mode=0o700, parents=True, exist_ok=True)
     roots=list(allowed_roots or [root])
     _status(root, tx=tx, generation=generation, phase="executing")
-    res=execute_fixture_transaction(transaction_root=root, lock_root=lr, envelope=env, exec_spec=spec, allowed_roots=roots, observer_generation=generation)
+    try:
+        res=execute_fixture_transaction(transaction_root=root, lock_root=lr, envelope=env, exec_spec=spec, allowed_roots=roots, observer_generation=generation)
+    except ContractError as exc:
+        res=_durable_observer_hold(root, tx=tx, generation=generation, error=exc)
     _status(root, tx=tx, generation=generation, phase="terminal_or_holding")
     return res.to_json()
 

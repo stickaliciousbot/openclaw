@@ -126,6 +126,24 @@ class M5DaemonControlServiceTemplateTest(unittest.TestCase):
         self.assertFalse(after["controller_authoritative"])
         self.assertTrue((self.tx / "mutation.marker").exists())
 
+    def test_daemon_contract_error_becomes_durable_zero_mutation_hold(self):
+        prepare_fixture_transaction(transaction_root=self.tx, lock_root=self.locks, executable=FIXTURE)
+        submit_execution_request(self.tx)
+
+        result = observe_once(self.tx, lock_root=self.locks, allowed_roots=[self.tx])
+
+        self.assertEqual(result["classification"], "OBSERVER_CONTRACT_HOLD")
+        self.assertEqual(result["primary_command_executions"], 0)
+        self.assertEqual(result["approval_consumptions"], 0)
+        self.assertEqual(result["mutation_releases"], 0)
+        self.assertEqual(result["duplicate_recovery_executions"], 0)
+        self.assertEqual(result["leaked_descendants"], 0)
+        self.assertEqual(result["details"]["error_code"], "PATH_OUTSIDE_ALLOWED_FIXTURE_ROOTS")
+        self.assertFalse(result["details"]["primary_execution_allowed"])
+        self.assertFalse(result["details"]["package_gateway_provider_authority_granted"])
+        self.assertTrue((self.tx / "worker-result.json").exists())
+        self.assertFalse((self.tx / "mutation.marker").exists())
+
 
 def _contract_case(key: str):
     def test(self):
